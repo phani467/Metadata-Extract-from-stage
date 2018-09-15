@@ -1,0 +1,40 @@
+.THIS .hidden {
+    display: none;
+}
+.THIS ul li {
+    background-color: rgba(244, 246, 249, 1);
+}
+.THIS ul li:hover {
+    background-color: rgba(238, 241, 246, 1);
+}
+.THIS .loading-spinner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 64px;
+}
+.THIS .toast-position {
+    margin: 0 0 .5rem 0;
+    width: 100%;
+    min-width: 20rem;
+}
+.THIS .download-spinner {
+    position: absolute;
+}
+.THIS .hideSpinner .download-spinner {
+    display: none;
+}
+.THIS .hideIcon {
+    pointer-events: none;
+}
+.THIS .hideIcon .slds-icon {
+    opacity: 0;
+}
+.THIS .hideIcon li {
+    background-color: rgba(250, 250, 250, .5);
+}
+.THIS .hideIcon h3 {
+    color: rgba(0, 112, 210, .5);
+}
+.THIS .hideIcon:hover {
+    cursor: default;
+}

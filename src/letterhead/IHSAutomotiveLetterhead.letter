@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#CCCCCC</backgroundColor>
+    <bodyColor>#FFFFFF</bodyColor>
+    <bottomLine>
+        <color>#999999</color>
+        <height>2</height>
+    </bottomLine>
+    <footer>
+        <backgroundColor>#666666</backgroundColor>
+        <height>1</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>50</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Middle</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#666666</color>
+        <height>0</height>
+    </middleLine>
+    <name>IHS Markit Letterhead</name>
+    <topLine>
+        <color>#666666</color>
+        <height>2</height>
+    </topLine>
+</Letterhead>

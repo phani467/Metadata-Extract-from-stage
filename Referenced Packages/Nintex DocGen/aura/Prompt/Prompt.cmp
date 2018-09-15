@@ -1,0 +1,33 @@
+<aura:component >
+    <aura:attribute name="headerTheme" type="String" default="slds-theme--info"/>
+    <aura:attribute name="footerTheme" type="String" default="slds-theme--default"/>
+    <aura:attribute name="buttonText" type="String" default="Okay"/>
+    
+    <aura:attribute name="title" type="String" default="Error"/>
+    <aura:attribute name="message" type="String"/>
+    
+    <aura:method name="show" action="{!c.show}"/>
+    <aura:method name="showError" action="{!c.showError}">
+        <aura:attribute name="title" type="String"/>
+        <aura:attribute name="message" type="String" required="true"/>
+    </aura:method>
+    
+    <div aura:id="modal" class="slds" hidden="true">
+    	<div aria-hidden="false" role="dialog" class="slds-modal slds-modal--prompt slds-fade-in-open">
+        	<div class="slds-modal__container slds-modal--prompt">
+            	<div aura:id="promptHeader" class="{!'slds-modal__header ' + v.headerTheme}">
+                    <h2 class="slds-text-heading--medium">{!v.title}</h2>
+                </div>
+                <div aura:id="promptContent" class="slds-modal__content slds-p-around--medium">
+                    {!v.message}
+                </div>
+                <div aura:id="promptFooter" class="{!'slds-modal__footer ' + v.footerTheme}">
+                	<div class="slds-x-small-buttons--horizontal">
+                    	<button class="slds-button slds-button--neutral" onclick="{!c.hide}">{!v.buttonText}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"/>
+    </div>
+</aura:component>

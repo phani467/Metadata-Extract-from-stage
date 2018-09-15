@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Product_Schedule_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-2043 Object to hold multi-year product information</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>InstallmentYear__c</fullName>
+        <description>SFDC1-2043 the year for which this Product schedule is valid</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Year for which this Product Schedule is applicable</inlineHelpText>
+        <label>Installment Year</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsActive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-2043 mark whether the product schedule is active or not</description>
+        <externalId>false</externalId>
+        <label>IsActive</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ListPrice__c</fullName>
+        <description>SFDC1-2043 list price for the product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List Price for the product schedule</inlineHelpText>
+        <label>List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PKIDProdSchd__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>PdS{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID ProdSchd</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>PricingYear__c</fullName>
+        <description>SFDC1-2043 Pricing year of the product schedule</description>
+        <externalId>false</externalId>
+        <label>Pricing Year</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProductTerm__c</fullName>
+        <description>SFDC1-2043 The term for which related Product can be scheduled</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Tenure of product schedule</inlineHelpText>
+        <label>Product Term</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1 Year</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>2 Years</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3 Years</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4 Years</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5 Years</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evergreen</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-2043 Product for which product schedule is created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related Product</inlineHelpText>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Product Schedules</relationshipLabel>
+        <relationshipName>ProductSchedules</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Year__c</fullName>
+        <description>SFDC1-2043 current running year of the Product schedule</description>
+        <externalId>false</externalId>
+        <formula>&quot;Year &quot; + TEXT(VALUE(InstallmentYear__c) - VALUE( PricingYear__c ) + 1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Current Year</inlineHelpText>
+        <label>Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Product Schedule</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>reeder_view</fullName>
+        <columns>NAME</columns>
+        <columns>Product__c</columns>
+        <columns>Year__c</columns>
+        <columns>ListPrice__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>AWS/Collection NonDRM Act/Media</value>
+        </filters>
+        <label>reeder view</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PS-{000000}</displayFormat>
+        <label>Product Schedule Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Product Schedules</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProductTerm__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PricingYear__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ListPrice__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>InstallmentYear__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IsActive__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ListPrice__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProductTerm__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PricingYear__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>InstallmentYear__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IsActive__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ListPrice__c</searchFilterFields>
+        <searchFilterFields>InstallmentYear__c</searchFilterFields>
+        <searchFilterFields>Product__c</searchFilterFields>
+        <searchFilterFields>ProductTerm__c</searchFilterFields>
+        <searchFilterFields>PricingYear__c</searchFilterFields>
+        <searchFilterFields>IsActive__c</searchFilterFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProductTerm__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ListPrice__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PricingYear__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>InstallmentYear__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IsActive__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+</CustomObject>

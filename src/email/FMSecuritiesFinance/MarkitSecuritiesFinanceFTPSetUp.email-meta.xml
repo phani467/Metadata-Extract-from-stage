@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2950:Markit Securities Finance FTP Set-Up</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Markit Securities Finance FTP Set-Up</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Securities Finance FTP Set-Up</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+We have been asked to set up a FTP (FTP/21) connection between Markit Securities Finance (MSF) and your company, as we have been informed that you can only support connection via unsecured FTP.  To allow connection over an unsecured medium such as FTP, we require that all files are PGP encrypted in order to minimize the risk of data loss.
+ 
+Please can you provide any external IP addresses you will use for FTP/21 communication to our servers in order for us to open our Firewalls, as well as a copy of your Public PGP key to encrypt your files.
+ 
+You may also need to allow access on your own Firewall.  If this is the case, please make sure you open the required ports to the following IP addresses.
+
+DNS Name: ftp.msf.markit.com
+PROD &amp; DR IP Address: 8.38.16.32
+
+Once we have this information, the MSF Technical Support team will create a user account for you to access our FTP server ftp.msf.markit.com and contact you with your username/password.
+
+Your FTP scripts, if possible, should refer to DNS names to allow for automated fail-over in any planned or unplanned DR situation.
+
+If you require any additional assistance, please contact us on live chat, email or phone.
+
+Thank You. 
+
+Kind regards, 
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

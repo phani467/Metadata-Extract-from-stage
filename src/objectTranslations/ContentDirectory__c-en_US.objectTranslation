@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Content Directory</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Content Directories</value>
+    </caseValues>
+    <fields>
+        <help><!-- Check if Clearing Brokers and FCM&apos;s --></help>
+        <label><!-- Clearing Brokers and FCM&apos;s --></label>
+        <name>ClearingBrokersandFCMs__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if Clearing houses --></help>
+        <label><!-- Clearinghouses --></label>
+        <name>Clearinghouses__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if Dealer --></help>
+        <label><!-- Dealer --></label>
+        <name>Dealer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if user is End User --></help>
+        <label><!-- End User --></label>
+        <name>EndUser__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if Execution Venue --></help>
+        <label><!-- Execution Venue --></label>
+        <name>ExecutionVenue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if the folder is Hidden Folder --></help>
+        <label><!-- Hidden Folder? --></label>
+        <name>HiddenFolder__c</name>
+    </fields>
+    <fields>
+        <help><!-- Fill in Jira Id associated with this Content Directory --></help>
+        <label><!-- Jira ID --></label>
+        <name>JiraID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Fill in Id of the old system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select associated Content Directory --></help>
+        <label><!-- Parent --></label>
+        <name>Parent__c</name>
+        <relationshipLabel><!-- Content Directories --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Fill in the platform the document is related to --></help>
+        <label><!-- Platform --></label>
+        <name>Platform__c</name>
+        <picklistValues>
+            <masterLabel>platformdealhubposttrade</masterLabel>
+            <translation><!-- platformdealhubposttrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformdealhubtrading</masterLabel>
+            <translation><!-- platformdealhubtrading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformdms</masterLabel>
+            <translation><!-- platformdms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformdsmatch</masterLabel>
+            <translation><!-- platformdsmatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformfxbrokeraffirmation</masterLabel>
+            <translation><!-- platformfxbrokeraffirmation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformfxcentralised–affirmationsconfirmationsclearing</masterLabel>
+            <translation><!-- platformfxcentralised–affirmationsconfirmationsclearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformfxclearing</masterLabel>
+            <translation><!-- platformfxclearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformfxoptionsconfirmationsandexercisemanagement</masterLabel>
+            <translation><!-- platformfxoptionsconfirmationsandexercisemanagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformfxtradestp</masterLabel>
+            <translation><!-- platformfxtradestp --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformmarkitwire</masterLabel>
+            <translation><!-- platformmarkitwire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformmets</masterLabel>
+            <translation><!-- platformmets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformnovationconsent</masterLabel>
+            <translation><!-- platformnovationconsent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformtrademanager</masterLabel>
+            <translation><!-- platformtrademanager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>platformtradeserv</masterLabel>
+            <translation><!-- platformtradeserv --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Fill in the User Types the document is related to --></help>
+        <label><!-- User Types --></label>
+        <name>UserTypes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Fill in the Vendor Software the document is related to --></help>
+        <label><!-- Vendor Software --></label>
+        <name>VendorSoftware__c</name>
+    </fields>
+    <fields>
+        <help><!-- Fil in the Vendor the document is related to --></help>
+        <label><!-- Vendor --></label>
+        <name>Vendor__c</name>
+    </fields>
+    <layouts>
+        <layout>Content Directory Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

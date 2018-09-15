@@ -1,0 +1,41 @@
+<apex:page standardController="Loop__Document_Request__c" extensions="Loop.DocumentRequestMergeExt" recordSetVar="docRequests">
+    <script type="text/javascript" src="{!URLFOR($Resource.Scripts, 'jQuery.js')}"></script>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(function()
+        {
+            // Add breadcrumb
+            if ('{!JSENCODE(returnUrl)}' !== '') {
+                jQuery('.bPageTitle:first').append(
+                    '<div class="ptBreadcrumb" id="dlbc">'
+                    +    '<a href="{!JSENCODE(returnUrl)}">&nbsp;« Back</a>'
+                    +'</div>'
+                );
+            }
+
+            if ({! !recordLimitExceeded}) {
+                if (window.confirm('Are you sure you want to delete {!documentRequestsToDelete.size} record' + (parseInt('{!documentRequestsToDelete.size}') - 1 ? 's?' : '?'))) {
+                    deleteDocumentRequests();
+                } else {
+                    window.location = '{!JSENCODE(returnUrl)}';
+                }
+            }
+        });
+    </script>
+    <apex:sectionHeader title="DocGen Queue" subtitle="Nintex DocGen"/>
+    <apex:pageMessage rendered="{!recordLimitExceeded}" strength="1" summary="{!SUBSTITUTE($Label.loop__recordsselectedexceeded_message, '{0}', TEXT(MAX_DOC_REQUESTS))}" severity="error"/>
+    <apex:pageMessage rendered="{! NOT(OR(recordLimitExceeded, hasValidRecords))}" strength="1" summary="No valid records were selected." severity="error"/>
+    <apex:pageMessages id="pageMessages"/>
+    <apex:form >
+        <apex:actionFunction name="deleteDocumentRequests" action="{!deleteDocumentRequests}" rerender="pageMessages" status="updateStatus"/>
+        <apex:actionStatus stopText="" id="updateStatus">
+            <apex:facet name="start">
+                <span class="statusContainer">
+                    <span class="status">
+                        <img src="/img/loading.gif" alt="Processing..." width="16" height="16" title="Processing..."/>
+                    </span>
+                </span>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,120 @@
+<apex:page controller="CreateMeetingNoteEvent" tabStyle="Contract">
+    <apex:form >
+        <apex:messages style="color:green"></apex:messages>
+        <apex:pageBlock title="Create Meeting Note">
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockSection title="Please provide a name for the meeting" id="meetingname" columns="1">
+                <apex:inputField value="{!meeting.Name}" style="width:600px" required="true"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Meeting Summary" id="meetingsummary" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Achieved" for="Achieved"/>
+                    <apex:outputPanel >
+                        <div class="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputField Id="Achieved" value="{!meeting.Achieved__c}" style="width:600px"/>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    
+                    <apex:outputLabel value="Info" for="Info"/>
+                    <apex:outputPanel >
+                        <div class="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputField id="Info" value="{!meeting.Info__c}" style="width:600px"/>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Next Steps" for="NextSteps"/>
+                    <apex:outputPanel >
+                        <div class="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputField id="NextSteps" value="{!meeting.NextSteps__c}" style="width:600px"/>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="2" title="Which opportunities are related to this meeting note? (if applicable)" id="meetingoppy">
+                <apex:selectList label="Opportunities for this Account" value="{!selectedOpportunity}" size="1" style="width:300px" id="oppyselectlist">
+                    <apex:selectOptions value="{!Opportunities}"/>                   
+                </apex:selectList>             
+                <apex:inputField label="Opportunity not in picklist" value="{!meeting.Opportunity__c}" id="oppylookup">                
+                </apex:inputField>
+                <center><apex:commandButton action="{!addOppy}" title="Test" value="Add Opportunity" reRender="table2,addrecs,oppylookup,oppyselectlist" /></center>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Related Opportunities" columns="1">  
+                <apex:pageBlockTable value="{!RelatedOpportunities}" var="rec" id="table2">
+                    <apex:column headerValue="No." style="width:20px; text-align:center;" headerClass="centertext">
+                        <apex:outputText value="{!rec.numberInList}" style="text-align:center;"> 
+                            
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Opportunity" width="50%">
+                        <apex:outputField value="{!rec.oppy.Name}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Record Type">
+                        <apex:outputField value="{!rec.oppy.RecordType.Name}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Stage">
+                        <apex:outputField value="{!rec.oppy.StageName}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Action" >
+                        <apex:commandButton value="Delete" action="{!deleteOppy}" reRender="table2" immediate="true">
+                            <apex:param name="deleteOpp" assignTo="{!deleteOpp}" value="{!rec.numberInList}"></apex:param>
+                        </apex:commandButton>                    
+                    </apex:column>
+                    
+                </apex:pageBlockTable>    
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Please add any other attendees" id="addrecs">
+                <apex:inputField value="{!meeting.ContactLookup__c}"/>
+                <apex:commandButton action="{!addRow}" title="Test" value="Add Attendee" reRender="table,addrecs" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Current Attendees">  
+                <apex:pageBlockTable value="{!Attendees}" var="rec" id="table">
+                    <apex:column headerValue="No." style="width:20px; text-align:center;" headerClass="centertext">
+                        <apex:outputText value="{!rec.numberInList}" style="text-align:center;"> 
+                            
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Name" >
+                        <apex:outputField value="{!rec.contact.Name}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="IHS Markit Employee?">
+                        <apex:outputField value="{!rec.attendee.IHSMarkitEmployee__c}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Action" >
+                        <apex:commandButton value="Delete" action="{!deleteRow}" reRender="table" immediate="true">
+                            <apex:param name="deleteNum" assignTo="{!deleteNum}" value="{!rec.numberInList}"></apex:param>
+                        </apex:commandButton>                    
+                    </apex:column>
+                    
+                </apex:pageBlockTable>    
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Clear Attendee List" action="{!clearList}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" immediate="true"
+                                    html-formnovalidate="formnovalidate"/>
+            </apex:pageBlockButtons>
+            
+        </apex:pageBlock>
+        
+        
+    </apex:form>
+</apex:page>

@@ -1,0 +1,5 @@
+<design:component >
+	 <design:attribute name="oppyId" description="Attribute to map URL parameters" />
+    <design:attribute name="environmentType" description="Specify the environment type in which component is being used"
+                      datasource="Lightning,Community"/>
+</design:component>

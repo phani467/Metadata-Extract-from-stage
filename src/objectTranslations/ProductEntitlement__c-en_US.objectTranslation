@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Entitlement</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Entitlements</value>
+    </caseValues>
+    <fields>
+        <help><!-- The last date this Entitlement is valid until.  Date can be in the future. --></help>
+        <label><!-- End Date --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specifies if the Entitlement is still valid. --></help>
+        <label><!-- Is Valid? --></label>
+        <name>IsValid__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system id (user unfriendly) referencing the source record and is populated via migrating system. --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- PKID is used for data migration support from the legacy system and is auto-generated --></help>
+        <label><!-- PKID Product Entitlement --></label>
+        <name>PKIDProductEntitlement__c</name>
+    </fields>
+    <fields>
+        <help><!-- Links the Product License related to this Entitlement record. --></help>
+        <label><!-- Product License --></label>
+        <name>ProductLicense__c</name>
+        <relationshipLabel><!-- Product Entitlements --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Link the Product Login to this Entitlement record. --></help>
+        <label><!-- Product Login --></label>
+        <name>ProductLogin__c</name>
+        <relationshipLabel><!-- Product Entitlements --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Data can be uploaded automatically from external entitlement and authentications systems or entered manually. --></help>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+        <picklistValues>
+            <masterLabel>MSF</masterLabel>
+            <translation><!-- MSF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual</masterLabel>
+            <translation><!-- Manual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UserXS</masterLabel>
+            <translation><!-- UserXS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Initial set-up date of the Entitlement in the external source system. --></help>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag to indicate if the product entitled is for Trial --></help>
+        <label><!-- Trial --></label>
+        <name>Trial__c</name>
+    </fields>
+    <fields>
+        <help><!-- The unique ID is normally provided by the external source system, if it is not provided, it is populated automatically. --></help>
+        <label><!-- Unique Product Entitlement ID --></label>
+        <name>UniqueProductEntitlementID__c</name>
+    </fields>
+    <layouts>
+        <layout>Entitlement Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

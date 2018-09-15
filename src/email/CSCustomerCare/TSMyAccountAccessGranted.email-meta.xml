@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2737 This email is sent to inform a client they have access to MyAccount.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>TS - MyAccount Access Granted</name>
+    <style>none</style>
+    <subject>SMT MyAccount Information</subject>
+    <textOnly>Customer:
+{!Case.Account}
+Contact:
+{!Case.Contact.Full Name}
+
+Dear {!Case.Contact.Full Name},
+
+You have been granted access to MyAccount from the IHS Web Portal. This gives access to the online Knowledge Base, interactive case updates, as well as links to other Technical Support information and downloads. You should have received an automated email with a link to set up a username and password. If you did not receive this email, please let us know.
+
+The MyAccount website can be accessed at http://kingdom.ihs.com .
+
+For your convenience, your MyAccount Userid is:
+{!Case.Account}
+
+Your password is not included here. It can be retrieved with an email sent to your registered email address. Simply click on the &quot;Retrieve Password&quot; hyperlink on the MyAccount login page. Please ensure that SVC_SMT_Support@ihs.com is marked as a permitted sender in your junk or spam filter. As soon as you have successfully logged into your MyAccount, we suggest that you change both your userid and password to make them something memorable. The SETTINGS tab of the MyAccount home page includes options for changing your profile, password and username.
+
+Thank you, and should you require further assistance please let us know.
+
+Best regards,
+IHS Kingdom Customer Care Team
+
+Note : Please refer screenshot while building this template</textOnly>
+    <type>custom</type>
+</EmailTemplate>

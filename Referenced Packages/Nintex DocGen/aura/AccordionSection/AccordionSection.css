@@ -1,0 +1,269 @@
+.THIS .section-header {
+    height: 61px;
+    position: relative;
+    width: 100%;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+}
+.THIS .section-header.collapse {
+    height: 36px;
+}
+.THIS .section-header-label {
+    position: absolute;
+	white-space: nowrap;
+    font-weight: 300;
+    font-size: 20px;
+    z-index: 1;
+}
+.THIS .section-header-extra {
+    position: absolute;
+    right: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.THIS .search-hidden {
+    display: none;
+}
+.THIS .icon {
+  	fill: rgb(84, 105, 141);
+    width: 10px;
+    height: 10px;
+    background-size: 6px 10px;
+    vertical-align: top;
+    margin-top: 12px;
+}
+.THIS .icon-on {
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin: 50% 50%;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: 50% 50%;
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+}
+.THIS .icon-on .icon {
+    fill: #0070D2;
+}
+.THIS .font {
+    color: #0070D2;
+}
+.THIS .icon-position {
+    position: absolute;
+    height: 34px;
+    top: -2px;
+    left: -9px;
+}
+.THIS .icon-transition {
+    webkit-transition: 0.2s -webkit-transform linear,0.2s linear;
+    transition: 0.2s transform linear,0.2s linear;
+    display: inline-block;
+}
+.THIS .slds-tree-container .slds-tree .slds-tree__branch .slds-tree__group .itemHide[data-hidden=true]{
+    display: none;
+}
+.THIS .slds-tree-container .slds-tree .slds-tree__branch .sectionHide[data-hidden=true]{
+    display: none;
+}
+.THIS .slds-tree .noResultsHide[data-hidden=true] {
+ 	display: none;
+}
+.THIS .search-hidden {
+    display: none;
+}
+.THIS .tree-item {
+    padding-top: .5rem;
+    padding-right: 16px;
+    padding-bottom: .5rem;
+    overflow-y: hidden;
+}
+.THIS .tree-item-bottom-border {
+    border-bottom: 1px solid rgba(216,221,230,1);
+}
+.THIS .tree-item-top-border {
+    border-top: 1px solid rgba(216,221,230,1);
+}
+.THIS .accordion-content {
+	background: #FAFBFF;
+    
+    -webkit-transition: max-height 0.5s; 
+    -moz-transition: max-height 0.5s; 
+    -ms-transition: max-height 0.5s; 
+    -o-transition: max-height 0.5s; 
+    transition: max-height 0.5s;  
+    max-height: 0;
+    -webkit-overflow-scrolling: touch;
+}
+.THIS .accordion-content-expand {
+    max-height: 522px !important;
+}
+.THIS .scrollable--y {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: auto; 
+}
+.THIS .scrollable--y::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; 
+}
+.THIS .scrollable--y::-webkit-scrollbar:window-inactive {
+    opacity: 0;
+}
+.THIS .scrollable--y::-webkit-scrollbar-thumb {
+    background: #e0e5ee;
+    border-radius: 8px;
+    box-shadow: #a8b7c7 0 0 0 1px inset;
+}
+.THIS .scrollable--y::-webkit-scrollbar-track {
+    background: #a8b7c7;
+}
+.THIS .close-icon {
+    pointer-events: visible;
+    right: 0;
+}
+.THIS .blue-badge {
+    background-color: #0070d2;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 275px;
+    white-space: nowrap;
+    display: inline-block;
+}
+.THIS .section-disabled {
+    pointer-events: none;
+    opacity: .5;
+}
+.THIS .section-disabled.slds-is-selected {
+    opacity: 1.0;
+}
+.THIS .section-disabled.slds-is-selected .section-header-extra {
+ 	display: none;
+}
+.THIS .overflow-y-hidden {
+    overflow-y: hidden;
+}
+.THIS .outer {
+    width: 100%;
+    min-width: 125px;
+    height: 61px;
+}
+.THIS .outer.collapse {
+    height: 28px;
+}
+.THIS .outer.collapse > .collapsible {
+    display: none;
+}
+.THIS .outer.collapse > .searchBit3 > .searchBit4 {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-color: rgb(216, 221, 230);
+    margin-left: -1px;
+    width: 28px;
+}
+.THIS .outer.collapse > .searchBit3:hover,
+.THIS .outer.collapse > .searchBit3:hover > .searchBit4 {
+    background: rgb(244, 246, 249);
+}
+.THIS .outer.collapse > .searchBit3 {
+    border-bottom-right-radius: 4px;
+    border-color: rgb(216, 221, 230);
+}
+.THIS .searchBit1 {
+    position: relative;
+    float: left;
+    height: 28px;
+    width: calc(100% - 28px);
+}
+.THIS .searchBit2 {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    bottom: -1px;
+    right: -1px;
+    z-index: 1;
+    border-style: none solid solid none;
+    border-bottom-right-radius: 4px;
+    border-width: 1px;
+    border-color: rgba(0, 112, 210, 1);
+}
+.THIS .searchBit3 {
+    position: relative;
+    float: right;
+    height: 28px;
+    width: 28px;
+    border-style: solid solid none solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-color: rgba(0, 112, 210, 1);
+}
+.THIS .searchBit4 {
+    position: absolute;
+    height: 24px;
+    width: 26px;
+    bottom: 0;
+    left:0;
+    background-color: #ffffff;
+}
+.THIS .searchRecordIcon {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    margin-left: 5px;
+    margin-top: 2px;
+    fill: rgb(84, 105, 141);
+}
+.THIS .searchBit5 {
+    float: right;
+    height: 33px;
+    width: 28px;
+    border-color: rgba(0, 112, 210, 1);
+    border-style: none solid solid none;
+    border-width: 1px;
+    border-bottom-right-radius: 4px;
+    cursor: default;
+}
+.THIS .clearSearchIcon {
+    position: absolute;
+    padding: 4px;
+    fill: #ffffff;
+    background-color: rgb(84, 105, 141);
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    margin-left: 6px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.THIS .searchBit6 {
+    position: relative;
+    float: right;
+    height: 33px;
+    width: calc(100% - 28px);
+    border-style: solid none solid solid;
+    border-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-width: 1px;
+    border-color: rgba(0, 112, 210, 1);
+}
+.THIS .searchBit7 {
+    padding-left: 32px;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-top: 0;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #16325c;
+    width: 100%;
+    display: inline-block;
+    line-height: 31px;
+    min-height: 31px;
+    border: none;
+    outline: none;
+}

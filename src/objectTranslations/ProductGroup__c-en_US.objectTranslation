@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Group</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Groups</value>
+    </caseValues>
+    <fields>
+        <label><!-- PKID ProdGrp --></label>
+        <name>PKIDProdGrp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Group Number --></label>
+        <name>ProductGroupNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Visible in LiveChat --></label>
+        <name>VisibleInLiveChat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visible in Web2Case --></label>
+        <name>VisibleinWeb2Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visible in Web Portal --></label>
+        <name>VisibleinWebPortal__c</name>
+    </fields>
+    <layouts>
+        <layout>Product Group Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

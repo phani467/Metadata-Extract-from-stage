@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Job Task</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Job Tasks</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Hours Date --></label>
+        <name>ActualHoursDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Hours --></label>
+        <name>ActualHours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Am I User --></label>
+        <name>AmIUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned To --></label>
+        <name>AssignedTo__c</name>
+        <relationshipLabel><!-- Job Tasks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due Date --></label>
+        <name>DueDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Hours --></label>
+        <name>EstimatedHours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Due Date --></label>
+        <name>JobDueDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Name --></label>
+        <name>JobName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Status Override --></label>
+        <name>JobStatusOverride__c</name>
+        <picklistValues>
+            <masterLabel>Being Estimated</masterLabel>
+            <translation><!-- Being Estimated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job Cancelled</masterLabel>
+            <translation><!-- Job Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job on Hold</masterLabel>
+            <translation><!-- Job on Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Override</masterLabel>
+            <translation><!-- No Override --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used for data integration to store legacy system id in WRF POLK application. --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source record. --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- PLC Job --></label>
+        <name>PLCJob__c</name>
+        <relationshipLabel><!-- Job Task --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>TaskName__c</name>
+    </fields>
+    <layouts>
+        <layout>Job Task Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

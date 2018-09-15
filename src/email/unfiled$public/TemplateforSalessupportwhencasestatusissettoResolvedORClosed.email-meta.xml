@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-6028: Notification for a sales person when case status is &quot;Closed&quot; OR &quot;Resolved&quot;. SFDC1-9677: Removing Subtype as new record type dont have it</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Template for Sales support when case status is set to &quot;Resolved&quot; OR &quot;Closed&quot;</name>
+    <style>none</style>
+    <subject>{!Case.Type} Case {!Case.CaseNumber} has been completed</subject>
+    <textOnly>Hello,
+Your {!Case.Type} case has been marked as completed.
+
+Case Number: {!Case.CaseNumber}
+Type: {!Case.Type}
+Subject: {!Case.Subject}
+Owner/Support Rep: {!Case.OwnerFullName}
+Resolution: {!Case.Description}
+SFDC link to case: {!Case.Link}
+
+Thank you,
+The {!Case.Type} Team</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Fire when a contact is selected.">
+    <aura:attribute name="id" type="string" default="" description="Contains id of selected contact."/>
+    <aura:attribute name="name" type="string" default="" description="Name of the clicked tile."/>
+</aura:event>

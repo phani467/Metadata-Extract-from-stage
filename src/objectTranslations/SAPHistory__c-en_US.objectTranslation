@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SAP History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SAP Histories</value>
+    </caseValues>
+    <fields>
+        <label><!-- Opportunity Number --></label>
+        <name>OpportunityNumber__c</name>
+        <relationshipLabel><!-- SAP Histories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Renewal Opportunity Number --></label>
+        <name>RenewalOpportunityNumber__c</name>
+        <relationshipLabel><!-- SAP Histories (Renewal Opportunity Number) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SAP Contract Number --></label>
+        <name>SAPContractNumberNew__c</name>
+    </fields>
+    <fields>
+        <label><!-- SFDC Contract Number --></label>
+        <name>SFDCContractNumber__c</name>
+        <relationshipLabel><!-- SAP Histories (SFDC Contract Number) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>SAP History Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

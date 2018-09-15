@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5145:Informs client that their case is on hold pending further information.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MarkitWire 2nd Chaser Template</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Pending information - 2nd request</subject>
+    <textOnly>Dear {!Case.Contact} 
+
+The status of this case is: Waiting - Customer
+
+This is a second attempt to receive additional information from you so we can resolve your inquiry. Our original email requesting this information was sent on: &lt;yyyy-mm-dd&gt;. Details are provided below. Please provide this information as quickly as possible so we can resolve your issue. 
+
+Thank You. 
+{!Case.OwnerFullName}
+MarkitServ Client Services 
+
+---------------- Original Message ------------------ 
+
+From: {!Case.SuppliedEmail} 
+Subject: {!Case.Subject} 
+Email: {!Case.Description}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

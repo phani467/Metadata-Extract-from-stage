@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>SFDC1-717
+Required for BSA&apos;s to add operation systems. 
+Only accessible for Admins (and delegated admins in the future)</description>
+    <mobileReady>false</mobileReady>
+    <motif>Custom63: Chip</motif>
+</CustomTab>

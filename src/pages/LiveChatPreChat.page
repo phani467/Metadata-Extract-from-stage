@@ -1,0 +1,235 @@
+<!--------------------------------------------------------------------------------------------------------------------
+// @author: Uttam Arya
+// @date: 22 July 2017
+// @param: NA
+// @description: SFDC1-281 LiveChatPreChat - Pre chat page for MCS and MSF
+// @return: NA
+---------------------------------------------------------------------------------------------------------------------->
+<apex:page showHeader="false" standardStylesheets="false" controller="LiveChatPreChatController">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type='text/javascript' src='{!$Label.PreChatJSURL}'></script>
+    <apex:stylesheet value="{!URLFOR($Resource.LiveAgentMarkit, 'liveagentmarkit.css')}"/>
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="https://cdn.ihs.com/wwwihsmarkit/images/favicon.png"/>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="text/javascript">
+    (function() { 
+        function handlePageLoad() {
+            var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+            document.getElementById('j_id0:prechatForm').setAttribute('action', decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+        } 
+        if (window.addEventListener) {
+            window.addEventListener('load', handlePageLoad, false);
+        } else { 
+            window.attachEvent('onload', handlePageLoad, false);
+        }
+    })(); 
+    
+    $("#productsMSF").change(function() {
+        var id = $(this).children(":selected").attr("id");
+        document.getElementsByName("liveagent.prechat:msfProductCode")[0].value = Id;
+    });
+    </script>
+    <apex:form id="prechatForm">
+        <div class="herohome w-section">
+            <div class="w-container">
+                <div class="homecontent">
+                    <div style="text-align:right;">
+                        <img src="{!$Resource.la_markitlogo}" style="vertical-align:right;margin-top:8px;" width="250px"/>
+                    </div>
+                    <h1>Chat with us</h1>
+                    <div id='myInput2'>
+                        <script type="text/javascript">
+                        liveagent.details.preChatInit('{!$Label.PreChatInitURL}','detailCallback');
+                        function detailCallback(details) {
+                            var bOrigin;
+                            var suppliedProduct;
+                            
+                            for (var i = 0; i < details.customDetails.length; i++) {
+                                // if we have passed email address hide un-needed fields
+                                
+                                if(details.customDetails[i].label == 'buttonOrigin' && (details.customDetails[i].value != null && details.customDetails[i].value != '')) {                
+                                    try {
+                                        bOrigin = details.customDetails[i].value;
+                                        document.getElementsByName("liveagent.prechat:buttonOrigin")[0].value = bOrigin;
+                                        if(bOrigin == "MCS") {
+                                            document.getElementById('productsMCS').style.display = '';
+                                            document.getElementById('productsMCS').disabled = false;
+                                        } else if(bOrigin == "MSF") {
+                                            document.getElementById('productsMSF').style.display = '';
+                                            document.getElementById('productsMSF').disabled = false;
+                                        }
+                                    } catch(ex) {
+                                        alert(ex.message);
+                                        console.log(ex);
+                                    }
+                                }
+                                
+                                if(details.customDetails[i].label == 'suppliedProduct' && (details.customDetails[i].value != null && details.customDetails[i].value != '')) {                
+                                    try {
+                                        suppliedProduct = details.customDetails[i].value;
+                                        if(bOrigin == "MSF") {
+                                            document.getElementsByName("liveagent.prechat:msfProductCode")[0].value = suppliedProduct;
+                                            if(details.customDetails[i].value == 'IIX') {
+                                                document.getElementById("IIX").selected = 'true';
+                                            }
+                                            if(details.customDetails[i].value == 'PX') {
+                                                document.getElementById("PX").selected = 'true';
+                                            }
+                                            if(details.customDetails[i].value == 'SFT') {
+                                                document.getElementById("SFT").selected = 'true';
+                                            }
+                                            if(details.customDetails[i].value == 'SFP') {
+                                                document.getElementById("SFP").selected = 'true';
+                                            }
+                                            if(details.customDetails[i].value == 'TX') {
+                                                document.getElementById("TX").selected = 'true';
+                                            }
+                                        } else if(bOrigin == "MCS") {
+                                            Visualforce.remoting.Manager.invokeAction(
+                                                '{!$RemoteAction.LiveChatPreChatController.getProductId}', 
+                                                suppliedProduct, 
+                                                function(result, event) {
+                                                    if (event.status) {
+                                                        document.getElementById('productsMCS').value =result;
+                                                    } 
+                                                }, 
+                                                {escape: false}
+                                            );
+                                        }
+                                    } catch(ex) {
+                                        alert(ex.message); 
+                                        console.log(ex);
+                                    }
+                                }
+                                
+                                if(details.customDetails[i].label == 'suppliedEmail' && (details.customDetails[i].value != null && details.customDetails[i].value != '')) {
+                                    try {
+                                        var suppliedEmail = details.customDetails[i].value;
+                                        
+                                        Visualforce.remoting.Manager.invokeAction(
+                                            '{!$RemoteAction.LiveChatPreChatController.getContact}', 
+                                            suppliedEmail, 
+                                            function(result, event)
+                                            {
+                                                if (event.status) 
+                                                {
+                                                    document.getElementById('firstName').value = result.FirstName;
+                                                    document.getElementById('lastName').value = result.LastName;
+                                                    document.getElementById('prechat_field_name').value = result.Name;
+                                                } 
+                                            }, 
+                                            {escape: false}
+                                        );
+                                    } catch(ex) {
+                                        alert(ex.message);
+                                        console.log(ex);
+                                    }
+                                    document.getElementById('myInput').style.display = 'none';
+                                    document.getElementById('firstName').disabled = 'true';
+                                    document.getElementById('lastName').disabled = 'true';
+                                    document.getElementById('email').value = details.customDetails[i].value;
+                                    document.getElementById('email').readOnly = 'true';
+                                }
+                            }
+                            
+                        }
+                        
+                        // validate fields have been completed
+                        function validateForm() {
+                            setProd();
+                            var msg = '';
+                            var e;
+                            e = document.getElementById('firstName');
+                            if (e != null && e.disabled == false && (e.value == null || e.value == "")) {
+                                msg += "\nPlease enter your first name.";
+                            }
+                            e = document.getElementById('lastName');
+                            if (e != null && e.disabled == false && (e.value == null || e.value == "")) { 
+                                msg += "\nPlease enter your last name.";
+                            }
+                            e = document.getElementById('email');
+                            if (e != null && e.disabled == false && (e.value == null || e.value == "" || !isEmailValid(e.value))) {
+                                msg += "\nPlease enter a valid email address.";
+                            }
+                            e = document.getElementById('productsCustomerCare');
+                            if (e != null && e.disabled == false && (e.value == null || e.value == "none")) {
+                                msg += "\nPlease select a product.";
+                            }
+                            if(msg != '') {
+                                alert(msg);
+                                return false;
+                            }
+                        }
+                        function isEmailValid(emailaddress) {
+                            // simple email validation
+                            var re = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+                            return re.test(emailaddress);
+                        }
+                        </script>
+                        <p>Welcome to IHS Markit's Web Chat Support.  Please enter your details to engage with one of our analysts.</p>
+                        <!-- input fields -->
+                        <div id='myInput'>
+                            <label>First Name *</label>
+                            <input id="firstName" type="text" name="liveagent.prechat:contactFirstName" maxlength="40" size="40"/>
+                            <label>Last Name *</label>
+                            <input id="lastName" type="text" name="liveagent.prechat:contactLastName" maxlength="80" size="40"/>
+                        </div>
+                        <label>Email *</label>
+                        <input id='email' type="text" name="liveagent.prechat:contactEmail" maxlength="80" size="40"/>
+                        <!-- Used to set the visitor's name for the agent in the Console -->
+                        <input type="hidden" name="liveagent.prechat.name" id="prechat_field_name" />
+                        <label>Product *</label>
+                        <select id="productsMSF" name="liveagent.prechat:caseProduct" disabled="true" style="display: none; margin-left: 19px;">
+                            <option value="none">Choose item from the list</option>
+                            <option id = "IIX" value="{!productIdSecuritiesFinance}">International Index Explorer</option>
+                            <option id = "PX"  value="{!productIdSecuritiesFinance}">Performance Explorer</option>
+                            <option id = "SFT" value="{!productIdSecuritiesFinance}">Excel Toolkit</option>
+                            <option id = "SFP" value="{!productIdSecuritiesFinance}">Web Portal</option>
+                            <option id = "TX"  value="{!productIdSecuritiesFinance}">Transaction Explorer</option>
+                        </select>
+                        <select id="productsMCS" name="liveagent.prechat:caseProduct" disabled="true" style="display: none; margin-left: 19px;">
+                            <apex:repeat value="{!ProductFamily}" var="prd">
+                                <option value="{!prd.value}">{!prd.label}</option>
+                            </apex:repeat>
+                        </select>
+                        <!-- Map the detail inputs to the Contact fields --> 
+                        <input type="hidden" name="liveagent.prechat.findorcreate.map:Contact" value="FirstName,contactFirstName;LastName,contactLastName;Email,contactEmail;" />
+                        <!-- Try to find the Contact by email (exact match) --> 
+                        <input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Contact" value="Email,true;" />
+                        <input type="hidden" name="liveagent.prechat.findorcreate.map.isExactMatch:Contact" value="Email,true;" />
+                        <!-- Save the Contact on the Web Chat Transcript's Contact Lookup -->
+                        <input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Contact" value="Contact" />
+                        <!-- Show the Contact when it is found or created -->
+                        <input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Contact" value="true" />
+                        <!-- Create a Case every time -->
+                        <input type="hidden" name="liveagent.prechat:caseOrigin" value="Web Chat" /> 
+                        <input type="hidden" name="liveagent.prechat:caseSubject" value="Web Chat" />
+                        <input type="hidden" name="liveagent.prechat:msfProductCode" value="" />
+                        <input type="hidden" name="liveagent.prechat:buttonOrigin" value="" />
+                        <input type="hidden" name="liveagent.prechat:caseDescription" value=""/>
+                        <input type="hidden" name="liveagent.prechat:caseRecordTypeId" value="{!$Label.CustomerCareRecordtypeId}" /> 
+                        <input type="hidden" name="liveagent.prechat.findorcreate.map:Case" value="Description,caseDescription;Origin,caseOrigin;Subject,caseSubject;RecordTypeId,caseRecordTypeId;ProductGroup__c,caseProduct;SuppliedEmail,contactEmail;" />
+                        <input type="hidden" name="liveagent.prechat.findorcreate.map.doCreate:Case" value="Origin,true;Subject,true;Description,true;RecordTypeId,true;ProductGroup__c,true;" />
+                        <input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Case" value="Case" />
+                        <input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Case" value="true" />
+                        <!-- Link the Contact to the Case -->
+                        <input type= "hidden" name="liveagent.prechat.findorcreate.linkToEntity:Contact" value="Case,ContactId" />
+                        <!-- submit button -->
+                        <input type="submit" value="Submit" id="prechat_submit" class="button w-button" onclick="return validateForm();" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </apex:form>
+    <script type='text/javascript'>
+    function setProd() {   
+        document.getElementsByName("liveagent.prechat:caseDescription")[0].value = "Button Origin: " + document.getElementsByName("liveagent.prechat:buttonOrigin")[0].value + "\n" + "Email: " + document.getElementsByName("liveagent.prechat:contactEmail")[0].value + "\n";
+        if(document.getElementsByName("liveagent.prechat:buttonOrigin")[0].value == "MSF") {
+            document.getElementsByName("liveagent.prechat:caseDescription")[0].value = document.getElementsByName("liveagent.prechat:caseDescription")[0].value + "Product: "+ document.getElementById('productsMSF')[document.getElementById('productsMSF').selectedIndex].label;
+        } else if (document.getElementsByName("liveagent.prechat:buttonOrigin")[0].value == "MCS") {
+            document.getElementsByName("liveagent.prechat:caseDescription")[0].value = document.getElementsByName("liveagent.prechat:caseDescription")[0].value + "Product: " + document.getElementById('productsMCS')[document.getElementById('productsMCS').selectedIndex].label;
+        } 
+    }
+    </script>
+</apex:page>

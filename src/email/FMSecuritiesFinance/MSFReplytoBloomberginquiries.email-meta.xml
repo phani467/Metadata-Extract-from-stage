@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-3261;MSF Reply to Bloomberg inquiries</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MSF Reply to Bloomberg inquiries</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Securities Finance Enquiry</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+Thank you for your interest in Markit Securities Finance data.
+ 
+As an employee at Bloomberg you should automatically have been given access to Markit Securities Finance data.
+ 
+If you are part of the Sales or Account Management teams or from the Bloomberg Media News Room, and wish to liaise with one of your counterparts at Markit Securities Finance, please reply to this email with any specific account details and we will put you in touch with the appropriate person here.
+ 
+If you require any additional assistance, please contact us on live chat, email or phone.
+
+Thank You. 
+
+Kind regards, 
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

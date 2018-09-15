@@ -1,0 +1,42 @@
+<aura:component >
+    <!--Internal attributes-->
+    <aura:attribute name="header" type="object" access="private"/>
+    <aura:attribute name="main" type="object" access="private"/>
+    <aura:attribute name="footer" type="object" access="private"/>
+    
+    <!--Optional attributes-->
+    <aura:attribute name="id" type="string" description="Unique id for this Tile."/>
+    <aura:attribute name="styleClass" type="string"/>
+    <aura:attribute name="badge" type="string"/>
+    <aura:attribute name="isSelectable" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <div class="slds" style="margin-bottom:8px;">
+        <div class="slds-card" style="overflow:hidden; position:relative; border-radius:4px;">
+            <div aura:id="cardBody" class="{!v.styleClass}">
+                <div aura:id="header" class="slds-card__header">
+                    <aura:if isTrue="{!!!v.badge}">
+                        <div class="badge">
+                            <div class="badgeText">
+                                {!v.badge}
+                            </div>
+                        </div>
+                    </aura:if>
+                    {!v.header}
+                </div>
+                <div aura:id="main" class="slds-card__body">
+                    {!v.main}
+                </div>
+                <div aura:id="footer" class="slds-card__footer">
+                    {!v.footer}
+                </div>
+            </div>
+            <aura:if isTrue="{!v.isSelectable}">
+                <div aura:id="check-background" class="check">
+                    <Loop:Svg aura:id="check-icon" class="slds-icon slds-icon__container slds-icon--small slds-align-middle check-icon" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/action-sprite/svg/symbols.svg#check'}"/>
+                </div>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

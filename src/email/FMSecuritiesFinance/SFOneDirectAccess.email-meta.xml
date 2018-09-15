@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-3155;SFOne - Direct Access</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SFOne - Direct Access</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Access to the Markit Securities Finance Web Portal</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+In addition to your existing MSF products, you now have access to the Markit Securities Finance Web Portal.
+
+Your username and password remain unchanged.  Please let us know if you require a username reminder or a password reset.
+
+NOTE: All usernames and passwords are case sensitive.
+
+Please click on the following link to access the new Web Portal &lt;https://msf.markit.com/portal/?mode=dxone&gt;
+
+If you require any additional assistance, please contact us on live chat, email or phone.
+
+Thank You. 
+
+Kind regards, 
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

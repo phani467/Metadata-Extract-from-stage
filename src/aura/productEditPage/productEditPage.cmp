@@ -1,0 +1,291 @@
+<aura:component controller="ProductEditController" implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <!-- Declare variables -->
+    <aura:attribute name="lstProducts" Type="ProductEditController.ProductLineItemWrapper[]" />
+    <aura:attribute name="productIds" Type="List"></aura:attribute>
+    <aura:attribute name="year" Type="boolean"></aura:attribute>
+    <aura:attribute name="oppyId" Type="String"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="legalEntity" type="String" />
+    <aura:attribute name="legalEntityName" type="String" />
+    <aura:attribute name="licenseTypes" type="String[]" />
+    <aura:attribute name="globalDiscountType" type="String" />
+    <aura:attribute name="globalDiscountValue" type="Decimal" default="{!0}" />
+    <aura:attribute name="globalDiscountStep" type="String" />
+    <aura:attribute name="globalTermYears" type="String" />
+    <aura:registerEvent name="onBackEvent" type="c:productSearchBackEvent" />
+    <aura:attribute name="showErrorMessage" type="Boolean" />
+    <aura:attribute name="currencyCode" type="String" />
+    <aura:attribute name="resetErrors" type="Boolean" default="True" />
+    <aura:attribute name="globalLicenseType" type="String" />
+    <aura:attribute name="oppyRecordTypeName" type="String" />
+    <aura:attribute name="globalUplift" type="Decimal" default="{!0}" />
+    <!-- Variable declaration ends -->
+    <!-- Start form -->
+    <!--Global header starts-->
+    <!--Global section begins-->
+    <div class="slds-page-header">
+        <div class="slds-grid">
+            <div class="slds-col slds-has-flexi-truncate">
+                <div class="slds-media slds-no-space slds-grow">
+                    <div class="slds-media__figure">
+                        <lightning:icon iconName="standard:product" size="large" alternativeText="Add Products" />
+                    </div>
+                    <div class="slds-media__body">
+                        <nav>
+                            <ol class="slds-breadcrumb slds-line-height_reset">
+                                <li class="slds-breadcrumb__item">
+                                    <span>Add Products</span>
+                                </li>
+                            </ol>
+                        </nav>
+                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Legal Entity">
+                            <b>{!'Legal Entity:'+v.legalEntityName} </b>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="slds-grid slds-page-header__detail-row boldFont">
+            <li class=" slds-size--1-of-1 slds-page-header__detail-block whiteSpaceClass  slds-align_absolute-center">
+                <h3 class="slds-page-header__title" title="Global Values">
+                    <b>Global Values </b>
+                </h3>
+            </li>
+        </ul>
+        <ul class="slds-grid slds-page-header__detail-row boldFont">
+            <li class="slds-size--2-of-12 slds-page-header__detail-block ">
+                <lightning:select name="globalLicense" value="{!v.globalLicenseType}" label="License Type " onchange="{!c.onGlobalLicenseTypeChange}" aura:id="globalLicenseType">
+                    <option value="">--None--</option>
+                    <aura:iteration var="licenseType" items="{!v.licenseTypes}">
+                        <option value="{!licenseType}">{!licenseType}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </li>
+            <li class="slds-size--2-of-12 slds-page-header__detail-block whiteSpaceClass slds-border_left ">
+                <lightning:select name="globalDiscount" value="{!v.globalDiscountType}" label="Discount Type" onchange="{!c.onGlobalDiscountTypeChange}" disabled="{!v.oppyRecordTypeName=='Gratis'}">
+                    <option value="No Discount">No Discount</option>
+                    <option value="Amount">Amount</option>
+                    <option value="Percentage">Percentage</option>
+                </lightning:select>
+            </li>
+            <li class="slds-size--2-of-12 slds-page-header__detail-block whiteSpaceClass">
+                <lightning:select name="globalStep" value="{!v.globalDiscountStep}" label="Discount Step" onchange="{!c.onGlobalDiscountChange}" disabled="{!v.globalDiscountType=='No Discount'}">
+                    <option value="Flat">Flat</option>
+                    <option value="Step up">Step up</option>
+                    <option value="Step down">Step down</option>
+                </lightning:select>
+            </li>
+            <li class="slds-size--2-of-12 slds-page-header__detail-block whiteSpaceClass">
+                <lightning:input type="number" name="globalDiscountValue" label="{! 'Discount Value' +if(v.globalDiscountType=='Amount','('+v.currencyCode+')','') + if(v.globalDiscountType=='Percentage','(%)','')}" formatter="decimal" step="any" min="0" value="{!v.globalDiscountValue}"
+                    aura:id="globalDiscount" disabled="{!v.globalDiscountType=='No Discount'}" onchange="{!c.onGlobalDiscountChange}" />
+            </li>
+             <li class="slds-size--2-of-12 slds-page-header__detail-block whiteSpaceClass slds-border_left">
+                    <lightning:input type="number" name="globalUplift" label="Uplift(%)" formatter="decimal" step="any" min="0" value="{!v.globalUplift}" aura:id="Uplift" onchange="{!c.onUpliftChange}" disabled="{!v.oppyRecordTypeName=='Gratis'}" />
+                </li>
+            <li class="slds-size--2-of-12 slds-page-header__detail-block whiteSpaceClass slds-border_left">
+                <lightning:select name="globalTerm" value="{!v.globalTermYears}" label="Years" onchange="{!c.onGlobalTermChange}">
+                    <option value="1">1 Year</option>
+                    <option value="2">2 Years</option>
+                    <option value="3">3 Years</option>
+                    <option value="4">4 Years</option>
+                    <option value="5">5 Years</option>
+                </lightning:select>
+            </li>
+            
+        </ul>
+    </div>
+    <!--Global section ends-->
+    <aura:if isTrue="{!v.showErrorMessage}">
+        <div class="slds-size--1-of-1 slds-p-horizontal_small slds-text-color_error">
+            <p>{!$Label.c.NegativeSalesPriceError}</p>
+        </div>
+    </aura:if>
+    <!--Product section starts-->
+    <div class="slds-m-bottom_xx-large">
+        <lightning:card title="Products" iconName="standard:product" class="card-classinner slds-p-horizontal_small ">
+            <aura:set attribute="title">
+                <p class="slds-text-heading--medium "><b>Products</b></p>
+            </aura:set>
+            <aura:iteration var="prod" items="{!v.lstProducts}" indexVar="prodIndex">
+                <!--Product header values-->
+                <div>
+                    <lightning:card title="{!prod.productName}" class="card-product" variant="narrow">
+
+                        <aura:set attribute="title">
+                            <div class="slds-size--1-of-1 slds-align_absolute-center">
+
+                                <b><ui:outputText class="field" value="{!prod.productName}" /></b>
+                                <ui:outputText class="field slds-p-left_large" value="Material Code:" /><br/>
+                                <ui:outputText class="field slds-p-left_small" value="{!prod.materialCode}" />
+
+                            </div>
+                        </aura:set>
+                        <aura:set attribute="actions">
+                            <aura:if isTrue="{!!prod.isDeleted}">
+                                <lightning:button variant="base" type="submit" label="Collapse" name="{!'collapse'+prod.productId}" onclick="{!c.collapse}" />
+                            </aura:if>
+                        </aura:set>
+                        <div id="{!prod.productId}">
+                            <!--Field section begins-->
+                            <div class="slds-grid slds-wrap">
+                                <div class=" slds-size--8-of-12 slds-p-top_large slds-align_absolute-center slds-p-around_xx-small">
+                                    <table class="slds-table slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table--fixed-layout ">
+                                        <thead>
+                                            <tr class="slds-text-body_small boldFont">
+                                                <th scope="col">
+                                                    <div class="whiteSpaceNormal" title="License Type">License Type</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="whiteSpaceNormal" title="Quantity">Quantity</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="whiteSpaceNormal" title="Years">Years</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="whiteSpaceNormal" title="Discount Type">Discount Type</div>
+                                                </th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <td data-label="License Type">
+                                                <div class="hiddenLabel">
+                                                    <lightning:select name="{!'licenseType'+prodIndex}" aura:id="licenseTypes" value="{!prod.licenseType}" variant="label-hidden" required="true" messageWhenValueMissing="{!$Label.c.LicenseTypeMissingError}">
+                                                        <option value="">--None--</option>
+                                                        <aura:iteration var="licenseType" items="{!v.licenseTypes}" indexVar="indexLT">
+                                                            <option value="{!licenseType}">{!licenseType}</option>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                            </td>
+                                            <td data-label="Quantity">
+                                                <lightning:input type="number" name="{!prodIndex+'qty'}" value="{!prod.productQty}" variant="label-hidden" onchange="{!c.onQtyChange}" />
+                                            </td>
+                                            <td data-label="Years">
+                                                <div class="hiddenLabel">
+                                                    <lightning:select name="{!prodIndex}" label="Years" variant="label-hidden" onchange="{!c.productTermChange}" value="{!prod.productTermSelected}">
+                                                        <aura:iteration var="prosScheds" items="{!prod.lstMapProductIndex}" indexVar="index">
+                                                            <option value="{!prosScheds}">{!prosScheds}</option>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                            </td>
+                                            <td data-label="Discount Type">
+                                                <div class="hiddenLabel">
+                                                    <lightning:select name="{!'discountType'+prodIndex}" value="{!prod.discountType}" variant="label-hidden" onchange="{!c.onDiscountTypeChange}" disabled="{!v.oppyRecordTypeName=='Gratis'}">
+                                                        <option value="No Discount">No Discount</option>
+                                                        <option value="Amount">Amount</option>
+                                                        <option value="Percentage">Percentage</option>
+                                                    </lightning:select>
+                                                </div>
+                                            </td>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-size--1-of-1 slds-scrollable slds-p-top_medium slds-p-bottom_large slds-align_absolute-center slds-p-horizontal_large">
+                                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-border_left slds-border_right">
+                                        <thead>
+                                            <tr class="slds-text-body_small boldFont">
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Year">Year</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Price Book List Price">Price Book List Price</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Updated List Price">Updated List Price</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Discount Percent">Discount Percent(%)</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Discount Amount">Discount Amount</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Net Unit Price">Net Unit Price</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Total Price">Total Price</div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <aura:iteration var="prodSch" items="{!prod.lstProductsSelected}" indexVar="index">
+                                                <tr>
+                                                    <th scope="row" data-label="Year">
+                                                        <div class="slds-truncate" title="{!prodSch.installmentYear}"><b><p>{!prodSch.installmentYear}</p></b>
+                                                        </div>
+                                                    </th>
+                                                    <td data-label="Price Book List Price">
+                                                        <div>
+                                                            <lightning:formattedNumber value="{!prodSch.priceBookListPrice}" style="currency" currencyCode="{!prod.currencyCode}" currencyDisplayAs="symbol" />
+                                                        </div>
+                                                    </td>
+                                                    <aura:if isTrue="{!v.resetErrors}">
+
+                                                        <td data-label="Updated List Price">
+                                                            <div>
+
+                                                                <lightning:input type="number" name="{!index+'extListPrice'+prodIndex}" variant="label-hidden" formatter="decimal" step="any" value="{!prodSch.externalListPrice}" aura:id="externalListPrice" onchange="{!c.onListPriceChange}" min="0" disabled="{!v.oppyRecordTypeName=='Gratis'}"
+                                                                />
+                                                            </div>
+                                                        </td>
+                                                        <td data-label="Discount Percent">
+                                                            <div>
+                                                                <lightning:input type="number" name="{!index+'discountPercent'+prodIndex}" variant="label-hidden" value="{!prodSch.discountPercent}" step="any" aura:id="discountPercent" onchange="{!c.onDiscAmtPercentChange}" disabled="{!prod.discountType!='Percentage'}"
+                                                                    min="0.00" max="100" messageWhenRangeOverflow="Discount cannot be greater than 100%" />
+                                                            </div>
+                                                        </td>
+                                                        <td data-label="Discount Amount">
+                                                            <div>
+                                                                <lightning:input type="number" name="{!index+'discountAmount'+prodIndex}" variant="label-hidden" formatter="decimal" step="any" min="0" value="{!prodSch.discountAmount}" aura:id="discountAmount" onchange="{!c.onDiscAmtPercentChange}" disabled="{!prod.discountType!='Amount'}"
+                                                                    max="{!prodSch.externalListPrice}" messageWhenRangeOverflow="Discount cannot be greater than sales price" />
+                                                            </div>
+                                                        </td>
+                                                    </aura:if>
+                                                    <td data-label="Net Unit Price">
+                                                        <div>
+                                                            <lightning:formattedNumber value="{!prodSch.salesPrice}" style="currency" currencyCode="{!prod.currencyCode}" currencyDisplayAs="symbol" />
+                                                        </div>
+                                                    </td>
+                                                    <td data-label="Total Price">
+                                                        <div>
+                                                            <lightning:formattedNumber value="{!prodSch.totalPrice}" style="currency" currencyCode="{!prod.currencyCode}" currencyDisplayAs="symbol" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </aura:iteration>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </lightning:card>
+                </div>
+                <!--Product header values ends-->
+
+            </aura:iteration>
+        </lightning:card>
+    </div>
+    <!-- Product section ends-->
+    <!-- End form -->
+    <!-- Spinner declaration -->
+    <lightning:spinner variant="brand" size="large" class="slds-hide" aura:id="loadSpinner" />
+    <!-- Spinner Ends -->
+    <!-- Docked footer starts-->
+    <div class="slds-m-top_xx-large slds-docked-form-footer">
+        <lightning:layout horizontalAlign="space" verticalAlign="end">
+            <lightning:button variant="brand" label="Back" iconName="utility:chevronleft" iconPosition="left" onclick="{!c.onBack}" />
+            <lightning:button variant="brand" label="Save" iconName="utility:save" iconPosition="right" onclick="{!c.onSave}" aura:id="save" />
+            <lightning:button variant="brand" label="Cancel" iconName="utility:close" iconPosition="right" onclick="{!c.cancel}" />
+        </lightning:layout>
+    </div>
+    <!-- Docked footer ends-->
+</aura:component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4411 Notification to mapping programmer that a WRF has been submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>WRF Submitted Mapping</name>
+    <style>freeForm</style>
+    <subject>Submitted WRF</subject>
+    <textOnly>** ATTENTION – ACTION NEEDED **&lt;?xml:namespace prefix = &quot;o&quot; /&gt;
+
+
+This email is to inform you that a WRF has been submitted for your review.
+Below is a link to the WRF and other related WRF information:
+.
+Link to WRF: {!WorkRequestForm__c.Link}
+Work Request Name:  {!WorkRequestForm__c.Name}
+Account Name: {!WorkRequestForm__c.AccountName__c}
+Opportunity Name: {!WorkRequestForm__c.OpportunityName__c}
+Record Owner: {!WorkRequestForm__c.OwnerFullName}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-4384 Content Directory is the object holding the directory for the MarkitSERV documentation customer portal</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ClearingBrokersandFCMs__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4384 Checked if Clearing Brokers and FCM&apos;s</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if Clearing Brokers and FCM&apos;s</inlineHelpText>
+        <label>Clearing Brokers and FCM&apos;s</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Clearinghouses__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4384 Checked if Clearing houses</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if Clearing houses</inlineHelpText>
+        <label>Clearinghouses</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dealer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4384 Checked if Dealer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if Dealer</inlineHelpText>
+        <label>Dealer</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EndUser__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4384 Checked if the user is End User</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if user is End User</inlineHelpText>
+        <label>End User</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ExecutionVenue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4384 Checked if Execution Venue</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if Execution Venue</inlineHelpText>
+        <label>Execution Venue</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HiddenFolder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4384 Checked if the folder is Hidden Folder</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if the folder is Hidden Folder</inlineHelpText>
+        <label>Hidden Folder?</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>JiraID__c</fullName>
+        <description>SFDC1-4384 Jira Id associated with this Content Directory</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fill in Jira Id associated with this Content Directory</inlineHelpText>
+        <label>Jira ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>SFDC1-4384 Id of the old system</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Fill in Id of the old system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Parent__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-4384 Child to standard object Content Directory</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select associated Content Directory</inlineHelpText>
+        <label>Parent</label>
+        <referenceTo>ContentDirectory__c</referenceTo>
+        <relationshipLabel>Content Directories</relationshipLabel>
+        <relationshipName>ContentDirectories</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Platform__c</fullName>
+        <description>SFDC1-4384 Platform the document is related to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fill in the platform the document is related to</inlineHelpText>
+        <label>Platform</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>platformdealhubposttrade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformdealhubtrading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformdms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformdsmatch</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformfxbrokeraffirmation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformfxcentralised–affirmationsconfirmationsclearing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformfxclearing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformfxoptionsconfirmationsandexercisemanagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformfxtradestp</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformmarkitwire</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformmets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformnovationconsent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformtrademanager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>platformtradeserv</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>UserTypes__c</fullName>
+        <description>SFDC1-4384 User Types the document is related to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fill in the User Types the document is related to</inlineHelpText>
+        <label>User Types</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>VendorSoftware__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4384 Vendor Software the document is related to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fill in the Vendor Software the document is related to</inlineHelpText>
+        <label>Vendor Software</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Vendor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4384 Vendor the document is related to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fil in the Vendor the document is related to</inlineHelpText>
+        <label>Vendor</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Content Directory</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Parent__c</columns>
+        <columns>Platform__c</columns>
+        <columns>ClearingBrokersandFCMs__c</columns>
+        <columns>Clearinghouses__c</columns>
+        <columns>Dealer__c</columns>
+        <columns>EndUser__c</columns>
+        <columns>ExecutionVenue__c</columns>
+        <columns>Vendor__c</columns>
+        <columns>VendorSoftware__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Content Directory Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Content Directories</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Platform__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Parent__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ClearingBrokersandFCMs__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Clearinghouses__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EndUser__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ExecutionVenue__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Vendor__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>VendorSoftware__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Platform__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ClearingBrokersandFCMs__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Clearinghouses__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Dealer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EndUser__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ExecutionVenue__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Parent__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Vendor__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VendorSoftware__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

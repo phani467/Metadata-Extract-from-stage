@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Proof Of Delivery</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Proof Of Deliveries</value>
+    </caseValues>
+    <fields>
+        <help><!-- Name of the Account related to the Contract. --></help>
+        <label><!-- Account Name --></label>
+        <name>AccountName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Case --></help>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Proof Of Deliveries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please enter any special comments for this Proof of Delivery. --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract End Date. --></help>
+        <label><!-- Contract End Date --></label>
+        <name>ContractEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract Start Date. --></help>
+        <label><!-- Contract Start Date --></label>
+        <name>ContractStartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract to which this Proof of Delivery attachment belongs to. --></help>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Proof Of Deliveries --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Proof Of Delivery Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

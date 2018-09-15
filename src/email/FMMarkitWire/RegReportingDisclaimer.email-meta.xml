@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5144:Informs client that their Reg Reporting have not been entitled.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Reg Reporting Disclaimer</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber}: Regulatory Reporting Disclaimer</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+Please note that LE-LE static settings for Real-time and Regulatory Reporting that may be applicable to these changes HAVE NOT been setup. 
+
+These include Counterparty Non-disclosure, Indication of Collateralisation and RCP override. 
+
+If you require these to be set-up for the newly permissioned LE-LE pair these will need to be requested via email to regreporting@markitserv.com by your designated Regulatory Reporting Admin.
+
+Regards, 
+
+MarkitSERV Client Services 
+UK/Europe/Asia +44 (0)84 4994 7378 
+US and Canada +1 877 765 8737
+www.markitserv.com</textOnly>
+    <type>custom</type>
+</EmailTemplate>

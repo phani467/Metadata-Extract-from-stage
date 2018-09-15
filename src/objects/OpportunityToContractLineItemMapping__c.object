@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>SFDC1-380 This mapping applies to contract creation wizard</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ContractLineItemField__c</fullName>
+        <description>SFDC1-380 This field will hold contract line item field API Names</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract Line Item Field</inlineHelpText>
+        <label>Contract Line Item Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OpportunityLineItemField__c</fullName>
+        <description>SFDC1-380 This field will hold opportunity field API Names</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Opportunity Field API Name</inlineHelpText>
+        <label>Opportunity Line Item Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>OpportunityToContract-LineItemMapping</label>
+    <visibility>Public</visibility>
+</CustomObject>

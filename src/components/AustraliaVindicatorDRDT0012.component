@@ -1,0 +1,77 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+	<apex:pageBlock title="DRDT 0012 Details">
+	    <apex:pageBlockSection title="Input" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >DRDT</td><td >0012</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				    </tbody>
+				</table>
+			</apex:outputPanel>
+	    </apex:pageBlockSection>
+	    <apex:pageBlockSection title="Output" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >Model</td><td >RANGER</td></tr>
+				        <tr><td >Grade</td><td >4x2 XL Hi-Rider</td></tr>
+				        <tr><td >Series</td><td >PK</td></tr>
+				        <tr><td >ModelYear</td><td >2009</td></tr>
+				        <tr><td >ve_id</td><td >20090302.16:25:16</td></tr>
+				        <tr><td >NumberOfDoors</td><td >4</td></tr>
+				        <tr><td >BodyStyle</td><td >Pick-Up</td></tr>
+				        <tr><td >CabType</td><td >Double</td></tr>
+				        <tr><td >Version</td><td >asdfasdf</td></tr>
+				        <tr><td >Chassis</td><td >Chassis</td></tr>
+				        <tr><td >HybridVehicle</td><td >No</td></tr>
+				        <tr><td >MCLTollClass</td><td >Light Commercial</td></tr>
+				        <tr><td >WM7Class</td><td >Class 2</td></tr>
+				        <tr><td >FCAIClass</td><td >2953</td></tr>
+				        <tr><td >FCAISubMarket</td><td >2953</td></tr>
+				        <tr><td >FCAISegment</td><td >2953</td></tr>
+				        <tr><td >Make</td><td >Ford</td></tr>
+				        <tr><td >NumberOfAxles</td><td >2</td></tr>
+				        <tr><td >SeatingCapacity</td><td >5</td></tr>
+				        <tr><td >WindscreenType</td><td >A</td></tr>
+				        <tr><td >WindscreenAngle</td><td ></td></tr>
+				        <tr><td >WindscreenMetallicOxideLayer</td><td ></td></tr>
+				        <tr><td >RRP</td><td >34990</td></tr>
+				        <tr><td >Length</td><td >2953</td></tr>
+				        <tr><td >Width</td><td >2953</td></tr>
+				        <tr><td >Height</td><td >INL</td></tr>
+				        <tr><td >KerbMass</td><td >4</td></tr>
+				        <tr><td >GVM</td><td >115</td></tr>
+				        <tr><td >VINsample</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >CO2Urban</td><td ></td></tr>
+				        <tr><td >CO2Combined</td><td >274</td></tr>
+				        <tr><td >GVGGreenhouseRating</td><td >4.5</td></tr>
+				        <tr><td >GVGAirPollutionRating</td><td >3</td></tr>
+				        <tr><td >GVGOverallRating</td><td >2</td></tr>
+				        <tr><td >Compass</td><td >-</td></tr>
+				        <tr><td >BullBar</td><td ></td></tr>
+				        <tr><td >BullBarAirbagCompatible</td><td ></td></tr>
+				        <tr><td >NudgeBar</td><td ></td></tr>
+				        <tr><td >ProcessFlag</td><td >AMSModelMatch</td></tr>
+				        <tr><td >CompanyCode</td><td >1</td></tr>
+				        <tr><td >UserName</td><td >admin</td></tr>
+				        <tr><td >RetrievalType</td><td >DRDT_0012</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >VehicleYear</td><td ></td></tr>
+				        <tr><td >UserDefinedKey</td><td >SingleVINMatchRequestWeb</td></tr>
+				    </tbody>
+				</table>
+	        </apex:outputPanel>
+	    </apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:component>

@@ -1,0 +1,13 @@
+Dear {!Case.Contact}, 
+
+Thank you for your request to setup a new user(s).
+
+To enable us to complete your request, an approval is required, please click on the following link for the approval form <entered required link for approval>.
+
+** Please note this should only be completed by an MD or line manager.**
+
+Kind regards, 
+
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+IHS Markit SFDC Helpdesk
+{!Case.Thread_Id}

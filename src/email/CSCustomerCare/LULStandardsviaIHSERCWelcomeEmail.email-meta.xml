@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2684;Standard template to be used for new customers to the london underground standards</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>LUL Standards via IHS ERC - Welcome Email</name>
+    <style>none</style>
+    <subject>Re:IHS ERC - London Underground Login Details - Case:  {!Case.CaseNumber} -  {!Case.OwnerFullName}</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+Thank you for your email and for contacting the IHS EMEA Customer Care Helpdesk.
+
+Please find below, confirmation of the username and password assigned to
+
+{!Case.Account}
+related to accessing London Underground Standards via IHS ERC and Standards Expert.
+
+I have attached a copy of the LUL, Network Rail and IHS ERC User Registration Guides, which will help you find your way round the new site.
+
+The first time you access this service you will be requested to register. This will allow the personalization features available within Standards Expert (eg Watch Lists, Email alerting) to be activated.
+
+Account Login
+
+URL Link: https://login.ihserc.com/login/erc?
+
+Username:
+Password: an Account Password Change Request will follow right after you receive this email.
+
+*Please note that any future requests from the same organization from other colleagues or employees will be advised to contact yourself for those login information, so please keep a note of these credentials for future reference.
+
+If you need any further assistance or information, please contact us no any of our regional contact numbers and we will be happy to help.
+
+Kind regards,</textOnly>
+    <type>custom</type>
+</EmailTemplate>

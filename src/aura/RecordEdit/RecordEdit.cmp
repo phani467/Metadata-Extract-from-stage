@@ -1,0 +1,15 @@
+<aura:component controller="RecordEditController" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="edit" type="Object"/>
+    <aura:attribute name="case" type="Case" default="{ 'sobjectType': 'Case' }"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+
+    <lightning:card iconName="custom:custom16" title="Additional Case Fields">
+        {!v.edit}<!--force:recordEdit aura:id="edit" recordId="{!v.case.AdditionalFields__c}"/>
+        <ui:button label="Save" press="{!c.save}"/>-->
+        <lightning:button variant="brand" label="Save" onclick="{!c.save}"/>
+        <lightning:spinner variant="brand" size="large" class="slds-hide" aura:id="mySpinner" />
+    </lightning:card>
+    
+</aura:component>

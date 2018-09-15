@@ -1,0 +1,8 @@
+<apex:page id="visualforceGlobalVariables">
+    <!-- Add Visualforce global variables as spans in this p so they can be accessed outside the Visualforce context. -->
+    <div id="globalVariables">
+        <p>
+            <span id="sitePathPrefix" data-sitePathPrefix="{!$Site.Prefix}"></span>
+        </p>
+    </div>
+</apex:page>

@@ -1,0 +1,9 @@
+<aura:event type="COMPONENT" description="Fire when a DocGen Package is selected.">
+    <aura:attribute name="id" type="string" default="" description="Contains id of selected DocGen Package."/>
+    <aura:attribute name="name" type="string" default="" description="Contains name of selected DocGen Package."/>
+    <aura:attribute name="contactRequired" type="boolean" default="false" description="True if contact is required for the selected DocGen Package."/>
+    <aura:attribute name="attachmentAllowed" type="boolean" default="false" description="True if attachments are allowed for the selected DocGen Package."/>
+    <aura:attribute name="attachmentRequired" type="boolean" default="false" description="True if attachments are required for the selected DocGen Package."/>
+    <aura:attribute name="hasOptionalDocuments" type="boolean" default="false" description="True if the selected DocGen Package has optional documents."/>
+    <aura:attribute name="hasAdhocApexClass" type="boolean" default="false" description="True if there is a custom class in the AdHoc_Apex_Class__c field in the DocGen Package."/>
+</aura:event>

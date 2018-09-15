@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Pricebook List Price</value>
+        </caseValues>
+        <name>list_price_opportunitylineitem</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Net Unit Price</value>
+        </caseValues>
+        <name>sales_price_opportunitylineitem</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <help><!-- Sales price for Opportunity product --></help>
+        <label><!-- Active/Inactive Net Unit Price --></label>
+        <name>ActiveInactiveNetUnitPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Automatically calculated total price for product --></help>
+        <label><!-- Active/Inactive Total Price --></label>
+        <name>ActiveInactiveTotalPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Annualized discount amount auto calculated by system --></help>
+        <label><!-- Annualized Discount Amount --></label>
+        <name>AnnualizedDiscountAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Annualized Price --></help>
+        <label><!-- Annualized Price --></label>
+        <name>AnnualizedPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculates total amount using AnnualizedUnitPrice , AnnualizedDiscountAmount and Quantity --></help>
+        <label><!-- Annualized Total Amount --></label>
+        <name>AnnualizedTotalAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Annualized unit price calculated from unit price automatically --></help>
+        <label><!-- Annualized Unit Price --></label>
+        <name>AnnualizedUnitPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Custom Collection ID --></help>
+        <label><!-- CCID --></label>
+        <name>CCID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Custom Collection QuoteID --></help>
+        <label><!-- CCQuoteID --></label>
+        <name>CCQuoteID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Updates to the Contract End Date on the Opportunity will overwrite Contract End Date on the Opportunity Product --></help>
+        <label><!-- Contract End Date --></label>
+        <name>ContractEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Updates to the Contract Start Date on the Opportunity will overwrite Contract Start Date on the Opportunity Product --></help>
+        <label><!-- Contract Start Date --></label>
+        <name>ContractStartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy Markit field, please enter a value --></help>
+        <label><!-- Delivery Platform --></label>
+        <name>DeliveryPlatform__c</name>
+        <picklistValues>
+            <masterLabel>BlackRock Aladdin</masterLabel>
+            <translation><!-- BlackRock Aladdin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg</masterLabel>
+            <translation><!-- Bloomberg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FactSet</masterLabel>
+            <translation><!-- FactSet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSCI</masterLabel>
+            <translation><!-- MSCI --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Checked when product has been discounted over threshold --></help>
+        <label><!-- Discount Over Threshold --></label>
+        <name>DiscountOverThreshold__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please specify the discount percentage to be applied to the Updated List Price. Only required when the Discount Type is set to &quot;Percentage&quot;. --></help>
+        <label><!-- Discount % --></label>
+        <name>DiscountPercentage__c</name>
+    </fields>
+    <fields>
+        <help><!-- The flag will set to Red if discount is over discount threshold on the Product --></help>
+        <label><!-- Discount Threshold --></label>
+        <name>DiscountThreshold__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field denotes the type of discount that is being applied. --></help>
+        <label><!-- Discount Type --></label>
+        <name>DiscountType__c</name>
+        <picklistValues>
+            <masterLabel>Amount</masterLabel>
+            <translation><!-- Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Discount</masterLabel>
+            <translation><!-- No Discount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Percentage</masterLabel>
+            <translation><!-- Percentage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please specify the discount amount to be applied to the Updated List Price. Only required when the Discount Type is set to &quot;Amount&quot;. --></help>
+        <label><!-- Discount Amount --></label>
+        <name>Discount_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- First Year Value --></help>
+        <label><!-- First Year Value --></label>
+        <name>FirstYear__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy Markit field, please enter a value --></help>
+        <label><!-- Integration Partner/Revenue Share --></label>
+        <name>IntegrationPartnerRevenueShare__c</name>
+        <picklistValues>
+            <masterLabel>Ascendant Compliance Management</masterLabel>
+            <translation><!-- Ascendant Compliance Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BlackRock Aladdin</masterLabel>
+            <translation><!-- BlackRock Aladdin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CloudMargin</masterLabel>
+            <translation><!-- CloudMargin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance Solutions Strategies</masterLabel>
+            <translation><!-- Compliance Solutions Strategies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comyno</masterLabel>
+            <translation><!-- Comyno --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IRESS</masterLabel>
+            <translation><!-- IRESS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simplitium</masterLabel>
+            <translation><!-- Simplitium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SunGard</masterLabel>
+            <translation><!-- SunGard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WRDS</masterLabel>
+            <translation><!-- WRDS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Internal Flag to handle pro-ration of subscription products --></help>
+        <label><!-- Is Pro-Rated? --></label>
+        <name>IsProRated__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system id referencing the source record and is populated via migration --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the reference to the source record populated via migration --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actual license number for a customer to access a sold product --></help>
+        <label><!-- License Number --></label>
+        <name>LicenseNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the contracted license type with the customer --></help>
+        <label><!-- License Type --></label>
+        <name>LicenseType__c</name>
+        <picklistValues>
+            <masterLabel>Client License</masterLabel>
+            <translation><!-- Client License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Departmental License</masterLabel>
+            <translation><!-- Departmental License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Divisional License</masterLabel>
+            <translation><!-- Divisional License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise-Wide License</masterLabel>
+            <translation><!-- Enterprise-Wide License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One-Time License</masterLabel>
+            <translation><!-- One-Time License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site License</masterLabel>
+            <translation><!-- Site License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standalone License</masterLabel>
+            <translation><!-- Standalone License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User License</masterLabel>
+            <translation><!-- User License --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- First Year Price Book List Price from Product Schedules --></help>
+        <label><!-- PriceBook List Price --></label>
+        <name>ListPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- The List price from the price book or provided through the renewal process --></help>
+        <label><!-- List Price --></label>
+        <name>ListPriceformula__c</name>
+    </fields>
+    <fields>
+        <help><!-- Material Code from Product Master --></help>
+        <label><!-- Material Code --></label>
+        <name>MaterialCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of unique users or concurrent users licensed to access purchased product (supports pricing and licensing) --></help>
+        <label><!-- Number of Concurrent Users/Seats --></label>
+        <name>NumberofConcurrentUsersSeats__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of locations licensed to access purchased product (supports pricing and licensing) --></help>
+        <label><!-- Number of Locations/Sites --></label>
+        <name>NumberofLocationsSites__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of potential users licensed to access purchased product (supports pricing and licensing) --></help>
+        <label><!-- Number of Potential Users --></label>
+        <name>NumberofPotentialUsers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Opportunity Product --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- System generated Id in salesforce used for data migration purposes --></help>
+        <label><!-- PKID Opp Line --></label>
+        <name>PKIDOppLine__c</name>
+    </fields>
+    <fields>
+        <help><!-- Only populated on Renewals represents the status of the pricing fields on a renewal opportunity line - description on worksheet in this document --></help>
+        <label><!-- Price Reason Code --></label>
+        <name>PriceReasonCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- List price updated from Pricing Ops through the renewal process --></help>
+        <label><!-- Pricing Ops List Unit Price --></label>
+        <name>PricingOpsListUnitPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated by SAP --></help>
+        <label><!-- Prior Year Discount Price --></label>
+        <name>PriorYearDiscountPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- License type used for the prior year contract --></help>
+        <label><!-- Prior Year License Type --></label>
+        <name>PriorYearLicenseType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Prior year net unit based on the list unit minus unit discount --></help>
+        <label><!-- Prior Year Net Unit Price --></label>
+        <name>PriorYearNetUnitPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Prior Year Number of Concurrent Users/Seats --></help>
+        <label><!-- Prior Year Num of Concurrent Users/Seats --></label>
+        <name>PriorYearNumberOfConcurrentUsersSeats__c</name>
+    </fields>
+    <fields>
+        <help><!-- Prior Year Number of Locations/Sites --></help>
+        <label><!-- Prior Year Number of Locations/Sites --></label>
+        <name>PriorYearNumberOfLocationsSites__c</name>
+    </fields>
+    <fields>
+        <help><!-- Prior Year Potential Users --></help>
+        <label><!-- Prior Year Potential Users --></label>
+        <name>PriorYearPotentialUsers__c</name>
+    </fields>
+    <fields>
+        <help><!-- Prior year contracted quantity for the product --></help>
+        <label><!-- Prior Year Quantity --></label>
+        <name>PriorYearQuantity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated from SAP integration --></help>
+        <label><!-- Prior Year Total Discount Amt --></label>
+        <name>PriorYearTotalDiscountAmt__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated from SAP integration --></help>
+        <label><!-- Prior Year Total Sales Price --></label>
+        <name>PriorYearTotalSalesPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated from SAP integration --></help>
+        <label><!-- Prior Year List Unit Price --></label>
+        <name>PriorYearUnit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Auto calculated based on discount --></help>
+        <label><!-- Pro-Rated Discount Amount --></label>
+        <name>ProRatedDiscountAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- ProRated price based on SAP 360 day calculation --></help>
+        <label><!-- ProRated Price --></label>
+        <name>ProRatedPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Pro-Rated total amount auto-calculated by system --></help>
+        <label><!-- Pro-Rated Total Amount --></label>
+        <name>ProRatedTotalAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field auto calculated for field subscription pro-rated products --></help>
+        <label><!-- Pro-Rated Unit Price --></label>
+        <name>ProRatedUnitPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Once an Opportunity is closed won and processed by Order Management in SAP - a job will fill this field in with the Contract Number that was just added to SAP --></help>
+        <label><!-- Processed Contract Num --></label>
+        <name>ProcessedContractNum__c</name>
+    </fields>
+    <fields>
+        <help><!-- Once an Opportunity is closed won and processed by Order Management in SAP - a job will fill this field in with the Line Item Number that was just created in SAP for this product --></help>
+        <label><!-- Processed SAP Line Item --></label>
+        <name>ProcessedSAPLineItem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sale Type from the Profit Center on the Product Master --></help>
+        <label><!-- Product Type --></label>
+        <name>ProductType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Prior year list price + uplift - initiall price loaded into Updated List Price field when oppy is generated --></help>
+        <label><!-- Projected Unit Price --></label>
+        <name>ProjectedUnitPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- The recommended unit price is provided by Pricing Ops through the renewal process which is a target net unit price for the offering on the renewal --></help>
+        <label><!-- Recommended Unit Price --></label>
+        <name>RecommendedUnitPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Will be populated with the Line Item number from the SAP Contract - populated when Renewal is created, does not apply to new business --></help>
+        <label><!-- SAP Line Item --></label>
+        <name>SAPLineItem__c</name>
+    </fields>
+    <fields>
+        <help><!-- SAP sends price updates to SF via integration. The pricing team will use this field to comment regarding the pricing provided --></help>
+        <label><!-- SAP Price Note --></label>
+        <name>SAPPriceNote__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status for that opportunity product - New, Existing or Lost --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Existing</masterLabel>
+            <translation><!-- Existing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost</masterLabel>
+            <translation><!-- Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Updated List Price with the Discount Amount or Discount % applied --></help>
+        <label><!-- Discount Value --></label>
+        <name>TotalDiscountValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- List Price for the product populated by sales from pricing tools or through renewal process --></help>
+        <label><!-- Updated List Price --></label>
+        <name>UnitListPrice__c</name>
+    </fields>
+    <layouts>
+        <layout>Opportunity Product Layout</layout>
+        <sections>
+            <label><!-- Integration Partner --></label>
+            <section>Integration Partner</section>
+        </sections>
+        <sections>
+            <label><!-- Pricing --></label>
+            <section>Pricing</section>
+        </sections>
+        <sections>
+            <label><!-- Prior Year Information --></label>
+            <section>Prior Year Information</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Contract End Date needs to be greater than or equal to the Contract Start Date. --></errorMessage>
+        <name>ContractEndDtCantExceedContractStartDt</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Dates need to be within Opportunity Contract Dates. --></errorMessage>
+        <name>ContractEndDtCantPrecedeOppContractEndDt</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Dates need to be within Opportunity Contract Dates --></errorMessage>
+        <name>ContractStartDtCantPrecedeOppConStartDt</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to update Opportunity Product values. --></errorMessage>
+        <name>InnerYearRecordValidationCheck</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please note Opportunity Product Total price for Gratis Opportunity should be zero --></errorMessage>
+        <name>OpportunityGratisProductValueZero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status can not be changed from New to Lost or Existing or None. If you wish to remove it , Please delete the product. --></errorMessage>
+        <name>OppproductStatusCanNotChangedFromNew</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- License Number on Renewals Opportunity Products is editable only to &quot;IHSMarkit System Admin: API&quot; profile --></errorMessage>
+        <name>RenewalsLicenseNumberEditableOnlyToAPI</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>41.0</apiVersion>
+    <description>SFDC1-629 event to pass selected object from child customComponent to parent component(in which the custom lookup is called)</description>
+</AuraDefinitionBundle>

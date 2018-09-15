@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Reference to Additional Contact Fields object for this Contact record --></help>
+        <label><!-- Additional Contact Fields --></label>
+        <name>AdditionalContactFields__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Read-only field, updated indirectly by a change of Company&apos;s Billing Country --></help>
+        <label><!-- Contact Country --></label>
+        <name>ContactCountry__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Read-only field referencing Contact Country&apos;s geography --></help>
+        <label><!-- Contact Geography --></label>
+        <name>ContactGeography__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read-only field referencing Contact Country&apos;s region --></help>
+        <label><!-- Contact Region --></label>
+        <name>ContactRegion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date that a hard-bounce from the email address --></help>
+        <label><!-- Eloqua Hard Bounce --></label>
+        <name>EloquaHardBounce__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Opt Out Time Stamp --></label>
+        <name>EmailOptOutTimeStamp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Opt Out --></label>
+        <name>EmailOptOut__c</name>
+        <picklistValues>
+            <masterLabel>Country Email Exclusion (ie CASL/GDPR)</masterLabel>
+            <translation><!-- Country Email Exclusion (ie CASL/GDPR) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Email Opt Out</masterLabel>
+            <translation><!-- Global Email Opt Out --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please check this box if contact&apos;s email address is unknown. A phone number will be required in that case. --></help>
+        <label><!-- Email Unknown --></label>
+        <name>EmailUnknown__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee ID --></label>
+        <name>EmployeeID__c</name>
+    </fields>
+    <fields>
+        <help><!-- If a suitable Group/Desk cannot be found please contact your Salesforce Administrator. --></help>
+        <label><!-- Group/Desk --></label>
+        <name>GroupDesk__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alternative Investments</masterLabel>
+            <translation><!-- Alternative Investments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arbitrage</masterLabel>
+            <translation><!-- Arbitrage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Management</masterLabel>
+            <translation><!-- Asset Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auditor</masterLabel>
+            <translation><!-- Auditor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing</masterLabel>
+            <translation><!-- Clearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing &amp; Custody</masterLabel>
+            <translation><!-- Clearing &amp; Custody --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing/Back Office</masterLabel>
+            <translation><!-- Clearing/Back Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commodities Desk</masterLabel>
+            <translation><!-- Commodities Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor</masterLabel>
+            <translation><!-- Competitor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultant</masterLabel>
+            <translation><!-- Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Convertible Desk</masterLabel>
+            <translation><!-- Convertible Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Broking</masterLabel>
+            <translation><!-- Corporate Broking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Finance</masterLabel>
+            <translation><!-- Corporate Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Sales</masterLabel>
+            <translation><!-- Corporate Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Trading</masterLabel>
+            <translation><!-- Corporate Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correlation Desk</masterLabel>
+            <translation><!-- Correlation Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit</masterLabel>
+            <translation><!-- Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Research</masterLabel>
+            <translation><!-- Credit Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Risk</masterLabel>
+            <translation><!-- Credit Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Sales</masterLabel>
+            <translation><!-- Credit Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Trading</masterLabel>
+            <translation><!-- Credit Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custody</masterLabel>
+            <translation><!-- Custody --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Feed Manager</masterLabel>
+            <translation><!-- Data Feed Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Management</masterLabel>
+            <translation><!-- Data Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Derivative Desk</masterLabel>
+            <translation><!-- Derivative Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Derivatives Trader</masterLabel>
+            <translation><!-- Derivatives Trader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Commerce</masterLabel>
+            <translation><!-- E-Commerce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economic Research</masterLabel>
+            <translation><!-- Economic Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Derivatives</masterLabel>
+            <translation><!-- Equity Derivatives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Portfolio Mgr</masterLabel>
+            <translation><!-- Equity Portfolio Mgr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Research</masterLabel>
+            <translation><!-- Equity Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Risk</masterLabel>
+            <translation><!-- Equity Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Sales</masterLabel>
+            <translation><!-- Equity Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Trading</masterLabel>
+            <translation><!-- Equity Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Management</masterLabel>
+            <translation><!-- Executive Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX Trading</masterLabel>
+            <translation><!-- FX Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Income</masterLabel>
+            <translation><!-- Fixed Income --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Income Portfolio Mgr</masterLabel>
+            <translation><!-- Fixed Income Portfolio Mgr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Income Research</masterLabel>
+            <translation><!-- Fixed Income Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Income Risk</masterLabel>
+            <translation><!-- Fixed Income Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed IncomeTrading</masterLabel>
+            <translation><!-- Fixed IncomeTrading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forex Desk</masterLabel>
+            <translation><!-- Forex Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fund Administrator</masterLabel>
+            <translation><!-- Fund Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Futures Desk</masterLabel>
+            <translation><!-- Futures Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Markets</masterLabel>
+            <translation><!-- Global Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head Hunter</masterLabel>
+            <translation><!-- Head Hunter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources</masterLabel>
+            <translation><!-- Human Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information Technology</masterLabel>
+            <translation><!-- Information Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interest Rate Desk</masterLabel>
+            <translation><!-- Interest Rate Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intern</masterLabel>
+            <translation><!-- Intern --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investment Banking</masterLabel>
+            <translation><!-- Investment Banking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Left Firm</masterLabel>
+            <translation><!-- Left Firm --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal</masterLabel>
+            <translation><!-- Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loans</masterLabel>
+            <translation><!-- Loans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M&amp;A</masterLabel>
+            <translation><!-- M&amp;A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Data</masterLabel>
+            <translation><!-- Market Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Risk</masterLabel>
+            <translation><!-- Market Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Middle Office</masterLabel>
+            <translation><!-- Middle Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Money Market Desk</masterLabel>
+            <translation><!-- Money Market Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mortgage Desk</masterLabel>
+            <translation><!-- Mortgage Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Muni Desk</masterLabel>
+            <translation><!-- Muni Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations</masterLabel>
+            <translation><!-- Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portfolio Manager</masterLabel>
+            <translation><!-- Portfolio Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press</masterLabel>
+            <translation><!-- Press --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Valuations</masterLabel>
+            <translation><!-- Pricing Valuations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prime Brokerage</masterLabel>
+            <translation><!-- Prime Brokerage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private Banking</masterLabel>
+            <translation><!-- Private Banking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procurement</masterLabel>
+            <translation><!-- Procurement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Control</masterLabel>
+            <translation><!-- Product Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Program Trading</masterLabel>
+            <translation><!-- Program Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Management</masterLabel>
+            <translation><!-- Project Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proprietary Desk</masterLabel>
+            <translation><!-- Proprietary Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Relations</masterLabel>
+            <translation><!-- Public Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quantitative Trading</masterLabel>
+            <translation><!-- Quantitative Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Real Estate</masterLabel>
+            <translation><!-- Real Estate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulator</masterLabel>
+            <translation><!-- Regulator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repo Desk</masterLabel>
+            <translation><!-- Repo Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research - Client</masterLabel>
+            <translation><!-- Research - Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk</masterLabel>
+            <translation><!-- Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales &amp; Marketing</masterLabel>
+            <translation><!-- Sales &amp; Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Securitization</masterLabel>
+            <translation><!-- Securitization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security Lending</masterLabel>
+            <translation><!-- Security Lending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Planning</masterLabel>
+            <translation><!-- Strategic Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Structured Credit</masterLabel>
+            <translation><!-- Structured Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Structured Products</masterLabel>
+            <translation><!-- Structured Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Structured Risk</masterLabel>
+            <translation><!-- Structured Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Structured Surveillance</masterLabel>
+            <translation><!-- Structured Surveillance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swaps Desk</masterLabel>
+            <translation><!-- Swaps Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Syndication</masterLabel>
+            <translation><!-- Syndication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Treasury</masterLabel>
+            <translation><!-- Treasury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trust</masterLabel>
+            <translation><!-- Trust --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underwriting</masterLabel>
+            <translation><!-- Underwriting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valuations - Client/External</masterLabel>
+            <translation><!-- Valuations - Client/External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor</masterLabel>
+            <translation><!-- Vendor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Group Email Flag --></label>
+        <name>GroupEmailFlag__c</name>
+    </fields>
+    <fields>
+        <help><!-- Required when status changed to inactive. --></help>
+        <label><!-- Inactive Reason --></label>
+        <name>InactiveReason__c</name>
+        <picklistValues>
+            <masterLabel>Account Inactive</masterLabel>
+            <translation><!-- Account Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deceased</masterLabel>
+            <translation><!-- Deceased --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moved On</masterLabel>
+            <translation><!-- Moved On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retired</masterLabel>
+            <translation><!-- Retired --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select an Industry value. --></help>
+        <label><!-- Industry --></label>
+        <name>Industry__c</name>
+        <picklistValues>
+            <masterLabel>Academic/Education</masterLabel>
+            <translation><!-- Academic/Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aerospace &amp; Defense</masterLabel>
+            <translation><!-- Aerospace &amp; Defense --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agriculture</masterLabel>
+            <translation><!-- Agriculture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Air Transport</masterLabel>
+            <translation><!-- Air Transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Automotive</masterLabel>
+            <translation><!-- Automotive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Banking</masterLabel>
+            <translation><!-- Banking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Services/Consulting</masterLabel>
+            <translation><!-- Business Services/Consulting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemicals</masterLabel>
+            <translation><!-- Chemicals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coal</masterLabel>
+            <translation><!-- Coal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commodities Trading</masterLabel>
+            <translation><!-- Commodities Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction</masterLabel>
+            <translation><!-- Construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronics</masterLabel>
+            <translation><!-- Electronics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Equipment</masterLabel>
+            <translation><!-- Energy Equipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Services</masterLabel>
+            <translation><!-- Energy Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial/Asset Management</masterLabel>
+            <translation><!-- Financial/Asset Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food Manufacturing</masterLabel>
+            <translation><!-- Food Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthcare</masterLabel>
+            <translation><!-- Healthcare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance</masterLabel>
+            <translation><!-- Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Land Transport</masterLabel>
+            <translation><!-- Land Transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local/State Government</masterLabel>
+            <translation><!-- Local/State Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Logistics &amp; Shipping</masterLabel>
+            <translation><!-- Logistics &amp; Shipping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maritime</masterLabel>
+            <translation><!-- Maritime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media</masterLabel>
+            <translation><!-- Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Metals/Mining</masterLabel>
+            <translation><!-- Metals/Mining --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Military/Security Government</masterLabel>
+            <translation><!-- Military/Security Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National Government</masterLabel>
+            <translation><!-- National Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Governmental Organizations (NGO)</masterLabel>
+            <translation><!-- Non-Governmental Organizations (NGO) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oil &amp; Gas</masterLabel>
+            <translation><!-- Oil &amp; Gas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Manufacturing</masterLabel>
+            <translation><!-- Other Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmaceutical</masterLabel>
+            <translation><!-- Pharmaceutical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Power &amp; Utility</masterLabel>
+            <translation><!-- Power &amp; Utility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software</masterLabel>
+            <translation><!-- Software --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telecommunications</masterLabel>
+            <translation><!-- Telecommunications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transportation Manufacturing</masterLabel>
+            <translation><!-- Transportation Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wood &amp; Paper</masterLabel>
+            <translation><!-- Wood &amp; Paper --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Job Function --></label>
+        <name>JobFunction__c</name>
+        <picklistValues>
+            <masterLabel>Academic/Education</masterLabel>
+            <translation><!-- Academic/Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analyst</masterLabel>
+            <translation><!-- Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Development/Sales</masterLabel>
+            <translation><!-- Business Development/Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Suite Executives</masterLabel>
+            <translation><!-- C-Suite Executives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Services</masterLabel>
+            <translation><!-- Corporate Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economist</masterLabel>
+            <translation><!-- Economist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineering</masterLabel>
+            <translation><!-- Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environmental Health Safety Sustainability</masterLabel>
+            <translation><!-- Environmental Health Safety Sustainability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exploration &amp; Production</masterLabel>
+            <translation><!-- Exploration &amp; Production --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial/Investment</masterLabel>
+            <translation><!-- Financial/Investment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geology</masterLabel>
+            <translation><!-- Geology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government</masterLabel>
+            <translation><!-- Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information Technology</masterLabel>
+            <translation><!-- Information Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal</masterLabel>
+            <translation><!-- Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Librarian</masterLabel>
+            <translation><!-- Librarian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturing</masterLabel>
+            <translation><!-- Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations</masterLabel>
+            <translation><!-- Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procurement</masterLabel>
+            <translation><!-- Procurement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product/Project Management</masterLabel>
+            <translation><!-- Product/Project Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk Management</masterLabel>
+            <translation><!-- Risk Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Planning</masterLabel>
+            <translation><!-- Strategic Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If you are unable to find a suitable job title please contact your Salesforce Administrator --></help>
+        <label><!-- Job Title --></label>
+        <name>JobTitle__c</name>
+        <picklistValues>
+            <masterLabel>Analyst</masterLabel>
+            <translation><!-- Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assistant Vice President</masterLabel>
+            <translation><!-- Assistant Vice President --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Associate</masterLabel>
+            <translation><!-- Associate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CCO - Chief Compliance Officer</masterLabel>
+            <translation><!-- CCO - Chief Compliance Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDO - Chief Data Officer</masterLabel>
+            <translation><!-- CDO - Chief Data Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEO - Chief Executive Officer</masterLabel>
+            <translation><!-- CEO - Chief Executive Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CFO - Chief Financial Officer</masterLabel>
+            <translation><!-- CFO - Chief Financial Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIO - Chief Investment Officer</masterLabel>
+            <translation><!-- CIO - Chief Investment Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COO - Chief Operating Officer</masterLabel>
+            <translation><!-- COO - Chief Operating Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRO - Chief Risk Officer</masterLabel>
+            <translation><!-- CRO - Chief Risk Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTO - Chief Technology Officer</masterLabel>
+            <translation><!-- CTO - Chief Technology Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chief Analyst</masterLabel>
+            <translation><!-- Chief Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Director</masterLabel>
+            <translation><!-- Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Director</masterLabel>
+            <translation><!-- Executive Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Vice President</masterLabel>
+            <translation><!-- Executive Vice President --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intern</masterLabel>
+            <translation><!-- Intern --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Managing Director</masterLabel>
+            <translation><!-- Managing Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portfolio Manager</masterLabel>
+            <translation><!-- Portfolio Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>President</masterLabel>
+            <translation><!-- President --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Analyst</masterLabel>
+            <translation><!-- Senior Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Director</masterLabel>
+            <translation><!-- Senior Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Managing Director</masterLabel>
+            <translation><!-- Senior Managing Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Vice President</masterLabel>
+            <translation><!-- Senior Vice President --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vice President</masterLabel>
+            <translation><!-- Vice President --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Licenses --></label>
+        <name>Licenses__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of related Product Login Contact Association --></help>
+        <label><!-- Number Product Login Contact Association --></label>
+        <name>NumProductLoginContactAssociation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Licenses --></label>
+        <name>NumberOfLicenses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Org Level --></label>
+        <name>OrgLevel__c</name>
+        <picklistValues>
+            <masterLabel>Advisory</masterLabel>
+            <translation><!-- Advisory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Board Member</masterLabel>
+            <translation><!-- Board Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEO or President</masterLabel>
+            <translation><!-- CEO or President --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CXO</masterLabel>
+            <translation><!-- CXO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Director</masterLabel>
+            <translation><!-- Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager</masterLabel>
+            <translation><!-- Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Management</masterLabel>
+            <translation><!-- Non Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vice President</masterLabel>
+            <translation><!-- Vice President --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PKID Contact --></label>
+        <name>PKIDContact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select contact&apos;s primary language --></help>
+        <label><!-- Primary Language --></label>
+        <name>PrimaryLanguage__c</name>
+        <picklistValues>
+            <masterLabel>Arabic</masterLabel>
+            <translation><!-- Arabic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Danish</masterLabel>
+            <translation><!-- Danish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dutch</masterLabel>
+            <translation><!-- Dutch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation><!-- German --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italian</masterLabel>
+            <translation><!-- Italian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese</masterLabel>
+            <translation><!-- Japanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korean</masterLabel>
+            <translation><!-- Korean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portuguese</masterLabel>
+            <translation><!-- Portuguese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russian</masterLabel>
+            <translation><!-- Russian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Lists the product used for the last 30 days. Auto-calculated via the trigger. --></help>
+        <label><!-- Product Usage Last 30 days --></label>
+        <name>ProductUsageLast30days__c</name>
+    </fields>
+    <fields>
+        <help><!-- Lists the product used for the last 60 days. Auto-calculated via a trigger. --></help>
+        <label><!-- Product Usage Last 60 days --></label>
+        <name>ProductUsageLast60days__c</name>
+    </fields>
+    <fields>
+        <help><!-- Lists the product used for the last 90 days. Auto-calculated via a trigger. --></help>
+        <label><!-- Product Usage Last 90 days --></label>
+        <name>ProductUsageLast90days__c</name>
+    </fields>
+    <fields>
+        <help><!-- Prospect Profiler --></help>
+        <label><!-- Prospect Profiler --></label>
+        <name>ProspectProfiler__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select contact&apos;s status --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Contact Layout</layout>
+        <sections>
+            <label><!-- Product Login and Usage Information --></label>
+            <section>Product Login and Usage Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Create Salesforce Helpdesk Case --></label>
+        <name>CreateSFDCHelpdeskCase</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage><!-- Due to U.S. export controls and sanctions restrictions, Contact records cannot be created for the selected country. --></errorMessage>
+        <name>BlockProhibitedCountry</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select an inactive reason to change the contact&apos;s status to &quot;Inactive&quot;. --></errorMessage>
+        <name>ContactInactiveReason_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Email address or check the Email Unknown box (a business phone number will be required in that case). --></errorMessage>
+        <name>EmailRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Business Phone when Email is unknown. --></errorMessage>
+        <name>EmailUnknownThenPhoneRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter contact&apos;s first name --></errorMessage>
+        <name>FirstNameRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Inactive contact cannot be edited. Please change the contact status to &quot;Active&quot; to update other values. --></errorMessage>
+        <name>InactiveContactUpdate_Validation</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- ContactActivityOverview --></label>
+        <name>ContactActivityOverview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+</CustomObjectTranslation>

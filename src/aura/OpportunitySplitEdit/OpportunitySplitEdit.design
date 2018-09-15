@@ -1,0 +1,5 @@
+<design:component >
+	<design:attribute name="environmentType" description="Parameter to determine LEX or community"
+                      datasource="Community,Lightning"/>
+    <design:attribute name="oppyId" description="URL parameter for opportunity"/>
+</design:component>

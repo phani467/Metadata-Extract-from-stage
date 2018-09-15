@@ -1,0 +1,6 @@
+<aura:documentation>
+    <aura:description>
+        <p>An <code>lightnksdn:CommunityCustomButton</code> Custom Button For Community Builder</p>
+        <!--More markup here, such as <pre> for code samples-->
+    </aura:description>
+</aura:documentation>

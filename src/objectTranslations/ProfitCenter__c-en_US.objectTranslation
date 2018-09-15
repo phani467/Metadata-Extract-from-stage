@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Profit Center</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Profit Centers</value>
+    </caseValues>
+    <fields>
+        <help><!-- Active --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Primary key from Legacy system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Primary key auto calculated --></help>
+        <label><!-- PKIDProfitCenter --></label>
+        <name>PKIDProfitCenter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profit Center Code --></label>
+        <name>ProfitCenterCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sale Type --></label>
+        <name>SaleType__c</name>
+        <picklistValues>
+            <masterLabel>Consulting</masterLabel>
+            <translation><!-- Consulting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onetime</masterLabel>
+            <translation><!-- Onetime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription</masterLabel>
+            <translation><!-- Subscription --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sales Business Line --></label>
+        <name>SalesBusinessLine__c</name>
+        <picklistValues>
+            <masterLabel>A&amp;D</masterLabel>
+            <translation><!-- A&amp;D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto MasterMind</masterLabel>
+            <translation><!-- Auto MasterMind --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Automotive</masterLabel>
+            <translation><!-- Automotive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CARFAX</masterLabel>
+            <translation><!-- CARFAX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CarProof</masterLabel>
+            <translation><!-- CarProof --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemicals</masterLabel>
+            <translation><!-- Chemicals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ECR</masterLabel>
+            <translation><!-- ECR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EWP</masterLabel>
+            <translation><!-- EWP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Technical</masterLabel>
+            <translation><!-- Energy Technical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maritime</masterLabel>
+            <translation><!-- Maritime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OMD</masterLabel>
+            <translation><!-- OMD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OPIS</masterLabel>
+            <translation><!-- OPIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PGCR</masterLabel>
+            <translation><!-- PGCR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Design</masterLabel>
+            <translation><!-- Product Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RootMetrics</masterLabel>
+            <translation><!-- RootMetrics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TMT</masterLabel>
+            <translation><!-- TMT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upstream</masterLabel>
+            <translation><!-- Upstream --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sales Revenue Type --></label>
+        <name>SalesRevenueType__c</name>
+        <picklistValues>
+            <masterLabel>Consulting</masterLabel>
+            <translation><!-- Consulting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SW &amp; Svcs</masterLabel>
+            <translation><!-- SW &amp; Svcs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription</masterLabel>
+            <translation><!-- Subscription --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transaction</masterLabel>
+            <translation><!-- Transaction --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Profit Center Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

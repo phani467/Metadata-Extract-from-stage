@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2966 Halifax House Price Index Trial – Username</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Halifax House Price Index Trial – Username</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Halifax House Price Index Trial – Username</subject>
+    <textOnly>Dear {!Case.Contact},
+
+Welcome to your trial access to the Halifax House Price Index.
+
+The Halifax House Price Index administered by Markit is the UK&apos;s longest running monthly house price series with data covering the whole country going back to January 1983.
+
+We have created a trial account for you to access the Halifax House Price Index. Your login details are provided below. Please note that you may access this in one of two ways:
+
+1.	Via secure FTP site (SFTP). Your login details are:
+Host: files-eu.markit.com
+Port: 22
+Username: HPI-CompanyName-First.Last
+NOTE: Please note you may need to speak to your IT to download and install a standard SFTP client programme.
+
+2.	Via a web browser. Your login details are:
+URL: https://files-eu.markit.com
+Username: HPI-CompanyName-First.Last
+NOTE: Your browser will need to support the latest Java version in order to use the Java enabled version of the site. Please uncheck this option on the login page if you face any issues and attempt to re-login.
+
+Password: For security reasons this will be provided in a separate email. The same username and password can be used regardless of the method used to access the data.
+
+Please be advised that IHS Markit will shortly be in touch with you to discuss the appropriate licensing for your use case and the terms for your ongoing access to the Halifax House Price Index.
+
+If you have received this email in error or have any other questions, please contact us at: support@markit.com.
+
+Kind regards,
+
+IHS Markit Support
+
+U.S.: + 1 877 762 7548
+EMEA: + 800 6275 4800
+Asia Pacific: + 65 6922 4210
+Email: support@markit.com
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

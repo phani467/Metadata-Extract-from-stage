@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Account_Overview_Record_Page3</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-9063 Salesperson or a user in salesforce would be able to generate an Account Overview for a specific Account (and subsidiaries).</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-9063, Created for account overview report. This is a lookup field for account overview</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup field for account</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Overviews</relationshipLabel>
+        <relationshipName>AccountOverviews</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AttachmentsCount__c</fullName>
+        <description>SFDC1-9063, Created for account overview report.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shows number of attachments</inlineHelpText>
+        <label>Attachments Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AttendeeCount__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Shows Count of attendees.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shows Count of attendees.</inlineHelpText>
+        <label>Attendee Count</label>
+        <summaryForeignKey>Attendee__c.AccountOverview__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Exclude1Opportunities__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report. Shows By default all New business open pipeline is included.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shows By default all New business open pipeline is included.</inlineHelpText>
+        <label>Exclude 1% Opportunities</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ExcludeSubsidiaries__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report. Shows Excluded contracts and opportunities for all subsidiaries.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For showing excluded contracts and opportunities for all subsidiaries</inlineHelpText>
+        <label>Exclude subsidiaries</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ExcludeZeroValueOpportunities__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report. By default  zero value opportunities are excluded from overview.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>By default  zero value opportunities are excluded from overview.</inlineHelpText>
+        <label>Exclude Zero Value Opportunities</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IncludeAccountTeam__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checkbox field to include account team</inlineHelpText>
+        <label>Include Account Team</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IncludeContractsatRisk__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checkbox for report generator to show whether contracts are at risk or not</inlineHelpText>
+        <label>Include Contracts at Risk</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IncludeExcludeRRRSubsidiaries__c</fullName>
+        <description>SFDC1-9063, Created for account overview report.</description>
+        <externalId>false</externalId>
+        <formula>IF(ExcludeSubsidiaries__c, &apos;Exclude Subsidiaries&apos;, &apos;Include Subsidiaries&apos;) +  &apos; &apos; + IF(IncludeRRRColumn__c, &apos;Include RRR&apos;, &apos;Exclude RRR&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Field to include or exclude Run Rate Revenue for subsidiaries</inlineHelpText>
+        <label>IncludeExcludeRRRSubsidiaries</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IncludeKeyContacts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report. Checkbox to show whether to include key contacts</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checkbox to show whether to include key contacts</inlineHelpText>
+        <label>Include Key Contacts</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IncludeOpportunitiesOwner__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report. Checkbox to include opportunity owner</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checkbox to include opportunity owner</inlineHelpText>
+        <label>Include Opportunities Owner</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IncludeRRRColumn__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checkbox to include Run Rate Revenue Column</inlineHelpText>
+        <label>Include RRR Column</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IncludeUpcomingTopRenewals__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checkbox to include Top Renewals</inlineHelpText>
+        <label>Include Upcoming Top Renewals</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OppQueryAmount__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. (Not visible to end users, for internal purpose only)</description>
+        <externalId>false</externalId>
+        <formula>IF(ExcludeZeroValueOpportunities__c, 1, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Query for opportunity amount</inlineHelpText>
+        <label>Opp Query Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OppQueryProbabilty__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. (Not visible to end users, for internal purpose only)</description>
+        <externalId>false</externalId>
+        <formula>IF(Exclude1Opportunities__c, 5, 1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Query for calculating probability of an opportunity</inlineHelpText>
+        <label>Opp Query Probabilty</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProductLineSummariesCount__c</fullName>
+        <description>SFDC1-9063, Created for account overview report.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Count of Product Line Item</inlineHelpText>
+        <label>Product Line Summaries Count</label>
+        <summaryForeignKey>ProductLineSummary__c.AccountOverview__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>Account Overview</label>
+    <nameField>
+        <label>Account Overview Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Account Overviews</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>ReadOnly</fullName>
+        <active>true</active>
+        <description>Ready Only Record Type</description>
+        <label>Read Only</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ReadWrite</fullName>
+        <active>true</active>
+        <description>Ready Write Record Type</description>
+        <label>Read Write</label>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>CreateReport</fullName>
+        <availability>online</availability>
+        <description>SFDC1-5228</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Create Report</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!AccountOverview__c.Id}&amp;sessionid={!$Api.Session_ID}&amp;ddpIds={!$Label.AccountOverviewDDPId}&amp;deploy={!$Label.AccountOverviewDDPAttachId}&amp;autorun=true</url>
+    </webLinks>
+    <webLinks>
+        <fullName>PreviewReport</fullName>
+        <availability>online</availability>
+        <description>SFDC1-5228 Button to preview Account Overview report</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Preview Report</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!AccountOverview__c.Id}&amp;sessionid={!$Api.Session_ID}&amp;ddpIds={!$Label.AccountOverviewDDPId}&amp;deploy={!$Label.AccountOverviewDocGenDownload}&amp;autorun=true</url>
+    </webLinks>
+</CustomObject>

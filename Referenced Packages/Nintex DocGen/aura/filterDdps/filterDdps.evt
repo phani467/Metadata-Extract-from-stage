@@ -1,0 +1,4 @@
+<aura:event type="Component">
+    <aura:attribute name="searchText" type="String"/>
+    <aura:attribute name="businessUser" type="String"/>
+</aura:event>

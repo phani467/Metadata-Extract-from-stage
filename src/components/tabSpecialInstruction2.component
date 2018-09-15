@@ -1,0 +1,28 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component id="SpecINScomp" >
+<!--apex:attribute name="thewrf" assignTo="{!wrf}" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" /-->
+<apex:attribute name="wrf"  assignTo="{!wrf}" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <!-- <script type="text/javascript" src="{!URLFOR($Resource.ckEditor,'/ckeditor/ckeditor.js')}"></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.ckEditor,'/ckeditor/adapters/jquery.js')}"></script> -->
+  <apex:pageblocksection title="Special Instructions" id="SpecialInst" collapsible="false" columns="1">
+        <apex:inputField value="{!wrf.SpecialInstructions__c}" styleclass="RTEinput" style="width:95%"/>          
+                </apex:pageBlockSection>         
+    <script type="text/javascript">
+      var j$ = jQuery.noConflict();
+      
+      j$("#SpecINScomp").ready(function() {
+          var w=j$(document).width();
+           var config = {toolbar:[['Undo','Redo','-','Bold', 'Italic','Underline','Strike', '-', 'Link','-','JustifyLeft','JustifyCenter','JustifyRight' ], '/',
+                                   ['BulletedList','NumberedList','-','Outdent','Indent']]};
+          j$(".RTEinput").ckeditor(function(){},config);
+      });
+    </script>
+</apex:component>

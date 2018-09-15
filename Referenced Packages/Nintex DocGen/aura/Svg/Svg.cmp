@@ -1,0 +1,10 @@
+<aura:component >
+    <aura:attribute name="class" type="String" description="CSS classname for the SVG element"/>
+    <aura:attribute name="xlinkHref" type="String" description="SLDS icon path. Ex: /resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#download"/>
+    <aura:attribute name="mouseOver" type="String" default="" />
+    <aura:attribute name="mouseOut" type="String" default="" />
+    <aura:attribute name="onclick" type="String" default="" />
+    <aura:attribute name="id" type="String" default="" />
+    <aura:attribute name="display" type="Boolean" default="true"/>
+    <aura:attribute name="style" type="string"/>
+</aura:component>

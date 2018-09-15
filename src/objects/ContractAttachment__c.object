@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ContractAttachmentPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-662 Object to define what kind of attachment users are adding to a Contract</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AccountName__c</fullName>
+        <description>SFDC1-662 Name of Account with which this contract attachment is associated</description>
+        <externalId>false</externalId>
+        <formula>Contract__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read only field which gives name of Account with which this contract attachment is associated</inlineHelpText>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AttachmentType__c</fullName>
+        <description>SFDC1-662 to define what kind of attachment users are adding to a Contract
+SFDC1-7080: Updating Attachment Type picklist field on the Contract Attachments object,</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the kind of attachment you are adding to a Contract</inlineHelpText>
+        <label>Attachment Type</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Addendum</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Certificate of Purge</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Signed Contract</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Usage Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contribution Addendum</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contribution Schedule</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Countersigned Contract</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Escrow Agreement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fee Waiver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitSERV Amended Annex Form</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitSERV Fee Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitSERV Super Access Coordinators Form</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitSERV Supplemental Agreement Form</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitSERV User/Broker Terms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitSERV User Agreement / Key Contacts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NDA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Notice of Non-Renewal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Novation Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Online Agreement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Price Increase Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Purchase Order</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales RAD Approval Form</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signed Continuation Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signed Master Agreement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signed NDA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signed Trial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Exempt Certificate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Termination Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Termination Retraction Notice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Renewal Notice</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>SFDC1-662 Contract attachment comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please add any comments related to this contact attachment</inlineHelpText>
+        <label>Comments</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ContractEndDate__c</fullName>
+        <description>SFDC1-662- End date of the Contract to which this contact attachment is associated</description>
+        <externalId>false</externalId>
+        <formula>Contract__r.EndDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field: End date of the Contract to which this contact attachment is associated</inlineHelpText>
+        <label>Contract End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ContractStartDate__c</fullName>
+        <description>SFDC1-662- Start date of the Contract to which this contact attachment is associated</description>
+        <externalId>false</externalId>
+        <formula>Contract__r.StartDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Read-only field: Start date of the Contract to which this contact attachment is associated</inlineHelpText>
+        <label>Contract Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <description>SFDC1-662 Contract to which this contact attachment is associated</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the contract to which this contact attachment is associated</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Contract Attachments</relationshipLabel>
+        <relationshipName>ContractAttachments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DocuSignEnvelopeId__c</fullName>
+        <description>SFDC1-662 DocuSign envelope ID if the contract  attachment is of DocuSign type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>System managed: DocuSign envelope ID if the contract  attachment is of DocuSign type</inlineHelpText>
+        <label>DocuSign Envelope Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsDocuSignCert__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-662: Checked if contract attachment is a DocuSign certificate</description>
+        <externalId>false</externalId>
+        <inlineHelpText>System Managed: Checked  if contract attachment is a DocuSign certificate</inlineHelpText>
+        <label>IsDocuSignCert?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7594 This is a concatenation of the System and ID to ensure the number is unique, this field should be a unique external ID.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is a concatenation of the System and ID to ensure the number is unique, this field should be a unique external ID.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7594 Record IDs from the legacy system Contract attachments, NOT unique</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Record IDs from the legacy system Contract attachments</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyReference__c</fullName>
+        <description>SFDC1-7594 This is a friendly system reference to the source</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is a friendly system reference to the source</inlineHelpText>
+        <label>LegacyReference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7594 This uses the Legacy System global picklist value set defined in SFDC1-6978</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Legacy System where this record was imported from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <label>Contract Attachment</label>
+    <nameField>
+        <label>Contract Attachment Name (Client-Prod)</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Contract Attachment</pluralLabel>
+    <recordTypes>
+        <fullName>ContinuationLetter</fullName>
+        <active>true</active>
+        <label>Continuation Letter</label>
+        <picklistValues>
+            <picklist>AttachmentType__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal Notice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed Continuation Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Letter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LegacySystem</picklist>
+            <values>
+                <fullName>CDNEnergy_Ctele</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fekete_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHS_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JOC_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Markit_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polk_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMT_MSCRM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>GeneralAgreement</fullName>
+        <active>true</active>
+        <label>Master Agreement</label>
+        <picklistValues>
+            <picklist>AttachmentType__c</picklist>
+            <values>
+                <fullName>Client Signed Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Countersigned Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notice of Non-Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novation Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Retraction Notice</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LegacySystem</picklist>
+            <values>
+                <fullName>CDNEnergy_Ctele</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fekete_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHS_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JOC_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Markit_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polk_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMT_MSCRM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NDA</fullName>
+        <active>true</active>
+        <label>NDA</label>
+        <picklistValues>
+            <picklist>AttachmentType__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed NDA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Retraction Notice</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LegacySystem</picklist>
+            <values>
+                <fullName>CDNEnergy_Ctele</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fekete_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHS_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JOC_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Markit_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polk_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMT_MSCRM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>OrderForm</fullName>
+        <active>true</active>
+        <label>Order Form</label>
+        <picklistValues>
+            <picklist>AttachmentType__c</picklist>
+            <values>
+                <fullName>Addendum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Certificate of Purge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Signed Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Usage Reports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contribution Addendum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contribution Schedule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Countersigned Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escrow Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fee Waiver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MarkitSERV Amended Annex Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MarkitSERV Fee Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MarkitSERV Super Access Coordinators Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MarkitSERV Supplemental Agreement Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MarkitSERV User Agreement %2F Key Contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MarkitSERV User%2FBroker Terms</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notice of Non-Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novation Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Increase Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales RAD Approval Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Retraction Notice</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LegacySystem</picklist>
+            <values>
+                <fullName>CDNEnergy_Ctele</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fekete_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHS_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JOC_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Markit_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polk_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMT_MSCRM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Trial</fullName>
+        <active>true</active>
+        <label>Trial</label>
+        <picklistValues>
+            <picklist>AttachmentType__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed Trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination Retraction Notice</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LegacySystem</picklist>
+            <values>
+                <fullName>CDNEnergy_Ctele</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fekete_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHS_MSCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JOC_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Markit_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polk_SFDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMT_MSCRM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Contract__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AccountName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AttachmentType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ContractStartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ContractEndDate__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Contract__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AccountName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AttachmentType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ContractStartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ContractEndDate__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Contract__c</lookupFilterFields>
+        <lookupFilterFields>AccountName__c</lookupFilterFields>
+        <lookupFilterFields>AttachmentType__c</lookupFilterFields>
+        <lookupFilterFields>ContractStartDate__c</lookupFilterFields>
+        <lookupFilterFields>ContractEndDate__c</lookupFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Contract__c</searchFilterFields>
+        <searchFilterFields>AccountName__c</searchFilterFields>
+        <searchFilterFields>AttachmentType__c</searchFilterFields>
+        <searchFilterFields>ContractStartDate__c</searchFilterFields>
+        <searchFilterFields>ContractEndDate__c</searchFilterFields>
+        <searchResultsAdditionalFields>Contract__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AccountName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AttachmentType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContractStartDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContractEndDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>RestrictAttachmentCreateEditforProfiles</fullName>
+        <active>true</active>
+        <description>SFDC1-4739 : Restrict some Profiles from Attachment creation and edit</description>
+        <errorConditionFormula>AND( 
+OR( 
+ISNEW(), 
+ISCHANGED(AccountName__c), 
+ISCHANGED(AttachmentType__c), 
+ISCHANGED(Comments__c), 
+ISCHANGED(Contract__c), 
+ISCHANGED(ContractEndDate__c), 
+ISCHANGED(ContractStartDate__c), 
+ISCHANGED(DocuSignEnvelopeId__c), 
+ISCHANGED(IsDocuSignCert__c), 
+ISCHANGED(Name)
+), 
+OR( 
+CONTAINS($Profile.Name, &apos;Read Only Profile&apos;), 
+CONTAINS($Profile.Name, &apos;Data Governance&apos;), 
+CONTAINS($Profile.Name, &apos;Product Manager&apos;), 
+CONTAINS($Profile.Name, &apos;Marketing&apos;),
+CONTAINS($Profile.Name, &apos;Read Only Activity User&apos;) 
+) 
+)</errorConditionFormula>
+        <errorMessage>You are not authorized to add Attachments.</errorMessage>
+    </validationRules>
+</CustomObject>

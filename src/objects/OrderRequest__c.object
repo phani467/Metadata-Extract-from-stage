@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object is used for WRF-POLK.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>AvailabilityCount__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Availability Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustPostProcessing__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Cust./Post Processing</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>CustomDescription__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Custom Description</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CutbackOptions__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Cutback Options</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DesiredCount__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Desired Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FormatOrder__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Output Format</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Fmt 001 - Name,C.Address,Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 011 - F.Name,Address,Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 012 - F.Name,C.Address,DMA,Vehicle Desc, Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 013 - F.Name,C.Address,Vehicle,Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 014 - F.Name,C.Address,Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 015 - F.Name,C.Address</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 017 - C.Name,C.Address</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 018 - F.Name,C.Address,Vehicle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 021 - Fmt 13 w/o vehicle - w/o phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fmt 026 - Fmt 13 w/o vehicle - with phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Custom</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>JobQueryID__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Job#/Query ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>KeyfieldCode__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Keyfield/Code</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>This field is used for data integration to store legacy system id in WRF POLK application.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field is used for data integration to store legacy system id in WRF POLK application.</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyReference__c</fullName>
+        <description>SFDC1-7046: Legacy Reference field is a friendly system reference to the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is a friendly system reference to the source record.</inlineHelpText>
+        <label>LegacyReference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OrderRequestAttachements__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Order Request Attachments</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PLCJob__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>PLC Job</label>
+        <referenceTo>PLCJob__c</referenceTo>
+        <relationshipLabel>Order Requests</relationshipLabel>
+        <relationshipName>OrderRequests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PostSortDecription__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Post-Sort Decription</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PostSort__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Post-Sort</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ascending</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Descending</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Combo</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PreSortDescription__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Pre-Sort Description</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PreSort__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Pre-Sort</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ascending</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Descending</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Combo</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProductionComments__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Production Comments</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Programmer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Programmer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Order_Requests1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Requestor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Requestor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Order_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubmittedDateTime__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Submitted Date/Time</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>WorkRequestForm__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Work Request Form</label>
+        <referenceTo>WorkRequestForm__c</referenceTo>
+        <relationshipLabel>Order Requests</relationshipLabel>
+        <relationshipName>Order_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Order Request</label>
+    <listViews>
+        <fullName>JeffAllen_OrderRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Jeff Allen</label>
+        <queue>JeffAllen</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MCMAnalytics_OrderRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MCM - Analytics</label>
+        <queue>MCMAnalytics</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MarketReportingAnalytics_OrderRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Market Reporting - Analytics</label>
+        <queue>MarketReportingAnalytics</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MarketReportingCAP_OrderRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Market Reporting - CAP</label>
+        <queue>MarketReportingCAP</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MarketReportingLoyalty_OrderRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Market Reporting - Loyalty</label>
+        <queue>MarketReportingLoyalty</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MarketReportingOEMStat_OrderRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Market Reporting - OEM Stat</label>
+        <queue>MarketReportingOEMStat</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>VINtelligenceRecall_OrderRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>VINtelligence - Recall</label>
+        <queue>VINtelligenceRecall</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>VINtelligenceSWS_OrderRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>VINtelligence - SWS</label>
+        <queue>VINtelligenceSWS</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>OR-{000000}</displayFormat>
+        <label>Order Request Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Order Requests</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

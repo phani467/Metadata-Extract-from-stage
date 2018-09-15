@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-4160 This object is used to identify a renewal at risk from an opportunity.
+SFDC1-6706, label has been changed to &quot;Opportunity at Risk&quot;.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>SFDC1-4160 Auto populates with the Account from Opportunity</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Opportunity at Risk</relationshipLabel>
+        <relationshipName>Renewals_at_Risk</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AnnualContractValue__c</fullName>
+        <description>SFDC1-4160 Auto populates from the Annual Contract Value field on the Opportunity</description>
+        <externalId>false</externalId>
+        <label>Annual Contract Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>SFDC1-4160 This field holds comments related to the renewal at risk</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ContractatRisk__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>SFDC1-4160 This field holds the contract at risk</description>
+        <externalId>false</externalId>
+        <label>Contract at Risk</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Opportunity at Risk</relationshipLabel>
+        <relationshipName>Renewals_at_Risk</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Currency__c</fullName>
+        <description>SFDC1-4160 This field auto populates with the Currency from Opportunity</description>
+        <externalId>false</externalId>
+        <formula>TEXT(OpportunityAtRisk__r.CurrencyIsoCode)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Currency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DateRiskIdentified__c</fullName>
+        <description>SFDC1- This field stores the current day&apos;s date</description>
+        <externalId>false</externalId>
+        <formula>TODAY()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Date Risk Identified</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EstimatedValueatRisk__c</fullName>
+        <description>SFDC1-4160 This field holds the estimated value at risk</description>
+        <externalId>false</externalId>
+        <label>Estimated Value at Risk</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7046: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (unfriendly) referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OpportunityAtRisk__c</fullName>
+        <description>SFDC1-4160 This field holds the Opportunity at Risk</description>
+        <externalId>false</externalId>
+        <label>Opportunity At Risk</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Opportunity at Risk</relationshipLabel>
+        <relationshipName>Renewals_at_Risk</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>RenewalatRiskOwner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-4160 This field has the Opportunity Owner&apos;s Name</description>
+        <externalId>false</externalId>
+        <label>Opportunity at Risk Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipLabel>Opportunity at Risk</relationshipLabel>
+        <relationshipName>Renewals_at_Risk_del</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RiskCustomerContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-4160 This field holds the name of the Customer&apos;s Name</description>
+        <externalId>false</externalId>
+        <label>Risk Customer Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Renewals_at_Risk</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RiskProbability__c</fullName>
+        <description>SFDC1-4160 This field holds the risk probability</description>
+        <externalId>false</externalId>
+        <label>Risk Probability</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>SFDC1-4160 This field holds the status of risk,SFDC1-7668 Adding &apos;Closed - Opportunity Lost&apos; value</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open - Pending Resolution</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Closed - Risk Mitigated</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed - Opportunity Lost</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed - Non Renewal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed - Terminated</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed - Downgraded</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Opportunity at Risk</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>OaR-{000000}</displayFormat>
+        <label>Opportunity at Risk Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Opportunities at Risk</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_if_Renewal_at_Risk_already_exists</fullName>
+        <active>true</active>
+        <description>SFDC1-4160 One opportunity is allowed to have only one renewal at risk associated to it.</description>
+        <errorConditionFormula>AND((OpportunityAtRisk__r.Countofrenewalatrisk__c = 1),ISNEW())</errorConditionFormula>
+        <errorMessage>This Opportunity has already been flagged for being &apos;at Risk&apos;.</errorMessage>
+    </validationRules>
+</CustomObject>

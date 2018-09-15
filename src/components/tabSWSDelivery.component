@@ -1,0 +1,48 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+     <apex:attribute name="formtype" description="This is the active formtype" required="true" type="String" />
+
+       <apex:pageBlock rendered="{!wrf.VINA__c||wrf.VIS__c||wrf.CVINA__c
+                      || wrf.PCVINA__c||wrf.PCVIS__c||wrf.PCCVINA__c||wrf.CompletePrefixFile__c||wrf.MINICPF__c||wrf.VINPrefixFile__c
+                      ||wrf.VINPrice__c||wrf.VINTelligence__c||wrf.Recover__c||wrf.FleetFind__c||wrf.VOS__c||wrf.VinVerification__c||wrf.Custom__c}" >
+         
+         <apex:pageblocksection title="Estimated SWS Delivery Timies (Business Days)" id="SWS" collapsible="false" columns="1" >         
+            
+            <table border="1" cellpadding="5" cellspacing="5" width="70%" align="center">
+            <tr>
+            <td><u><b>Product</b></u></td>
+            <td><u><b>Standard Request</b></u></td>
+            <td><u><b>Standard Plus add on</b></u></td>
+            <td><u><b>Custom Work</b></u></td>
+            </tr>
+            <tr><td> PC CVINA</td><td> 2-3 </td><td> 3-4</td><td> Estimate </td></tr>
+            <tr><td> CPF/CPF MINI/ CVINA Flat File</td><td> 2-3 </td><td> 3-4</td><td> Estimate </td></tr>
+            <tr><td> PC VINA/PC VIS Changes</td><td> 2-3 </td><td> 3-4</td><td> Estimate </td></tr>
+            <tr><td> Mainframe CVINA</td><td> 2-3 </td><td> 3-4</td><td> Estimate </td></tr>
+            <tr><td> Mainframe VINA/VIS Change</td><td> 4-5 </td><td> Estimate</td><td> Estimate </td></tr>
+            <tr><td> VINTelligence Flat File</td><td> 2-3 </td><td> Estimate</td><td> Estimate </td></tr>     
+            <tr><td> VINTelligence VIN Decoder</td><td> 2-3 </td><td> Estimate</td><td> Estimate </td></tr>                       
+            <tr><td> CVINA Batch Decoding</td><td> 2-3 </td><td> 4-5</td><td> Estimate </td></tr>  
+            <tr><td> Recover/Fleet Find Customer Setup</td><td> 2-3 </td><td> Estimate</td><td> Estimate </td></tr>                                
+            <tr><td> Recover/Fleet Find File Cyclical Processing</td><td> 1 </td><td> Estimate</td><td> Estimate </td></tr>                                                 
+            </table>
+             
+            <apex:outputText > *Assumes a completed and approved WRF is submitted with a Signed License Agreement </apex:outputText>
+            <apex:outputText > *Please use this as a guideline for determining estimated delivery dates </apex:outputText>
+            <apex:outputText > *During our monthly production release cycle we will work to meet your deadlines,  if there are questions please check with the production staff. </apex:outputText>
+            <apex:outputText > Standard Request: This encompasses what is on a WRF, except Symbol Merges </apex:outputText>
+            <apex:outputText > Standard plus add on: CVINA YMS files for AS/400, VIS Symbol Merges, Standard YMS Lookup files for PC CVINA, etc. </apex:outputText>
+            <apex:outputText > Custom Work: AIB VRG, CAR 3 Symbol System, etc.  This may go through the Production Life Cycle (PLC) or through Investment Approval (IA) </apex:outputText>
+
+
+         </apex:pageblocksection>
+      </apex:pageBlock>
+</apex:component>

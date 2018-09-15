@@ -1,0 +1,172 @@
+<aura:component controller="Loop.EmailComposerController">
+    <!-- Optional Attributes-->
+    <aura:attribute name="ddpLabel" type="string" default="DocGen Package"/>
+    
+    <!-- Internal Attributes -->
+    <aura:attribute name="header" type="string" default="New Email" access="private"/>
+    <aura:attribute name="message" type="string" default="" access="private"/>
+    <aura:attribute name="loaded" type="boolean" default="false" access="private"/>
+    <aura:attribute name="whoId" type="string" default="" access="private"/>
+    <aura:attribute name="whoName" type="string" default="" access="private"/>
+    <aura:attribute name="whatId" type="string" default="" access="private"/>
+    <aura:attribute name="sender" type="string" default="" access="private"/>
+    <aura:attribute name="senderLabel" type="string" default="" access="private"/>
+    <aura:attribute name="to" type="string" default="" access="private"/>
+    <aura:attribute name="displayCc" type="boolean" default="false" access="private"/>
+    <aura:attribute name="displayBcc" type="boolean" default="false" access="private"/>
+    <aura:attribute name="cc" type="string" default="" access="private"/>
+    <aura:attribute name="bcc" type="string" default="" access="private"/>
+    <aura:attribute name="subject" type="string" default="" access="private"/>
+    <aura:attribute name="emailBody" type="string" default="" access="private"/>
+    <aura:attribute name="templateHtmlBody" type="string" default="" access="private"/>
+    <aura:attribute name="templateRendererUrl" type="string" default="" access="private"/>
+    <aura:attribute name="templateId" type="string" default="" access="private"/>
+    <aura:attribute name="docTemplateId" type="string" default="" access="private"/>
+    <aura:attribute name="docTemplate" type="string" default="" access="private"/>
+    <aura:attribute name="documentIds" type="List" default="[]" access="private"/>
+    <aura:attribute name="emailAttachments" type="List" default="[]" access="private"/>
+    <aura:attribute name="errorMessage" type="string" default="" access="private"/>
+    
+    <!-- Handlers -->
+    <aura:handler name="removePill" event="Loop:removePill" action="{!c.removeAttachment}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="slideOutEmailComposer" type="Loop:slideOutEmailComposer"/>
+    <!--<aura:registerEvent name="cancelEmail" type="c:cancelEmail"/>-->
+    <aura:registerEvent name="enableModifyButtons" type="Loop:enableModifyButtons"/>
+    
+    <aura:method name="load" action="{!c.load}">
+        <aura:attribute name="emailUrl" type="string"/>
+    </aura:method>
+    <aura:method name="reset" action="{!c.reset}" />
+    
+    <div class="slds">
+        <div class="container">
+            <aura:if isTrue="{!!v.loaded}">
+                <div class="overlay">
+                    <div id="spinnerContainer" class="slds-spinner--large center-spinner">
+                        <img src="{!$Resource.Loop__SalesforceLightning + '/assets/images/spinners/slds_spinner_brand.gif'}" alt="Loading..." />
+                    </div>
+                </div>
+            </aura:if>
+            <div class="slds-p-vertical--small slds-p-horizontal--medium">
+                <div class="slds-text-heading--medium slds-m-bottom--x-small">{!v.header}</div>
+                <div aura:id="error" class="hidden">
+                    <div class="slds-notify slds-theme--error toast-style">
+                        <button class="slds-button slds-button--icon-inverse slds-notify__close" onclick="{!c.removeErrorMessage}">
+                            <Loop:Svg class="slds-button__icon slds-button__icon--large" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#close'}"/>
+                        </button>
+                        <div class="slds-notify__content slds-grid">
+                            <Loop:Svg class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#warning'}"/>
+                            <div class="slds-col slds-align-middle">
+                                <h2 class="slds-text-heading--small">{!v.errorMessage}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div aura:id="toast" class="hidden">
+                    <div class="slds-notify slds-theme--success toast-style" style="background-color: #4bc076;">
+                        <div class="slds-notify__content slds-grid">
+                            <Loop:Svg class="slds-icon slds-icon--small slds-m-right--small" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#success'}"/>
+                            <div class="slds-col slds-align-middle">
+                                <h2 class="slds-text-heading--small">{!v.message}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div aura:id="emailContents">
+                    <aura:if isTrue="{!v.senderLabel != ''}">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="from">From</label>
+                            <span class="slds-pill pill-offset">
+                                <span class="slds-pill__label">{!v.senderLabel}</span>
+                                <button class="slds-button slds-button--icon slds-pill__remove" onclick="{!c.removeSender}">
+                                    <Loop:Svg class="slds-button__icon" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#close'}"/>
+                                </button>
+                            </span>
+                        </div>
+                    </aura:if>
+                    <div class="slds-form-element" style="{!(v.whoName != '' &amp;&amp; senderLabel != '') ? 'margin-top: 5px;' : ''}">
+                        <div>
+                            <label class="slds-form-element__label">To</label>
+                            <aura:if isTrue="{!v.whoName != ''}">
+                                <span class="slds-pill pill-offset">
+                                    <span class="slds-pill__label" >{!v.whoName}</span>
+                                    <button class="slds-button slds-button--icon slds-pill__remove" onclick="{!c.removeWho}">
+                                        <Loop:Svg class="slds-button__icon" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#close'}"/>
+                                    </button>
+                                </span>
+                            </aura:if>
+                            <aura:if isTrue="{!!v.displayBcc}">
+                                <a class="slds-float--right slds-m-left--x-small link-offset" onclick="{!c.showBcc}">Bcc</a>
+                            </aura:if>
+                            <aura:if isTrue="{!!v.displayCc}">
+                                <a class="slds-float--right link-offset" onclick="{!c.showCc}">Cc</a>
+                            </aura:if>
+                        </div>
+                        <div class="slds-form-element__control">
+                            <input aura:id="to" class="slds-input" type="text" value="{!v.to}" onchange="{!c.updateTo}" style="padding-right: 60px;"/>
+                        </div>
+                    </div>
+                    <aura:if isTrue="{!v.displayCc}">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">Cc</label>
+                            <div class="slds-form-element__control">
+                                <input aura:id="cc" class="slds-input" type="text" value="{!v.cc}" onchange="{!c.updateCc}"/>
+                            </div>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayBcc}">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">Bcc</label>
+                            <div class="slds-form-element__control">
+                                <input aura:id="bcc" class="slds-input" type="text" value="{!v.bcc}" onchange="{!c.updateBcc}"/>
+                            </div>
+                        </div>
+                    </aura:if>
+                    <div class="slds-form-element slds-m-bottom--medium">
+                        <label class="slds-form-element__label">Subject</label>
+                        <div class="slds-form-element__control">
+                            <input aura:id="subject" class="slds-input" type="text" value="{!v.subject}" onchange="{!c.updateSubject}"/>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="slds-form-element__label">Body</label>
+                    </div>
+                    <!--Known salesforce bug regarding nested aura:if/iteration/renderIf. Workaround: wrap stuff with span. It's dumb, but it works.-->
+                    <span>
+                        <aura:if isTrue="{! !empty(v.docTemplateId)}">
+                            <iframe id="docTemplate" srcdoc="{!v.docTemplate}" class="htmlTemplate"/>
+                            <aura:set attribute="else">
+                                <span>
+                                    <aura:if isTrue="{! !empty(v.templateRendererUrl)}">
+                                        <Loop:Iframe url="{!v.templateRendererUrl}" class="custom-email-template"/>
+                                        <aura:set attribute="else">
+                                            <span>
+                                                <aura:if isTrue="{! !empty(v.templateHtmlBody)}">
+                                                    <lightning:inputRichText value="{!v.templateHtmlBody}" disabledCategories="FORMAT_FONT,REMOVE_FORMATTING"/>
+                                                    <aura:set attribute="else">
+                                                        <lightning:inputRichText value="{!v.emailBody}" disabledCategories="FORMAT_FONT,REMOVE_FORMATTING"/>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </span>
+                                        </aura:set>
+                                    </aura:if>
+                                </span>
+                            </aura:set>
+                        </aura:if>
+                    </span>
+                    <div class="slds-m-top--small">
+                        <aura:iteration items="{!v.emailAttachments}" var="attachment" indexVar="i">
+                            <Loop:Pill label="{!attachment.Name}" id="{!i}" svgClass="slds-button__icon icon-white" pillClass="slds-badge blue-color"/>
+                        </aura:iteration>
+                    </div>
+                    <div class="slds-m-top--small" style="text-align: right;">
+                        <button class="slds-button slds-button--neutral" onclick="{!c.cancel}">Cancel</button>
+                        <button class="slds-button slds-button--brand" onclick="{!c.send}">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

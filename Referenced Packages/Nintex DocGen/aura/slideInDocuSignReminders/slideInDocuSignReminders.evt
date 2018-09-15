@@ -1,0 +1,7 @@
+<aura:event type="COMPONENT" description="These are the reminder settings currently stored on the tile level, as well as the id of the record.">
+    <aura:attribute name="globalId" type="string" required="true"/>
+    <aura:attribute name="reminderDelay" type="decimal"/>
+    <aura:attribute name="daysTillSigningExpires" type="decimal"/>
+    <aura:attribute name="reminderFrequency" type="decimal"/>
+    <aura:attribute name="warnOfExpiration" type="decimal"/>
+</aura:event>

@@ -1,0 +1,1 @@
+// This static resource has been deprecated.

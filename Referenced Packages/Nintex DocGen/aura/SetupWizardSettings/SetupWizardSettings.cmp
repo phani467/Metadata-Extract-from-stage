@@ -1,0 +1,101 @@
+<aura:component controller="Loop.EditionController">
+    <!--Required attributes-->
+    <aura:attribute name="sessionId" type="string" required="true"/>
+    <aura:attribute name="connectedAppsEnabled" type="boolean" default="false" required="true"/>
+    <aura:attribute name="services" type="Map" required="true" description="Contains LMO info such as isStandard, add-ons, etc."/>
+    <aura:attribute name="orgSettings" type="Map" required="true" description="Contains org settings such as allowedLicenses, usedLicenses, etc."/>
+
+    <!--Optional attributes-->
+    <aura:attribute name="subdomain" type="string" default=""/>
+    <aura:attribute name="isDdpAdmin" type="boolean" default="true"/>
+
+	<!--Internal attributes-->
+    <aura:attribute name="isMass" type="boolean" default="false" access="private"/>
+    <aura:attribute name="useSalesforceFiles" type="boolean" default="false" access="private"/>
+    <aura:attribute name="isFedRampAllowed" type="boolean" default="false" access="private"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <!--Methods-->
+    <aura:method name="save" action="{!c.save}" access="Public"/>
+
+    <div class="slds">
+        <div class="border slds-m-bottom--medium">
+            <Loop:EnableDisableOAuth aura:id="oAuth" connectedAppsEnabled="{!v.connectedAppsEnabled}"/>
+        </div>
+        <aura:if isTrue="{!v.subdomain != '' || v.isFedRampAllowed}">
+            <div class="border slds-m-bottom--medium">
+                <div class="slds-text-heading--small slds-m-bottom--small" title="Setup Wizard">Nintex DocGen Subdomain</div>
+                <div class="slds-text-body--regular">
+                    Select which subdomain your organization uses to generate documents.
+                </div>
+                <div class="slds-form-element slds-m-right--small slds-p-top--small" style="position:relative; width:185px;">
+                    <ui:inputSelect aura:id="subdomainPicklist" class="slds-select slds-col" change="{!c.subdomainChange}">
+                        <ui:inputSelectOption aura:id="apps" text="apps" label="Default"/>
+                        <ui:inputSelectOption aura:id="na1" text="na1" label="NA1" value="{!v.subdomain == 'na1'}"/>
+                        <ui:inputSelectOption aura:id="na2" text="na2" label="NA2" value="{!v.subdomain == 'na2'}"/>
+                        <aura:if isTrue="{!v.subdomain == 'previous'}">
+                            <ui:inputSelectOption aura:id="previous" text="previous" label="Previous" value="{!v.subdomain == 'previous'}"/>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isFedRampAllowed || v.subdomain == 'gov'}">
+                            <ui:inputSelectOption aura:id="gov" text="gov" label="FedRAMP" value="{!v.subdomain == 'gov'}"/>
+                        </aura:if>
+                        <aura:if isTrue="{!v.subdomain == 'og-apps'}">
+                            <ui:inputSelectOption aura:id="og-apps" text="og-apps" label="Deprecated" value="{!v.subdomain == 'og-apps'}"/>
+                        </aura:if>
+                    </ui:inputSelect>
+                </div>
+                <aura:if isTrue="{!v.subdomain != '' &amp;&amp; v.subdomain != 'apps'}">
+                    <div class="slds-text-body--regular slds-p-top--small">
+                        You must configure the app to use this subdomain by <span class="slds-text-link" onclick="{!c.openRemoteSiteSettings}" style="cursor:pointer;">adding a Remote Site</span>.
+                    </div>
+                </aura:if>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.isMass}">
+            <div class="border slds-m-bottom--medium">
+                <Loop:SetupWizardSettingsMassReports />
+            </div>
+            <aura:set attribute="else">
+                <div class="border slds-theme--shade slds-m-bottom--medium">
+                    <div class="slds-text-heading--small slds-m-bottom--small" title="Setup Wizard">Mass DocGen Packages via Reports
+                        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9017" style="height: 14px;width: 14px;margin-top: 4px;"/>
+                    </div>
+                    Add the Mass DocGen Packages add-on to your subscription to use this feature.
+                </div>
+            </aura:set>
+        </aura:if>
+        <div class="border">
+            <h1 class="slds-text-heading--small slds-m-bottom--medium">Organization-Wide Settings</h1>
+            <h3 class="text-heading--x-small slds-m-bottom--small">Attachment Settings</h3>
+            <div class="slds-form-element">
+                <div class="slds-text-body--regular slds-p-bottom--small">Specify where to store attachments when Delivery Options specify Attachment as the storage type.</div>
+                <div class="slds-form-element__control" aura:id="attachmentSettings">
+                    <label class="slds-radio">
+                        <ui:inputRadio aura:id="attachmentsRadio" text="Attachment" name="attachments" change="{!c.updateAttachmentOption}"/>
+                        <span class="slds-radio--faux"></span>
+                        <span class="slds-form-element__label">Salesforce Attachment</span>
+                    </label>
+                    <label class="slds-radio">
+                        <ui:inputRadio aura:id="salesforceFilesRadio" text="Salesforce Files" name="attachments" change="{!c.updateAttachmentOption}"/>
+                        <span class="slds-radio--faux"></span>
+                        <span class="slds-form-element__label">Salesforce Files</span>
+                    </label>
+                </div>
+            </div>
+			<hr/>
+            <h3 class="text-heading--x-small slds-m-top--medium slds-m-bottom--small">Pause to Edit Settings
+                <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9012" style="height: 14px;width: 14px;margin-top: 3px;"/>
+            </h3>
+            <div class="slds-m-bottom--medium">
+            	<Loop:SetupWizardSettingsPauseToEdit aura:id="pauseToEdit"/>
+            </div>
+            <Loop:SetupWizardSettingsTable />
+        </div>
+    </div>
+</aura:component>

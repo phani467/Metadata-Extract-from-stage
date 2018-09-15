@@ -1,0 +1,66 @@
+<aura:component controller="Loop.ApplicationAuthorizationController" implements="AuthTargetEnum" description="This component handles all authorization activities for the DocGen application">
+    <ltng:require scripts="/resource/Loop__Scripts/eventListener.js"/>
+
+    <!-- Public attributes -->
+    <aura:attribute name="viewContext" type="string" default="STAND_ALONE" description="Enum describing the context the view for this component is in. Values: STAND_ALONE, SIMPLE, DESCRIPTIVE"/>
+    <aura:attribute name="businessContext" type="string" default="BASIC_AUTH" description="Enum describing the context specified for the business logic of this component. Values: BASIC_AUTH, CONNECT_INTEGRATION_USER, OTHER_ORG_AUTH"/>
+    <aura:attribute name="redirectTarget" type="string" default="{!v.AuthTarget.AUTHORIZE_LOOP}" description="Enum describing in which component we are authorizing from. Used for redirection logic in landingpage. Use values stored in AuthTargetEnum component."/>
+    <!-- Private attributes -->
+    <aura:attribute name="oAuthUrl" type="string" default="" access="private" description="Url for Salesforce's OAuth flow"/>
+    <aura:attribute name="isAuthProcessing" type="boolean" default="true" access="private" description="True if we are waiting on OAuth initialization callback"/>
+    <aura:attribute name="hasCustomizeAppPermission" type="boolean" default="true" access="private" description="True if the user has the Customize Application profile permission"/>
+    <aura:attribute name="integrationUsername" type="string" access="private" description="The username of the connected integration user, if one exists"/>
+    <aura:attribute name="showAuthFlowButton" type="boolean" access="private" description="True if the button that kicks off the OAuth flow should be shown. See the controller's onChange function." />
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="change" value="{!v.isAuthProcessing}" action="{!c.onViewStateChange}"/>
+    <aura:handler name="change" value="{!v.integrationUsername}" action="{!c.onViewStateChange}"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+
+    <!-- OAuth flow method is only exposed when explicitly required. -->
+    <aura:method name="startOAuthFlow" action="{!c.startOAuthFlow}" description="Starts the Authorization process for the current user"/>
+
+    <!-- Descriptive Authorization Context provides text describing application authorization and integration user interaction, if available. -->
+    <aura:if isTrue="{#v.viewContext == 'DESCRIPTIVE'}">
+        <p>{#$Label.loop.AppPermissionsPreface_Text}</p>
+        <ul class="slds-list_dotted">
+            <li><a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9020" target="_blank">{#$Label.loop.ScheduledDocumentPackages_Label}</a></li>
+            <li><a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9021" target="_blank">{#$Label.loop.MassDocumentPackages_Label}</a></li>
+            <li><a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9029" target="_blank">{#$Label.loop.InsertUpdatesPrivileges_Label}</a></li>
+            <li>{#$Label.loop.IntegrationAbility_Label}</li>
+        </ul>
+        <p class="slds-m-top_medium">{#$Label.loop.IntegrationUserInfo_Text + ' ' + $Label.loop.IntegrationUserReplacement_Text}</p>
+        <aura:if isTrue="{! !empty(v.integrationUsername)}">
+            <div class="slds-m-top_medium">
+                <b>{#$Label.loop.AuthorizedUser_Label + ': '}</b>{!v.integrationUsername}
+            </div>
+        </aura:if>
+    </aura:if>
+    <!-- Display a scoped notification when attempting to authorize the application with a user that does not have the Customize Application permission. -->
+    <aura:if isTrue="{!(v.viewContext == 'DESCRIPTIVE' || v.viewContext == 'SIMPLE') &amp;&amp; !v.hasCustomizeAppPermission}">
+        <div class="slds-scoped-notification slds-media slds-media_center slds-scoped-notification_light slds-m-vertical_medium" role="alert">
+            <div class="slds-media__figure">
+                <lightning:icon iconName="utility:warning" size="small" class="warning-icon"/>
+            </div>
+            <div class="slds-media__body">
+                <p>{#$Label.loop.RequiredAuthPermission_Message}</p>
+            </div>
+        </div>
+    </aura:if>
+    <!-- Display a button that kicks off the OAuth flow. This will connect the current user as the integration user in any context EXCEPT the stand-alone context. -->
+    <aura:if isTrue="{#v.viewContext == 'SIMPLE' || v.viewContext == 'DESCRIPTIVE'}">
+        <lightning:button class="{!v.showAuthFlowButton ? null : 'slds-hide'}" variant="brand" disabled="{! !v.hasCustomizeAppPermission || v.isAuthProcessing}" onclick="{!c.startOAuthFlow}" label="{#$Label.loop.Authorize_App_Label}"/>
+    </aura:if>
+    <!-- Display a link instead of a button when in the DESCRIPTIVE viewContext - indicates the connection of the integration user -->
+    <aura:if isTrue="{#v.viewContext == 'DESCRIPTIVE'}">
+        <a class="{! !empty(v.integrationUsername) &amp;&amp; !v.isAuthProcessing ? null : 'slds-hide'}" onclick="{!c.startOAuthFlow}">{#$Label.loop.SelfAuthorizedUser_Label}</a>
+    </aura:if>
+    <!-- Loading spinner - this is displayed while we are generating the OAuth URL -->
+    <aura:if isTrue="{!v.viewContext != 'STAND_ALONE' &amp;&amp; v.isAuthProcessing}">
+        <div class="slds-grid slds-m-top_medium">
+            <div id="spinner-container" class="slds-size_1-of-8 slds-is-relative">
+                <lightning:spinner variant="brand" alternativeText="{#$Label.loop.Loading_Label}" size="small"/>
+            </div>
+        </div>
+    </aura:if>
+</aura:component>

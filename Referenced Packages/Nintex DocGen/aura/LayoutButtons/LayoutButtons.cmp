@@ -1,0 +1,48 @@
+<aura:component controller="Loop.LayoutButtonController">
+    <ltng:require scripts="/resource/Loop__Scripts/eventListener.js"/>
+
+    <!--Required attributes-->
+    <aura:attribute name="isCustomizeApplication" type="boolean" default="true" required="true"/>
+    <aura:attribute name="connectedAppsEnabled" type="boolean" required="true"/>
+
+    <!--Optional attributes-->
+    <aura:attribute name="sessionId" type="string" default=""/>
+    <aura:attribute name="apiUrl" type="string" default=""/>
+    <aura:attribute name="disableTableCheckboxes" type="boolean" default="false" required="false" description="Use this attribute to set whether or not all checkboxes on the LayoutButtonTable are enabled or disabled."/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="oAuthUrl" type="string" default="" access="private"/>
+    <aura:attribute name="isAuthorized" type="boolean" default="false" access="private"/>
+    <aura:attribute name="isAuthLoading" type="boolean" default="false" access="private"/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="actionEvent" event="Loop:actionEvent" action="{!c.handleActionEvent}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    
+    <!--Methods-->
+    <aura:method name="save" action="{!c.save}"/>
+    
+    <div class="slds">
+        <aura:if isTrue="{!v.isCustomizeApplication}">
+            <aura:if isTrue="{! !v.isAuthorized &amp;&amp; v.connectedAppsEnabled}">
+                <h3 class="slds-text-heading--small slds-m-bottom--medium">You must authorize the app to add a button on standard and custom objects in Classic Experience.</h3>
+                <div class="slds-grid slds-grid--align-center">
+                    <!-- TODO: (LDSP-1407) Replace with ApplicationAuthorization -->
+                    <Loop:AuthorizeLoopServicesContainer aura:id="authorizeLoopServices" isCustomizeApplication="{!v.isCustomizeApplication}"/>
+                </div>
+                <aura:set attribute="else">
+                    <h3 class="slds-text-heading--small slds-m-bottom--medium">Check the box next to each Classic Experience layout that you would like to add a button on standard and custom objects. For each layout that is enabled, a button will automatically be added.</h3>
+                    <Loop:LayoutButtonSearch />
+                    <Loop:LayoutButtonTable aura:id="layoutButtonTable" sessionId="{!v.sessionId}" apiUrl="{!v.apiUrl}" disableCheckboxes="{!v.disableTableCheckboxes}"/>
+                </aura:set>
+            </aura:if>
+            <aura:set attribute="else">
+                <Loop:Toast toastClass="slds-notify slds-notify--toast slds-theme--warning" toastMessage="You must have the Customize Application permission to add buttons to page layouts." toastStyle="margin:0;"/>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

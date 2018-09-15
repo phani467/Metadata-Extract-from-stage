@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contract Line Item Schedule</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contract Line Item Schedules</value>
+    </caseValues>
+    <fields>
+        <help><!-- Contract Line Item --></help>
+        <label><!-- Contract Line Item --></label>
+        <name>ContractLineItem__c</name>
+        <relationshipLabel><!-- Contract Line Item Schedules --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Related Contract --></help>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Contract Line Item Schedules --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Discount Amount --></help>
+        <label><!-- Discount Amount --></label>
+        <name>DiscountAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Discount % --></help>
+        <label><!-- Discount% --></label>
+        <name>DiscountPercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Discount Type --></help>
+        <label><!-- Discount Type --></label>
+        <name>DiscountType__c</name>
+        <picklistValues>
+            <masterLabel>Amount</masterLabel>
+            <translation><!-- Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Discount</masterLabel>
+            <translation><!-- No Discount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Percentage</masterLabel>
+            <translation><!-- Percentage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- External List Price --></help>
+        <label><!-- External List Price --></label>
+        <name>ExternalListPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Installment Year --></help>
+        <label><!-- Installment Year --></label>
+        <name>InstallmentYear__c</name>
+    </fields>
+    <fields>
+        <help><!-- Installment Year --></help>
+        <label><!-- Installment Year --></label>
+        <name>InstallmentYears__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sales Price --></help>
+        <label><!-- Sales Price --></label>
+        <name>SalesPrice__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

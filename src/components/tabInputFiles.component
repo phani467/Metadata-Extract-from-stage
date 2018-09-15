@@ -1,0 +1,87 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component controller="InputFilesTabCE" allowDML="true" >
+
+    <apex:attribute name="wrf" assignTo="{!wrf}" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+
+    <apex:pageBlock title="Input Files - {!wrf.name}" rendered="{!IF(wrf.id<>null,TRUE,FALSE)}" />
+
+    <apex:pageBlock title="Input Files - {!wrf.name}" rendered="{!!IF(wrf.id<>null,TRUE,FALSE)}">
+    
+        <apex:pageMessage summary="You must save a draft version of your Request form in order to add Input Files." severity="info" strength="3" />
+
+    </apex:pageBlock>
+
+    <apex:pageMessages />
+
+    <apex:pageBlock rendered="{!IF(wrf.id<>null,TRUE,FALSE)}" >
+
+        <apex:pageBlockButtons location="top">
+    
+            <apex:commandButton value="Save"  action="{!save}"  rerender="rows" status="outStatus" styleClass="viewBtn" 
+                                disabled="{!wrf.IsSubmitted__c}" rendered="{! !wrf.isSubmitted__c}"/>
+         
+            <apex:commandButton value="Add"   action="{!add}"   rerender="rows" status="outStatus" styleClass="viewBtn" 
+                                disabled="{!wrf.IsSubmitted__c}" rendered="{! !wrf.isSubmitted__c}"/>
+         
+            <apex:commandButton value="Reset" action="{!reset}" rerender="rows" status="outStatus" styleClass="viewBtn" 
+                                disabled="{!wrf.IsSubmitted__c}" rendered="{! !wrf.isSubmitted__c}" immediate="true" />
+                <br/>
+                &nbsp;
+                <apex:actionStatus startText="(.................working.................)" stopText="" id="outStatus" onstop="Reset"/>
+    
+        </apex:pageBlockButtons>
+   
+        <apex:pageBlockTable border="1" cellpadding="6" value="{!inputFiles}" var="o"  id="rows">
+          
+            <apex:column style="align:center" width="5%" >
+            
+                <apex:outputText style="font-weight:bold" value="New" Rendered="{!IF(o.id==null,TRUE,FALSE)}" />
+            
+                <apex:outputLink title="" value="/{!o.id}/e?retURL=/apex/{!$CurrentPage.Name}?id={!wrf.id}" style="font-weight:bold" rendered="{!!IF(o.id==null,TRUE,FALSE)}">Edit&nbsp;|&nbsp;</apex:outputLink>
+            
+                <apex:outputLink value="javascript:if (window.confirm('Are you sure?')) DeleteAccount('{!o.Id}');" style="font-weight:bold" rendered="{!!IF(o.id==null,TRUE,FALSE)}" >Del</apex:outputLink>
+        
+            </apex:column>
+        
+            <apex:column width="5%" >
+            
+                <apex:inputField value="{!o.NumberOfRecords__c}" />
+            
+                <apex:facet name="header">Number of Records</apex:facet>
+        
+            </apex:column>
+        
+            <apex:column width="70%" >
+            
+                <apex:inputField value="{!o.AdditionalInformation__c}" style="width:95%" />
+            
+                <apex:facet name="header">Additional Information</apex:facet>
+        
+            </apex:column>
+        
+            <apex:column width="20%" >
+         
+                <apex:facet name="header">Attachments</apex:facet>
+             
+                <c:CMPAttachmentLoader aController="{! aMultiAttachmentController }" objId="{!o.id}" rendered="{!!IF(o.id==null,TRUE,FALSE)}" />             
+        
+            </apex:column> 
+   
+        </apex:pageBlockTable>
+ 
+    </apex:pageblock>
+ 
+    <apex:actionFunction action="{!DeleteAccount}" name="DeleteAccount" reRender="rows" > 
+   
+        <apex:param name="delid" value="" assignTo="{!delid}"/>
+
+    </apex:actionFunction>
+
+</apex:component>

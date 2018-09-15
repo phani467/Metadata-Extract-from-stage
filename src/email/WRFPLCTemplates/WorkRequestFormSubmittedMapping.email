@@ -1,0 +1,20 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt">** ATTENTION – ACTION NEEDED **<FONT color=#ff0000><?xml:namespace prefix = "o" /><o:p></o:p></FONT></SPAN></P>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><BR></DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)">This email is to inform you that&nbsp;a WRF has been submitted for your review.</DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)">&nbsp;</DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)">Below is a link to the WRF and other related WRF information:<SPAN style="FONT-SIZE: 12pt"><BR>.</SPAN></DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><SPAN style="FONT-SIZE: 12pt">
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><SPAN style="FONT-SIZE: 12pt">Link to WRF: &nbsp;</SPAN><SPAN style="FONT-SIZE: 12pt">{!WorkRequestForm__c.Link}</SPAN></DIV></SPAN></DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><SPAN style="FONT-SIZE: 12pt">Work Request Name: &nbsp;{!WorkRequestForm__c.Name}</SPAN></DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><SPAN style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)">Account Name:&nbsp;</SPAN><FONT face=arial>{!WorkRequestForm__c.AccountName__c}</FONT></DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><FONT face=arial>Opportunity Name:&nbsp;{!WorkRequestForm__c.OpportunityName__c}</FONT></DIV>
+<DIV style="COLOR: rgb(0,0,0)">Record Owner:&nbsp;{!WorkRequestForm__c.OwnerFullName}</DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><SPAN style="FONT-SIZE: 12pt"></SPAN>&nbsp;</DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><SPAN style="FONT-SIZE: 12pt"></SPAN>&nbsp;</DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><FONT face=arial><BR></FONT></DIV>
+<DIV style="FONT-SIZE: 12pt; FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><BR></DIV>]]></td>
+</tr>
+</table>

@@ -1,0 +1,2 @@
+<apex:page standardController="Loop__DDP_Text_Group__c" extensions="Loop.DdpTextGroupExt" title="testing" action="{!redirect}">                                                 
+</apex:page>

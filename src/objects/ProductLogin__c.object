@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ProductLoginRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-7972 This object will be used to store the information related to the user of the IHS Markit product.  Until the user has a usage they will never be converted to a contact.  The user record mostly will be created/updated by the integration system.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>AdditionalProductLoginFields__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-6785 Required for the Additional Product Login Fields Setup</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Additional Product Login Fields record gets auto-generated whenever the user record is created. This object holds more product specific fields.</inlineHelpText>
+        <label>Additional Product Login Fields</label>
+        <referenceTo>AdditionalProductLoginFields__c</referenceTo>
+        <relationshipLabel>Product Logins</relationshipLabel>
+        <relationshipName>ProductLogins</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <description>SFDC1-6785 Email of the user used for Product Login.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Email of the user used for Product Login.</inlineHelpText>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>SFDC1-6785 End date of the validity of the user</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The last date this user can be used to log into the system, this can be in the future</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FirstName__c</fullName>
+        <description>SFDC1-6785 First Name of the user used for Product Login.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First Name of the user used for Product Login.</inlineHelpText>
+        <label>First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LastName__c</fullName>
+        <description>SFDC1-6785 Last Name of the user used for Product Login.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last Name of the user used for Product Login.</inlineHelpText>
+        <label>Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-6785: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (unfriendly) referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization__c</fullName>
+        <description>SFDC1-6785 Organization/Company Name of the user used for Product Login in the source System.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Organization/Company Name of the user used for Product Login in the source System.</inlineHelpText>
+        <label>Organization</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDProductLogin__c</fullName>
+        <description>SFDC1-6785 PKID is used for data migration support from the legacy system</description>
+        <displayFormat>Plg{000000}</displayFormat>
+        <externalId>true</externalId>
+        <inlineHelpText>PKID is used for data migration support from the legacy system and is auto-generated</inlineHelpText>
+        <label>PKID ProductLogin</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Source__c</fullName>
+        <description>SFDC1-6785 Source of the user data. Data can be uploaded automatically from external entitlement and authentications systems or entered manually. If the User is manually entered this should be defaulted to Manual and cannot be overwritten.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Source of the user data.</inlineHelpText>
+        <label>Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Manual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UserXS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MSF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>USERXS-MARKIT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>USERXS-TRADE-MANAGER</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>SFDC1-6785 Initial set-up date of the user in the external source system</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Initial set-up date of the user in the external source system</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>SFDC1-6785 Login status in the source system</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Login status in the source system</inlineHelpText>
+        <label>Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UniqueUserID__c</fullName>
+        <description>SFDC1-6785 Unique Identifier (UUID) of the user. If user record is manually entered, this gets autogenerated via trigger.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The UUID is normally provided by the external source system, if it is not provided, it is populated automatically.</inlineHelpText>
+        <label>Unique User ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UserType__c</fullName>
+        <description>SFDC1-6785 User type of the listed user</description>
+        <externalId>false</externalId>
+        <inlineHelpText>In general, there should be only one individual user per product per contact.  A contact can have many system users and vice-versa.  Example of system users is SFTP, API</inlineHelpText>
+        <label>User Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Individual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Username__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-6785 Username or Login name for this user</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Enter the unique username or login name for this user.</inlineHelpText>
+        <label>Username</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Product Login</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>FirstName__c</columns>
+        <columns>LastName__c</columns>
+        <columns>Email__c</columns>
+        <columns>Status__c</columns>
+        <columns>Source__c</columns>
+        <columns>Username__c</columns>
+        <columns>AdditionalProductLoginFields__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PLN-{000000}</displayFormat>
+        <label>Product Login Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Product Logins</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Username__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UserType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EndDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Source__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Username__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>UserType__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StartDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EndDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Source__c</lookupPhoneDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

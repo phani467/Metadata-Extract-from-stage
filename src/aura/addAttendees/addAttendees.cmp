@@ -1,0 +1,74 @@
+<aura:component controller="CreateMeetingNoteEventController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="eventId" type="String" /> 
+    <aura:attribute name="MeetingNote" type="MeetingNote__c" default="{ 'sobjectType': 'MeetingNote__c' }" access="public"/>
+    <aura:attribute name="relatedOpportunityList" type="RelatedOpportunity__c[]" /> 
+    <aura:attribute name="hasGoneNext" type="Boolean" default="false" />         
+    
+    <!-- used just for force inputfield as it was giving errro with MeetingNote attribute after assignment -->
+    <aura:attribute name="MeetingNote1" type="MeetingNote__c" default="{ 'sobjectType': 'MeetingNote__c' }" access="public"/> 
+
+    <aura:attribute name="meetingAttendeeList" type="CreateMeetingNoteEventController.cAttendee[]"/>
+    <aura:attribute name="record1" type="cAttendee"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+	<div class="slds-card">
+        <div class="slds-m-around_x-large">
+            <div class="slds-form slds-form_stacked">
+                <div class="slds-size--1-of-1 slds-text-heading--medium ">
+                    <b><ui:outputText class="field" value="Additional Attendees" /></b>
+                </div>
+                <br/>
+                <force:inputField aura:id="contactId" 
+                             value="{!v.MeetingNote1.ContactLookup__c}"/>
+                <div class="slds-button-group slds-align_absolute-center" role="group">
+                    <button class="slds-button slds-button--neutral slds-not-selected slds-m-bottom--medium slds-m-top--medium" onclick="{!c.addAttendee}">Add Attendees</button>
+                </div>
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">
+                                <div class="slds-truncate" title="SNO">S NO.</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Name">Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="IHS Markit Employee">IHS Markit Employee?</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Action">Action</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.meetingAttendeeList}" var="con" indexVar="index">
+                            <tr class="slds-text-title_caps">
+                                <td>
+                                    <span class="slds-form-element__label">{!index+1}</span>
+                                </td>
+                                <td>
+                                    <span class="slds-form-element__label">{!con.contact.Name}</span>
+                                </td>
+                                <td>
+                                    <span class="slds-form-element__label">{!con.isIHSEmployee}</span>
+                                </td>
+                                <td>
+                                    <button class="slds-button slds-button_neutral" value="{!index}" onclick="{!c.deleteAttendee}">Delete</button>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    
+                    </tbody>
+                </table>
+                <br />
+                <div class="slds-button-group slds-align_absolute-center" role="group">
+                    <button class="slds-button slds-button_neutral" onclick="{!c.backToRelatedOpportunity}">Back</button>
+                    <button class="slds-button slds-button_neutral" onclick="{!c.doSave}">Save</button>
+                    <button class="slds-button slds-button_neutral" onclick="{!c.cancel}">Cancel</button>
+                </div>
+            </div>
+        </div>        
+	</div>        
+</aura:component>

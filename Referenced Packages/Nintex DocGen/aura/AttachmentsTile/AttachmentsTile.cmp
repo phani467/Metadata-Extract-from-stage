@@ -1,0 +1,76 @@
+<aura:component >
+    <!--Required attributes-->
+    <aura:attribute name="attachments" type="List" default="[]" required="true" description="List of OptionalDocumentTileData."/>
+    <aura:attribute name="required" type="boolean" default="false" required="true" description="True if an attachment is required for a DocGen Package."/>
+    
+    <!--Optional attributes-->
+    <aura:attribute name="ddpLabel" type="string" default="DocGen Package"/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="globalIdTag" type="string" default="" description="Id of this component."/>
+    <aura:attribute name="selectedAttachments" type="List" default="[]" description="List of attachments to attach to DocGen Package."/>
+    <aura:attribute name="hasAttachmentsSelected" type="boolean" default="false"/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="tileClicked" event="Loop:tileClicked" action="{!c.handleTileClicked}"/>
+    <aura:handler name="removePill" event="Loop:removePill" action="{!c.handleRemovePill}"/>
+    
+    <!--Fired events-->
+    <aura:registerEvent name="removeAttachment" type="Loop:removeAttachment"/>
+    <aura:registerEvent name="slideInAttachments" type="Loop:slideInAttachments"/>
+    
+    <aura:method name="updateSelectedAttachments" action="{!c.updateAttachments}">
+    	<aura:attribute name="selectedAttachments" type="List" default="[]" description="List of attachments to attach to DocGen Package."/>
+    </aura:method>
+    
+    <li class="slds-box tile-background drawloop">
+        <div aura:id="errorContainer" class="hidden">
+            <div class="slds-grid">
+                <div class="slds-col slds-text-body--regular container-left-margin" style="color: #52628e;">Attachments</div>
+                <div class="badge-container slds-col-bump-left">
+                    <span class="slds-badge slds-theme--error">required</span>
+                </div>
+            </div>
+            <div class="slds-grid container-left-margin slds-m-top--x-small">
+                <span class="slds-icon__container slds-align-middle">
+                    <Loop:Svg class="slds-icon slds-icon-text-warning slds-icon--small slds-m-right--small" display="true" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#warning'}"/>
+                </span>
+                <div class="slds-text-body--small slds-align-middle" style="color: #5b5b5b;">                    
+                    {!'This ' + v.ddpLabel + ' requires an attachment to be selected, but there are no attachments to choose from.'}
+                </div>                     
+            </div>
+        </div>
+        <div aura:id="attachmentContainer">
+            <div class="slds-grid">
+                <div class="slds-col slds-size--1-of-2 slds-medium-size--5-of-6 slds-large-size--8-of-12">
+                    <div class="container-left-margin">
+                        <span title="Attachments">
+                            <div class="slds-text-body--regular blue">Attachments</div>
+                        </span>
+                    </div>
+                    <div class="pills-container">
+                        <aura:iteration items="{!v.selectedAttachments}" var="attachment">
+                            <!--The Pill components have the same 'id' values as the Tile components,-->
+                            <!--but the Pill component doesn't store the 'id' as an html attribute, whereas the Tile component does.-->
+                            <Loop:Pill label="{!attachment.Name}" svgClass="slds-button__icon removePill" id="{!v.globalIdTag + attachment.Id}" pillClass="slds-badge blue-color"/>
+                        </aura:iteration>
+                    </div>
+                </div>
+                <div class="slds-grid slds-grid--vertical">
+                    <aura:if isTrue="{!v.required}">
+                        <div class="badge-container slds-m-bottom--x-small">
+                            <aura:if isTrue="{!v.hasAttachmentsSelected}">
+                                <span class="slds-badge gray-badge">selected</span>
+                                <aura:set attribute="else">
+                                    <span class="slds-badge slds-theme--error">required</span>
+                                </aura:set>
+                            </aura:if>
+                        </div>
+                    </aura:if>
+                    <button class="slds-button slds-button--small slds-button--neutral slds-m-left--medium" onclick="{!c.slideInAttachments}">Select</button>
+                </div>
+            </div>
+        </div>
+    </li>
+</aura:component>

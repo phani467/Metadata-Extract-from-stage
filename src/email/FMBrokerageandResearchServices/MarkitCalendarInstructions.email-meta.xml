@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-3039 Markit Calendar Instructions</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Markit Calendar Instructions</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Calendar Instructions</subject>
+    <textOnly>Dear {!Case.Contact},
+
+Thank you for requesting information on using the Markit Calendar.
+
+Here are the steps to upload your events:
+
+1.	From the Attended Meetings Editor please select either Create Event or Upload Events.
+
+If you are doing a bulk upload using the Upload Events please download the latest template. The latest version will always be available on the website for download. Please use the &quot;download excel template&quot; link located with the Upload Events under the Actions tab.
+
+Column A (Buy Side Firm Name) is where the Firm name not the Attendee name will be entered.
+
+2.	Once you select Create Event or Upload Event a 3-step wizard will appear; after completing each step remember to Save the meeting:
+
+Please note that the Unique ID that is required is unique for each meeting that you enter. Please reference the definitions tab in the attached spreadsheet for explanation.
+
+3.	Once you have completed entering all the interactions you have, you will then need to submit the meetings over to the Client. To do that please click the blue box with the white arrow in the Pending column from the Client Name page for the Client you are working with. Any errors will need to be corrected before meetings will successfully submit.
+
+4.	When you select Upload Events, for bulk upload, a 3-step wizard will appear:
+
+URL - https://www.markitresearchmanager.com/AUTHENTICATION/
+username – xxxxxxxxxxxxxx
+password - P@ssw0rd! (You will be prompted to change this upon login) Please ensure that you have your pop up blocker disabled for this process.
+
+If you need further assistance or have any questions please contact us at mrmsupport@markit.com.
+
+Kind Regards,
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+{!Case.OwnerTitle} | Trading Services
+450 West 33rd Street 5th Floor | New York | NY 10001
+P: +212 205 1793 G: +1 800 208 6500
+mrmsupport@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

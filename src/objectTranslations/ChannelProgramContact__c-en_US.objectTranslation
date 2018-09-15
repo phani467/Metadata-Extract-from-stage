@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Channel Program Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Channel Program Contacts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact Information --></label>
+        <name>ContactInformation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify a custom email address to override Salesforce user&apos;s email address --></help>
+        <label><!-- Custom Email --></label>
+        <name>CustomEmail__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify a custom URL to override the Salesforce User&apos;s profile photo to display in the Community.  Full Photo should be 200px by 300px (Width / Height) --></help>
+        <label><!-- Custom Full Photo URL --></label>
+        <name>CustomFullPhotoURL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify a customer contact name to override Salesforce user&apos;s name --></help>
+        <label><!-- Custom Name --></label>
+        <name>CustomName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify a custom phone number to override the Salesforce User&apos;s phone number displayed --></help>
+        <label><!-- Custom Phone --></label>
+        <name>CustomPhone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify a custom URL to override the Salesforce User&apos;s profile photo to display in the Community. Small Photo should be 100px by 100px (Width / Height) --></help>
+        <label><!-- Custom Small Photo URL --></label>
+        <name>CustomSmallPhotoURL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify a custom title to override the Salesforce User&apos;s title --></help>
+        <label><!-- Custom Title --></label>
+        <name>CustomTitle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Photo --></label>
+        <name>PhotoFull__c</name>
+    </fields>
+    <fields>
+        <label><!-- Photo --></label>
+        <name>PhotoListViewLink__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Link --></label>
+        <name>RecordLink__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify a Salesforce user to automatically pull the user&apos;s contact information --></help>
+        <label><!-- Salesforce User --></label>
+        <name>SalesforceUser__c</name>
+        <relationshipLabel><!-- Channel Program Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- System - Full Photo URL --></label>
+        <name>SystemFullPhotoURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- System - Medium Photo URL --></label>
+        <name>SystemMediumPhotoURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- System - Small Photo URL --></label>
+        <name>SystemSmallPhotoURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uncheck if this Contact should not be displayed in the community --></help>
+        <label><!-- Public --></label>
+        <name>isPublic__c</name>
+    </fields>
+    <layouts>
+        <layout>Channel Program Contact Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Override Information --></label>
+            <section>Custom Override Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Channel Program Contact Layout - Community</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

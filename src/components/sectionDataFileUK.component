@@ -1,0 +1,135 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+
+<apex:component >
+    <apex:attribute type="WRACE" description="extension of parent page"
+        name="pageExt" required="true" />
+    <apex:attribute name="wrf"
+        description="This is the active Work Request Form" required="true"
+        type="WorkRequestForm__c" />
+    <apex:includeScript value="{!URLFOR($Resource.Scripts)}"  />
+        
+    <style>
+        .longText {
+            width: 95%;
+        }
+        
+        .red {
+            color:red;
+        }
+    </style>
+    
+    <apex:PageBlock title="Analytics Request" rendered="{! wrf.Analytics__c }">
+        
+        <apex:pageBlockSection title="Report Details" collapsible="false" id="reportDetails">
+            <apex:inputField value="{! wrf.ReportName__c}" styleClass="requiredField"/>
+            <apex:inputField value="{! wrf.ReasonForRequirement__c}" styleClass="requiredField longText"/>
+            <apex:inputField value="{! wrf.SubBrand__c}"/>
+            <apex:pageBlockSectionItem /> <!-- For Spacing -->
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Invoice Start Date" for="startdt"/>
+                <apex:inputField value="{! wrf.StartDate__c}" id="startdt"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Invoice End Date" for="enddt"/>
+                <apex:inputField value="{! wrf.EndDate__c}" id="enddt"/>
+            </apex:pageBlockSectionItem>
+            
+            <apex:inputField value="{! wrf.PartCodesProvided__c }" styleClass="" />
+            <apex:inputField value="{! wrf.ExampleReportProvided__c }" styleClass="" />
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Model/Age Specific" for="modelAge"/>
+                <apex:inputField value="{! wrf.ModelSegmentation__c}" id="modelAge" >
+                    <apex:actionSupport event="onchange" rerender="reportDetails" status="formstatus" />
+                </apex:inputField>
+            </apex:pageBlockSectionItem>
+            <apex:inputField value="{! wrf.VehicleModels__c}" styleClass="longText requiredField" rendered="{! wrf.ModelSegmentation__c}"/>
+            <apex:pageBlockSectionItem />
+            <apex:inputField value="{! wrf.ModelYears__c}" styleClass="longText requiredField" rendered="{! wrf.ModelSegmentation__c}"/>
+            
+            <apex:inputField value="{! wrf.DMSCodesProvided__c}" styleClass="" id="dms_input">
+                <apex:actionSupport event="onchange" rerender="reportDetails" status="formstatus" />
+            </apex:inputField>
+            <apex:inputField value="{! wrf.DMSCodes__c}" styleClass="longText requiredField" rendered="{! wrf.DMSCodesProvided__c}"/>
+            <apex:pageBlockSectionItem rendered="{! !wrf.DMSCodesProvided__c}" />
+            
+            <apex:inputField value="{! wrf.KeywordTextSearchRequired__c}" styleClass="" >
+                <apex:actionSupport event="onchange" rerender="reportDetails" status="formstatus" />
+            </apex:inputField>
+            <apex:inputField value="{! wrf.SearchText__c}" styleClass="longText requiredField" rendered="{! wrf.KeywordTextSearchRequired__c }"/>
+            <apex:pageBlockSectionItem rendered="{! !wrf.KeywordTextSearchRequired__c }" />
+            
+            <apex:inputField value="{! wrf.Retailers__c}" styleClass="requiredField" >
+                <apex:actionSupport event="onchange" rerender="reportDetails" status="formstatus" />
+            </apex:inputField>
+            <apex:inputField value="{! wrf.SpecificRetailers__c}" styleClass="longText requiredField" rendered="{! wrf.Retailers__c == 'Specific'}"/>
+            <apex:pageBlockSectionItem rendered="{! wrf.Retailers__c <> 'Specific'}" />
+            
+            <apex:inputField value="{! wrf.EventJobTypeSpecific__c}" styleClass="" >
+                <apex:actionSupport event="onchange" rerender="reportDetails" status="formstatus" />
+            </apex:inputField>
+            <apex:inputField value="{! wrf.EventJobTypes__c}" styleClass="longText requiredField" rendered="{! wrf.EventJobTypeSpecific__c == 'Specific'}"/>
+            <apex:pageBlockSectionItem rendered="{! wrf.EventJobTypeSpecific__c <> 'Specific'}" />
+            
+            <apex:inputField value="{! wrf.CampaignSpecificReport__c }" styleClass="" >
+                <apex:actionSupport event="onchange" rerender="reportDetails" status="formstatus" />
+            </apex:inputField>
+            <apex:inputField value="{! wrf.Campaigns__c }" styleClass="longText requiredField" rendered="{! wrf.CampaignSpecificReport__c }"/>
+            <apex:pageBlockSectionItem rendered="{! !wrf.CampaignSpecificReport__c }" />
+            
+            <script>
+                j$ = jQuery.noConflict();
+                j$(document).ready(xedeStyle());
+            </script>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Report Specifics" collapsible="false" id="reportSpecifics">
+            <apex:inputField value="{! wrf.DepartmentType__c }" />
+            <apex:inputField value="{! wrf.PaymentType__c }" />
+            <apex:inputField value="{! wrf.DocumentType__c }" />
+            <apex:inputField value="{! wrf.ItemLineType__c}" >
+                <apex:actionSupport event="onchange" rerender="reportSpecifics" status="formstatus"/>
+            </apex:inputField>
+            <apex:inputField value="{! wrf.EmailDistributionList__c }" styleClass="longText"/>
+            <apex:inputField value="{! wrf.OtherItemLineType__c}" styleClass="longText requiredField"
+                 rendered="{! !ISBLANK(wrf.ItemLineType__c) && 
+                    CONTAINS(wrf.ItemLineType__c,'Other (please specify)')}" />
+            
+            <script>
+                j$ = jQuery.noConflict();
+                j$(document).ready(xedeStyle());
+            </script>
+        </apex:pageBlockSection>
+    </apex:PageBlock>
+    
+    
+    <apex:PageBlock title="PolkConnect System Request" rendered="{! wrf.PolkConnectSystem__c  }">
+        <apex:pageBlockSection columns="2" collapsible="false" id="PolkConnect_System_Main">
+            <apex:inputField value="{! wrf.Brand__c}" styleClass="requiredField" />
+            <apex:inputField value="{! wrf.JobTypeUK__c}" styleClass="requiredField">
+                <apex:actionSupport event="onchange" rerender="PolkConnect_System_Main" status="formstatus"/>
+            </apex:inputField>
+            <apex:inputField value="{! wrf.Application__c}" styleClass="requiredField" />
+            <apex:inputField value="{! wrf.OtherJobTypeUK__c}" styleClass="requiredField longText"
+                rendered="{! wrf.JobTypeUK__c <> null && CONTAINS(wrf.JobTypeUK__c,'Other') }" />
+            <apex:pageBlockSectionItem rendered="{! wrf.JobTypeUK__c == null || !CONTAINS(wrf.JobTypeUK__c,'Other') }"/>
+            <apex:inputField value="{! wrf.ClientId__c}" styleClass="requiredField longText" />
+            <apex:pageBlockSectionItem >    
+                <apex:outputLabel value="Date Range(s)" for="dateRanges"/>
+                <apex:inputField value="{! wrf.DetailedInstructions__c}" styleClass="requiredField longText" id="dateRanges"/>
+            </apex:pageBlockSectionItem>
+            <script>
+                j$ = jQuery.noConflict();
+                j$(document).ready(xedeStyle());
+            </script>
+        </apex:pageBlockSection>
+    </apex:PageBlock>
+</apex:component>

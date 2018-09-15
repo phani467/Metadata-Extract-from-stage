@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Decline</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DeleteSeries</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewEvent</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewSfdcEvent</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Today</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>ActivityDate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>ActivityDateTime</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>ClientGuid</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>DurationInMinutes</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+    </fields>
+    <fields>
+        <fullName>EndDateTime</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>EventSubtype</fullName>
+    </fields>
+    <fields>
+        <fullName>IsAllDayEvent</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>IsException</fullName>
+    </fields>
+    <fields>
+        <fullName>IsPrivate</fullName>
+    </fields>
+    <fields>
+        <fullName>IsReminderSet</fullName>
+    </fields>
+    <fields>
+        <fullName>IsVisibleInSelfService</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Location</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OriginalInstanceDateTime</fullName>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+    </fields>
+    <fields>
+        <fullName>ShowAs</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>StartDateTime</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Subject</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <inlineHelpText>Event Type</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>WhatId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>WhoId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>Standard</fullName>
+        <active>true</active>
+        <description>SFDC1-8899: Used in new Event global quick action</description>
+        <label>Standard</label>
+        <picklistValues>
+            <picklist>ActivityType__c</picklist>
+            <values>
+                <fullName>Client Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In person meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Tasks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online customer meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Delivery meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Report Generation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triage</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter%2FQuote</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time Tracking</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>BAU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In person meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Tasks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online customer meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Delivery meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Report Generation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triage</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>TimeTracking</fullName>
+        <active>true</active>
+        <description>SFDC1-6039:To track time related to NON  BAU Activities.</description>
+        <label>Time Tracking</label>
+        <picklistValues>
+            <picklist>ActivityType__c</picklist>
+            <values>
+                <fullName>Client Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In person meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Tasks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online customer meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Delivery meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Report Generation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triage</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter%2FQuote</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time Tracking</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Client Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In person meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Tasks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online customer meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Delivery meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Report Generation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triage</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>RestrictEventCreateandEditbyProfiles</fullName>
+        <active>true</active>
+        <description>SFDC1-4739 : Restrict some Profiles from Event creation and edit.</description>
+        <errorConditionFormula>AND( 
+OR( 
+ISNEW(), 
+ISCHANGED(Subject), 
+ISCHANGED(Location), 
+ISCHANGED(IsAllDayEvent), 
+ISCHANGED(Type), 
+ISCHANGED(Description), 
+ISCHANGED(TimeSpentMinutes__c), 
+ISCHANGED(WhoId), 
+ISCHANGED(WhatId), 
+ISCHANGED(OwnerId) 
+), 
+OR( 
+CONTAINS($Profile.Name, &apos;Read Only Profile&apos;), 
+CONTAINS($Profile.Name, &apos;Data Governance&apos;), 
+CONTAINS($Profile.Name, &apos;Sales: Product Manager&apos;), 
+CONTAINS($Profile.Name, &apos;Sales: Marketing&apos;) 
+),
+LEFT(WhatId, 3) == &apos;800&apos;
+)</errorConditionFormula>
+        <errorMessage>You are not authorized to create or edit an Event.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>CreateMeetingNoteEvent</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Meeting Note</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+if(&quot;{!Event.IsChild}&quot; == true) { 
+alert(&quot;This is a shared meeting that is automatically generated. You can only create meeting notes on the original meeting event.&quot;); 
+} else { 
+if(&quot;{!Event.MeetingNoteId__c}&quot; == &quot;&quot;) { 
+
+// determine object type 
+var whatId = &quot;{!Event.What}&quot;; 
+var prefix = whatId.substring(0,3); 
+
+// both empty 
+if((&quot;{!Event.Account__c}&quot; == null || &quot;{!Event.Account__c}&quot; == &quot;&quot;) &amp;&amp; (&quot;{!Event.What}&quot; == null || &quot;{!Event.What}&quot; == &quot;&quot;)) { 
+alert(&quot;Please link this event to an Account or Opportunity.&quot;); 
+} 
+// Account field filled, related to not 
+else if((&quot;{!Event.Account__c}&quot; != null &amp;&amp; &quot;{!Event.Account__c}&quot; != &quot;&quot;) &amp;&amp; (&quot;{!Event.What}&quot; == null || &quot;{!Event.What}&quot; == &quot;&quot; || prefix != &quot;006&quot;)) { 
+var url = &quot;/apex/CreateMeetingNoteEvent?infoType=accOnly&amp;accId={!Event.AccountId__c}&amp;EventId={!Event.Id}&quot;; 
+window.location.href = url; 
+} 
+// Account field empty but related to filled 
+else if((&quot;{!Event.Account__c}&quot; == null || &quot;{!Event.Account__c}&quot; == &quot;&quot;) &amp;&amp; (&quot;{!Event.What}&quot; != null &amp;&amp; &quot;{!Event.What}&quot; != &quot;&quot;)) { 
+
+// account 
+if(prefix == &quot;001&quot;) { 
+var url = &quot;/apex/CreateMeetingNoteEvent?infoType=accOnly&amp;accId={!Event.What}&amp;EventId={!Event.Id}&quot;; 
+window.location.href = url; 
+// opportunity 
+} else if (prefix == &quot;006&quot;) { 
+var url = &quot;/apex/CreateMeetingNoteEvent?infoType=oppOnly&amp;oppId={!Event.What}&amp;EventId={!Event.Id}&quot;; 
+window.location.href = url; 
+// something else, no meeting note atm 
+} else { 
+alert(&quot;Please link this event to an Account or Opportunity.&quot;); 
+} 
+
+// both filled 
+} else if((&quot;{!Event.Account__c}&quot; != null &amp;&amp; &quot;{!Event.Account__c}&quot; != &quot;&quot;) &amp;&amp; (&quot;{!Event.What}&quot; != null &amp;&amp; &quot;{!Event.What}&quot; != &quot;&quot;)) { 
+// determine object type 
+var whatId = &quot;{!Event.What}&quot;; 
+var prefix = whatId.substring(0,3); 
+
+// account 
+if(prefix == &quot;001&quot;) { 
+var url = &quot;/apex/CreateMeetingNoteEvent?infoType=accOnly&amp;accId={!Event.What}&amp;EventId={!Event.Id}&quot;; 
+window.location.href = url; 
+// opportunity 
+} else if (prefix == &quot;006&quot;) { 
+var url = &quot;/apex/CreateMeetingNoteEvent?infoType=bothFilled&amp;accId={!Event.AccountId__c}&amp;oppId={!Event.What}&amp;EventId={!Event.Id}&quot;; 
+window.location.href = url; 
+// something else, no meeting note atm 
+} else { 
+alert(&quot;Please link this event to an Account or Opportunity.&quot;); 
+} 
+} else { 
+alert(&quot;Please link this event to an Account or Opportunity.&quot;); 
+} 
+} else { 
+alert(&quot;This event is already linked to a meeting note.&quot;); 
+} 
+}</url>
+    </webLinks>
+</CustomObject>

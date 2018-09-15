@@ -1,0 +1,45 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Page(WRDriver) is related to Legacy POLK application.
+// @return: NA
+-->
+
+<apex:page standardController="WorkRequestForm__c" extensions="WRACE" >
+  <apex:sectionHeader title="Create Work Request"/>
+  <apex:pagemessages />
+  <apex:form >
+  
+  <apex:pageBlock title="Select Work Request Form Type" id="mainblock" >
+  <apex:outputText rendered="{!if(!validProducts,true,false)}"  value="There's no valid form for your Opportunity's selected product(s).  Please contact Deb Marchand if you have questions."/>
+  <apex:pageBlockButtons location="bottom">
+      <apex:commandButton value="Next" action="{!next}" disabled="{!ISBLANK(formtype) || (IsBlank(o.id) && wrf.Internal__c <> TRUE)}"/>
+      <apex:commandButton value="Cancel" action="{!cancel}"/>    
+  </apex:pageBlockButtons>
+  <apex:selectList rendered="{!validProducts}" value="{!formtype}" size="1" >
+      <apex:selectOptions value="{!forms}"  />
+      <apex:actionsupport event="onchange" rerender="mainblock" action="{!updateConti}"/>
+  </apex:selectList>
+  <br/> <br/>
+  <strong>
+  <apex:outputLabel for="internal" value="Internal Job"  rendered="{!o.id=null}" /> 
+  <apex:inputField id="internal" value="{!wrf.Internal__c}" rendered="{!o.id=null}">
+        <apex:actionsupport event="onchange" rerender="mainblock" action="{!updateConti}" />
+  </apex:inputField>    
+  </strong>
+  </apex:pageBlock>
+  <apex:pageBlock title="Opportunity Detail for {!o.name}" rendered="{!(o.name<>null)}">
+    <apex:pageBlockTable value="{!o.OpportunityLineItems}" var="oli">
+        <apex:column value="{!oli.PricebookEntry.product2.Family}"/>
+        <apex:column value="{!oli.PricebookEntry.product2.Name}"/>
+        <apex:column value="{!oli.Quantity}"/>
+        <apex:column value="{!oli.PriceBookEntry.UnitPrice}"/>
+        <apex:column value="{!oli.ListPrice}"/>
+    </apex:pageBlockTable>
+      
+  </apex:pageBlock>
+  </apex:form>
+
+</apex:page>

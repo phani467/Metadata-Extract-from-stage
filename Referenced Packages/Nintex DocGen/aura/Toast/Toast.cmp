@@ -1,0 +1,35 @@
+<aura:component >
+    <aura:attribute name="toastClass" type="String"/>
+    <aura:attribute name="toastMessage" type="String"/>
+    <aura:attribute name="toastStyle" type="String" default="margin: 0; width: 100%; min-width: 0px;"/>
+    <aura:attribute name="toastTextClass" type="String" default="slds-text-heading--small"/>
+    <aura:attribute name="svgXlinkHref" type="String" default=""/>
+    <aura:attribute name="messages" type="String[]"/>
+    <aura:attribute name="removeable" type="boolean" default="false"/>
+    <aura:attribute name="remove" type="Aura.Action" default="{!c.doNothing}" description="This allows handling onClick events"/>
+    <div class="slds">
+        <div class="{!v.toastClass}" style="{!v.toastStyle}">
+            <aura:if isTrue="{!v.removeable}">
+                <button class="slds-button slds-button--icon-inverse slds-notify__close" onclick="{!v.remove}">
+                    <Loop:Svg xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#close'}" class="slds-button__icon slds-button__icon--medium"/>
+                </button>
+            </aura:if>
+            <div class="notify__content">
+                <h2 class="{!v.toastTextClass}">
+                    <aura:if isTrue="{!v.svgXlinkHref != ''}">
+                        <Loop:Svg class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex"
+                               xlinkHref="{!v.svgXlinkHref}"/>
+                    </aura:if>
+                    {!v.toastMessage}
+                </h2>
+            </div>
+        </div>
+        <aura:if isTrue="{!v.messages.length > 0}">
+            <ul style="color: rgb(194, 57, 52); line-height: 1.5; margin: 0; padding: .75rem 1rem;">
+                <aura:iteration items="{!v.messages}" var="message">
+                    <li>{!message}</li>
+                </aura:iteration>
+            </ul>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,151 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+
+
+<apex:component >
+    <apex:attribute type="WRACE" description="extension of parent page" name="pageExt" required="true"/>
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+    <apex:attribute name="MC" description="This is the active MotorCycle Fields" required="true" type="MotorCycle" />
+    <apex:attribute name="df" description="This is the active Display Fields" required="true" type="DisplayF" />
+    <apex:attribute name="cnt" description="This is the active Cars and Light Truck Fields" required="true" type="CarsNTrucks" />
+    <apex:attribute name="formtype" description="This is the active formtype" required="true" type="String" />
+    <apex:attribute name="editapproved" description="This is the Edit Approval" required="true" type="Boolean" />
+    <apex:attribute name="editDUC" description="This is the Edit DUC Approval" required="true" type="Boolean" />
+    <apex:attribute name="editSymbol" description="This is the Edit Symbol Approval" required="true" type="Boolean" />
+    
+    
+    
+    <apex:pageBlock title="Data Specifications" rendered="{!NOT(wrf.TLAS__c||wrf.Profile__c||wrf.AdhocCustom__c||wrf.AdHocReport__c
+                                                          ||wrf.PolkInsightProductionMessage__c||wrf.ListRequest__c||wrf.Loyalty__c||wrf.ModelSegmentation__c||wrf.AutoTrackerReport__c
+                                                          ||wrf.salesmatch__c||wrf.TIPNetSystem__c || wrf.TIPNetNewTruck__c || wrf.TIPNetVehiclesinOperation__c || wrf.TIPNetNewTrailer__c
+                                                          ||wrf.NewRegNewFor__c || wrf.ChinaDataRequests__c ||wrf.PARCGlobal__c ||wrf.ChinaCV__c||wrf.VIS__c||wrf.CVINA__c||wrf.VINA__c||wrf.PCVINA__c||wrf.PCVIS__c
+                                                          ||wrf.PCCVINA__c||wrf.CompletePrefixFile__c||wrf.MINICPF__c||wrf.VINPrefixFile__c||wrf.VINPrice__c ||wrf.VINTelligence__c||wrf.Recover__c
+                                                          ||wrf.FleetFind__c||wrf.VOS__c||wrf.VINVerification__c||wrf.Custom__c||wrf.Recall__c||wrf.CARB__c||wrf.VINTrace__c||wrf.ReportDataFile__c
+                                                          ||wrf.CatalogMerge__c||wrf.LifeCycleReport__c||wrf.GuideFiles__c||wrf.ScrappageMedianAge__c
+                                                          ||wrf.WorldviewParc__c||wrf.Mapping__c||wrf.ContinentalTire__c||wrf.Recall__c||wrf.SmartLink__c||wrf.FileCleanse__c
+                                                          ||wrf.AutoNews__c||wrf.Vindicator__c||wrf.DMS__c||wrf.DrivewayCalculator__c||wrf.PS__c
+                                                          ||wrf.DataExtractGlobalVIOPARC__c||wrf.MarketInsightSystem__c||wrf.VFacts__c || wrf.PolkInsightChinaSystem__c)}" >
+        <apex:pageMessage summary="You must select at least one request type on the Job Overview tab in order to complete the Data Files section." severity="info" strength="3" />
+    </apex:pageBlock>
+    
+    
+    <apex:pageBlock title="Data Specifications" rendered="{!wrf.VINA__c||wrf.PCVINA__c||wrf.VINPrice__c||wrf.Recover__c||wrf.VOS__c
+                                                          ||wrf.Custom__c||wrf.VIS__c||wrf.VINPrefixFile__c||wrf.FleetFind__c||wrf.VINVerification__c}">
+        <apex:pageMessage summary="The request type that you selected is a legacy product. Please put any information on the special instructions tab." severity="info" strength="3" />
+    </apex:pageBlock>
+    
+    <apex:pageBlock title="Data Specifications" rendered="{!wrf.CatalogMerge__c||wrf.LifeCycleReport__c||wrf.GuideFiles__c||wrf.ScrappageMedianAge__c||wrf.CARB__c
+                                                          ||wrf.NewRegNewFor__c || wrf.ChinaDataRequests__c}">
+        
+    </apex:pageBlock>
+    
+    <apex:pageBlock rendered="{!(wrf.TLAS__c||wrf.Profile__c||wrf.AdhocCustom__c
+                              ||wrf.AdHocReport__c||wrf.PolkInsightProductionMessage__c||wrf.ListRequest__c||wrf.Loyalty__c||wrf.ModelSegmentation__c
+                              ||wrf.AutoTrackerReport__c||wrf.salesmatch__c||wrf.TIPNetSystem__c || wrf.TIPNetNewTruck__c || wrf.TIPNetVehiclesinOperation__c
+                              || wrf.TIPNetNewTrailer__c ||wrf.NEWREGGlobal__c ||wrf.PARCGlobal__c ||wrf.ChinaCV__c||wrf.VINA__c||wrf.VIS__c||wrf.CVINA__c
+                              || wrf.PCVINA__c||wrf.PCVIS__c||wrf.PCCVINA__c||wrf.CompletePrefixFile__c||wrf.MINICPF__c||wrf.VINPrefixFile__c
+                              ||wrf.VINPrice__c||wrf.VINTelligence__c||wrf.Recover__c||wrf.FleetFind__c||wrf.VOS__c||wrf.VinVerification__c||wrf.Custom__c||wrf.Recall__c||wrf.CARB__c||wrf.VINTrace__c
+                              ||wrf.ReportDataFile__c||wrf.CatalogMerge__c||wrf.LifeCycleReport__c||wrf.GuideFiles__c||wrf.ScrappageMedianAge__c
+                              ||wrf.WorldviewParc__c||wrf.Mapping__c||wrf.ContinentalTire__c||wrf.SmartLink__c||wrf.FileCleanse__c
+                              ||wrf.AutoNews__c||wrf.Vindicator__c||wrf.DMS__c||wrf.DrivewayCalculator__c||wrf.PS__c
+                              ||wrf.DataExtractGlobalVIOPARC__c||wrf.MarketInsightSystem__c||wrf.VFacts__c)}" >
+        <apex:pageblocksection title="Data Specifications" id="DataSpecs" collapsible="false" columns="1" >
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF LIST/TLAS WRF IS SELECTED - ->
+
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='TLAS',TRUE,FALSE)}" >  
+            <c:sectionDataFileTLASPrint wrf="{!wrf}"/>
+            </apex:pageBlockSectionItem>
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF STAT WRF IS SELECTED- -> 
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Stat',TRUE,FALSE)}" >  
+            <c:sectionDataFileStatPrint wrf="{!wrf}"/>
+            </apex:pageBlockSectionItem>
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF Canada WRF IS SELECTED- ->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Canada',TRUE,FALSE)}" >  
+            <c:sectionDataFileCanadaPrint wrf="{!wrf}"/>
+            </apex:pageBlockSectionItem>  
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF STAT WRF IS SELECTED- ->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Sales Match',TRUE,FALSE)}" >  
+            <c:sectionDataFileTLASPrint wrf="{!wrf}"/>
+            </apex:pageBlockSectionItem>     
+            
+            
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF ANALYTICS WRF IS SELECTED- ->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Analytics',TRUE,FALSE)}" >  
+            <c:sectionDataFileAnalyticsPrint wrf="{!wrf}"/>
+            </apex:pageBlockSectionItem>
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF TIPNet WRF IS SELECTED- ->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='TIPNet',TRUE,FALSE)}" >   
+            <c:sectionDataFileTIPNetPrint wrf="{!wrf}"/>
+            </apex:pageBlockSectionItem>     
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF CVG/Global WRF IS SELECTED- ->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='CVGGlobal',TRUE,FALSE)}" >  
+            <c:sectionDataFileCVGPrint wrf="{!wrf}" df="{!DF}"/>
+            </apex:pageBlockSectionItem>       
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF Software Services WRF IS SELECTED- ->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Software Services',TRUE,FALSE)}" >  
+            <c:sectionDataFileSSPrint wrf="{!wrf}" editapproved="{!editapproved}" editSymbol="{!editSymbol}" />
+            </apex:pageBlockSectionItem>  
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF Recall WRF IS SELECTED-->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Recall',TRUE,FALSE)}" >  
+                <c:sectionDataFileRecallPrint wrf="{!wrf}"/>
+            </apex:pageBlockSectionItem>                  
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF Aftermarket WRF IS SELECTED-->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Aftermarket',TRUE,FALSE)}" >  
+                <c:sectionDataFileAftermarketPrint pageExt="{!pageExt}" wrf="{!wrf}" mc="{!MC}" cnt="{!CNT}" />
+            </apex:pageBlockSectionItem>   
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF NewReg WRF IS SELECTED-->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='NewUsed Registration',TRUE,FALSE)}" >  
+                <c:sectionDataFileNewRegPrint pageExt="{!pageExt}" wrf="{!wrf}" />
+            </apex:pageBlockSectionItem>   
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF Australia WRF IS SELECTED-->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Australia',TRUE,FALSE)}" >  
+                <c:sectionDataFileAustraliaPrint pageExt="{!pageExt}" wrf="{!wrf}" />
+            </apex:pageBlockSectionItem>   
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF APAC WRF IS SELECTED-->
+            
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='APAC',TRUE,FALSE)}" >  
+                <c:sectionDataFileAPACPrint pageExt="{!pageExt}"  wrf="{!wrf}" df="{!DF}" mc="{!MC}"/>
+            </apex:pageBlockSectionItem>
+            
+            <!-- SHOW THIS DATA SPECS SECTION IF Continential Tire WRF IS SELECTED- ->
+
+            <apex:pageblocksectionItem rendered="{!IF(formtype=='Continental Tire Aftermarket',TRUE,FALSE)}" >  
+            <c:sectionDataFileContiPrint wrf="{!wrf}" df="{!DF}" />
+            </apex:pageBlockSectionItem>  -->
+            
+            
+        </apex:pageblocksection>
+    </apex:pageBlock>
+    
+    
+</apex:component>

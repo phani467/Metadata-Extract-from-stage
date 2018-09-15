@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Field Service Line Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Field Service Line Items</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Field Service Line Item ID</value>
+        </caseValues>
+        <name>parent_workorderlineitem_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Root Field Service Line Item ID</value>
+        </caseValues>
+        <name>root_workorderlineitem_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Field Service Line Item Edit</value>
+        </caseValues>
+        <name>workorderlineitem_edit</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Field Service Line Item Number</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Work Order Line Item Numbers</value>
+        </caseValues>
+        <name>workorderlineitem_name</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Field Service Line Item</value>
+        </caseValues>
+        <name>workorderlineitem_parentworkorderlineitem</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Root Field Service Line Item</value>
+        </caseValues>
+        <name>workorderlineitem_rootworkorderlineitem</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- PKID FSALine --></label>
+        <name>PKIDFSALine__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4411 Notification to sales that production has modified the PLC negotiated date</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>LetterHeadWithLogo</letterhead>
+    <name>PLC Negotiated Date Change</name>
+    <style>freeForm</style>
+    <subject>Negotiated Date Change</subject>
+    <textOnly>** ATTENTION – NEGOTIATED DATE CHANGE **&lt;?xml:namespace prefix = o /&gt;
+
+
+PLC Job Link: https://na13.salesforce.com/{!PLCJob__c.Id}
+Job Name: {!PLCJob__c.JobName__c}
+Job Number: {!PLCJob__c.ExtendedJob__c}
+New Negotiated Date: {!PLCJob__c.NegotiatedDate__c}</textOnly>
+    <type>html</type>
+</EmailTemplate>

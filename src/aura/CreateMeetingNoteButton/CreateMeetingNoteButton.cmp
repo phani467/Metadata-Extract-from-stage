@@ -1,0 +1,7 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="CreateMeetingNoteEventController">
+	<aura:attribute name="recordId" type="String"/>
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+	<lightning:spinner variant="brand" aura:id="spinner" class="slds-show backgroundSpinner" alternativeText="Please wait..." />
+
+</aura:component>

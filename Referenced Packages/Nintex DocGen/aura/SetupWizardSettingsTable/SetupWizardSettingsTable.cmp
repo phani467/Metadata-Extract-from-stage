@@ -1,0 +1,120 @@
+<aura:component controller="Loop.IndividualProfileUserSettings">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!--this is what holds all available values for dropdowns/tables-->
+    <aura:attribute name="selectedOption" type="string" access="Private"/>  
+    <aura:attribute name="profileUsers" type="List" access="Private"/>
+    <aura:attribute name="userProfileOptions" type="List" access="Private"/>
+    <aura:attribute name="defaultOptions" type="List" access="Private"/>
+    <aura:attribute name="defaultType" type="string" access="Private"/>
+    <aura:attribute name="userProfile" type="List" access="Private"/>
+    
+    <!--these are the actual values the user selected-->
+    <aura:attribute name="recordId" type="string" access="Private"/>
+    <aura:attribute name="profileUserSelection" type="string" access="Private"/>
+    <aura:attribute name="jobQueueStatus" type="boolean" default="false" access="Private"/>
+    <aura:attribute name="pauseToEditSelection" type="string" default="None" access="Private"/>
+    
+    <aura:attribute name="busy" type="boolean" default="false" access="private"/>
+    <aura:registerEvent name="hideSpinner" type="Loop:hideSpinner"/>
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:handler name="hideModal" event="Loop:hideModal" action="{!c.resetSelectedOption}"/>
+    
+    <div class="slds">
+        <div class="slds-text-heading--label">Profile/User</div>
+        <div class="slds-text-body--regular slds-m-top--small">
+            Define user or profile app settings for Pause to Edit. Profile and user settings for Pause to Edit override site-wide settings.
+        </div>
+        <table class="slds-table slds-table--bordered noBorderSpacing slds-m-top--small">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th class="slds-is-sortable" scope="col">
+                        <span class="slds-truncate"></span>
+                    </th>
+                	<th class="slds-is-sortable" scope="col">
+                        <span class="slds-truncate">Profile/User</span>
+                    </th>
+                	<th class="slds-is-sortable" scope="col">
+                        <span class="slds-truncate">Pause to Edit Type</span>
+					</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.profileUsers}" var="usersOrProfiles">
+                    <tr class="slds-hint-parent">
+                        <td class="slds-row-select">
+                            <a aura:id="editLink" id="{!'editLink' + usersOrProfiles.i}" onclick="{!c.editSettings}" data-data="{!usersOrProfiles.i}">Edit</a>
+                            <img aura:id="editSpinner" id="{!'editSpinner' + usersOrProfiles.i}" class="link-spinner hidden" alt="Loading..." src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner.gif"/>
+                            |
+                            <a aura:id="deleteLink" id="{!'deleteLink' + usersOrProfiles.i}" onclick="{!c.deleteSettings}" data-data="{!usersOrProfiles.i}">Delete</a>
+                            <img aura:id="deleteSpinner" id="{!'deleteSpinner' + usersOrProfiles.i}" class="link-spinner hidden" alt="Loading..." src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner.gif"/>
+                        </td>
+                        <td data-label="Profile/User">
+                            <span class="slds-truncate">{!usersOrProfiles.userName}</span>
+                        </td>
+                        <td data-label="Profile/User">
+                            <span class="slds-truncate">{!usersOrProfiles.pteType}</span>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <Loop:Modal aura:id="pteModal" title="{!v.selectedOption}">
+            <div class="slds-modal__content slds-p-around--medium">
+                <div aura:id="modalLoadingSpinner" class="modal-spinner">
+                    <img alt="Loading..." src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif"/>
+                </div>
+                <div aura:id="modalContent" class="hidden">
+                    <label class="slds-text-heading--small">Profile/User</label>
+                    <div class="slds-grid">
+                        <div class="slds-form-element slds-m-right--small">
+                            <ui:inputSelect class="slds-select slds-col" change="{!c.typeChange}">
+                                <ui:inputSelectOption aura:id="profile" text="Profile" value="" />
+                                <ui:inputSelectOption aura:id="user" text="User" value="" />
+                            </ui:inputSelect>
+                        </div>
+                        <div class="slds-form-element">
+                            <ui:inputSelect aura:id="selectedProfileOption" class="slds-select slds-col" change="{!c.optionChange}">
+                                <aura:iteration items="{!v.userProfileOptions}" var="allProfiles" >
+                                    <ui:inputSelectOption text="{!allProfiles.i}" label="{!allProfiles.userName}" value="{!allProfiles.selected}" class="slds-select"/>
+                                </aura:iteration>
+                            </ui:inputSelect>
+                        </div>
+                    </div>
+                    <div class="slds-text-heading--small slds-m-top--medium">Pause to Edit Type</div>
+                    <div class="slds-grid">
+                        <div class="slds-form--inline">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control" aura:id="pauseToEdit">
+                                    <label class="slds-radio">
+                                        <ui:inputRadio class="radio" aura:id="orgWide" value="" text="Use Organization-Wide" change="{!c.pteChange}" name="options"/> 
+                                        <span class="slds-radio--faux"></span>
+                                        <span class="slds-form-element__label">Use Organization-Wide</span>
+                                    </label>
+                                    <label class="slds-radio">
+                                        <ui:inputRadio class="radio" aura:id="upload" value="" text="Upload" change="{!c.pteChange}" name="options"/> 
+                                        <span class="slds-radio--faux"></span>
+                                        <span class="slds-form-element__label">Upload</span>
+                                    </label>
+                                    <label class="slds-radio">
+                                        <ui:inputRadio class="radio" aura:id="sfFiles" value="" text="Salesforce Files Sync" change="{!c.pteChange}" name="options"/> 
+                                        <span class="slds-radio--faux"></span>
+                                        <span class="slds-form-element__label">Salesforce Files Sync</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <div class="slds-x-small-buttons--horizontal">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.resetSelectedOption}" disabled="{!v.busy}">Cancel</button>
+                    <button class="slds-button slds-button--brand slds-m-left--x-small" onclick="{!c.saveSettings}" disabled="{!v.busy}">Save</button>
+                    <Loop:Spinner class="slds-spinner--small" visible="{!v.busy}" useGraySpinner="true"/>
+                </div>
+            </div>
+    	</Loop:Modal>
+        <button class="slds-button slds-button--brand slds-m-top--medium" onclick="{!c.newSettings}">Add Profile/User</button>
+    </div>
+</aura:component>

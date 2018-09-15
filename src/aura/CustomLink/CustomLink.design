@@ -1,0 +1,3 @@
+<design:component >
+	<design:attribute name="pageSize" label="Page Size" description="Please enter the number of links to be displayed" />
+</design:component>

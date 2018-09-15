@@ -1,0 +1,42 @@
+<aura:component controller="Loop.SampleDdpController">
+    <ltng:require scripts="/resource/Loop__Scripts/eventListener.js"/>
+
+    <!--Required attributes-->
+    <aura:attribute name="sessionId" type="string" required="true"/>
+    <aura:attribute name="connectedAppsEnabled" type="boolean" required="true"/>
+    <aura:attribute name="isCustomizeApplication" type="boolean" required="true"/>
+
+    <!--Optional attributes-->
+    <aura:attribute name="loopUrl" type="string" default=""/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="oAuthUrl" type="string" default="" access="private"/>
+    <aura:attribute name="isAuthorized" type="boolean" default="false" access="private"/>
+    <aura:attribute name="isAuthLoading" type="boolean" default="false" access="private"/>
+    
+    <!--Methods-->
+    <aura:method name="save" action="{!c.save}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="actionEvent" event="Loop:actionEvent" action="{!c.handleActionEvent}"/>
+    
+    <div class="slds">
+        <aura:if isTrue="{! !v.isAuthorized &amp;&amp; v.connectedAppsEnabled}">
+            <h3 class="slds-text-heading--small slds-m-bottom--medium">You must authorize the app to migrate sample DocGen Packages.</h3>
+            <div class="slds-grid slds-grid--align-center">
+                <!-- TODO: (LDSP-1407) Replace with ApplicationAuthorization -->
+                <Loop:AuthorizeLoopServicesContainer aura:id="authorizeLoopServices" isCustomizeApplication="{!v.isCustomizeApplication}"/>
+            </div>
+            <aura:set attribute="else">
+                <h3 class="slds-text-heading--small slds-m-bottom--medium">Sample DocGen Packages provide everything needed to help you design templates for your business use cases. Select one or more templates below and then be sure to add the corresponding button for each page layout. For example, if you choose a sample DocGen Package that uses Account as the main object, you will need to add a button to an Account page layout.</h3>
+                <Loop:SampleDdpSearch sessionId="{!v.sessionId}" loopUrl="{!v.loopUrl}"/>
+                <Loop:SampleDdpTable sessionId="{!v.sessionId}" aura:id="sampleDdpTable" loopUrl="{!v.loopUrl}"/>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,79 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+
+<apex:component id="sectDFNewRegPrint" >
+    
+    <apex:attribute type="WRACE" description="extension of parent page" name="pageExt" required="true"/>  
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />       
+    
+    <!-- SHOW THIS DATA SPECS SECTION IF NewReg WRF IS SELECTED -->
+    
+    <apex:pageblock rendered="{!wrf.NewRegSystem__c || wrf.MarketInsightSystem__c || wrf.DataExtractNewReg__c}"  >
+        <apex:pageBlockSection title="Year Coverage" collapsible="false"  id="yr">
+            
+            <apex:outputField value="{!wrf.Periodicity__c}" />
+            <apex:pageblockSectionItem > 
+                <apex:outputLabel for="year" value="Custom Year" />
+                <apex:outputField value="{!wrf.CustomYearCoverage__c}" />
+            </apex:pageblockSectionItem> 
+            
+            <apex:outputField value="{!wrf.CustomPeriodicity__c}" rendered="{!wrf.Periodicity__c == 'Other'}"  styleClass="requiredField"/>
+            <apex:pageBlockSectionItem rendered="{!wrf.Periodicity__c != 'Other'}"/>
+            
+            <apex:outputField value="{!wrf.CustomYearFrom__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField" />
+            <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>
+            
+            <apex:outputField value="{!wrf.ForecastYears__c}" />
+            <apex:outputField value="{!wrf.CustomYearTo__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField"/>
+            <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>                 
+            
+            <apex:outputField value="{!wrf.CustomForecastYears__c}" rendered="{!wrf.ForecastYears__c == 'Other'}"  styleClass="requiredField"/>
+            <apex:pageBlockSectionItem rendered="{!wrf.ForecastYears__c != 'Other'}"/>
+            
+        </apex:pageBlockSection>
+    </apex:pageblock>
+    
+    <apex:pageblock id="Data" title="{!IF(wrf.DataExtractNewReg__c,"Data Extract for Global New/Used Registration","Global New/Used Registration System")}">
+        
+        <apex:pageblock > 
+            <apex:pageblocksection title="Markets" collapsible="false" id="geo" columns="1" >
+                <!-- 
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="MarketInsight System" wrfId="{!wrf.Id}" rendered="{!wrf.MarketInsightSystem__c}"/>
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="New Reg System" wrfId="{!wrf.Id}" rendered="{!wrf.NewRegSystem__c}"/>
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="Data Extract" wrfId="{!wrf.Id}" rendered="{!wrf.Data_Extract_new_reg__c}"/>
+                 -->
+                <c:sectionCountrySelectorGridView reqtype="{!IF(wrf.MarketInsightSystem__c, 'MarketInsight System',
+                                                           IF(wrf.NewRegSystem__c, 'New Reg System', 'Data Extract'))}"/>
+                                                           
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="OEMGeo" value="Custom Geography"/>
+                    <apex:outputField value="{!wrf.CustomGeography__c}" id="oemgeo"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageblocksectionitem rendered="{!!wrf.CustomGeography__c}"/>
+                <apex:outputField style="width:50%;height:80px;" value="{!wrf.OEMGeographyDetails__c}" rendered="{!wrf.CustomGeography__c || CONTAINS(wrf.PARCGeography__c,'Other')}" styleClass="requiredField"/>
+            </apex:pageblocksection>
+            
+        </apex:pageBlock>
+        
+        
+        <apex:pageblockSection title="Vehicle Attributes" columns="1" id="vehicleAttributesSection">
+            
+            <!-- ELS 9/23/15 replaced with "Essen Vehicle Attributes" <apex:outputField value="{!wrf.Ve__c}" />  -->
+            <apex:outputfield value="{!wrf.EssenVehicleAttributes__c}" />
+            <apex:outputField value="{!wrf.VehicleSegmentation__c}" />
+            <apex:outputField style="width:50%;" value="{!wrf.VehicleSegmentationDetails__c}" rendered="{!wrf.VehicleSegmentation__c != null && CONTAINS(wrf.VehicleSegmentation__c,'Other')}" styleClass="requiredField"/>
+            <apex:outputField style="width:50%;" value="{!wrf.ClusteringAgeClass__c}" />
+            <apex:outputField style="width:50%;" value="{!wrf.ClusteringRegistrationMonth__c}" />
+            
+        </apex:pageblockSection>
+        
+    </apex:pageblock>
+    
+</apex:component>

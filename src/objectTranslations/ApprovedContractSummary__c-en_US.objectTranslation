@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Approved Contract Summary</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Approved Contract Summaries</value>
+    </caseValues>
+    <fields>
+        <help><!-- Master-Detail for accounts --></help>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Approved Contract Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Users logged in over the last 30 days --></help>
+        <label><!-- Active Users 30 --></label>
+        <name>ActiveUsers30__c</name>
+    </fields>
+    <fields>
+        <help><!-- Users logged in over the last 60 days --></help>
+        <label><!-- Active Users 60 --></label>
+        <name>ActiveUsers60__c</name>
+    </fields>
+    <fields>
+        <help><!-- Users logged in over the last 90 days. --></help>
+        <label><!-- Active Users 90 --></label>
+        <name>ActiveUsers90__c</name>
+    </fields>
+    <fields>
+        <help><!-- Show Number of active users --></help>
+        <label><!-- Active Users --></label>
+        <name>ActiveUsers__c</name>
+    </fields>
+    <fields>
+        <help><!-- Formula Field for annual contract value --></help>
+        <label><!-- Annual Contract Value String --></label>
+        <name>AnnualContractValueString__c</name>
+    </fields>
+    <fields>
+        <help><!-- Annual Contract value in native currency --></help>
+        <label><!-- Annual Contract Value --></label>
+        <name>AnnualContractValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Frequency of billing (monthly / Quarterly / Annually) --></help>
+        <label><!-- Billing Frequency --></label>
+        <name>BillingFrequency__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status of on-boarding from CRT Team --></help>
+        <label><!-- CRT Onboarding Status --></label>
+        <name>CRTOnboardingStatus__c</name>
+    </fields>
+    <fields>
+        <help><!-- CSAT Score for last thirty days --></help>
+        <label><!-- CSAT Rating 30 days --></label>
+        <name>CSATRating30Days__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of cases open in a day --></help>
+        <label><!-- Cases open longer than 1 day --></label>
+        <name>CasesOpenLongerthan1Day__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to populate unique contract number. --></help>
+        <label><!-- Contract Number --></label>
+        <name>ContractNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Formula field to show month of contract end date --></help>
+        <label><!-- Earliest Contract End Date String --></label>
+        <name>EarliestContractEndDateString__c</name>
+    </fields>
+    <fields>
+        <help><!-- End date of contract. --></help>
+        <label><!-- Earliest Contract End Date --></label>
+        <name>EarliestContractEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field is for Entitled Users. --></help>
+        <label><!-- Entitled Users --></label>
+        <name>EntitledUsers__c</name>
+    </fields>
+    <fields>
+        <help><!-- Key Field --></help>
+        <label><!-- Key --></label>
+        <name>Key__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field created to check whether a contract is billable or not --></help>
+        <label><!-- Non Billable --></label>
+        <name>NonBillable__c</name>
+    </fields>
+    <fields>
+        <help><!-- Filed created to check number of open cases --></help>
+        <label><!-- Number of Cases Open --></label>
+        <name>NumberofCasesOpen__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of OID&apos;s created in last 30 days --></help>
+        <label><!-- Number of OID&apos;s (30 days) --></label>
+        <name>NumberofOIDS30Days__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field to show product family --></help>
+        <label><!-- Product Family --></label>
+        <name>ProductFamily__c</name>
+    </fields>
+    <fields>
+        <help><!-- To check whether product is in UserXS or not --></help>
+        <label><!-- Product in UserXS --></label>
+        <name>ProductinUserXS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Usage compared to combined usage of everyone that uses the product in last 30 days --></help>
+        <label><!-- Relative Usage 30 --></label>
+        <name>RelativeUsage30__c</name>
+    </fields>
+    <fields>
+        <help><!-- Usage compared to combined usage of everyone that uses the product in last 60 days. --></help>
+        <label><!-- Relative Usage 60 --></label>
+        <name>RelativeUsage60__c</name>
+    </fields>
+    <fields>
+        <help><!-- Usage compared to combined usage of everyone that uses the product in last 90 days. --></help>
+        <label><!-- Relative Usage 90 --></label>
+        <name>RelativeUsage90__c</name>
+    </fields>
+    <fields>
+        <help><!-- Usage compared to combined usage of everyone that uses the product --></help>
+        <label><!-- Relative Usage --></label>
+        <name>RelativeUsage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field to show probability of renewal of a particular contract --></help>
+        <label><!-- Renewal Confidence Indicator --></label>
+        <name>RenewalConfidenceIndicator__c</name>
+    </fields>
+    <fields>
+        <help><!-- Filed created to show type of revenue (recurring / non recurring) of a particular contract. --></help>
+        <label><!-- Revenue Type --></label>
+        <name>RevenueType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Shows the percentage of users Total active users divided by Total Entitled users in last 30 days --></help>
+        <label><!-- Usage 30 --></label>
+        <name>Usage30__c</name>
+    </fields>
+    <fields>
+        <help><!-- Shows the percentage of users Total active users divided by Total Entitled users in last 60 days --></help>
+        <label><!-- Usage 60 --></label>
+        <name>Usage60__c</name>
+    </fields>
+    <fields>
+        <label><!-- Usage 90 --></label>
+        <name>Usage90__c</name>
+    </fields>
+    <fields>
+        <help><!-- Shows the percentage of users Total active users divided by Total Entitled users --></help>
+        <label><!-- Usage --></label>
+        <name>Usage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Filed created for billing schedule --></help>
+        <label><!-- Using Billing Schedule --></label>
+        <name>UsingBillingSchedule__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Internal Data</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Internal Data</value>
+    </caseValues>
+    <fields>
+        <label><!-- Expected Output Quanity --></label>
+        <name>ExpectedOutputQuanity__c</name>
+    </fields>
+    <fields>
+        <help><!-- For External Data, see the Input File Section --></help>
+        <label><!-- Internal Data Type --></label>
+        <name>InternalDataType__c</name>
+        <picklistValues>
+            <masterLabel>Commercial</masterLabel>
+            <translation><!-- Commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Input</masterLabel>
+            <translation><!-- Other Input --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TLAS Query</masterLabel>
+            <translation><!-- TLAS Query --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TotalSource</masterLabel>
+            <translation><!-- TotalSource --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unified</masterLabel>
+            <translation><!-- Unified --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Manufacturer/Division --></label>
+        <name>ManufacturerDivision__c</name>
+    </fields>
+    <fields>
+        <label><!-- Processing Specifications --></label>
+        <name>ProcessingSpecifications__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type --></label>
+        <name>RecordType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Request Form --></label>
+        <name>WorkRequestForm__c</name>
+        <relationshipLabel><!-- Internal Data --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

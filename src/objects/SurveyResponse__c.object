@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Survey_Response_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SurveyResponseCompactLayout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>SurveyResponseCompactLayout</fullName>
+        <fields>Name</fields>
+        <fields>SurveyType__c</fields>
+        <fields>ResponseDate__c</fields>
+        <fields>Contact__c</fields>
+        <fields>Account__c</fields>
+        <fields>Case__c</fields>
+        <fields>Training__c</fields>
+        <fields>Score__c</fields>
+        <label>Survey Response Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-254: Customer Care - Survey Response Object</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>SFDC1-6010: account id of responded</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Account related to the Survey Response.</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Survey Responses</relationshipLabel>
+        <relationshipName>SurveyResponses</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AlertComments__c</fullName>
+        <description>SFDC1-6010: validation: If alert status is resolved, the alert may not be null</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter details on the Alert follow-up and resolution.</inlineHelpText>
+        <label>Alert Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AlertStatus__c</fullName>
+        <description>SFDC1-6010: If alert type is not null then status is required. Should be populated as new on create when alert type is not null</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When Alert type is not null, a status must be provided identifying the progress of the follow-up of the Alert.</inlineHelpText>
+        <label>Alert Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Null</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In-Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Resolved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inprogress</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AlertType__c</fullName>
+        <description>SFDC1-6010: Hot Alert, Commendation, can be null. The survey team can decide what triggers this and we can build workflows on this value. A workflow will trigger an email based on this value. For Phase 1 we are only expecting this value to be sent as hot alert or null</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies if the survey has been identified as a response needing action by the</inlineHelpText>
+        <label>Alert Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Null</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hot Alert</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Commendation</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CESScore__c</fullName>
+        <description>SFDC1-6010: Carlos&apos; team to calculate and present as a whole number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Customer Engagement Score.  This score is provided by the survey team on a scale from 0-7.</inlineHelpText>
+        <label>CES Score</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CaseClosedDate__c</fullName>
+        <description>SFDC1-1895: Formula field to populate Case Closed Date</description>
+        <externalId>false</externalId>
+        <formula>Case__r.ClosedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Date the surveyed Case was Closed.</inlineHelpText>
+        <label>Case Closed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CaseOwnerEmailId__c</fullName>
+        <description>SFDC1-1895: Case Owner Manager&apos;s Email Id</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Email address of the Owner of the surveyed Case.</inlineHelpText>
+        <label>Case Owner Manager Email Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CaseOwner__c</fullName>
+        <description>SFDC1-1895: Formula field to populate Case Owner</description>
+        <externalId>false</externalId>
+        <formula>Case__r.Owner:User.FirstName +&apos; &apos;+ Case__r.Owner:User.LastName</formula>
+        <inlineHelpText>Owner of the surveyed Case.</inlineHelpText>
+        <label>Case Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-254: populated and required when type is Customer Care, else null and read only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Case related to this Survey Response.</inlineHelpText>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Survey Responses</relationshipLabel>
+        <relationshipName>SurveyResponses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Comment10__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 10</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment4__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 4</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment5__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 5</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment6__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 6</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment7__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 7</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment8__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 8</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment9__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>New fields, in place to capture data when bringing it back from the surveys</inlineHelpText>
+        <label>Comment 9</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>SFDC1-254 : Comments. Any other comments to be provided in the Survey</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Verbatim open comments from the survey.</inlineHelpText>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ContactEmail__c</fullName>
+        <description>SFDC1-1895: Formula field to populate Contact Email</description>
+        <externalId>false</externalId>
+        <formula>Contact__r.Email</formula>
+        <inlineHelpText>Contact&apos;s Email Id</inlineHelpText>
+        <label>Contact Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>SFDC1-254: contactid of responded</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contact related to the Survey Response.</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Survey Responses</relationshipLabel>
+        <relationshipName>SurveyResponses</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DistributionList1__c</fullName>
+        <defaultValue>$Label.DistributionList1</defaultValue>
+        <description>SFDC1-1895: Distribution list 1 to send email alert</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Initial mailing list to receive Alert emails.</inlineHelpText>
+        <label>Distribution List 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DistributionList2__c</fullName>
+        <defaultValue>$Label.DistributionList2</defaultValue>
+        <description>SFDC1-1895: Distribution list 2 to sent email alert</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default mailing list to receive Alert emails if Distribution List 1 is not provided.</inlineHelpText>
+        <label>Distribution List 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDSurvResp__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>SvR{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID SurvResp</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Question10__c</fullName>
+        <description>SFDC1-6010: text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 10</inlineHelpText>
+        <label>Question 10</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question1__c</fullName>
+        <description>SFDC1-254 : text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 1</inlineHelpText>
+        <label>Question 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question2__c</fullName>
+        <description>SFDC1-254 : text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 2</inlineHelpText>
+        <label>Question 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question3__c</fullName>
+        <description>SFDC1-254 : text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 3</inlineHelpText>
+        <label>Question 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question4__c</fullName>
+        <description>SFDC1-254 : text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 4</inlineHelpText>
+        <label>Question 4</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question5__c</fullName>
+        <description>SFDC1-254 : text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 5</inlineHelpText>
+        <label>Question 5</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question6__c</fullName>
+        <description>SFDC1-6010: text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 6</inlineHelpText>
+        <label>Question 6</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question7__c</fullName>
+        <description>SFDC1-6010: text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 7</inlineHelpText>
+        <label>Question 7</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question8__c</fullName>
+        <description>SFDC1-6010: text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 8</inlineHelpText>
+        <label>Question 8</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question9__c</fullName>
+        <description>SFDC1-6010: text of questions - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Question 9</inlineHelpText>
+        <label>Question 9</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response10__c</fullName>
+        <description>SFDC1-6010: answer to question 10 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  10</inlineHelpText>
+        <label>Response 10</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response1__c</fullName>
+        <description>SFDC1-6010: answer to question1 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  1</inlineHelpText>
+        <label>Response 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response2__c</fullName>
+        <description>SFDC1-6010: answer to question 1 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  2</inlineHelpText>
+        <label>Response 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response3__c</fullName>
+        <description>SFDC1-6010: answer to question 3 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  3</inlineHelpText>
+        <label>Response 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response4__c</fullName>
+        <description>SFDC1-6010: answer to question 4 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  4</inlineHelpText>
+        <label>Response 4</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response5__c</fullName>
+        <description>SFDC1-6010: answer to question 5 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  5</inlineHelpText>
+        <label>Response 5</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response6__c</fullName>
+        <description>SFDC1-6010: answer to question 6 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  6</inlineHelpText>
+        <label>Response 6</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response7__c</fullName>
+        <description>SFDC1-6010: answer to question 7 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  7</inlineHelpText>
+        <label>Response 7</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response8__c</fullName>
+        <description>SFDC1-6010: answer to question 8 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  8</inlineHelpText>
+        <label>Response 8</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response9__c</fullName>
+        <description>SFDC1-6010: answer to question 9 - can be null if not all 10 questions are asked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey Response  9</inlineHelpText>
+        <label>Response 9</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ResponseDate__c</fullName>
+        <description>SFDC1-254: Date on which survey was taken</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the survey response was received</inlineHelpText>
+        <label>Response Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Score__c</fullName>
+        <description>SFDC1-254: Score given for the training provided/Customer satisfcation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Overall Score.  This score is provided by the survey team.</inlineHelpText>
+        <label>Score</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SurveySystemReference__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-6010:Survey identifier from Survey system
+SFDC1-9004 : Marking this field External and Unique</description>
+        <externalId>true</externalId>
+        <inlineHelpText>A unique survey identifier provided by the survey tool</inlineHelpText>
+        <label>Survey System Reference</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>SurveyType__c</fullName>
+        <description>SFDC1-254: describes if the survey response is Customer Care,Training or Customer First</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the type of Survey that was sent to the Contact.</inlineHelpText>
+        <label>Survey Type</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Customer Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Customer First</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SurveyVersion__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will hold a version number determined by the survey team to identify the survey questions used</inlineHelpText>
+        <label>Survey Version</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Training__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-254: populated and required when the type=Training, else null and read only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Training Activity related to this Survey Response.</inlineHelpText>
+        <label>Training</label>
+        <referenceTo>WorkOrder</referenceTo>
+        <relationshipLabel>Survey Responses</relationshipLabel>
+        <relationshipName>SurveyResponses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Survey Response</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>SurveyType__c</columns>
+        <columns>ResponseDate__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Account__c</columns>
+        <columns>Case__c</columns>
+        <columns>Training__c</columns>
+        <columns>Score__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>SR-{0000}</displayFormat>
+        <label>Survey Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Survey Responses</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>SurveyType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ResponseDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Case__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Training__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Score__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>SurveyType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ResponseDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Case__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Training__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Score__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>SurveyType__c</lookupFilterFields>
+        <lookupFilterFields>ResponseDate__c</lookupFilterFields>
+        <lookupFilterFields>Contact__c</lookupFilterFields>
+        <lookupFilterFields>Account__c</lookupFilterFields>
+        <lookupFilterFields>Case__c</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>ResponseDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Contact__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Score__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>SurveyType__c</searchFilterFields>
+        <searchFilterFields>ResponseDate__c</searchFilterFields>
+        <searchFilterFields>Contact__c</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Case__c</searchFilterFields>
+        <searchFilterFields>Training__c</searchFilterFields>
+        <searchFilterFields>Score__c</searchFilterFields>
+        <searchResultsAdditionalFields>SurveyType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ResponseDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Training__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Score__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>AlertCommentsShouldNotBeNull</fullName>
+        <active>true</active>
+        <description>SFDC1-6010: If alert status is resolved, the alert comments may not be null</description>
+        <errorConditionFormula>AND( 
+	ISPICKVAL( AlertStatus__c , &quot;Resolved&quot;), 
+	ISBLANK( AlertComments__c ))</errorConditionFormula>
+        <errorDisplayField>AlertComments__c</errorDisplayField>
+        <errorMessage>If alert status is resolved, the alert comments may not be null</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AlertStatusIsRequired</fullName>
+        <active>true</active>
+        <description>SFDC1-6010: If Alert type is not null then alert status should be populated</description>
+        <errorConditionFormula>AND( 
+	NOT( 
+		OR (
+			ISPICKVAL( AlertType__c , &apos;Null&apos;),
+			ISBLANK(TEXT( AlertType__c )))), 
+	ISBLANK(TEXT( AlertStatus__c )))</errorConditionFormula>
+        <errorDisplayField>AlertStatus__c</errorDisplayField>
+        <errorMessage>If Alert type is not null then alert status should be populated</errorMessage>
+    </validationRules>
+</CustomObject>

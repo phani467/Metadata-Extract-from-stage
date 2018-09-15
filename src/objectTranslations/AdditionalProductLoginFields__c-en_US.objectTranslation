@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Additional Product Login Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Additional Product Login Fields</value>
+    </caseValues>
+    <fields>
+        <help><!-- Tick mark if the client received the demo (1 day only) --></help>
+        <label><!-- Bloomberg Demo --></label>
+        <name>BloombergDemo__c</name>
+    </fields>
+    <fields>
+        <help><!-- Update Field as per user&apos;s S/N on bloomberg terminal (by serial number) --></help>
+        <label><!-- Bloomberg S/N --></label>
+        <name>BloombergSN__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unique Identification code per user in Bloomberg for permissioning purposes. Check bbg terminal for the user&apos;s UUID and update. --></help>
+        <label><!-- Bloomberg UUID --></label>
+        <name>BloombergUUID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Include the field names that the client has access to for DIME Data via MSF Toolkit --></help>
+        <label><!-- DIME Fields --></label>
+        <name>DIMEFields__c</name>
+        <picklistValues>
+            <masterLabel>Calculations</masterLabel>
+            <translation><!-- Calculations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dividend</masterLabel>
+            <translation><!-- Dividend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ETP Composition</masterLabel>
+            <translation><!-- ETP Composition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ETP Encyclopaedia</masterLabel>
+            <translation><!-- ETP Encyclopaedia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Index</masterLabel>
+            <translation><!-- Index --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Tick the field if contact is providing us with MSF data --></help>
+        <label><!-- Data Onboarding Contact --></label>
+        <name>DataOnboardingContact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tick field if the client is required to be notified for any datafeed updates --></help>
+        <label><!-- Datafeed Delivery Contact --></label>
+        <name>DatafeedDeliveryContact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag contact for MSF client data if discrepancies found in data received --></help>
+        <label><!-- File Delivery Contact --></label>
+        <name>FileDeliveryContact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag IT contact for assistance with toolkit installation, datafeed setups, and client onboarding --></help>
+        <label><!-- IT Contact --></label>
+        <name>ITContact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specifies when a user last logged into Toolkit. Populated via integration --></help>
+        <label><!-- Last Toolkit Logon Date --></label>
+        <name>LastToolkitLogonDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy Id field from source system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Choose the most relevant option from the drop-down, this is provided by sales, which segments the user according to the industry within which they operate --></help>
+        <label><!-- MSFA Segment --></label>
+        <name>MSFASegment__c</name>
+        <picklistValues>
+            <masterLabel>Academic</masterLabel>
+            <translation><!-- Academic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Manager</masterLabel>
+            <translation><!-- Asset Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Beneficial Owner</masterLabel>
+            <translation><!-- Beneficial Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Borrower</masterLabel>
+            <translation><!-- Borrower --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Broker</masterLabel>
+            <translation><!-- Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central Bank</masterLabel>
+            <translation><!-- Central Bank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Broker</masterLabel>
+            <translation><!-- Corporate Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate/IR</masterLabel>
+            <translation><!-- Corporate/IR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hedge Fund</masterLabel>
+            <translation><!-- Hedge Fund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lender</masterLabel>
+            <translation><!-- Lender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit Group</masterLabel>
+            <translation><!-- Markit Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media</masterLabel>
+            <translation><!-- Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prop Desk</masterLabel>
+            <translation><!-- Prop Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quant Group</masterLabel>
+            <translation><!-- Quant Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulator</masterLabel>
+            <translation><!-- Regulator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research</masterLabel>
+            <translation><!-- Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk</masterLabel>
+            <translation><!-- Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Trading</masterLabel>
+            <translation><!-- Sales Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party</masterLabel>
+            <translation><!-- Third Party --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underlying Client</masterLabel>
+            <translation><!-- Underlying Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor</masterLabel>
+            <translation><!-- Vendor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Used in conjunction with values from &quot;MSF data type&quot; for Repo data, (no dependency) --></help>
+        <label><!-- MSF Currency --></label>
+        <name>MSFCurrency__c</name>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation><!-- All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asia Pacific</masterLabel>
+            <translation><!-- Asia Pacific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMEA</masterLabel>
+            <translation><!-- EMEA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North America</masterLabel>
+            <translation><!-- North America --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Tick if the client is an MSF live user --></help>
+        <label><!-- MSF Customer --></label>
+        <name>MSFCustomer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Additional data access for MSF --></help>
+        <label><!-- MSF Data Type --></label>
+        <name>MSFDataType__c</name>
+        <picklistValues>
+            <masterLabel>Bond Pricing</masterLabel>
+            <translation><!-- Bond Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Broker to Broker</masterLabel>
+            <translation><!-- Client Broker to Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Collateral</masterLabel>
+            <translation><!-- Client Collateral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Exclusives</masterLabel>
+            <translation><!-- Client Exclusives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Pending</masterLabel>
+            <translation><!-- Client Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group Broker to Broker</masterLabel>
+            <translation><!-- Group Broker to Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group Exclusives</masterLabel>
+            <translation><!-- Group Exclusives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group Intraday</masterLabel>
+            <translation><!-- Group Intraday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group Pending</masterLabel>
+            <translation><!-- Group Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repo Markets</masterLabel>
+            <translation><!-- Repo Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repo Rate</masterLabel>
+            <translation><!-- Repo Rate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repo Securities</masterLabel>
+            <translation><!-- Repo Securities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repo Trading</masterLabel>
+            <translation><!-- Repo Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research Signals Short Squeeze Data</masterLabel>
+            <translation><!-- Research Signals Short Squeeze Data --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If a user has either / both of these permissions enabled they cannot see CUSIPS and/or SEDOLS in any MSF platform --></help>
+        <label><!-- MSF Identifiers --></label>
+        <name>MSFIdentifiers__c</name>
+        <picklistValues>
+            <masterLabel>No CUSIPs</masterLabel>
+            <translation><!-- No CUSIPs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No SEDOLs</masterLabel>
+            <translation><!-- No SEDOLs --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Denotes whether a user is licensed to have data for bonds, equities or both --></help>
+        <label><!-- MSF Instrument Type --></label>
+        <name>MSFInstrumentType__c</name>
+        <picklistValues>
+            <masterLabel>Bonds Only</masterLabel>
+            <translation><!-- Bonds Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bonds and Equities</masterLabel>
+            <translation><!-- Bonds and Equities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equities Only</masterLabel>
+            <translation><!-- Equities Only --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Parent of Additional Product Login Information. --></help>
+        <label><!-- Product Login --></label>
+        <name>ProductLogin__c</name>
+        <relationshipLabel><!-- Additional Product Login Fields --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Denotes whether a user is licensed under a live, active contract --></help>
+        <label><!-- Product User --></label>
+        <name>ProductUser__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Used by content ops to identify a client who can sign off the data submitted to MSF on behalf of their organization --></help>
+        <label><!-- Sign Off Contact --></label>
+        <name>SignOffContact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter value for Subscription Type --></help>
+        <label><!-- Subscription Type --></label>
+        <name>SubscriptionType__c</name>
+        <picklistValues>
+            <masterLabel>Americas</masterLabel>
+            <translation><!-- Americas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asia</masterLabel>
+            <translation><!-- Asia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Europe</masterLabel>
+            <translation><!-- Europe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global</masterLabel>
+            <translation><!-- Global --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REPO DTCC GCF</masterLabel>
+            <translation><!-- REPO DTCC GCF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REPO FED ADM</masterLabel>
+            <translation><!-- REPO FED ADM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The version of the Toolkit --></help>
+        <label><!-- Toolkit Version --></label>
+        <name>ToolkitVersion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Dependent on the trial tick box, (becomes mandatory once Trial tick box is flagged). Shows the combination MSF products on trial at any given point in time (real time). --></help>
+        <label><!-- Trial Product --></label>
+        <name>TrialProduct__c</name>
+        <picklistValues>
+            <masterLabel>Account Manager Data</masterLabel>
+            <translation><!-- Account Manager Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benchmarking Data</masterLabel>
+            <translation><!-- Benchmarking Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg with Retail Fee</masterLabel>
+            <translation><!-- Bloomberg with Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg without Retail Fee</masterLabel>
+            <translation><!-- Bloomberg without Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buyside Toolkit with Retail Fee</masterLabel>
+            <translation><!-- Buyside Toolkit with Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buyside Toolkit without Retail Fee</masterLabel>
+            <translation><!-- Buyside Toolkit without Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capital IQ Xpressfeed</masterLabel>
+            <translation><!-- Capital IQ Xpressfeed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capital IQ with Retail Fee</masterLabel>
+            <translation><!-- Capital IQ with Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capital IQ without Retail Fee</masterLabel>
+            <translation><!-- Capital IQ without Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DX Open</masterLabel>
+            <translation><!-- DX Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Datafeed - S/FTP</masterLabel>
+            <translation><!-- Datafeed - S/FTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Datafeed - WTC</masterLabel>
+            <translation><!-- Datafeed - WTC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deltix</masterLabel>
+            <translation><!-- Deltix --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Edge</masterLabel>
+            <translation><!-- Direct Edge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dividend Data</masterLabel>
+            <translation><!-- Dividend Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evaluation Explorer</masterLabel>
+            <translation><!-- Evaluation Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FactSet with Retail Fee</masterLabel>
+            <translation><!-- FactSet with Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FactSet without Retail Fee</masterLabel>
+            <translation><!-- FactSet without Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Index Explorer</masterLabel>
+            <translation><!-- International Index Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PBPX</masterLabel>
+            <translation><!-- PBPX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Explorer</masterLabel>
+            <translation><!-- Performance Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Explorer - Lite</masterLabel>
+            <translation><!-- Performance Explorer - Lite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Explorer - Sign Off</masterLabel>
+            <translation><!-- Performance Explorer - Sign Off --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk Explorer</masterLabel>
+            <translation><!-- Risk Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS Securities Finance Toolkit</masterLabel>
+            <translation><!-- SS Securities Finance Toolkit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sellside Toolkit</masterLabel>
+            <translation><!-- Sellside Toolkit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRQA</masterLabel>
+            <translation><!-- TRQA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit ETP Data</masterLabel>
+            <translation><!-- Toolkit ETP Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit EVB Data</masterLabel>
+            <translation><!-- Toolkit EVB Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit Public Disclosure Data</masterLabel>
+            <translation><!-- Toolkit Public Disclosure Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit Repo Contributor Data</masterLabel>
+            <translation><!-- Toolkit Repo Contributor Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit Repo Non Contributor Data</masterLabel>
+            <translation><!-- Toolkit Repo Non Contributor Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transaction Explorer</masterLabel>
+            <translation><!-- Transaction Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK Index Explorer</masterLabel>
+            <translation><!-- UK Index Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WRDS</masterLabel>
+            <translation><!-- WRDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Portal Buyside with Retail fee</masterLabel>
+            <translation><!-- Web Portal Buyside with Retail fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Portal Buyside without Retail Fee</masterLabel>
+            <translation><!-- Web Portal Buyside without Retail Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Portal SS Securities Finance</masterLabel>
+            <translation><!-- Web Portal SS Securities Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Portal Sellside Non-SF</masterLabel>
+            <translation><!-- Web Portal Sellside Non-SF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Portal Wholesale</masterLabel>
+            <translation><!-- Web Portal Wholesale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wholesale Toolkit</masterLabel>
+            <translation><!-- Wholesale Toolkit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone Buyside</masterLabel>
+            <translation><!-- iPhone Buyside --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone Sellside</masterLabel>
+            <translation><!-- iPhone Sellside --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone Sellside SF</masterLabel>
+            <translation><!-- iPhone Sellside SF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone Wholesale</masterLabel>
+            <translation><!-- iPhone Wholesale --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Unique username or login name for this user automatically copied over from Product Login via workflow --></help>
+        <label><!-- Username --></label>
+        <name>Username__c</name>
+    </fields>
+    <layouts>
+        <layout>Additional Product Login Fields Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- MSF Product Information --></label>
+            <section>MSF Product Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

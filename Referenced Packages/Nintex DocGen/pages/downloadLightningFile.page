@@ -1,0 +1,11 @@
+<apex:page showHeader="false" sidebar="false" controller="Loop.DownloadLightningFileController">
+    <script>
+        var downloadUrl = '{!JSENCODE($Request.url)}';
+        downloadUrl += '&sessionId=' + encodeURIComponent('{!JSENCODE(sessionId)}');
+        downloadUrl += '&location=' + encodeURIComponent('{!JSENCODE(location)}');
+        downloadUrl += '&userId=' + '{!userId}';
+        downloadUrl += '&sandbox=' + '{!sandbox}';
+        
+        window.location = downloadUrl;
+    </script>
+</apex:page>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-6246 Used in Additional Case Fields object process to identify the record type of additional case fields</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>AdditionalCaseRecordType__c</fullName>
+        <description>SFDC1-6376: Adding Polk in the pick list</description>
+        <externalId>false</externalId>
+        <label>Additional Case Record Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account Receivable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CDN Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Actions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Delivery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Delivery Helpdesk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enerdeq</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy-ETA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equities-Data and Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equities-Reg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FieldDirect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Goldfire</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kingdom</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legacy Distribution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loan Settlement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NRG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Order Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Order Management Helpdesk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OTC DD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OTC Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PETRA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Polk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Power Tools</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pricing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pricing Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Processing - Customer Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Processing - Onboarding</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reference Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reg and Compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Ops</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Securities Finance</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CaseRecordType__c</fullName>
+        <description>SFDC1-6246 Case Record Type for additional Case Fields object process. SFDC1-7120: Removing Internal Partner pick list. SFDC1-9290 Adding Implementation Value</description>
+        <externalId>false</externalId>
+        <label>Case Record Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Customer Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Onboarding</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Order Management/Delivery Help Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Implementation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal Partner</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PKIDAdditionalCaseTypeLinking__c</fullName>
+        <description>SFDC1-2445: Creating PK field for Data Migration Support</description>
+        <displayFormat>ACTL-{000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>PKID AdditionalCaseTypeLinking</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ProductFamily__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-6246: Additional case fields record should get spawned based on Product Family record</description>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <referenceTo>Family__c</referenceTo>
+        <relationshipLabel>Additional Case Type Linkings</relationshipLabel>
+        <relationshipName>AdditionalCaseTypeLinkings</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductGroup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-6246: Additional case fields record should get spawned based on Product Group record</description>
+        <externalId>false</externalId>
+        <label>Product Group</label>
+        <referenceTo>ProductGroup__c</referenceTo>
+        <relationshipLabel>Additional Case Type Linkings</relationshipLabel>
+        <relationshipName>AdditionalCaseTypeLinkings</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Additional Case Type Linking</label>
+    <nameField>
+        <displayFormat>ACTL-{0000}</displayFormat>
+        <label>Additional Case Type Linking Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Additional Case Type Linkings</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

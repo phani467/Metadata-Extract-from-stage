@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2654 : Use this template when you have already sent an initial email to the customer asking for more information but have not yet received a reply.This template will notify the client that if we do not receive a response within the next 24 hours the case will be archived.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Waiting on Customer Details</name>
+    <style>none</style>
+    <subject>IHS Customer Care: {!Case.ProductGroup__c}: More information is requested</subject>
+    <textOnly>Account: {!Case.Account}
+Contact: {!Case.Contact}
+Case Number: {!Case.Case Number}
+Case Description: {!Case.Description}
+Hello {!Case.Contact},
+
+I would like to follow up on your case regarding {!Case.ProductGroup__r}.
+Since our initial interaction on {!Case.Created On}, I have not received the additional information needed to pursue a resolution.
+
+In order to further assist you with this case, a response is requested immediately.  If I do not receive a reply within the next 24 hours, then this case will be archived. 
+Please note that if you wish to continue working this issue you can contact IHS Markit Customer Care to reactivate this case at your convenience by providing the case number in the header of this email.
+
+Customer Care Contact Information:
+1 800 IHS CARE or via email at customercare@ihsmarkit.com
+
+Thank you for your continued partnership with IHS Markit.
+
+Best regards,
+{!Case.Owner;}
+IHS Markit Customer Care</textOnly>
+    <type>custom</type>
+</EmailTemplate>

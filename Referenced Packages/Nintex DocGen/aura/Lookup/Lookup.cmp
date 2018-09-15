@@ -1,0 +1,52 @@
+<aura:component controller="Loop.LookupController">
+    <!--Required attributes-->
+    <aura:attribute name="objectType" type="string" default="" required="true" description="The Salesforce object to search."/>
+    <aura:attribute name="svgClass" type="string" default="" required="true" description="Background color for the icon."/>
+    <aura:attribute name="svgLink" type="string" default="" required="true" description="Link to svg icon."/>
+    
+    <!--Optional attributes-->
+    <aura:attribute name="searchString" type="string" default="" description="Search string."/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="recordsFound" type="List" default="[]" access="private" description="List of all records found by searching (Limit 25)."/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="recipientSelected" type="Loop:recipientSelected"/>
+    
+	<div class="slds">
+        <div class="slds-form-element">
+            <div aura:id="lookupButton" id="searchStringInput" class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right" style="height:34px;" onclick="{!c.openLookupMenu}">
+                <Loop:Svg class="{!v.svgClass + ' lookup-left-icon'}" xlinkHref="{!$Resource.Loop__SalesforceLightning + v.svgLink}"/>
+                <input aura:id="searchString" class="slds-input" style="min-height:34px; height:34px; padding-left:40px;"
+                       value="{!v.searchString}" oninput="{!c.updateSearchString}" onkeydown="{!c.search}" onblur="{!c.blurLookupMenu}"
+                       spellcheck="false" />
+                <Loop:Svg class="slds-input__icon slds-icon-text-default slds-m-left--xx-small" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#search'}"/>
+            </div>
+            <div aura:id="lookupMenu" id="lookupMenu" class="slds-lookup__menu">
+                <ul class="slds-lookup__list">
+                    <li class="slds-lookup__item">
+                        <button class="slds-button" onclick="{!c.search}" onblur="{!c.blurLookupMenu}">
+                            <Loop:Svg class="search-icon slds-input__icon slds-icon-text-default slds-m-right--x-small" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#search'}"/>
+                            "{!v.searchString}" in {!v.objectType}
+                        </button>
+                    </li>
+                    <li aura:id="searchResultsLoading" class="hidden">
+                    	<div class="slds-grid slds-grid--align-center">
+                            <div id="spinner-container" class="slds-align-middle">
+                                <Loop:Spinner class="slds-spinner slds-spinner--small" visible="true" />
+                            </div>
+                        </div>
+                    </li>
+                    <aura:iteration items="{!v.recordsFound}" var="record">
+                        <li aura:id="searchResults" class="slds-lookup__item">
+                            <button id="{!record.Id}" class="slds-button" onclick="{!c.recordSelected}">
+                                <Loop:Svg class="{!'slds-icon ' + v.svgClass}" xlinkHref="{!$Resource.Loop__SalesforceLightning + v.svgLink}"/>
+                                {!record.Name}
+                            </button>
+                        </li>
+                    </aura:iteration>
+                </ul>
+            </div>
+        </div>
+    </div>
+</aura:component>

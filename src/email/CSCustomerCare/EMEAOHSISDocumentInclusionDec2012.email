@@ -1,0 +1,22 @@
+IHSMarkit Case Reference number : {!Case.CaseNumber}
+IHSMarkit Helpdesk contact :	{!Case.OwnerFullName}
+Company name : 
+IHS Account Number :	 
+Customer Contact info :
+Name :
+Email :
+Business phone :	 
+Subscription Details :
+Products subscribed :
+Value :
+Supplement details : (please be precise on the required BS Supplement)	 
+Date Call received :  {!Case.CreatedDate}
+Date Passed to PM	: 
+Document number and title : 
+Call Details from customer : 
+Additional info from EMEA Helpdesk :	 
+PM call response :	 
+Date response sent to Helpdesk :
+Date response sent to customer :
+
+Any follow up required? :

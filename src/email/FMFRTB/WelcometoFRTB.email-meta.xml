@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Welcome to FRTB</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Welcome to FRTB</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Welcome to FRTB</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+We have created an account for you to access FRTB within our UAT environment: https://productsuat.markit.com. 
+
+If clicking the link does not work, please copy and paste the URL in a new browser window instead.
+
+Username: &lt;Customer Email Address&gt;
+
+In order to login, please first reset your password by following the instructions on this page:https://productsuat.markit.com/home/resetPasswordRequest.jsp.
+
+Should you require any documentation, access to our FAQs or to log a case for FRTB, please select Support on the drop down menu. 
+
+If you have received this email in error or have any other questions, please contact us at: support@markit.com.
+
+Kind regards, 
+
+IHS Markit Support 
+
+U.S.: + 1 877 762 7548 
+EMEA: + 800 6275 4800 
+Asia Pacific: + 65 6922 4210 
+Email: support@markit.com
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

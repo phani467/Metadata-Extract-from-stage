@@ -1,0 +1,35 @@
+<aura:component >
+    <ltng:require scripts="/resource/Loop__Scripts/eventListener.js"/>
+    <aura:attribute name="isCustomizeApplication" type="Boolean" default="true" required="true"/>
+    <aura:attribute name="integrationUsername" type="string" default=""/>
+
+    <aura:handler name="actionEvent" event="Loop:actionEvent" action="{!c.handleActionEvent}"/>
+
+    <aura:registerEvent name="moveToNextStep" type="Loop:moveToNextStep"/>
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    
+    <aura:attribute name="isStatusLoading" type="boolean" default="true"/>
+        
+    <div class="slds">
+        <div class="slds-m-bottom--medium">
+            <div class="slds-m-bottom--x-small">Give the app permissions to run <a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9020" target="_blank">Scheduled DocGen Packages</a>, <a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9021" target="_blank">Mass DocGen Packages</a>, and <a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9029" target="_blank">Insert-Updates</a> with elevated privilege, and integrate with partner applications.</div>
+            <div class="slds-m-bottom--medium">The app will run as the user you are currently logged in as to perform these tasks. If you want the app to run as a different user, you must log in with the account you want the app to run as, and then authorize the app again.</div>
+            <div hidden="{! !v.isStatusLoading}" style="width:48px;">
+                <img src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." />
+            </div>
+            <div hidden="{!v.isStatusLoading || empty(v.integrationUsername)}">
+                <b>Integration User: </b> <span aura:id="authorizingUser">{!v.integrationUsername}</span>
+                <a class="slds-m-left--large" onclick="{!c.handleDisconnectIntegrationUser}">Disconnect Integration User</a>
+            </div>
+        </div>
+        <aura:if isTrue="{! !v.isCustomizeApplication}">
+            <div class="slds-m-bottom--xx-small">
+                <Loop:Svg class="slds-icon slds-icon-text-warning slds-icon--small slds-m-right--x-small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#warning"/>
+                <span class="slds-truncate">You must have the Customize Application permission to authorize the app.</span>
+            </div>
+        </aura:if>
+        <button type="button" class="slds-button slds-button--brand" disabled="{! !v.isCustomizeApplication}" onclick="{!c.startOAuthFlow}">{!$Label.loop.Authorize_App_Label}</button>
+        <Loop:AuthorizeLoopServices aura:id="authorizeLoopServices"/>
+    </div>
+</aura:component>

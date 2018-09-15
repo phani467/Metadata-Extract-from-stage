@@ -1,0 +1,32 @@
+<aura:component >
+    <aura:attribute name="id" type="string"/>
+    <aura:attribute name="isHtmlEmail" type="boolean" access="private"/>
+    <aura:attribute name="emailSubject" type="string" access="private"/>
+    <aura:attribute name="emailBody" type="string" access="private"/>
+    
+    <aura:registerEvent name="updateSlideEmail" type="Loop:updateSlideEmail"/>
+    <aura:registerEvent name="slideOutEditEmail" type="Loop:slideOutEditEmail"/>
+    
+    <aura:method name="setValues" action="{!c.setValues}">
+        <aura:attribute name="globalId" type="string"/>
+        <aura:attribute name="isHtmlEmail" type="boolean" required="true" access="private"/>
+        <aura:attribute name="emailSubject" type="string" access="private"/>
+        <aura:attribute name="emailBody" type="string" access="private"/>
+    </aura:method>
+    
+    <div class="slds">
+        <h2 class="slds-text-heading--small slds-m-bottom--medium">Edit Email</h2>
+        <lightning:input label="Subject" placeholder="Add a subject" value="{!v.emailSubject}"/>
+        <label class="slds-form-element__label slds-p-top_small rich-text-email">Body</label>
+        <aura:if isTrue="{!v.isHtmlEmail}">
+            <lightning:inputRichText value="{!v.emailBody}" disabledCategories="FORMAT_FONT,REMOVE_FORMATTING"/>
+            <aura:set attribute="else">
+                <lightning:textarea label="Body" placeholder="Add a body" value="{!v.emailBody}" class="plain-text-email" variant="label-hidden"/>
+            </aura:set>
+        </aura:if>
+        <div style="text-align:right; padding-top: 10px;">
+            <button class="slds-button slds-button--neutral" onclick="{!c.cancel}">Cancel</button>
+            <button class="slds-button slds-button--brand" onclick="{!c.updateSlideEmail}">Save</button>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ProductEntitlementRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-7972 Product Entitlement object is used to hold the details about the user entitlements and licenses.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>SFDC1-6785 End date of the validity of the entitlement</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The last date this Entitlement is valid until.  Date can be in the future.</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IsValid__c</fullName>
+        <description>SFDC1-6785 Formula to evaluate if Entitlement is still valid based on Start and End Date</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(ISBLANK(StartDate__c), ISBLANK(EndDate__c)), True, 
+IF(AND(NOT(ISBLANK(StartDate__c)), ISBLANK(EndDate__c), (StartDate__c &lt;= TODAY())), True, 
+IF(AND(NOT(ISBLANK(StartDate__c)),NOT(ISBLANK(EndDate__c)), (StartDate__c &lt;= TODAY()), (EndDate__c &gt;= TODAY())), True, 
+IF(AND(ISBLANK(StartDate__c), NOT(ISBLANK(EndDate__c)), (EndDate__c &gt;= TODAY())), True, False ))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Specifies if the Entitlement is still valid.</inlineHelpText>
+        <label>Is Valid?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-6785: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (user unfriendly) referencing the source record and is populated via migrating system.</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDProductEntitlement__c</fullName>
+        <description>SFDC1-6785 PKID is used for data migration support from the legacy system</description>
+        <displayFormat>Ent{000000}</displayFormat>
+        <externalId>true</externalId>
+        <inlineHelpText>PKID is used for data migration support from the legacy system and is auto-generated</inlineHelpText>
+        <label>PKID Product Entitlement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ProductLicense__c</fullName>
+        <description>SFDC1-6785 Product License related to this entitlement</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Links the Product License related to this Entitlement record.</inlineHelpText>
+        <label>Product License</label>
+        <referenceTo>ProductLicense__c</referenceTo>
+        <relationshipLabel>Product Entitlements</relationshipLabel>
+        <relationshipName>ProductEntitlements</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ProductLogin__c</fullName>
+        <description>SFDC1-7972 Product Login related to this entitlement</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link the Product Login to this Entitlement record.</inlineHelpText>
+        <label>Product Login</label>
+        <referenceTo>ProductLogin__c</referenceTo>
+        <relationshipLabel>Product Entitlements</relationshipLabel>
+        <relationshipName>ProductEntitlements</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Source__c</fullName>
+        <description>SFDC1-6785 Source of the entitlement data</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Data can be uploaded automatically from external entitlement and authentications systems or entered manually.</inlineHelpText>
+        <label>Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Manual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MSF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UserXS</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>SFDC1-6785 Inital set-up date of the entitlement in the external source system</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Initial set-up date of the Entitlement in the external source system.</inlineHelpText>
+        <label>Start Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Trial__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9420 Flag to indicate if the product entitled is for Trial</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag to indicate if the product entitled is for Trial</inlineHelpText>
+        <label>Trial</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>UniqueProductEntitlementID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-6785 Unique Identifier of the product entitlement</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The unique ID is normally provided by the external source system, if it is not provided, it is populated automatically.</inlineHelpText>
+        <label>Unique Product Entitlement ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Product Entitlement</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PEN-{000000}</displayFormat>
+        <label>Product Entitlement #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Product Entitlements</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>ProductLogin__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EndDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IsValid__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Source__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductLogin__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StartDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EndDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IsValid__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Source__c</lookupPhoneDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Opportunity at Risk</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Opportunities at Risk</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Opportunity at Risk --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Annual Contract Value --></label>
+        <name>AnnualContractValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract at Risk --></label>
+        <name>ContractatRisk__c</name>
+        <relationshipLabel><!-- Opportunity at Risk --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Currency --></label>
+        <name>Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Risk Identified --></label>
+        <name>DateRiskIdentified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Value at Risk --></label>
+        <name>EstimatedValueatRisk__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system id (unfriendly) referencing the source record and is populated via migrating system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity At Risk --></label>
+        <name>OpportunityAtRisk__c</name>
+        <relationshipLabel><!-- Opportunity at Risk --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity at Risk Owner --></label>
+        <name>RenewalatRiskOwner__c</name>
+        <relationshipLabel><!-- Opportunity at Risk --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Risk Customer Contact --></label>
+        <name>RiskCustomerContact__c</name>
+        <relationshipLabel><!-- Opportunities at Risk --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Risk Probability --></label>
+        <name>RiskProbability__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed - Downgraded</masterLabel>
+            <translation><!-- Closed - Downgraded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Non Renewal</masterLabel>
+            <translation><!-- Closed - Non Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Opportunity Lost</masterLabel>
+            <translation><!-- Closed - Opportunity Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Risk Mitigated</masterLabel>
+            <translation><!-- Closed - Risk Mitigated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Terminated</masterLabel>
+            <translation><!-- Closed - Terminated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open - Pending Resolution</masterLabel>
+            <translation><!-- Open - Pending Resolution --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Renewal at Risk Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- This Opportunity has already been flagged for being &apos;at Risk&apos;. --></errorMessage>
+        <name>Check_if_Renewal_at_Risk_already_exists</name>
+    </validationRules>
+</CustomObjectTranslation>

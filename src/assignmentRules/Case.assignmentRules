@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>CaseAssignmentRule</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <formula>AND (  RecordType.DeveloperName == &apos;CustomerCare&apos;,  ISPICKVAL(Origin,&apos;Email: support@markitserv.com&apos;),  ISNEW() )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <formula>AND ( RecordType.DeveloperName == &apos;CustomerCare&apos;, ISPICKVAL(Origin,&apos;Email: support@ihsmarkit.com&apos;), ISNEW() )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>ToBeAssigned</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Customer Care</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CSDelivery</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Order Management/Delivery Help Desk</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.TeamSelect__c</field>
+                <operation>equals</operation>
+                <value>Delivery</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CSOrderManagement</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Order Management/Delivery Help Desk</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.TeamSelect__c</field>
+                <operation>equals</operation>
+                <value>Order Management</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CSRetail</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Order Management/Delivery Help Desk</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.TeamSelect__c</field>
+                <operation>equals</operation>
+                <value>Retail</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>SalesSalesOperations</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Sales Operations</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CMContractManagement</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Contract Management</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

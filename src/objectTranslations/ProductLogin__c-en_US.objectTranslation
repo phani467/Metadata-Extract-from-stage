@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Login</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Logins</value>
+    </caseValues>
+    <fields>
+        <help><!-- Additional Product Login Fields record gets auto-generated whenever the user record is created. This object holds more product specific fields. --></help>
+        <label><!-- Additional Product Login Fields --></label>
+        <name>AdditionalProductLoginFields__c</name>
+        <relationshipLabel><!-- Product Logins --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Email of the user used for Product Login. --></help>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- The last date this user can be used to log into the system, this can be in the future --></help>
+        <label><!-- End Date --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- First Name of the user used for Product Login. --></help>
+        <label><!-- First Name --></label>
+        <name>FirstName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last Name of the user used for Product Login. --></help>
+        <label><!-- Last Name --></label>
+        <name>LastName__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system id (unfriendly) referencing the source record and is populated via migrating system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Organization/Company Name of the user used for Product Login in the source System. --></help>
+        <label><!-- Organization --></label>
+        <name>Organization__c</name>
+    </fields>
+    <fields>
+        <help><!-- PKID is used for data migration support from the legacy system and is auto-generated --></help>
+        <label><!-- PKID ProductLogin --></label>
+        <name>PKIDProductLogin__c</name>
+    </fields>
+    <fields>
+        <help><!-- Source of the user data. --></help>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+        <picklistValues>
+            <masterLabel>MSF</masterLabel>
+            <translation><!-- MSF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual</masterLabel>
+            <translation><!-- Manual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USERXS-MARKIT</masterLabel>
+            <translation><!-- USERXS-MARKIT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USERXS-TRADE-MANAGER</masterLabel>
+            <translation><!-- USERXS-TRADE-MANAGER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UserXS</masterLabel>
+            <translation><!-- UserXS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Initial set-up date of the user in the external source system --></help>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Login status in the source system --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- The UUID is normally provided by the external source system, if it is not provided, it is populated automatically. --></help>
+        <label><!-- Unique User ID --></label>
+        <name>UniqueUserID__c</name>
+    </fields>
+    <fields>
+        <help><!-- In general, there should be only one individual user per product per contact.  A contact can have many system users and vice-versa.  Example of system users is SFTP, API --></help>
+        <label><!-- User Type --></label>
+        <name>UserType__c</name>
+        <picklistValues>
+            <masterLabel>Individual</masterLabel>
+            <translation><!-- Individual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System</masterLabel>
+            <translation><!-- System --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter the unique username or login name for this user. --></help>
+        <label><!-- Username --></label>
+        <name>Username__c</name>
+    </fields>
+    <layouts>
+        <layout>Product Login Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

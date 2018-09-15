@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4411 Notification to sales that their submitted change log as been approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>Change Log Approved</name>
+    <style>freeForm</style>
+    <subject>Change Log has Been Approved</subject>
+    <textOnly>The following Change Log has been approved.
+
+Change Log Name: {!ChangeLog__c.Name}
+Work Request Name: {!ChangeLog__c.WorkRequestForm__c}
+Status: {!ChangeLog__c.Status__c}
+Record Owner: {!ChangeLog__c.OwnerFullName}
+Link to WRF: http://na13.salesforce.com/{!ChangeLog__c.Id}</textOnly>
+    <type>html</type>
+</EmailTemplate>

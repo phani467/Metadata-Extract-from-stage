@@ -1,0 +1,32 @@
+.THIS .content-container {
+    height: 100%;
+    position: relative;
+}
+.THIS .content-body-with-footer {
+    height: calc(100% - 84px);
+}
+.THIS .content-body {
+    height: 100%;
+}
+.THIS .content-footer {
+    height: 84px;
+	padding: 24px;
+    text-align: right;
+    background-color: #f4f6f9;
+}
+.THIS .overflow {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.THIS .page-message {
+    text-align: center;
+    margin-top: 144px;
+    margin-bottom: 144px;
+    font-size: 1.125rem;
+    color: rgb(84, 105, 141);
+}
+.THIS .hidden {
+    display: none;
+}

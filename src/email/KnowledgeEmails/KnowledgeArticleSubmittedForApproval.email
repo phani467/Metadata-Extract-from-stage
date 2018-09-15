@@ -1,0 +1,19 @@
+The following knowledge article has been submitted for approval.
+
+Title: {!Knowledge__kav.Title}
+Created By: {!Knowledge__kav.CreatedBy}
+Created Date: {!Knowledge__kav.ArticleCreatedDate}
+Published Date: {!Knowledge__kav.FirstPublishedDate}
+Submitted for Approval By: {!Knowledge__kav.SubmitForApprovalBy__c}
+
+Article Summary
+-----------------------------
+{!Knowledge__kav.Summary}
+-----------------------------
+
+Approval Submission Comments
+-----------------------------
+{!Knowledge__kav.ApprovalSubmissionComments__c}
+-----------------------------
+
+Article Link: {!Knowledge__kav.Link}

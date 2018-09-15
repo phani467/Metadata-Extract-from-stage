@@ -1,0 +1,470 @@
+<apex:page id="apage" tabstyle="Loop__DDP__c" action="{!onload}" extensions="Loop.DeliveryOptionExt" title="{!pageTitle}: {!pageSubtitle}" standardController="Loop__DDP_Integration_Option__c">
+    <style>
+        .metadataKey {
+            padding: 0px 0px 6px 0px;
+        }
+        .metadataValue {
+            padding: 0px 0px 6px 5px;
+        }
+        .urlRowHeight {
+            height: 28px;
+        }
+        .urlColumn {
+            width: 62%;
+        }
+    </style>
+    <script src="{!URLFOR($Resource.Scripts, 'eventListener.js')}"></script>
+    <script>
+        function oAuthAndGo() {
+            window.Drawloop.eventListener.addEventListener('authorizeLoop', function(event) {
+                saveUrlAfterAuth(!JSON.parse(event.data.payload).user);//This sets needsAuth property, indicating the user clicked allow and successfully completed the oAuth flow.
+            });
+            window.open('{!oAuthData["oAuthUrl"]}', 'Salesforce Auth', 'height=811,width=680,location=0,status=0,titlebar=0');
+        }
+    </script>
+
+    <apex:form id="aform" >
+        <!-- Record Type Selection -->
+        <apex:outputPanel rendered="{!NOT(hasSelectedRecordType)}">
+            <apex:sectionHeader title="{!pageTitle}" subtitle="{!pageSubtitle}" />
+            <div class="bDescription">Select a record type for the new secure field.&nbsp;To skip this page in the future, change your record type settings on your personal setup page.</div>
+            <apex:pageMessages />
+            <apex:pageBlock title="Select {!deliveryOptionObjectName} {!$ObjectType.Name.fields.Type.label}" mode="edit">
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Continue" action="{!rtContinue}" rerender="aform" />
+                    <apex:commandButton value="Cancel" action="{!cancel}" />
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection >
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Name.fields.Type.label} of new record" />
+                        <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <apex:outputPanel layout="block" styleClass="requiredBlock" />
+                            <apex:selectList size="1" required="true" value="{!selectedRecordTypeId}">
+                                <apex:selectOptions value="{!recordTypeList}" />
+                            </apex:selectList>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <h3 class="recordTypesHeading">Available {!$ObjectType.Loop__DDP_Integration_Option__c.label} {!$ObjectType.Name.fields.Type.label}</h3>
+            <apex:dataTable value="{!recordTypes}" var="rt" styleClass="recordTypeInfo infoTable" headerClass="headerRow">
+                <apex:column styleClass="recordTypeName" headerValue="{!$ObjectType.Name.fields.Type.label}">
+                    <apex:outputText value="{!rt.Name}" style="font-weight: bold;" />
+                </apex:column>
+                <apex:column headerValue="{!$ObjectType.RecordType.fields.Description.label}">
+                    <apex:outputText value="{!rt.Description}" />
+                </apex:column>
+            </apex:dataTable>
+        </apex:outputPanel>
+        
+        <!-- after Record Type selection -->
+        <apex:outputPanel rendered="{!hasSelectedRecordType}">
+            <apex:sectionHeader title="{!pageTitle}" subtitle="{!pageSubtitle}" />
+            <apex:pageMessages />
+            <apex:pageBlock title="{!pageTitle}" mode="edit">
+                <apex:pageBlockButtons >
+                    <apex:commandButton value=" Save " action="{!saveDeliveryOption}" rendered="{!NOT(hasNwcError)}" />
+                    <apex:commandButton value=" Cancel " action="{!cancel}" />
+                </apex:pageBlockButtons>
+                <!-- Integration user not configured before adding new NWC delivery option -->
+                <apex:pageMessage summary="Nintex DocGen must be authorized before you can create this Delivery Option. Your Nintex DocGen administrator can authorize the application from the DocGen Admin tab."
+                        severity="warning"
+                        rendered="{!hasNwcError}"/>
+
+                <apex:pageBlockSection title="Information" rendered="{!NOT(hasNwcError)}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel for="name" value="{!$ObjectType.Loop__DDP_Integration_Option__c.fields.Name.label}"/>
+                        <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputField value="{!deliveryOption.Name}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:outputField value="{!deliveryOption.Loop__DDP__c}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__Order__c}"/>
+                    <apex:outputField value="{!deliveryOption.RecordTypeId}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__Limit_Availability__c}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__Description_Hover__c}"/>
+
+                    <apex:inputField value="{!deliveryOption.Loop__Output__c}" rendered="{!OR(isAttach, isContentDelivery, isDocumentQueue, isDownload, isEmail, isHttp, isSmtp, isNwc, isESignLive)}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__SkipPreview__c}" rendered="{!OR(isAdobeSign, isDocuSign, isESignLive, isEmail, isHttp, isLob, isSertifi, isSignNow, isSmtp, isNwc)}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__Wait__c}" rendered="{!OR(isAdobeSign, isAttach, isEmail, isHttp, isSertifi, isSmtp, isNwc)}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__Preview_Step_Help_Text__c}" rendered="{!OR(isDocuSign, isESignLive, isHttp, isLob, isSertifi, isSignNow, isSmtp, isNwc)}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__Attach_As__c}" rendered="{!OR(isAttach, isContentDelivery)}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__TurnTrackingOn__c}" rendered="{!OR(isAttach, isDocumentQueue, isDownload, isEmail, isHttp, isSmtp, isNwc)}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__Queue_Folder_Id__c}" rendered="{!isDocumentQueue}"/>
+                    <apex:inputField value="{!deliveryOption.Loop__Redirect_URL__c}" rendered="{!isESignLive}"/>
+                </apex:pageBlockSection>
+
+                <!-- Adobe Sign stuff -->
+                <apex:outputPanel rendered="{!isAdobeSign}">
+                    <apex:pageBlockSection title="Agreement Detail">
+                        <apex:inputField value="{!deliveryOption.Loop__Agreement_Name__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Message__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Language__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Signature_Type__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__SenderSigns__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Signature_Order__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Hosted_Signing__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__CC__c}"/>
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockSection title="Agreement Options">
+                        <apex:inputField value="{!deliveryOption.Loop__PasswordtoSign__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__PasswordonPDF__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Password__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__dsExpireAfter__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Remind_Recipient__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Tag_Before_Sending__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <!-- SMTP Options -->
+                <apex:outputPanel rendered="{!isSmtp}">
+                    <apex:pageBlockSection title="SMTP Options" columns="1">
+                        <apex:inputField value="{!deliveryOption.Loop__SMTPDomain__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__SMTPUserName__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <!-- Email Options -->
+                <apex:outputPanel rendered="{!OR(isEmail, isSmtp)}">
+                    <apex:pageBlockSection title="Email Options">
+                        <apex:inputField value="{!deliveryOption.Loop__Internal_Email__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__CI_CC__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__CI_Additional_To__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__CI_BCC__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!OR(isDocuSign, isESignLive, isSignNow, isSmtp)}">
+                    <apex:pageBlockSection title="{!IF(isSmtp, '', 'Email Options')}" columns="1">
+                        <apex:inputField value="{!deliveryOption.Loop__dsAllowEmailCustomizations__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__HTML_Email__c}" rendered="{!isSmtp}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__dsSubject__c}" rendered="{!NOT(isESignLive)}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__dsEmailText__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <!-- NWC External Start -->
+                <apex:outputPanel rendered="{!AND(isNwc, NOT(hasNwcError))}">
+                    <apex:outputPanel id="externalStart">
+                        <apex:pageBlockSection title="Nintex Workflow Cloud Start Inputs" columns="1">
+                            <apex:inlineEditSupport disabled="true"/>
+                            <apex:panelGrid id="externalStartUrl" columns="3" columnClasses="labelCol, urlColumn, urlButtons" rowClasses="urlRowHeight" width="100%">
+                                <apex:outputLabel value="URL" for="savedURL" rendered="{!NOT(isExternalStartUrlEditMode)}" style="padding-right:6px;"/>
+                                <apex:outputField id="savedURL" value="{!deliveryOption.Loop__Location__c}" rendered="{!NOT(isExternalStartUrlEditMode)}" style="width:98%;"/>
+                                <apex:commandButton value="Edit" action="{!toggleEditExternalStartUrl}" rendered="{!AND(NOT(isExternalStartUrlEditMode), integrationUserConfigured)}" reRender="externalStart"/>
+                                <apex:pageBlockSectionItem rendered="{!AND(NOT(isExternalStartUrlEditMode), NOT(integrationUserConfigured))}"/>
+
+                                <apex:outputLabel value="Swagger URL" for="editURL" rendered="{!isExternalStartUrlEditMode}" style="padding-right:6px;"/>
+                                <apex:inputText id="editURL" value="{!externalStartUrl}" rendered="{!isExternalStartUrlEditMode}" style="width:98%;"/>
+                                <apex:actionStatus id="saving" rendered="{!isExternalStartUrlEditMode}">
+                                    <apex:facet name="stop">
+                                        <apex:outputPanel >
+                                            <apex:actionFunction action="{!updateExternalStartUrl}" name="saveUrlAfterAuth" reRender="externalStart, errorMessages" status="saving">
+                                                <apex:param name="authorized" assignTo="{!needsAuth}" value=""/>
+                                            </apex:actionFunction>
+                                            <apex:outputPanel rendered="{!NOT(needsAuth)}">
+                                                <apex:commandButton value="Retrieve Inputs" action="{!updateExternalStartUrl}" reRender="externalStart, errorMessages" status="saving"/>
+                                                <apex:commandButton value="Cancel" action="{!toggleEditExternalStartUrl}" reRender="externalStart"/>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!needsAuth}">
+                                                <apex:commandButton value="Authorize & Retrieve Inputs" onclick="oAuthAndGo();" reRender="externalStart, errorMessages" status="saving"/>
+                                                <apex:commandButton value="Cancel" action="{!toggleEditExternalStartUrl}" reRender="externalStart"/>
+                                            </apex:outputPanel>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:facet name="start">
+                                        <apex:outputPanel >
+                                            <span class="statusContainer"><span class="status"><img src="/img/loading.gif" alt="Processing..." width="16" height="16" title="Processing..." /></span></span>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                </apex:actionStatus>
+                            </apex:panelGrid>
+                            <apex:pageBlockSectionItem rendered="{!isExternalStartUrlEditMode}">
+                                <apex:outputLabel value="" for="editURLDescription"/>
+                                <apex:outputText id="editURLDescription" value="Paste the External Start URL from Nintex Workflow Cloud and click Retrieve Inputs." style="width:98%;"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:repeat value="{!externalStartFields}" var="externalStartField">
+                                <apex:pageBlockSectionItem rendered="{!externalStartFields[externalStartField].type != 'array'}">
+                                    <apex:outputText value="{!externalStartFields[externalStartField].title}"/>
+                                    <apex:inputText value="{!externalStartData[externalStartField]}" disabled="{!NOT(AND(!isExternalStartUrlEditMode, integrationUserConfigured))}" html-placeholder="{!externalStartFields[externalStartField].placeholderText}"/>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem rendered="{!externalStartFields[externalStartField].type == 'array'}">
+                                    <apex:outputText value="{!externalStartFields[externalStartField].title}"/>
+                                    <apex:selectList value="{!externalStartData[externalStartField]}" size="1" disabled="{!NOT(AND(!isExternalStartUrlEditMode, integrationUserConfigured))}">
+                                        <apex:selectOption itemValue="''" itemLabel="--None--"/>
+                                        <apex:selectOption itemValue="[[output_files]]" itemLabel="Output Files"/>
+                                    </apex:selectList>
+                                </apex:pageBlockSectionItem>
+                            </apex:repeat>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Field Tagger"/>
+                                <apex:outputLink value="javascript:openIntegration('{!JSENCODE($Page.Loop__fieldTagger)}?id={!deliveryOption.Loop__DDP__c}','height=600,width=800,location=no,toolbar=no,status=no,menubar=no,scrollbars=1',1);">Field Tagger</apex:outputLink>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+
+                <!-- Attach Options -->
+                <apex:outputPanel rendered="{!OR(isDocumentQueue, isDownload, isEmail, isHttp, isSmtp, AND(isNwc, NOT(hasNwcError)))}">
+                    <apex:pageBlockSection title="Attach Options">
+                        <apex:inputField value="{!deliveryOption.Loop__AllowOutputAttachment__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Attach_As__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__RequireOutputAttachment__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Email_Doc_Links__c}" rendered="{!OR(isEmail, isSmtp)}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <!-- HTTP Options -->
+                <apex:outputPanel rendered="{!isHttp}">
+                    <apex:pageBlockSection title="HTTP Options" columns="1">
+                        <apex:inputField value="{!deliveryOption.Loop__Location__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__PostParameters__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <!-- Envelope Options -->
+                <apex:outputPanel rendered="{!isDocuSign}">
+                    <apex:pageBlockSection title="Envelope Options">
+                        <apex:inputField value="{!deliveryOption.Loop__Tag_Before_Sending__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__dsTemplateId__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__EnforceSignerVisibility__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Brand_Id__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Authoritative_Copy__c}"/>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection >
+                        <apex:inputField value="{!deliveryOption.Loop__dsCustomFields__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <!-- Remind and Expire -->
+                <apex:outputPanel rendered="{!OR(isDocuSign, isESignLive)}">
+                    <apex:pageBlockSection title="Remind and Expire">
+                        <apex:inputField value="{!deliveryOption.Loop__dsExposeExpirations__c}"/>
+                        <apex:pageBlockSectionItem />
+                        <apex:inputField value="{!deliveryOption.Loop__dsReminderDelay__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__dsExpireAfter__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__dsReminderFrequency__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__dsExpireWarn__c}" rendered="{!isDocuSign}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <!-- Econtract Detail -->
+                <apex:outputPanel rendered="{!isSertifi}">
+                    <apex:pageBlockSection title="Econtract Detail" columns="1">
+                        <apex:inputField value="{!deliveryOption.Loop__Message__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Signature_Type__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Template__c}"/>
+                        <apex:inputField value="{!deliveryOption.Loop__Password__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <!-- Lob stuff -->
+                <apex:outputPanel id="deliveryDataSection" rendered="{!isLob}">
+                    <apex:pageBlockSection title="Lob Options">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Loop__DDP_Integration_Option__c.fields.Loop__Type__c.label}" for="deliveryType" />
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputField id="deliveryType" value="{!deliveryOption.Loop__Type__c}" >
+                                    <apex:actionSupport event="onchange" rerender="addressDataSection,deliveryDataSection,descriptionLabel,descriptionField" status="typeStatus" />
+                                </apex:inputField>
+                                <apex:actionStatus stopText="" id="typeStatus">
+                                    <apex:facet name="start">
+                                        <span class="statusContainer"><span class="status"><img src="/img/loading.gif" alt="Processing..." width="16" height="16" title="Processing..." /></span></span>
+                                    </apex:facet>
+                                </apex:actionStatus>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Field Tagger"/>
+                            <apex:outputLink value="javascript:openIntegration('{!JSENCODE($Page.Loop__fieldTagger)}?id={!deliveryOption.Loop__DDP__c}','height=600,width=800,location=no,toolbar=no,status=no,menubar=no,scrollbars=1',1);">Field Tagger</apex:outputLink>
+                        </apex:pageBlockSectionItem>
+
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Letter'}" >
+                            <apex:outputLabel value="Print in Color" for="color" />
+                            <apex:inputCheckbox id="color" value="{!deliveryData.color}" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Letter'}" helptext="Certified provides tracking and delivery confirmation for domestic destinations. Registered provides tracking and confirmation for international addresses. Both are an additional cost.">
+                            <apex:outputLabel value="Extra Service" for="extraService" />
+                            <apex:selectList id="extraService" value="{!deliveryData.extra_service}" size="1" >
+                                <apex:selectOptions value="{!deliveryData.extraServiceOptions}" />
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Letter'}" >
+                            <apex:outputLabel value="Print Double Sided" for="doubleSided" />
+                            <apex:inputCheckbox id="doubleSided" value="{!deliveryData.double_sided}" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Letter'}" helptext="When set to false, this specifies that your letter does not follow the Lob address template. In this case, a blank address page will be inserted at the beginning of your file and you will be charged for the extra page.">
+                            <apex:outputLabel value="Template" for="template" />
+                            <apex:inputCheckbox id="template" value="{!deliveryData.template}" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Print'}" >
+                            <apex:outputLabel value="Quantity" for="quantity" />
+                            <apex:inputText id="quantity" value="{!deliveryData.quantity}" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Print'}" >
+                            <apex:outputLabel value="Setting" for="setting" />
+                            <apex:selectList id="setting" value="{!deliveryData.setting}" size="1" >
+                                <apex:selectOptions value="{!deliveryData.printSettingOptions}" />
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Postcard'}" helptext="Max of 350 characters to be included on the back of postcard. If included, the back will be generated based on the To, From, and Message arguments.">
+                            <apex:outputLabel value="Message" for="message" />
+                            <apex:inputTextArea id="message" value="{!deliveryData.message}" rows="6" cols="75"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Area Mail'}" helptext="A comma delimited list of Zip Codes.">
+                            <apex:outputLabel value="Zip Codes" for="routes" />
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText id="routes" value="{!deliveryData.zipCodes}" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Area Mail'}" >
+                            <apex:outputLabel value="Target Type" for="targetType" />
+                            <apex:selectList id="targetType" value="{!deliveryData.target_type}" size="1" >
+                                <apex:selectOptions value="{!deliveryData.targetTypeOptions}" />
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!deliveryOption.Loop__Type__c=='Postcard'}" />
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',OR(deliveryOption.Loop__Type__c=='Print',OR(deliveryOption.Loop__Type__c=='Postcard',deliveryOption.Loop__Type__c=='Area Mail')))}" helptext="Up to 20 key-value pairs of custom data. Keys have max 40 characters. Values have max 500 characters. Can be used to store information like 'customer_id = 987654' which can be useful for filtering and matching to other systems." >
+                            <apex:outputLabel value="Metadata" for="metadata" />
+                            <apex:outputPanel id="metadata" layout="block">
+                                <table style="border-collapse:collapse;" >
+                                    <apex:repeat value="{!deliveryData.metadataMap.Pairs}" var="pair" >
+                                        <tr>
+                                            <td class="metadatakey" ><apex:inputText value="{!pair.Key}" maxlength="40" /></td>
+                                            <td>=</td>
+                                            <td class="metadataValue"><apex:inputText value="{!pair.Value}" maxlength="500" /></td>
+                                        </tr>
+                                    </apex:repeat>
+                                </table>
+                                <apex:commandLink action="{!addMetadata}" value="Add" rerender="metadata" rendered="{!NOT(deliveryData.metadataMap.hasMax)}"/>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                <apex:outputPanel id="addressDataSection" rendered="{!isLob}">
+                    <apex:pageBlockSection title="{!$ObjectType.Organization.fields.Address.label} Data" rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <span style="padding-right:5em;">To {!$ObjectType.Organization.fields.Address.label}:</span>Recipient Name
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock" rendered="{!OR(deliveryOption.Type__c=='Letter',deliveryOption.Type__c=='Print')}"></div>
+                                <apex:inputText value="{!deliveryData.to.name}" id="toName" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <span style="padding-right:5em;">From {!$ObjectType.Organization.fields.Address.label}:</span>Name
+                            <apex:outputPanel layout="block" styleClass="{!IF(OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print'),'requiredInput','')}">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.from_x.name}" id="fromName" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="Company" for="toCompany" />
+                            <apex:inputText value="{!deliveryData.to.company}" id="toCompany" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="Company" for="fromCompany" />
+                            <apex:inputText value="{!deliveryData.from_x.company}" id="fromCompany" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.Street.label}" for="toLine1" />
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.to.address_line1}" id="toLine1" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.Street.label}" for="fromLine1" />
+                            <apex:outputPanel layout="block" styleClass="{!IF(OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print'),'requiredInput','')}">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.from_x.address_line1}" id="fromLine1" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.Street.label} Line 2" for="toLine2" />
+                            <apex:inputText value="{!deliveryData.to.address_line2}" id="toLine2" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.Street.label} Line 2" for="fromLine2" />
+                            <apex:inputText value="{!deliveryData.from_x.address_line2}" id="fromLine2" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.City.label}" for="toCity" />
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.to.address_city}" id="toCity" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.City.label}" for="fromCity" />
+                            <apex:outputPanel layout="block" styleClass="{!IF(OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print'),'requiredInput','')}">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.from_x.address_city}" id="fromCity" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.State.label}" for="toState" />
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.to.address_state}" id="toState" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.State.label}" for="fromState" />
+                            <apex:outputPanel layout="block" styleClass="{!IF(OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print'),'requiredInput','')}">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.from_x.address_state}" id="fromState" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.PostalCode.label}" for="toZip" />
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.to.address_zip}" id="toZip" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.PostalCode.label}" for="fromZip" />
+                            <apex:outputPanel layout="block" styleClass="{!IF(OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print'),'requiredInput','')}">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.from_x.address_zip}" id="fromZip" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.Country.label}" for="toCountry" />
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.to.address_country}" id="toCountry" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.Country.label}" for="fromCountry" />
+                            <apex:outputPanel layout="block" styleClass="{!IF(OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print'),'requiredInput','')}">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!deliveryData.from_x.address_country}" id="fromCountry" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="Email" for="toEmail" />
+                            <apex:inputText value="{!deliveryData.to.email}" id="toEmail" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}">
+                            <apex:outputLabel value="Email" for="fromEmail" />
+                            <apex:inputText value="{!deliveryData.from_x.email}" id="fromEmail" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}" helptext="Recommended to include as sometimes mail carriers require phone number to ensure delivery (PO Boxes required)">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.Phone.label}" for="toPhone" />
+                            <apex:inputText value="{!deliveryData.to.phone}" id="toPhone" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!OR(deliveryOption.Loop__Type__c=='Letter',deliveryOption.Loop__Type__c=='Print',deliveryOption.Loop__Type__c=='Postcard')}" helptext="Recommended to include as sometimes mail carriers require phone number to ensure delivery (PO Boxes required)">
+                            <apex:outputLabel value="{!$ObjectType.Organization.fields.Phone.label}" for="fromPhone" />
+                            <apex:inputText value="{!deliveryData.from_x.phone}" id="fromPhone" />
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,1 @@
+<aura:event type="COMPONENT" description="Cancel the email and slide back to preview files."/>

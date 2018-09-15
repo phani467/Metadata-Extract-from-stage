@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5359 : Used on Live Chat Transcript</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Live Chat Transcript Template</name>
+    <style>none</style>
+    <subject>Your Chat Transcript from IHS Markit</subject>
+    <textOnly>Chat Transcript
+Here&apos;s a copy of the chat transcript you requested: 
+
+
+General Information
+
+{!LiveChatTranscript.CaseNumber__c}
+Product: {!LiveChatTranscript.Product_Family__c}
+Chat Start Time: {!SUBSTITUTE(TEXT(DATETIMEVALUE(LiveChatTranscript.StartTime)), &apos;Z&apos;, &apos; GMT&apos;)}
+Chat End Time: {!SUBSTITUTE(TEXT(DATETIMEVALUE(LiveChatTranscript.EndTime)), &apos;Z&apos;, &apos; GMT&apos;)}
+Agent: {!LiveChatTranscript.OwnerFirstName}
+
+Chat Transcript
+{!LiveChatTranscript.Body}
+
+Regards, 
+
+Markit Customer Support Team 
+U.S.: + 1 877 762 7548 
+EMEA: + 800 6275 4800 
+Asia Pacific: + 65 6922 4210 
+www.markit.com 
+Email: support@markit.com 
+ 
+
+Copyright © 2016 Markit Group Limited, All rights reserved. 
+
+PRIVACY POLICY | TERMS OF USE | DISCLAIMER | CONTACT US 
+
+Markit Group Limited is registered and incorporated in England &amp; Wales (company number: 04185146). 
+Registered office: 4th floor Ropemaker Place, 25 Ropemaker Street, London EC2Y 9LY</textOnly>
+    <type>custom</type>
+</EmailTemplate>

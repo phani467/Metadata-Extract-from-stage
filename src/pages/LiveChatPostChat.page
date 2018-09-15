@@ -1,0 +1,38 @@
+<!--------------------------------------------------------------------------------------------------------------------
+// @author: Uttam Arya
+// @date: 22 July 2017
+// @param: NA
+// @description: SFDC1-834 SFDC1-281 LiveChatPostChat - Post chat page for MCS and MSF button
+// @return: NA
+---------------------------------------------------------------------------------------------------------------------->
+<apex:page controller="LiveChatPostChatController" showHeader="false" standardStylesheets="false" action="{!redirect}">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+    <apex:stylesheet value="{!URLFOR($Resource.LiveAgentMarkit, 'liveagentmarkit.css')}"/>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="https://cdn.ihs.com/wwwihsmarkit/images/favicon.png"/>
+    <apex:form id="lcPostChatForm">
+        <div class="herohome w-section">
+            <div class="w-container">
+                <div class="homecontent">
+                    <div style="text-align:right;">
+                        <img src="{!$Resource.la_markitlogo}" style="vertical-align:right;margin-top:8px;" width="250px"/>
+                    </div>
+                    <div style="button w-button">
+                        <h1>Thank you</h1>
+                    </div>
+                    <p style="font-size: 14px;">Thank you for chatting with us today.</p>
+                    
+                    <!-- input fields -->
+                    <apex:outputLabel value="Would you like a transcript of this chat emailed to {!email}?" for="sendTranscript"/>
+                    <apex:selectRadio id="sendTranscript" value="{!sendTranscript}" layout="lineDirection"  style="margin-left:0px">
+                        <apex:selectOptions value="{!sendTranscriptOptions}"/>
+                    </apex:selectRadio>
+                    <apex:commandButton id="submitBtn" styleClass="button w-button" action="{!submit}" value="Submit"/>
+                    <!--apex:messages /-->
+                </div>
+            </div>
+        </div>
+    </apex:form>
+</apex:page>

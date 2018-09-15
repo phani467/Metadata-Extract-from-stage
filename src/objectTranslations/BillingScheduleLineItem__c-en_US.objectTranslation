@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Billing Schedule Line Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Billing Schedule Line Items</value>
+    </caseValues>
+    <fields>
+        <help><!-- AUM Basis Point (BPS)  value provided --></help>
+        <label><!-- AUM BPS --></label>
+        <name>AUMBPS__c</name>
+    </fields>
+    <fields>
+        <help><!-- AUM currency --></help>
+        <label><!-- AUM Currency --></label>
+        <name>AUMCurrency__c</name>
+    </fields>
+    <fields>
+        <help><!-- AUM value provided --></help>
+        <label><!-- AUM Value --></label>
+        <name>AUMValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Automatically checked when the billing schedule line item has been sent to Order Management for entering into SAP --></help>
+        <label><!-- Billed --></label>
+        <name>Billed__c</name>
+    </fields>
+    <fields>
+        <help><!-- please enter the Billing end date --></help>
+        <label><!-- Billing End Date --></label>
+        <name>BillingEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the first date of the billing period --></help>
+        <label><!-- Billing Start Date --></label>
+        <name>BillingStartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- System populated reference to the Contract Line Item being billed --></help>
+        <label><!-- Contract Line Item --></label>
+        <name>ContractLineItem__c</name>
+        <relationshipLabel><!-- Billing Schedule Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Only for DEV purpose. This field will be an identifier whether this record is created using the quick action on Contract Line Item or using the Apex Clone based on the Billing period on Contract line Item. --></help>
+        <label><!-- Is Created from Quick Action? --></label>
+        <name>IsCreatedfromQuickAction__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter line item detail needed to display on invoice --></help>
+        <label><!-- Line Item Invoice Remarks --></label>
+        <name>LineItemInvoiceRemarks__c</name>
+    </fields>
+    <fields>
+        <help><!-- System populated reference to product material code being invoiced --></help>
+        <label><!-- Material Code --></label>
+        <name>MaterialCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the value that represents what customer is being billied for --></help>
+        <label><!-- Number of --></label>
+        <name>Numberof__c</name>
+        <picklistValues>
+            <masterLabel>00 - Default</masterLabel>
+            <translation><!-- 00 - Default --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10 - Transactions</masterLabel>
+            <translation><!-- 10 - Transactions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20 - Users</masterLabel>
+            <translation><!-- 20 - Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 - Positions Prices</masterLabel>
+            <translation><!-- 30 - Positions Prices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70 - Entities Accessed</masterLabel>
+            <translation><!-- 70 - Entities Accessed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80 - Securities SOI</masterLabel>
+            <translation><!-- 80 - Securities SOI --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- System populated reference to the SAP Contract # from the Contract --></help>
+        <label><!-- Processed Contract # --></label>
+        <name>ProcessedContract__c</name>
+    </fields>
+    <fields>
+        <help><!-- Quantity of VBAP items to be billed --></help>
+        <label><!-- Quantity VBAP --></label>
+        <name>QuantityVBAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter quantity being billed --></help>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if ready for billing --></help>
+        <label><!-- Ready for Billing --></label>
+        <name>ReadyForBilling__c</name>
+    </fields>
+    <fields>
+        <help><!-- System populated reference to the SAP Line Item # once line has been added to SAP --></help>
+        <label><!-- SAP Line Item # --></label>
+        <name>SapLineItem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Secondary SAP Material description if required --></help>
+        <label><!-- Secondary Material Description --></label>
+        <name>SecondaryMaterialDescription__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the total to invoice for the billing period --></help>
+        <label><!-- Total --></label>
+        <name>TotalUpdated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the unit price --></help>
+        <label><!-- Unit Price --></label>
+        <name>UnitPrice__c</name>
+    </fields>
+    <layouts>
+        <layout>Billing Schedule Line Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Only System Administrators can edit a Billing Schedule Line Item record if &apos;Billed&apos; is checked. --></errorMessage>
+        <name>BilledContractEditRestriction</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Billing End Date cannot be blank when &apos;Ready for Billing&apos; is marked true --></errorMessage>
+        <name>BillingEndDateCannotBeBlank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Billing Start Date cannot be blank when &apos;Ready for Billing&apos; is marked true --></errorMessage>
+        <name>BillingStartDateCannotBeBlank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Contract Line Item&apos;s Billing Periods before creating Volume/Variable Billing Line Item. --></errorMessage>
+        <name>CLIBillingPeriodsNotBlankAtBSLICreate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Processed Contract cannot be blank when &apos;Ready for Billing&apos; is marked true, and related contract is &apos;Order Form&apos;, please update the &apos;Processed Contract&apos; information on related contract. --></errorMessage>
+        <name>ProcessedContractCannotBeBlank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Quantity cannot be blank when &apos;Ready for Billing&apos; is marked true --></errorMessage>
+        <name>QuantityCannotBeBlank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Unit Price cannot be blank when &apos;Ready for Billing&apos; is marked true --></errorMessage>
+        <name>UnitPriceCannotBeBlank</name>
+    </validationRules>
+</CustomObjectTranslation>

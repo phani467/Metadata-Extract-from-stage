@@ -1,0 +1,28 @@
+.THIS .left-margin {
+    margin-left: 28px;
+}
+.THIS .icon-standard-people {
+    background-color: #34becd;
+}
+.THIS .icon-name-margin {
+    margin-right: 8px;
+}
+.THIS .link-style {
+    border-radius: .25rem;
+    font-size: .75rem;
+    line-height: 1.875rem;
+    text-decoration: none;
+    color: rgb(0, 112, 210);
+}
+.THIS .link-style:hover {
+    cursor: pointer;
+}
+.THIS .red {
+    color: red;
+}
+.THIS .user-selected-email {
+    margin-top: 5px;
+}
+.THIS .hidden {
+    display: none;
+}

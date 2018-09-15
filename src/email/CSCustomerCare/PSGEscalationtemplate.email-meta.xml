@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2652 : This is specifically to escalate license requests to CDDIST group</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PSG Escalation template</name>
+    <style>none</style>
+    <subject>A PSG issue has been escalated to you</subject>
+    <textOnly>Customer Support Case number is {!Case.CaseNumber}
+
+Product: {!Case.ProductGroup__c}
+Case Description: {!Case.Description}
+Case Origin:  {!Case.Origin}
+
+Email: (Insert requesting account manager/customer email address here)
+
+Customer Contact Information:
+{!Case.Contact}
+{!Case.Account}
+{!Case.ContactMailingAddress__c}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

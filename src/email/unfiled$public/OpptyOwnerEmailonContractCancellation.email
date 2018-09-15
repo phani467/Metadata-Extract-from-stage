@@ -1,0 +1,23 @@
+<messaging:emailTemplate subject="Action required on Opportunity : {!relatedTo.Opportunity__r.Name}" recipientType="User" relatedToType="Contract">
+<messaging:htmlEmailBody >
+        <html>
+            <body>
+            <p> Opportunity ID: {!relatedTo.OpportunityNumber__c} </p>
+            <p> Opportunity Name: {!relatedTo.Opportunity__r.Name} </p>
+            
+            <p>Hi {!relatedTo.Opportunity__r.Owner.Name} ,</p>
+           
+            <p>Your customer is expressing interest in canceling their current auto-renewal contract. Order Management has directly received a customer cancel notification which has been posted in the Notes Tab of the SSO. Please review this information and take appropriate action on contacting and verifying with your client prior to closing your SSO.  </p>
+            
+            <p>If you close-win your auto renewal ensure that you attach the written confirmation from the customer of their intent to renew (order form or email) to continue with the renewal. </p>
+            
+            <p>Contract Link: <a href="{!LEFT($Api.Partner_Server_URL_420, FIND(".com/",$Api.Partner_Server_URL_420)+3)}/{!relatedTo.Id}">
+    {!relatedTo.Name}
+</a></p>
+            <p>Thank You,</p>
+            <p>Order Management</p>
+            
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

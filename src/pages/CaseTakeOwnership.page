@@ -1,0 +1,119 @@
+<!--------------------------------------------------------------------------------------------------------------------
+// @author: Uttam Arya
+// @date: 22 July 2017
+// @param: Case Standard Controller
+// @description: SFDC1-837 CaseTakeOwnership - Enables user to take ownership of case from Quick Action button
+// @return: NA
+---------------------------------------------------------------------------------------------------------------------->
+<apex:page standardcontroller="Case" extensions="CaseTakeOwnershipCE" showHeader="false">
+    <!-- Uses publisher.js rather than interaction.js -->
+    <apex:includeScript value="/canvas/sdk/js/28.0/publisher.js"/>
+    <apex:includeScript value="/support/console/25.0/integration.js"/>
+    
+    <script>
+        function refreshSubTab() {
+            sforce.console.getEnclosingTabId(refreshActiveSubtab);
+            return true;
+        }
+        var refreshActiveSubtab = function refreshActiveSubtab(result) {
+            // get tab Id
+            var tabId = result.id;
+            sforce.console.refreshSubtabById(tabId, true);
+        };
+    	
+    	function resetButton(){
+            document.getElementById("changeOwnerBtn").disabled = false;
+            document.getElementById("changeOwnerBtn").style.backgroundColor='rgb(0, 112, 210)';
+        }
+    </script>
+    
+    <div>
+        <apex:pageMessages id="errors"/>
+        <apex:form id="theForm">
+            
+            <!-- Change Owner to the logged in user on complete notifies the Case Feed page
+                that a related list and the feed have been updated -->
+            <!-- Different oncomplete function using publisher.js -->
+            <apex:actionFunction action="{!takeOwnership}" name="takeOwnership"
+            oncomplete="Sfdc.canvas.publisher.publish(
+            			{name : 'publisher.refresh',  payload : 
+                        {feed: true}});
+            	refreshSubTab();resetButton();" rerender="theForm,errors"/>
+        </apex:form><br />
+
+        <button type="button" onclick="this.style.backgroundColor='#D3D3D3';this.disabled=true;takeOwnership();"
+        style="-webkit-appearance: none;
+        -webkit-rtl-ordering: logical;
+        -webkit-user-select: none;
+        background-attachment: scroll;
+        background-clip: border-box;
+        background-color: rgb(0, 112, 210);
+        background-image: none;
+        background-origin: padding-box;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        background-size: auto;
+        border-bottom-color: rgb(224, 229, 238);
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-style: solid;
+        border-bottom-width: 1.11111px;
+        border-image-outset: 0px;
+        border-image-repeat: stretch;
+        border-image-slice: 100%;
+        border-image-source: none;
+        border-image-width: 1;
+        border-left-color: rgb(224, 229, 238);
+        border-left-style: solid;
+        border-left-width: 1.11111px;
+        border-right-color: rgb(224, 229, 238);
+        border-right-style: solid;
+        border-right-width: 1.11111px;
+        border-top-color: rgb(224, 229, 238);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-top-style: solid;
+        border-top-width: 1.11111px;
+        bottom: auto;
+        box-shadow: none;
+        box-sizing: border-box;
+        color: rgb(255, 255, 255);
+        cursor: default;
+        display: inline-block;
+        font-family: SalesforceSans-Regular, Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        font-stretch: normal;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        height: 28.8889px;
+        letter-spacing: normal;
+        line-height: 27px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+        outline-color: rgb(255, 255, 255);
+        outline-style: none;
+        outline-width: 0px;
+        overflow-x: visible;
+        overflow-y: visible;
+        padding-bottom: 0px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 0px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        text-indent: 0px;
+        text-rendering: auto;
+        text-shadow: none;
+        text-transform: none;
+        white-space: nowrap;
+        width: 150px;
+        word-spacing: 0px;
+        writing-mode: lr-tb;
+        -webkit-writing-mode: horizontal-tb;"
+        id="changeOwnerBtn">Take Ownership</button>
+    </div>              
+</apex:page>

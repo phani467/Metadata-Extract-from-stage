@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>SFDC1-6569 The Sales Pricing team will be continuing the practice of loading renewals with a projected (forecast) Price. This price is calculated at the time of renewal create and is based on the Family__C at the SAP Product Master level. It is based on an effective date in order to have changes that can take effect based on contract start dates and is based on a percent of previous year price. 
+The renewal unit price is loaded at an uplifted price, the uplifted price is stored for historical reporting and as the renewal process moves forward the renewal unit price if not updated by a user the Sales Pricing Team updates SAP with a recommended pricing amount which then is updated in SFDC to be the new unit price. The recommended price is also captured on its own for sales to reference and for reporting purposes.</description>
+    <mobileReady>false</mobileReady>
+    <motif>Custom74: Hot Air Balloon</motif>
+</CustomTab>

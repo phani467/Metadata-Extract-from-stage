@@ -1,0 +1,74 @@
+<aura:component >
+    <aura:attribute name="sectionName" type="string" required="true"/>
+    <aura:attribute name="label" type="string" required="true"/>
+    <aura:attribute name="required" type="boolean" default="false"/>
+    <aura:attribute name="expanded" type="boolean" default="false" access="private"/>
+    <aura:attribute name="searchString" type="string" access="private"/>
+    <aura:attribute name="badgeText" type="string" access="private"/>
+    <aura:attribute name="multiple" type="boolean" default="false"/>
+    
+    <aura:method name="toggle" action="{!c.toggle}"/>
+    <aura:method name="collapse" action="{!c.collapse}"/>
+    <aura:method name="setBadge" action="{!c.setBadge}">
+        <aura:attribute name="text" type="string"/>
+    </aura:method>
+    <aura:method name="toggleAccordionDisabled" action="{!c.toggleAccordionDisabled}">
+        <aura:attribute name="disable" type="boolean"/>
+    </aura:method>
+    <aura:method name="hideScrollBar" action="{!c.hideScrollBar}"/>
+    <aura:method name="showScrollBar" action="{!c.showScrollBar}"/>
+    
+    <aura:registerEvent name="collapseOtherAccordionSections" type="Loop:collapseOtherAccordionSections"/>
+
+    <ul class="slds-tree" role="tree" aria-labelledby="treeheading">
+        <li class="slds-tree__branch" role="treeitem" aria-level="1" aria-expanded="true">
+            <div class="slds-tree__item tree-item tree-item-top-border" data-hidden="false" aura:id="section" id="section" onclick="{!c.toggle}" style="background-color: #fff;">
+                <div aura:id="sectionHeader" class="slds-grid slds-grid--align-spread section-header collapse">
+                    <div aura:id="label" class="section-header-label">
+                        <div id="section-icon" aura:id="section-icon" class="icon-transition icon-position" >
+                            <Loop:Svg id="section" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#chevronright'}" class="icon"/>
+                        </div>
+                        <div style="margin-left:.5rem; font-size:12pt;">{!v.label}</div>
+                    </div>
+                    <div class="section-header-extra">
+                        <span aura:id="badge" class="slds-badge blue-badge hidden">{!v.badgeText}</span>
+                        <span aura:id="requiredBadge" class="slds-badge slds-theme--error hidden">REQUIRED</span>
+                    </div>
+                    <div aura:id='searchContainer' class="outer collapse search-hidden">
+                        <div class="searchBit1 collapsible">
+                            <div class="searchBit2"></div>
+                        </div>
+                        <div class="searchBit3" onclick="{!c.toggleSearch}">
+                            <div class="searchBit4">
+                                <aura:if isTrue="{!v.label == 'Record'}">
+                                    <Loop:Svg class="searchRecordIcon" xlinkHref="{!$Resource.Loop__Styles + '/images/searchRecord.svg#searchRecord'}"/>
+                                    <aura:set attribute="else">
+                                        <Loop:Svg class="searchRecordIcon" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#search'}"/>
+                                    </aura:set>
+                                </aura:if>
+                            </div>
+                        </div>
+                        <div class="searchBit5 collapsible" onclick="{!c.stopPropagation}">
+                            <span onclick="{!c.clearInput}">
+                                <Loop:Svg class="clearSearchIcon" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/action-sprite/svg/symbols.svg#remove'}"/>
+                            </span>
+                        </div>
+                        <div class="searchBit6 slds-input-has-icon slds-input-has-icon--left collapsible">
+                            <aura:if isTrue="{!v.label == 'Record'}">
+                                <span onclick="{!c.searchAll}">
+                                    <Loop:Svg class="slds-input__icon" style="left:.75rem" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#search'}"/>
+                                </span>
+                            </aura:if>
+                            <input aura:id="searchBar" class="searchBit7" style="{!v.label == 'Record' ? '' : 'padding-left:16px;'}" oninput="{!c.search}" onclick="{!c.stopPropagation}" onkeyup="{!c.handleKeyPress}" type="search" placeholder="Search" aria-autocomplete="list" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div aura:id="section-node" class="scrollable--y accordion-content">
+                    {!v.body}
+                </div>
+            </div>
+        </li>
+    </ul>
+</aura:component>

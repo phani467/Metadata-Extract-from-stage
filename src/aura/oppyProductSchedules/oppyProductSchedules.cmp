@@ -1,0 +1,84 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="OppyProductSchedulesListController" >
+    <aura:attribute name="lstOppySchedules" type="OpportunityLineItemSchedule__c[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:if isTrue="{!v.lstOppySchedules.length>0}">
+        <lightning:layout horizontalAlign="center" verticalAlign="end">
+            <p class="slds-text-heading--large">Product Schedule Details</p>
+        </lightning:layout>
+        <div class="slds-m-top_large">
+            <table class ="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Year">Year</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Price Book List Price">Price Book List Price</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Updated List Price">Updated List Price</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Discount Percent">Discount Percent</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Discount Amount">Discount Amount</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Net Unit Price">Net Unit Price</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Total Price">Total Price</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration var="prodOPS" items="{!v.lstOppySchedules}" indexVar="index">
+                        <tr>
+                            <th scope="row" data-label="Year">
+                                <div class="slds-truncate" title="{!prodOPS.InstallmentYears__c}" ><b><p>{!prodOPS.InstallmentYears__c}</p></b>
+                                </div>
+                            </th>
+                            <td data-label ="Price Book List Price">
+                                <div >
+                                    <lightning:formattedNumber value="{!prodOPS.PriceBookListPrice__c}" style="currency" 
+                                                               currencyCode="{!prodOPS.CurrencyIsoCode}" currencyDisplayAs="symbol"/>
+                                </div>
+                            </td>
+                            <td data-label ="Updated List Price">
+                                <div>
+                                    <lightning:formattedNumber value="{!prodOPS.ExternalListPrice__c}" style="currency" 
+                                                               currencyCode="{!prodOPS.CurrencyIsoCode}" currencyDisplayAs="symbol"/>     
+                                </div>
+                            </td>
+                            <td data-label="Discount Percent">
+                                <div>
+                                    <lightning:input type="number" name="{!index+'discountPercent'+prodIndex}" variant="label-hidden" value="{!prodOPS.DiscountPercent__c}" formatter="percent" step="0.01"
+                                                     aura:id="discountPercent"  disabled="true" />
+                                </div>                                        
+                            </td>
+                            <td data-label="Discount Amount" > 
+                                <div>
+                                     <lightning:formattedNumber value="{!prodOPS.DiscountAmount__c}" style="currency" 
+                                                               currencyCode="{!prodOPS.CurrencyIsoCode}" currencyDisplayAs="symbol"/>
+                                </div>
+                            </td>
+                            <td data-label ="Net Unit Price">
+                                <div>
+                                     <lightning:formattedNumber value="{!prodOPS.SalesPrice__c}" style="currency" 
+                                                               currencyCode="{!prodOPS.CurrencyIsoCode}" currencyDisplayAs="symbol"/>                       
+                                </div>
+                            </td>
+                            <td data-label="Total Price">
+                                <div>
+                                     <lightning:formattedNumber value="{!prodOPS.TotalPrice__c}" style="currency" 
+                                                               currencyCode="{!prodOPS.CurrencyIsoCode}" currencyDisplayAs="symbol"/>               
+                                </div>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </aura:if>
+</aura:component>

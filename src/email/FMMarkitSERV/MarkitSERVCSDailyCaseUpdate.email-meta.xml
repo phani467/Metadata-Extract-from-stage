@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5110;MarkitSERV CS Daily Case Update</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MarkitSERV_CS_Daily_Case_Update</name>
+    <style>none</style>
+    <subject>Your Daily IHS Markit Customer Care Case Summary</subject>
+    <textOnly>Your daily case summary.
+{!Today}
+
+Dear Client,
+
+The requests below are currently being investigated by MarkitSERV Client Services.
+
+[ Raised ] - [ Case Ref ] - [ Subject ] - [ Product ] - [ Assigned To ]
+
+Please do not reply to this mail, it has been sent from an un-monitored account. Should you wish to contact client services please email support@markitserv.com or call one of the following telephone numbers:-
+
+UK/Europe/Asia: + 44 (0)84 4994 7378
+US and Canada: + 1 877 765 8737
+
+We appreciate your patience and will address your requests as quickly as possible.
+
+Regards,
+MarkitSERV Client Services
+
+To unsubscribe from the daily MarkitSERV Cases Summary email please send an email with &apos;unsubscribe&apos; in the subject to:
+support@ihsmarkitserv.com</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-6282: Used to email Contact on Internal Approval record as notification of Approval Request.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Contract Internal Approval</name>
+    <style>none</style>
+    <subject>Request Approval for {!InternalApproval__c.Contract__c}</subject>
+    <textOnly>Hi {!InternalApproval__c.Contact__c},
+
+{!InternalApproval__c.ContractOwner__c} has requested your approval on {!InternalApproval__c.ContractNumber__c}.
+
+Approval Type
+
+Client Name
+
+Reason
+
+Status
+
+Start End
+
+End Date
+
+Link to Contract
+
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

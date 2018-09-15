@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>Knowledge</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Knowledge</fullName>
+        <fields>Title</fields>
+        <fields>PublishStatus</fields>
+        <fields>LastPublishedDate</fields>
+        <fields>VersionNumber</fields>
+        <fields>IsVisibleInCsp</fields>
+        <fields>IsVisibleInPrm</fields>
+        <fields>Type__c</fields>
+        <label>Knowledge</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>AdditionResources__c</fullName>
+        <description>This is a place-holder for current AdditionResources and Video</description>
+        <externalId>false</externalId>
+        <label>Additional Resources</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ApprovalSubmissionComments__c</fullName>
+        <description>For Customer Community.  Used by approval submitter to detail notes about the approval submission.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide any desired comments to help with the approval of this article such as what you changed and why</inlineHelpText>
+        <label>Approval Submission Comments</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Cause__c</fullName>
+        <description>Field used for Kingdom knowledge articles to match legacy format.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Cause</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ContentType__c</fullName>
+        <description>Type of content the article holds</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What type of content this article will hold</inlineHelpText>
+        <label>Content Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>How To Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Video Tutorial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FAQ</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>We may have issue with importing some KB documents which currently have more than 131072 characters. This is a place-holder for Article&apos;s Description field (max 350433) and Details / Workflow (max 552258)
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>131072</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Details__c</fullName>
+        <description>General rich text field used for generic articles that don&apos;t require a specific format.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Details</label>
+        <length>131072</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>InternalNotes__c</fullName>
+        <description>Used to capture any internal notes for an article.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Internal Notes</label>
+        <length>5000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Keywords__c</fullName>
+        <description>Used to help with keyword matching when users are searching for an article.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Keywords</label>
+        <length>2000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>LegacyArticleId__c</fullName>
+        <description>Used to store legacy article number for a reference
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to store legacy article number for a reference</inlineHelpText>
+        <label>Legacy Article Id</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Links__c</fullName>
+        <description>For Customer Community.  Goldfire Articles migrated from Solutions will have file attachments.  Currently, the related files component doesn&apos;t work on Articles in the Napili Community template.  Can use this field to reference hyperlinks to the related files after they&apos;ve been imported.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Links</label>
+        <length>2500</length>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_Group__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product Group</label>
+        <referenceTo>ProductGroup__c</referenceTo>
+        <relationshipLabel>Knowledge Articles</relationshipLabel>
+        <relationshipName>Knowledge</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductsAndVersions__c</fullName>
+        <description>Used for Kingdom articles to match legacy format.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Products And Versions</label>
+        <length>2000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PublishArticle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>For Customer Community.  Used to publish knowledge articles, so email alert is triggered to internal users.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to publish customer community articles.  Article will be published according to the defined Publish Behavior.</inlineHelpText>
+        <label>Publish Article</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PublishBehavior__c</fullName>
+        <description>For Customer Community.  Used to publish knowledge articles, and allows an email alert to be sent when a Major Change is made, as workflow rules are not triggered by the standard article publish action.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to define the behavior when publishing customer community articles.  A MINOR change will keep the current article version.  A MAJOR change will create a new article version, archive the current version, and send an email alert.</inlineHelpText>
+        <label>Publish Behavior</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Major Change - New Article Version</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Minor Change - Keep Article Version</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Resolution__c</fullName>
+        <description>Used for Kingdom articles to match legacy format.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Resolution</label>
+        <length>131072</length>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SubmitForApprovalBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Updated by process builder.  Set to the user who submitted the article for approval.
+
+This field is being used in Community related changes.</description>
+        <externalId>false</externalId>
+        <label>Last Submitted For Approval By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>KnowledgeApprovalSubmissions</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SubmitForApproval__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>For Customer Community Project.  Lightning Experience does not currently support the submit for approval button on Knowledge.  This triggers a workflow as a work around.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to submit this article for approval.  NOTE: Once submitted, the record will be locked for editing and you will not be able to make any more changes to the article.</inlineHelpText>
+        <label>Submit For Approval</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TargetAudience__c</fullName>
+        <description>SFDC1-9561: Need a way to categorize knowledge articles for easy list views and reporting (NOT by Data Categories). Current values should be Service, Sales and All.</description>
+        <externalId>false</externalId>
+        <label>Target Audience</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>All</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>For Customer Community.  Display dynamic image on Knowledge article for Kingdom/Goldfire articles
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS(RecordType.Name ,&quot;Kingdom&quot;) || CONTAINS(RecordType.Name ,&quot;Goldfire&quot;),
+     IMAGE(&apos;/resource/&apos; + RecordType.Name + &apos;Icon&apos;, RecordType.Name, 37,112),
+     RecordType.Name
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Workflow__c</fullName>
+        <description>Used for Kingdom articles to match legacy format.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>Workflow</label>
+        <length>131072</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <label>Knowledge</label>
+    <listViews>
+        <fullName>AllArticles</fullName>
+        <columns>TITLE</columns>
+        <columns>ABSTRACT</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>VERSION_NUMBER</columns>
+        <columns>ContentType__c</columns>
+        <columns>LAST_PUBLISHED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PUBLISH_STATUS</field>
+            <operation>equals</operation>
+            <value>2</value>
+        </filters>
+        <filters>
+            <field>LANGUAGE</field>
+            <operation>equals</operation>
+            <value>en_US</value>
+        </filters>
+        <label>All Articles</label>
+    </listViews>
+    <listViews>
+        <fullName>Andy_Publish_Check</fullName>
+        <columns>TITLE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ARTICLE_TOTAL_VIEW_COUNT</columns>
+        <columns>Type__c</columns>
+        <columns>TargetAudience__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>Andy Publish Check</label>
+    </listViews>
+    <listViews>
+        <fullName>archived_articles</fullName>
+        <columns>TITLE</columns>
+        <columns>ABSTRACT</columns>
+        <columns>ARTICLE_NUMBER</columns>
+        <columns>LANGUAGE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PUBLISH_STATUS</field>
+            <operation>equals</operation>
+            <value>3</value>
+        </filters>
+        <filters>
+            <field>LANGUAGE</field>
+            <operation>equals</operation>
+            <value>en_US</value>
+        </filters>
+        <label>Archived Articles</label>
+    </listViews>
+    <listViews>
+        <fullName>archivedarticles</fullName>
+        <columns>TITLE</columns>
+        <columns>ABSTRACT</columns>
+        <columns>ARTICLE_NUMBER</columns>
+        <columns>LANGUAGE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PUBLISH_STATUS</field>
+            <operation>equals</operation>
+            <value>3</value>
+        </filters>
+        <filters>
+            <field>LANGUAGE</field>
+            <operation>equals</operation>
+            <value>en_US</value>
+        </filters>
+        <label>Archived Articles</label>
+    </listViews>
+    <listViews>
+        <fullName>draft_articles</fullName>
+        <columns>TITLE</columns>
+        <columns>ABSTRACT</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>FIRST_PUBLISHED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PUBLISH_STATUS</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>LANGUAGE</field>
+            <operation>equals</operation>
+            <value>en_US</value>
+        </filters>
+        <label>Draft Articles</label>
+    </listViews>
+    <listViews>
+        <fullName>published_articles</fullName>
+        <columns>TITLE</columns>
+        <columns>ABSTRACT</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>VERSION_NUMBER</columns>
+        <columns>LAST_PUBLISHED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PUBLISH_STATUS</field>
+            <operation>equals</operation>
+            <value>2</value>
+        </filters>
+        <filters>
+            <field>LANGUAGE</field>
+            <operation>equals</operation>
+            <value>en_US</value>
+        </filters>
+        <label>Published Articles</label>
+    </listViews>
+    <pluralLabel>Knowledge</pluralLabel>
+    <recordTypes>
+        <fullName>General</fullName>
+        <active>true</active>
+        <description>General record type to be used for more generic articles intended for multiple audiences</description>
+        <label>General</label>
+        <picklistValues>
+            <picklist>ContentType__c</picklist>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How To Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Tutorial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PublishBehavior__c</picklist>
+            <values>
+                <fullName>Major Change - New Article Version</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minor Change - Keep Article Version</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TargetAudience__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Goldfire</fullName>
+        <active>false</active>
+        <description>Customer Community articles for Goldfire customers</description>
+        <label>Goldfire</label>
+        <picklistValues>
+            <picklist>ContentType__c</picklist>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How To Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Tutorial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PublishBehavior__c</picklist>
+            <values>
+                <fullName>Major Change - New Article Version</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minor Change - Keep Article Version</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TargetAudience__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Kingdom</fullName>
+        <active>false</active>
+        <description>Customer Community articles for Kingdom customers</description>
+        <label>Kingdom</label>
+        <picklistValues>
+            <picklist>ContentType__c</picklist>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How To Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Tutorial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PublishBehavior__c</picklist>
+            <values>
+                <fullName>Major Change - New Article Version</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minor Change - Keep Article Version</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TargetAudience__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Partners</fullName>
+        <active>false</active>
+        <description>Partner Community articles for partner customers</description>
+        <label>Partners</label>
+        <picklistValues>
+            <picklist>ContentType__c</picklist>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How To Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Tutorial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PublishBehavior__c</picklist>
+            <values>
+                <fullName>Major Change - New Article Version</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minor Change - Keep Article Version</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TargetAudience__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SalesforceHelpDesk</fullName>
+        <active>true</active>
+        <description>SFDC1-9573: Add Article Record Type Salesforce HelpDesk</description>
+        <label>Salesforce HelpDesk</label>
+        <picklistValues>
+            <picklist>ContentType__c</picklist>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How To Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Tutorial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PublishBehavior__c</picklist>
+            <values>
+                <fullName>Major Change - New Article Version</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minor Change - Keep Article Version</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TargetAudience__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>TrainingDocumentation</fullName>
+        <active>true</active>
+        <description>Knowledge base for internal SFDC training</description>
+        <label>Training Documentation</label>
+        <picklistValues>
+            <picklist>ContentType__c</picklist>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How To Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Tutorial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PublishBehavior__c</picklist>
+            <values>
+                <fullName>Major Change - New Article Version</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minor Change - Keep Article Version</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TargetAudience__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <validationRules>
+        <fullName>EnforcePublishBehavioToSubmitForApproval</fullName>
+        <active>true</active>
+        <description>For Customer Community project. Article must specify the Publish Behavior in order to submit for review</description>
+        <errorConditionFormula>SubmitForApproval__c
+&amp;&amp;
+ISBLANK( TEXT( PublishBehavior__c ) )</errorConditionFormula>
+        <errorMessage>You must specify the Publish Behavior in order to submit for review</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EnforcePublishBehaviorMajorForNewArticle</fullName>
+        <active>true</active>
+        <description>New articles that have not been published yet need to require the publish behavior of Major Change</description>
+        <errorConditionFormula>(SubmitForApproval__c 
+||
+PublishArticle__c )
+&amp;&amp;
+(
+NOT ISPICKVAL( PublishBehavior__c , &quot;Major Change - New Article Version&quot; )
+&amp;&amp;
+ISBLANK(FirstPublishedDate)
+)</errorConditionFormula>
+        <errorMessage>New Articles that have not yet been published must have a publish behavior of &quot;Major Change - New Article Version&quot; in order to publish</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>VisibleToCustomerToSubmitForApproval</fullName>
+        <active>true</active>
+        <description>For Customer Community project.  Article must be visible to customer in order to submit for review</description>
+        <errorConditionFormula>NOT IsVisibleInCsp 
+&amp;&amp;
+SubmitForApproval__c</errorConditionFormula>
+        <errorMessage>Article must be visible to customers to submit for review</errorMessage>
+    </validationRules>
+</CustomObject>

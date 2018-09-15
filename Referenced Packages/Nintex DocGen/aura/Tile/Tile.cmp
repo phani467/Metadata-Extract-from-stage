@@ -1,0 +1,152 @@
+<aura:component >
+    <!--Required attributes-->
+    <aura:attribute name="id" type="string" required="true" description="Unique id for this Tile."/>
+    <aura:attribute name="record" type="object" required="true" description="Instance of TileData."/>
+    <aura:attribute name="type" type="string" required="true"/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="isESign" type="boolean" default="false" access="private"/>
+    <aura:attribute name="showESignRecipients" type="boolean" default="false" access="private"/>
+    <aura:attribute name="recipientGroups" type="List" default="[]" access="private" description="List of recipient. Used for eSign recipients."/>
+    <aura:attribute name="isOpen" type="boolean" default="false" access="private"/>
+    <aura:attribute name="eSignRecipients" type="List" default="[]" access="private" description="List of selected E-Sign recipients."/>
+    
+    <!--Optional attributes-->
+    <aura:attribute name="svgClass" type="string" default=""/>
+    <aura:attribute name="svgLink" type="string" default=""/>
+    <aura:attribute name="isMultiSelect" type="boolean" default="false"/>
+    <aura:attribute name="displaySvg" type="boolean" default="false"/>
+    <aura:attribute name="attachToRecord" type="boolean" default="false"/>
+    <aura:attribute name="objectName" type="string" default="" description="Name of the starting object"/>
+    <aura:attribute name="isUserSelectedContent" type="boolean" default="false"/>
+    <aura:attribute name="selectedLibraryId" type="string" default=""/>
+    <aura:attribute name="libraries" type="list" default="[]"/>
+    <aura:attribute name="selectedContact" type="string" default=""/>
+    <aura:attribute name="fileNamesLabel" type="string" default="File Name:" access="private"/>
+    <aura:attribute name="fileNames" type="string" default="" access="private"/>
+	
+    <!--Email attributes-->
+    <aura:attribute name="emailSubject" type="string" default=""/>
+    <aura:attribute name="emailBody" type="string" default=""/>
+    
+    <!--DocuSign reminder attributes-->
+    <aura:attribute name="reminderDelay" type="decimal" default="0"/>
+    <aura:attribute name="reminderFrequency" type="decimal" default="0"/>
+    <aura:attribute name="expireAfter" type="decimal" default="0"/>
+    <aura:attribute name="expireWarn" type="decimal" default="0"/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="recipientGroupClicked" event="Loop:recipientGroupClicked" action="{!c.handleRecipientGroupClicked}"/>
+    <aura:handler name="storeRecipientInfo" event="Loop:storeRecipientInfo" action="{!c.handleStoreRecipientInfo}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="tileClicked" type="Loop:tileClicked"/>
+    <aura:registerEvent name="slideInDocuSignReminders" type="Loop:slideInDocuSignReminders"/>
+    <aura:registerEvent name="slideInEditEmail" type="Loop:slideInEditEmail"/>
+    <aura:registerEvent name="updateESignRecipientsList" type="Loop:updateESignRecipientsList"/>
+    
+    <!--Methods-->
+    <aura:method name="forcedDeselect" action="{!c.forcedDeselect}" description="Force this tile to be in a 'deselected' state."/>
+    <aura:method name="forcedSelect" action="{!c.forcedSelect}" description="Force this tile to be in a 'selected' state."/>
+    <aura:method name="updateEmailData" action="{!c.updateEmailData}">
+    	<aura:attribute name="emailSubject" type="string" default=""/>
+    	<aura:attribute name="emailBody" type="string" default=""/>
+    </aura:method>
+    <aura:method name="updateDocuSignReminderData" action="{!c.updateDocuSignReminderData}">
+        <aura:attribute name="reminderDelay" type="decimal" default="0"/>
+        <aura:attribute name="daysTillSigningExpires" type="decimal" default="0"/>
+        <aura:attribute name="reminderFrequency" type="decimal" default="0"/>
+        <aura:attribute name="warnOfExpiration" type="decimal" default="0"/>
+    </aura:method>
+    <aura:method name="open" action="{!c.open}"/>
+    <aura:method name="close" action="{!c.close}"/>
+    <aura:method name="toggle" action="{!c.toggle}"/>
+    
+    <li aura:id="tile" id="{!v.id}" class="slds-list__item tile-background" style="padding: 0;" onclick="{!c.clicked}">
+        <div class="slds-tile--board slds-media" style="padding: .5rem;min-height: 54px;">
+            <div class="slds-media__figure">
+                <span class="slds-icon__container">
+                    <Loop:Svg class="{!'slds-icon ' + v.svgClass}" display="{!v.displaySvg}" xlinkHref="{!$Resource.Loop__SalesforceLightning + v.svgLink}"/>
+                </span>
+            </div>
+            <div class="slds-media__body">
+                <div style="margin-right: 15px;">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size--1-of-2 slds-medium-size--5-of-6 slds-large-size--8-of-12">
+                            <span title="{!v.record.Name}">
+                                <p class="slds-tile__title slds-text-heading--x-small slds-truncate title-font">{!v.record.Name}</p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="slds-tile__detail detail-line-height">
+                        <dl class="slds-text-body--small description-font">
+                            <aura:if isTrue="{!v.type == 'contact'}">
+                                <aura:if isTrue="{!v.record.Title}">
+                                    <dt><span title="{!v.record.Title}">{!v.record.Title}</span></dt>
+                                </aura:if>
+                                <aura:if isTrue="{!v.record.Email}">
+                                    <dt><span title="{!v.record.Email}">{!v.record.Email}</span></dt>
+                                </aura:if>
+                            </aura:if>
+                            <aura:if isTrue="{!v.type == 'ddp' || v.type == 'record' || v.type == 'document' || v.type == 'attachment' || v.type == 'delivery'}">
+                                <aura:if isTrue="{!v.record.Description}">
+                                    <dt><span title="{!v.record.Description}">{!v.record.Description}</span></dt>
+                                </aura:if>
+                            </aura:if>
+                            <aura:if isTrue="{!v.type == 'attachment' &amp;&amp; v.record.CaseNumber != null}">
+                                <dt><span class="slds-m-right--x-small">Type:</span><span title="{!v.record.Type}">{!v.record.Type}</span></dt>
+                                <dt><span class="slds-m-right--x-small">Case Number:</span><span title="{!v.record.CaseNumber}">{!v.record.CaseNumber}</span></dt>
+                                <button aura:id="moreInfoButton" class="slds-button" onclick="{!c.exposeMoreInformation}">More Information</button>
+                                <div aura:id="additionallAttachmentInfo" class="hidden">
+                                    <dt><span class="slds-m-right--x-small">Case Status:</span><span title="{!v.record.Status}">{!v.record.Status}</span></dt>
+                                    <dt><span class="slds-m-right--x-small">Case Subject:</span><span title="{!v.record.Subject}">{!v.record.Subject}</span></dt>
+                                    <aura:if isTrue="{!v.record.FileNames != null &amp;&amp; !empty(v.record.FileNames)}">
+                                        <dt><span class="slds-m-right--x-small">{!v.fileNamesLabel}</span><span>{!v.fileNames}</span></dt>
+                                    </aura:if>
+                                </div>
+                            </aura:if>
+                            <aura:if isTrue="{!v.type == 'delivery'}">
+                                <aura:if isTrue="{!v.record.AllowAttachToRecord &amp;&amp; !v.record.RequireAttachToRecord}">
+                                    <div aura:id="checkboxContainer" class="hidden">
+                                        <lightning:input aura:id="attachCheckbox" type="checkbox" label="{!$Label.loop.DDP_Attach_To + ' ' + v.objectName}"/>
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!v.isUserSelectedContent}">
+                                    <div aura:id="contentLibraries" class="hidden">
+                                        <span class="slds-form-element__label slds-m-top--x-small">Select a Library</span><br/>
+                                        <ui:inputSelect aura:id="contentLibraryDropdown" class="dropdown-width" change="{!c.clicked}">
+                                            <aura:iteration items="{!v.libraries}" var="library">
+                                                <ui:inputSelectOption label="{!library.Name}" text="{!library.Id}" value="{!library.IsDefault}"/>
+                                            </aura:iteration>
+                                        </ui:inputSelect>
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!v.record.AllowSubjectEmailChanges}">
+                                    <dt aura:id="editEmail" class="hidden"><div class="slds-button" onclick="{!c.editEmailClicked}">Edit Email</div></dt>
+                                </aura:if>
+                                <aura:if isTrue="{!v.record.ExposeExpirations}">
+                                    <dt aura:id="editDocuSignReminder" class="hidden"><div class="slds-button" onclick="{!c.editDocuSignReminder}">Reminder and Expirations Options</div></dt>
+                                </aura:if>
+                                <aura:if isTrue="{!v.showESignRecipients}">
+                                    <dt>
+                                        <ul class="slds-has-dividers--around-space slds-m-top--medium slds-m-right--large slds-m-bottom--medium">
+                                            <aura:iteration items="{!v.recipientGroups}" var="group">
+                                                <li class="slds-item white-background cursor-default">
+                                                    <Loop:RecipientGroup aura:id="recipientGroup" recipients="{!group.recipients}" signingOrder="{!group.signingOrder}" eSignType="{!v.record.DeliveryType}" />
+                                                </li>
+                                            </aura:iteration>
+                                        </ul>
+                                    </dt>
+                                </aura:if>
+                            </aura:if>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div aura:id="check-background" class="check">
+                <Loop:Svg aura:id="check-icon" class="slds-icon slds-icon__container slds-icon--small slds-align-middle check-icon" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/action-sprite/svg/symbols.svg#check'}"/>
+            </div>
+        </div>
+    </li>
+</aura:component>

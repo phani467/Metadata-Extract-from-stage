@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>Change Log Owner Change</name>
+    <style>freeForm</style>
+    <subject>A Work Request Form Has Been Assigned To You</subject>
+    <textOnly>** ATTENTION – ACTION NEEDED **&lt;?xml:namespace prefix = o /&gt;
+
+
+The following Change Log has had a owner change:
+
+Change Log Name: {!ChangeLog__c.Name}
+Work Request Name: {!ChangeLog__c.WorkRequestForm__c}
+Status: {!ChangeLog__c.Status__c}
+Record Owner: {!ChangeLog__c.OwnerFullName}
+Link to Change Log: {!ChangeLog__c.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>

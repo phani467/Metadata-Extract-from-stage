@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-1845 Quick action to stop auto renew on Renewal Opportunities.</description>
+    <fieldOverrides>
+        <field>DoesThisAutoRenewalHaveChanges__c</field>
+        <formula>true</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>ImportantMessage__c</field>
+        <formula>&apos;Click Save to stop the Auto Renew process; new paperwork will be required.&apos; &amp; BR() &amp; &apos;Click Cancel to retain Auto Renew status.&apos;</formula>
+    </fieldOverrides>
+    <label>Change Auto Renew?</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>ImportantMessage__c</field>
+                <uiBehavior>Readonly</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <successMessage>Opportunity Updated</successMessage>
+    <type>Update</type>
+</QuickAction>

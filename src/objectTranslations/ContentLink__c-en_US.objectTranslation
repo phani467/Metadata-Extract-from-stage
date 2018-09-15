@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Content Link</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Content Links</value>
+    </caseValues>
+    <fields>
+        <help><!-- Select content directory --></help>
+        <label><!-- Content Directory --></label>
+        <name>ContentDirectory__c</name>
+        <relationshipLabel><!-- Content Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Jira Ticket Id associated to this Content Link --></help>
+        <label><!-- Jira ID --></label>
+        <name>JiraID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unique ID in Legacy system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Formula field to representing ContentDirectory Platform --></help>
+        <label><!-- Platform --></label>
+        <name>Platform__c</name>
+    </fields>
+    <fields>
+        <help><!-- Content link URL --></help>
+        <label><!-- URL --></label>
+        <name>URL__c</name>
+    </fields>
+    <layouts>
+        <layout>Content Link Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

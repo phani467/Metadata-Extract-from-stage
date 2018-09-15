@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-6585 : An email should be sent to the following email group when the ‘PRS’ picklist value is added or created</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Product Release Specialist Email (PRS)</name>
+    <style>none</style>
+    <subject>A New Case has Been Logged in Salesforce.com ({!Case.CaseNumber})</subject>
+    <type>text</type>
+</EmailTemplate>

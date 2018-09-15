@@ -1,0 +1,25 @@
+<aura:component >
+    <aura:attribute name="title" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    
+    <aura:registerEvent name="hideModal" type="Loop:hideModal"/>
+    
+    <aura:method name="show" action="{!c.show}"/>
+    <aura:method name="hide" action="{!c.hide}"/>
+    
+    <div class="slds">
+        <div aura:id="modal" aria-hidden="false" role="dialog" class="slds-modal">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <h2 class="slds-text-heading--medium">{!v.title}</h2>
+                    <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.hideModal}">
+                        <Loop:Svg class="slds-button__icon slds-button__icon--large" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/action-sprite/svg/symbols.svg#close"/>
+                    </button>
+                </div>
+                {!v.body}
+            </div>
+        </div>
+        <div aura:id="modalBackdrop" onclick="{!c.hideModal}" class="slds-backdrop"></div>
+    </div>
+</aura:component>

@@ -1,0 +1,419 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+
+
+<apex:component >
+    <!-- SHOW THIS DATA SPECS SECTION IF APAC WRF IS SELECTED -->
+    <apex:attribute type="WRACE" description="extension of parent page" name="pageExt" required="true"/>  
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+    <!-- FOR CVGGlobal/Commercial China CV Data Requests -->
+    <apex:attribute name="df" description="This is the active Display Fields set" required="true" type="DisplayF" />
+    <apex:attribute name="mc" description="This is the active Motorcycle Display set" required="true" type="MotorCycle" />
+    <apex:includeScript value="{!URLFOR($Resource.Scripts)}"  />
+    <apex:actionRegion >
+        
+        <!-- SHOW THIS SECTION IF Report (Ad_Hoc_Report__c) REQUEST TYPE IS CHOSEN -->              
+        <apex:pageblocksection id="AdHoc" columns="1" title="Ad Hoc Report" collapsible="false" rendered="{!wrf.AdHocReport__c}"  >     
+            <apex:pageblock >
+                <apex:pageBlockSection >
+                    <apex:outputfield value="{!wrf.DataType__c}" styleclass="requiredField" />
+                    <apex:outputfield value="{!wrf.DemographicInformation__c}" styleclass="requiredField"/>  
+                </apex:pageBlockSection>   
+            </apex:pageblock>
+            
+            <apex:pageBlock >
+                <apex:pageBlockSection >                 
+                    <apex:outputfield value="{!wrf.TimePeriod__c}" id="time" styleclass="requiredField"/>
+                    <apex:outputfield style="width:70%" value="{!wrf.TimePeriodDescription__c}" styleclass="requiredField"/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+            <apex:pageblock >
+                <apex:pageblockSection >
+                    <apex:outputfield value="{!wrf.RegistrationTypeStandard__c}" styleclass="requiredField" />
+                    <apex:pageblocksectionitem />
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel for="VSS" value="Vehicle Segmentation Standard"  />
+                        <apex:outputfield value="{!wrf.VehicleSegmentationStandard__c}" id="vss" styleclass="requiredField">
+                            <apex:actionSupport reRender="AdHoc,MSG" event="onchange" status="formstatus"/> 
+                        </apex:outputfield>
+                    </apex:pageBlockSectionItem>             
+                    <apex:outputfield value="{!wrf.GVW__c}" rendered="{!IF((CONTAINS(wrf.VehicleSegmentationStandard__c,'Full Size Pickup')||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Compact Pickup')
+                                                                      ||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Medium Heavy Trucks')||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Mid Size Pickup'))))),TRUE,FALSE)}" styleclass="requiredField"/>
+                    <apex:pageblocksectionitem rendered="{!!IF((CONTAINS(wrf.VehicleSegmentationStandard__c,'Full Size Pickup')||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Compact Pickup')
+                                                         ||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Medium Heavy Trucks')||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Mid Size Pickup'))))),TRUE,FALSE)}" />
+                    <apex:outputfield style="width:50%" value="{!wrf.VehicleSegmentationDetails__c}" />  
+                </apex:pageblockSection>
+            </apex:pageBlock>
+        </apex:pageBlocksection> 
+        <!-- END AD HOC REPORT SECTION -->
+        
+        <!-- STANDARD GEOGRAPHY SECTION REPEATED ON SEVERAL FORMS (Shown for Report request type)-->
+        <apex:pageblock > 
+            <apex:actionRegion >
+                <apex:pageblocksection title="Geography" collapsible="false" id="geo" rendered="{!wrf.AdHocReport__c}">
+                    <apex:outputfield value="{!wrf.StandardUS__c}" styleclass="requiredField"/>
+                    <apex:outputfield value="{!wrf.StandardCanadian__c}" styleclass="requiredField"/>
+                    <apex:outputfield value="{!wrf.StandardPuertoRico__c}" styleclass="requiredField"/>        
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel for="OEMGeo" value="Custom Geography" styleclass="requiredField"/>
+                        <apex:outputfield value="{!wrf.CustomGeography__c}" id="oemgeo">
+                            <apex:actionSupport reRender="geo,MSG" event="onchange" status="formstatus"/>
+                        </apex:outputfield>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageblocksectionitem />
+                    <apex:outputfield value="{!wrf.OEMGeographyDetails__c}" rendered="{!wrf.CustomGeography__c}" styleclass="requiredField"/>
+                    <apex:pageblocksectionitem rendered="{!!wrf.CustomGeography__c}"/> 
+                </apex:pageblocksection>
+            </apex:actionregion>
+        </apex:pageBlock> 
+        <!-- END GEOGRAPHY SECTION -->
+        
+        <!--STAT FORM AD HOC REPORT - DATA TO BE DISPLAYED --> 
+        <apex:pageblocksection title="Data to be Displayed" collapsible="false" rendered="{!wrf.AdHocReport__c}" >
+            <apex:outputfield value="{!wrf.DataToBeDisplayed__c}" styleclass="requiredField"/>
+            <apex:outputfield style="width:70%" value="{!wrf.DataToBeDisplayedInstructions__c}"  />
+            <apex:pageblockSectionItem >
+                <apex:outputLabel for="georegveh" value="Geography of Reg Vehicle"/>
+                <apex:outputfield value="{!wrf.StandardMotorcycle__c}" id="georegveh"/>
+            </apex:pageblockSectionItem>
+            <apex:pageblocksection />
+            <apex:outputfield value="{!wrf.Motorcycle__c}"/>   
+        </apex:pageblocksection>
+        
+        <!-- THIS SECTION IS FOR DATA EXTRACT GLOBAL VIO PARC --> 
+        <apex:pageblock rendered="{! wrf.DataExtractGlobalVIOPARC__c}" id="Data4" 
+                        title="Request for Data Extract Global VIO PARC">
+            <apex:pageBlockSection title="Year Coverage" collapsible="false"  id="parcyr">
+                <apex:outputfield value="{!wrf.Periodicity__c}" >
+                    <apex:actionSupport reRender="parcyr,MSG" event="onchange" status="formstatus"/> 
+                </apex:outputfield>
+                <apex:pageblockSectionItem > 
+                    <apex:outputLabel for="year" value="Custom Year" />
+                    <apex:outputfield value="{!wrf.CustomYearCoverage__c}" >
+                        <apex:actionSupport reRender="parcyr,MSG" event="onchange" status="formstatus"/> 
+                    </apex:outputfield>
+                </apex:pageblockSectionItem> 
+                
+                <apex:outputfield value="{!wrf.CustomPeriodicity__c}" rendered="{!wrf.Periodicity__c == 'Other'}"  styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.Periodicity__c != 'Other'}"/>
+                
+                <apex:outputfield value="{!wrf.CustomYearFrom__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField" />
+                <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>
+                
+                <apex:outputfield value="{!wrf.ForecastYears__c}" >
+                    <apex:actionSupport reRender="parcyr,MSG" event="onchange" status="formstatus"/> 
+                </apex:outputfield>
+                <apex:outputfield value="{!wrf.CustomYearTo__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>                 
+                
+                <apex:outputfield value="{!wrf.CustomForecastYears__c}" rendered="{!wrf.ForecastYears__c == 'Other'}"  styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.ForecastYears__c != 'Other'}"/>  
+            </apex:pageBlockSection>
+            
+            <apex:pageblocksection title="Markets" collapsible="false" id="parcgeo" columns="1" >
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="Data Extract Global VIO (PARC)" wrfId="{!wrf.Id}" rendered="{!wrf.DataExtractGlobalVIOPARC__c}"/>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="ParcCustGeo" value="Custom Geography"/>
+                    <apex:outputfield value="{!wrf.CustomGeography__c}" id="parccustgeo">
+                        <apex:actionSupport reRender="parcgeo,MSG" event="onchange" status="formstatus"/>
+                    </apex:outputfield>
+                </apex:pageBlockSectionItem>
+                <apex:pageblocksectionitem rendered="{!!wrf.CustomGeography__c}"/>
+                <apex:outputfield style="width:50%;height:80px;" value="{!wrf.OEMGeographyDetails__c}" rendered="{!wrf.CustomGeography__c || CONTAINS(wrf.PARCGeography__c,'Other')}" styleClass="requiredField"/>
+            </apex:pageblocksection>
+            
+            <apex:pageblockSection title="Vehicle Attributes" columns="2" id="vehicleAttributesSection">
+                <apex:outputfield value="{!wrf.VehicleAttributesPARC__c}" />
+                <apex:outputfield value="{!wrf.EssenVehicleAttributes__c}"/>
+                
+                <apex:outputfield value="{!wrf.VehicleSegmentation__c}" >
+                    <apex:actionSupport reRender="vehicleAttributesSection,MSG" event="onchange" status="formstatus"/> 
+                </apex:outputfield>
+                <apex:pageBlockSectionItem rendered="{!wrf.VehicleSegmentation__c == null || CONTAINS(wrf.VehicleSegmentation__c,'Other') == false}"/>
+                <apex:outputfield style="width:100%;height:80px;" value="{!wrf.VehicleSegmentationDetails__c}" rendered="{!wrf.VehicleSegmentation__c != null && CONTAINS(wrf.VehicleSegmentation__c,'Other')}" styleClass="requiredField"/>
+                
+                <apex:outputfield value="{!wrf.AgeClasses__c}" styleClass="requiredField">
+                    <apex:actionSupport reRender="vehicleAttributesSection,MSG" event="onchange" status="formstatus"/> 
+                </apex:outputfield>
+                <apex:pageBlockSectionItem rendered="{!wrf.AgeClasses__c == null || !CONTAINS(wrf.AgeClasses__c,'Custom Age Classes')}"/>
+                <apex:outputfield style="width:100%;height:80px;" value="{!wrf.CustomAgeClasses__c}" rendered="{!wrf.AgeClasses__c != null && CONTAINS(wrf.AgeClasses__c,'Custom Age Classes')}" styleClass="requiredField"/>    
+            </apex:pageblockSection>
+        </apex:pageblock>
+        <!-- END DATA EXTRACT GLOBAL VIO PARC --> 
+        
+        
+        <!-- THIS SECTION IS FOR CHINA CV DATA REQUESTS -->  
+        <apex:pageblock rendered="{!wrf.ChinaCV__c}" title="Commercial" id="Commercial">
+            <apex:pageBlockSection columns="1">
+                <apex:outputfield style="width:100%" value="{!wrf.TimePeriodDescription__c}" styleClass="requiredField" />
+            </apex:pageblocksection>
+            <apex:pageblocksection >
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel for="selections" value="Do you have Specific Vehicle Selections?" />
+                    <apex:outputfield value="{!wrf.SpecificVehicleSelections__c}" >
+                        <apex:actionSupport reRender="Commercial,MSG" event="onchange" status="formstatus"/>
+                    </apex:outputfield>
+                </apex:pageblocksectionitem>
+            </apex:pageblocksection>
+            
+            <apex:pageBlockSection title="Vehicle Selections (include any specific selections below)" columns="1" rendered="{!wrf.SpecificVehicleSelections__c=='Yes'}" >
+                <apex:outputfield style="width:100%" value="{!wrf.Make__c}" styleclass="requiredField" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="2" rendered="{!wrf.SpecificVehicleSelections__c=='Yes'}">
+                <apex:outputfield style="width:100%" value="{!wrf.EngMFG__c}" styleclass="requiredField"/>
+                <apex:outputfield style="width:100%" value="{!wrf.EngModel__c}" styleclass="requiredField"/>
+                <apex:outputfield style="width:100%" value="{!wrf.BodyStyle__c}" styleclass="requiredField"/>
+                <apex:outputfield style="width:100%" value="{!wrf.VocCode__c}" styleclass="requiredField"/>
+                <apex:outputfield style="width:100%" value="{!wrf.CabConfig__c}" styleclass="requiredField"/>
+                <apex:outputfield style="width:100%" value="{!wrf.Length__c}" styleclass="requiredField"/>
+                <apex:outputfield style="width:100%" value="{!wrf.Model__c}" styleclass="requiredField"/>
+                <apex:outputfield style="width:100%" value="{!wrf.VehicleType__c}" styleclass="requiredField"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageblock >
+                <apex:pageblocksection >
+                    <apex:outputfield value="{!wrf.GVW__c}" />
+                    <apex:outputfield value="{!wrf.ManufacturerGVW__c}" />
+                </apex:pageblocksection>
+            </apex:pageblock>
+            
+            <apex:pageBlockSection title="Geography" collapsible="false" >
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1">
+                <apex:outputfield style="width:100%" value="{!wrf.GeographyDetails__c}" styleClass="requiredField" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Display Fields" collapsible="false">
+                <apex:outputField value="{!wrf.ExcludeName__c}" />
+                <apex:outputField value="{!wrf.ExcludeAddress__c}" />
+                <apex:outputField value="{!wrf.DisplayFields__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1">
+                <apex:outputField style="width:100%" value="{!wrf.OtherDisplayFields__c}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <!-- END SECTION FOR COMMERCIAL (FORMERLY CVG & GLOBAL) --> 
+        
+        <!-- SECTION FROM NEWREG FOR NEWREG DATA EXTRACT & MARKET INSIGHT SYSTEM -->
+        <apex:pageblock rendered="{! wrf.MarketInsightSystem__c || wrf.DataExtractnewreg__c}"  >
+            <apex:pageBlockSection title="Year Coverage" collapsible="false"  id="newregyr">
+                <apex:outputfield value="{!wrf.Periodicity__c}" >
+                    <apex:actionSupport reRender="newregyr,MSG" event="onchange" status="formstatus"/> 
+                </apex:outputfield>
+                <apex:pageblockSectionItem > 
+                    <apex:outputLabel for="year" value="Custom Year" />
+                    <apex:outputfield value="{!wrf.CustomYearCoverage__c}" >
+                        <apex:actionSupport reRender="newregyr,MSG" event="onchange" status="formstatus"/> 
+                    </apex:outputfield>
+                </apex:pageblockSectionItem> 
+                
+                <apex:outputfield value="{!wrf.CustomPeriodicity__c}" rendered="{!wrf.Periodicity__c == 'Other'}"  styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.Periodicity__c != 'Other'}"/>
+                
+                <apex:outputfield value="{!wrf.CustomYearFrom__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField" />
+                <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>
+                
+                <apex:outputfield value="{!wrf.ForecastYears__c}" >
+                    <apex:actionSupport reRender="newregyr,MSG" event="onchange" status="formstatus"/> 
+                </apex:outputfield>
+                <apex:outputfield value="{!wrf.CustomYearTo__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>                 
+                
+                <apex:outputfield value="{!wrf.CustomForecastYears__c}" rendered="{!wrf.ForecastYears__c == 'Other'}"  styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.ForecastYears__c != 'Other'}"/>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+        
+        <apex:pageblock id="Data" rendered="{! wrf.MarketInsightSystem__c || wrf.DataExtractnewreg__c}"
+                        title="{!IF(wrf.DataExtractNewReg__c,"Data Extract for Global New/Used Registration","Global New/Used Registration System")}">
+            <apex:pageblock > 
+                <apex:pageblocksection title="Markets" collapsible="false" id="newreggeo" columns="1" >
+                    <c:sectionCountrySelector pageext="{!pageExt}" reqtype="MarketInsight System" wrfId="{!wrf.Id}" rendered="{!wrf.MarketInsightSystem__c}"/>
+                    <c:sectionCountrySelector pageext="{!pageExt}" reqtype="Data Extract" wrfId="{!wrf.Id}" rendered="{!wrf.DataExtractNewReg__c}"/>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel for="newRegCustGeo" value="Custom Geography"/>
+                        <apex:outputfield value="{!wrf.CustomGeography__c}" id="newRegCustGeo">
+                            <apex:actionSupport reRender="newreggeo,MSG" event="onchange" status="formstatus"/>
+                        </apex:outputfield>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageblocksectionitem rendered="{!!wrf.CustomGeography__c}"/>
+                    <apex:outputfield style="width:50%;height:80px;" value="{!wrf.OEMGeographyDetails__c}" rendered="{!wrf.CustomGeography__c || CONTAINS(wrf.PARCGeography__c,'Other')}" styleClass="requiredField"/>
+                </apex:pageblocksection>
+            </apex:pageBlock>
+            
+            <apex:pageblockSection title="Vehicle Attributes" columns="1" id="vehicleAttributesSection">
+                <apex:outputfield value="{!wrf.EssenVehicleAttributes__c}" />
+                <apex:outputfield value="{!wrf.VehicleSegmentation__c}" >
+                    <apex:actionSupport reRender="vehicleAttributesSection,MSG" event="onchange" status="formstatus"/> 
+                </apex:outputfield>
+                <apex:outputfield style="width:50%;height:80px;" value="{!wrf.VehicleSegmentationDetails__c}" rendered="{!wrf.VehicleSegmentation__c != null && CONTAINS(wrf.VehicleSegmentation__c,'Other')}" styleClass="requiredField"/>
+                <apex:outputfield style="width:50%;height:80px;" value="{!wrf.ClusteringAgeClass__c}" />
+                <apex:outputfield style="width:50%;height:80px;" value="{!wrf.ClusteringRegistrationMonth__c}" />
+            </apex:pageblockSection>
+        </apex:pageblock>
+        <!-- END SECTION FOR NEWREG DATA EXTRACT & MARKET INSIGHT SYSTEM -->
+        
+        <!-- SHOW THIS SECTION OF WORLDVIEW SYSTEM IS SELECTED -->
+         
+        <apex:pageblock title="Common Selections" rendered="{!wrf.WorldviewVIO__c}">
+            
+            <apex:pageblocksection title="Vehicle" columns="2" collapsible="false" rendered="{!IF(wrf.WorldviewVIO__c,FALSE,TRUE)}">      
+                <apex:outputField label="VIN GVW/Category" value="{!wrf.GVW__c}" styleclass="requiredField" />  
+            </apex:pageblocksection>             
+            
+            <apex:pageBlockSection title="Time Periods"  id="time" columns="2" collapsible="false"   rendered="{!wrf.WorldviewVIO__c}" > 
+                
+                <apex:outputField value="{!wrf.TimePeriodsAftermarket__c}" styleclass="requiredField"  />
+                
+                
+                <apex:outputField label="Specify specific years or year range" value="{!wrf.TimePeriodDescription__c}" styleclass="requiredField" style="width: 300px; height: 100px;" />
+                
+            </apex:pageBlockSection>                                    
+            
+            <apex:pageBlockSection title="Other Requirements" columns="2" collapsible="false"  rendered="{!wrf.WorldviewVIO__c}">
+                
+                <apex:outputField value="{!wrf.CatalogMerge__c}" />
+                <apex:outputText > *Please add Catalog Merge information to the Special Instructions tab</apex:outputText>
+                
+                <apex:outputField Label="WorldView Modules" value="{!wrf.WorldviewFunctions__c}"  />               
+                
+            </apex:pageBlockSection>            
+            
+            <apex:pageBlockSection title="WorldView Data Sets" collapsible="false" columns="2" rendered="{!wrf.WorldviewVIO__c}">
+                <apex:outputField value="{!wrf.WorldViewSystemDataSet__c}" styleClass="requiredField" />
+            </apex:pageBlockSection>       
+            
+        </apex:pageblock>
+        
+        <apex:pageblock rendered="{!IF(wrf.WorldviewVIO__c && CONTAINS(wrf.WorldViewSystemDataSet__c,'WorldView North America VIO'),TRUE,FALSE)}" id="Data1" 
+                        title="WorldView North America VIO">
+            
+            <apex:pageblocksection title="Geography - Select at least 1 Geography" collapsible="false" id="geo" >             
+                <apex:outputField value="{!wrf.Geography__c}" styleclass="requiredField"/>
+            </apex:pageblocksection>
+            
+            <apex:pageBlockSection title="Vehicle Selection - Select at least 1 Vehicle" collapsible="false" id="vsection" columns="1">
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel for="mc2" value="WorldView North America VIO Selection"  />
+                    <apex:outputField value="{!wrf.VIOSelection__c}" />
+                </apex:pageblocksectionitem>
+                <apex:outputField value="{!wrf.SelectedVIO__c}" rendered="{!wrf.VIOSelection__c=='Selected'}" styleclass="requiredField" style="width: 300px; height: 100px;"  />
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel for="mc" value="Motorcycle Selection" />
+                    <apex:outputField value="{!wrf.MotorcycleSelection__c}" />
+                </apex:pageblocksectionitem>
+                <apex:outputField value="{!wrf.SelectedMotorcycles__c}" rendered="{!wrf.MotorcycleSelection__c=='Selected'}" styleclass="requiredField" style="width: 300px; height: 100px;"/>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageblockSection title="Vehicle Attributes - Select fields in the order they are to be displayed">
+                <apex:outputField value="{!wrf.GVW__c}" styleclass="requiredField" />  
+                <apex:outputField value="{!wrf.Ve__c}" />             
+                <apex:outputField value="{!wrf.ACESCodes__c}" />
+                <apex:outputField value="{!wrf.VehicleAttributes__c}" />
+                <apex:outputField value="{!wrf.Parts__c}" /> 
+                <apex:outputField value="{!wrf.BatteryAttributes__c}" /> 
+                <apex:outputField value="{!wrf.OEMInstalledOptions__c}" /> 
+                <apex:outputField value="{!wrf.TireAttributes__c}" /> 
+                <apex:outputField value="{!wrf.VehicleMaintenance__c}" />
+            </apex:pageblockSection>
+            
+            <apex:pageBlockSection title="WorldView Users Request" columns="1" id="NVPPUsers"  collapsible="false" rendered="{!wrf.WorldviewVIO__c}"  >
+                To add, change or delete WorldView Users online users please submit a complete online user request form <a href="http://sharepoint/home">(PC-1316)</a> for each user with the WRF 
+            </apex:pageBlockSection>          
+            
+        </apex:pageblock>
+        
+        <apex:pageblock rendered="{!IF(wrf.WorldviewVIO__c && CONTAINS(wrf.WorldViewSystemDataSet__c,'WorldView Global VIO') ,TRUE,FALSE)}" id="Data_2" title="Request for WorldView Global VIO">
+            
+            <apex:pageblocksection title="Markets" collapsible="false" id="geo" columns="1">             
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="WorldView Global VIO" wrfId="{!wrf.Id}"/>
+            </apex:pageblocksection>
+            
+            <apex:pageBlockSection title="Vehicle Selection - Select at least 1 Vehicle" collapsible="false" id="vs2">
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel for="mc9" value="Global VIO Selection" />
+                    <apex:outputField value="{!wrf.PARCSelection__c}" />
+                </apex:pageblocksectionitem> 
+                <apex:outputField value="{!wrf.SelectedPARC__c}" rendered="{!wrf.PARCSelection__c=='Selected'}" styleclass="requiredField" />              
+            </apex:pageBlockSection>
+               
+            <apex:pageblockSection title="Vehicle Attributes - Select fields in the order they are to be displayed">            
+                <apex:outputField value="{!wrf.VehicleAttributesPARC__c}" />
+                <apex:outputField rendered="{!IF(CONTAINS(wrf.WorldViewSystemDataSet__c,'WorldView Global VIO'),FALSE,TRUE)}" value="{!wrf.TecDocAttributes__c}" /> 
+                <apex:outputField rendered="{!IF(CONTAINS(wrf.WorldViewSystemDataSet__c,'WorldView Global VIO'),FALSE,TRUE)}" value="{!wrf.OEPartsAttributes__c}" />                  
+            </apex:pageblockSection>
+            
+        </apex:pageblock>
+        
+        <apex:pageblock rendered="{!IF(wrf.WorldviewVIO__c &&CONTAINS(wrf.WorldViewSystemDataSet__c,'WorldView OE Parts Research') ,TRUE,FALSE)}" id="Data_3" title="Request for WorldView OE Part Research">
+            
+            <apex:pageblocksection title="Markets" collapsible="false" id="geo" columns="1">             
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="WorldView OE Parts Research" wrfId="{!wrf.Id}"/>
+            </apex:pageblocksection>        
+            <apex:pageBlockSection rendered="{!IF( wrf.ReportDataFile__c,FALSE,TRUE)}" title="Vehicle Selection - Select at least 1 Vehicle" collapsible="false" id="vs1">
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel for="mc8" value="WorldView OE Part Research Selection" />
+                    <apex:outputField value="{!wrf.GAMSSelection__c}" />
+                </apex:pageblocksectionitem> 
+                <apex:outputField value="{!wrf.SelectedGAMS__c}" rendered="{!wrf.GAMSSelection__c=='Selected'}" styleclass="requiredField" />              
+          </apex:pageBlockSection>    
+            <apex:pageblockSection title="Vehicle Attributes - Select fields in the order they are to be displayed">            
+                <apex:outputField value="{!wrf.VehicleAttributesGAMS__c}" />
+                <apex:outputField value="{!wrf.TecDocAttributes__c}" />                                                     
+                <apex:outputField value="{!wrf.OEPartsAttributes__c}" /> 
+            </apex:pageblockSection>
+        </apex:pageblock>
+        
+        <!-- END SECTION FOR WORLDVIEW SYSTEM -->
+        
+        <!-- SHOW THIS SECTION IF MAPPING IS SELECTED -->     
+        <apex:pageblock title="Request for Mapping" rendered="{!wrf.Mapping__c}">
+            <apex:pageblocksection title="Initiate" columns="1">
+                <apex:outputfield style="width:100%" value="{!wrf.ProjectBackground__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel for="Internal" styleClass="requiredField" value="Internal" >
+                    </apex:outputLabel>
+                    <!-- BUG: 6/21/2016 - Replaced Incorrect Internal field -->
+                    <!--<apex:outputField value="{!wrf.Internal__c}" id="Internal" />-->
+                    <apex:outputField value="{!wrf.InternalMapping__c}" id="Internal"/>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel for="External" styleClass="requiredField" value="External" >
+                    </apex:outputLabel>
+                    <apex:outputfield value="{!wrf.External__c}" id="External" />
+                </apex:pageblockSectionItem>
+            </apex:pageblocksection> 
+            <apex:pageBlockSection title="Storage Notes" columns="1">
+                <apex:outputfield style="width:100%" value="{!wrf.CustomerDataset__c}"/>
+                <apex:outputfield style="width:100%" value="{!wrf.EditRename__c}"/>
+            </apex:pageblocksection> 
+            <apex:pageBlockSection title="Design Specs - Map Process" columns="2">
+                <apex:outputfield style="width:70%" value="{!wrf.StdGeoTemplate__c}" styleClass="requiredField"/>
+                <apex:outputfield style="width:70%" value="{!wrf.CustomGeoTemplate__c}" styleClass="requiredField"/>
+                <apex:outputfield style="width:70%" value="{!wrf.LAVAMassMapping__c}" styleClass="requiredField"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Design Specs - Admin">
+                <apex:outputfield value="{!wrf.Revenue__c}"/>
+                <apex:outputfield value="{!wrf.JobRevenue__c}"/>
+                <apex:outputfield style="width:70%" value="{!wrf.PLC__c}"/>
+                <apex:pageblocksection />
+                <apex:outputfield style="width:70%" value="{!wrf.TotalMaps__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <!-- END MAPPING SECTION -->
+    </apex:actionRegion>
+</apex:component>

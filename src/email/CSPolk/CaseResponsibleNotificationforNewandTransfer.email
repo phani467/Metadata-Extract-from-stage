@@ -1,0 +1,5 @@
+Dear {!Case.CaseResponsiblefromACF__c},
+
+Please note Case {!Case.CaseNumber} has been updated with your contact as “Case Responsible”.
+
+{!Case.Link} {!Case.Description}

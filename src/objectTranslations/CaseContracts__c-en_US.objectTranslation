@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case Contracts</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case Contracts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the Case you wish to relate to a Contract. --></help>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Case Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Contract Name --></help>
+        <label><!-- Contract Name --></label>
+        <name>ContractName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract Number --></help>
+        <label><!-- Contract Number --></label>
+        <name>ContractNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract Status --></help>
+        <label><!-- Contract Status --></label>
+        <name>ContractStatus__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the Contract you wish to relate to a Case. --></help>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Case Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID CaseContracts --></label>
+        <name>PKIDCaseContracts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Revenue --></label>
+        <name>Revenue__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

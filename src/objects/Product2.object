@@ -1,0 +1,1496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Add</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Product_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <compactLayoutAssignment>CompactLayout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>CompactLayout</fullName>
+        <fields>Name</fields>
+        <label>Compact Layout</label>
+    </compactLayouts>
+    <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>AAG__c</fullName>
+        <description>SFDC1-2086;Product picklist value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Account Assignment Group</inlineHelpText>
+        <label>AAG</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Subscription</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Withholding Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit/Deposit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prod Design Deposits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rebates</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BusinessLine2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-8429: This Field is created to hold business line lookup</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Business Line</inlineHelpText>
+        <label>Business Line</label>
+        <referenceTo>BusinessLine__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>Products</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BusinessLineName__c</fullName>
+        <description>SFDC1-8781 : This field will be used for Creating the List Views based on Business Line</description>
+        <externalId>false</externalId>
+        <formula>BusinessLine2__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Business Line Name associated to Product</inlineHelpText>
+        <label>Business Line Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CommercialPlatformDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Commercial Platform Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CommercialPlatform__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Delivery Mechanism</inlineHelpText>
+        <label>Commercial Platform</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CurrentIPOwner__c</fullName>
+        <externalId>false</externalId>
+        <formula>LegalEntity__r.CurrentIPText__c</formula>
+        <inlineHelpText>Current Intellectual Property Owner</inlineHelpText>
+        <label>Current IP Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomID__c</fullName>
+        <description>SFDC1-2027 Capture Custom Id on Product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes if Custom Block Product</inlineHelpText>
+        <label>Custom ID</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DeliveryReferenceID__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Delivery Reference Number</inlineHelpText>
+        <label>Delivery Reference ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DiscountThreshold__c</fullName>
+        <description>SFDC1-4275 Threshold for maximum percent of discount that can be provided on a product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum discount (percentage) able to be applied</inlineHelpText>
+        <label>Discount Threshold%</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>DisplayUrl</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Division__c</fullName>
+        <description>SFDC1-6958: Global Segment field will be populated from the SAP Product Master and incorporated with the load to keep products in sync.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reporting Global Segment</inlineHelpText>
+        <label>Global Segment</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ExternalDataSourceId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ExternalId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Family</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Family__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Reporting Product Family</inlineHelpText>
+        <label>Family</label>
+        <referenceTo>Family__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>ProductsFamily</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FormerIPOwner__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Former Intellectual Property Owner</inlineHelpText>
+        <label>Former IP Owner</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GoverningExhibit__c</fullName>
+        <description>SFDC1-7828: This field holds the Governing Exhibit value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Governing Exhibit</inlineHelpText>
+        <label>Governing Exhibit</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hierarchy__c</fullName>
+        <description>SFDC1-2028;Hierarchy is an 18 digit product field that needs to be on the product object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Financial Hierarchy Code</inlineHelpText>
+        <label>Hierarchy</label>
+        <length>18</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InternalProductName__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Extended Name, Internal-Facing Only</inlineHelpText>
+        <label>Internal Product Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ItemCategoryGroup__c</fullName>
+        <description>SFDC1-8431 Item Category Group Picklist</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product Function in SAP</inlineHelpText>
+        <label>Item Category Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bundled Revenue Split (Subscription)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bundled Revenue Split (Transaction)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bundled Subscription (Bill of Materials)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bundled Transaction (Bill of Materials)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit (Deposit) Line</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Externally Delivered</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>One Time Delivery Related</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>One Time - Non Delivery Related</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>One Time - Non Delivery Related Variable Quantity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product Variable Quantity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rebates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reimbursables Expenses</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Revenue When Delivered</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Revenue When Service Date</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Revenue When Service Performed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service/Consulting (Time &amp; Milestone)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shipping &amp; Handling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subscription</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subscription Revenue Upfront</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subscriptions Variable Quantities</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Summary Billing Subscriptions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Summary Billing Uploads</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Surcharges</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Text Alternative</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training &amp; Others</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Withholding Tax</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-2445 : Legacy ID field for Product Object</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Legacy Reference Number</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyProductName__c</fullName>
+        <description>SFDC1-9310 : This field will hold the value of legacy product name.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Legacy Product Name</inlineHelpText>
+        <label>Legacy Product Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegalEntity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Legal Owning Entity</inlineHelpText>
+        <label>Legal Entity</label>
+        <referenceTo>LegalEntity__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>LegalEntityProducts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LicenseType__c</fullName>
+        <description>SFDC1-173 Displays the License type of this product.</description>
+        <externalId>false</externalId>
+        <label>License Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Subscription</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>One Off</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LoadingGroup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-2462 Lookup field to capture loading group on product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Loading Group Managed by Vanguard Product Management Process</inlineHelpText>
+        <label>Loading Group</label>
+        <referenceTo>LoadingGroup__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>LoadingGroups</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MaterialCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Material Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MediaType__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Format of Deliverable</inlineHelpText>
+        <label>Media Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>PKIDProd__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>Prd{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID Prod</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ProductGroup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-5469 Lookup to Product Group table.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to Product Group table.</inlineHelpText>
+        <label>Product Group</label>
+        <referenceTo>ProductGroup__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>Products</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductManager__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Product Manager Name</inlineHelpText>
+        <label>Product Manager</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProductStatus__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Determines Availability/Sellability</inlineHelpText>
+        <label>Product Status</label>
+        <referenceTo>CrossPlantStatus__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>ProductsCrossPlantStatus</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProfitCenters__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-3837 field to establish relationship between product and it&apos;s profit center</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reporting Profit Center</inlineHelpText>
+        <label>Profit Center</label>
+        <referenceTo>ProfitCenter__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>Products</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QuantityUnitOfMeasure</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>QuoteID__c</fullName>
+        <description>SFDC1-2027 Field to capture whether product has Quote ID</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes if Custom Quote ID is required</inlineHelpText>
+        <label>Quote ID</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ReplacementEffectiveDate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Replacement Effective Date</inlineHelpText>
+        <label>Replacement Effective Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ReplacementMaterial__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Suggested Replacement Material #</inlineHelpText>
+        <label>Replacement Material #</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RoyaltyBearingStatus__c</fullName>
+        <description>SFDC1-2024;Product picklist Field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Royalty Bearing Status</inlineHelpText>
+        <label>Royalty Bearing Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Non-Royalty Bearing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Royalty Bearing, 1 Vendor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Royalty Bearing, 2/+ Vendors</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StockKeepingUnit</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>SubBusinessLine__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1 - 2170 : Lookup field to Sub Business Line Object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reference to Sub Business Line Record</inlineHelpText>
+        <label>Sub Business Line</label>
+        <referenceTo>SubBusinessLine__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>Products</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Subtitle__c</fullName>
+        <externalId>false</externalId>
+        <label>Subtitle</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions10__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #10</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions11__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #11</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions12__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #12</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions13__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #13</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions14__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #14</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions15__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #15</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions16__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #16</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions17__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #17</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions18__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #18</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions19__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #19</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997.
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #1</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions20__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #20</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #3</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions4__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #4</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions5__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #5</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions6__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #6</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions7__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #7</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions8__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #8</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TermsAndConditions9__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-5997. 
+Required for Drawloop functionality to select appropriate T&amp;C&apos;s</description>
+        <externalId>false</externalId>
+        <label>Terms and Conditions #9</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFAPAC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-APAC</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFAftermarket__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Aftermarket</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFAnalytics__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Analytics</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFAustralia__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Australia</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFCVGandGlobal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-CVG and Global</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFCanada__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Canada</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFContinentalTireAftermarket__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Continental Tire Aftermarket</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFJobTracker__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Job Tracker</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFListandTLAS__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-List and TLAS</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFNVPPOnline__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-NVPP Online</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFNewUsedRegistration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-New&amp;Used Registration</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFRecall__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Recall</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFSalesMatch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Sales Match</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFSoftwareServices__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Software Services</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFStat__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-Stat</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFTIPNetSystem__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-TIPNet System</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>WRFUK__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-932 WRF checkbox for POLK data on products</description>
+        <externalId>false</externalId>
+        <label>WRF-UK</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <listViews>
+        <fullName>AerospaceDefenseSecurity</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Aerospace,Defense &amp; Security</value>
+        </filters>
+        <label>Aerospace, Defense &amp; Security</label>
+    </listViews>
+    <listViews>
+        <fullName>AllProducts</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>InternalProductName__c</columns>
+        <columns>Family__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Products</label>
+    </listViews>
+    <listViews>
+        <fullName>Analytics</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Analytics</value>
+        </filters>
+        <label>Analytics</label>
+    </listViews>
+    <listViews>
+        <fullName>Automotive</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Automotive</value>
+        </filters>
+        <label>Automotive</label>
+    </listViews>
+    <listViews>
+        <fullName>Chemicals</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Chemicals</value>
+        </filters>
+        <label>Chemicals</label>
+    </listViews>
+    <listViews>
+        <fullName>CorporateActions</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Corporate Actions</value>
+        </filters>
+        <label>Corporate Actions</label>
+    </listViews>
+    <listViews>
+        <fullName>Digital</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Digital</value>
+        </filters>
+        <label>Digital</label>
+    </listViews>
+    <listViews>
+        <fullName>EconomicCountryRisk</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Economic &amp; Country Risk</value>
+        </filters>
+        <label>Economic &amp; Country Risk</label>
+    </listViews>
+    <listViews>
+        <fullName>Economics</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Economics</value>
+        </filters>
+        <label>Economics</label>
+    </listViews>
+    <listViews>
+        <fullName>Energy</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Energy</value>
+        </filters>
+        <label>Energy</label>
+    </listViews>
+    <listViews>
+        <fullName>EnterpriseDataManagementVista</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Enterprise Data Management/Vista</value>
+        </filters>
+        <label>Enterprise Data Management/Vista</label>
+    </listViews>
+    <listViews>
+        <fullName>EquitiesInfo</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Equities Info</value>
+        </filters>
+        <label>Equities Info</label>
+    </listViews>
+    <listViews>
+        <fullName>EquitiesSolutions</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Equities Solutions</value>
+        </filters>
+        <label>Equities Solutions</label>
+    </listViews>
+    <listViews>
+        <fullName>FinancialCapitalMarkets</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Financial &amp; Capital Markets</value>
+        </filters>
+        <label>Financial &amp; Capital Markets</label>
+    </listViews>
+    <listViews>
+        <fullName>Indices</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Indices</value>
+        </filters>
+        <label>Indices</label>
+    </listViews>
+    <listViews>
+        <fullName>InfoProcessesPlatforms</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Info Processes &amp; Platforms</value>
+        </filters>
+        <label>Info Processes &amp; Platforms</label>
+    </listViews>
+    <listViews>
+        <fullName>MaritimeTrade</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Maritime &amp; Trade</value>
+        </filters>
+        <label>Maritime &amp; Trade</label>
+    </listViews>
+    <listViews>
+        <fullName>OERM</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>OERM</value>
+        </filters>
+        <label>OERM</label>
+    </listViews>
+    <listViews>
+        <fullName>OPIS</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>OPIS</value>
+        </filters>
+        <label>OPIS</label>
+    </listViews>
+    <listViews>
+        <fullName>OrderManagementSystems</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Order Management Systems</value>
+        </filters>
+        <label>Order Management Systems</label>
+    </listViews>
+    <listViews>
+        <fullName>PricingValuationsReference</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Pricing Valuations &amp; Reference</value>
+        </filters>
+        <label>Pricing Valuations &amp; Reference</label>
+    </listViews>
+    <listViews>
+        <fullName>ProcessingPlatforms</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Processing &amp; Platforms</value>
+        </filters>
+        <label>Processing &amp; Platforms</label>
+    </listViews>
+    <listViews>
+        <fullName>ProductDesign</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Product Design</value>
+        </filters>
+        <label>Product Design</label>
+    </listViews>
+    <listViews>
+        <fullName>RegulatoryCompliance</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Regulatory Compliance</value>
+        </filters>
+        <label>Regulatory Compliance</label>
+    </listViews>
+    <listViews>
+        <fullName>TechnologyMediaTelecomm</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Technology,Media &amp; Telecomm</value>
+        </filters>
+        <label>Technology, Media &amp; Telecomm</label>
+    </listViews>
+    <listViews>
+        <fullName>WallStreetOffice</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BusinessLineName__c</field>
+            <operation>equals</operation>
+            <value>Wall Street Office</value>
+        </filters>
+        <label>Wall Street Office</label>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>PRODUCT2.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PRODUCT2.DESCRIPTION</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.DESCRIPTION</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.FAMILY</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.DESCRIPTION</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.FAMILY</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>InternalProductName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Family__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

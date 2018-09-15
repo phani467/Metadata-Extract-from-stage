@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Request approval for additional products at a specific clearing house.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Clearing Permissions (approval)</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Clearing permission approval request</subject>
+    <textOnly>Dear &lt;Approver Full Name&gt;,
+
+Please approve clearing permissions being set up to clear &lt;product1&gt;, &lt;product2&gt; and &lt;product3&gt; at &lt;include full clearing house name&gt; between the below legal entities:
+
+
+&lt;Legal Entity Name 1&gt;
+
+&lt;Legal Entity BIC 1&gt;
+
+&lt;Legal Entity Name 2&gt;
+
+&lt;Legal Entity BIC 2&gt;
+
+Please note all eligible currencies will clear unless private clearing rules have been set up stating otherwise.
+
+
+Regards,
+{!Case.OwnerFullName}
+MarkitSERV Client Services
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

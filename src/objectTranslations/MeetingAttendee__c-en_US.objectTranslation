@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meeting Attendee</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meeting Attendees</value>
+    </caseValues>
+    <fields>
+        <label><!-- Attendee Name --></label>
+        <name>AttendeeName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Meeting Attendees --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Created By --></label>
+        <name>CreatedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created Date --></label>
+        <name>CreatedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+    </fields>
+    <fields>
+        <label><!-- IHS Markit Employee? --></label>
+        <name>IHSMarkitEmployee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Markit Employee? --></label>
+        <name>MarkitEmployee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Note --></label>
+        <name>MeetingNote__c</name>
+        <relationshipLabel><!-- Meeting Attendees --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID MeetAtt --></label>
+        <name>PKIDMeetAtt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- When --></label>
+        <name>When__c</name>
+    </fields>
+    <fields>
+        <label><!-- Where --></label>
+        <name>Where__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-9217</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>IHS Markit Master Agreement (MGL).doc</name>
+    <public>false</public>
+</Document>

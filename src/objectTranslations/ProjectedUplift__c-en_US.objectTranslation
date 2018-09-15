@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Projected Uplift</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projected Uplifts</value>
+    </caseValues>
+    <fields>
+        <help><!-- Specify if the record is active/inactive --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter comments/notes for this record --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter an end date --></help>
+        <label><!-- End Date --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select a Product Family --></help>
+        <label><!-- Family --></label>
+        <name>Family__c</name>
+        <relationshipLabel><!-- Projected Uplifts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please enter a start date --></help>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter an Uplift percent value --></help>
+        <label><!-- Uplift % --></label>
+        <name>Uplift__c</name>
+    </fields>
+    <layouts>
+        <layout>Projected Uplift Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

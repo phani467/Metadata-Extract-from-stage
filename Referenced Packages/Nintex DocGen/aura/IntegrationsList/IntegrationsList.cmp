@@ -1,0 +1,56 @@
+<aura:component controller="Loop.IntegrationsController">
+    <aura:attribute name="integrations" type="List" access="Private"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    
+    <aura:method name="refreshList" action="{!c.doInit}"/>
+    <aura:method name="replaceSpinnersWithLinks" action="{!c.replaceSpinnersWithLinks}"/>
+    
+    <div class="slds-grid" style="margin-bottom: 25px;">
+        <div class="slds-col slds-size--1-of-1">
+            <table class="slds-table slds-table--bordered noBorderSpacing" style="min-width: 500px;">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"><span class="slds-truncate">SERVICE NAME</span></th>
+                        <th scope="col"><span class="slds-truncate">NAME</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.integrations}" var="integration" indexVar="i">
+                        <tr>
+                            <td>
+                                <button aura:id="link" class="link" data-index="{!i + 'e'}" onclick="{!c.editIntegration}" value="{!integration.id}">Edit</button>
+                                <div aura:id="spinner" data-index="{!i + 'e'}" class="hidden" style="width: 20px;height: 20px;">
+                                    <img alt="Loading..." src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner.gif"/>
+                                </div>
+                                <span class="{!integration.isDeletable ? '' : 'hidden'}"> |
+                                    <button aura:id="link" class="link" data-index="{!i + 'd'}" onclick="{!c.deleteIntegration}" value="{!integration.id}">Delete</button>
+                                    <div aura:id="spinner" data-index="{!i + 'd'}" class="hidden" style="width: 20px;height: 20px;">
+                                        <img alt="Loading..." src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner.gif"/>
+                                    </div>
+                                </span>
+                            </td>
+                            <td>{!integration.serviceName}</td>
+                            <td>{!integration.name}</td>
+                        </tr>
+                    </aura:iteration>
+                    <tr aura:id="loadingRow">
+                        <td colspan="3" style="text-align: center;">
+                            <Loop:Spinner class="slds-spinner--small" visible="true"/>
+                            <span style="color: grey;margin-left: 10px;">Loading records...</span>
+                        </td>
+                    </tr>
+                    <tr aura:id="emptyRow" class="hidden">
+                        <td colspan="3" style="text-align: center;">
+                            <span style="color: grey;margin-left: 10px;">No integrations exist.</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</aura:component>

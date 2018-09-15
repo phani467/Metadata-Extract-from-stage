@@ -1,0 +1,115 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+
+        <!-- SHOW THIS DATA SPECS SECTION IF CVG/Global WRF IS SELECTED -->
+        
+     <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+     <apex:attribute name="df" description="This is the active Display Fields set" required="true" type="DisplayF" />
+
+           <apex:pageblock title="CVG / Global" rendered="{!wrf.TIPNetNewTruck__c || wrf.TIPNetVehiclesinOperation__c || wrf.TIPNetNewTrailer__c
+           || wrf.NEWREGGlobal__c || wrf.PARCGlobal__c || wrf.ChinaCV__c }" id="CVG">
+                <apex:pageBlockSection columns="1">
+                    <apex:outputField style="width:100%" value="{!wrf.TimePeriodDescription__c}" styleClass="requiredField" />
+                </apex:pageblocksection>
+                <apex:pageblocksection >
+                    <apex:pageblocksectionitem >
+                      <apex:outputlabel for="selections" value="Do you have Specific Vehicle Selections?" />
+                      <apex:outputField value="{!wrf.SpecificVehicleSelections__c}" >
+                      <apex:actionSupport reRender="CVG,MSG" event="onchange" status="formstatus"/>
+                      </apex:outputField>
+                    </apex:pageblocksectionitem>
+                </apex:pageblocksection>
+           
+               <apex:pageBlockSection title="Vehicle Selections (include any specific selections below)" columns="1" rendered="{!wrf.SpecificVehicleSelections__c=='Yes'}" >
+                   <apex:outputField style="width:100%" value="{!wrf.Make__c}" styleclass="requiredField" />
+               </apex:pageBlockSection>
+                <apex:pageBlockSection columns="2" rendered="{!wrf.SpecificVehicleSelections__c=='Yes'}">
+                   <apex:outputField style="width:100%" value="{!wrf.EngMFG__c}" styleclass="requiredField"/>
+                   <apex:outputField style="width:100%" value="{!wrf.EngModel__c}" styleclass="requiredField"/>
+                   <apex:outputField style="width:100%" value="{!wrf.BodyStyle__c}" styleclass="requiredField"/>
+                   <apex:outputField style="width:100%" value="{!wrf.VocCode__c}" styleclass="requiredField"/>
+                   <apex:outputField style="width:100%" value="{!wrf.CabConfig__c}" styleclass="requiredField"/>
+                   <apex:outputField style="width:100%" value="{!wrf.Length__c}" styleclass="requiredField"/>
+                   <apex:outputField style="width:100%" value="{!wrf.Model__c}" styleclass="requiredField"/>
+                   <apex:outputField style="width:100%" value="{!wrf.VehicleType__c}" styleclass="requiredField"/>
+                </apex:pageBlockSection>
+               
+              <apex:pageblock >
+                   <apex:pageblocksection >
+                    <apex:outputField value="{!wrf.GVW__c}" />
+                    <apex:outputField value="{!wrf.ManufacturerGVW__c}" />
+                   </apex:pageblocksection>
+               </apex:pageblock>
+                
+                <apex:pageBlockSection title="Geography" collapsible="false" >
+                    <apex:pageblocksectionitem >
+                        <apex:outputlabel for="us" value="US" styleclass="requiredField" />
+                        <apex:outputField value="{!wrf.US__c}" rendered="{!wrf.TIPNetNewTruck__c || wrf.TIPNetVehiclesInOperation__c || wrf.TIPNetNewTrailer__c}" /> 
+                    </apex:pageblocksectionitem> 
+                    <apex:pageblocksectionitem > 
+                        <apex:outputlabel for="can" value="Canada" styleclass="requiredField" />           
+                        <apex:outputField value="{!wrf.Canada__c}" rendered="{!wrf.TIPNetNewTruck__c || wrf.TIPNetVehiclesInOperation__c || wrf.TIPNetNewTrailer__c}" />
+                    </apex:pageblocksectionitem>   
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="1">
+                    <apex:outputField style="width:100%" value="{!wrf.GeographyDetails__c}" styleClass="requiredField" />
+                </apex:pageBlockSection>
+                
+            <apex:pageBlockSection title="Display Fields" collapsible="false">
+                    <apex:outputField value="{!wrf.ExcludeName__c}" />
+                    <apex:outputField value="{!wrf.ExcludeAddress__c}" />
+                    <apex:outputField value="{!wrf.DisplayFields__c}" />
+          
+           </apex:pageBlockSection>
+           <apex:pageBlockSection columns="1">
+                    <apex:outputField style="width:100%" value="{!wrf.OtherDisplayFields__c}" />
+           </apex:pageBlockSection>
+           
+     </apex:pageblock>    
+            
+                     <!-- SHOW THIS SECTION IF MAPPING IS SELECTED -->     
+            
+         <apex:pageblock title="Request for Mapping" rendered="{!wrf.Mapping__c}">
+           <apex:pageblocksection title="Initiate" columns="1">
+                    <apex:outputField style="width:100%" value="{!wrf.ProjectBackground__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel for="Internal" styleClass="requiredField" value="Internal" >
+                    </apex:outputLabel>
+                    <!-- BUG: 6/21/2016 - Replaced Incorrect Internal field -->
+                    <!--<apex:outputField value="{!wrf.Internal__c}" id="Internal" />-->
+                    <apex:outputField value="{!wrf.InternalMapping__c}" id="Internal"/>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel for="External" styleClass="requiredField" value="External" >
+                    </apex:outputLabel>
+                    <apex:outputField value="{!wrf.External__c}" id="External" />
+                </apex:pageblockSectionItem>
+            </apex:pageblocksection> 
+            <apex:pageBlockSection title="Storage Notes" columns="1">
+                <apex:outputField style="width:100%" value="{!wrf.CustomerDataset__c}"/>
+                <apex:outputField style="width:100%" value="{!wrf.EditRename__c}"/>
+            </apex:pageblocksection> 
+            <apex:pageBlockSection title="Design Specs - Map Process" columns="2">
+                <apex:outputField style="width:100%" value="{!wrf.StdGeoTemplate__c}" styleclass="requiredField" />
+                <apex:outputField style="width:100%" value="{!wrf.CustomGeoTemplate__c}" styleclass="requiredField" />
+                <apex:outputField style="width:100%" value="{!wrf.LAVAMassMapping__c}" styleclass="requiredField" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Design Specs - Admin">
+                <apex:outputfield value="{!wrf.Revenue__c}"/>
+                <apex:outputField value="{!wrf.JobRevenue__c}"/>
+                <apex:outputField style="width:100%" value="{!wrf.PLC__c}"/>
+                <apex:pageblocksection />
+                <apex:outputField style="width:100%" value="{!wrf.TotalMaps__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+
+</apex:component>

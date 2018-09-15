@@ -1,0 +1,59 @@
+<apex:page standardcontroller="Opportunity">
+	<script>
+    	
+    	function returnToOpportunitiesTab() {
+            if("{!$User.UIThemeDisplayed}" == 'Theme4d') {
+				sforce.one.back();
+            }
+            if("{!$User.UIThemeDisplayed}" == 'Theme3') {    
+                window.location.replace("{!$Site.BaseUrl}/006/o");
+            }
+        }
+    
+    	function getUrlParameter(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) 
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) 
+                {
+                    return sParameterName[1];
+                }
+            }
+        } 
+
+        var accountId = getUrlParameter('accid');
+        
+        if(accountId != null) {
+            window.location.replace("{!$Site.BaseUrl}/006/e?retURL="+accountId+"&accid="+accountId+"&nooverride=1");
+        }
+    
+    </script>
+	<apex:slds />
+    <div class="slds-scope">
+    	<div class="demo-only" style="height:640px;">
+    		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                	<header class="slds-modal__header">
+                    	
+                    	<h2 id="modal-heading-01" class="slds-text-heading--medium slds-hyphenate">{!$Label.OpportunityOverrideWarningLabel}</h2>
+                  	</header>
+                  	<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                      	<br></br>
+                      	<center><p>{!$Label.OpportunityOverrideWarningMessage}</p>
+                      	
+                      	<br></br>
+                      	</center>
+                  	</div>
+                  	<footer class="slds-modal__footer">
+                    	<button class="slds-button slds-button--brand" onclick="returnToOpportunitiesTab();">{!$Label.OpportunityOverrideWarningBackButton}</button>
+                  	</footer>
+                </div>
+      		</section>
+      	<div class="slds-modal-backdrop slds-backdrop--open"></div>
+    	</div>
+    </div>
+
+</apex:page>

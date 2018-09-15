@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>SFDC1-3837 Tab for profit center object</description>
+    <mobileReady>false</mobileReady>
+    <motif>Custom85: Real Estate Sign</motif>
+</CustomTab>

@@ -1,0 +1,41 @@
+<aura:component controller="Loop.ContactSelectionController">
+    <!--Optional attributes-->
+    <aura:attribute name="contactId" type="string" default="" description="Url parameter value."/>
+    <aura:attribute name="accountId" type="string" default="" description="Url parameter value."/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="loading" type="boolean" default="false"/>
+    <aura:attribute name="records" type="List" required="true" access="private" description="List of TileData."/>
+    <aura:attribute name="contactNameSearch" type="string" description="Value of search bar."/>
+    <aura:attribute name="svgClass" type="string" default="slds-icon-standard-contact"/>
+    <aura:attribute name="svgLink" type="string" default="/assets/icons/standard-sprite/svg/symbols.svg#contact"/>
+    <aura:attribute name="hasErrorOccurred" type="boolean" default="false"/>
+    <aura:attribute name="errorMessage" type="string" default="" description="Error message to display to user."/>
+    
+    <!--Handled events-->
+    <aura:handler name="error" event="Loop:error" action="{!c.handleError}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="error" type="Loop:error"/>
+    
+    <!--Methods-->
+    <aura:method name="load" action="{!c.load}">
+        <aura:attribute name="recordId" type="string" required="true"/>
+        <aura:attribute name="contactRequired" type="boolean" required="true"/>
+    </aura:method>
+    <aura:method name="search" action="{!c.search}">
+        <aura:attribute name="searchString" type="string"/>
+    </aura:method>
+    
+    <aura:if isTrue="{!v.loading}">
+        <Loop:LoadingTile />
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.hasErrorOccurred}">
+                <Loop:CustomTile status="error" message="{!v.errorMessage}"/>
+                <aura:set attribute="else">
+                    <Loop:SelectTiles aura:id="contactTiles" recordType="contact" records="{!v.records}" recordId="{!v.contactId}" svgLink="{!v.svgLink}" svgClass="{!v.svgClass}" displaySvg="true" isMultiSelect="false"/>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

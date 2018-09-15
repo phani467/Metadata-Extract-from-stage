@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Legacy User ID</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Legacy User IDs</value>
+    </caseValues>
+    <fields>
+        <help><!-- Legacy ID unique value --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- External ID for legacy system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy System value --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- A unique auto generated ID for the User Legacy ID record. --></help>
+        <label><!-- PKIDUserLegacy --></label>
+        <name>PKIDUserLegacy__c</name>
+    </fields>
+    <fields>
+        <help><!-- Lookup to the User object --></help>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Legacy User IDs --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Legacy User ID Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

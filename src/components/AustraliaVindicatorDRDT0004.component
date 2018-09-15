@@ -1,0 +1,56 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+	<apex:pageBlock title="DRDT 0004 Details">
+	    <apex:pageBlockSection title="Input" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >DRDT</td><td >0004</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >Year</td><td >2009</td></tr>
+				    </tbody>
+				</table>
+			</apex:outputPanel>
+	    </apex:pageBlockSection>
+	    <apex:pageBlockSection title="Output" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >Nvic</td><td >JFF09D</td></tr>
+				        <tr><td >Release</td><td >1/03/2009</td></tr>
+				        <tr><td >Discon</td><td >31/08/2011</td></tr>
+				        <tr><td >Drv</td><td >RWD</td></tr>
+				        <tr><td >Torque</td><td >380</td></tr>
+				        <tr><td >Kw</td><td >115</td></tr>
+				        <tr><td >Borestroke</td><td >96x102</td></tr>
+				        <tr><td >Width</td><td >6.5</td></tr>
+				        <tr><td >Wheelbase</td><td >2985</td></tr>
+				        <tr><td >Height</td><td >1622</td></tr>
+				        <tr><td >Length</td><td >5169</td></tr>
+				        <tr><td >Vwidth</td><td >1715</td></tr>
+				        <tr><td >Kerbwt</td><td >1610</td></tr>
+				        <tr><td >Payload</td><td >0</td></tr>
+				        <tr><td >Gcm</td><td >0</td></tr>
+				        <tr><td >Gvm</td><td >3044</td></tr>
+				        <tr><td >ProcessFlag</td><td >NVICMatch</td></tr>
+				        <tr><td >CompanyCode</td><td >1</td></tr>
+				        <tr><td >UserName</td><td >admin</td></tr>
+				        <tr><td >RetrievalType</td><td >DRDT_0004</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >VehicleYear</td><td >2009</td></tr>
+				        <tr><td >UserDefinedKey</td><td >SingleVINMatchRequestWeb</td></tr>
+				    </tbody>
+				</table>
+	        </apex:outputPanel>
+	    </apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:component>

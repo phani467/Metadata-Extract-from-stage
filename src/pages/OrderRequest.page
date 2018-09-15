@@ -1,0 +1,118 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Page is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:page standardController="OrderRequest__c" extensions="OrderReqTabCE" id="thePage" title="Order Request">
+<apex:form >
+<apex:sectionHeader title="Order Request" subtitle="{!OrderRequest__c.Name}"/>
+<apex:pageBlock >
+
+    <apex:pageBlockButtons >
+        <apex:commandButton value="Save" action="{!newSave}" disabled="{!!if($User.WRApprover__c==true && (OrderRequest__c.Status__c == 'Submitted' || OrderRequest__c.Status__c == 'Approval Pending'),true,false)}"/> 
+        <apex:commandButton value="Reject" action="{!crReject}" disabled="{!!if($User.WRApprover__c==true && (OrderRequest__c.Status__c == 'Submitted' || OrderRequest__c.Status__c == 'Approval Pending'),true,false)}"/>
+        <apex:commandButton value="Approve" action="{!crApprove}" disabled="{!!if($User.WRApprover__c==true && (OrderRequest__c.Status__c == 'Submitted' || OrderRequest__c.Status__c == 'Approval Pending'),true,false)}"/>
+        <apex:commandButton value="Approve & Create Job" action="{!crApproveCreate}" disabled="{!!if($User.WRApprover__c==true && (OrderRequest__c.Status__c == 'Submitted' || OrderRequest__c.Status__c == 'Approval Pending'),true,false)}"/> 
+        <apex:commandButton value="Assign without Approval" action="{!crApprovePending}" disabled="{!!if($User.WRApprover__c==true && (OrderRequest__c.Status__c == 'Submitted' || OrderRequest__c.Status__c == 'Approval Pending'),true,false)}"/> 
+        <apex:commandButton value="Delete" action="{!crDelete}" disabled="{!!$User.CanDeleteWRFPLCRecords__c}" />     
+
+    </apex:pageBlockButtons>
+    
+<apex:pageBlockSection title="Details" collapsible="false" >
+
+      <apex:pageblocksectionitem >
+            <apex:outputlabel for="wrf" value="Work Request"/>
+            <apex:outputField id="wrf" value="{!OrderRequest__c.WorkRequestForm__c}" />
+      </apex:pageblocksectionitem>
+
+      <apex:pageblocksectionitem rendered="{!if($User.WRApprover__c==false || (OrderRequest__c.Status__c <> 'Submitted' && OrderRequest__c.Status__c <> 'Approval Pending'),true,false)}">
+        <apex:outputLabel for="programmer" value="Programmer"/>
+        <apex:outputField id="programmer" value="{!OrderRequest__c.Programmer__c}" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem rendered="{!if($User.WRApprover__c==true && (OrderRequest__c.Status__c == 'Submitted' || OrderRequest__c.Status__c == 'Approval Pending'),true,false)}" >
+        <apex:outputLabel for="programmer" value="Programmer"/>
+        <apex:inputField id="programmer" value="{!OrderRequest__c.Programmer__c}"  />
+      </apex:pageblocksectionitem>
+      
+      <apex:pageBlockSectionItem >
+        <apex:outputLabel for="Status" value="Status"/>
+        <apex:outputField id="Status" value="{!OrderRequest__c.Status__c}"/>
+      </apex:pageBlockSectionItem>
+      
+      <apex:pageBlockSectionItem >
+        <apex:outputLabel for="Owner" value="Owner"/>
+        <apex:outputField id="Owner" value="{!OrderRequest__c.OwnerID}"/>
+      </apex:pageBlockSectionItem>
+
+      <apex:pageBlockSectionItem >
+        <apex:outputLabel for="Requestor" value="Requestor"/>
+        <apex:outputField id="Requestor" value="{!OrderRequest__c.Requestor__c}"/>
+      </apex:pageBlockSectionItem>
+
+      <apex:pageblocksectionitem >    
+            <apex:outputlabel for="ac" value="Availability Count"></apex:outputlabel>
+            <apex:outputField id="ac" value="{!OrderRequest__c.AvailabilityCount__c}" />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="dc" value="Desired Count"></apex:outputlabel>
+            <apex:outputField id="dc" value="{!OrderRequest__c.DesiredCount__c}"  />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="jq" value="Job#/Query ID"></apex:outputlabel>
+            <apex:outputField id="jq" value="{!OrderRequest__c.JobQueryID__c}" />
+        </apex:pageblocksectionitem>
+         <apex:pageblocksectionitem >
+            <apex:outputlabel for="cpp" value="Cust./Post Processing"></apex:outputlabel>
+            <apex:outputField value="{!OrderRequest__c.CustPostProcessing__c}" id="cpp"/>
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="ps" value="Pre-Sort"></apex:outputlabel>
+            <apex:outputField id="ps" value="{!OrderRequest__c.PreSort__c}" />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="co" value="Cutback Options"></apex:outputlabel>
+            <apex:outputField value="{!OrderRequest__c.CutbackOptions__c}" id="co" />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="psd" value="Pre-Sort Description"></apex:outputlabel>
+            <apex:outputField value="{!OrderRequest__c.PreSortDescription__c}" id="psd" />
+         </apex:pageblocksectionitem>
+         <apex:pageblocksectionitem >
+            <apex:outputlabel for="kc" value="Keyfield/Code"></apex:outputlabel>
+            <apex:outputField value="{!OrderRequest__c.KeyfieldCode__c}" id="kc" />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="pos" value="Post-Sort"></apex:outputlabel>
+            <apex:outputField value="{!OrderRequest__c.PostSort__c}" id="pos" />
+        </apex:pageblocksectionitem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel for="plc" value="PLC"/>
+            <apex:outputField id="plc" value="{!OrderRequest__c.PLCJob__c}"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem >
+            <apex:outputLabel for="sdt" value="Submitted Date Time"/>
+            <apex:outputField id="sdt" value="{!OrderRequest__c.SubmittedDateTime__c}"/>
+        </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+<apex:pageBlockSection columns="1" title="Production Comments" collapsible="false">
+        <apex:inputTextarea value="{!OrderRequest__c.ProductionComments__c}" cols="100" rows="5" rendered="{!if($User.WRApprover__c==true && (OrderRequest__c.Status__c == 'Submitted' || OrderRequest__c.Status__c == 'Approval Pending'),true,false)}"/>
+        <apex:outputField value="{!OrderRequest__c.ProductionComments__c}" rendered="{!if($User.WRApprover__c==false || (OrderRequest__c.Status__c <> 'Submitted' && OrderRequest__c.Status__c <> 'Approval Pending'),true,false)}"/>
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+<apex:pageBlock >
+<apex:pageBlockSection columns="1" title="Attachments" collapsible="False">       
+        <apex:pageblocksection columns="1">
+        <apex:pageblocksectionitem >
+            <c:CMPAttachmentDisplayer aController="{! aMultiAttachmentController }" objId="{!OrderRequest__c.id}" rendered="{!!IF(OrderRequest__c.id==null,TRUE,FALSE)}" />
+        </apex:pageblocksectionitem> 
+        </apex:pageblocksection>
+</apex:pageBlockSection> 
+</apex:pageBlock>
+
+</apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-8767 Incomplete Account Information - Lead Reference</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Incomplete Account Information - Lead Reference</name>
+    <style>none</style>
+    <subject>Incomplete Account Information - Lead Reference</subject>
+    <textOnly>Hello 
+&lt;br&gt;
+Please provide the correct legal entity name as well as the full address to complete your request for a new account, for the following -
+&lt;a href={!Case.Link}&gt;{!Case.CaseNumber}&lt;/a&gt; 
+
+Lead Reference: {!Case.LeadReference__c}
+
+Thank You</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2809 Bloomberg Journalist Access</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Bloomberg Journalist Access</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Bloomberg News - Access to Markit Securities Finance Data</subject>
+    <textOnly>Dear {!Case.Contact},
+
+You now have access to the Markit Securities Finance data on Bloomberg.
+Please contact our Media team msf-media@markit.com before publishing any Markit Securities Finance content. They will help navigate the key fields and send you a simple User Guide created by the Bloomberg News team.
+There are many Markit Securities Finance fields available and we recommend that Bloomberg journalists focus on the following when writing about short interest and long flow using this data:
+DX Short Interest % Shares Outstanding - shows the percentage of the company based on the free float that is sold short. This is the main measure of short interest and should be sufficient for most articles.
+DX Long Inventory Supply % of Shares Outstanding - shows the percentage of the company based on the shares outstanding that institutional lenders are making available to be borrowed.
+DX Utilization Quantity - shows the amount of stock on loan as a percentage of the lendable supply. This can be a complicated concept to explain. We recommend that it is not used in isolation but in conjunction with the Short Interest % Shares Outstanding to provide more colour.
+Note - Please be aware that in some regions, dividend arbitrage trading takes place +/- 30 days from the dividend record date. This can materially impact the percentage of shares outstanding on loan and should always be considered when writing about short interest. A hedging arbitrage can also occur if a company has issued convertible bonds
+The Media team can also send you bespoke Data Explorers EQS and RV screens which can be configured to screen short interest and long flow in indices, countries or sectors.
+
+If you require any additional assistance, please contact us on live chat, email or phone.
+
+Thank You.
+
+Kind regards,
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

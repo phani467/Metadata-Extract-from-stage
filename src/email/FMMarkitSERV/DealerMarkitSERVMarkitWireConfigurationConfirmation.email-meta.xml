@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5100:Dealer: MarkitSERV MarkitWire Configuration Confirmation</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Dealer: MarkitSERV MarkitWire Configuration Confirmation</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - MarkitSERV MarkitWire Configuration Confirmation</subject>
+    <textOnly>Dear {!Case.Contact},
+
+
+MarkitSERV Limited hereby notifies you that &quot;{{!Case.Account}}&quot; will be configured as an Dealer of MarkitWire. As per the MarkitWire Supplement to MarkitSERV Operating Procedures, the MarkitWire Documents and relevant Fee Schedule governing a Dealer are effective upon this notice.
+
+Please review the supplemental by clicking the following link and navigating to Membership Documents, Operating Procedures, MarkitWire Supplement at
+
+http://www.dtcc.com/derivatives-services/trade-information-warehouse/page-resource-folder/gated-content-folder/derivserv-members
+
+Once you have reviewed the MarkitWire Supplement to MarkitSERV Operating Procedures please email me confirmation so that we can proceed to implementation. To begin implementation we will need you to complete the attached data gathering sheet.
+
+If you have any questions please contact me directly.
+
+Regards,
+{!Case.OwnerFullName}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

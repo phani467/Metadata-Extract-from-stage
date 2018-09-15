@@ -1,0 +1,73 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component controller="MultiAttachmentController" allowDML="true" selfClosing="true">
+
+    <apex:attribute name="aController" type="MultiAttachmentController" description="A Multi Attachment Controller" required="true" />
+    <apex:attribute name="objId" type="String" description="The id of the object to manage attachments for" required="true" assignTo="{!sobjId}"/>
+        
+    <apex:pageBlock mode="edit" id="att" >
+        
+        <apex:pageBlockTable value="{!aController.idAttachmentListMap [ sobjId ]}" var="attachment">
+        
+            <apex:column headerValue="Action">
+            
+                <apex:outputLink value="{!URLFOR($Action.Attachment.Download, attachment.Id)}" target="_blank">View</apex:outputLink>
+               
+                <apex:outputLink value="javascript:if (window.confirm('Are you sure?')) DeleteAttachment('{!attachment.Id}');"  style="font-weight:bold">
+               
+                </apex:outputLink>
+            
+            </apex:column>
+            
+            <apex:column value="{!attachment.Name}"/>
+            
+            <apex:column value="{!attachment.Description}"/>
+            
+            <apex:column headervalue="File Size" value="{!attachment.BodyLength}"/>
+        
+        </apex:pageBlockTable>
+    
+    </apex:pageBlock>
+    
+    <script>
+        
+        function DeleteAttachment ( attachmentId )
+        {
+            Visualforce.remoting.Manager.invokeAction
+            (
+                '{! $RemoteAction.MultiAttachmentController.DeleteAttachment }',
+                attachmentId,
+                function ( result, event )
+                {
+                    if ( event.success )
+                    {
+                        console.log ( 'we have successfully deleted' );
+                    }
+                    else if ( event === 'exception' )
+                    {
+                        console.log ( 'we have encountered an exception' );
+                    }
+                    else
+                    {
+                        console.log ( 'we have encountered something else' );
+                        window.location.reload ();
+                    }
+                }
+            );
+        }
+        
+    </script>
+   
+    <!-- <apex:actionFunction action="{!DeleteAttach}" name="DeleteAttach" reRender="att" >
+   
+        <apex:param name="adelid" value="" assignTo="{!adelid}"/>
+
+    </apex:actionFunction> -->
+ 
+</apex:component>

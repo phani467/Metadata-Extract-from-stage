@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-5233: Displays Product group and license information on an Account</description>
+    <height>500</height>
+    <label>View Entitlements</label>
+    <lightningComponent>RedirectToViewEntitlementPage</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

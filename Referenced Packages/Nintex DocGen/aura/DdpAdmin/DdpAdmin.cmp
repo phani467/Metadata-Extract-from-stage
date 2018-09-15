@@ -1,0 +1,248 @@
+<aura:component controller="Loop.DdpAdminController">
+    <aura:attribute name="isLightning" type="boolean" default="true"/>
+    <aura:attribute name="sessionId" type="string" required="true"/>
+    <aura:attribute name="loopUrl" type="string" default=""/>
+    <aura:attribute name="apiUrl" type="string" default=""/>
+    <aura:attribute name="isTest" type="boolean" default="false"/>
+    <aura:attribute name="isLoading" type="boolean" default="true" description="Is true when the component has not completed its callouts, and has not yet finished loading values."/>
+        
+    <aura:attribute name="step" type="string" default="ddpAdmin"/>
+    <aura:attribute name="heading" type="string" default=""/>
+    <aura:attribute name="saveVisible" type="boolean" default="false"/>
+    <aura:attribute name="searchTerm" type="string" default=""/>
+    <aura:attribute name="onClickRenderDummy" type="boolean" default="true"/>
+    
+    <!-- Internal Attributes -->
+    <aura:attribute name="busy" type="boolean" default="false" access="private"/>
+    <aura:attribute name="isNavItemLoading" type="boolean" default="true" access="private" description="Is true while child component is loading after selection in navigation."/>
+    <aura:attribute name="disableSave" type="boolean" default="false" access="private"/>
+    
+    <aura:attribute name="alertText" type="string" default="" access="private"/>
+    <aura:attribute name="purchaseLabel" type="string" default="Purchase" access="private"/>
+    <aura:attribute name="sectionLabel" type="string" default="" access="private"/>
+    <aura:attribute name="parentSectionLabel" type="string" default="" access="private"/>
+    <aura:attribute name="saveButtonLabel" type="string" default="Save" access="private"/>
+    
+    <aura:attribute name="salesforceBaseUrl" type="string" default="" access="private"/>
+    <aura:attribute name="isCustomizeApplication" type="boolean" default="true" access="private" description="True when CustomizeApplication is true for the User's Profile and/or PermissionSet."/>
+    <aura:attribute name="oAuthSettings" type="Map" default="{isAuthorized: false}" access="private" description="Contains settings related to OAuth."/>
+    <aura:attribute name="services" type="Map" default="{}" access="private" description="Contains LMO info such as isStandard, add-ons, etc."/>
+    <aura:attribute name="orgSettings" type="Map" default="{}" access="private" description="Contains org settings such as allowedLicenses, usedLicenses, etc."/>
+    
+    <aura:attribute name="branches" type="List" default="['basicButtons', 'buttonWizard', 'editionSection', 'purchaseForm', 'thirdpartyIntegrations', 'jobQueueStatus', 'settings', 'sampleDdps', 'testUserConfiguration', 'userPermissions']" access="private" description="List of all the branch names."/>
+
+    <!-- Event Handlers -->
+    <aura:handler name="redirectPage" event="Loop:redirectPage" action="{!c.redirectButtons}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="actionEvent" event="Loop:actionEvent" action="{!c.handleActionEvent}"/>
+    <aura:handler name="moveToNextStep" event="Loop:moveToNextStep" action="{!c.actionComplete}"/>
+    <aura:handler name="showError" event="Loop:showError" action="{!c.showError}"/>
+    <aura:handler name="disableSave" event="Loop:disableSave" action="{!c.disableSave}"/>
+    <aura:handler name="enableSave" event="Loop:enableSave" action="{!c.enableSave}"/>
+    <aura:handler name="updateIsStandard" event="Loop:updateIsStandard" action="{!c.updateIsStandard}"/>
+
+    <!-- Registered Events -->
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+
+    <aura:if isTrue="{!v.isLoading}">
+        <div aura:id="loading" class="loading-container" style="min-width:60rem;height:40rem;">
+            <div class="slds-grid slds-grid--align-center" style="width:100%;height:100%;">
+                <div id="spinner-container" class="slds-align-middle">
+                    <div style="width:80px;">
+                        <img src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aura:set attribute="else">
+            <div class="slds" style="height:100%;">
+                <div aura:id="pageContent" style="height:100%;">
+                    <div class="column-container navigation-container" style="{!!isLightning ? 'border-bottom-left-radius:4px;' : ''}">
+                        <div class="overflow">
+                            <div class="slds-form-element slds-p-around--small">
+                                <div class="slds-form-element__control">
+                                    <input aura:id="search" id="search" class="slds-input" type="text" placeholder="Quick Find" oninput="{!c.search}"/>
+                                </div>
+                            </div>
+                            <ul class="slds-tree" role="tree" aria-labelledby="treeheading">
+                                <div id="ddpAdmin" class="slds-tree__item header" role="treeitem" aria-level="1" onclick="{!c.click}">{!$Label.loop.App_Admin_Home_Label}</div>
+                                <h1 class="noResultsHide" data-hidden="true" id="noResults">No Matching Items Found</h1>
+                                <li id="buttons" class="slds-tree__branch" role="treeitem" aria-level="1" aria-expanded="true">
+                                    <div class="slds-tree__item sectionHide" data-hidden="false" aura:id="buttonToggle" id="buttonToggle" onclick="{!c.toggle}" onfocus="{!c.focused}" onblur="{!c.blur}" tabindex="1000">
+                                        <div id="buttonToggle-icon" aura:id="buttonToggle-icon" class="icon-transition" >
+                                            <Loop:Svg id="buttonToggle" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#chevronright" class="icon"/>
+                                        </div>
+                                        CLASSIC EXPERIENCE BUTTONS
+                                    </div>
+                                    <ul aura:id="buttonToggle-Node" class="slds-tree__group slds-nested slds-collapsed" role="group" aria-labelledby="buttons-link" style="padding-left: 0px;">
+                                        <li aura:id="basicButtons" id="basicButtons" data-hidden="false" title="Basic Buttons" class="slds-tree__item itemHide indent" role="treeitem" aria-level="2" onclick="{!c.click}">Basic Buttons</li>
+                                        <li aura:id="buttonWizard" id="buttonWizard" data-hidden="false" title="Button Wizard" class="slds-tree__item itemHide indent" role="treeitem" aria-level="2" onclick="{!c.click}">Button Wizard</li>
+                                    </ul>
+                                </li>
+                                <li id="config" class="slds-tree__branch" role="treeitem" aria-level="1" aria-expanded="true">
+                                    <div class="slds-tree__item sectionHide" data-hidden="false" aura:id="configuration" id="configuration" onclick="{!c.toggle}" tabindex="1000">
+                                        <div id="configuration-icon" aura:id="configuration-icon" class="icon-transition" >
+                                            <Loop:Svg id="configuration" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#chevronright" class="icon"/>
+                                        </div>
+                                        CONFIGURATION
+                                    </div>
+                                    <ul aura:id="configuration-Node" class="slds-tree__group slds-nested slds-collapsed" role="group" aria-labelledby="buttons-link" >
+                                        <li aura:id="editionSection" id="editionSection" title="Edition" class="slds-tree__branch" role="treeitem" aria-level="2" aria-expanded="true" onclick="{!c.click}">
+                                            <aura:if isTrue="{! !v.orgSettings.isSandbox}">
+                                                <div class="slds-tree__item sectionHide override-focus-outline override-tree-item-focus override-tree-item-hover" data-hidden="false" id="edition" onclick="{!c.toggle}" tabindex="1000">
+                                                    <div id="edition-icon" aura:id="edition-icon" class="icon-transition">
+                                                        <Loop:Svg xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#chevronright" class="icon"/>
+                                                    </div>
+                                                    Edition
+                                                </div>
+                                                <aura:set attribute="else">
+                                                    <div class="indent-edition edition-height">
+                                                        Edition
+                                                    </div>
+                                                </aura:set>
+                                            </aura:if>
+                                        </li>
+                                        <ul aura:id="edition-Node" class="slds-tree__group slds-nested slds-collapsed" role="group" aria-labelledby="buttons-link" >
+                                            <li aura:id="purchaseForm" id="purchaseForm" data-hidden="false" title="{!v.purchaseLabel}" class="slds-tree__item itemHide indent-edition" role="treeitem" aria-level="3" onclick="{!c.click}">{!v.purchaseLabel}</li>
+                                        </ul>
+                                        <li aura:id="thirdpartyIntegrations" id="thirdpartyIntegrations" data-hidden="false" title="Third-party Integrations" class="slds-tree__item itemHide indent" role="treeitem" aria-level="2" onclick="{!c.click}">Third Party Integrations</li>
+                                        <li aura:id="jobQueueStatus" id="jobQueueStatus" data-hidden="false" title="Job Queue Status" class="slds-tree__item itemHide indent" role="treeitem" aria-level="2" onclick="{!c.click}">Job Queue Status</li>
+                                        <li aura:id="settings" id="settings" data-hidden="false" title="Settings" class="slds-tree__item itemHide indent" role="treeitem" aria-level="2" onclick="{!c.click}">Settings</li>
+                                        <li aura:id="sampleDdps" id="sampleDdps" data-hidden="false" title="Sample DocGen Packages" class="slds-tree__item itemHide indent" role="treeitem" aria-level="2" onclick="{!c.click}">Sample DocGen Packages</li>
+                                    </ul>
+                                </li>
+                                <li id="user" class="slds-tree__branch" role="treeitem" aria-level="1" aria-expanded="true">
+                                    <div class="slds-tree__item sectionHide" data-hidden="false" aura:id="users" id="users" onclick="{!c.toggle}" onfocus="{!c.focused}" onblur="{!c.blur}" tabindex="1000">
+                                        <div id="users-icon" aura:id="users-icon" class="icon-transition" >
+                                            <Loop:Svg id="users" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#chevronright" class="icon"/>
+                                        </div>
+                                        USERS
+                                    </div>
+                                    <ul aura:id="users-Node" class="slds-tree__group slds-nested slds-collapsed" role="group" aria-labelledby="buttons-link" >
+                                        <li aura:id="userPermissions" id="userPermissions" data-hidden="false" title="User Permissions" class="slds-tree__item itemHide indent" role="treeitem" aria-level="2" onclick="{!c.click}">User Permissions</li>
+                                        <li aura:id="testUserConfiguration" id="testUserConfiguration" data-hidden="false" title="Test User Configuration" class="slds-tree__item itemHide indent" role="treeitem" aria-level="2" onclick="{!c.click}">Test User Configuration</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column-container content-container">
+                        <aura:if isTrue="{!v.isNavItemLoading}">
+                            <div aura:id="loading" class="loading-container" style="min-width:60rem;height:40rem;">
+                                <div class="slds-grid slds-grid--align-center" style="width:100%;height:100%;">
+                                    <div id="spinner-container" class="slds-align-middle">
+                                        <div style="width:80px;">
+                                            <img src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aura:if>
+                        <div class="{!v.saveVisible ? 'content-body-with-footer' : 'content-body'}" style="{!!v.isLightning ? 'min-height:418px;' : ''}" hidden="{!v.isNavItemLoading}">
+                            <div class="overflow" style="padding:1rem;">
+                                <aura:if isTrue="{!v.alertText}">
+                                    <div class="slds-m-bottom--medium">
+                                        <Loop:Alert type="success" text="{!v.alertText}"/>
+                                    </div>
+                                </aura:if>
+                                <div hidden="{!v.step != 'ddpAdmin'}">
+                                    <h1 class="slds-text-heading--large slds-m-bottom--medium">{!$Label.loop.App_Admin_Label}</h1>
+                                    <Loop:DdpAdminSplash aura:id="ddpAdminSplash" isCustomizeApplication="{!v.isCustomizeApplication}" isStandard="{!v.services.isStandard}" isSandbox="{!v.orgSettings.isSandbox}" integrationUsername="{!v.orgSettings.integrationUsername}"/>
+                                </div>
+                                <!--This is to get around the Salesforce childNodes error-->
+                                <aura:if isTrue="{!v.step != 'ddpAdmin'}">
+                                    <nav role="navigation" aria-label="Breadcrumbs">
+                                        <ol class="slds-breadcrumb slds-list--horizontal">
+                                            <li class="slds-list__item breadcrumb-font"><a href="#" id="ddpAdmin" onclick="{!c.click}">{!$Label.loop.App_Admin_Home_Label}</a></li>
+                                            <li class="slds-list__item breadcrumb breadcrumb-font">{!v.parentSectionLabel}</li>
+                                            <aura:if isTrue="{!v.step == 'purchaseForm'}">
+                                                <li class="slds-list__item breadcrumb-font"><a href="#" id="editionSection" title="Edition" onclick="{!c.click}">Edition</a></li>
+                                            </aura:if>
+                                            <li class="slds-list__item breadcrumb breadcrumb-font" id="{!v.step}">{!v.sectionLabel}</li>
+                                        </ol>
+                                    </nav>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'basicButtons'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">Basic Buttons
+                                        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9009"/>
+                                    </h1>
+                                    <Loop:LayoutButtons aura:id="classicButtons" isCustomizeApplication="{!v.isCustomizeApplication}" sessionId="{!v.sessionId}" apiUrl="{!v.apiUrl}" connectedAppsEnabled="{!v.orgSettings.isConnectedAppsEnabled}"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'buttonWizard'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">Button Wizard
+                                        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9022"/>
+                                    </h1>
+                                    <Loop:Iframe url="{!v.salesforceBaseUrl + '/apex/ddpbuttonwizard'}" height="950px" width="1300px"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'editionSection'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">Edition
+                                        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9013"/>
+                                    </h1>
+                                    <Loop:Edition aura:id="editionComponent" sessionId="{!v.sessionId}" loopUrl="{!v.loopUrl}" isDdpAdmin="true" isCustomizeApplication="{!v.isCustomizeApplication}"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'purchaseForm'}">
+                                    <aura:if isTrue="{!!v.services.hasContract}">
+                                        <h1 class="slds-text-heading--medium slds-m-bottom--medium">{!$Label.loop.Purchase_App_Label}</h1>
+                                        <aura:set attribute="else">
+                                            <h1 class="slds-text-heading--medium slds-m-bottom--medium">Upgrade to Enterprise Edition or Add User Licenses</h1>
+                                        </aura:set>
+                                    </aura:if>
+                                    <Loop:PurchaseForm aura:id="purchaseFormComponent" loopUrl="{!v.loopUrl}" sessionId="{!v.sessionId}" isTest="{!v.isTest}" hasContract="{!v.orgSettings.hasContract}" isStandard="{!v.services.isStandard}" allowedLicenses="{!v.services.allowedLicenses}"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'thirdpartyIntegrations'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">Third Party Integrations
+                                        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9014"/>
+                                    </h1>
+                                    <h3 class="slds-text-heading--small slds-m-bottom--medium">Integrate the app with our third-party partner applications. Select a service and fill out the required fields.</h3>
+                                    <Loop:ConfigureIntegrations customizeApplication="{!v.isCustomizeApplication}" sessionId="{!v.sessionId}" loopUrl="{!v.loopUrl}" oAuthUrl="{!v.oAuthSettings.oAuthUrl}" isAuthorized="{!v.oAuthSettings.isAuthorized}"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'jobQueueStatus'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">Job Queue Status</h1>
+                                    <Loop:Iframe url="{!v.salesforceBaseUrl + '/apex/JobQueueStatus?isdtp=nv'}" height="800px" width="1300px"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'settings'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">Settings</h1>
+                                    <div id="settingsContainer" style="min-width:800px; width:100%; display:inline-block;">
+                                        <Loop:SetupWizardSettings aura:id="settingsStep" sessionId="{!v.sessionId}" connectedAppsEnabled="{!v.orgSettings.isConnectedAppsEnabled}" services="{!v.services}" orgSettings="{!v.orgSettings}"/>
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'sampleDdps'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">Sample DocGen Packages
+                                        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9011"/>
+                                    </h1>
+                                    <Loop:SampleDdps aura:id="sampleDdpsComponent" sessionId="{!v.sessionId}" loopUrl="{!v.loopUrl}" connectedAppsEnabled="{!v.orgSettings.isConnectedAppsEnabled}" isCustomizeApplication="{!v.isCustomizeApplication}"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'userPermissions'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">User Permissions
+                                        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9002"/>
+                                    </h1>
+                                    <div style="width: 100%;min-width: 600px;">
+                                		<Loop:UserConfiguration aura:id="setupUsers" isConfigUsers="true" hasContract="{!v.services.hasContract}"/>
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!v.step == 'testUserConfiguration'}">
+                                    <h1 class="slds-text-heading--medium slds-m-bottom--medium">Test User Configuration
+                                        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9023"/>
+                                    </h1>
+                                    <h3 class="slds-text-heading--small slds-m-bottom--medium">This section determines which users can use the Run Test button when the DocGen Package preview service is available.</h3>
+                            	    <Loop:UserConfiguration aura:id="setupTestUsers" isConfigUsers="false"/>
+                                </aura:if>
+                            </div>
+                        </div>
+                        <aura:if isTrue="{!v.saveVisible &amp;&amp; !v.isNavItemLoading}">
+                            <div class="content-footer" style="{!!isLightning ? 'border-bottom-right-radius:4px;' : ''}">
+                                <div id="pageFooter" class="page-footer" align="right">
+                                    <div class="slds-x-small-buttons--horizontal">
+                                        <button class="slds-button slds-button--brand" onclick="{!c.save}" disabled="{!v.busy || v.disableSave || ((!v.oAuthSettings.isAuthorized &amp;&amp; v.orgSettings.isConnectedAppsEnabled) &amp;&amp; (v.step == 'editionSection' || v.step == 'sampleDdps' || v.step == 'basicButtons'))}" style="{!'display:' + (v.saveVisible ? 'inline-block;' : 'none;')}">{!v.saveButtonLabel}</button>
+                                        <Loop:Spinner class="slds-spinner--small" visible="{!v.busy}" useGraySpinner="true"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+        </aura:set>
+    </aura:if>
+    <Loop:Prompt aura:id="errorPrompt" headerTheme="slds-theme--error slds-theme--alert-texture" />
+</aura:component>

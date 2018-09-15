@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-837 Quick action to allow to take the ownership of the case.</description>
+    <height>55</height>
+    <label>Take Ownership</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>CaseTakeOwnership</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

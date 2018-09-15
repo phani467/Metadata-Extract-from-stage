@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4411 Notification to sales that their WRF has been rejected</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>IHSAutomotiveLetterhead</letterhead>
+    <name>WRF Rejected</name>
+    <style>freeForm</style>
+    <subject>Rejected WRF</subject>
+    <textOnly>** REJECTED ACTION NEEDED **
+
+
+
+This email is to inform you that your submitted WRF has been rejected.
+
+You need to review the WRF, update as necessary, and resubmit.
+
+Below is a link to the WRF and other related WRF information, including the reason for the rejection:
+
+Link to WRF:  {!WorkRequestForm__c.Link}
+
+Rejection Comment: {!WorkRequestForm__c.RejectionComments__c}
+
+Work Request Name:  {!WorkRequestForm__c.Name}
+
+Account Name: {!WorkRequestForm__c.AccountName__c}
+
+Opportunity Name: {!WorkRequestForm__c.OpportunityName__c}
+
+Link to Opp: {!Opportunity.Link}
+
+Record Owner: {!WorkRequestForm__c.OwnerFullName}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5055;Loan Reconciliation - Link to forms (no users on account)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loan Reconciliation - Link to forms (no users on account)</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+I see that there are currently no users built under {!Case.Account}. Please fill out the User Agreement and SAC Form in the attached link and return to us. 
+
+http://events.markit.com/l/44362/2016-08-18/f2vdwm 
+
+Best Regards, 
+
+{!User.FirstName} {!User.LastName}
+{!User.Title} | Loan Recon Support 
+711 Executive Blvd., Suite A | Valley Cottage, New York 10989 
+Support: +1 646 690 4291 Main: +1 646 690 4300 
+LoanReconSupport@markit.com 
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

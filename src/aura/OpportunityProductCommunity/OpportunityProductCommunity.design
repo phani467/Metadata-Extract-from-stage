@@ -1,0 +1,5 @@
+<design:component >
+	<design:attribute name="oppyId"  description="Opportunity Id for which products needs to be edited"/>
+    <design:attribute name="environmentType" dataSource="Community,Lightning"
+                      description="Environment in which component is being used"/>
+</design:component>

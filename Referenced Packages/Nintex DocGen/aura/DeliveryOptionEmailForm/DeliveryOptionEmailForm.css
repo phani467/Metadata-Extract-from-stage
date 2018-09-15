@@ -1,0 +1,8 @@
+.THIS .plain-text-email > div > textarea {
+    height: 175px;
+    resize: none;
+}
+
+.THIS .rich-text-email + div {
+    background-color: white;
+}

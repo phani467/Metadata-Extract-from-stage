@@ -1,0 +1,30 @@
+<aura:component >
+    <div class="slds">
+        <div class="slds-grid slds-grid--pull-padded">
+        	<div class="slds-col--padded">
+                <Loop:Iframe width="560" height="315" url="https://www.youtube.com/embed/Y8Vj2DUxT6c"/>
+            </div>
+        	<div class="slds-col--padded">
+                <div class="slds-text-heading--medium" title="Set up the App">Setup the App</div>
+                <br/>
+                This Wizard will help you configure Nintex DocGen quickly and easily, with the added benefit of allowing you to generate your very first document once setup is complete.
+                <br/><br/>
+                Please Note: As you complete the Wizard you'll have the opportunity to skip steps along the way. You may revisit any of these steps on the DocGen Admin tab if needed.
+            </div>
+        </div>
+        <div class="slds-grid slds-grid--pull-padded slds-m-top--medium">
+            <div class="slds-col--padded">
+		        <div class="slds-text-heading--medium" title="Set up the App">Generate Your First Document</div>
+                <br/>
+                To ensure you have the ability to create your sample document upon completion of the Wizard, please be sure to select DocGen Packages from the "Sample DocGen Packages" step and then enable the buttons on the following step called "Basic Buttons".
+            </div>
+        </div>
+        <div class="slds-grid slds-grid--pull-padded slds-m-top--medium">
+            <div class="slds-col--padded">
+                <div class="slds-m-around--medium">
+                    <Loop:SalesPath step="" steps="Edition,Users,Authorize,Sample DocGen Packages,Basic Buttons" disabled="true"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

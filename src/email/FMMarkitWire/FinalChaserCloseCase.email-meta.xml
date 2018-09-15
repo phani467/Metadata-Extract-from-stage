@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5142:Informs client that their case will be closed - This mail should be sent when 3 previous attempts to get pending info have failed.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Final Chaser - Close Case</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Pending information - Final Request</subject>
+    <textOnly>Dear {!Case.Contact} 
+
+The status of this case is: Waiting - Customer
+
+The status of this case is now: CLOSED. We were unable to resolve this inquiry because the information you provided on your initial request (detailed below) was incomplete. We attempted to contact you on multiple occasions over the past 72 hours, but we never received the additional information we requested. If your inquiry is still an issue that requires our assistance, please call the MarkitSERV Client Services hotline to speak with a representative. Thank You. 
+
+Hotline Numbers: 
+UK/Europe/Asia: + 44 (0)84 4994 7378 
+US and Canada: + 1 877 765 8737 
+
+Thank You. 
+{!Case.OwnerFullName}
+MarkitServ Client Services</textOnly>
+    <type>custom</type>
+</EmailTemplate>

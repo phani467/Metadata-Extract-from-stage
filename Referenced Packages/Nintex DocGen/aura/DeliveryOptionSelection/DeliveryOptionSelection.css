@@ -1,0 +1,10 @@
+.THIS .content {
+    background: #F0F8FB;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #236ECE;
+    width: 95%;
+}
+.THIS .hidden {
+    display: none;
+}

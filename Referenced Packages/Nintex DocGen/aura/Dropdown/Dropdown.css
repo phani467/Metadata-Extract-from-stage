@@ -1,0 +1,21 @@
+.THIS .icon-small {
+    position: absolute;
+    top: 3px;
+    left: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    fill: #ffffff;
+}
+.THIS .icon-standard-people {
+    background-color: #34becd;
+}
+.THIS .icon-name-margin {
+    margin-right: 8px;
+}
+.THIS .left-margin {
+    margin-left: 28px;
+}
+.THIS .option-margin-left {
+    margin-left: 32px;
+}

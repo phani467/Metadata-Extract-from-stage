@@ -1,0 +1,3709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddToCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Convert</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>FindDup</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Lead_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <compactLayoutAssignment>Leads_Custom_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Leads_Custom_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Company</fields>
+        <fields>Phone</fields>
+        <fields>MobilePhone</fields>
+        <fields>Email</fields>
+        <fields>AccountRequested__c</fields>
+        <fields>LeadAge__c</fields>
+        <fields>OwnerId</fields>
+        <label>Leads Custom Compact Layout</label>
+    </compactLayouts>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fields>
+        <fullName>AccountName__c</fullName>
+        <description>SFDC1-45- to get the Account Name</description>
+        <externalId>false</externalId>
+        <formula>Account__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountRequested__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-2101 This tells users whether or not an account has been requested for the lead. This is a read-only field and should only be updated by automated process.</description>
+        <externalId>false</externalId>
+        <label>Account Requested</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1 -105, Look up field for a related Account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the account record associated to the Company Name. If a new Account is requested from the lead, this field will be populated once the case to request the new account is marked as closed complete.</inlineHelpText>
+        <label>Requested Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Account must be active to be associated to lead.</errorMessage>
+            <filterItems>
+                <field>Account.Status__c</field>
+                <operation>equals</operation>
+                <value>Active</value>
+            </filterItems>
+            <infoMessage>Account must be active to be associated to lead.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Address</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>AnnualRevenue</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Authority__c</fullName>
+        <description>SFDc1- 105; Picklist field for Authority</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contact&apos;s Autority Level in buying process.</inlineHelpText>
+        <label>Authority</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>I am responsible</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>I can suggest but will require approval</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>I am not involved</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BudgetRange__c</fullName>
+        <description>SFDC1-551; This field represent budget for a Lead which on conversion populate same field on opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Amount that has been set aside for purchase.</inlineHelpText>
+        <label>Budget Range</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>&lt; 25,000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>25,000-50,000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>50,000-100,000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>&gt; 100,000</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Budget__c</fullName>
+        <description>SFDC1 -105 ; Picklist value for Budget of a lead/contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Budget availability.</inlineHelpText>
+        <label>Budget</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Funding has been secured</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Funding will require approval</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Budget</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BusinessLineInterest__c</fullName>
+        <description>SFDC1-1033</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sales/Marketing BL that product of interest falls under.</inlineHelpText>
+        <label>Business Line Interest</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CalculatedRegion__c</fullName>
+        <description>SFDC1-1760 : This Calculated Region field is populated based on the value of the Region picklist in Country custom object</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Country__r.Region__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Region in which contact is located</inlineHelpText>
+        <label>Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CallDispositionedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-1760 - To track the user who called for Disposition</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Colleague who completed qualification process.</inlineHelpText>
+        <label>Call Dispositioned By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CallDispositionedBy</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CallProspectProfiler__c</fullName>
+        <description>SFDC1- 105: URL for prospect profiler ; SFDC1-4975: Call Prospect Profiler field will build a URL which will provide access to the Prospect profiler information in Eloqua.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;https://login.eloqua.com/cvp?LoginPrefix=IHSE&amp;Username=Profiler.User&amp;Password=999645ce-a4ad-472d-9255-59602b503e98,DE1FF21F17416652504F15E859ACB2CA69D4BB52BCC14C633D97A0645D1BC7D6C99CD3AC92492336029C210AF9252AED67F6C18E3FF99DE34E67D53D9A9BA5BB36469BCB3C338CD697FFAB0194E17E25&amp;Url=apps/profiler/index.aspx?emailAddress=&quot;&amp; Email,&quot;Click here for Prospect Profiler Info&quot;)</formula>
+        <inlineHelpText>Provides insight to Contacts interactions with IHSM</inlineHelpText>
+        <label>Prospect Profiler</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CallToActionType__c</fullName>
+        <description>SFDC1- 105; A text field describes about action of a lead</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the type of form the Contact filled out.</inlineHelpText>
+        <label>Call-To-Action Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Contact Analyst/Expert</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Sales or Request Quote/Exploratory Meeting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Us Request</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal Form Submission - Hot</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Request Free Trial or Demo</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analyst/Research Submissions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal Form Submission</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Request for Information</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Download Sample Report/Data/Map</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Download Whitepaper/Case Study</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal Form Submission - Cool</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Watch Recorded Webcast</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Event Registration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Newsletter Subscribe</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CallbackDate__c</fullName>
+        <description>SFDC1- 105; Call back date for client</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of next scheduled call.</inlineHelpText>
+        <label>Callback Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>CallingCountryCode__c</fullName>
+        <description>SFDC1- 105 ; Country code of contact , Ex - +44 (UK)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calling Country code for the Contact.</inlineHelpText>
+        <label>Calling Country Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CampaignId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CampaignType__c</fullName>
+        <description>SFDC1-9504 Auto-populated via Eloqua during lead insertion based on Campaign the lead is associated it.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-populated via Eloqua during lead insertion based on Campaign the lead is associated it.</inlineHelpText>
+        <label>Campaign Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CleanStatus</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Company</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CompanyDunsNumber</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1- 105; Lookup field for associated contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please populate from associated Contact</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ConversionDate__c</fullName>
+        <description>SFDC1- 105; Date field for Conversion of a lead</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reflects the date the Lead was converted.</inlineHelpText>
+        <label>Conversion Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ConvertedFromCustom__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-2377 - to Check the lead is converted from Custom Solution</description>
+        <externalId>false</externalId>
+        <label>Converted From Custom</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>SFDC1-1081 Country lookup field to enforce prohibited country validations.
+SFDC1-7580 - Country isn&apos;t Required for Lead Creation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Country of Contact.</inlineHelpText>
+        <label>Country</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CreatedBy__c</fullName>
+        <description>SFDC1-2305; Hidden field needed for Lead source update</description>
+        <externalId>false</externalId>
+        <formula>CreatedBy.Profile.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Person who created the Lead.</inlineHelpText>
+        <label>Created By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DandbCompanyId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DateDispositioned__c</fullName>
+        <description>SFDC1-105; Date field for dis positioned</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date qualification was completed.</inlineHelpText>
+        <label>Date Dispositioned</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <inlineHelpText>Sales notes  about the lead</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DialResult__c</fullName>
+        <description>SFDC1-1033</description>
+        <externalId>false</externalId>
+        <label>Dial Result</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DisqualifedReason__c</fullName>
+        <description>SFDC1-105; Picklist value available for lead disqualification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reason Lead is not valid.</inlineHelpText>
+        <label>Disqualifed Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Already Purchased</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Company Too Small</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Non Responsive/Wrong Contact</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Duplicate/Existing Lead</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IHSM Decision to Pass/No Bid</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Invalid/Test Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Budget at this time</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No further interest, has all information needed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not the Decision Maker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product/Solution does not match need</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Time frame too far out</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Expired Lead (Not for Manual Selection)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Recycle: Blocked by Gatekeeper</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle: No Action Taken by Sales</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle: No Need at this time</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle: Timeframe too far out</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle: Unable to Contact</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle:  Already Purchased</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle:  Final Attempt - Unable to Contact</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle:  No Action Taken by Sales</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle:  No Budget at this time</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle:  No Need at this time</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle:  Not the Decision Maker</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle:  Timeframe too far out</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle: Already Purchased</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle: No Budget at this time</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Recycle: Not the Decision Maker</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Already Working With Sales Rep</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Current  Customer</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Do Not Call Request</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Duplicate</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Invalid Data</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: No Longer With Company</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Not Interested</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Test Data</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Transfer to Retail Sales</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Wrong Contact Information</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection:Current  Customer</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection:  Company Size too small</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection:  Duplicate</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection:  Embargoed Country</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Company Size too small</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Rejection: Embargoed Country</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>TQ Rejection: Do Not Call Request</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>TQ Rejection: Send to Customer Care</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>TQ Rejection: Transfer to Sales</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>TQ Rejection: Wrong Contact Information</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ElqProspectID__c</fullName>
+        <description>SFDC1- 105; Text field for  EloqProspect ID</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Eloqua ID Unique to Contact</inlineHelpText>
+        <label>ElqProspectID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EmailUnknown__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-2398; A checkbox field for lead</description>
+        <externalId>false</externalId>
+        <label>Email Unknown</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeBand__c</fullName>
+        <description>SFHD1- 105; The field suggests different Market value/band for a lead/contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Size of company based on # of employees.</inlineHelpText>
+        <label>Employee Band</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Small</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mid-Market</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enterprise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enterprise(Office: 1000+)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Mid-Market(DepartmentStore:100-999)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Small(School: 1-99)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Unknown(House)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ExistingOpportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFCD1- 105 ; Lookup field for associated existing opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select if you would like to associate this lead to an existing opportunity.</inlineHelpText>
+        <label>Existing Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Leads (Existing Opportunity)</relationshipLabel>
+        <relationshipName>Leads1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>FirstTouchPreSales__c</fullName>
+        <description>SFDC1-1759  &apos;First Touch - Pre-Sales&apos; - Read-only, for reporting purposes only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date Sales began working the lead.</inlineHelpText>
+        <label>First Touch - Pre-Sales</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>FirstTouchSales__c</fullName>
+        <description>SFDC1-1759 &apos;First Touch - Sales&apos; - read-only, for reporting purposes only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date Pre Sales began working the lead.</inlineHelpText>
+        <label>First Touch - Sales</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Function__c</fullName>
+        <description>SFHD1- 105; Functional area of a lead/contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select a value</inlineHelpText>
+        <label>Function</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Academic/Education</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Development/Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C-Suite Executives</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Economist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Environmental Health Safety Sustainability</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engineering</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Exploration &amp; Production</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial/Investment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Geology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Information Technology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Librarian</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manufacturing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Procurement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product/Project Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Risk Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supply Chain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Option Value</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Industry</fullName>
+        <inlineHelpText>Industry of the company</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>InternalLDNotes__c</fullName>
+        <description>SFDC1- 105; Long Text field for notes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Internal Notes field for Pre Sales.</inlineHelpText>
+        <label>Internal LD Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>LDCompletionStatus__c</fullName>
+        <description>SFDC1-1033</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Result of Pre Sales follow up.</inlineHelpText>
+        <label>LD Completion Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LDNotes__c</fullName>
+        <description>SFDC1 - 105; Notes for progress of a lead</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Notes gathered during Pre-Sales call.</inlineHelpText>
+        <label>LD Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>LDScriptID__c</fullName>
+        <description>SFDC1- 105; text field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Script Associated to the Product indicated.</inlineHelpText>
+        <label>LD Script ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LDScriptScore__c</fullName>
+        <description>SFDC1- 105; Text field for Script score</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lead Score based on Pre Sales Activity.</inlineHelpText>
+        <label>LD Script Score</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LastHour__c</fullName>
+        <description>SFDC1-217 -- to Identify the past hour records for SLA</description>
+        <externalId>false</externalId>
+        <formula>IF(
+AND(
+    CreatedDate &gt;= NOW(), 
+    CreatedDate &lt;= NOW() -1/24 ),
+TRUE,
+FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Hour</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LastTransferDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LeadAge2__c</fullName>
+        <description>SFDC1-4760;Today&apos;s date minus the created on date(Hidden field which support Lead Age)</description>
+        <externalId>false</externalId>
+        <formula>NOW() - CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Age2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LeadAge__c</fullName>
+        <description>SFDC1-4760;Today&apos;s date minus the created on date</description>
+        <externalId>false</externalId>
+        <formula>IF (LeadAge2__c&gt; 0, 
+TEXT(FLOOR(LeadAge2__c)) &amp; &quot; Days &quot; &amp; 
+TEXT( FLOOR( 24 * (LeadAge2__c - FLOOR(LeadAge2__c) ))) &amp; &quot; Hours&quot; , &quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Number of days since creation of lead</inlineHelpText>
+        <label>Lead Age</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LeadDistributionNotes__c</fullName>
+        <description>SFDC1 -105; Long Notes for a Lead</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Internal notes field for manual processing of lead.</inlineHelpText>
+        <label>Lead Distribution Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <inlineHelpText>Where Lead Originated from</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <description>SFDC1 -105; Different stages for a lead life-cycle; Picklist value are different  for A/B leads &amp; C leads</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select a value</inlineHelpText>
+        <label>Stage</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PendingMKTGQualification</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Convert</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Doesnotmeetrequirements/NeedmoreInformation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PendingSalesQualification</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nurtureopportunity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Noadditionalopportunity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Leadexposedtosales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SenttoSales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SenttoCustomerCare</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-6330 : Legacy Lead identifier for migrated cases. First 3 letters identifies the source system</description>
+        <externalId>true</externalId>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyReference__c</fullName>
+        <description>SFDC1-7046: Legacy Reference field is a friendly system reference to the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is a friendly system reference to the source record.</inlineHelpText>
+        <label>LegacyReference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Message__c</fullName>
+        <defaultValue>&apos;Are you sure you want to convert this case to a lead?&apos;</defaultValue>
+        <description>SFDC1-5410 Field to display message on &apos;Convert to Lead&apos; case quick action</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Message</inlineHelpText>
+        <label>Message</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Need__c</fullName>
+        <description>SFDC1- 105; Picklist value for Need</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select a value</inlineHelpText>
+        <label>Need</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes – Email Me</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes – Call Me</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not interested in follow-up</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <description>SFHD1- 105; To track any valuable information about lead</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NumberOfEmployees</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>NumberofDials__c</fullName>
+        <description>SFDC1- 105; Text field for Dial increments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of attempts to contact by Pre Sales</inlineHelpText>
+        <label>Number of Dials</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1- 105; Lookup field for associated opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please populate from associated  opportunity</inlineHelpText>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OrgLevel__c</fullName>
+        <description>SFHD1- 105; Organisational level/Position of a contact/lead</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contact&apos;s placement in the company</inlineHelpText>
+        <label>Org Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Advisory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Board Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CEO or President</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CXO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Director</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vice President</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Option Value</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OriginatingNotes__c</fullName>
+        <description>SFHD1- 105; To track any valuable information about lead</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Details regarding source of Marketing Lead and comments provided by Contact and/or Marketing</inlineHelpText>
+        <label>Originating Notes</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>OriginatingSourceURL__c</fullName>
+        <description>SFHD1- 105; Source URL for lead/contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>URL where Form was submitted from</inlineHelpText>
+        <label>Originating Source URL</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PKIDLead__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>Led{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID Lead</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>PartnerAccountId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ProcessedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-1760 To track the user who Processed the Lead</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Internal Colleague who assigned the Lead</inlineHelpText>
+        <label>Processed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ProcessedBy</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductInterest__c</fullName>
+        <description>SFDC1-1033,To be maintained in Eloqua</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product that customer has expressed interest in</inlineHelpText>
+        <label>Product Interest</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rating</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Rating__c</fullName>
+        <description>SFDC1-998;A formula field which comes from score on Lead object</description>
+        <externalId>false</externalId>
+        <formula>IF(
+    ISBLANK(TEXT(Rating)),
+    NULL,
+    IMAGE(
+        &quot;/img/samples/stars_&quot; + TEXT(Rating) + &quot;00.gif&quot;,
+        &quot; Rating Level&quot;
+    )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Star rating based on Call To Action and Verbal Qualification.</inlineHelpText>
+        <label>Marketing Lead Rating</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReferredBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-1033;User lookup field for Lead</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates Sales Person who referred the Lead</inlineHelpText>
+        <label>Referred By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RequestedInteraction__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1 - 105 ; A check box field for client</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contact has requested follow up from Sales</inlineHelpText>
+        <label>Requested Interaction</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RevenueBand__c</fullName>
+        <description>SFHD1- 105; Revenue Band for a prospect lead/Contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Annual Sales of company</inlineHelpText>
+        <label>Revenue Band (USD)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>$1 - $1M</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$1M - $5M</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$5M - $10M</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$10M - $25M</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$25M - $50M</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$50M - $100M</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$100M - $250M</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$250M - $500M</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$500M - $1B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$1B - $2.5B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>$2.5B - $5B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Over $5B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1 - 1M</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>100M - 250M</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>10M - 25M</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>1B - 2.5B</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>1M - 5M</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>2.5B - 5B</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>250M - 500M</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>25M - 50M</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>500M - 1B</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>50M - 100M</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>5M - 10M</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Over 5B</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SalesUser__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-192;Hidden field, need for validation and process builder</description>
+        <externalId>false</externalId>
+        <label>SalesUser</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ScoreDefinition__c</fullName>
+        <description>SFHD1 -105; Text field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please provide a score defination</inlineHelpText>
+        <label>Score Definition</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ScoreModel__c</fullName>
+        <description>SFDC1-105; Text field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please populate</inlineHelpText>
+        <label>Score Model</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Score__c</fullName>
+        <description>SFHD1- 105; A picklist field for score</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Marketing Score based on Contact&apos;s implicit and explicit behavior</inlineHelpText>
+        <label>Score</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>A2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>A3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>A4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>B1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>B2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>B3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>B4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>D1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>D2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>D3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>D4</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ScriptAccessURL__c</fullName>
+        <description>SFDC1- 105; URL field for Script Access URL</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to script associated to product of interest</inlineHelpText>
+        <label>Script Access URL</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>SourceCase__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-44 relationship for Case to lead flow</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Case from which lead has been generated</inlineHelpText>
+        <label>Source Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <inlineHelpText>Current Status of the Lead</inlineHelpText>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SubIndustry__c</fullName>
+        <description>SFDC1 -105; Sub sector of a Industry</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please populate a Sub- Industry</inlineHelpText>
+        <label>Sub Industry</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Timeframe__c</fullName>
+        <description>SFDC1- 105; Picklist field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contact&apos;s propensity to buy</inlineHelpText>
+        <label>Timeframe</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>As soon as possible</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Within the next 3 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3 to 6 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>More than 6 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No plans to move forward</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Website</fullName>
+        <inlineHelpText>Website of Company</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <listViews>
+        <fullName>AerospaceDefenseSecurityAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>AccountName__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Aerospace, Defense, Security - APAC</label>
+        <queue>AerospaceDefenseSecurityAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AerospaceDefenseSecurityAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Aerospace, Defense, Security - Americas</label>
+        <queue>AerospaceDefenseSecurityAmericas</queue>
+    </listViews>
+    <listViews>
+        <fullName>AerospaceDefenseSecurityEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Aerospace, Defense, Security - EMEA</label>
+        <queue>AerospaceDefenseSecurityEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AllClosedLeads</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Converted,Disqualify</value>
+        </filters>
+        <label>All Closed Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>AllLeads</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>ScoreDefinition__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Score__c</field>
+            <operation>contains</operation>
+            <value>A1,A2,A3,A4,B1,B2,B3,B4,C1,C2,C3,C4,D1,D2,D3,D4</value>
+        </filters>
+        <label>All Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>AllMarketingQualifiedLeads</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.LEAD_SOURCE</field>
+            <operation>equals</operation>
+            <value>Marketing Generated,Analyst Generated</value>
+        </filters>
+        <label>All Marketing Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>AllOpenLeads</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Converted,Disqualify</value>
+        </filters>
+        <label>All Open Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>AutomotiveAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Automotive - APAC</label>
+        <queue>AutomotiveAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AutomotiveAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Automotive - Americas</label>
+        <queue>AutomotiveAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AutomotiveEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Automotive - EMEA</label>
+        <queue>AutomotiveEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CDSModelWebsite_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>CDS Model Website</label>
+        <queue>CDSModelWebsite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CarfaxAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Carfax - APAC</label>
+        <queue>CarfaxAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CarfaxAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Carfax - Americas</label>
+        <queue>CarfaxAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CarfaxEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Carfax - EMEA</label>
+        <queue>CarfaxEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CarproofAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Carproof - APAC</label>
+        <queue>CarproofAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CarproofAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Carproof - Americas</label>
+        <queue>CarproofAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CarproofEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Carproof - EMEA</label>
+        <queue>CarproofEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DevelopmentPendingQualificationAMER</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.FIRST_NAME</columns>
+        <columns>LEAD.LAST_NAME</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.EMAIL</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead__c</field>
+            <operation>equals</operation>
+            <value>PendingSalesQualification</value>
+        </filters>
+        <label>Development Pending Qualification AMER</label>
+    </listViews>
+    <listViews>
+        <fullName>DevelopmentPendingQualificationAPAC</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.FIRST_NAME</columns>
+        <columns>LEAD.LAST_NAME</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.EMAIL</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead__c</field>
+            <operation>equals</operation>
+            <value>PendingSalesQualification</value>
+        </filters>
+        <label>Development Pending Qualification APAC</label>
+    </listViews>
+    <listViews>
+        <fullName>DevelopmentPendingQualificationEMEA</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.FIRST_NAME</columns>
+        <columns>LEAD.LAST_NAME</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.EMAIL</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead__c</field>
+            <operation>equals</operation>
+            <value>PendingSalesQualification</value>
+        </filters>
+        <label>Development Pending Qualification EMEA</label>
+    </listViews>
+    <listViews>
+        <fullName>EDMAPAC_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>EDM - APAC</label>
+        <queue>EDMAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EDMAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>EDM - Americas</label>
+        <queue>EDMAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EconomicCountryRiskAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Economic &amp; Country Risk - APAC</label>
+        <queue>EconomicCountryRiskAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EconomicCountryRiskAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Economic &amp; Country Risk - Americas</label>
+        <queue>EconomicCountryRiskAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EconomicCountryRiskEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Economic &amp; Country Risk - EMEA</label>
+        <queue>EconomicCountryRiskEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EconomicsAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Economics - APAC</label>
+        <queue>EconomicsAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EconomicsAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Economics - Americas</label>
+        <queue>EconomicsAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EconomicsEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Economics - EMEA</label>
+        <queue>EconomicsEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EnergyWidePerspectives_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Energy-Wide Perspectives</label>
+        <queue>EnergyWidePerspectives</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FSMarketing_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FS Marketing</label>
+        <queue>FSMarketing</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>KY3PAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>KY3P - APAC</label>
+        <queue>KY3PAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>KY3PAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>KY3P - Americas</label>
+        <queue>KY3PAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>KY3PEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>KY3P - EMEA</label>
+        <queue>KY3PEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>KYCGlobal_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>KYC - Global</label>
+        <queue>KYCGlobal</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>LeadGenerationTeamAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Lead Generation Team - APAC</label>
+        <queue>LeadGenerationTeamAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>LeadGenerationTeamAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Lead Generation Team - Americas</label>
+        <queue>LeadGenerationTeamAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>LeadGenerationTeamEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Lead Generation Team - EMEA</label>
+        <queue>LeadGenerationTeamEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MODAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>MOD - Americas</label>
+        <queue>MODAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MODEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>MOD - EMEA</label>
+        <queue>MODEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ManagedServicesAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Managed Services - APAC</label>
+        <queue>ManagedServicesAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MaritimeTradeAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Maritime &amp; Trade - APAC</label>
+        <queue>MaritimeTradeAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MaritimeTradeAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Maritime &amp; Trade - Americas</label>
+        <queue>MaritimeTradeAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MaritimeTradeEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Maritime &amp; Trade - EMEA</label>
+        <queue>MaritimeTradeEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyOpenLeads</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Converted,Disqualify</value>
+        </filters>
+        <label>My Open Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>OMDCAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>OMDC - APAC</label>
+        <queue>OMDCAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>OMDCAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>OMDC - Americas</label>
+        <queue>OMDCAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>OMDCEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>OMDC - EMEA</label>
+        <queue>OMDCEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>OPISAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>OPIS - APAC</label>
+        <queue>OPISAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>OPISAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>OPIS - Americas</label>
+        <queue>OPISAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>OPISEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>OPIS - EMEA</label>
+        <queue>OPISEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PowerGasCoalRenewablesAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Power, Gas, Coal, Renewables - APAC</label>
+        <queue>PowerGasCoalRenewablesAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PowerGasCoalRenewablesAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Power, Gas, Coal, Renewables - Americas</label>
+        <queue>PowerGasCoalRenewablesAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PowerGasCoalRenewablesEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Power, Gas, Coal, Renewables - EMEA</label>
+        <queue>PowerGasCoalRenewablesEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ProductDesignAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Product Design Other - APAC</label>
+        <queue>ProductDesignAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ProductDesignAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Product Design Other - Americas</label>
+        <queue>ProductDesignAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ProductDesignEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Product Design Other - EMEA</label>
+        <queue>ProductDesignEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ProductDesignPartsAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Product Design Parts - APAC</label>
+        <queue>ProductDesignPartsAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ProductDesignPartsAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Product Design Parts - Americas</label>
+        <queue>ProductDesignPartsAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ProductDesignPartsEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Product Design Parts - EMEA</label>
+        <queue>ProductDesignPartsEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SpamLeads_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Spam Leads</label>
+        <queue>SpamLeads</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TechnologyMediaTelecommAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Technology, Media, Telecomm - APAC</label>
+        <queue>TechnologyMediaTelecommAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TechnologyMediaTelecommAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Technology, Media, Telecomm - Americas</label>
+        <queue>TechnologyMediaTelecommAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TechnologyMediaTelecommEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Technology, Media, Telecomm - EMEA</label>
+        <queue>TechnologyMediaTelecommEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TotemGlobal_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Totem - Global</label>
+        <queue>TotemGlobal</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UnassignedEloqua_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>BusinessLineInterest__c</columns>
+        <columns>ProductInterest__c</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Unassigned Eloqua</label>
+        <queue>UnassignedEloqua</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UnassignedOther_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>BusinessLineInterest__c</columns>
+        <columns>ProductInterest__c</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Unassigned Other</label>
+        <queue>UnassignedOther</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UpstreamAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Upstream - APAC</label>
+        <queue>UpstreamAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UpstreamAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Upstream - Americas</label>
+        <queue>UpstreamAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UpstreamEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Upstream - EMEA</label>
+        <queue>UpstreamEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>WSOAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>WSO - Americas</label>
+        <queue>WSOAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>automotiveMastermindAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>automotiveMastermind - APAC</label>
+        <queue>automotiveMastermindAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>automotiveMastermindAmericas_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>automotiveMastermind - Americas</label>
+        <queue>automotiveMastermindAmericas</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>automotiveMastermindEMEA_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>automotiveMastermind - EMEA</label>
+        <queue>automotiveMastermindEMEA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>thinkFolioAPAC_Lead</fullName>
+        <columns>LEAD.COMPANY</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.TITLE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COUNTRY_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Rating__c</columns>
+        <columns>Score__c</columns>
+        <columns>LeadAge__c</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>thinkFolio - APAC</label>
+        <queue>thinkFolioAPAC</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.COMPANY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.PHONE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LEAD.COMPANY</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.COMPANY</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.PHONE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.MOBILE_PHONE</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.COMPANY</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.TITLE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.PHONE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.LAST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.LEAD_SOURCE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>BlockProhibitedCountries</fullName>
+        <active>true</active>
+        <description>Prevent users from selected prohibited countries from the country drop down</description>
+        <errorConditionFormula>VLOOKUP( $ObjectType.Country__c.Fields.IsProhibited__c , $ObjectType.Country__c.Fields.Name , Country )</errorConditionFormula>
+        <errorDisplayField>Country</errorDisplayField>
+        <errorMessage>Due to U.S. export controls and sanctions restrictions, Lead records cannot be created for the selected country.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BudgetRangeisRequired</fullName>
+        <active>true</active>
+        <description>SFDC1-7544 - Budget Range Not Required During Lead Conversion</description>
+        <errorConditionFormula>IsConverted &amp;&amp; ISBLANK(TEXT(BudgetRange__c))</errorConditionFormula>
+        <errorDisplayField>BudgetRange__c</errorDisplayField>
+        <errorMessage>Missing Budget Range Information, Please input budget range on Lead record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ConvertedStatusOnLead</fullName>
+        <active>false</active>
+        <description>SFDC1-2377- The converted status on the ribbon at the top of the lead is set automatically when converting a lead through our custom solution.
+SFDC1-6928 - OOTB lead conversion process</description>
+        <errorConditionFormula>AND(
+    				 ConvertedFromCustom__c != TRUE,
+					    ISPICKVAL(Status, &quot;Converted&quot;) 
+					)</errorConditionFormula>
+        <errorMessage>Please click on the Convert Lead button to convert the Lead. Manual selection of the Converted Value on Lead is not allowed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DataGovernanceImplementationforLead</fullName>
+        <active>true</active>
+        <description>SFDC1-6568 - Data Governance Implementation for Lead Conversion</description>
+        <errorConditionFormula>AND($Profile.Name &lt;&gt; &apos;System Administrator&apos;,ISPICKVAL(Account__r.Status__c,&apos;Active&apos;),IsConverted, OR(ISPICKVAL(Account__r.DataGovernanceStatus__c, &apos;Unapproved&apos;) || 
+ISBLANK(AccountName__c)))</errorConditionFormula>
+        <errorMessage>Only Data Governance and System Administrators can create new accounts. Please either select an existing account or request one from the Lead page</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DisqualifiedReasonMandatory</fullName>
+        <active>true</active>
+        <description>SFDC1-192;When Disqualified is set, Disqualified Reason needs to be required.</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(Status, &apos;Disqualify&apos;), 
+ISPICKVAL(DisqualifedReason__c,&quot;&quot;))</errorConditionFormula>
+        <errorDisplayField>DisqualifedReason__c</errorDisplayField>
+        <errorMessage>Please Select Disqualified Reason</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EmailRequired</fullName>
+        <active>true</active>
+        <description>SFDC1-2398;When [Email Unknown] is not checked, Email Address is required.</description>
+        <errorConditionFormula>EmailUnknown__c = false
+&amp;&amp; Email = null</errorConditionFormula>
+        <errorDisplayField>Email</errorDisplayField>
+        <errorMessage>Please enter Email address or check the Email Unknown box (a business phone number will be required in that case)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EmailUnknownThenPhoneRequired</fullName>
+        <active>true</active>
+        <description>SFDC1-2398,When [Email Unknown] is checked, Business phone field is required.</description>
+        <errorConditionFormula>EmailUnknown__c = true
+&amp;&amp; Phone = null</errorConditionFormula>
+        <errorDisplayField>Phone</errorDisplayField>
+        <errorMessage>Please enter Phone when Email is unknown</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EmailUnknownUncheckIfEmailPresent</fullName>
+        <active>true</active>
+        <description>SFDC1-5245 - If email address is populated then Email Unknown checkbox should be unchecked.</description>
+        <errorConditionFormula>EmailUnknown__c &amp;&amp; NOT(ISBLANK(Email))</errorConditionFormula>
+        <errorDisplayField>EmailUnknown__c</errorDisplayField>
+        <errorMessage>If email address is populated then Email Unknown checkbox should be unchecked.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LeadCannotBeCreatedForClosedCases</fullName>
+        <active>false</active>
+        <description>SFDC1-5410 Closed cases cannot be converted to lead
+SFDC1-9415 Deactivating validation rule</description>
+        <errorConditionFormula>AND (
+NOT(ISBLANK(SourceCase__c)),
+CONTAINS( TEXT(SourceCase__r.Status ), &apos;Closed&apos;)
+)</errorConditionFormula>
+        <errorMessage>Closed Cases cannot be converted to Leads</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LeadStatusCanNotbeConvertedDirectly</fullName>
+        <active>true</active>
+        <description>SFDC1-9488 : Converted Status should be directly selected without converting the Lead</description>
+        <errorConditionFormula>IsConverted  = FALSE &amp;&amp;  TEXT(Status) = &apos;Converted&apos;</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>You can not set status to &apos;Converted&apos;, Please use Convert button to convert Lead.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LeadStatusLimitationForMarketing</fullName>
+        <active>true</active>
+        <description>SFDC1-192;Sales and Marketing users cannot change Lead Status</description>
+        <errorConditionFormula>AND(
+ISPICKVAL(Status, &apos;SalesWorking&apos;),
+CONTAINS($Profile.Name, &apos;Marketing&apos;))</errorConditionFormula>
+        <errorMessage>Marketing users cannot select the &apos;Sales Working&apos; Lead Status, please select &apos;Prioritized&apos;, &apos;Pre-Sales Working&apos;, or &apos;Pre-Sales Qualified&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LeadStatusLimitationForSalesMarketing</fullName>
+        <active>true</active>
+        <description>SFDC1-192;Sales and Marketing users cannot change Lead Status</description>
+        <errorConditionFormula>AND(
+OR(ISPICKVAL(Status, &apos;Pre-SalesWorking&apos;),
+ISPICKVAL(Status, &apos;Prioritized&apos;),
+ISPICKVAL(Status, &apos;Pre-SalesQualified&apos;)),
+NOT(ISNEW()),
+NOT(ISCHANGED( OwnerId)),
+CONTAINS($Profile.Name, &apos;IHSMarkit Sales: General&apos;))</errorConditionFormula>
+        <errorMessage>Sales Reps can only select the &apos;Sales Working&apos; Lead Status when creating a Lead and cannot move the Lead Status backwards from that Lead Status.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PartnerUsersEnforceRecordOwner</fullName>
+        <active>true</active>
+        <description>For Partner community. Super user community settings enable read/write access to all Leads related to the partner account. Partners should only be able to edit Leads they own.</description>
+        <errorConditionFormula>ISPICKVAL($User.UserType ,&quot;PowerPartner&quot;) 
+&amp;&amp; 
+OwnerId &lt;&gt; $User.Id</errorConditionFormula>
+        <errorMessage>You are not able to edit this Lead as you are not the record owner.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequiredCountryForLeadCreation</fullName>
+        <active>true</active>
+        <description>SFDC1-7580 - Country isn&apos;t Required for Lead Creation</description>
+        <errorConditionFormula>ISBLANK(TEXT(CountryCode))</errorConditionFormula>
+        <errorDisplayField>Country__c</errorDisplayField>
+        <errorMessage>Country is required to create a Lead</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>ConvertLead</fullName>
+        <availability>online</availability>
+        <description>Custom Button to convert Lead</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Convert Lead</masterLabel>
+        <openType>replace</openType>
+        <page>ConvertLeadPage</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Lead_Street}+{!Lead_City}+{!Lead_State}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/news?&amp;q={!Lead_Company}&amp;btnG=Search+News</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Lead_Company}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LeadActivityOverview</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Lead Activity Overview</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://login.eloqua.com/autoLogin?LoginPrefix=IHSM&amp;Url=FlexReports%2FDisplayReport2.aspx%3FStandardReportID%3D1297%2526EmailAddress%3D%7B%21Lead_Email%7D%2526ShowPrintOption%3DTrue</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>800</height>
+        <linkType>url</linkType>
+        <masterLabel>Create PDF</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loop?eid={!Lead.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1000</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loopmerge?eid={!Lead.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1200</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!Lead.Id}&amp;sessionId={!$Api.Session_ID}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated Mass LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/loop__loopmerge?eid={!Lead.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <page>Loop__massLeadDdp</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>dsfs__Send_with_DocuSign</fullName>
+        <availability>online</availability>
+        <description>This button will initiate a DocuSign Envelope that is linked to the Lead</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send with DocuSign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
+DocuSign_CreateEnvelope();</url>
+    </webLinks>
+</CustomObject>

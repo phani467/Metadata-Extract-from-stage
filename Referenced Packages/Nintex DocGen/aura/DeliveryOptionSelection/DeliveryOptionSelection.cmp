@@ -1,0 +1,48 @@
+<aura:component controller="Loop.DeliveryOptionSelectionController">
+    <!--Optional attributes-->
+    <aura:attribute name="selectedDeliveryOptionId" type="string" default="" description="Comes from url parameter(?)"/>
+    <aura:attribute name="objectName" type="string" default="" description="Name of the starting object"/>
+    <aura:attribute name="context" type="string" default="DEFAULT" description="Accepts DEFAULT, TEST, and UTILITYBAR to display the appropriate steps to run in different contexts."/>
+    <aura:attribute name="ddpId" type="string"/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="loading" type="boolean" default="false" access="private"/>
+    <aura:attribute name="records" type="List" default="[]" access="private" description="List of DeliveryOptionTileData."/>
+    <aura:attribute name="eSignRecipients" type="List" default="[]" access="private" description="List of all e-Sign recipients."/>
+    <aura:attribute name="hasErrorOccurred" type="boolean" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="string" default="" access="private" description="Error message to display to user."/>
+    
+    <!--Handled events-->
+    <aura:handler name="error" event="Loop:error" action="{!c.handleErrorEvent}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="error" type="Loop:error"/>
+    
+    <!--Methods-->
+    <aura:method name="load" action="{!c.load}" description="Load delivery options based off of ddpId.">
+        <aura:attribute name="ddpId" type="string" required="true"/>
+        <aura:attribute name="recordId" type="string" required="true"/>
+        <aura:attribute name="selectedContactId" type="string" required="true" description="The Id of the selected Contact." />
+    </aura:method>
+    <aura:method name="search" action="{!c.search}">
+        <aura:attribute name="searchString" type="String"/>
+    </aura:method>
+    
+    <aura:if isTrue="{!v.loading}">
+        <Loop:LoadingTile />
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.hasErrorOccurred}">
+                <Loop:CustomTile status="error" message="{!v.errorMessage}"/>
+                <aura:set attribute="else">
+                    <div style="background-color: #eef1f6;">
+                        <div aura:id="deliveryOptionTiles">
+                            <div aura:id="tileContainer">
+                                <Loop:SelectTiles aura:id="deliveryTiles" recordType="delivery" records="{!v.records}" isMultiSelect="false" objectName="{!v.objectName}" context="{!v.context}" ddpId="{!v.ddpId}"/>
+                            </div>
+                        </div>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

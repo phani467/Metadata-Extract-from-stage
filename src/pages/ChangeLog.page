@@ -1,0 +1,135 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Page is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:page standardController="ChangeLog__c"  extensions="ChangeLogTab2CE" id="thePage" title="Change Log">
+
+    <apex:sectionHeader title="Change Request" subtitle="{!ChangeLog__c.Name}"/>
+
+    <apex:form >
+        <apex:pageMessages id="MSG"/>
+        <apex:pageBlock >
+    
+            <apex:pageBlockButtons >
+        
+                <apex:commandButton value="Save" action="{!newSave}" disabled="{!!if($User.WRApprover__c==true && (ChangeLog__c.Status__c == 'Submitted' || ChangeLog__c.Status__c == 'Approval Pending'),true,false)}"/> 
+        
+                <apex:commandButton value="Reject" action="{!crReject}" disabled="{!!if($User.WRApprover__c==true && (ChangeLog__c.Status__c == 'Submitted' || ChangeLog__c.Status__c == 'Approval Pending'),true,false)}"/>
+        
+                <apex:commandButton value="Approve" action="{!crApprove}" disabled="{!!if($User.WRApprover__c==true && (ChangeLog__c.Status__c == 'Submitted' || ChangeLog__c.Status__c == 'Approval Pending'),true,false)}"/>
+        
+                <apex:commandButton value="Approve & Create Job" action="{!crApproveCreate}" disabled="{!!if($User.WRApprover__c==true && (ChangeLog__c.Status__c == 'Submitted' || ChangeLog__c.Status__c == 'Approval Pending'),true,false)}"/>
+        
+                <apex:commandButton value="Assign without Approval" action="{!crApprovePending}" disabled="{!!if($User.WRApprover__c==true && (ChangeLog__c.Status__c == 'Submitted' || ChangeLog__c.Status__c == 'Approval Pending'),true,false)}"/>
+        
+                <apex:commandButton value="Delete" action="{!crDelete}" disabled="{!!$User.CanDeleteWRFPLCRecords__c}" />     
+    
+            </apex:pageBlockButtons>
+        
+            <apex:pageBlockSection title="Details" collapsible="false" >
+                <apex:pageBlockSectionItem >
+    
+                    <apex:outputLabel value="WRF" for="wrfName"/>
+            
+                    <apex:outputField value="{!ChangeLog__c.WorkRequestForm__c}" id="wrfName"/>
+        
+                </apex:pageBlockSectionItem>
+                        
+                <apex:pageBlockSectionItem rendered="{!$User.WRApprover__c}">
+            
+                    <apex:outputLabel value="Programmer" for="Programmer" rendered="{!if($User.WRApprover__c==true && (ChangeLog__c.Status__c == 'Submitted' || ChangeLog__c.Status__c == 'Approval Pending'),true,false)}" />
+            
+                    <apex:inputField value="{!ChangeLog__c.Programmer__c}" id="Programmer" rendered="{!if($User.WRApprover__c==true && (ChangeLog__c.Status__c == 'Submitted' || ChangeLog__c.Status__c == 'Approval Pending'),true,false)}"/>
+        
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSection rendered="{!!$User.WRApprover__c}"/>
+            
+                <apex:pageBlockSectionItem >
+    
+                    <apex:outputLabel value="Requested Date" for="request_date2"/>
+            
+                    <apex:outputField value="{!ChangeLog__c.RevisedRequestDate__c}" id="request_date2"  />
+        
+                </apex:pageBlockSectionItem>
+        
+                <apex:pageBlockSectionItem >
+
+                    <apex:outputLabel value="Requestor" for="requestor"/>
+            
+                    <apex:outputField value="{!ChangeLog__c.ChangeDocumentedBy__c}" id="requestor" />
+        
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+        
+                    <apex:outputLabel value="Status" for="status"/>
+            
+                    <apex:outputField value="{!ChangeLog__c.Status__c}" id="status" />
+        
+                </apex:pageBlockSectionItem>
+        
+                <apex:pageBlockSectionItem >
+
+                    <apex:outputLabel value="Owner" for="owner"/>
+            
+                    <apex:outputField value="{!ChangeLog__c.OwnerID}" id="owner" />
+        
+                </apex:pageBlockSectionItem>
+                        
+                <apex:pageBlockSectionItem >
+            
+                    <apex:outputLabel value="Create Date" for="createDate"/>
+            
+                    <apex:outputField value="{!ChangeLog__c.CreateDate__c}" id="createDate" />
+        
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+        
+                    <apex:outputLabel value="Submitted Date/Time" for="submitDate"/>
+            
+                    <apex:outputField value="{!ChangeLog__c.SubmittedDateTime__c}" id="submitDate" />
+        
+                </apex:pageBlockSectionItem>
+                
+                <apex:outputField value="{!ChangeLog__c.PLCJob__c}"/>
+            
+            </apex:pageBlockSection>
+        
+            <apex:pageBlockSection columns="1" title="Description" collapsible="false">
+    
+                <apex:outputField value="{!ChangeLog__c.ChangeDescription__c}"/>
+    
+            </apex:pageBlockSection>
+    
+    
+            <apex:pageBlockSection columns="1" title="Production Comments" collapsible="false">
+            
+                <apex:inputTextarea value="{!ChangeLog__c.ProductionComments__c}" cols="100" rows="5" rendered="{!if($User.WRApprover__c==true && (ChangeLog__c.Status__c == 'Submitted' || ChangeLog__c.Status__c == 'Approval Pending'),true,false)}"/>
+            
+                <apex:outputField value="{!ChangeLog__c.ProductionComments__c}" rendered="{!if($User.WRApprover__c==false || (ChangeLog__c.Status__c <> 'Submitted' && ChangeLog__c.Status__c <> 'Approval Pending'),true,false)}"/>
+    
+            </apex:pageBlockSection>
+   
+            <apex:pagemessage summary="{!pmsg}" severity="info" strength="2"  /> 
+    
+            <apex:pageBlockSection columns="1"  title="Attachments" collapsible="false">
+        
+                <apex:pageBlockSectionItem >
+                
+                    <c:CMPAttachmentDisplayer aController="{! aMultiAttachmentController }" objId="{! changeLogId }" rendered="{!!IF(ChangeLog__c.id==null,TRUE,FALSE)}" />
+        
+                </apex:pageBlockSectionItem>
+    
+            </apex:pageBlockSection>    
+
+        </apex:pageBlock>
+
+    </apex:form>  
+
+</apex:page>

@@ -1,0 +1,14 @@
+.THIS.tile {
+    padding: 8px;
+}
+.THIS .slds-tile__detail {
+    position: relative;
+}
+.THIS .recipient-selectors-list > .recipient-selector-list-item + .recipient-selector-list-item {
+    margin-top: 1rem;
+    padding-top: .5rem;
+    border-top: 1px solid #d8dde6;
+}
+.THIS .recipient-host {
+    margin-top: .5rem;
+}

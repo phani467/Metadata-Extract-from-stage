@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-7138
+Docusign Version for the Continuation Letter Document</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>Continuation Letter Secure.docx</name>
+    <public>false</public>
+</Document>

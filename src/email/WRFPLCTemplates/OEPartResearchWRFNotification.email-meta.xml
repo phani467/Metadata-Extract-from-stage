@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4411 Notification to production that a WRF has been submitted requesting OE Parts Research data</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>IHSAutomotiveLetterhead</letterhead>
+    <name>OE Part Research WRF Notification</name>
+    <style>freeForm</style>
+    <subject>WorldView OE Part Research WRF</subject>
+    <textOnly>A WorldView WRF has been submitted to the CAP Team requesting OE Parts Research data.
+
+Work Request Name: {!WorkRequestForm__c.Name}
+Account Name: {!WorkRequestForm__c.AccountName__c}
+Opportunity Name: {!WorkRequestForm__c.OpportunityName__c}
+New Status: {!WorkRequestForm__c.RequestStatus__c}
+Record Owner: {!WorkRequestForm__c.OwnerFullName}
+Link to WRF: {!WorkRequestForm__c.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>

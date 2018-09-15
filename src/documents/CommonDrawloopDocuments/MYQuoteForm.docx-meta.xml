@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-7541
+New Multi-year Quote Form.</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>MY Quote Form.docx</name>
+    <public>false</public>
+</Document>

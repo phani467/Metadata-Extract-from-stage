@@ -1,0 +1,29 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component controller="WRApprovalController" allowDML="true" >
+    <style>
+textarea {
+width: 95%;
+}
+</style>
+    <apex:attribute name="wrf" assignTo="{!wrf}" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+  
+    <apex:pageBlock title="Work Request Rejection - {!wrf.name}" >
+        <apex:pagemessage summary="This work request has been rejected, please revise and resubmit" severity="info" strength="2"  />
+        <apex:pageBlockSection collapsible="false" columns="3">
+      
+        </apex:pageBlockSection>
+        <apex:pageBlockSection collapsible="false" columns="1">
+        <apex:outputField value="{!wrf.RequestStatus__c}"/>
+        <apex:outputField value="{!wrf.RejectionComments__c}" />
+        
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+</apex:component>

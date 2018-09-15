@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT" access="global" >
+    <aura:attribute name="startDate" type="Date" access="global"/>
+    <aura:attribute name="endDate" type="Date" access="global"/>
+    <aura:attribute name="status" type="String" access="global"/>
+    <aura:attribute name="oppRecordId" type="Id" access="global"/>
+</aura:event>

@@ -1,0 +1,7 @@
+<aura:event type="Component" description="Event template">
+    <aura:attribute name="id" type="string"/>
+    <aura:attribute name="reminderDelay" type="decimal"/>
+    <aura:attribute name="daysTillSigningExpires" type="decimal"/>
+    <aura:attribute name="reminderFrequency" type="decimal"/>
+    <aura:attribute name="warnOfExpiration" type="decimal"/>
+</aura:event>

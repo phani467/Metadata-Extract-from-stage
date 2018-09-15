@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notify Data Governance and Account Creator</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Account: Invalidate Account Notification</name>
+    <style>none</style>
+    <subject>Account {!Account.Name} was invalidated</subject>
+    <type>text</type>
+</EmailTemplate>

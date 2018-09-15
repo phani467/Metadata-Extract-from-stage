@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Triage_Criteria_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-7557, This object is to store Case routing criteria and subsequent actions.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>CalculatedSortOrder__c</fullName>
+        <description>SFDC1-7557, Formula to calculate the complexity of the rule</description>
+        <externalId>false</externalId>
+        <formula>If(ISBLANK(Subject__c),0,1)+
+If(ISBLANK(Type__c),0,1)+
+If(ISBLANK(Subtype__c),0,1)+
+If(ISBLANK(WebEmail__c),0,1)+
+If(ISBLANK(SkillLevel__c),0,1)+
+If(ISBLANK( ProductFamily__c ),0,1)+
+If(ISBLANK( ProductGroup__c ),0,1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Rule Complexity</inlineHelpText>
+        <label>Calculated Sort Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>SFDC1-5947, to see if rule is active or not.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rule will be evaluated when the value is checked.</inlineHelpText>
+        <label>Is Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <description>SFDC1-5947, Priority of this rule.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Priority of this rule (1 being highest and being evaluated first).</inlineHelpText>
+        <label>Priority</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProductFamily__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-7557 Product Family for case comparison</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product Family</inlineHelpText>
+        <label>Product Family</label>
+        <referenceTo>Family__c</referenceTo>
+        <relationshipLabel>Triage Criteria</relationshipLabel>
+        <relationshipName>TriageCriteriaProductFamily</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductGroup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-7557 Product group for comparing case</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product Group</inlineHelpText>
+        <label>Product Group</label>
+        <referenceTo>ProductGroup__c</referenceTo>
+        <relationshipLabel>Triage Criteria</relationshipLabel>
+        <relationshipName>TriageCriteriaProductGroup</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Queue__c</fullName>
+        <description>SFDC1-7557 Queues to which case will be assigned</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Queue to which case will be assigned</inlineHelpText>
+        <label>Queue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FM | DS Match</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Trade Processing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | WSO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Chemical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Energy | CDN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Energy | ETA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Energy | Insight</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Energy | US</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Product Design</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Technology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Trade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | All Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MSERV Regulatory Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | Clearing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | L1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | User Setup</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | Static Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | EGUS Egains</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | User Deactivations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | User Clones Static Conf.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | Password Reset</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MSERV UAT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MSERV FX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | Book Updates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | FRTB Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MW | High Priority</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounts Receivable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Goldfire | Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Goldfire | Engineering</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Energy | Petra</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Energy | ODS Petrodata</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Energy | Kingdom</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | Energy | FieldDirect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CSECRFCMFCM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | NRG | Prod Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | NRG | Well Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Customer Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Equities</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Markit Research Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MarkitSERV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Loan Settlement | Clear Par</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Notice Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | CTI | Client Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Reference Data Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MCA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Equities | Dividends</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MSF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MSACRT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Research Signals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | TCA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | PMI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Indices</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Credit Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Data Delivery | Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Data Delivery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Environmental Registry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Pricing | Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Fair Value</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Loan Data Team</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Parsing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | European ABS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Portfolio Valuations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Valuation Managers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | OTC Derivatives Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | KY3P | Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Counterparty Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | KYCS | Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | KYCS | Profile</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | KYCS | Onboarding</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | MarkitHub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM | Indices | IAS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS | ECR/FCM | FCM</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>CS | Energy | Kingdom | SET</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>CS | Energy | Petra | SET</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>CS| ECR/FCM | FC</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | Counterparty Manager | Support</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | EGUS/Egains</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | IAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | KYCS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | Markit Hub</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitSERV | FRTB</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitSERV | FX</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitSERV | Regulatory Reporting</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitSERV | UAT</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | All Other</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | Book Updates</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | Clearing</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | High Priority</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | L1</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | Password Reset</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | Reports</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | Static Data</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | User Clones / Static Confirmation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | User De-activations</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>FM | MarkitWire | User Setup</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>IHS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SkillLevel__c</fullName>
+        <description>SFDC1-7557, Skill Level to be compared.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Skill Level to be compared.</inlineHelpText>
+        <label>Skill Level</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subject__c</fullName>
+        <description>SFDC1-7557, Subject to be compared for Case</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Subject to be compared for Case</inlineHelpText>
+        <label>Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subtype__c</fullName>
+        <description>SFDC1-7557, Case Subtype to be compared.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Case Subtype to be compared.</inlineHelpText>
+        <label>Subtype</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>SFDC1-7557, Case Type to be compared.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Case Type to be compared.</inlineHelpText>
+        <label>Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WebEmail__c</fullName>
+        <description>SFDC1-7557 Web Email for comparison</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Web Email</inlineHelpText>
+        <label>Web Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <label>Triage Criteria</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Queue__c</columns>
+        <columns>ProductGroup__c</columns>
+        <columns>SkillLevel__c</columns>
+        <columns>Subject__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>FM_MW_All_Other</fullName>
+        <columns>NAME</columns>
+        <columns>Subject__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Queue__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Queue__c</field>
+            <operation>equals</operation>
+            <value>FM | MW | Book Updates</value>
+        </filters>
+        <label>FM | MW | All Other</label>
+    </listViews>
+    <listViews>
+        <fullName>TriageForMarkit</fullName>
+        <columns>NAME</columns>
+        <columns>Subject__c</columns>
+        <columns>SkillLevel__c</columns>
+        <columns>ProductGroup__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Queue__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>TriageCriteria__c.Markit</value>
+        </filters>
+        <label>Triage for Markit</label>
+    </listViews>
+    <listViews>
+        <fullName>TriageforIHS_TriageCriteria</fullName>
+        <columns>NAME</columns>
+        <columns>Subject__c</columns>
+        <columns>SkillLevel__c</columns>
+        <columns>ProductGroup__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Queue__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>TriageCriteria__c.IHS</value>
+        </filters>
+        <label>Triage for IHS</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TriageforMarkitSERV_TriageCriteria</fullName>
+        <columns>NAME</columns>
+        <columns>Subject__c</columns>
+        <columns>Type__c</columns>
+        <columns>Subtype__c</columns>
+        <columns>Queue__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>TriageCriteria__c.MarkitSERV</value>
+        </filters>
+        <label>Triage for MarkitSERV</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>TRC-{000000}</displayFormat>
+        <label>Triage Criteria Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Triage Criteria</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>IHS</fullName>
+        <active>true</active>
+        <description>Record type for Triage object to manage IHS case assignment rules for Customer Care cases</description>
+        <label>IHS</label>
+        <picklistValues>
+            <picklist>Queue__c</picklist>
+            <values>
+                <fullName>Accounts Receivable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Chemical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C ECR%2FFCM %7C FCM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C CDN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C ETA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C FieldDirect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C ODS Petrodata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C Petra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Goldfire %7C Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Goldfire %7C Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C NRG %7C Prod Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C NRG %7C Well Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Product Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Markit</fullName>
+        <active>true</active>
+        <description>Record type for Triage object to manage Markit case assignment rules for Customer Care cases</description>
+        <label>Markit</label>
+        <picklistValues>
+            <picklist>Queue__c</picklist>
+            <values>
+                <fullName>Accounts Receivable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Chemical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C ECR%2FFCM %7C FCM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C CDN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C ETA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C FieldDirect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C ODS Petrodata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C Petra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Energy %7C US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Goldfire %7C Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Goldfire %7C Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C NRG %7C Prod Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C NRG %7C Well Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Product Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CS %7C Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C CTI %7C Client Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Counterparty Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Credit Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Customer Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C DS Match</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Data Delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Data Delivery %7C Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C EGUS Egains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Environmental Registry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Equities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Equities %7C Dividends</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C European ABS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C FRTB Client Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Fair Value</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Indices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Indices %7C IAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C KY3P %7C Operations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C KYCS %7C Onboarding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C KYCS %7C Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C KYCS %7C Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Loan Data Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Loan Settlement %7C Clear Par</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MCA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MSACRT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MSERV FX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MSERV Regulatory Reporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MSERV UAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MSF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C All Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Book Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Clearing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C High Priority</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C L1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Password Reset</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Reports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Static Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C User Clones Static Conf%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C User Deactivations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C User Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Markit Research Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MarkitHub</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MarkitSERV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Notice Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C OTC Derivatives Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C PMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Parsing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Portfolio Valuations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Pricing %7C Operations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Reference Data Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Research Signals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C TCA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Trade Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Valuation Managers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C WSO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MarkitSERV</fullName>
+        <active>true</active>
+        <description>Record type for Triage object to manage Markit SERV case assignment rules for Customer Care cases</description>
+        <label>MarkitSERV</label>
+        <picklistValues>
+            <picklist>Queue__c</picklist>
+            <values>
+                <fullName>FM %7C DS Match</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C EGUS Egains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C FRTB Client Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MSERV FX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MSERV Regulatory Reporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MSERV UAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C All Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Book Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Clearing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C High Priority</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C L1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Password Reset</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Reports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C Static Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C User Clones Static Conf%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C User Deactivations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C MW %7C User Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C Trade Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM %7C WSO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <searchResultsAdditionalFields>ProductGroup__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Subject__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SkillLevel__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Queue__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>PriorityMandatoryForTriageRule</fullName>
+        <active>true</active>
+        <description>SFDC1-7557 This rule mandates user to add priority of triage rule.</description>
+        <errorConditionFormula>ISBLANK(Priority__c)</errorConditionFormula>
+        <errorDisplayField>Priority__c</errorDisplayField>
+        <errorMessage>Please specify priority of the rule.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ProductGroupMandatoryForIHSTriageRule</fullName>
+        <active>false</active>
+        <description>SFDC1-7557 This rule mandates user to add product group for IHS triage rule</description>
+        <errorConditionFormula>AND(
+ISBLANK(ProductGroup__c),
+RecordType.DeveloperName == &apos;IHS&apos;
+)</errorConditionFormula>
+        <errorDisplayField>ProductGroup__c</errorDisplayField>
+        <errorMessage>Please specify Product group for the rule.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QueueMandatoryForTriageRule</fullName>
+        <active>true</active>
+        <description>SFDC1-7557 This rule mandates user to add queue for triage rule.</description>
+        <errorConditionFormula>ISBLANK(TEXT(Queue__c))</errorConditionFormula>
+        <errorDisplayField>Queue__c</errorDisplayField>
+        <errorMessage>Please specify Queue for the rule. In case a match is found, case will be assigned to this queue.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SubjectMandatoryForMSERVTriageRule</fullName>
+        <active>false</active>
+        <description>SFDC1-7557 This rule mandates user to add subject for MSERV triage rule</description>
+        <errorConditionFormula>AND(
+ISBLANK(Subject__c),
+RecordType.DeveloperName == &apos;MarkitSERV&apos;
+)</errorConditionFormula>
+        <errorDisplayField>Subject__c</errorDisplayField>
+        <errorMessage>Please specify Subject for the rule.</errorMessage>
+    </validationRules>
+</CustomObject>

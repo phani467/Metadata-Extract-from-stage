@@ -1,0 +1,4 @@
+<apex:page docType="html-5.0" standardcontroller="Opportunity" sidebar="false" standardStylesheets="false" showHeader="false">
+    <!-- See our help documentation for Salesforce1 instruction. -->
+    <c:runDDP />
+</apex:page>

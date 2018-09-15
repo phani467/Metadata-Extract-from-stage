@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT" description="This is the event that opens up the email container, and also sends off default data.">
+    <aura:attribute name="globalId" type="string" default=""/>
+    <aura:attribute name="htmlEmail" type="boolean" default="false"/>
+    <aura:attribute name="emailSubject" type="string" default=""/>
+    <aura:attribute name="emailBody" type="string" default=""/>
+</aura:event>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2741;Template used when a software bug or enhancement is fixed by development and returned to case owner with ts-respond case status.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>TS - Respond - Fixed and Archived</name>
+    <style>none</style>
+    <subject>{!Case.CaseNumber} has been Resolved in the KINGDOM Software {!Case.ProductGroup__c}</subject>
+    <textOnly>Customer:{!Case.Account} 
+
+Case:{!Case.CaseNumber} 
+
+Subject: {!Case.Subject} 
+
+Dear {!Case.Contact}, 
+
+We would like to inform you that a solution has been provided in The KINGDOM Software for your case {!Case.CaseNumber} 
+
+. The Kingdom Software Version 
+
+{!Case.ProductGroup__c} contains changes to address this issue. Please install or download this KINGDOM version {!Case.ProductGroup__c} to verify the reported problem has been resolved to your satisfaction. For your convenience in downloading software, your Support User ID is {!Contact.Email} 
+
+If you&apos;ve forgotten your password, it can be retrieved by clicking on the &quot;Retrieve Password&quot; hyperlink on the Support login page. An email will be sent to your registered email address with a link to reset your password. Pleasure ensure that www.ihs.com is marked as a permitted sender in your junk or spam filter. If you want to change your password, that option is presented to you after login. The case will be archived at this time, but if you encounter a problem with the resolution of this case and require further assistance, please contact IHS Markit Customer Care. 
+
+Best Regards, 
+
+{!Case.OwnerFullName} 
+IHS Markit Kingdom Customer Care Team</textOnly>
+    <type>custom</type>
+</EmailTemplate>

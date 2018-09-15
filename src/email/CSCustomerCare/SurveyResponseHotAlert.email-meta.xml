@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-1895: Survey Response Hot Alert</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Survey Response Hot Alert</name>
+    <style>none</style>
+    <subject>A Hot Alert has been triggered for your Survey. {!SurveyResponse__c.Case__c}</subject>
+    <textOnly>Hello,
+
+The following case has triggered a hot alert from the customer being surveyed.
+
+Case: {!SurveyResponse__c.Case__c}
+Account: {!SurveyResponse__c.Account__c}
+Contact:{!SurveyResponse__c.Contact__c}
+Contact Email: {!SurveyResponse__c.ContactEmail__c}
+Owner: {!SurveyResponse__c.CaseOwner__c}
+
+CES Score: {!SurveyResponse__c.CESScore__c}
+Survey Comments: {!SurveyResponse__c.Comments__c}
+Date closed: {!SurveyResponse__c.CaseClosedDate__c}
+
+Please review the survey here:
+
+{!SurveyResponse__c.Link}
+
+Please update the Survey with appropriate Hot Alert Status and Hot Alert Feedback.
+
+Thank You</textOnly>
+    <type>custom</type>
+</EmailTemplate>

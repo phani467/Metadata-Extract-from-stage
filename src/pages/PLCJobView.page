@@ -1,0 +1,287 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Page is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:page standardController="PLCJob__c" title="PLC Job" extensions="PLCJobUtility">
+<script>
+    if('{!showMessage}'=='True'){
+            alert('Job Task(s) Created');
+    }
+</script> 
+
+<style type="text/css">
+        .requiredField { border:1px solid red }
+</style>
+    
+<apex:sectionHeader title="Production Job" subtitle="{!PLCJob__c.JobNumber__c} - {!PLCJob__c.JobStatus__c} "/>
+
+<chatter:feedWithFollowers entityId="{!PLCJob__c.WorkRequestForm__r.ID}"/> <br/> 
+
+<apex:form >
+
+
+
+<apex:pageBlock > 
+<apex:pageMessages id="MSG"/>
+
+   <apex:pageBlockButtons > 
+       <apex:commandButton value="Edit" action="{!Edit}"/>
+
+       <apex:commandButton value="Cancel" action="{!Cancel}"/> 
+
+   </apex:pageBlockButtons>
+   
+   <apex:pageBlockSection title="Standard Tasks" collapsible="false">
+   
+       <apex:outputField value="{!PLCJob__c.CreateDocumentationTask__c}">
+                    <apex:actionSupport reRender="CreateTasks" event="onchange"/>
+       </apex:outputField>
+       <apex:outputField value="{!PLCJob__c.CreateSetupMeetingTask__c}">
+                    <apex:actionSupport reRender="CreateTasks" event="onchange"/>
+       </apex:outputField>
+       <apex:outputField value="{!PLCJob__c.CreatePeerReviewTask__c}">   
+                    <apex:actionSupport reRender="CreateTasks" event="onchange"/>
+       </apex:outputField>
+       
+   </apex:pageBlockSection>
+   
+   <apex:pageBlockSection title="Information" collapsible="false">
+    
+            <apex:outputField value="{!PLCJob__c.name}"/>
+            <apex:pageBlockSectionItem />
+            <apex:outputField value="{!PLCJob__c.ownerid}" label="Programmer"/>
+            <apex:outputField value="{!PLCJob__c.JobStatusOverride__c}"/>
+            <apex:outputField value="{!PLCJob__c.Team1__c}" label="Programmer's Team" styleClass="requiredField"/>
+            <apex:OutputField value="{!PLCJob__c.ProgrammerAssignedDate__c}"/>
+            <apex:outputField value="{!PLCJob__c.TotalDaysOnHold__c}"/>
+            <apex:outputField value="{!PLCJob__c.ChangeLog__c}"/>
+            <apex:outputField value="{!PLCJob__c.SubmittedDate__c}"/>
+            <apex:outputField value="{!PLCJob__c.OrderRequest__c}"/>
+                                    <apex:pageBlockSectionItem />
+
+   </apex:PageBlockSection>
+   <apex:pageBlockSection collapsible="false" columns="1">
+            
+            <apex:outputField value="{!PLCJob__c.JobName__c}" />
+  
+   </apex:PageBlockSection>
+   <apex:pageBlockSection collapsible="false" columns="2">
+
+            <apex:outputField value="{!PLCJob__c.JobNumber__c}" label="Job #"/>
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__c}"/>
+            <apex:outputField value="{!PLCJob__c.ExtendedJob__c}" 
+                rendered="{!PLCJob__c.WorkRequestForm__r.Internal__c==true}"
+            />
+            <apex:pageBlockSectionItem rendered="{!PLCJob__c.WorkRequestForm__r.Internal__c <> true}"
+                HelpText="{!$ObjectType.PLCJob__c.fields.ExtendedJob__c.inlineHelpText}">
+                <apex:outputLabel for="blankExtendedJob" 
+                    value="{!$ObjectType.PLCJob__c.fields.ExtendedJob__c.label}" />
+                <apex:outputText value="" id="blankExtendedJob"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+            <apex:outputField value="{!PLCJob__c.ParentJob__c}"/>
+            <apex:pageBlockSectionItem />
+            
+            <apex:outputField value="{!PLCJob__c.CreatedDate}"/>
+            <apex:outputField value="{!PLCJob__c.CreatedByID}"/>
+            <apex:outputField value="{!PLCJob__c.LastModifiedDate}"/>
+            <apex:outputField value="{!PLCJob__c.LastModifiedByID}"/>
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.PrimarySalesContact__c}"/>
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.SecondarySalesContact__c}"/>
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.PrimarySalesContact__r.Phone}"/>
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.SecondarySalesContact__r.Phone}"/>
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.PrimarySalesContact__r.Email}"/>
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.SecondarySalesContact__r.Email}"/>
+
+ 
+    </apex:pageBlockSection>
+     
+    <apex:pageBlockSection title="Initiate" id="Initiate" collapsible="false">
+            <!-- ROW 1 -->
+            <!-- Job Type -->
+    
+            <apex:pageblockSectionItem >
+                <apex:outputLabel for="jobType" value="Job Type"/>
+                <apex:outputField value="{!PLCJob__c.JobType__c}" id="jobType" styleClass="requiredField"/> 
+            </apex:pageblockSectionItem>
+            <!-- Oppty -->
+    
+            <apex:outputField value="{!PLCJob__c.Opportunity__c}"/>
+            
+            
+            <!-- ROW 2 -->
+            <!-- Cycle -->
+    
+            <apex:pageBlockSectionItem rendered="{! PLCJob__c.JobType__c <> 'Cyclical' &&  
+                             PLCJob__c.JobType__c <> 'Internal Cyclical' && 
+                             PLCJob__c.JobType__c <> 'Lights Out Process' &&
+                             Nullvalue(PLCJob__c.CycleOccurance__c , 0) <= 0}"/>
+            <apex:outputField value="{!PLCJob__c.Cycle__c}" styleClass="requiredField"
+                rendered="{! PLCJob__c.JobType__c=='Cyclical' ||  PLCJob__c.JobType__c=='Internal Cyclical' || 
+                             PLCJob__c.JobType__c == 'Lights Out Process' || 
+                             Nullvalue(PLCJob__c.CycleOccurance__c , 0) > 0}" />
+            <!-- Opp # -->
+    
+           <apex:outputField value="{!PLCJob__c.Opportunity__r.Opportunitynum__c}"/> 
+            
+            
+            <!-- ROW 3 -->
+            <!-- Cycle Start -->
+    
+            <apex:pageBlockSectionItem rendered="{! PLCJob__c.JobType__c <> 'Cyclical' &&  
+                             PLCJob__c.JobType__c <> 'Internal Cyclical' && 
+                             PLCJob__c.JobType__c <> 'Lights Out Process' &&
+                             Nullvalue(PLCJob__c.CycleOccurance__c , 0) <= 0}"/>
+            <apex:outputField value="{!PLCJob__c.CycleStart__c}" styleClass="requiredField"  
+                rendered="{! PLCJob__c.JobType__c=='Cyclical' ||  PLCJob__c.JobType__c=='Internal Cyclical' ||
+                             PLCJob__c.JobType__c == 'Lights Out Process' || 
+                             Nullvalue(PLCJob__c.CycleOccurance__c , 0) > 0}" />
+            <!-- Opp Amount -->
+    
+            <apex:outputField value="{!PLCJob__c.OpportunityValue__c}"/>
+            
+            
+            <!-- ROW 4 -->
+            <!-- # of Cycles -->
+    
+            <apex:pageBlockSectionItem rendered="{! PLCJob__c.JobType__c <> 'Cyclical' &&  
+                             PLCJob__c.JobType__c <> 'Internal Cyclical' && 
+                             PLCJob__c.JobType__c <> 'Lights Out Process' &&
+                             Nullvalue(PLCJob__c.CycleOccurance__c , 0) <= 0}"/>
+            <apex:outputField value="{!PLCJob__c.NumberOfCycles__c}" styleClass="requiredField"  
+                rendered="{! PLCJob__c.JobType__c=='Cyclical' ||  PLCJob__c.JobType__c=='Internal Cyclical' ||
+                             PLCJob__c.JobType__c == 'Lights Out Process' || 
+                             Nullvalue(PLCJob__c.CycleOccurance__c , 0) > 0}"/>
+            <!-- Customer -->
+    
+            <apex:outputField value="{!PLCJob__c.Opportunity__r.AccountID}" label="Customer"/>
+           
+            
+            <!-- ROW 5 -->
+            <!-- Setup -->
+    
+            <apex:outputField value="{!PLCJob__c.WRFQuality__c}" styleClass="requiredField"/>
+            <!-- Cust Type -->
+    
+            <apex:outputField value="{!PLCJob__c.CustomerType__c}"/>
+            
+            
+            <!-- ROW 6 -->
+            <!-- WRF Sub Brand --> 
+    
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.SubBrand__c}" 
+                rendered="{! NullValue(PLCJob__c.WorkRequestForm__r.FormType__c , ' ') == 'UK'}"/>
+            <apex:pageBlockSectionItem rendered="{! NullValue(PLCJob__c.WorkRequestForm__r.FormType__c , ' ') <> 'UK'}" />
+            <!-- Due Date -->
+    
+            <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.RequestedDueDate__c}"/>
+            
+            
+            
+    </apex:pageBlockSection>
+    
+    <apex:pageBlockSection title="Plan" id="Plan_1" columns="1" collapsible="false">
+
+            <apex:outputField value="{!PLCJob__c.SetupNotesAttached__c}" rendered="{!if(PLCJob__c.WRFQuality__c="Approved, Set-up Required",TRUE,FALSE)}"/> 
+            <apex:outputField value="{!PLCJob__c.SetupNotes__c}" rendered="{!if(PLCJob__c.WRFQuality__c="Approved, Set-up Required",TRUE,FALSE)}" />
+
+    </apex:pageBlockSection>    
+    
+    <apex:pageBlockSection id="Plan_2">
+
+                <apex:outputField value="{!PLCJob__c.StartDate__c}" /> 
+                <apex:outputField value="{!PLCJob__c.NegotiatedDate__c}" /> 
+                <apex:outputField value="{!PLCJob__c.Multipart__c}">
+                    <apex:actionSupport reRender="Plan_2,Clonebutton,MultipartButton" event="onchange" focus="multiNumParts"/>
+                </apex:outputField>
+                <apex:pageBlockSectionItem />
+                
+                <apex:outputField value="{!PLCJob__c.NumberOfParts__c}" rendered="{!PLCJob__c.Multipart__c}" id="multiNumParts" styleClass="requiredField">
+                    <apex:actionSupport reRender="Plan_2,Clonebutton,MultipartButton" event="onchange"/>
+                </apex:outputField>
+                
+    </apex:pageBlockSection>                
+    
+    <apex:pageBlockSection title="Design" id="Design" collapsible="false">
+                
+                <apex:outputField value="{!PLCJob__c.JobEstimatedHours__c}"/>
+               
+                <apex:pageBlockSectionItem />
+                <apex:outputField value="{!PLCJob__c.OtherCostEstimate__c}"/>       
+                <apex:outputField value="{!PLCJob__c.Opportunity__r.CurrencyIsoCode}" rendered="{!IF(PLCJob__c.Opportunity__r.CurrencyIsoCode != null , true , false)}" />
+               
+                <apex:outputField value="{!PLCJob__c.PSCCodeReview__c }" styleClass="requiredField" rendered="{!if(PLCJob__c.TotalJobEstimate__c >= 20 && PLCJob__c.JobType__c = 'Development',True,False)}"/>       
+
+    </apex:pageBlockSection>
+    
+    <apex:pageBlockSection title="Review" id="Review" collapsible="false">
+    
+        <apex:outputField value="{!PLCJob__c.PeerReviewer__c}"/>
+        <apex:pageBlockSectionItem />
+        <apex:outputField value="{!PLCJob__c.PeerReviewStatus__c}">
+            <apex:actionSupport reRender="Review" event="onchange"/>
+        </apex:outputField>
+        <apex:pageBlockSectionItem />
+        <apex:outputField value="{!PLCJob__c.ReasonForFailure__c}" styleClass="requiredField" rendered="{!if(PLCJob__c.PeerReviewStatus__c='Passed on 1st Attempt',False,if(PLCJob__c.PeerReviewStatus__c=NULL,False,True))}"/>
+        <apex:outputField value="{!PLCJob__c.TotalReworkHours__c}" styleClass="requiredField" rendered="{!if(PLCJob__c.PeerReviewStatus__c='Passed on 1st Attempt',False,if(PLCJob__c.PeerReviewStatus__c=NULL,False,True))}"/>
+      
+        <apex:outputField value="{!PLCJob__c.EncryptionRequired__c}">
+            <apex:actionSupport reRender="Review" event="onchange"/>              
+        </apex:outputField>  
+        <apex:outputField value="{!PLCJob__c.EncryptionKey__c}" rendered="{!PLCJob__c.EncryptionRequired__c}" styleClass="requiredField"/>
+
+        <apex:pageBlockSectionItem rendered="{!Not(PLCJob__c.EncryptionRequired__c)}"/>
+
+        <apex:outputField value="{!PLCJob__c.FTPRequired__c}">
+            <apex:actionSupport reRender="Review" event="onchange"/>              
+        </apex:outputField>
+        <apex:pageBlockSectionItem />
+        <apex:outputField value="{!PLCJob__c.FTPInformationInWRF__c}" rendered="{!PLCJob__c.FTPRequired__c}"/>
+        <apex:pageBlockSectionItem rendered="{!PLCJob__c.FTPRequired__c}"/>
+
+        <apex:outputField value="{!PLCJob__c.FTPPath__c}" rendered="{!PLCJob__c.FTPRequired__c}"/>
+        <apex:outputField value="{!PLCJob__c.FTPUserID__c}" rendered="{!PLCJob__c.FTPRequired__c}"/>
+
+        
+        <apex:outputField value="{!PLCJob__c.EffortCompletedDate__c}"/>
+        <apex:outputField value="{!PLCJob__c.ReasonForDelay__c}"/>       
+
+    </apex:pageBlockSection>
+
+    <apex:pageBlockSection title="Delivery" collapsible="false">
+    
+        <apex:outputField value="{!PLCJob__c.DateTimeOfDelivery__c}"/>  
+        <apex:pageBlockSectionItem />
+        <apex:outputField value="{!PLCJob__c.JobActualHours__c}"/>
+        <apex:outputField value="{!PLCJob__c.ActualCost__c}"/>  
+        <apex:outputField value="{!PLCJob__c.TotalDeliverables__c}"/> 
+        <apex:outputField value="{!PLCJob__c.ExternalDeliverables__c}"/> 
+        <apex:outputField value="{!PLCJob__c.DefectiveDeliverables__c}"/> 
+        <apex:outputField value="{!PLCJob__c.LateDeliverables__c}"/> 
+        <apex:outputField value="{!PLCJob__c.OpenTasks__c}"/>
+
+        
+        <apex:outputField value="{!PLCJob__c.WorkRequestForm__r.RoyaltyVendor__c}"/>
+
+      <apex:outputField value="{!PLCJob__c.JobCompletedDelivered__c}"/>
+
+        <apex:outputField value="{!PLCJob__c.RoyaltyRecordsIncluded__c}"/>
+        
+  
+
+    </apex:pageBlockSection>
+</apex:pageBlock>
+</apex:form>
+
+<apex:relatedList list="Jobtask__r" title="Associated Job Tasks"/>
+<apex:relatedList id="noteslist" list="NotesAndAttachments" subject="{!PLCJob__c.id}" />
+<apex:relatedList id="childjobs" list="PLCJob__r"  />  
+<apex:relatedList id="CARs" list="CARs__r"  />
+<c:historyRelatedList object="{!PLCJob__c}" records="200" scrollable="true"/>
+  
+
+</apex:page>

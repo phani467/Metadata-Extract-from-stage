@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5046: Loan Reconciliation - Request to Onboard</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loan Reconciliation - Request to Onboard</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+&lt;enter requester name&gt; has requested to set up the below funds for doc delivery. Please confirm the custodial relationship, provide your internal ID’s and e-mail notification if desired, and confirm that you agree to onboard for CIDD. 
+
+Best Regards, 
+
+{!User.FirstName} {!User.LastName}
+{!User.Title} | CIDD Support 
+711 Executive Blvd., Suite A | Valley Cottage, New York 10989 
+Support: +1 646 690 4291 Main: +1 646 690 4300 
+LSMDocDelivery@markit.com 
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

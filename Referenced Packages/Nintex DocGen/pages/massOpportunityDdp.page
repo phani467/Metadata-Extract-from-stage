@@ -1,0 +1,3 @@
+<apex:page id="massOpportunityDdp" standardController="Opportunity" recordSetVar="records" extensions="Loop.MassRedirectPageExt">
+    <c:massRedirect redirectInfo="{!redirectParams}"/>
+</apex:page>

@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:attribute name="type" type="String" default="default" description="Accepts: default, success, error, offline. Defaults to default."/>
+    <aura:attribute name="text" type="String" default="" required="true"/>
+    <aura:attribute name="texture" type="Boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <div class="slds">
+        <div class="slds-notify_container" style="position:relative; z-index:0;">
+            <div aura:id="alert" class="slds-notify slds-notify--alert">
+                <h2>{!v.text}</h2>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>DUC Approval is complete</name>
+    <style>freeForm</style>
+    <subject>DUC Approval is complete</subject>
+    <textOnly>** ATTENTION  **
+
+
+DUC approval is complete for {!WorkRequestForm__c.Name}. No further action is required.
+
+DUC Approved by: {!WorkRequestForm__c.LastModifiedBy}
+DUC Approved Date: {!Work_Request_Form__c.00N30000009C4WZ}
+
+Link to WRF: {!WorkRequestForm__c.Link}
+
+Account Name: {!WorkRequestForm__c.AccountName__c}
+Opportunity Name: {!WorkRequestForm__c.OpportunityName__c}</textOnly>
+    <type>html</type>
+</EmailTemplate>

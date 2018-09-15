@@ -1,0 +1,342 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Page(WRPrintPDF) is related to Legacy POLK application.
+// @return: NA
+-->
+
+<apex:page standardController="WorkRequestForm__c" extensions="WRACE" id="thePage" sidebar="false" standardStylesheets="true" showHeader="false">
+<apex:stylesheet value="{!URLFOR($Resource.Styles)}"/>
+<a href="javascript:window.print();"> Print Work Request Form</a>
+<apex:sectionHeader title="Work Request Form - {!WorkRequestForm__c.RequestStatus__c} - {!WorkRequestForm__c.FormType__c} "/>
+
+    <apex:form id="theForm" >
+    <apex:pageBlock id="mainBlock" >
+
+        <apex:actionRegion >
+        <apex:pageBlockSection title="Information" id="info">
+                <apex:outputField value="{!WorkRequestForm__c.name}"/>
+                <apex:outputfield value="{!WorkRequestForm__c.owner.name}"/>
+                 <apex:outputField value="{!WorkRequestForm__c.DisplayFields__c}" rendered="false" />
+                 
+                 <apex:outputfield value="{!WorkRequestForm__c.JobType__c}"   />
+                
+               
+                <apex:outputField value="{!WorkRequestForm__c.PrimarySalesContact__c}" styleClass="requiredField"/>
+                
+                <!-- UK FORM ONLY -->
+                <apex:outputField value="{!WorkRequestForm__c.Billable__c}" styleClass="requiredField"
+                    rendered="{! NULLVALUE(formType, 'ZZZ') == 'UK'}"/>
+                <apex:pageBlockSectionItem rendered="{! NULLVALUE(formType, 'ZZZ') == 'UK'}"/>
+                <!-- UK FORM ONLY -->
+                
+                <apex:outputField value="{!WorkRequestForm__c.PreviousJob__c}" rendered="{!IF(jobtype == 'Renewal'|| jobtype == 'Cyclical',TRUE,FALSE)}" styleClass="requiredField" />
+                <apex:pageBlockSectionItem rendered="{!!IF(jobtype == 'Renewal'|| jobtype == 'Cyclical',TRUE,FALSE)}"  />
+                <apex:outputField value="{!WorkRequestForm__c.PrimarySalesPhone2__c}"/>
+                <apex:outputField value="{!WorkRequestForm__c.PreviousLegacyJob__c}" rendered="{!IF(jobtype == 'Renewal'|| jobtype == 'Cyclical',TRUE,FALSE)}" styleClass="requiredField"/> 
+                <apex:pageBlockSectionItem rendered="{!!IF(jobtype == 'Renewal'|| jobtype == 'Cyclical',TRUE,FALSE)}" />
+                <apex:outputField value="{!WorkRequestForm__c.SecondarySalesContact__c}"/>
+                <apex:outputField value="{!WorkRequestForm__c.Cycle__c}" rendered="{!IF(jobtype == 'Cyclical',TRUE,FALSE)}" styleclass="requiredField" />
+                <apex:pageblocksectionitem rendered="{!!IF(jobtype == 'Cyclical',TRUE,FALSE)}" />
+                <apex:outputfield value="{!WorkRequestForm__c.CostCenter__c}"/>
+                <apex:outputField value="{!WorkRequestForm__c.CycleStart__c}" rendered="{!IF(jobtype == 'Cyclical',TRUE,FALSE)}" styleclass="requiredField" />
+                <apex:pageblocksectionitem rendered="{!!IF(jobtype == 'Cyclical',TRUE,FALSE)}" />
+                <apex:outputfield value="{!WorkRequestForm__c.SubmittedDate__c}"/>
+                <apex:outputField value="{!WorkRequestForm__c.NumberOfCycles__c}" rendered="{!IF(jobtype == 'Cyclical',TRUE,FALSE)}" styleclass="requiredField" />
+                <apex:pageblocksectionitem rendered="{!!IF(jobtype == 'Cyclical',TRUE,FALSE)}" />
+                <apex:outputField value="{!WorkRequestForm__c.RequestedDueDate__c}" styleClass="requiredField"/>                
+                <apex:pageBlockSectionItem rendered="{!!IF(formtype =='Parts & Service' || formtype == 'NOC',TRUE,FALSE)}" />
+                <apex:outputField value="{!WorkRequestForm__c.Priority__c}" rendered="{!IF(formtype =='Parts & Service' || formtype == 'NOC',TRUE,FALSE)}" styleClass="requiredField"/>  
+                <apex:outputField value="{!wrf.ClonedFromWRF__c}" rendered="true" />
+                 <apex:outputField value="{!wrf.ChangeLogs__c}" />
+                </apex:PageBlockSection>
+            <apex:pageBlockSection title="Data Use Committee" id="DUC" collapsible="false" rendered="{!!IF(formtype =='Parts & Service' || formtype == 'NOC',TRUE,FALSE)}">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="ducapprove" value="DUC Approval Reason"/>
+                    <apex:outputField value="{!WorkRequestForm__c.DUCApprovalRequired__c}" id="ducapprove" styleClass="requiredField"> 
+                    <apex:actionSupport reRender="DUC,MSG" event="onchange" status="formstatus"/>
+                    </apex:outputField>
+                </apex:pageBlockSectionItem>
+                  <apex:outputField value="{!WorkRequestForm__c.DUCApproved__c}" rendered="{!IF(editDUC,TRUE,FALSE)}" />
+                  <apex:outputfield value="{!WorkRequestForm__c.DUCApproved__c}" rendered="{!!IF(editDUC,TRUE,FALSE)}" />
+                  <apex:pageblocksection />
+                  <apex:outputField value="{!WorkRequestForm__c.DUCApprovalDate__c}"/>
+                  <apex:outputField style="width:60%" value="{!WorkRequestForm__c.DUCOther__c}" rendered="{!IF(CONTAINS(WorkRequestForm__c.DUCApprovalRequired__c,'Other'),TRUE,FALSE)}" styleClass="requiredField"/>
+
+            </apex:pageBlockSection>
+        </apex:actionRegion>
+        <apex:pageBlockSection title="Request Type" collapsible="false" rendered="{!!IF(formtype =='Parts & Service' || formtype == 'NOC',TRUE,FALSE)}">
+                <apex:outputField value="{!WorkRequestForm__c.TLAS__c}" rendered="{!IF(formtype == 'TLAS'||formtype=='Sales Match',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.ListRequest__c}" rendered="{!IF(formtype == 'TLAS'||formtype=='Sales Match',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.SalesMatch__c}" rendered="{!IF(formtype == 'Sales Match'||formtype=='TLAS',TRUE,FALSE)}" />
+                <apex:outputField value="{!WorkRequestForm__c.AdHocReport__c}" rendered="{!IF(formtype == 'Stat'||formtype == 'Canada',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.AutoTrackerReport__c}" rendered="{!IF(formtype == 'Stat',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.PolkInsightProductionMessage__c}" rendered="{!IF(formtype == 'Stat',TRUE,FALSE)}"/>
+                <apex:pageBlockSectionItem rendered="{!IF(formtype=='Canada',TRUE,FALSE)}" HelpText="{!$ObjectType.WorkRequestForm__c.fields.PolkInsightProductionMessage__c.inlineHelpText}">
+                   <apex:outputLabel value="Canadian Site Message"/>
+                   <apex:outputfield value="{!WorkRequestForm__c.PolkInsightProductionMessage__c}" rendered="{!IF(formtype=='Canada',TRUE,FALSE)}"/>               
+                </apex:pageBlockSectionItem>                  
+                <apex:outputField value="{!WorkRequestForm__c.Loyalty__c}" rendered="{!IF(formtype == 'Analytics',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.AdhocCustom__c}" rendered="{!IF(formtype == 'Analytics',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.Profile__c}" rendered="{!IF(formtype == 'Analytics',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.ModelSegmentation__c}" rendered="{!IF(formtype == 'Analytics',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.TIPNetNewTruck__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/>                  
+                <apex:outputField value="{!WorkRequestForm__c.TIPNetVehiclesInOperation__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/>
+                <apex:outputField value="{!WorkRequestForm__c.TIPNetNewTrailer__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/>
+                <apex:outputField value="{!WorkRequestForm__c.NewRegNewFor__c}" rendered="{!IF(formtype == 'Stat',TRUE,FALSE)}"/> 
+                <apex:outputField value="{!WorkRequestForm__c.ChinaDataRequests__c}" rendered="{!IF(formtype == 'Stat',TRUE,FALSE)}"/> 
+                <apex:outputField value="{!WorkRequestForm__c.PARCGlobal__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/> 
+                <apex:outputField value="{!WorkRequestForm__c.ChinaCV__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/> 
+                <apex:outputField value="{!WorkRequestForm__c.Recall__c}" rendered="{!IF(formtype == 'Recall',TRUE,FALSE)}"/> 
+                <apex:outputField value="{!WorkRequestForm__c.CARB__c}" rendered="{!IF(formtype == 'Recall',TRUE,FALSE)}"/> 
+                <apex:outputField value="{!WorkRequestForm__c.VINTrace__c}" rendered="{!IF(formtype == 'Recall'||formtype == 'Canada',TRUE,FALSE)}"/>       
+                <apex:outputField value="{!WorkRequestForm__c.TIPNetSystem__c}" rendered="{!IF(formtype == 'TIPNet',TRUE,FALSE)}"/> 
+                <apex:outputfield value="{!WorkRequestForm__c.SMARTLink__c}" rendered="{!IF(formtype=='Canada',TRUE,FALSE)}"/>                
+                <apex:outputfield value="{!WorkRequestForm__c.FileCleanse__c}" rendered="{!IF(formtype=='Canada',TRUE,FALSE)}"/>
+                <apex:outputField value="{!WorkRequestForm__c.ReportDataFile__c}" rendered="{!IF(formtype == 'Aftermarket' && wrf.SubmittedDate__c < DATE(2014,02,08),TRUE,FALSE)}"/> 
+                <apex:outputField value="{!WorkRequestForm__c.CatalogMerge__c}" rendered="{!IF(formtype == 'Aftermarket' && wrf.SubmittedDate__c < DATE(2014,02,08),TRUE,FALSE)}"/>       
+                <apex:outputField value="{!WorkRequestForm__c.LifeCycleReport__c}" rendered="{!IF(formtype == 'Aftermarket' && wrf.SubmittedDate__c < DATE(2014,02,08),TRUE,FALSE)}"/>       
+                <apex:outputField value="{!WorkRequestForm__c.GuideFiles__c}" rendered="{!IF(formtype == 'Aftermarket' && wrf.SubmittedDate__c < DATE(2014,02,08),TRUE,FALSE)}"/>       
+                <apex:outputField value="{!WorkRequestForm__c.ScrappageMedianAge__c}" rendered="{!IF(formtype == 'Aftermarket' && wrf.SubmittedDate__c < DATE(2014,02,08),TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.WorldviewParc__c}" rendered="{!IF(formtype =='Aftermarket' && wrf.SubmittedDate__c < DATE(2014,02,08),TRUE,FALSE)}"/>
+                
+                <apex:outputField value="{!WorkRequestForm__c.ReportDataFile__c}" rendered="{!IF(formtype == 'Aftermarket'      && (wrf.SubmittedDate__c  >= DATE(2014,02,08) || ISNULL(wrf.SubmittedDate__c ) ),TRUE,FALSE)}"/> 
+                <apex:outputField value="{!WorkRequestForm__c.WorldviewVIO__c}" rendered="{!IF(formtype == 'Aftermarket'        && (wrf.SubmittedDate__c  >= DATE(2014,02,08) || ISNULL(wrf.SubmittedDate__c ) ),TRUE,FALSE)}"/>       
+                <apex:outputField value="{!WorkRequestForm__c.PARCDataFiles__c}" rendered="{!IF(formtype == 'Aftermarket'       && (wrf.SubmittedDate__c  >= DATE(2014,02,08) || ISNULL(wrf.SubmittedDate__c ) ),TRUE,FALSE)}"/>       
+                <apex:outputField value="{!WorkRequestForm__c.WorldviewParc__c}" rendered="{!IF(formtype =='Aftermarket'        && (wrf.SubmittedDate__c  >= DATE(2014,02,08) || ISNULL(wrf.SubmittedDate__c ) ),TRUE,FALSE)}"/>
+                <apex:outputField value="{!WorkRequestForm__c.CatalogMerge__c}" rendered="{!IF(formtype == 'Aftermarket'        && (wrf.SubmittedDate__c  >= DATE(2014,02,08) || ISNULL(wrf.SubmittedDate__c ) ),TRUE,FALSE)}"/>
+                <apex:outputField value="{!WorkRequestForm__c.WorldviewGAMS__c}" rendered="{!IF(formtype == 'Aftermarket'       && (wrf.SubmittedDate__c  >= DATE(2014,02,08) || ISNULL(wrf.SubmittedDate__c ) ),TRUE,FALSE)}"/>              
+                <apex:outputField value="{!WorkRequestForm__c.ScrappageMedianAge__c}" rendered="{!IF(formtype == 'Aftermarket'  && (wrf.SubmittedDate__c  >= DATE(2014,02,08) || ISNULL(wrf.SubmittedDate__c ) ),TRUE,FALSE)}"/>  
+ 
+                
+                                    
+                <apex:outputField value="{!WorkRequestForm__c.ContinentalTire__c}" rendered="{!IF(formtype =='Continental Tire Aftermarket',TRUE,FALSE)}"/>
+                <apex:outputField value="{!WorkRequestForm__c.Mapping__c}" rendered="{!IF(formtype=='Aftermarket'||formtype=='TIPNet'||formtype=='Recall'
+                  ||formtype=='CVGGlobal'||formtype=='Analytics'||formtype=='Stat'||formtype=='Sales Match'||formtype=='TLAS',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!WorkRequestForm__c.LicenseExpirationDate__c}" rendered="{!IF(formtype == 'Aftermarket' && ( WorkRequestForm__c.WorldviewVIO__c || WorkRequestForm__c.WorldviewParc__c || WorkRequestForm__c.WorldviewGAMS__c),TRUE,FALSE)}"/>                
+                <!-- <apex:outputField value="{!Work_Request_Form__c.Parts_Service__c}" rendered="{!IF(formtype =='Parts & Service/NOC',TRUE,FALSE)}"/>
+                <apex:outputField value="{!Work_Request_Form__c.NOC__c}" rendered="{!IF(formtype =='Parts & Service/NOC',TRUE,FALSE)}"/>  -->
+                <apex:selectRadio value="{!PNS}" rendered="{!IF(formtype =='Parts & Service/NOC',TRUE,FALSE)}" layout="pageDirection">
+                    <apex:selectOptions value="{!PNSList}" />
+                </apex:selectRadio>      
+                <!-- <apex:outputField value="{!Work_Request_Form__c.VINA__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>              
+                <apex:outputField value="{!Work_Request_Form__c.VIS__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.CVINA__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.PC_VINA__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.PC_VIS__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.PC_CVINA__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.Complete_Prefix_File__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.MINI_CPF__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.VIN_Prefix_File__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.VIN_Price__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.VIN_Telligence__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.Recover__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.Fleet_Find__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.VOS__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.VIN_Verification__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  
+                <apex:outputField value="{!Work_Request_Form__c.Custom__c}" rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}"/>  -->
+                <apex:pageBlockSectionItem rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}">
+                    <apex:selectRadio id="ssRadio" value="{!SS}"  layout="pageDirection" disabled="true">
+                       <apex:selectOptions value="{!SSList}" />
+                        <apex:actionSupport reRender="MSG,tdf" event="onchange" status="formstatus"/>
+                    </apex:selectRadio> 
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>  
+            <apex:pageBlockSection title="Oppportunity Information" columns="2" collapsible="false">
+                <apex:outputfield value="{!WorkRequestForm__c.OpportunityNumber__c}"/> 
+                <apex:outputfield value="{!WorkRequestForm__c.Revenue__c}"/> 
+                <apex:outputfield value="{!WorkRequestForm__c.OpportunityName__c}"/>
+            </apex:pageBlockSection>            
+  
+        
+        <apex:outputPanel rendered="{!IF(o.accountid==null&&NOT(wrf.Internal__c),TRUE,FALSE)}">
+            <apex:pageBlockSection title="Customer Information" collapsible="false">
+                <apex:outputField value="{!WorkRequestForm__c.AccountName__c}" styleClass="requiredField" /> 
+                <!-- This piece of code is commented out to remove the dependency of CustomerContact__c as per new business use case for POLK
+                <apex:outputField value="{!WorkRequestForm__c.CustomerContact__c}" styleClass="requiredField" /> -->
+            </apex:pageBlockSection>            
+            </apex:outputPanel>
+        <apex:outputPanel rendered="{!IF(o.accountid<>null&&NOT(wrf.Internal__c),TRUE,FALSE)}">
+            <apex:pageBlockSection title="Customer Information" collapsible="false">
+                <apex:outputfield value="{!WorkRequestForm__c.AccountName__c}" /> 
+                <!-- This piece of code is commented out to remove the dependency of CustomerContact__c as per new business use case for POLK
+                <apex:outputField value="{!WorkRequestForm__c.CustomerContact__c}" styleClass="requiredField" /> -->
+            </apex:pageBlockSection>            
+        </apex:outputPanel>
+    
+            <apex:actionRegion >  
+         <apex:pageBlockSection title="Output" id="Output" collapsible="false" rendered="{!!IF(formtype == 'Software Services',TRUE,FALSE)}">
+                 <apex:pageBlockSectionItem >
+                 <apex:outputLabel for="Output" value="Output Type"/>
+                         <apex:outputField value="{!WorkRequestForm__c.OutputType__c}" id="output" styleClass="requiredField">
+                         <apex:actionSupport reRender="Output,MSG" event="onchange" status="formstatus"/>
+                         </apex:outputField>
+                 </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                 <apex:outputLabel for="OutputMed" value="Output Medium"/>
+                         <apex:outputField value="{!WorkRequestForm__c.OutputMedium__c}" id="outputmed" styleClass="requiredField">
+                         <apex:actionSupport reRender="Output,MSG" event="onchange" status="formstatus"/>
+                         </apex:outputField>
+                 </apex:pageBlockSectionItem>
+                     
+                 <apex:outputField style="width:70%" value="{!WorkRequestForm__c.OtherOutputType__c}" rendered="{!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Other'),TRUE,FALSE)}" styleClass="requiredField"/>                   
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Other'),TRUE,FALSE)}" /> 
+                 
+                 <apex:outputField style="width:70%" value="{!WorkRequestForm__c.OtherOutputMedium__c}" rendered="{!IF(CONTAINS(WorkRequestForm__c.OutputMedium__c,'Other'),TRUE,FALSE)}" styleClass="requiredField"/> 
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(WorkRequestForm__c.OutputMedium__c,'Other'),TRUE,FALSE)}"/>       
+                 
+                 <apex:outputField value="{!WorkRequestForm__c.DelimitedBy__c}" rendered="{!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Text - Delimited by'),TRUE,FALSE)}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Text - Delimited by'),TRUE,FALSE)}"/>        
+                                  
+                 <apex:outputField value="{!WorkRequestForm__c.ExcelVersion__c}" styleclass="requiredField" rendered="{!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Excel'),TRUE,FALSE)}"/>
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Excel'),TRUE,FALSE)}"/> 
+                  
+         </apex:pageblocksection> 
+         
+          </apex:actionRegion>
+          <apex:actionRegion >
+          
+           <apex:pageblockSection rendered="{!!IF(formtype == 'Software Services',TRUE,FALSE)}">
+           
+               <apex:pageBlockSectionItem >
+                 <apex:outputLabel for="Email" value="Email" />
+                         <apex:outputField value="{!WorkRequestForm__c.ShipEmail__c}" id="email">
+                             <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                         </apex:outputField>
+                </apex:pageBlockSectionItem>
+                
+                <apex:outputField value="{!WorkRequestForm__c.ReturnToSales__c}"/>
+                <apex:outputField value="{!WorkRequestForm__c.Email__c}" rendered="{!WorkRequestForm__c.ShipEmail__c}" styleClass="requiredField"/>
+                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipEmail__c}"/>
+                <apex:pageblocksection />
+               
+                 <apex:pageBlockSectionItem >
+                 <apex:outputLabel for="PolkFTP" value="Polk FTP"/>
+                         <apex:outputField value="{!WorkRequestForm__c.ShipFTPPolk__c}" id="polkftp">
+                         <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                         </apex:outputField>
+                </apex:pageblocksectionitem> 
+                      
+                     <apex:outputField value="{!WorkRequestForm__c.ShipOther__c}" />
+                     <apex:outputField value="{!WorkRequestForm__c.FTPLogin__c}" rendered="{!WorkRequestForm__c.ShipFTPPolk__c}" styleClass="requiredField"/>
+                     <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTPPolk__c}"/>
+                 <apex:pageblocksection />
+                     <apex:outputField value="{!WorkRequestForm__c.PGPKey__c}" rendered="{!WorkRequestForm__c.ShipFTPPolk__c}" />
+                     <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTPPolk__c}"/>
+     
+               <apex:pageBlockSectionItem >
+                <apex:outputLabel for="Carrier" value="Carrier"></apex:outputLabel>
+                         <apex:outputField value="{!WorkRequestForm__c.ShipCarrier__c}" id="carrier">
+                             <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                         </apex:outputField>
+                 </apex:pageBlockSectionItem>     
+                    
+                 <apex:pageBlockSectionItem >
+                 <apex:outputLabel for="FTP" value="Customer FTP"/>
+                         <apex:outputField value="{!WorkRequestForm__c.ShipFTP__c}" id="ftp">
+                         <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                         </apex:outputField>
+                 </apex:pageBlockSectionItem>
+                 
+                 <apex:outputField value="{!WorkRequestForm__c.AccountName__c}" rendered="{!WorkRequestForm__c.ShipCarrier__c}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipCarrier__c}"/> 
+                 <apex:outputField value="{!WorkRequestForm__c.FTPLogin__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                 <apex:outputField value="{!WorkRequestForm__c.Attention__c}" rendered="{!WorkRequestForm__c.ShipCarrier__c}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipCarrier__c}"/>
+                 <apex:outputField value="{!WorkRequestForm__c.FTPPasswordEnc__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                 <apex:pageblocksectionitem />
+                 <apex:outputField value="{!WorkRequestForm__c.FTPSite__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                 <apex:pageblocksectionitem />
+                 <apex:outputField value="{!WorkRequestForm__c.PGPKey__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" />
+               
+       <!-- Render if the form is SoftwareServices -->
+           </apex:pageBlockSection>
+           <apex:pageblockSection rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}">
+         
+           
+                 <apex:pageBlockSectionItem >
+                 <apex:outputLabel for="FTP" value="FTP"/>
+                         <apex:outputField value="{!WorkRequestForm__c.ShipFTP__c}" id="ftp">
+                         <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                         </apex:outputField>
+                </apex:pageblocksectionitem> 
+                
+                 <apex:outputField value="{!WorkRequestForm__c.ReturnToSales__c}"/>    
+                 <apex:outputField value="{!WorkRequestForm__c.FTPLogin__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>                      
+                 <apex:outputField value="{!WorkRequestForm__c.ShipOther__c}" />
+                 <apex:outputField value="{!WorkRequestForm__c.FTPPasswordEnc__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                 <apex:pageblocksection />
+                 <apex:outputField value="{!WorkRequestForm__c.FTPSite__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                 <apex:pageblocksectionitem />
+                 <apex:outputField value="{!WorkRequestForm__c.PGPKey__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" />
+        </apex:pageBlockSection>
+           
+       
+      </apex:actionRegion>  
+      
+            <apex:pageblocksection columns="1" collapsible="false">
+                  <apex:outputField style="width:100%" value="{!WorkRequestForm__c.ShippingInstructions__c}" />
+                  <apex:outputField style="width:100%" value="{!WorkRequestForm__c.PathToFilesOnShareDrive__c}" />    
+            </apex:pageblocksection>
+
+      <apex:pageBlock title="Data Files" rendered="{!IF(formtype=='TLAS'||formtype=='Stat'||formtype=='Canada'||formtype=='Software Services'||formtype=='Recall'||formtype=='CVGGlobal'
+    ||formtype=='Aftermarket'||formtype=='NewUsed Registration'||formtype=='Analytics'||formtype='Continental Tire Aftermarket'||formtype=='TIPNet'||formtype=='Sales Match',TRUE,FALSE)}"  >    
+   
+        <c:tabDataFilePrint id="tdf" pageExt="{!This}" wrf="{!wrf}" MC="{!MC}" cnt="{!CNT}" df="{!DF}" formtype="{!formtype}" editSymbol="{!editSymbol}" editDUC="{!editDUC}" editapproved="{!editApproved}"  /> 
+    
+    </apex:pageBlock>
+    
+    <apex:pageBlockSection title="Order Request" rendered="{!formtype='TLAS'}" columns="1">
+     
+            <c:tabOrderReq2Print id="order" wrf="{!wrf}" />
+
+    </apex:pageBlockSection>
+       
+    <apex:pageBlockSection title="Input Files" rendered="{!IF(OR(formtype='TLAS',formtype='Stat',formtype='Sales Match',formtype='Analytics'),TRUE,FALSE)}" columns="1" >
+     
+            <c:tabInputFilesPrint id="input" wrf="{!wrf}"/>
+
+    </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Internal Data" rendered="{!IF(formtype='TLAS',TRUE,FALSE)}" columns="1">
+        
+           <c:tabInternalDataPrint id="internal" wrf="{!wrf}"/>
+
+        </apex:pageBlockSection>
+   
+        <apex:pageBlockSection columns="1" title="SWS Delivery Times" rendered="{!formtype='Software Services'}">
+           
+            <c:tabSWSDelivery id="sws" wrf="{!wrf}" formtype="{!formtype}"/>
+       
+        </apex:pageBlockSection>
+          
+                <apex:pageblocksection title="Special Instructions" id="SpecialInst" collapsible="false" columns="1">
+                    <apex:outputField value="{!WorkRequestForm__c.SpecialInstructions__c}" style="width:95%"/>
+                </apex:pageBlockSection>                
+        
+        <apex:pageBlockSection columns="1" title="Change Log" rendered="{!wrf.IsSubmitted__c}">
+      
+             <c:tabChangelog2Print wrf="{!wrf}" />
+
+        </apex:pageBlockSection>
+   
+    </apex:pageBlock>
+    </apex:form>
+    <apex:pageblock > 
+
+        <apex:relatedList id="noteslist" list="NotesAndAttachments" title="General Attachments" />
+     </apex:pageblock>
+    <apex:relatedList id="Jobs" list="PLCJobs__r" rendered="{!if(WorkRequestForm__c.RequestStatus__c='Approved',true,false)}"  />  
+    <div class="hideRelatedListLinks hideRelatedListButton">
+        <apex:relatedList list="OpportunityWorkRequestForms__r" rendered="{! !wrf.Internal__c}" title="Opportunities"/>
+    </div>
+    
+</apex:page>

@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddToCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableCustomerPortal</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnablePartnerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableSelfService</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Merge</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewContact</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewCustomerPortal</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewPartnerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewSelfService</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>ContactCompactLayout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ContactCompactLayout</fullName>
+        <fields>Name</fields>
+        <fields>AccountId</fields>
+        <fields>Title</fields>
+        <fields>MailingAddress</fields>
+        <fields>Phone</fields>
+        <fields>Email</fields>
+        <fields>Status__c</fields>
+        <label>Contact Compact Layout</label>
+    </compactLayouts>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalContactFields__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-2301 reference to Additional Contact Fields object for this Contact record</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reference to Additional Contact Fields object for this Contact record</inlineHelpText>
+        <label>Additional Contact Fields</label>
+        <referenceTo>AdditionalContactFields__c</referenceTo>
+        <relationshipLabel>Contacts</relationshipLabel>
+        <relationshipName>Contacts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AssistantName</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>AssistantPhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Birthdate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CleanStatus</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ContactCountry__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-384 This field serves as a lookup to the Country object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Read-only field, updated indirectly by a change of Company&apos;s Billing Country</inlineHelpText>
+        <label>Contact Country</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Contacts</relationshipLabel>
+        <relationshipName>Contacts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContactGeography__c</fullName>
+        <description>SFDC1-384 Read-only field referencing Contact Country&apos;s geography</description>
+        <externalId>false</externalId>
+        <formula>TEXT(ContactCountry__r.Geography__c)</formula>
+        <inlineHelpText>Read-only field referencing Contact Country&apos;s geography</inlineHelpText>
+        <label>Contact Geography</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContactRegion__c</fullName>
+        <description>SFDC1-384 Read-only field referencing Contact Country&apos;s region</description>
+        <externalId>false</externalId>
+        <formula>TEXT(ContactCountry__r.Region__c)</formula>
+        <inlineHelpText>Read-only field referencing Contact Country&apos;s region</inlineHelpText>
+        <label>Contact Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Department</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EloquaHardBounce__c</fullName>
+        <description>SFDC1-8576: This field is populated by the Eloqua integration and indicates the last date that a hardbounce from the email address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last date that a hard-bounce from the email address</inlineHelpText>
+        <label>Eloqua Hard Bounce</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EmailOptOutTimeStamp__c</fullName>
+        <description>SFDC1- 452; Date/time field which is populated by Email Opt Out</description>
+        <externalId>false</externalId>
+        <label>Email Opt Out Time Stamp</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>EmailOptOut__c</fullName>
+        <description>SFDC1 - 452 : Picklist value which will be populated by Lead
+SFDC1-7608 : Updated the Picklist values</description>
+        <externalId>false</externalId>
+        <label>Email Opt Out</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Global Email Opt Out</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Country Email Exclusion (ie CASL/GDPR)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CASL Exclude</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>GDPR Exclude</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Opt Out</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>EmailUnknown__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-530 Allow user to enter a contact who will not provide their email address. When this field is checked, Business phone field is required. If this field is unchecked, email is mandatory.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check this box if contact&apos;s email address is unknown. A phone number will be required in that case.</inlineHelpText>
+        <label>Email Unknown</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeID__c</fullName>
+        <description>SFDC1-1359 This field will be used specifically for IHSM employees and populated through the IHSM Contact integration with the AD ID. The AD ID is being used because an employee number and name/email may change over time. No validation is needed on the field since it will be populated through the integration.SFDC1-8656 : Marking this as External Id field</description>
+        <externalId>true</externalId>
+        <label>Employee ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>GroupDesk__c</fullName>
+        <description>SFDC1-799 Legacy Markit field, the desk or area the contact works in the institution</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If a suitable Group/Desk cannot be found please contact your Salesforce Administrator.</inlineHelpText>
+        <label>Group/Desk</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alternative Investments</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Arbitrage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Asset Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Auditor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clearing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clearing/Back Office</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clearing &amp; Custody</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Commodities Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Competitor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Convertible Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Broking</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Finance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Correlation Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit Risk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Custody</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data Feed Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Derivative Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Derivatives Trader</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>E-Commerce</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Economic Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Derivatives</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Portfolio Mgr</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Risk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Income</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Income Portfolio Mgr</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Income Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Income Risk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed IncomeTrading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Forex Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fund Administrator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Futures Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FX Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Markets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Head Hunter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Human Resources</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Information Technology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Interest Rate Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Intern</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Investment Banking</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Left Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loans</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>M&amp;A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Market Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Market Risk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Middle Office</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Money Market Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mortgage Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Muni Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portfolio Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Press</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pricing Valuations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prime Brokerage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Private Banking</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Procurement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product Control</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Program Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Project Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Proprietary Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Public Relations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quantitative Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Real Estate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Regulator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Repo Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research - Client</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Risk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales &amp; Marketing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Securitization</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security Lending</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Structured Credit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Structured Products</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Structured Risk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Structured Surveillance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Swaps Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Syndication</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Treasury</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trust</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Underwriting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Valuations - Client/External</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GroupEmailFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-1831 This field is to be checked if email is a distribution list email like accountspayable@ihsmarkit.com, this field should be unchecked by default.</description>
+        <externalId>false</externalId>
+        <label>Group Email Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HomePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>InactiveReason__c</fullName>
+        <description>SFDC1-200 Must be completed to mark the contact as inactive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required when status changed to inactive.</inlineHelpText>
+        <label>Inactive Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account Inactive</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Deceased</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moved On</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retired</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No longer at account</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Industry__c</fullName>
+        <description>SFDC1-1831 Pick list field from Marketing, this maps over from the lead conversion process and Eloqua Sync.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select an Industry value.</inlineHelpText>
+        <label>Industry</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Academic/Education</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aerospace &amp; Defense</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agriculture</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Air Transport</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Automotive</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Banking</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Services/Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chemicals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Commodities Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Construction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy Equipment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial/Asset Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Food Manufacturing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Local/State Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Military/Security Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Healthcare</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Land Transport</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Logistics &amp; Shipping</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Maritime</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Media</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Metals/Mining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Governmental Organizations (NGO)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Oil &amp; Gas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Manufacturing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pharmaceutical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Power &amp; Utility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Telecommunications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transportation Manufacturing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wood &amp; Paper</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>JobFunction__c</fullName>
+        <description>SFDC1-1831 Pick list field from Marketing, this maps over from the lead conversion process and Eloqua Sync.</description>
+        <externalId>false</externalId>
+        <label>Job Function</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Academic/Education</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Development/Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C-Suite Executives</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Economist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Environmental Health Safety Sustainability</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engineering</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Exploration &amp; Production</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial/Investment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Geology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Information Technology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Librarian</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manufacturing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Procurement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product/Project Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Risk Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supply Chain</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>JobTitle__c</fullName>
+        <description>Creating Job Title as of SFDC1-863; Titles have been taken from Markit QA org</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If you are unable to find a suitable job title please contact your Salesforce Administrator</inlineHelpText>
+        <label>Job Title</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Assistant Vice President</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Associate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCO - Chief Compliance Officer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CDO - Chief Data Officer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CEO - Chief Executive Officer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CFO - Chief Financial Officer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chief Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CIO - Chief Investment Officer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COO - Chief Operating Officer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CTO - Chief Technology Officer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Director</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive Director</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive Vice President</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Intern</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Managing Director</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portfolio Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>President</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Senior Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Senior Director</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Senior Managing Director</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Senior Vice President</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vice President</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CRO - Chief Risk Officer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DirectorExecutive Director</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>InternManaging Director</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LastCURequestDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LastCUUpdateDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-2445 : Legacy ID field for Contact Object</description>
+        <externalId>true</externalId>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Licenses__c</fullName>
+        <description>SFDC1-4329;It can be populated via the userxs integration for use by the marketing team to be passed to Eloqua.</description>
+        <externalId>false</externalId>
+        <label>Licenses</label>
+        <length>32000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MailingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>NumProductLoginContactAssociation__c</fullName>
+        <description>SFDC1-6833: Number of related Product Login Contact Association</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of related Product Login Contact Association</inlineHelpText>
+        <label>Number Product Login Contact Association</label>
+        <summaryForeignKey>ProductLoginContactAssociation__c.Contact__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>NumberOfLicenses__c</fullName>
+        <description>SFDC1-4329;It can be populated via the userxs integration for use by the marketing team to be passed to Eloqua.</description>
+        <externalId>false</externalId>
+        <label>Number of Licenses</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OrgLevel__c</fullName>
+        <description>SFDC1-1831 Pick list field from Marketing, this maps over from the lead conversion process and Eloqua Sync.</description>
+        <externalId>false</externalId>
+        <label>Org Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Advisory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Board Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CEO or President</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CXO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Director</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vice President</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OtherAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OtherPhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PKIDContact__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>Cnt{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID Contact</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>PrimaryLanguage__c</fullName>
+        <description>SFDC1-200 Contact&apos;s primary language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select contact&apos;s primary language</inlineHelpText>
+        <label>Primary Language</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Arabic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chinese</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Danish</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dutch</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>English</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>French</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>German</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Italian</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Japanese</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Korean</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portuguese</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Russian</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Spanish</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProductUsageLast30days__c</fullName>
+        <description>SFDC1-2446 Field for tracking product usage for the last 30 days</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lists the product used for the last 30 days. Auto-calculated via the trigger.</inlineHelpText>
+        <label>Product Usage Last 30 days</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProductUsageLast60days__c</fullName>
+        <description>SFDC1-2446 Field for tracking product usage for the last 60 days</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lists the product used for the last 60 days. Auto-calculated via a trigger.</inlineHelpText>
+        <label>Product Usage Last 60 days</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProductUsageLast90days__c</fullName>
+        <description>SFDC1-2446 Field for tracking product usage for the last 90 days</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lists the product used for the last 90 days. Auto-calculated via a trigger.</inlineHelpText>
+        <label>Product Usage Last 90 days</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProspectProfiler__c</fullName>
+        <description>SFDC1-4815: Call Prospect Profiler field will build a URL which will provide access to the Prospect profiler information in Eloqua.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;https://login.eloqua.com/cvp?LoginPrefix=IHSE&amp;Username=Profiler.User&amp;Password=999645ce-a4ad-472d-9255-59602b503e98,DE1FF21F17416652504F15E859ACB2CA69D4BB52BCC14C633D97A0645D1BC7D6C99CD3AC92492336029C210AF9252AED67F6C18E3FF99DE34E67D53D9A9BA5BB36469BCB3C338CD697FFAB0194E17E25&amp;Url=apps/profiler/index.aspx?emailAddress=&quot;&amp; Email,&quot;Click here for Prospect Profiler Info&quot;)</formula>
+        <inlineHelpText>Prospect Profiler</inlineHelpText>
+        <label>Prospect Profiler</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReportsToId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>SFDC1-200 Determines if the Contact is active or inactive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select contact&apos;s status</inlineHelpText>
+        <label>Status</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <listViews>
+        <fullName>AllActiveContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <label>All Active Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>AllContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>AllInactiveContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Inactive</value>
+        </filters>
+        <label>All Inactive Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>MyContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Contacts</label>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTACT.TITLE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTACT.EMAIL</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTACT.PHONE1</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupFilterFields>FULL_NAME</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE1</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE3</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE4</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE5</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE6</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.TITLE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>BlockProhibitedCountry</fullName>
+        <active>true</active>
+        <description>SFDC1-384 Do not allow a Contact record to be created if the Contact&apos;s country is a Prohibited Country</description>
+        <errorConditionFormula>VLOOKUP( $ObjectType.Country__c.Fields.IsProhibited__c ,  $ObjectType.Country__c.Fields.Name, MailingCountry)</errorConditionFormula>
+        <errorDisplayField>MailingCountry</errorDisplayField>
+        <errorMessage>Due to U.S. export controls and sanctions restrictions, Contact records cannot be created for the selected country.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ContactInactiveReason_Validation</fullName>
+        <active>true</active>
+        <description>Required when status changed to inactive</description>
+        <errorConditionFormula>ISPICKVAL(Status__c, &quot;Inactive&quot;)
+&amp;&amp;  ISBLANK(TEXT(InactiveReason__c))</errorConditionFormula>
+        <errorMessage>Please select an inactive reason to change the contact&apos;s status to &quot;Inactive&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EmailRequired</fullName>
+        <active>true</active>
+        <description>When [Email Unknown] is not checked, Email Address is required.</description>
+        <errorConditionFormula>EmailUnknown__c  = false
+&amp;&amp;   Email = null</errorConditionFormula>
+        <errorDisplayField>Email</errorDisplayField>
+        <errorMessage>Please enter Email address or check the Email Unknown box (a business phone number will be required in that case).</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EmailUnknownThenPhoneRequired</fullName>
+        <active>true</active>
+        <description>When [Email Unknown] is checked, Business phone field is required.</description>
+        <errorConditionFormula>EmailUnknown__c  = true
+&amp;&amp;  Phone  = null</errorConditionFormula>
+        <errorDisplayField>Phone</errorDisplayField>
+        <errorMessage>Please enter Business Phone when Email is unknown.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>FirstNameRequired</fullName>
+        <active>true</active>
+        <description>SFDC1-749 Make First Name a required field</description>
+        <errorConditionFormula>FirstName = null</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>Please enter contact&apos;s first name</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>InactiveContactUpdate_Validation</fullName>
+        <active>false</active>
+        <description>Only allow edit on active contacts.
+Any field other than the status change can&apos;t be updated for inactive contact.
+SFDC1-6833: Bypassing this validation to allow SF Admin user to update inactive contacts</description>
+        <errorConditionFormula>ISPICKVAL (Status__c, &quot;Inactive&quot;)
+&amp;&amp; !ISCHANGED(Status__c) 
+&amp;&amp;  NOT(  CONTAINS($User.FirstName + &apos; &apos;+ $User.LastName, &apos;SF Admin&apos;))</errorConditionFormula>
+        <errorMessage>Inactive contact cannot be edited. Please change the contact status to &quot;Active&quot; to update other values.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>ContactActivityOverview</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Contact Activity Overview</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://login.eloqua.com/autoLogin?LoginPrefix=IHSM&amp;Url=FlexReports%2FDisplayReport2.aspx%3FStandardReportID%3D1297%2526EmailAddress%3D%7B%21Contact_Email%7D%2526ShowPrintOption%3DTrue</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Contact_MailingStreet}+{!Contact_MailingCity}+{!Contact_MailingState}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Contact_FirstName} {!Contact_LastName}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>800</height>
+        <linkType>url</linkType>
+        <masterLabel>Create PDF</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loop?eid={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1000</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loopmerge?eid={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1200</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!Contact.Id}&amp;accountId={!Account.Id}&amp;sessionId={!$Api.Session_ID}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated Mass LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/loop__loopmerge?eid={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <page>Loop__massContactDdp</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>dsfs__Send_with_DocuSign</fullName>
+        <availability>online</availability>
+        <description>This button will initiate a DocuSign Envelope that is linked to the Contact</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send with DocuSign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
+DocuSign_CreateEnvelope();</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,1776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Additional Rejection Information --></label>
+        <name>AdditionalRejectionInformation__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field contains total amount values for all opportunities associated to contract with stage equals &quot;6W-Renewal Won&quot; --></help>
+        <label><!-- Cumulative Contract Value --></label>
+        <name>AllAssociatedTotalOpportunityValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please check the box if this Contract is for Auto renewal stopped. --></help>
+        <label><!-- Auto Renew Stopped --></label>
+        <name>AutoRenewStopped__c</name>
+    </fields>
+    <fields>
+        <help><!-- Auto Renewal For Drawloop --></help>
+        <label><!-- AutoRenewalDS --></label>
+        <name>AutoRenewalDS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Customer can sign one agreement which will automatically renew year after year --></help>
+        <label><!-- AutoRenewal --></label>
+        <name>AutoRenewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner BP# --></label>
+        <name>BPNum__c</name>
+    </fields>
+    <fields>
+        <label><!-- BSI # --></label>
+        <name>BSI__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: City --></help>
+        <label><!-- Bill To: City --></label>
+        <name>BillToCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: Client Name --></help>
+        <label><!-- Bill To: Client Name --></label>
+        <name>BillToClientName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill To: Company SAP # --></label>
+        <name>BillToCompanySAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: Contact Email Address --></help>
+        <label><!-- Bill To: Contact Email Address --></label>
+        <name>BillToContactEmailAddress__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: Contact First Name --></help>
+        <label><!-- Bill To: Contact First Name --></label>
+        <name>BillToContactFirstName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: Contact Last Name --></help>
+        <label><!-- Bill To: Contact Last Name --></label>
+        <name>BillToContactLastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill To: Contact SAP # --></label>
+        <name>BillToContactSAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: Contact Telephone Number --></help>
+        <label><!-- Bill To: Contact Telephone Number --></label>
+        <name>BillToContactTelephoneNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To : Country --></help>
+        <label><!-- Bill To: Country --></label>
+        <name>BillToCountryCodeLookup__c</name>
+        <relationshipLabel><!-- Contracts (Bill To: Country) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Bill To: Country --></help>
+        <label><!-- Bill To: Country --></label>
+        <name>BillToCountryCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: Postal/Zip Code --></help>
+        <label><!-- Bill To: Postal/Zip Code --></label>
+        <name>BillToPostalZipCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: State/Province --></help>
+        <label><!-- Bill To: State/Province --></label>
+        <name>BillToStateProvince__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bill To: Street --></help>
+        <label><!-- Bill To: Street --></label>
+        <name>BillToStreet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Frequency --></label>
+        <name>BillingFrequency__c</name>
+        <picklistValues>
+            <masterLabel>Annual</masterLabel>
+            <translation><!-- Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consulting Agreement</masterLabel>
+            <translation><!-- Consulting Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Last day of the month,</masterLabel>
+            <translation><!-- Last day of the month, --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Montly on the First day of the month</masterLabel>
+            <translation><!-- Montly on the First day of the month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Montly on the Last Day of the Month</masterLabel>
+            <translation><!-- Montly on the Last Day of the Month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multi Year</masterLabel>
+            <translation><!-- Multi Year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multi Year for Prof Svcs</masterLabel>
+            <translation><!-- Multi Year for Prof Svcs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One time</masterLabel>
+            <translation><!-- One time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly last day of the month</masterLabel>
+            <translation><!-- Quarterly last day of the month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi Annual</masterLabel>
+            <translation><!-- Semi Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Two Year</masterLabel>
+            <translation><!-- Two Year --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- By Pass Contract Validations For Flows --></help>
+        <label><!-- By Pass Validations For Process Builder --></label>
+        <name>ByPassValidationsForProcessBuilder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cancel Request Received Date --></label>
+        <name>CancelRequestReceivedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Company Name --></label>
+        <name>ChannelPartnerCompanyName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Country of Incorporation --></label>
+        <name>ClientCountryofIncorporation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Legal Entity : City --></help>
+        <label><!-- Client Legal Entity: City --></label>
+        <name>ClientLegalEntityCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Legal Entity: Country --></help>
+        <label><!-- Client Legal Entity: Country --></label>
+        <name>ClientLegalEntityCountryLookup__c</name>
+        <relationshipLabel><!-- Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Client Legal Entity : Country --></help>
+        <label><!-- Client Legal Entity: Country --></label>
+        <name>ClientLegalEntityCountry__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client&apos;s Legal Entity --></help>
+        <label><!-- Client Legal Entity --></label>
+        <name>ClientLegalEntityLookUp__c</name>
+        <relationshipLabel><!-- Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Client Legal Entity : State/Province --></help>
+        <label><!-- Client Legal Entity: State/Province --></label>
+        <name>ClientLegalEntityStateProvince__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Legal Entity : Street --></help>
+        <label><!-- Client Legal Entity: Street --></label>
+        <name>ClientLegalEntityStreet__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Legal Entity : Postal/Zip Code --></help>
+        <label><!-- Client Legal Entity: Postal/Zip Code --></label>
+        <name>ClientLegalEntityZipPostalCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Notice Address: City --></help>
+        <label><!-- Client Notice Address: City --></label>
+        <name>ClientNoticeAddressCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Notice Address: Country --></help>
+        <label><!-- Client Notice Address: Country --></label>
+        <name>ClientNoticeAddressCountryLookup__c</name>
+        <relationshipLabel><!-- Contracts (Client Notice Address: Country) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Client Notice Address: Country --></help>
+        <label><!-- Client Notice Address: Country --></label>
+        <name>ClientNoticeAddressCountry__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Notice Address: State/Province --></help>
+        <label><!-- Client Notice Address: State/Province --></label>
+        <name>ClientNoticeAddressStateProvince__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Notice Address: Street --></help>
+        <label><!-- Client Notice Address: Street --></label>
+        <name>ClientNoticeAddressStreet__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Notice Address: Postal/Zip Code --></help>
+        <label><!-- Client Notice Address: Postal/Zip Code --></label>
+        <name>ClientNoticeAddressZipPostalCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- State of Incorporation of Client Legal Entity --></help>
+        <label><!-- Client State of Incorporation --></label>
+        <name>ClientStateOfIncorporationNew__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Comments related to Price Increase --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract Account --></help>
+        <label><!-- Contract Account --></label>
+        <name>ContractAccount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Approval required if &gt;$100K or has Milestones or non-standard terms --></help>
+        <label><!-- Contract Approved --></label>
+        <name>ContractApproved__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract Owner --></help>
+        <label><!-- Contract Owner --></label>
+        <name>ContractOwner__c</name>
+    </fields>
+    <fields>
+        <help><!-- The checkbox get checked when Contract Status = Rejected exceeds 10 days --></help>
+        <label><!-- Contract Rejection Past Due --></label>
+        <name>ContractRejectionPastDue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select from dropdown menu --></help>
+        <label><!-- Contract Status --></label>
+        <name>ContractStatus__c</name>
+        <picklistValues>
+            <masterLabel>Approved &amp; Processed</masterLabel>
+            <translation><!-- Approved &amp; Processed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivered to Customer</masterLabel>
+            <translation><!-- Delivered to Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executed</masterLabel>
+            <translation><!-- Executed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoiced</masterLabel>
+            <translation><!-- Invoiced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Replaced</masterLabel>
+            <translation><!-- Replaced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled Termination</masterLabel>
+            <translation><!-- Scheduled Termination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to Delivery</masterLabel>
+            <translation><!-- Sent to Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to OM/Delivery</masterLabel>
+            <translation><!-- Sent to OM/Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed by Customer</masterLabel>
+            <translation><!-- Signed by Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unscheduled Termination</masterLabel>
+            <translation><!-- Unscheduled Termination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated</masterLabel>
+            <translation><!-- Validated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated PO Pending</masterLabel>
+            <translation><!-- Validated PO Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Contract Term in Days --></help>
+        <label><!-- Contract Term (Days) --></label>
+        <name>ContractTermDays__c</name>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation><!-- 14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60</masterLabel>
+            <translation><!-- 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90</masterLabel>
+            <translation><!-- 90 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Total duration of contract --></help>
+        <label><!-- Contract Term (Months) --></label>
+        <name>ContractTermInMonths__c</name>
+    </fields>
+    <fields>
+        <help><!-- Add a percent if a specific custom annual price increase has been specified in the customer order/contract --></help>
+        <label><!-- Contracted Price Increase --></label>
+        <name>ContractedPriceIncrease__c</name>
+    </fields>
+    <fields>
+        <label><!-- Copy to Bill To --></label>
+        <name>CopytoBillTo__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select Countersignature Owner --></help>
+        <label><!-- Countersignature Owner --></label>
+        <name>CountersignatureOwner__c</name>
+        <relationshipLabel><!-- Contracts (Countersignature Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please select Countersignature Status --></help>
+        <label><!-- Countersignature Status --></label>
+        <name>CountersignatureStatus__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Currency --></label>
+        <name>Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Acceptance Required --></label>
+        <name>CustomerAcceptanceRequired__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Carrier Account # --></label>
+        <name>CustomerCarrierAccount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Date when Letter Sent --></help>
+        <label><!-- Date Letter Sent --></label>
+        <name>DateLetterSent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delivery Priority --></label>
+        <name>DeliveryPriority__c</name>
+        <picklistValues>
+            <masterLabel>2nd Day Prepaid</masterLabel>
+            <translation><!-- 2nd Day Prepaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collect</masterLabel>
+            <translation><!-- Collect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Pickup</masterLabel>
+            <translation><!-- Customer Pickup --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First Class</masterLabel>
+            <translation><!-- First Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ground Prepaid</masterLabel>
+            <translation><!-- Ground Prepaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intl Express</masterLabel>
+            <translation><!-- Intl Express --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail Special Instructions</masterLabel>
+            <translation><!-- Mail Special Instructions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overnight</masterLabel>
+            <translation><!-- Overnight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overnight AM</masterLabel>
+            <translation><!-- Overnight AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overnight Prepaid</masterLabel>
+            <translation><!-- Overnight Prepaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PAC</masterLabel>
+            <translation><!-- PAC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Traceable</masterLabel>
+            <translation><!-- Traceable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Two Day</masterLabel>
+            <translation><!-- Two Day --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DoNotdelete --></label>
+        <name>DoNotdelete__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date where both parties have signed the agreement --></help>
+        <label><!-- Effective Date --></label>
+        <name>EffectiveDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please provide the email address --></help>
+        <label><!-- Email Address --></label>
+        <name>EmailAddress__c</name>
+    </fields>
+    <fields>
+        <help><!-- This will be Exempted From Increase If Applicable --></help>
+        <label><!-- Exemption From Increase If Applicable --></label>
+        <name>ExemptionFromIncreaseIfApplicable__c</name>
+    </fields>
+    <fields>
+        <help><!-- Existing Annual Revenue --></help>
+        <label><!-- Existing Annual Revenue --></label>
+        <name>ExistingAnnualRevenue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use Fast Track terms and conditions if under $100k --></help>
+        <label><!-- Fastrack --></label>
+        <name>Fastrack__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Year Contract Value --></label>
+        <name>FirstYearContractValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Freight Forwarder --></label>
+        <name>FreightForwarder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agreement Effective Date --></label>
+        <name>GeneralAgreementDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Master Agreement Type --></label>
+        <name>GeneralAgreementType__c</name>
+        <picklistValues>
+            <masterLabel>IHS General Agreement</masterLabel>
+            <translation><!-- IHS General Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHS Markit Master Agreement</masterLabel>
+            <translation><!-- IHS Markit Master Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHS Master Agreement</masterLabel>
+            <translation><!-- IHS Master Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit Master Agreement</masterLabel>
+            <translation><!-- Markit Master Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Other Agreement Name --></label>
+        <name>GeneralAgreementValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Master Agreement --></label>
+        <name>GeneralAgreement__c</name>
+        <relationshipLabel><!-- Related Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Address: City --></label>
+        <name>GlobalAllianceAddressCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Address: Country --></label>
+        <name>GlobalAllianceAddressCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Address: Postal/Zip Code --></label>
+        <name>GlobalAllianceAddressPostalZipCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Address: State/Province --></label>
+        <name>GlobalAllianceAddressStateProvince__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Address: Street --></label>
+        <name>GlobalAllianceAddressStreet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Contact Email Address --></label>
+        <name>GlobalAllianceContactEmailAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Contact First Name --></label>
+        <name>GlobalAllianceContactFirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Contact Last Name --></label>
+        <name>GlobalAllianceContactLastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Contact Phone Number --></label>
+        <name>GlobalAllianceContactPhoneNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- IHS Markit Country of Incorporation --></label>
+        <name>IHSMarkitCountryofIncorporation__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Legal Entity: City --></help>
+        <label><!-- IHS Markit Legal Entity: City --></label>
+        <name>IHSMarkitLegalEntityCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Legal Entity: Country --></help>
+        <label><!-- IHS Markit Legal Entity: Country --></label>
+        <name>IHSMarkitLegalEntityCountry__c</name>
+    </fields>
+    <fields>
+        <help><!-- State of IHS Markit Legal Entity --></help>
+        <label><!-- IHS Markit Legal Entity: State/Province --></label>
+        <name>IHSMarkitLegalEntityStateProvinceNew__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Legal Entity: Street --></help>
+        <label><!-- IHS Markit Legal Entity: Street --></label>
+        <name>IHSMarkitLegalEntityStreet__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Legal Entity: Postal/Zip Code --></help>
+        <label><!-- IHS Markit Legal Entity:Postal/Zip Code --></label>
+        <name>IHSMarkitLegalEntityZipPostal_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Legal Entity --></help>
+        <label><!-- IHS Markit Legal Entity --></label>
+        <name>IHSMarkitLegalEntity__c</name>
+        <relationshipLabel><!-- Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Notice Address: City --></help>
+        <label><!-- IHS Markit Notice Address: City --></label>
+        <name>IHSMarkitNoticeAddressCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Notice Address: Country --></help>
+        <label><!-- IHS Markit Notice Address: Country --></label>
+        <name>IHSMarkitNoticeAddressCountry__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Notice Address: Street --></help>
+        <label><!-- IHS Markit Notice Address: Street --></label>
+        <name>IHSMarkitNoticeAddressStreet__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Notice Address: State/Province --></help>
+        <label><!-- IHS Markit Notice Address:State/Province --></label>
+        <name>IHSMarkitNoticeState__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit Notice Address: Postal/Zip Code --></help>
+        <label><!-- IHS Markit Notice Address:Postal/ZipCode --></label>
+        <name>IHSMarkitNoticeZipCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- IHS Markit State of Incorporation --></help>
+        <label><!-- IHS Markit State of Incorporation --></label>
+        <name>IHSMarkitStateOfIncorporationText__c</name>
+    </fields>
+    <fields>
+        <label><!-- IHS Markit State of Incorporation --></label>
+        <name>IHSMarkitStateofIncorporation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter % Increase --></help>
+        <label><!-- % Increase --></label>
+        <name>Increase__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internal Instructions --></label>
+        <name>InternalInstructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Format --></label>
+        <name>InvoiceFormat__c</name>
+        <picklistValues>
+            <masterLabel>Bundled with details</masterLabel>
+            <translation><!-- Bundled with details --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bundled without details.</masterLabel>
+            <translation><!-- Bundled without details. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unbundled</masterLabel>
+            <translation><!-- Unbundled --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Source System Name and Record ID --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populates from the legacy system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- SAP ID for Legacy Markit contracts --></help>
+        <label><!-- Legacy Markit SAP ID --></label>
+        <name>LegacyMarkitSAPID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source record. --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of CRM system that this record has come from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please populate Legal Entity --></help>
+        <label><!-- Legal Entity Name --></label>
+        <name>LegalEntityName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Live CM Clients --></label>
+        <name>LiveCMClients__c</name>
+    </fields>
+    <fields>
+        <label><!-- Markit General Agreement --></label>
+        <name>MarkitGeneralAgreement__c</name>
+        <relationshipLabel><!-- Contracts (Markit General Agreement) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Model Clause Attached? --></help>
+        <label><!-- Model Clause Attached? --></label>
+        <name>ModelClauseAttached__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Multiyear refers to contracts for 2 years and over --></help>
+        <label><!-- Multiyear Order Form --></label>
+        <name>MultiyearOrderForm__c</name>
+    </fields>
+    <fields>
+        <help><!-- If Usage Reports Required = Yes , please provide the Usage Detail --></help>
+        <label><!-- Name (provided usage details) --></label>
+        <name>NameProvidedUsageDetails__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Net Increase --></help>
+        <label><!-- Net Increase --></label>
+        <name>NetIncrease__c</name>
+    </fields>
+    <fields>
+        <help><!-- New Annual Revenue --></help>
+        <label><!-- New Annual Revenue --></label>
+        <name>NewAnnualRevenue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Government Contract Name --></label>
+        <name>NewGovernmentContractName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Government Contract Number --></label>
+        <name>NewGovernmentContractNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- No Internal Approval Needed --></label>
+        <name>NoInternalApprovalNeeded__c</name>
+    </fields>
+    <fields>
+        <help><!-- Notice Address --></help>
+        <label><!-- Notice Address --></label>
+        <name>NoticeAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Approvers --></label>
+        <name>NumApprovalRequested__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Approvals --></label>
+        <name>NumApprovalsApproved__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of Internal Approval where status is &quot;Approved&quot; and Type is &quot;Compliance Approvals&quot; --></help>
+        <label><!-- #  Corporate Compliance Approvals --></label>
+        <name>NumCorporateComplianceApprovalsApproved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Number --></label>
+        <name>OpportunityNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Record Type --></label>
+        <name>OpportunityRecordType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Oppty Owner Email --></label>
+        <name>OpptyOwnerEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Form Format --></label>
+        <name>OrderFormFormat__c</name>
+        <picklistValues>
+            <masterLabel>Bundled with details</masterLabel>
+            <translation><!-- Bundled with details --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unbundled</masterLabel>
+            <translation><!-- Unbundled --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Reason --></label>
+        <name>OrderReason__c</name>
+        <picklistValues>
+            <masterLabel>Add-On</masterLabel>
+            <translation><!-- Add-On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mid-Term Changes</masterLabel>
+            <translation><!-- Mid-Term Changes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rebates</masterLabel>
+            <translation><!-- Rebates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation><!-- Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Variable</masterLabel>
+            <translation><!-- Variable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Original Contract End Date --></help>
+        <label><!-- Original Contract End Date --></label>
+        <name>OriginalContractEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Original Contract --></help>
+        <label><!-- Original Contract --></label>
+        <name>OriginalContract__c</name>
+        <relationshipLabel><!-- Contracts (Original Contract) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This field holds the user name who updated SAP PGI’d field --></help>
+        <label><!-- PGI Owner --></label>
+        <name>PGIOwner__c</name>
+        <relationshipLabel><!-- Contracts (PGI Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID Contract --></label>
+        <name>PKIDContract__c</name>
+    </fields>
+    <fields>
+        <help><!-- Gives information on whether a user has attached the PO to  Contract. --></help>
+        <label><!-- PO Attached --></label>
+        <name>POAttached__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PO Date --></label>
+        <name>PODate__c</name>
+    </fields>
+    <fields>
+        <help><!-- PO Required for Drawloop --></help>
+        <label><!-- PORequiredDS --></label>
+        <name>PORequiredDS__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO Required --></label>
+        <name>PORequired__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO# --></label>
+        <name>PO__c</name>
+    </fields>
+    <fields>
+        <help><!-- Standard terms are Net 30. Finance Approval Required for non-standard payment terms --></help>
+        <label><!-- Payment Terms --></label>
+        <name>PaymentTerms__c</name>
+        <picklistValues>
+            <masterLabel>30 EOM</masterLabel>
+            <translation><!-- 30 EOM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60 EOM</masterLabel>
+            <translation><!-- 60 EOM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Line Debit (CAHD)</masterLabel>
+            <translation><!-- Credit Line Debit (CAHD) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Due Now</masterLabel>
+            <translation><!-- Due Now --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 14</masterLabel>
+            <translation><!-- Net 14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 30</masterLabel>
+            <translation><!-- Net 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 45</masterLabel>
+            <translation><!-- Net 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 60</masterLabel>
+            <translation><!-- Net 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 90</masterLabel>
+            <translation><!-- Net 90 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Previous Year Total Sales Price --></label>
+        <name>PreviousYearTotalSalesPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Whether Price Increase Applied --></help>
+        <label><!-- Price Increase Applied --></label>
+        <name>PriceIncreaseApplied__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select Standard Contract price increase, if you are not adding a specific annual increase rate percent or CPI to the contract --></help>
+        <label><!-- Price Increase Clause --></label>
+        <name>PriceIncreaseClause__c</name>
+        <picklistValues>
+            <masterLabel>No Increase Allowed</masterLabel>
+            <translation><!-- No Increase Allowed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Notification (Initial Term) - CPI Increase</masterLabel>
+            <translation><!-- No Notification (Initial Term) - CPI Increase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Notification - CPI Increase</masterLabel>
+            <translation><!-- No Notification - CPI Increase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Notification - Contracted Percent Increase</masterLabel>
+            <translation><!-- No Notification - Contracted Percent Increase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notification (Initial Term) - CPI Increase</masterLabel>
+            <translation><!-- Notification (Initial Term) - CPI Increase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notification - CPI Increase</masterLabel>
+            <translation><!-- Notification - CPI Increase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notification - Contracted Percent Increase</masterLabel>
+            <translation><!-- Notification - Contracted Percent Increase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Contract Price Increase</masterLabel>
+            <translation><!-- Standard Contract Price Increase --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter Price Increase Effective Date --></help>
+        <label><!-- Price Increase Effective Date --></label>
+        <name>PriceIncreaseEffectiveDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Date Price Increase Letter Returned And Resent --></help>
+        <label><!-- Price Increase Letter Returned &amp; Resent --></label>
+        <name>PriceIncreaseLetterReturnedResent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Price Increase Locked In Date --></help>
+        <label><!-- Price Increase Locked In Date --></label>
+        <name>PriceIncreaseLockedInDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Price Increase Not Automatic --></help>
+        <label><!-- Price Increase (not automatic) --></label>
+        <name>PriceIncreaseNotAutomatic__c</name>
+    </fields>
+    <fields>
+        <help><!-- Required if &gt;$100K or any revenue splits across business lines --></help>
+        <label><!-- Pro Forma Approved --></label>
+        <name>ProFormaApproved__c</name>
+    </fields>
+    <fields>
+        <help><!-- Required if &gt;$25K --></help>
+        <label><!-- Pro Forma Posted --></label>
+        <name>ProFormaPosted__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the Processed Contract Number --></help>
+        <label><!-- Processed Contract # --></label>
+        <name>ProcessedContract__c</name>
+        <relationshipLabel><!-- Contracts (Processed Contract #) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Processed Contract number --></help>
+        <label><!-- SAP Processed Contract # --></label>
+        <name>ProcessedContracttext__c</name>
+    </fields>
+    <fields>
+        <help><!-- Value coming from Product Family on Opportunity --></help>
+        <label><!-- Product Family --></label>
+        <name>ProductFamily__c</name>
+    </fields>
+    <fields>
+        <help><!-- To display concatenated Product Groups in a single text field. --></help>
+        <label><!-- Product Group --></label>
+        <name>ProductGroup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This Information is Required for SOW/Consulting Contract --></help>
+        <label><!-- Project Manager --></label>
+        <name>ProjectManager__c</name>
+    </fields>
+    <fields>
+        <help><!-- This Information is Required for SOW/Consulting Contract --></help>
+        <label><!-- Project Name --></label>
+        <name>ProjectName__c</name>
+    </fields>
+    <fields>
+        <help><!-- This Information is Required for SOW/Consulting Contract --></help>
+        <label><!-- Project Team Members --></label>
+        <name>ProjectTeamMembers__c</name>
+    </fields>
+    <fields>
+        <help><!-- This Information is Required for SOW/Consulting Contract --></help>
+        <label><!-- Project # --></label>
+        <name>Project__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason for Rejection --></label>
+        <name>ReasonforRejection__c</name>
+        <picklistValues>
+            <masterLabel>Contract Amendment Required</masterLabel>
+            <translation><!-- Contract Amendment Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Executed by the Customer</masterLabel>
+            <translation><!-- Contract Executed by the Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EU Company VAT #</masterLabel>
+            <translation><!-- EU Company VAT # --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Existing Services</masterLabel>
+            <translation><!-- Existing Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incorrect Data Entry</masterLabel>
+            <translation><!-- Incorrect Data Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incorrect Entity Used</masterLabel>
+            <translation><!-- Incorrect Entity Used --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>List of Users</masterLabel>
+            <translation><!-- List of Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing Products</masterLabel>
+            <translation><!-- Missing Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing Required Approval</masterLabel>
+            <translation><!-- Missing Required Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Not Available to Trial</masterLabel>
+            <translation><!-- Product Not Available to Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Offerings Do Not Match Trial Agreement</masterLabel>
+            <translation><!-- Product Offerings Do Not Match Trial Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RAD Approval Required</masterLabel>
+            <translation><!-- RAD Approval Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referenced Master Agreement Incorrect/Omitted</masterLabel>
+            <translation><!-- Referenced Master Agreement Incorrect/Omitted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required System Information</masterLabel>
+            <translation><!-- Required System Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed Trial Agreement</masterLabel>
+            <translation><!-- Signed Trial Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special Membership Authorization</masterLabel>
+            <translation><!-- Special Membership Authorization --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recommended Unit Price Total --></label>
+        <name>RecommendedUnitPriceTotal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Hidden field to be passed in as a filter parameter to Drawloop URL --></help>
+        <label><!-- RecordType Name --></label>
+        <name>RecordTypeName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Case --></label>
+        <name>RelatedCase__c</name>
+        <relationshipLabel><!-- Related Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Fill the Renewal Date --></help>
+        <label><!-- Renewal Date --></label>
+        <name>RenewalDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Notification to client of renewal pricing change ahead of renewal period for Legacy IHS enter 65 and Legacy Markit please enter 120 --></help>
+        <label><!-- Renewal Notice Period --></label>
+        <name>RenewalNoticePeriod__c</name>
+        <picklistValues>
+            <masterLabel>120</masterLabel>
+            <translation><!-- 120 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>65</masterLabel>
+            <translation><!-- 65 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Provide the User Name --></help>
+        <label><!-- Renewal Owner --></label>
+        <name>RenewalOwner__c</name>
+        <relationshipLabel><!-- Contracts (Renewal Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Duration of Auto-Renewal --></help>
+        <label><!-- Renewal Term --></label>
+        <name>RenewalTerm__c</name>
+        <picklistValues>
+            <masterLabel>1 Month</masterLabel>
+            <translation><!-- 1 Month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 Year</masterLabel>
+            <translation><!-- 1 Year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18 Months</masterLabel>
+            <translation><!-- 18 Months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Months</masterLabel>
+            <translation><!-- 2 Months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Years</masterLabel>
+            <translation><!-- 2 Years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 Months</masterLabel>
+            <translation><!-- 3 Months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 Years</masterLabel>
+            <translation><!-- 3 Years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 Years</masterLabel>
+            <translation><!-- 4 Years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 Years</masterLabel>
+            <translation><!-- 5 Years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 Months</masterLabel>
+            <translation><!-- 6 Months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evergreen</masterLabel>
+            <translation><!-- Evergreen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Applicable</masterLabel>
+            <translation><!-- Not Applicable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Replacement Contract --></label>
+        <name>ReplacementContract__c</name>
+        <relationshipLabel><!-- Replaced Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please select SAP PGI’d value --></help>
+        <label><!-- SAP PGI’d --></label>
+        <name>SAPPGId__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This Information is Required for SOW/Consulting Contract --></help>
+        <label><!-- Service Lead --></label>
+        <name>ServiceLead__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: City --></help>
+        <label><!-- Ship To: City --></label>
+        <name>ShipToCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: Client Name --></help>
+        <label><!-- Ship To: Client Name --></label>
+        <name>ShipToClientName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship To: Company SAP # --></label>
+        <name>ShipToCompanySAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: Contact Email Address --></help>
+        <label><!-- Ship To: Contact Email Address --></label>
+        <name>ShipToContactEmailAddress__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: Contact First Name --></help>
+        <label><!-- Ship To: Contact First Name --></label>
+        <name>ShipToContactFirstName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: Contact Last Name --></help>
+        <label><!-- Ship To: Contact Last Name --></label>
+        <name>ShipToContactLastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship To: Contact SAP # --></label>
+        <name>ShipToContactSAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: Contact Telephone Number --></help>
+        <label><!-- Ship To: Contact Telephone Number --></label>
+        <name>ShipToContactTelephoneNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To : Country --></help>
+        <label><!-- Ship To: Country --></label>
+        <name>ShipToCountryCodeLookup__c</name>
+        <relationshipLabel><!-- Contracts (Ship To: Country) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Ship To: Country --></help>
+        <label><!-- Ship To: Country --></label>
+        <name>ShipToCountryCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: Postal/Zip Code --></help>
+        <label><!-- Ship To: Postal/Zip Code --></label>
+        <name>ShipToPostalZipCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: State/Province --></help>
+        <label><!-- Ship To: State/Province --></label>
+        <name>ShipToStateProvince__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ship To: Street --></help>
+        <label><!-- Ship To: Street --></label>
+        <name>ShipToStreet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To City --></label>
+        <name>SoldToCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Country --></label>
+        <name>SoldToCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To State/Province --></label>
+        <name>SoldToStateProvince__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Street --></label>
+        <name>SoldToStreet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Zip/Postal Code --></label>
+        <name>SoldToZipPostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Billing Instructions --></label>
+        <name>SpecialBillingInstructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Delivery Instructions --></label>
+        <name>SpecialDeliveryInstructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Shipping Instructions --></label>
+        <name>SpecialShippingInstructions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Written notice client must provide ahead of next renewal period in order to cancel without penalty --></help>
+        <label><!-- Termination Notice --></label>
+        <name>TerminationNotice__c</name>
+        <picklistValues>
+            <masterLabel>10 days</masterLabel>
+            <translation><!-- 10 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1095 days</masterLabel>
+            <translation><!-- 1095 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>120 days</masterLabel>
+            <translation><!-- 120 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15 days</masterLabel>
+            <translation><!-- 15 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>180 days</masterLabel>
+            <translation><!-- 180 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 days</masterLabel>
+            <translation><!-- 30 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>365 days</masterLabel>
+            <translation><!-- 365 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45 days</masterLabel>
+            <translation><!-- 45 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 days</masterLabel>
+            <translation><!-- 5 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60 days</masterLabel>
+            <translation><!-- 60 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90 days</masterLabel>
+            <translation><!-- 90 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Contract Value --></label>
+        <name>TotalContractValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Usage Reports Required : Yes or No --></help>
+        <label><!-- Usage Reports Required --></label>
+        <name>UsageReportsRequired__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- VAT/Tax ID --></help>
+        <label><!-- VAT/Tax ID --></label>
+        <name>VATTaxID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Variance --></label>
+        <name>Variance__c</name>
+    </fields>
+    <layouts>
+        <layout>Consulting</layout>
+        <sections>
+            <label><!-- Additional Bill To Information --></label>
+            <section>Additional Bill To Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Contract Information --></label>
+            <section>Additional Contract Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Ship To Information --></label>
+            <section>Additional Ship To Information</section>
+        </sections>
+        <sections>
+            <label><!-- Consulting --></label>
+            <section>Consulting</section>
+        </sections>
+        <sections>
+            <label><!-- Global Alliance Information --></label>
+            <section>Global Alliance Information</section>
+        </sections>
+        <sections>
+            <label><!-- Legal Entity Details --></label>
+            <section>Legal Entity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Address Details --></label>
+            <section>Notice Address Details</section>
+        </sections>
+        <sections>
+            <label><!-- Price Increase Details --></label>
+            <section>Price Increase Details</section>
+        </sections>
+        <sections>
+            <label><!-- SAP Information --></label>
+            <section>SAP Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Continuation Letter</layout>
+        <sections>
+            <label><!-- Additional Contract Information --></label>
+            <section>Additional Contract Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contract Layout</layout>
+        <sections>
+            <label><!-- Legal Entity Details --></label>
+            <section>Legal Entity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Address Details --></label>
+            <section>Notice Address Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>DPA</layout>
+        <sections>
+            <label><!-- Legal Entity Details --></label>
+            <section>Legal Entity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Address Details --></label>
+            <section>Notice Address Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Managed Service Terms</layout>
+        <sections>
+            <label><!-- Legal Entity Details --></label>
+            <section>Legal Entity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Address Details --></label>
+            <section>Notice Address Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NDA</layout>
+        <sections>
+            <label><!-- Additional Contract Information --></label>
+            <section>Additional Contract Information</section>
+        </sections>
+        <sections>
+            <label><!-- Legal Entity Details --></label>
+            <section>Legal Entity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Address Details --></label>
+            <section>Notice Address Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Order Form</layout>
+        <sections>
+            <label><!-- Additional Bill To Information --></label>
+            <section>Additional Bill To Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Contract Information --></label>
+            <section>Additional Contract Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Ship To Information --></label>
+            <section>Additional Ship To Information</section>
+        </sections>
+        <sections>
+            <label><!-- Global Alliance Information --></label>
+            <section>Global Alliance Information</section>
+        </sections>
+        <sections>
+            <label><!-- Legal Entity Details --></label>
+            <section>Legal Entity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Address Details --></label>
+            <section>Notice Address Details</section>
+        </sections>
+        <sections>
+            <label><!-- Price Increase Details --></label>
+            <section>Price Increase Details</section>
+        </sections>
+        <sections>
+            <label><!-- SAP Information --></label>
+            <section>SAP Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Trial</layout>
+        <sections>
+            <label><!-- Additional Ship To Information --></label>
+            <section>Additional Ship To Information</section>
+        </sections>
+        <sections>
+            <label><!-- Legal Entity Details --></label>
+            <section>Legal Entity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notice Address Details --></label>
+            <section>Notice Address Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Case Contract Detail --></label>
+        <name>CaseContractDetail</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create OM/Delivery helpdesk case --></label>
+        <name>CreateOMDeliveryhelpdeskcase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Salesforce Helpdesk Case --></label>
+        <name>CreateSFDCHelpdeskCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Sales Ops Case --></label>
+        <name>CreateSupportCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Contract Attachment --></label>
+        <name>NewContractAttachment</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New POD Attachment --></label>
+        <name>NewPODAttachment</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Opportunity Sync --></label>
+        <name>OpportunitySync</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log a Call --></label>
+        <name>test</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Consulting --></label>
+        <name>Consulting</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Continuation Letter --></label>
+        <name>ContinuationLetter</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- DPA --></label>
+        <name>DPA</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Managed Service Terms (MST) --></label>
+        <name>ManagedServiceTerms</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Master Agreement --></label>
+        <name>MasterAgreement</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- NDA --></label>
+        <name>NDA</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Order Form --></label>
+        <name>OrderForm</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Trial --></label>
+        <name>Trial</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Associated opportunity must have an activity referenced to it before you reject the contract. --></errorMessage>
+        <name>ActivityCheckOnContractStatusRejected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- All Approvers listed as Internal Approvers need to have their status set to &apos;Approved&apos; in order to move Contract Stage to &quot;Generation.&quot; --></errorMessage>
+        <name>AllApprovalsRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to edit Contracts owned by others. --></errorMessage>
+        <name>AllowOnlyContractOwnerChangeForSG</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- An Internal Approval must be requested in order to move the Contract Stage to Internal Approvals. --></errorMessage>
+        <name>ApprovalRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract End Date cannot be set to a date prior to Contract Start Date --></errorMessage>
+        <name>ContractEndDateFilter</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contracted Price Increase&apos; is required for order form when &apos;Price Increase Clause&apos; is Notification - Contracted Percent Increase/ No Notification - Contracted Percent Increase --></errorMessage>
+        <name>ContractedPriceIncreaseForOrderForm</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The customer associated with this contract has compliance restrictions and requires approval. Please create an Internal Approval and send to Corporate Compliance. --></errorMessage>
+        <name>CorporateCompliaceInternalApprovalReq</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract Record type cannot be updated once record is created. Please contact your System Administrator. --></errorMessage>
+        <name>DoNotAllowContractRecordTypeChange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract can&apos;t be marked as Complete. Please contact your System Administrator. --></errorMessage>
+        <name>DoNotAllowMarkTheStageAsComplete</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Effective Date must be before or equal the Contract Start Date --></errorMessage>
+        <name>EffectiveDateLessThanContractStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Master Agreement Type and Agreement Effective Date is mandatory on Non Fastrack Order Forms, please update the Contract accordingly to proceed further. --></errorMessage>
+        <name>GeneralAgreementForFastrackOrderForm</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Master Agreement is required when Master Agreement Type is not &quot;Other&quot; --></errorMessage>
+        <name>GeneralAgreementRequiredOnOrderForm</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the Other Agreement Name  when Master Agreement Type is selected as &apos;Other&apos; --></errorMessage>
+        <name>GeneralAgreementValueMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide all  Global Alliance Contact Related information as the Opportunity associated to this Contract has &apos;Global Alliance&apos; Sales Channel. --></errorMessage>
+        <name>GlobalAllianceFieldsMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract Records are locked for editing after stage is completed --></errorMessage>
+        <name>LockCompletedContracts</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select Markit General Agreement when Master Agreement type is &apos;Markit General Agreement&apos; --></errorMessage>
+        <name>MarkitGeneralAgreementFieldMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If moving Contract Stage to Generation or Ready For Processing, please indicate that no internal approvals are needed for this contract. --></errorMessage>
+        <name>NoInternalApprovalNeeded</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please update the status on the Opportunity at Risk record before setting Contract to Ready for Processing --></errorMessage>
+        <name>OaRFieldsForReadyForProcessingContract</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Associated Opportunity must have Contract Dates on it before you Reject the Contract. --></errorMessage>
+        <name>OpportunityCheckOnContractStatusRejected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please populate Budget range, Closed Date and Create an activity on the related Opportunity record. --></errorMessage>
+        <name>OpptyFieldsForReadyForProcessingContract</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- PO # and PO Date is required when &apos;PO Required&apos; is True and Stage is set to &apos;Ready for Processing&apos;. --></errorMessage>
+        <name>POFieldsforReadyforProcessingStage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to Change Contract Owner --></errorMessage>
+        <name>PreventContractOwnerChange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &apos;Price Increase Clause&apos; is required for order form when stage is &apos;Ready for Processing&apos; --></errorMessage>
+        <name>PriceIncreaseClauseRequiredForOrderForm</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Signature is required before the Contract can be moved to Ready for Processing --></errorMessage>
+        <name>ReadyForProcessingValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please populate Closed Date and Create an activity on the related Opportunity record. --></errorMessage>
+        <name>RenewalOpptyFieldsForReadyForProcessing</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invoice Format and Payment terms are required to change Contract Stage to &apos;Ready for Processing&apos; --></errorMessage>
+        <name>RequiredFieldsforReadyforProcessingStage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Usage Reports Required = Yes then ‘Name (provided usage details)’ and ‘Email Address’ fields are required --></errorMessage>
+        <name>WhenUsageReportsRequiredIsTrue</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- PreviewDocuments --></label>
+        <name>PreviewDocuments</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendWithDocuSign --></label>
+        <name>SendWithDocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,104 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+    <apex:attribute name="wrf"
+        description="This is the active Work Request Form" required="true"
+        type="WorkRequestForm__c" />
+        
+    <style>
+        .longText {
+            width: 95%;
+        }
+        
+        .red {
+            color:red;
+        }
+    </style>
+    
+    <apex:PageBlock title="Analytics Request" rendered="{! wrf.Analytics__c }">
+        
+        <apex:pageBlockSection title="Report Details" collapsible="false" id="reportDetails">
+            <apex:outputField value="{! wrf.ReportName__c}" styleClass="requiredField"/>
+            <apex:outputField value="{! wrf.ReasonForRequirement__c}" styleClass="requiredField longText"/>
+            <apex:outputField value="{! wrf.SubBrand__c}"/>
+            <apex:pageBlockSectionItem /> <!-- For Spacing -->
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Invoice Start Date" for="startdt"/>
+                <apex:outputField value="{! wrf.StartDate__c}" styleClass="requiredField" id="startdt"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Invoice End Date" for="enddt"/>
+                <apex:outputField value="{! wrf.EndDate__c}" styleClass="requiredField" id="enddt"/>
+            </apex:pageBlockSectionItem>
+            
+            <apex:outputField value="{! wrf.PartCodesProvided__c }" styleClass="" />
+            <apex:outputField value="{! wrf.ExampleReportProvided__c }" styleClass="" />
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Model/Age Specific" for="modelAge"/>
+                <apex:outputField value="{! wrf.ModelSegmentation__c}" id="modelAge" />
+            </apex:pageBlockSectionItem>
+            <apex:outputField value="{! wrf.VehicleModels__c}" styleClass="longText requiredField" rendered="{! wrf.ModelSegmentation__c}"/>
+            <apex:pageBlockSectionItem />
+            <apex:outputField value="{! wrf.ModelYears__c}" styleClass="longText requiredField" rendered="{! wrf.ModelSegmentation__c}"/>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="DMS Codes Provided" for="dms_input"/>
+                <apex:outputField value="{! wrf.DMS__c}" styleClass="" id="dms_input"/>
+            </apex:pageBlockSectionItem>
+            <apex:outputField value="{! wrf.DMSCodes__c}" styleClass="longText requiredField" rendered="{! wrf.DMS__c}"/>
+            <apex:pageBlockSectionItem rendered="{! !wrf.DMS__c}" />
+            
+            <apex:outputField value="{! wrf.KeywordTextSearchRequired__c}" styleClass="" />
+            <apex:outputField value="{! wrf.SearchText__c}" styleClass="longText requiredField" rendered="{! wrf.KeywordTextSearchRequired__c }"/>
+            <apex:pageBlockSectionItem rendered="{! !wrf.KeywordTextSearchRequired__c }" />
+            
+            <apex:outputField value="{! wrf.Retailers__c}" styleClass="requiredField" />
+            <apex:outputField value="{! wrf.SpecificRetailers__c}" styleClass="longText requiredField" rendered="{! wrf.Retailers__c == 'Specific'}"/>
+            <apex:pageBlockSectionItem rendered="{! wrf.Retailers__c <> 'Specific'}" />
+            
+            <apex:outputField value="{! wrf.EventJobTypeSpecific__c}" styleClass="" />
+            <apex:outputField value="{! wrf.EventJobTypes__c}" styleClass="longText requiredField" rendered="{! wrf.EventJobTypeSpecific__c == 'Specific'}"/>
+            <apex:pageBlockSectionItem rendered="{! wrf.EventJobTypeSpecific__c <> 'Specific'}" />
+            
+            <apex:outputField value="{! wrf.CampaignSpecificReport__c }" styleClass="" />
+            <apex:outputField value="{! wrf.Campaigns__c }" styleClass="longText requiredField" rendered="{! wrf.CampaignSpecificReport__c }"/>
+            <apex:pageBlockSectionItem rendered="{! !wrf.CampaignSpecificReport__c }" />
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Report Specifics" collapsible="false" id="reportSpecifics">
+            <apex:outputField value="{! wrf.DepartmentType__c }" styleClass="requiredField"/>
+            <apex:outputField value="{! wrf.PaymentType__c }" styleClass="requiredField"/>
+            <apex:outputField value="{! wrf.DocumentType__c }" styleClass="requiredField"/>
+            <apex:outputField value="{! wrf.ItemLineType__c }" styleClass="requiredField"/>
+            <apex:outputField value="{! wrf.EmailDistributionList__c }" styleClass="longText"/>
+            <apex:outputField value="{! wrf.OtherItemLineType__c }" styleClass="longText requiredField"
+                rendered="{! !ISBLANK(wrf.ItemLineType__c) && 
+                    CONTAINS(wrf.ItemLineType__c,'Other (please specify)')}"/>
+        </apex:pageBlockSection>
+    </apex:PageBlock>
+    
+    
+    <apex:PageBlock title="PolkConnect System Request" rendered="{! wrf.PolkConnectSystem__c }">
+        <apex:pageBlockSection columns="2" collapsible="false" id="PolkConnect_System_Main">
+            <apex:outputField value="{! wrf.Brand__c}" styleClass="requiredField" />
+            <apex:outputField value="{! wrf.JobTypeUK__c}" styleClass="requiredField"/>
+            <apex:outputField value="{! wrf.Application__c}" styleClass="requiredField" />
+            <apex:outputField value="{! wrf.OtherJobTypeUK__c}" styleClass="requiredField"
+                rendered="{! wrf.JobTypeUK__c <> null && CONTAINS(wrf.JobTypeUK__c,'Other') }" />
+            <apex:pageBlockSectionItem rendered="{! wrf.JobTypeUK__c == null || !CONTAINS(wrf.JobTypeUK__c,'Other') }"/>
+            <apex:outputField value="{! wrf.ClientId__c}" styleClass="requiredField longText" />
+            <apex:pageBlockSectionItem >    
+                <apex:outputLabel value="Date Range(s)" for="dateRanges"/>
+                <apex:outputField value="{! wrf.DetailedInstructions__c}" styleClass="longText" id="dateRanges"/>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:PageBlock>
+</apex:component>

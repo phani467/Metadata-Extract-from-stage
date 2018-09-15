@@ -1,0 +1,4 @@
+<aura:tokens extends="force:base">
+    <!-- HACK: Force standard design tokens to be available. The value here doesn't matter, the SF design token will override it. -->
+    <aura:token name="colorBackgroundWarning" value=""/>
+</aura:tokens>

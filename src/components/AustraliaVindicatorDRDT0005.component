@@ -1,0 +1,60 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+	<apex:pageBlock title="DRDT 0005 Details">
+	    <apex:pageBlockSection title="Input" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >DRDT</td><td >0005</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				    </tbody>
+				</table>
+			</apex:outputPanel>
+	    </apex:pageBlockSection>
+	    <apex:pageBlockSection title="Output" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >Make</td><td >FORD</td></tr>
+				        <tr><td >Series</td><td >PK</td></tr>
+				        <tr><td >Model</td><td >RANGER</td></tr>
+				        <tr><td >Grade</td><td >XL 4X2</td></tr>
+				        <tr><td >Body</td><td >CREW CAB PU</td></tr>
+				        <tr><td >Version</td><td >5 auto 3.0 T/Dies H/R</td></tr>
+				        <tr><td >V_Name</td><td >FORD PK RANGER XL 4X2 Crew Cab PU - 5 auto 3.0 T/Dies H/R</td></tr>
+				        <tr><td >Ve_Rev</td><td >C</td></tr>
+				        <tr><td >Ve_SeqNo</td><td >169480</td></tr>
+				        <tr><td >Release</td><td >1/03/2009 0:00</td></tr>
+				        <tr><td >Discont</td><td >31/12/2011 0:00</td></tr>
+				        <tr><td >Vfacts</td><td >120</td></tr>
+				        <tr><td >Class</td><td >LIGHT TRUCKS</td></tr>
+				        <tr><td >Segment</td><td >PU/CC 4X2</td></tr>
+				        <tr><td >UseSegment</td><td ></td></tr>
+				        <tr><td >RRP</td><td >34990</td></tr>
+				        <tr><td >Pr_Date</td><td >1/03/2009 0:00</td></tr>
+				        <tr><td >Fe_Date</td><td >27/05/2011 0:00</td></tr>
+				        <tr><td >Sp_Date</td><td >6/02/2012 0:00</td></tr>
+				        <tr><td >TL_Date</td><td >30/12/1899 12:00:00 AM</td></tr>
+				        <tr><td >Research</td><td >COMPLETE</td></tr>
+				        <tr><td >ProcessFlag</td><td >MASModelMatch</td></tr>
+				        <tr><td >CompanyCode</td><td >1</td></tr>
+				        <tr><td >UserName</td><td >admin</td></tr>
+				        <tr><td >RetrievalType</td><td >DRDT_0005</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >VehicleYear</td><td ></td></tr>
+				        <tr><td >UserDefinedKey</td><td >SingleVINMatchRequestWeb</td></tr>
+				    </tbody>
+				</table>
+	        </apex:outputPanel>
+	    </apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:component>

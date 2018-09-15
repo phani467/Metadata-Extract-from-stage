@@ -1,0 +1,113 @@
+<!--------------------------------------------------------------------------------------------------------------------
+// @author: Uttam Arya
+// @date: 22 July 2017
+// @param: NA
+// @description: SFDC1-834, SFDC1-281 LiveChatOfflineForm - enabled customers to log a case when there are no agents to chat
+// @return: NA
+---------------------------------------------------------------------------------------------------------------------->
+<apex:page controller="LiveChatOfflineFormController" showHeader="false" standardStylesheets="false">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+    <apex:stylesheet value="{!URLFOR($Resource.LiveAgentMarkit, 'liveagentmarkit.css')}"/>
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="https://cdn.ihs.com/wwwihsmarkit/images/favicon.png"/>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
+    <style type="text/css">
+    </style>
+    <div class="herohome w-section">
+        <div class="w-container">
+            <div class="homecontent">
+                <div style="text-align:right;">
+                    <img src="{!$Resource.la_markitlogo}" style="vertical-align:right;margin-top:8px;" width="250px"/>
+                </div>
+                <div style="button w-button">
+                    <h1>Contact Us</h1>
+                </div>
+                <apex:messages />
+                <!-- static header section - start --> 
+                <p>Our analysts are temporarily unavailable. Please provide us with some information below and someone will get back to you shortly.</p>
+                <!-- static header section - end --> 
+                <apex:form id="lcOfflineForm" onsubmit="return validateForm()">
+                    
+                    <!-- input fields --> 
+                    <apex:outputLabel style="margin-left:0px" rendered="{!JSENCODE($CurrentPage.parameters.suppliedEmail) == null || JSENCODE($CurrentPage.parameters.suppliedEmail) == ''}">
+                        <apex:outputLabel value="Name *" for="contactName"/>
+                        <apex:inputText id="contactName" value="{!contactName}" required="false" maxlength="80" size="47"/>
+                        <apex:outputLabel value="Company Name *" for="accountName"/>
+                        <apex:inputText id="accountName" value="{!accountName}" required="false" maxlength="255" size="47"/>
+                    </apex:outputLabel>
+                    
+                    <apex:outputLabel value="E-mail address *" for="email"/>
+                    <apex:inputText id="email" value="{!email}" required="false" maxlength="80" size="47"/>
+                    <apex:outputLabel value="Phone Number (including country code) *" for="phone"/>
+                    <apex:inputText id="phone" value="{!phone}" required="false" maxlength="40" size="47"/>
+                    <apex:outputLabel value="Product *" for="product"/>
+                    
+                    <apex:selectlist id="productsMCS" value="{!selectedProduct}" multiselect="false" size="1" required="false" style="margin-left: 19px;" rendered="{!JSENCODE($CurrentPage.parameters.buttonOrigin) == 'MCS'}">
+                        <apex:selectOptions value="{!ProductFamily}"/>
+                    </apex:selectlist>
+                    
+                    <apex:selectlist id="productsMSF" value="{!selectedProduct}" multiselect="false" size="1" required="false" style="margin-left: 19px;" rendered="{!JSENCODE($CurrentPage.parameters.buttonOrigin) == 'MSF'}">
+                        <apex:selectOptions value="{!ProductFamilyMSF}"/>
+                    </apex:selectlist>
+                    
+                    <apex:outputLabel value="Message *" for="message"/>
+                    <apex:inputTextArea id="message" value="{!message}" required="false" rows="5" cols="50" html-maxlength="30000" style="margin-left:19px"/>
+                    <!-- submit button -->
+                    <apex:commandButton id="submitBtn" styleClass="button w-button" action="{!submit}" value="Submit"/>
+                    <script type="text/javascript">
+                    // if we have passed email address default the email address
+                    if('{!JSENCODE($CurrentPage.parameters.suppliedEmail)}' != null && '{!JSENCODE($CurrentPage.parameters.suppliedEmail)}' != '') {
+                        document.getElementById('{!$Component.email}').value = '{!JSENCODE($CurrentPage.parameters.suppliedEmail)}';
+                        document.getElementById('{!$Component.email}').readOnly = true;
+                    }
+                    
+                    // validate fields have been completed
+                    function validateForm() {
+                        var msg = '';
+                        var e;
+                        e = document.getElementById('{!$Component.contactName}');
+                        if (e != null && e.disabled == false && (e.value == null || e.value == "")) {
+                            msg += "\nPlease enter your name.";
+                        }
+                        e = document.getElementById('{!$Component.accountName}');
+                        if (e != null && e.disabled == false && (e.value == null || e.value == "")) {
+                            msg += "\nPlease enter your Company name.";
+                        }
+                        e = document.getElementById('{!$Component.email}');
+                        if (e != null && e.disabled == false && (e.value == null || e.value == "" || !isEmailValid(e.value))) {
+                            msg += "\nPlease enter a valid email address.";
+                        }
+                        e = document.getElementById('{!$Component.phone}');
+                        if (e != null && e.disabled == false && (e.value == null || e.value == "")) {
+                            msg += "\nPlease enter a valid phone number.";
+                        }
+                        e = document.getElementById('{!$Component.productsMCS}');
+                        if (e != null && e.disabled == false && (e.value == null || e.value == "none")) {
+                            msg += "\nPlease select a product.";
+                        }
+                        e = document.getElementById('{!$Component.productsMSF}');
+                        if (e != null && e.disabled == false && (e.value == null || e.value == "none")) {
+                            msg += "\nPlease select a product.";
+                        }
+                        e = document.getElementById('{!$Component.message}');
+                        if (e != null && e.disabled == false && (e.value == null || e.value == "")) {
+                            msg += "\nPlease enter your message.";
+                        }
+                        if(msg != '') {
+                            alert(msg);
+                            return false;
+                        }
+                    }
+                    
+                    function isEmailValid(emailaddress) {
+                        // simple email validation
+                        var re = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+                        return re.test(emailaddress);
+                    }
+                    </script>
+                </apex:form>
+            </div>
+        </div>
+    </div>
+</apex:page>

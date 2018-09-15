@@ -1,0 +1,16 @@
+.THIS .hidden {
+    display: none;
+}
+.THIS div[aria-hidden='true'] {
+    display: none;
+}
+.THIS div[aria-hidden='false'] {
+    display: block;
+}
+.THIS .cursorPointerWhileDisabled {
+    cursor: pointer !important;
+}
+.THIS .slds-form-element__help.slds-m-bottom--xx-small.sitepath-error {
+    margin-top: .25rem;
+    color: rgb(194, 57, 52);
+}

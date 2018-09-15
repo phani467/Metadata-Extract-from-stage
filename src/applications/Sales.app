@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>CaseRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#1589EE</headerColor>
+    </brand>
+    <description>Navigation Menu for Sales Users.</description>
+    <formFactors>Large</formFactors>
+    <label>Lightning</label>
+    <navType>Standard</navType>
+    <tab>standard-home</tab>
+    <tab>standard-Campaign</tab>
+    <tab>standard-Lead</tab>
+    <tab>standard-Account</tab>
+    <tab>standard-Contact</tab>
+    <tab>standard-Opportunity</tab>
+    <tab>standard-Contract</tab>
+    <tab>standard-Task</tab>
+    <tab>standard-report</tab>
+    <tab>standard-Dashboard</tab>
+    <tab>standard-ContentNote</tab>
+    <tab>standard-Event</tab>
+    <tab>standard-CollaborationGroup</tab>
+    <tab>standard-Feed</tab>
+    <tab>standard-File</tab>
+    <tab>standard-OtherUserProfile</tab>
+    <tab>standard-Case</tab>
+    <tab>standard-Product2</tab>
+    <tab>AccountAddressAssociation__c</tab>
+    <tab>AdditionalCaseFields__c</tab>
+    <tab>NAICSHierarchy__c</tab>
+    <tab>Country__c</tab>
+    <tab>ContactMailingList__c</tab>
+    <tab>LegacyAccountID__c</tab>
+    <tab>AdditionalAccountFields__c</tab>
+    <tab>AdClaim__c</tab>
+    <tab>SubBusinessLine__c</tab>
+    <tab>ProfitCenter__c</tab>
+    <tab>CMRelationship__c</tab>
+    <tab>LoadingGroup__c</tab>
+    <tab>CountryOption__c</tab>
+    <tab>Knowledge__kav</tab>
+    <uiType>Lightning</uiType>
+</CustomApplication>

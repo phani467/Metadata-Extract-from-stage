@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Mailing List</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Mailing Lists</value>
+    </caseValues>
+    <fields>
+        <help><!-- A short description of the purpose of the mailing list. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter a Marketing approved Mailng List Name. --></help>
+        <label><!-- Mailing List Name --></label>
+        <name>MailingListName__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID MailList --></label>
+        <name>PKIDMailList__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates whether the mailing list is active or no longer in use. --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Mailing List Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Status can only be updated by Owner of the mailing list or system administrator --></errorMessage>
+        <name>OnlyOwnerOrAdminUpdateStatus</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Country</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Countries</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please enter Country Code --></help>
+        <label><!-- Country Code --></label>
+        <name>CountryCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select Country&apos;s geography --></help>
+        <label><!-- Geography --></label>
+        <name>Geography__c</name>
+        <picklistValues>
+            <masterLabel>#N/A</masterLabel>
+            <translation><!-- #N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australia &amp; NZ</masterLabel>
+            <translation><!-- Australia &amp; NZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benelux</masterLabel>
+            <translation><!-- Benelux --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Caribbean</masterLabel>
+            <translation><!-- Caribbean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China</masterLabel>
+            <translation><!-- China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern Europe</masterLabel>
+            <translation><!-- Eastern Europe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>France</masterLabel>
+            <translation><!-- France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Germany/Austria/Switzerland</masterLabel>
+            <translation><!-- Germany/Austria/Switzerland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hong Kong</masterLabel>
+            <translation><!-- Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Latin America</masterLabel>
+            <translation><!-- Latin America --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Middle East &amp; Africa</masterLabel>
+            <translation><!-- Middle East &amp; Africa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nordics</masterLabel>
+            <translation><!-- Nordics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Singapore</masterLabel>
+            <translation><!-- Singapore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Southern Europe</masterLabel>
+            <translation><!-- Southern Europe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK &amp; Ireland</masterLabel>
+            <translation><!-- UK &amp; Ireland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United States</masterLabel>
+            <translation><!-- United States --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This is a read-only field, will be auto-populated when the country&apos;s LegalStatus changes to &quot;Prohibited&quot;. --></help>
+        <label><!-- Is Prohibited --></label>
+        <name>IsProhibited__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select a legal status if needed. --></help>
+        <label><!-- Legal Status --></label>
+        <name>LegalStatus__c</name>
+        <picklistValues>
+            <masterLabel>Prohibited</masterLabel>
+            <translation><!-- Prohibited --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sanctioned</masterLabel>
+            <translation><!-- Sanctioned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PKID Country --></label>
+        <name>PKIDCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>APAC</masterLabel>
+            <translation><!-- APAC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Americas</masterLabel>
+            <translation><!-- Americas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMEA</masterLabel>
+            <translation><!-- EMEA --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Country Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

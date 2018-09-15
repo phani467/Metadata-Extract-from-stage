@@ -1,0 +1,69 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Page is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:page controller="MultiAttachmentController" showHeader="false" sidebar="false" >
+    
+    <apex:form id="attForm">
+        
+        <apex:pageBlock title="Upload Attachments" >
+            
+            <apex:repeat value="{!newAttachments}" var="newAtt" >
+                
+                <apex:pageBlockSection columns="1" collapsible="false" >
+                   
+                   <apex:pageBlockSectionItem >
+                        
+                        <apex:outputLabel value="File"/>                         
+                        
+                        <apex:inputFile value="{!newAtt.body}" filename="{!newAtt.name}"/>
+                    
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        
+                        <apex:outputLabel value="Description"/>                      
+                        
+                        <apex:inputText value="{!newAtt.Description}"/>
+                    
+                    </apex:pageBlockSectionItem>
+                
+                </apex:pageBlockSection>
+                
+                <hr/>
+            
+            </apex:repeat>
+            
+            <!-- <apex:commandButton value="Add More" action="{!addMore}"/> -->
+          
+            <apex:commandButton value="Attach File" action="{!save}" />
+            
+            <apex:commandButton value="Done" onClick="opener.location.reload();window.close()"/>
+        
+        </apex:pageBlock>
+  
+        <!-- <apex:pageBlock title="Existing Attachments" id="attachs">
+            
+            <apex:pageBlockTable value="{! attachmentList }" var="attachment">
+                
+                <apex:column headerValue="Action">
+                   
+                   <apex:outputLink value="{!URLFOR($Action.Attachment.Download, attachment.Id)}" target="_blank">View</apex:outputLink>
+                    
+                </apex:column>
+                
+                <apex:column value="{!attachment.Name}"/>
+                
+                <apex:column value="{!attachment.Description}"/>
+            
+            </apex:pageBlockTable>
+        
+        </apex:pageBlock> -->
+
+    </apex:form>
+
+</apex:page>

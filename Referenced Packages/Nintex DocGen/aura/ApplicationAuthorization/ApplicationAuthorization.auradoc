@@ -1,0 +1,7 @@
+<aura:documentation>
+    <aura:description>
+        <p>ApplicationAuthorization handles all authorization activities within the DocGen application.</p>
+        <p>This component provides the core authorization flow, UI for authorization (button and describing text), and UI for connecting/disconnecting an integration user.
+           It also exposes an aura:method for initiating the OAuth flow without the built-in UI interface.</p>
+    </aura:description>
+</aura:documentation>

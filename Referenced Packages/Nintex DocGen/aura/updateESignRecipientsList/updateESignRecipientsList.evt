@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Fire to update RunDdp.cmp's list of E-Sign Recipients.">
+    <aura:attribute name="updatedRecipientsList" type="List" default="[]" description="List of selected E-Sign recipients." />
+</aura:event>

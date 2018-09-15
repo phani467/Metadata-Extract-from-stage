@@ -1,0 +1,125 @@
+<aura:component controller="Loop.SampleDdpController">
+    <!--Required attributes-->
+    <aura:attribute name="sessionId" type="string" required="true"/>
+    
+    <!--Optional attributes-->
+    <aura:attribute name="loopUrl" type="string" default=""/>
+    <aura:attribute name="businessUser" type="string"/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="sampleDdpParentRows" type="List" default="[]" access="private" description="List of ParentSampleRow."/>
+    <aura:attribute name="isTableContentLoading" type="boolean" default="false" access="private" description="Set to true whenever table content is loading/updating."/>
+    <aura:attribute name="noRows" type="boolean" default="false" access="private" description="Set to true when table has no content/rows."/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="moveToNextStep" type="Loop:moveToNextStep"/>
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="setSampleObjects" type="Loop:setSampleObjects"/>
+    
+    <!--Methods-->
+    <aura:method name="save" action="{!c.save}"/>
+    <aura:method name="filterDdps" action="{!c.filterDdps}">
+        <aura:attribute name="searchText" type="string"/>
+        <aura:attribute name="industry" type="string"/>
+    </aura:method>
+    
+    <div class="slds">
+        <table class="slds-table slds-table--bordered slds-no-row-hover custom-changes">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th class="slds-cell-shrink" scope="col"/>
+                    <th class="slds-is-sortable" scope="col">
+                        <span class="slds-truncate">Industry</span>
+                        <button class="slds-button slds-button--icon-bare">
+                            <Loop:Svg class="slds-button__icon slds-button__icon--small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"/>
+                        </button>
+                    </th>
+                    <th scope="col"><span class="slds-truncate">Enabled<span aura:id="selectedCount"></span></span></th>
+                    <th scope="col"><span class="slds-truncate">DocGen Packages</span></th>
+                    <th scope="col"><span class="slds-truncate">Business User</span></th>
+                    <th scope="col"><span class="slds-truncate">Main Object</span></th>
+                    <th scope="col"><span class="slds-truncate">Document Type</span></th>
+                </tr>
+            </thead>
+            <tbody class="{!v.isTableContentLoading ? 'hidden' : ''}">
+                <aura:iteration items="{!v.sampleDdpParentRows}" var="parentRow">
+                    <tr aura:id="parentRow" id="{!parentRow.industryName}" class="{!'slds-hint-parent pointer' + (parentRow.isHidden ? ' hidden' : '')}" data-role="parent" onclick="{!c.toggleChildRowsDisplay}">
+                    	<td>
+                            <aura:if isTrue="{!parentRow.isChildRowsHidden}">
+                            	<Loop:Svg class="slds-button__icon slds-button__icon--small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#add"/>
+                                <aura:set attribute="else">
+                                	<Loop:Svg class="slds-button__icon slds-button__icon--small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#dash"/>
+                                </aura:set>
+                            </aura:if>
+                        </td>
+                        <td>
+                        	{!parentRow.industryName}
+                        </td>
+                        <td>
+                        	<label class="{!'slds-checkbox' + (parentRow.isTristate ? ' tristate' : '')}">
+                                <ui:inputCheckbox value="{!parentRow.isEnabled}"/>
+                                <span id="{!parentRow.industryName}" class="slds-checkbox--faux" onclick="{!c.toggleParentCheckbox}"></span>
+                                <span class="slds-form-element__label slds-assistive-text"></span>
+                            </label>
+                        </td>
+                        <td>
+                            {!parentRow.documentPackages}
+                        </td>
+                        <td>
+                        	{!parentRow.businessUsers}
+                        </td>
+                        <td>
+                        	{!parentRow.recordTypes}
+                        </td>
+                        <td>
+                        	{!parentRow.documentTypes}
+                        </td>
+                    </tr>
+                    <aura:iteration items="{!parentRow.childRows}" var="childRow">
+                        <tr aura:id="childRow" class="{!childRow.isHidden ? 'hidden' : ''}" data-role="child">
+                        	<td></td>
+                            <td></td>
+                            <td>
+                                <label class="slds-checkbox">
+                                    <ui:inputCheckbox value="{!childRow.isEnabled}"/>
+                                    <span id="{!childRow.id}" class="slds-checkbox--faux" onclick="{!c.toggleChildCheckbox}" data-parent="{!parentRow.industryName}"></span>
+                                    <span class="slds-form-element__label slds-assistive-text"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <span class="slds-truncate">{!childRow.documentPackage}</span>
+                            </td>
+                            <td>
+                                <span class="slds-truncate">{!childRow.businessUsers}</span>
+                            </td>
+                            <td>
+                                <span class="slds-truncate">{!childRow.recordType}</span>
+                            </td>
+                            <td>
+                                <span class="slds-truncate">{!childRow.documentTypes}</span>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </aura:iteration>
+            </tbody>
+            <tbody class="{!v.isTableContentLoading ? '' : 'hidden'}">
+                <tr>
+                    <td colspan="7" style="text-align:center;">
+                        <Loop:Spinner class="slds-spinner--small" visible="true" useGraySpinner="true"/>
+                        <span style="color: grey;margin-left: 10px;">Loading records...</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="{!v.noRows ? '' : 'hidden'}">
+                <tr>
+                	<td colspan="7" style="text-align:center;">
+                        <span style="color: grey;margin-left: 10px;">There are no records to display.</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

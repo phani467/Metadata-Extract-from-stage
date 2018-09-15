@@ -1,0 +1,43 @@
+.THIS .noBorder {
+	border: 0;
+}
+.THIS hidden {
+    display: none;
+}
+.THIS .rowHidden {
+    display: none;
+}
+.THIS .divHidden {
+    display: none;
+}
+.THIS .pointer {
+    cursor: pointer;
+}
+.THIS .custom-changes {
+    border-spacing: 0px;
+}
+.THIS .hidden {
+    display: none;
+}
+.THIS .custom-changes tbody tr:hover > td,
+.THIS .custom-changes tbody tr:hover > th {
+    background-color: #f4f6f9;
+}
+.THIS .slds-checkbox.tristate [type="checkbox"]:checked > .slds-checkbox--faux:after,
+.THIS .slds-checkbox.tristate [type="checkbox"]:checked ~ .slds-checkbox--faux:after {
+    display: block;
+    content: '';
+    height: 4px;
+    width: 8px;
+    position: absolute;
+    top: 32%;
+    left: 21%;
+    -webkit-transform: translate3d(0, 0, 0) rotate(0);
+    transform: translate3d(0, 0, 0) rotate(0);
+    border-bottom: 2px solid #1589ee !important;
+    border-left: 0;
+}
+.THIS tbody[id=layout-row-table] > tr[data-row=parent] + tr[data-row=child] > td,
+.THIS tbody[id=layout-row-table] > tr[data-row=child] + tr[data-row=child] > td {
+    border-top: 0;
+}

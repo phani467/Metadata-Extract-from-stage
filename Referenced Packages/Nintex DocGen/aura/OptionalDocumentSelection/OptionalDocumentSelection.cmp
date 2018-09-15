@@ -1,0 +1,60 @@
+<aura:component controller="Loop.OptionalDocumentSelectionController">
+    <aura:attribute name="ddpLabel" type="string" default="DocGen Package"/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="loading" type="boolean" default="true"/>
+    <aura:attribute name="records" type="List" description="List of TileData."/>
+    <aura:attribute name="attachmentAllowed" type="boolean" default="false"/>
+    <aura:attribute name="attachmentRequired" type="boolean" default="false"/>
+    <aura:attribute name="hasAdhocApexClass" type="boolean" default="false"/>
+    <aura:attribute name="attachments" type="List" description="List of TileData."/>
+    <aura:attribute name="hasErrorOccurred" type="boolean" default="false"/>
+    <aura:attribute name="errorMessage" type="string" default="" description="Error message to display to user."/>
+    <aura:attribute name="nextButtonDisabled" type="boolean" default="true"/>
+    <aura:attribute name="searchString" type="string" default=""/>
+    
+    <!--Handled events-->
+    <aura:handler name="error" event="Loop:error" action="{!c.handleError}"/>
+    
+	<!--Registered events-->
+    <aura:registerEvent name="error" type="Loop:error"/>
+    <aura:registerEvent name="exposeSecondaryAccordionSections" type="Loop:exposeSecondaryAccordionSections"/>
+    <aura:registerEvent name="documentSelectionCompleted" type="Loop:documentSelectionCompleted"/>
+    
+    <!--Methods-->
+    <aura:method name="load" action="{!c.load}">
+        <aura:attribute name="ddpId" type="string" required="true"/>
+        <aura:attribute name="recordId" type="string" required="true"/>
+        <aura:attribute name="attachmentAllowed" type="boolean" default="false" required="true"/>
+        <aura:attribute name="attachmentRequired" type="boolean" default="false" required="true"/>
+        <aura:attribute name="hasAdhocApexClass" type="boolean" default="false"/>
+        <aura:attribute name="contactId" type="string" default=""/>
+    </aura:method>
+    <aura:method name="search" action="{!c.search}">
+        <aura:attribute name="searchString" type="String"/>
+    </aura:method>
+    <aura:method name="storeAttachments" action="{!c.passSelectedAttachmentsToSelectTiles}">
+        <aura:attribute name="selectedAttachments" type="list" default="[]"/>
+    </aura:method>
+    <aura:method name="documentNextButtonDisabled" action="{!c.updateDocumentNextButton}">
+        <aura:attribute name="nextButtonDisabled" type="boolean" default="true"/>
+    </aura:method>
+    
+    <aura:if isTrue="{!v.loading}">
+        <Loop:LoadingTile />
+        <aura:set attribute="else">
+        	<aura:if isTrue="{!v.hasErrorOccurred}">
+                <Loop:CustomTile status="error" message="{!v.errorMessage}"/>
+                <aura:set attribute="else">
+                    <div class="slds-scrollable--y" style="max-height: 400px;">
+                        <Loop:SelectTiles aura:id="documentTiles" recordType="document" records="{!v.records}" isMultiSelect="true" attachmentAllowed="{!v.attachmentAllowed}"
+                                       attachmentRequired="{!v.attachmentRequired}" hasAdhocApexClass="{!v.hasAdhocApexClass}" attachments="{!v.attachments}" ddpLabel="{!v.ddpLabel}"/>
+                    </div>
+                    <div aura:id="documentNextButton" class="border-top button-padding next-button">
+                        <button class="slds-button slds-button--brand" disabled="{!v.nextButtonDisabled}" onclick="{!c.completedOptionalDocumentSelection}">Next</button>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

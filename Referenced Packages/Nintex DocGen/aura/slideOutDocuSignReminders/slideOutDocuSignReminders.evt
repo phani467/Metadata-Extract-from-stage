@@ -1,0 +1,1 @@
+<aura:event type="COMPONENT" description="Fire when sliding out of DocuSign reminders."/>

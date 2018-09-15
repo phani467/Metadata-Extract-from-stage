@@ -1,0 +1,13 @@
+**ATTENTION-ACTION NEEDED**<br/><br/>
+
+The following Ad Claim Change Log has had a Status change:<br/>
+
+Change Log Number: {!AdClaimChangeLog__c.Name}<br/>
+Parent Ad Claim:{!AdClaimChangeLog__c.AdClaim__c}<br/>
+Requester: {!AdClaimChangeLog__c.Requester__c}<br/>
+Request Date:{!AdClaimChangeLog__c.RequestDate__c}<br/>
+Status:{!AdClaimChangeLog__c.Status__c}<br/>
+Link to Change Log:{!AdClaimChangeLog__c.Link}<br/><br/>
+
+
+{!IF(ISPICKVAL(AdClaimChangeLog__c.Status__c,'Rejected'),'Rejection Comments:'+AdClaimChangeLog__c.RejectionComments__c,'')}

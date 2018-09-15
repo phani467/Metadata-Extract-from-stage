@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Related Additional Case Field Contract</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Additional Case Field Contracts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Case Fields --></label>
+        <name>AdditionalCaseFields__c</name>
+        <relationshipLabel><!-- Related Additional Case Field Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Related Additional Case Field Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID RelAddCaseContr --></label>
+        <name>PKIDRelAddCaseContr__c</name>
+    </fields>
+    <layouts>
+        <layout>Related Additional Case Field Contract Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4711: Onboarding - Case Creation - Auto-Response</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Onboarding Case Creation</name>
+    <style>none</style>
+    <subject>IHS Markit Onboarding Case {!Case.CaseNumber}</subject>
+    <textOnly>ONBOARDING
+
+Your IHS Markit Onboarding Case {!Case.CaseNumber}
+
+{!DAY(TODAY())}{!CASE(DAY(TODAY()),1,&quot;st&quot;,31,&quot;st&quot;,21,&quot;st&quot;,2,&quot;nd&quot;,22,&quot;nd&quot;,3,&quot;rd&quot;,23,&quot;rd&quot;,&quot;th&quot;)} {!CASE(MONTH(TODAY()),1,&quot;January&quot;,2,&quot;February&quot;,3,&quot;March&quot;,4,&quot;April&quot;,5,&quot;May&quot;,6,&quot;June&quot;,7,&quot;July&quot;,8,&quot;August&quot;,9,&quot;September&quot;,10,&quot;October&quot;,11,&quot;November&quot;,12,&quot;December&quot;,&quot;Month&quot;)} {!YEAR(TODAY())}
+
+Dear IHS Markit Customer,
+
+Thank you for contacting our Onboarding Team, we have received your request.
+
+A unique case reference number {!Case.CaseNumber} with the subject &quot;{!Case.Subject}&quot; is currently being reviewed by one of our analysts.
+
+In order to allow you to track the progress of your enquiry, please quote the above case reference number when contacting us. Someone will be in touch with you shortly to ensure that your request is handled to your satisfaction.
+
+Kind regards,
+IHS Markit Onboarding Team
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

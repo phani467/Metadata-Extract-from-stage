@@ -1,0 +1,25 @@
+<aura:component controller="Loop.PauseToEditDefaults">
+    <aura:attribute name="selection" type="String" default="None" />
+    <aura:handler name="init" value="{!this}" action="{!c.onLoad}" />
+    <aura:method name="save" action="{!c.save}" access="Public"/>
+    
+    <div class="slds">
+        <div class="slds-form-element">
+            <div class="slds-text-body--regular">Specify whether Pause to Edit uses Salesforce Files Sync.</div>
+            <div class="slds-form-element__control slds-m-top--small">
+                <div class="slds-form-element__control" aura:id="radio">
+                    <label class="slds-radio">
+                        <ui:inputRadio aura:id="r1" value="" text="Upload" change="{!c.changeSelection}" name="opt"/> 
+                        <span class="slds-radio--faux"></span>
+                        <span class="slds-form-element__label">Upload</span>
+                    </label>
+                    <label class="slds-radio">
+                        <ui:inputRadio aura:id="r2" value="" text="Salesforce Files Sync" change="{!c.changeSelection}" name="opt"/> 
+                        <span class="slds-radio--faux"></span>
+                        <span class="slds-form-element__label">Salesforce Files Sync</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

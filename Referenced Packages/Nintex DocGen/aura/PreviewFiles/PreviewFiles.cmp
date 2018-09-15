@@ -1,0 +1,122 @@
+<aura:component >
+    <aura:attribute name="downloadLinks" type="List" default="[]" required="true" description="each item in list should contain 3 values: link, name, fileType"/>
+    <aura:attribute name="header" type="string" default="DocGen Package Complete"/>
+    <aura:attribute name="message" type="string" default="Success! Your DocGen Package has completed."/>
+    <aura:attribute name="successMessage" type="string" default=""/>
+    <aura:attribute name="deliveryOptionType" type="string" default="Download"/>
+    <aura:attribute name="continueButtonLabel" type="string" access="private"/>
+    <aura:attribute name="object" type="string"/>
+    <aura:attribute name="returnUri" type="string" default=""/>
+    <aura:attribute name="isLoading" type="boolean" default="false"/>
+    <aura:attribute name="isSuccess" type="boolean" default="false"/>
+    <aura:attribute name="timedOut" type="boolean" default="false"/>
+    
+    <!--Attributes for downloading in SF1-->
+    <aura:attribute name="sessionId" type="string" required="true"/>
+    <aura:attribute name="partnerServerUrl" type="string" required="true"/>
+    <aura:attribute name="userId" type="string" required="true"/>
+    <aura:attribute name="isSandbox" type="boolean" required="true"/>
+
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="slideInEmailComposer" type="Loop:slideInEmailComposer"/>
+    <aura:registerEvent name="continueDelivery" type="Loop:continueDelivery"/>
+    
+    <aura:method name="showSuccess" action="{!c.showSuccess}">
+        <aura:attribute name="message" type="string" default=""/>
+    </aura:method>
+    <aura:method name="startTimeout" action="{!c.startTimeout}"/>
+    
+    <div class="slds-text-heading--medium slds-m-around--small">{!v.header}</div>
+    <div class="slds slds-p-vertical--small slds-p-horizontal--medium slds-scrollable--y" style="max-height: 500px;">
+        <div class="container">
+            <aura:if isTrue="{!v.isSuccess}">
+                <div aura:id="successToast" class="slds-notify slds-notify--toast slds-theme--success toast-position" style="background-color: #4bc076;">
+                    <Loop:Svg class="slds-icon slds-icon--small slds-m-right--small slds-button__icon"
+                           xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#success'}"
+                           style="float: left;"
+                           />
+                    <div class="notify__content" style="text-align: center;">
+                        <h2 class="slds-text-heading--small">{!v.successMessage}</h2>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.downloadLinks.length > 0 &amp;&amp; v.deliveryOptionType != 'Attach'}">
+                <aura:if isTrue="{!!v.timedOut}">
+                    <ul class="slds-list--vertical slds-has-cards slds-has-block-links--space slds-has-list-interactions">
+                        <aura:iteration items="{!v.downloadLinks}" var="link">
+                            <a href="javascript:;" id="{!link.link}" onclick="{!c.downloadFile}" class="slds-list__item hideSpinner">
+                                <li class="slds-grid slds-p-around--x-small">
+                                    <div class="slds-container--small slds-align-middle" style="position:relative;">
+                                        <div class="download-spinner">
+                                            <img src="{!$Resource.Loop__SalesforceLightning + '/assets/images/spinners/slds_spinner_brand.gif'}" alt="Loading..." style="width:35px; height:35px;"/>
+                                        </div>
+                                        <aura:if isTrue="{!link.fileType == 'pdf'}">
+                                            <Loop:Svg class="slds-icon slds-icon__container" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/doctype-sprite/svg/symbols.svg#pdf'}"/>
+                                            <aura:set attribute="else">
+                                                <aura:if isTrue="{!link.fileType == 'docx' || link.fileType == 'doc'}">
+                                                    <Loop:Svg class="slds-icon slds-icon__container" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/doctype-sprite/svg/symbols.svg#word'}"/>
+                                                    <aura:set attribute="else">
+                                                        <aura:if isTrue="{!link.fileType == 'pptx' || link.fileType == 'ppt'}">
+                                                            <Loop:Svg class="slds-icon slds-icon__container" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/doctype-sprite/svg/symbols.svg#ppt'}"/>
+                                                            <aura:set attribute="else">
+                                                                <aura:if isTrue="{!link.fileType == 'xlsx' || link.fileType == 'xls'}">
+                                                                    <Loop:Svg class="slds-icon slds-icon__container" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/doctype-sprite/svg/symbols.svg#excel'}"/>
+                                                                    <aura:set attribute="else">
+                                                                        <Loop:Svg class="slds-icon slds-icon__container" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/doctype-sprite/svg/symbols.svg#unknown'}"/>
+                                                                    </aura:set>
+                                                                </aura:if>
+                                                            </aura:set>
+                                                        </aura:if>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </aura:set>
+                                        </aura:if>
+                                    </div>
+                                    <div class="slds-col slds-align-middle">
+                                        <h3 class="slds-m-left--x-small slds-text-heading--small">{!link.name}</h3>
+                                    </div>
+                                </li>
+                            </a>
+                        </aura:iteration>
+                    </ul>
+                    <aura:set attribute="else">
+                        <div style="background: white;">
+                            <div class="slds-notify slds-theme--success toast-style" style="background-color: #4F6A92;">
+                                <div class="slds-notify__content slds-grid">
+                                    <Loop:Svg class="slds-icon slds-icon--small slds-m-right--small" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#clock'}"/>
+                                    <div class="slds-col slds-align-middle">
+                                        <aura:if isTrue="{!v.deliveryOptionType == 'Email' &amp;&amp; v.returnUri != ''}">
+                                            <h2 class="slds-text-heading--small">The file preview has timed out. The generated file{!v.downloadLinks.length > 1 ? 's' : ''} will still be attached to your email when sent.</h2>
+                                            <aura:set attribute="else">
+                                                <h2 class="slds-text-heading--small">This run has timed out. Use the Re-Run DocGen Package or Start Over buttons.</h2>
+                                            </aura:set>
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </aura:if>
+            <aura:if isTrue="{!v.isLoading}">
+                <div class="loading-spinner">
+                    <img src="{!$Resource.Loop__SalesforceLightning + '/assets/images/spinners/slds_spinner_brand.gif'}" alt="Loading..." />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.message != ''}">
+                <div class="slds-text-heading--medium slds-m-bottom--medium">{!v.message}</div>
+            </aura:if>
+            <aura:if isTrue="{!v.deliveryOptionType != 'Download' &amp;&amp; v.deliveryOptionType != 'Email' &amp;&amp; !v.timedOut}">
+                <div aura:id="continueButtonContainer" class="slds-grid">
+                    <div aura:id="continueButton" class="slds-container--right" onclick="{!c.showLoading}"/>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.deliveryOptionType == 'Email' &amp;&amp; v.returnUri != ''}">
+                <div style="width: 100;text-align: right;">
+                    <button type="button" class="slds-button slds-button--brand slds-m-top--x-small" onclick="{!c.composeEmail}">Compose Email</button>
+                </div>
+            </aura:if>
+        </div>
+        <div aura:id="downloadIframes" hidden="true"/>
+    </div>
+</aura:component>

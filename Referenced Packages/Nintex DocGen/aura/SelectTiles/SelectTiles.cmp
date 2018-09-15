@@ -1,0 +1,117 @@
+<aura:component controller="Loop.SelectTilesController">
+    <!--Required attributes-->
+    <aura:attribute name="recordId" type="string" default="" description="Record Id."/>
+    <aura:attribute name="records" type="List" default="[]" description="A List of TileData."/>
+    <aura:attribute name="recordType" type="string" default="" description="Record type (Opportunity, Account, etc.)."/>
+    
+    <!--Required attributes for attachments-->
+    <aura:attribute name="attachmentAllowed" type="boolean" default="false"/>
+    <aura:attribute name="attachmentRequired" type="boolean" default="false"/>
+    <aura:attribute name="hasAdhocApexClass" type="boolean" default="false"/>
+    <aura:attribute name="attachments" type="List" default="[]"/>
+    
+    <!--Optional attributes (regardless of attachments)-->
+    <aura:attribute name="isMultiSelect" type="boolean" default="true"/>
+    <aura:attribute name="svgClass" type="string" default="slds-icon-standard-generic-loading"/>
+    <aura:attribute name="svgLink" type="string" default="/assets/icons/standard-sprite/svg/symbols.svg#generic_loading"/>
+    <aura:attribute name="displaySvg" type="boolean" default="false"/>
+    <aura:attribute name="objectName" type="string" default="" description="Name of the starting object"/>
+    <aura:attribute name="ddpLabel" type="string" default="DocGen Package"/>
+    <aura:attribute name="context" type="string" default="DEFAULT" description="Accepts DEFAULT, TEST, and UTILITYBAR to display the appropriate steps to run in different contexts."/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="performOnLoad" type="boolean" default="true"/>
+    <aura:attribute name="selectedTiles" type="List" default="[]" description="List of Tile ids and names, which are also record ids."/>
+    <aura:attribute name="maxRecordsExceeded" type="boolean" default="false" access="private" description="True if number of contacts exceeds max allowed."/>
+    <aura:attribute name="warningMessage" type="string" default=""/>
+    <aura:attribute name="filteredRecords" type="List" default="[]" description="List of filtered records."/>
+    <aura:attribute name="clickedTile" type="object" default="" description="Information regarding currently clicked Tile.cmp."/>
+    <aura:attribute name="errorTitle" type="string" default="Unable to load tile."/>
+    <aura:attribute name="errorMessages" type="List"/>
+    <aura:attribute name="ddpId" type="string"/>
+    <aura:attribute name="showTestFeaturesAsDelivery" type="boolean" default="false"/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="tileClicked" event="Loop:tileClicked" action="{!c.handleTileClicked}"/>
+    <aura:handler name="change" value="{!v.records}" action="{!c.onRecordsChange}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="ddpSelected" type="Loop:ddpSelected"/>
+    <aura:registerEvent name="recordSelected" type="Loop:recordSelected"/>
+    <aura:registerEvent name="contactSelected" type="Loop:contactSelected"/>
+    <aura:registerEvent name="documentSelected" type="Loop:documentSelected"/>
+    <aura:registerEvent name="deliveryOptionSelected" type="Loop:deliveryOptionSelected"/>
+    
+    <!--Methods-->
+    <aura:method name="search" action="{!c.search}">
+        <aura:attribute name="searchString" type="string"/>
+    </aura:method>
+    <aura:method name="deselectTiles" action="{!c.deselectTiles}"/>
+    <aura:method name="passEmailDataToTile" action="{!c.passEmailDataToTile}">
+        <aura:attribute name="id" type="string" default=""/>
+        <aura:attribute name="emailSubject" type="string" default=""/>
+        <aura:attribute name="emailBody" type="string" default=""/>
+    </aura:method>
+    <aura:method name="passDocuSignReminderDataToTile" action="{!c.passDocuSignReminderDataToTile}">
+        <aura:attribute name="id" type="string" default=""/>
+        <aura:attribute name="reminderDelay" type="decimal"/>
+        <aura:attribute name="daysTillSigningExpires" type="decimal"/>
+        <aura:attribute name="reminderFrequency" type="decimal"/>
+        <aura:attribute name="warnOfExpiration" type="decimal"/>
+    </aura:method>
+    <aura:method name="updateSelectedAttachments" action="{!c.passSelectedAttachmentsToAttachmentTile}">
+    	<aura:attribute name="selectedAttachments" type="List" default="[]" description="List of attachments to attach to DocGen Package."/>
+    </aura:method>
+    
+    <aura:if isTrue="{!v.maxRecordsExceeded}">
+        <Loop:CustomTile status="warning" message="{!v.warningMessage}"/>
+    </aura:if>
+    <div aura:id="selectTiles" class="slds" onclick="{!c.selectTilesClicked}">
+        <ul class="slds-list--vertical slds-has-cards slds-has-cards--space slds-has-list-interactions" style="padding: .5rem 1rem; background-color: #EEF1F6;">
+            <aura:if isTrue="{!v.context == 'TEST' &amp;&amp; v.recordType == 'delivery'}">
+                <div onclick="{!c.selectDownloadTest}" class="downloadTest">
+                    <Loop:Card aura:id="downloadTest" styleClass="tile" badge="TEST" isSelectable="true">
+                        <!-- TODO: Use custom labels instead of strings -->
+                        <div id="header" style='margin-left:-4px; margin-top:-10px;'>Download</div>
+                        <div>
+                            <aura:if isTrue="{!v.showTestFeaturesAsDelivery}">
+                                <div id="main" class="slds-text-body--small" style='margin-left:20px; margin-right:20px; font-weight:bold;'>Include Insert-Update changes and PDF Stamps as configured for the following Delivery Option:
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div>
+                            <aura:if isTrue="{!v.showTestFeaturesAsDelivery}">
+                                <div id="footer" style='margin-left:5px; padding-bottom:8px'>
+                                    <div class="slds-form-element slds-m-right--small">
+                                        <ui:inputSelect class="slds-select slds-col" change="{!c.selectTestFeaturesAsDelivery}">
+                                            <ui:inputSelectOption text="" label="--None--" value="true"/>
+                                            <aura:iteration items="{!v.filteredRecords}" var="record">
+                                                <ui:inputSelectOption text="{!record.Id}" label="{!record.Name}"/>
+                                            </aura:iteration>
+                                        </ui:inputSelect>
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                    </Loop:Card>
+                </div>
+            </aura:if>
+            <aura:iteration items="{!v.filteredRecords}" var="record">
+                <Loop:Tile aura:id="tile" id="{!record.Id}" type="{!v.recordType}" record="{!record}" svgClass="{!v.svgClass}" svgLink="{!v.svgLink}" displaySvg="{!v.displaySvg}" selectedContact="{!v.recordId}" isMultiSelect="{!v.isMultiSelect}" objectName="{!v.objectName}"/>
+            </aura:iteration>
+            <aura:if isTrue="{!v.attachmentAllowed || v.attachmentRequired || v.hasAdhocApexClass}">
+                <Loop:AttachmentsTile aura:id="attachmentsTile" required="{!v.attachmentRequired}" attachments="{!v.attachments}" ddpLabel="{!v.ddpLabel}"/>
+            </aura:if>
+        </ul>
+        <Loop:Prompt aura:id="errorPrompt" headerTheme="slds-theme--error slds-theme--alert-texture" title="{!v.errorTitle}">
+            <ul class="slds-list--dotted">
+                <aura:iteration items="{!v.errorMessages}" var="message">
+                    <li class="slds-list__item">
+                        <span>{!message}</span>
+                    </li>
+                </aura:iteration>
+            </ul>
+        </Loop:Prompt>
+    </div>
+</aura:component>

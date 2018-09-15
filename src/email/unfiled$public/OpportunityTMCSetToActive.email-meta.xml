@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-6911;This email is the reminder to the Opportunity Owner stating that the TMC related Opportunity is under review</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Opportunity TMC Set To Active</name>
+    <style>none</style>
+    <subject>IMPORTANT REMINDER: Your new opportunity is stated for review at TMC</subject>
+    <type>text</type>
+</EmailTemplate>

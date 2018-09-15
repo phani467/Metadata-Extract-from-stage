@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2798 Account Username - User Install (Web App Only)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Account Username - User Install (Web App Only)</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Securities Finance Username</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+You now have access to the following Markit Securities Finance applications:
+
+&lt;enter product list here&gt;
+
+Your username is: &lt;enter user name here&gt;
+ 
+For security reasons, the password will be provided to you in a separate email shortly.
+ 
+NOTE: All usernames and passwords are case sensitive.
+
+Please click on the following links to access:
+
+- DX Open;  &lt;https://msf.markit.com/Portal&gt;
+- Evaluation Explorer; &lt;https://msf.markit.com/Ex&gt;
+- International Index Explorer; &lt;https://msf.markit.com/IIX&gt;
+- Performance Explorer; &lt;https://msf.markit.com/Px&gt;
+- Risk Explorer; &lt;https://msf.markit.com/risk/rx&gt;
+- SF One; &lt;https://msf.markit.com/Portal/?Mode=DxOne&gt;
+- Transaction Explorer; &lt;https://msf.markit.com/Tx&gt;
+- UK Index Explorer; &lt;https://msf.markit.com/IX&gt;
+
+If you require any additional assistance, please contact us on live chat, email or phone.
+
+Thank You. 
+
+Kind regards, 
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

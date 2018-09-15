@@ -1,0 +1,26 @@
+<aura:component controller="Loop.SampleDdpController">
+    <aura:attribute name="sessionId" type="String" required="true"/>
+    <aura:attribute name="loopUrl" type="string" default=""/>
+    
+    <aura:attribute name="ddpGroups" type="List"/>
+    <aura:attribute name="businessUsers" type="String[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.fetchData}"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <div class="slds" style="margin-bottom: 25px;">
+        <div class="slds-grid">
+            <div class="slds-col slds-size--1-of-3">
+                <ui:inputText aura:id="searchText" label="Search" placeholder="Keyword" class="slds-input marginBottom" keyup="{!c.detectEnter}"/>
+                <ui:inputSelect aura:id="businessUser" class="slds-select">
+                    <ui:inputSelectOption text="" label="All business users" value="true"/>
+                    <aura:iteration items="{!v.businessUsers}" var="businessUser">
+                        <ui:inputSelectOption text="{!businessUser}" label="{!businessUser}"/>
+                    </aura:iteration>
+                </ui:inputSelect>
+            </div>
+            <div class="slds-col--padded slds-size--2-of-3 slds-align-bottom">
+                <button class="slds-button slds-button--brand" onclick="{!c.filterDdps}">Search</button>
+            </div>
+        </div>
+    </div>
+</aura:component>

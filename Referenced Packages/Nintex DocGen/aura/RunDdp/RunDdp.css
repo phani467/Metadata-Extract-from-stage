@@ -1,0 +1,108 @@
+.THIS .header {
+    color: #4E6892;
+    font-weight: 400;
+    font-size: .875rem;
+    letter-spacing: .1em;
+    background-color: #EEF1F6;
+}
+.THIS .slds-tree-container .slds-tree .slds-tree__branch .section-header {
+    border: 1px solid #CFD7E6;
+}
+.THIS .menu {
+    padding-right: 3rem;
+    float: left;
+    overflow: hidden;
+}
+.THIS .container {
+    overflow: hidden;
+}
+.THIS .hidden {
+    display: none;
+}
+.THIS .container-block {
+    background-color: #fff;
+    min-height: 212px;
+}
+.THIS .next-button {
+    text-align: right;
+    background-color: rgba(244, 246, 249, 1);
+}
+.THIS .slds-grid--vertical-align-center {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+.THIS .border-top {
+    border-top: 1px solid rgba(216,221,230,1);
+}
+.THIS .run-ddp-button {
+    width: 100%;
+    text-align: right;
+}
+.THIS .button-padding {
+    padding: 12px 12px 12px;
+}
+.THIS .error-text {
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+.THIS .fixed-composer {
+    position: fixed;
+    z-index: 100;
+    bottom: -6px;
+    right: 0;
+}
+.THIS .component-header-label {
+    vertical-align: middle;
+    font-size: 1rem;
+}
+.THIS .button-compensation-margin {
+    /* Without this, the header will shrink after the Select DocGen Packages button is clicked. */
+    height: 30px;
+    margin-top: 2px;
+}
+.THIS .warning-tile {
+    padding: 1rem;
+    border: 1px solid rgba(216, 221, 230, 1);
+    border-radius: 4px;
+}
+.THIS .toast-style {
+    margin: 0 0 .5rem 0;
+    width: 100%;
+    min-width: 15rem;
+    
+    /* don't use slds-notify--toast because it may override the above styles in iOS devices, instead manually apply these styles */
+    border-radius: 4px;
+    padding: 16px 24px;
+    display: inline-block;
+    text-align: left;    
+}
+.THIS .content {
+    background: #F0F8FB;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #236ECE;
+    width: 100%;
+}
+.THIS .runDdpIcon {
+    vertical-align: middle;
+    background-color: #FF7900;
+    border-radius: .125rem;
+    display: inline-block;
+	margin-right: .75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.THIS .runDdpSvg {
+    fill: #FFFFFF;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 5px;
+	/* These are necessary to vertically align the icon in the middle across all browsers and devicees. */
+    vertical-align: top;
+    margin-top: 5px;
+}

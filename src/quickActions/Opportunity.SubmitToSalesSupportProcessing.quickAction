@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-550 Quick Action Button to create a Case and Assign it to Sales Queue</description>
+    <height>150</height>
+    <label>Submit to Sales Support Processing</label>
+    <lightningComponent>SubmitToSalesProcessing</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

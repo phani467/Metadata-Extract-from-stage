@@ -1,0 +1,172 @@
+<aura:component controller="Loop.PurchaseFormController">
+    <!--data passed from DdpAdmin-->
+    <aura:attribute name="loopUrl" type="string" required="true"/>
+    <aura:attribute name="sessionId" type="string" required="true"/>
+    <aura:attribute name="isTest" type="boolean" default="false"/>
+    <aura:attribute name="isStandard" type="boolean" default="false"/>
+    <aura:attribute name="hasContract" type="boolean" default="false"/>
+    <aura:attribute name="allowedLicenses" type="string" default="0"/>
+    
+    <!--default values from Org and User-->
+    <aura:attribute name="firstName" type="string" access="private"/>
+    <aura:attribute name="lastName" type="string" access="private"/>
+    <aura:attribute name="email" type="string" access="private"/>
+    <aura:attribute name="phone" type="string" access="private"/>
+    <aura:attribute name="companyName" type="string" access="private"/>
+    <aura:attribute name="orgId" type="string" access="private"/>
+    <aura:attribute name="street" type="string" access="private"/>
+    <aura:attribute name="city" type="string" access="private"/>
+    <aura:attribute name="state" type="string" access="private"/>
+    <aura:attribute name="postalCode" type="string" access="private"/>
+    <aura:attribute name="country" type="string" access="private"/>
+    <aura:attribute name="additionalLicenses" type="integer" default="5" access="private"/>
+    
+    <!--labels-->
+    <aura:attribute name="firstNameLabel" type="string" access="private"/>
+    <aura:attribute name="lastNameLabel" type="string" access="private"/>
+    <aura:attribute name="emailLabel" type="string" access="private"/>
+    <aura:attribute name="phoneLabel" type="string" access="private"/>
+    <aura:attribute name="companyNameLabel" type="string" access="private"/>
+    <aura:attribute name="orgIdLabel" type="string" access="private"/>
+    <aura:attribute name="streetLabel" type="string" access="private"/>
+    <aura:attribute name="cityLabel" type="string" access="private"/>
+    <aura:attribute name="stateLabel" type="string" access="private"/>
+    <aura:attribute name="postalCodeLabel" type="string" access="private"/>
+    <aura:attribute name="countryLabel" type="string" access="private"/>
+    <aura:attribute name="userLicenseLabel" type="string" default="User Licenses" access="private"/>
+    
+    <!--Event handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <!--Fired events-->
+    <aura:registerEvent name="disableSave" type="Loop:disableSave"/>
+    <aura:registerEvent name="enableSave" type="Loop:enableSave"/>
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="moveToNextStep" type="Loop:moveToNextStep"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    
+    <aura:method name="submit" action="{!c.submit}"/>
+    
+    <div class="slds">
+        <aura:if isTrue="{!!v.hasContract}">
+            <div class="slds-text-body--regular slds-m-bottom--small">You will receive an order form within one business day of submitting this form.</div>
+            <aura:set attribute="else">
+                <div class="slds-text-body--regular slds-m-bottom--small">You will receive an upgrade order form within three business days of submitting this form.</div>
+            </aura:set>
+        </aura:if>
+        <div class="border">
+            <div class="slds-text-heading--small slds-m-bottom--medium">Billing Details</div>
+            <div class="slds-grid">
+                <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--3-of-6 slds-large-size--6-of-12">
+                    <div class="slds-form-element slds-size--1-of-1">
+                        <label class="slds-form-element__label" for="firstName">{!v.firstNameLabel}<span class="required-symbol">*</span></label>
+                        <input id="firstName" aura:id="firstName" value="{!v.firstName}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input slds-m-bottom--small"/>
+                    </div>
+                    <div class="slds-form-element slds-m-bottom--small">
+                        <label for="email" class="slds-form-element__label">{!v.emailLabel}<span class="required-symbol">*</span></label>
+                        <div class="slds-form-element__control">
+                            <input id="email" aura:id="email" value="{!v.email}" required="true" oninput="{!c.getCheckFormCompleteAndValidation}" class="slds-input"/>
+                        </div>
+                        <div class="error-label hidden" aura:id="emailError">Please enter in a valid email address.</div>
+                    </div>
+                    <div class="slds-form-element slds-size--1-of-1">
+                        <label class="slds-form-element__label" for="companyName">{!v.companyNameLabel}<span class="required-symbol">*</span></label>
+                        <input id="companyName" aura:id="companyName" value="{!v.companyName}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input slds-m-bottom--small"/>
+                    </div>
+                    <aura:if isTrue="{!!v.hasContract}">
+                        <fieldset class="slds-form--compound">
+                            <legend class="slds-form-element__label">Company Address</legend>
+                            <div class="form-element__group">
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size--1-of-1">
+                                        <label class="slds-form-element__label" for="street">{!v.streetLabel}<span class="required-symbol">*</span></label>
+                                        <input id="street" aura:id="street" value="{!v.street}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input"/>
+                                    </div>
+                                </div>
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size--1-of-2">
+                                        <label class="slds-form-element__label" for="city">{!v.cityLabel}<span class="required-symbol">*</span></label>
+                                        <input id="city" aura:id="city" value="{!v.city}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input"/>
+                                    </div>
+                                    <div class="slds-form-element slds-size--1-of-2">
+                                        <label class="slds-form-element__label" for="state">{!v.stateLabel}<span class="required-symbol">*</span></label>
+                                        <input id="state" aura:id="state" value="{!v.state}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input"/>
+                                    </div>
+                                </div>
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size--1-of-2">
+                                        <label class="slds-form-element__label" for="postalCode">{!v.postalCodeLabel}<span class="required-symbol">*</span></label>
+                                        <input id="postalCode" aura:id="postalCode" value="{!v.postalCode}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input"/>
+                                    </div>
+                                    <div class="slds-form-element slds-size--1-of-2">
+                                        <label class="slds-form-element__label" for="country">{!v.countryLabel}<span class="required-symbol">*</span></label>
+                                        <input id="country" aura:id="country" value="{!v.country}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </aura:if>
+                </div>
+                <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--3-of-6 slds-large-size--6-of-12">
+                    <div class="slds-form-element slds-size--1-of-1">
+                        <label class="slds-form-element__label" for="lastName">{!v.lastNameLabel}<span class="required-symbol">*</span></label>
+                        <input id="lastName" aura:id="lastName" value="{!v.lastName}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input slds-m-bottom--small"/>
+                    </div>
+                    <div class="slds-form-element slds-size--1-of-1">
+                        <label class="slds-form-element__label" for="phone">{!v.phoneLabel}<span class="required-symbol">*</span></label>
+                        <input id="phone" aura:id="phone" value="{!v.phone}" required="true" oninput="{!c.getCheckFormComplete}" class="slds-input slds-m-bottom--small"/>
+                    </div>
+                    <div class="slds-form-element slds-size--1-of-1">
+                        <label class="slds-form-element__label" for="orgId">{!v.orgIdLabel}<span class="required-symbol">*</span></label>
+                        <input id="orgId" aura:id="orgId" value="{!v.orgId}" required="true" disabled="true" oninput="{!c.getCheckFormComplete}" class="slds-input slds-m-bottom--small"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border slds-m-top--large">
+            <div class="slds-text-heading--small slds-m-bottom--x-small">Subscription Details</div>
+            <a href="https://www.drawloop.com/pricing/salesforce-app/" target="_blank" class="slds-m-left--small slds-text-body--regular" style="color: #0070d2;">
+                View pricing and edition comparison<Loop:Svg class="new-window-icon" xlinkHref="{!'/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#new_window'}"/>
+            </a>
+            <div class="slds-grid slds-m-top--x-small">
+                <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--3-of-6 slds-large-size--6-of-12">
+                    <aura:if isTrue="{!v.hasContract}">
+                        <label class="slds-text-body--small slds-m-bottom--small">
+                            Existing User Licenses
+                        </label>
+                        <div aura:id="existingSeats" class="slds-m-bottom--small">{!v.allowedLicenses}</div>
+                    </aura:if>
+                    <div class="slds-form-element">
+                        <label for="additionalUserLicenses" class="slds-form-element__label">{!v.userLicenseLabel}<span class="required-symbol">*</span></label>
+                        <div class="slds-form-element__control">
+                            <input id="additionalUserLicenses" aura:id="additionalUserLicenses" value="{!v.additionalLicenses}" required="true" oninput="{!c.getCheckFormCompleteAndValidation}" maxlength="6" class="slds-input"/>
+                        </div>
+                        <div class="error-label hidden" aura:id="additionalUserLicensesError">Please enter a numeric value.</div>
+                    </div>
+                </div>
+                <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--3-of-6 slds-large-size--6-of-12">
+                    <label for="editionButtons" class="slds-form-element__label">Edition<span class="required-symbol">*</span></label>
+                    <div id="editionButtons" class="slds-button-group" role="group">
+                        <button id="businessButton" aura:id="businessButton" class="slds-button slds-button--neutral slds-button--brand" onclick="{!c.updateSubscriptionLevel}">
+                            <span aura:id="businessButtonSvg" class="slds-m-right--x-small">
+                                <Loop:Svg class="slds-icon slds-icon__container slds-icon--x-small" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/action-sprite/svg/symbols.svg#check'}"/>
+                            </span>
+                            <span aura:id="businessButtonText">Enterprise</span>
+                        </button>
+                        <button id="standardButton" aura:id="standardButton" class="slds-button slds-button--neutral" onclick="{!c.updateSubscriptionLevel}">
+                            <span aura:id="standardButtonSvg" class="slds-m-right--x-small hidden">
+                                <Loop:Svg class="slds-icon slds-icon__container slds-icon--x-small" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/action-sprite/svg/symbols.svg#check'}"/>
+                            </span>
+                            <span aura:id="standardButtonText">Standard</span>
+                        </button>
+                    </div>
+                    <aura:if isTrue="{!!v.isStandard}">
+                        <div class="slds-text-body--regular slds-m-top--small">To add or update add-ons, contact a sales executive.</div>
+                        <div class="slds-text-body--regular"><b>{!$Label.loop.Email_Label}: </b><a href="mailto:sales@nintex.com?subject=Add%2Don%20Request" style="color: #0070d2;">sales@nintex.com</a></div>
+                        <div class="slds-text-body--regular"><b>{!$Label.loop.Call_Label}: </b>(949) 242-0455 and select option 1</div>
+                    </aura:if>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

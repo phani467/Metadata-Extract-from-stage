@@ -1,0 +1,250 @@
+<apex:page showHeader="false" standardController="Lead" extensions="ConvertLeadController" standardStylesheets="false"
+           sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" id="page">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <title>Convert lead to Opportunity</title>            
+            <!-- Import the Design System style sheet -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <apex:stylesheet value="{!URLFOR($Resource.SLDS, '/assets/styles/salesforce-lightning-design-system.min.css')}"/>
+                <style>
+                .lookupIcon {
+                    background-image: url(/img/func_icons/util/lookup20.gif);
+                    background-position: 0 0;
+                    width: 20px;
+                    height: 20px;
+                    background-position: top left
+                }
+            .lookupIconOn {
+                background-image: url(/img/func_icons/util/lookup20.gif);
+                background-position: 0 0;
+                width: 20px;
+                height: 20px;
+                background-position: top right
+            }
+            .lookupInput >input{
+                background-color: #fff;
+                color: #16325c;
+                border: 1px solid #d8dde6;
+                border-radius: .25rem;
+                /* width: 100%; */
+                transition: border .1s linear,background-color .1s linear;
+                display: inline-block;
+                padding: 0 1rem 0 .75rem;
+                line-height: 1.875rem;
+                min-height: calc(1.875rem + (1px * 2));
+            }
+            .errorM3{
+                background-image: linear-gradient(45deg,rgba(0,0,0,.025) 25%,transparent 25%,transparent 50%,rgba(0,0,0,.025) 50%,rgba(0,0,0,.025) 75%,transparent 75%,transparent);
+                background-size: 64px 64px;
+                color: #fff;
+                background-color: #c23934;
+                padding: .5rem;
+                text-align: center;
+                color: #fff;
+                position: relative;
+                font-weight: 300;
+            }
+            .messageCell
+            {
+                color:#fff;
+                font-weight:bold;
+            }
+            h4{
+                color:#fff;
+                font-weight:bold;
+            }
+            .messageTable
+            {
+                font-weight: 600;               
+            }
+            
+            </style>
+            <script>
+                $(document).ready(function() {
+                convertCheckBoxToLDS();
+                OpportunityLookup();
+            });
+            function validateActivity()
+            {
+                var activity = document.getElementById("page:formLeadConvert:pb:RadioBtn:0").checked;
+                if(activity)
+                {
+                    var opp = document.getElementById("page:formLeadConvert:pb:opprtunityLookup").value;
+                    if(opp=="")
+                    {
+                        alert("Please Select the Existing Opportunity");
+                        return false;
+                    }
+                }
+                return true;
+            }
+            function OpportunityLookup()
+            {
+                var activity = document.getElementById("page:formLeadConvert:pb:RadioBtn:0").checked;
+                if(activity)
+                {
+                    document.getElementById("lookup").style="display:block;";   
+                }
+                else{
+                    document.getElementById("lookup").style="display:none;" ;
+                }
+            }
+            function setContactIdToHiddenField(con) {
+                console.log(con);
+                $('[id$=ContactId]').val(con);
+            }
+            
+            function convertCheckBoxToLDS() {
+                var Row = document.getElementsByClassName("convertToSLSD");
+                for (var k = 0; k < Row.length; k++) {
+                    var colTds = Row[k].getElementsByTagName("td");
+                    for (var i = 0; i < colTds.length; i++) {
+                        var inrHtml = colTds[i].innerHTML;
+                        var chkId = inrHtml.substring(inrHtml.indexOf("id=") + 4, inrHtml.indexOf("\"", inrHtml.indexOf("id=") + 4));
+                        var chkBx = inrHtml.substring(inrHtml.indexOf("<input"), inrHtml.indexOf(">") + 1);
+                        var chkLable = colTds[i].getElementsByTagName("label")[0].textContent;
+                        var typeOfInput = colTds[i].getElementsByTagName("input")[0].getAttribute("type");
+                        var newChkBox = '<label class="slds-' + typeOfInput + '" for="' + chkId + '">' + chkBx +
+                            '<span class="slds-' + typeOfInput + '--faux"></span>' +
+                            '<span class="slds-form-element__label">' + chkLable + '</span>' +
+                            '</label>';
+                        colTds[i].innerHTML = newChkBox;
+                    }
+                }
+            }
+            
+            </script>
+        </head>
+        <body id="formLeadBody">
+            <apex:form id="formLeadConvert">
+                <apex:pageMessages escape="false"/>
+                <!-- PAGE HEADER -->
+                <div class="slds-page-header" role="banner">
+                    <!-- PAGE HEADER TOP ROW -->
+                    <div class="slds-grid">
+                        <!-- PAGE HEADER / ROW 1 / COLUMN 1 -->
+                        <div class="slds-col">
+                            <!-- HEADING AREA -->
+                            <!-- MEDIA OBJECT = FIGURE + BODY -->
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <svg aria-hidden="true" class="slds-icon slds-icon--large slds-icon-standard-user">
+                                        <use xlink:href="{!URLFOR($Resource.SLDS, '/assets/icons/standard-sprite/svg/symbols.svg#lead')}"></use>
+                                    </svg>
+                                </div>
+                                <div class="slds-media__body">
+                                    <p class="slds-text-heading--label">Convert Lead</p>
+                                    <h1 class="slds-text-heading--medium">Please Select Option to Convert a Lead</h1>
+                                </div>
+                            </div>
+                            <!-- / MEDIA OBJECT -->
+                            <!-- HEADING AREA -->
+                        </div>
+                        <!-- / PAGE HEADER / ROW 1 / COLUMN 1 -->
+                    </div>
+                    <!-- / PAGE HEADER TOP ROW -->
+                </div>
+                <!-- / PAGE HEADER -->
+                <!-- PRIMARY CONTENT WRAPPER -->
+                <apex:pageBlock rendered="{!hasDuplicateResult}">
+                    <fieldset class="slds-box slds-theme--default slds-form-element slds-is-required" id="fieldSet">
+                        <legend class="slds-form-element__label slds-form-element__label--top">Duplicate Contacts</legend>
+                        <table class="slds-table slds-table_bordered slds-table--striped">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th class="slds-cell-shrink" scope="col">
+                                        <div class="slds-truncate" title="Select Row"> Select
+                                        </div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Contact Name">Contact Name
+                                        </div>
+                                    </th>
+                                     <th scope="col">
+                                        <div class="slds-truncate" title="Email">Email
+                                        </div>
+                                    </th>
+                                     <th scope="col">
+                                        <div class="slds-truncate" title="Account">Account
+                                        </div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Phone">Phone
+                                        </div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Last Modified">Last Modified
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <apex:inputHidden value="{!selectedContact}" id="ContactId" />
+                                <apex:repeat value="{!duplicateRecords}" var="item">
+                                    <tr class="slds-hint-parent">
+                                        <td class="slds-cell-shrink" data-label="Select Row">
+                                            <label class="slds-radio" >
+                                                <input type="radio" name="Options"  value="{!item['Id']}" onchange = "setContactIdToHiddenField('{!item['Id']}');return false; "/>
+                                                <span class="slds-radio--faux">
+                                                </span><span class="slds-form-element__label">
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td data-label="Contact Name">
+                                            <apex:outputLink value="/{!item['Id']}?" target="self">{!item['Name']}</apex:outputLink>
+                                        </td>
+                                        <td data-label="Email">
+                                            <div class="slds-truncate" >{!item['Email']}</div>
+                                        </td>
+                                         <td data-label="Account">
+                                            <apex:outputLink value="/{!item['AccountId']}?" target="self">{!item['Account.Name']}</apex:outputLink>
+                                        </td>
+                                         <td data-label="Phone">
+                                            <div class="slds-truncate" >{!item['Phone']}</div>
+                                        </td>
+                                        <td data-label="Last Modified">
+                                            <div class="slds-truncate" >
+                                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                    <apex:param value="{!item['LastModifiedDate']}"/>
+                                                </apex:outputText>
+                                                </div>
+                                        </td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table> 
+                        <apex:commandButton styleClass="slds-button slds-button--brand slds-m-top--medium" value="Proceed with Selected Contact"  action="{!convertLead}"></apex:commandButton>
+                        <apex:commandButton styleClass="slds-button slds-button--neutral slds-m-top--medium" value="Cancel"  action="{!backToLead}"></apex:commandButton>
+                    </fieldset>
+                </apex:pageBlock>
+                <div class="convertLead" id="convertLead">
+                    <!-- CONVERT LEAD -->
+                    <apex:pageBlock rendered="{!!hasDuplicateResult}" id="pb"> 
+                        <div aria-labelledby="convertLeadform">
+                            <!-- BOXED AREA -->
+                            <fieldset class="slds-box slds-theme--default slds-form-element slds-is-required" id="fieldSet">
+                                <legend class="slds-form-element__label slds-form-element__label--top">Convert Lead to</legend>
+                                <div class="slds-form-element__control " id="radioDiv">
+                                    <apex:selectRadio value="{!selectedValue}" styleClass="convertToSLSD" layout="pageDirection" id="RadioBtn" onclick="OpportunityLookup();">
+                                        <apex:selectOption itemValue="Activity" itemLabel="Activity" id="Activity"  >
+                                        </apex:selectOption>
+                                        <apex:selectOption itemValue="Contact" itemLabel="Contact" id="Contact" > </apex:selectOption>
+                                        <apex:selectOption itemValue="Case" itemLabel="Customer Care Case" id="Case" > </apex:selectOption>
+                                        <apex:selectOption itemValue="OppCont" itemLabel="Contact + Opportunity" id="OppCont" > </apex:selectOption>
+                                    </apex:selectRadio>
+                                    
+                                </div>
+                                <div id="lookup" style="display:none;">
+                                    Select Existing Opportunity : &nbsp;  <apex:inputfield id="opprtunityLookup" value="{!leadOpportunity.ExistingOpportunity__c}" label="Opportunity" style="padding:3px;" ></apex:inputfield><br/>
+                                </div>
+                                
+                                <apex:commandButton styleClass="slds-button slds-button--brand slds-m-top--medium" value="Convert Lead" action="{!convertLead}"></apex:commandButton>
+                                <apex:commandButton styleClass="slds-button slds-button--neutral slds-m-top--medium" value="Cancel"  action="{!backToLead}"></apex:commandButton>
+                            </fieldset>
+                        </div>
+                    </apex:pageBlock>
+                </div>
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

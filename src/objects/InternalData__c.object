@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object is used for WRF-POLK.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ExpectedOutputQuanity__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Expected Output Quanity</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InternalDataType__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For External Data, see the Input File Section</inlineHelpText>
+        <label>Internal Data Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TotalSource</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unified</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Commercial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TLAS Query</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Input</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ManufacturerDivision__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Manufacturer/Division</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessingSpecifications__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Processing Specifications</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RecordType__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Record Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WorkRequestForm__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Work Request Form</label>
+        <referenceTo>WorkRequestForm__c</referenceTo>
+        <relationshipLabel>Internal Data</relationshipLabel>
+        <relationshipName>InternalData</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Internal Data</label>
+    <nameField>
+        <displayFormat>ID-{000000}</displayFormat>
+        <label>Internal Data Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Internal Data</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

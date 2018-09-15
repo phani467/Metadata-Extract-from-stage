@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-468;Email notification when opportunity converted to lost stage</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Closed Lost Opportunity</name>
+    <style>none</style>
+    <subject>An opportunity has just changed status to Closed Lost</subject>
+    <type>text</type>
+</EmailTemplate>

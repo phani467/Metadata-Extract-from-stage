@@ -1,0 +1,2 @@
+<apex:page standardcontroller="Opportunity" extensions="OpportunityNewButtonOverrideCE" action="{!PageLoadEvent}">
+</apex:page>

@@ -1,0 +1,14 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId,force:hasSObjectName,force:lightningQuickAction" 
+                controller="CreateContractAttachmentController">
+    <aura:attribute name="contractRecord" type="Contract"/>
+    <aura:attribute name="error" type="String" />
+    <aura:attribute name="recordId" type="String" />
+
+    <force:recordData aura:id="forceRecord"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"
+                      targetFields="{!v.contractRecord}"
+                      mode="EDIT" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />	
+</aura:component>

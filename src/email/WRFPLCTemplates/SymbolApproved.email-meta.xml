@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4411 Notification to sales that their symbol request has been approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>Symbol has been approved</name>
+    <style>freeForm</style>
+    <subject>Symbol Approval is complete</subject>
+    <textOnly>To Whom it may concern,
+
+Symbol approval has been given for {!WorkRequestForm__c.Name} and the form has been submitted.
+
+Symbol approved by: {!WorkRequestForm__c.LastModifiedBy}
+Symbol approved date: {!WorkRequestForm__c.SymbolsApprovedDate__c}
+
+Account Name: {!WorkRequestForm__c.AccountName__c}
+Opportunity Name: {!WorkRequestForm__c.OpportunityName__c}
+
+Link to WRF:  {!WorkRequestForm__c.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>

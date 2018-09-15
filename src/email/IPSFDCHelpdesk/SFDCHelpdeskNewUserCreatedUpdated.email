@@ -1,0 +1,14 @@
+Dear {!Case.Contact}, 
+
+Welcome to IHS Markit. 
+
+1) You should have received an email from Salesforce with info on how to create your Salesforce p/w. 
+2) Going forward, you can go to salesforce.com, 'Login' (top right) and input your credentials. Your username will be your email address and your p/w will be what you specified your p/w to be from the email that you just received. 
+3) Any questions regarding Salesforce should be sent to salesforcehelpdesk@markit.com 
+4) Our Salesforce video tutorials can be found here: http://sharepoint.markit.partners/sites/apps/Operations/SalesOps/CRM/Videos%20%20Sales/Forms/AllItems.aspx. This may be useful to you. 
+
+Kind regards, 
+
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+IHS Markit SFDC Helpdesk
+{!Case.Thread_Id}

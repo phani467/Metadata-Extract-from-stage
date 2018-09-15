@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5072: Loan Settlement - Resetting Pin Instructions</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loan Settlement - Resetting Pin Instructions</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - ClearPar PIN Information</subject>
+    <textOnly>PIN#: 
+
+Instructions for resetting your pin # (optional, but recommended): 
+
+1. Select ‘My Settings’ 
+2. Select ‘E-Pin’ 
+3. Enter your old pin (enter provided pin #) 
+4. Enter your new pin (4-digits only) 
+5. Verify pin (enter new pin # again) 
+6. Select ‘Change’ 
+
+If you have any questions or need assistance please call 646-690-4288. For trade specific assistance, please contact your ClearPar closer at 646-690-4300. 
+
+Best Regards, 
+
+{!User.FirstName} {!User.LastName}
+{!User.Title} | Loan Settlement Support 
+711 Executive Blvd., Suite A | Valley Cottage, New York 10989 
+Support: +1 646 690 4288 Main: +1 646 690 4300 
+ClearParSupport@markit.com 
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,66 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="SendMeetingNoteEmailToTeamMembers">
+	<aura:attribute name="mnId" type="String" />
+    <aura:attribute name="launchedFrom" type="String" description="Tells us from which action this is being instantiated."/>
+	<aura:attribute name="meetingNote" type="MeetingNote__c" default="{ 'sobjectType': 'MeetingNote__c' }"/>
+	
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:attribute name="recipientList" type="cRecipient[]"/>
+	
+    <!-- body starts from here -->
+    <div class="slds-card">
+        <div class="slds-m-around_x-large">
+            <div class="slds-form slds-form_stacked">
+                <div class="slds-size--1-of-1 slds-text-heading--medium ">
+                    <b><ui:outputText class="field" value="Please add any other Recipient" /></b>
+                </div>
+                <br />
+                <force:inputField aura:id="contactId" value="{!v.meetingNote.InternalContactLookup__c}"/>
+                <div class="slds-button-group slds-align_absolute-center" role="group">
+                    <button class="slds-button slds-button--neutral slds-not-selected slds-m-bottom--medium slds-m-top--medium" onclick="{!c.addRecipient}">Add Recipients</button>
+                </div>
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">
+                                <div class="slds-truncate" title="SNO">S NO.</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Name">Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="IHS Markit Employee">Email</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Action">Action</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.recipientList}" var="rec" indexVar="index">
+                            <tr class="slds-text-title_caps">
+                                <td>
+                                    <span class="slds-form-element__label">{!index+1}</span>
+                                </td>
+                                <td>
+                                    <span class="slds-form-element__label">{!rec.name}</span>
+                                </td>
+                                <td>
+                                    <span class="slds-form-element__label">{!rec.email}</span>
+                                </td>
+                                <td>
+                                    <button class="slds-button slds-button_neutral" value="{!index}" onclick="{!c.deleteRecipient}">Delete</button>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                <br />
+                <div class="slds-button-group slds-align_absolute-center" role="group">
+                    <button class="slds-button slds-button_neutral" onclick="{!c.doSend}">Send</button>
+                    <button class="slds-button slds-button_neutral" onclick="{!c.cancel}">Cancel</button>
+                </div>
+            </div>    
+        </div>    
+    </div>    
+    <!-- end of body -->
+</aura:component>

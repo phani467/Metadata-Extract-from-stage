@@ -1,0 +1,9 @@
+Hello 
+<br>
+Please provide the correct legal entity name as well as the full address to complete your request for a new account, for the following -
+<br>
+<a href={!Case.Link}>{!Case.CaseNumber}</a> 
+<br>
+Account Reference: {!Case.AccountReference__c}
+<br>
+Thank You

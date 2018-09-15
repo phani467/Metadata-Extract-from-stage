@@ -1,0 +1,10 @@
+{!Case.CreatedDate} 
+Case Type: {!Case.Type}
+Case Owner: {!Case.OwnerFirstName}, {!Case.OwnerLastName} logged case {!Case.CaseNumber} within SFDC against {!Account.Name}.
+
+{!Case.Link}
+
+Case Number : {!Case.CaseNumber}
+Case Subject : {!Case.Subject}
+
+Below is a brief description of the case: {!Case.Description}

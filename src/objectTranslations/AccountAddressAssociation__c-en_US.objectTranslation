@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Related Address</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Addresses</value>
+    </caseValues>
+    <fields>
+        <help><!-- Select the account associated to address --></help>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Related Addresses --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Displays address details for the Account Address record --></help>
+        <label><!-- Address Details --></label>
+        <name>AddressDetail__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the Address associated with account --></help>
+        <label><!-- Address Company Name --></label>
+        <name>Address__c</name>
+        <relationshipLabel><!-- Related Addresses --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Check if it is a Bill to address --></help>
+        <label><!-- Bill To --></label>
+        <name>BillTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID AcctAddy --></label>
+        <name>PKIDAcctAddy__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if this is a Ship to address --></help>
+        <label><!-- Ship To --></label>
+        <name>ShipTo__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Address Association Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

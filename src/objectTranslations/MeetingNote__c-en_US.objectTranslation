@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meeting Note</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meeting Notes</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please Select the Account --></help>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Meeting Notes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Achieved --></label>
+        <name>Achieved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agenda Items --></label>
+        <name>AgendaItems__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please Select Asset Class --></help>
+        <label><!-- Asset Class --></label>
+        <name>AssetClass__c</name>
+        <picklistValues>
+            <masterLabel>Credit</masterLabel>
+            <translation><!-- Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cross Asset;</masterLabel>
+            <translation><!-- Cross Asset; --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity</masterLabel>
+            <translation><!-- Equity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX</masterLabel>
+            <translation><!-- FX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rates</masterLabel>
+            <translation><!-- Rates --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please Enter Client Attendee&apos;s Name --></help>
+        <label><!-- Client Attendee Names --></label>
+        <name>AttendeeNames__c</name>
+    </fields>
+    <fields>
+        <label><!-- CEO- Worthy Takeaway --></label>
+        <name>CEOWorthyTakeaway__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please Select Campaign --></help>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Meeting Notes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Main Contact --></label>
+        <name>ClientMainContact__c</name>
+        <relationshipLabel><!-- Meeting Notes (Client Main Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Additional Attendees --></label>
+        <name>ContactLookup__c</name>
+        <relationshipLabel><!-- Meeting Notes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Full Address --></label>
+        <name>FullAddress__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please Enter IHS Markit Attendee&apos;s Name --></help>
+        <label><!-- IHS Markit Attendee Names --></label>
+        <name>IHSMarkitAttendeeNames__c</name>
+    </fields>
+    <fields>
+        <label><!-- Info --></label>
+        <name>Info__c</name>
+    </fields>
+    <fields>
+        <label><!-- Add non-salesforce users --></label>
+        <lookupFilter>
+            <errorMessage><!-- You can only send meeting notes to internal customers. --></errorMessage>
+        </lookupFilter>
+        <name>InternalContactLookup__c</name>
+        <relationshipLabel><!-- Meeting Notes (Add non-salesforce users) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system id (unfriendly) referencing the source record and is populated via migrating system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please Enter Attendee&apos;s Name --></help>
+        <label><!-- Markit Attendee Names --></label>
+        <name>MarkitAttendeeNames__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please Enter the Outcome of the Meeting --></help>
+        <label><!-- Meeting Outcome --></label>
+        <name>MeetingOutcome__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Steps --></label>
+        <name>NextSteps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Opportunities --></label>
+        <name>NumberOfOpportunities__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Meeting Notes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID MeetNote --></label>
+        <name>PKIDMeetNote__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please Enter the Product Family --></help>
+        <label><!-- Product Family --></label>
+        <name>ProductFamilyLookup__c</name>
+        <relationshipLabel><!-- Meeting Notes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recipient List --></label>
+        <name>RecipientList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sentiment --></label>
+        <name>Sentiment__c</name>
+        <picklistValues>
+            <masterLabel>Negative</masterLabel>
+            <translation><!-- Negative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neutral</masterLabel>
+            <translation><!-- Neutral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Positive</masterLabel>
+            <translation><!-- Positive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- State/Province --></label>
+        <name>StateProvince__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Asset Class --></label>
+        <name>SubAssetClass__c</name>
+        <picklistValues>
+            <masterLabel>Account Review</masterLabel>
+            <translation><!-- Account Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adoption</masterLabel>
+            <translation><!-- Adoption --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto Processing</masterLabel>
+            <translation><!-- Auto Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blockchain</masterLabel>
+            <translation><!-- Blockchain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Broker Affirmations</masterLabel>
+            <translation><!-- Broker Affirmations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Development</masterLabel>
+            <translation><!-- Business Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS</masterLabel>
+            <translation><!-- CLS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing</masterLabel>
+            <translation><!-- Clearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compression</masterLabel>
+            <translation><!-- Compression --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Processing</masterLabel>
+            <translation><!-- Custom Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMS tool</masterLabel>
+            <translation><!-- DMS tool --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSMatch</masterLabel>
+            <translation><!-- DSMatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DealHub</masterLabel>
+            <translation><!-- DealHub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX Options</masterLabel>
+            <translation><!-- FX Options --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX Post trade enterprise</masterLabel>
+            <translation><!-- FX Post trade enterprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX TradeSTP</masterLabel>
+            <translation><!-- FX TradeSTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX Trading</masterLabel>
+            <translation><!-- FX Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTM</masterLabel>
+            <translation><!-- MTM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire</masterLabel>
+            <translation><!-- MarkitWire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration</masterLabel>
+            <translation><!-- Migration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Products</masterLabel>
+            <translation><!-- New Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Ventures</masterLabel>
+            <translation><!-- New Ventures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations/Support</masterLabel>
+            <translation><!-- Operations/Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting</masterLabel>
+            <translation><!-- Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roadmap</masterLabel>
+            <translation><!-- Roadmap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tools &amp; Applications</masterLabel>
+            <translation><!-- Tools &amp; Applications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unification</masterLabel>
+            <translation><!-- Unification --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Additional Recipients --></label>
+        <name>UserLookup__c</name>
+        <relationshipLabel><!-- Meeting Notes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- When --></label>
+        <name>When__c</name>
+    </fields>
+    <fields>
+        <label><!-- Where --></label>
+        <name>WhereFormula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Where --></label>
+        <name>Where__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip/Postal Code --></label>
+        <name>ZipPostalCode__c</name>
+    </fields>
+    <layouts>
+        <layout>Meeting Note Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Summary --></label>
+            <section>Summary</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Send To Account Team --></label>
+        <name>SendToAccountTeam</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send To Opportunity Team --></label>
+        <name>SendToOpportunityTeam</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- SendToAccountTeam --></label>
+        <name>SendToAccountTeam</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendToOpportunityTeam --></label>
+        <name>SendToOpportunityTeam</name>
+    </webLinks>
+</CustomObjectTranslation>

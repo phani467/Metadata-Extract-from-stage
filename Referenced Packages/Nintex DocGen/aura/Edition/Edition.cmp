@@ -1,0 +1,168 @@
+<aura:component controller="Loop.EditionController" implements="AuthTargetEnum">
+    <ltng:require scripts="/resource/Loop__Scripts/eventListener.js"/>
+
+    <!--Required attributes-->
+    <aura:attribute name="sessionId" type="string" required="true"/>
+    <aura:attribute name="services" type="Map" required="true" description="Contains LMO info such as isStandard, add-ons, etc."/>
+    <aura:attribute name="orgSettings" type="Map" description="Contains org settings such as allowedLicenses, usedLicenses, etc."/>
+    <aura:attribute name="isDdpAdmin" type="boolean" required="true"/>
+    <aura:attribute name="connectedAppsEnabled" type="boolean" required="true"/>
+    <aura:attribute name="isStandard" type="boolean" required="true"/>
+    <aura:attribute name="isCustomizeApplication" type="boolean" required="true"/>
+    <aura:attribute name="loopUrl" type="string" required="true" default=""/>
+
+    <!--Internal attributes-->
+    <aura:attribute name="disableAll" type="boolean" default="false" access="private"/>
+    <aura:attribute name="oAuthUrl" type="string" default="" access="private"/>
+    <aura:attribute name="findSubOptionUrl" type="string" default="" access="private"/>
+    <aura:attribute name="isTrial" type="boolean" default="false"/>
+    <aura:attribute name="hasContract" type="boolean" required="false"/>
+    <aura:attribute name="isSandbox" type="boolean" default="false" access="private"/>
+    <aura:attribute name="serviceLevel" type="string" default="LP+ Standard" access="private"/>
+    <aura:attribute name="standardScheduledDdp" type="boolean" default="false" access="private"/>
+    <aura:attribute name="businessScheduledDdp" type="boolean" default="false" access="private"/>
+    <aura:attribute name="workflowDdp" type="boolean" default="false" access="private"/>
+    <aura:attribute name="componentLibrary" type="boolean" default="false" access="private"/>
+    <aura:attribute name="massDdp" type="boolean" default="false" access="private"/>
+    <aura:attribute name="returnValue" type="string" default="" access="private"/>
+    <aura:attribute name="isAuthorized" type="boolean" default="false" access="private"/>
+    <aura:attribute name="isAuthLoading" type="boolean" default="true" access="private"/>
+    
+    <!--Handled events-->
+    <aura:handler name="actionEvent" event="Loop:actionEvent" action="{!c.handleActionEvent}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <!--Registered events-->
+    <aura:registerEvent name="moveToNextStep" type="Loop:moveToNextStep"/>
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="disableSave" type="Loop:disableSave"/>
+    <aura:registerEvent name="updateIsStandard" type="Loop:updateIsStandard"/>
+    <aura:registerEvent name="redirectPage" type="Loop:redirectPage"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    
+    <!--Methods-->
+    <aura:method name="save" action="{!c.save}"/>
+    <aura:method name="load" action="{!c.load}">
+        <aura:attribute name="services" type="Map" default="{}" access="private" description="Contains LMO info such as isStandard, add-ons, etc."/>
+        <aura:attribute name="orgSettings" type="Map" default="{}" access="private" description="Contains org settings such as allowedLicenses, usedLicenses, etc."/>
+    </aura:method>
+
+    <aura:if isTrue="{!v.connectedAppsEnabled &amp;&amp; v.isAuthLoading}">
+        <lightning:spinner size="large" variant="brand"/>
+    </aura:if>
+    <div class="slds">
+        <aura:if isTrue="{! !v.isAuthorized &amp;&amp; v.connectedAppsEnabled}">
+            <div class="{!v.isAuthLoading ? 'slds-hide' : null}">
+                <h3 aura:id="authText" class="slds-text-heading--small slds-m-bottom--medium">You must authorize the app to update your edition.</h3>
+                <div class="slds-grid slds-grid--align-center">
+                    <Loop:ApplicationAuthorization viewContext="SIMPLE" businessContext="BASIC_AUTH"/>
+                </div>
+            </div>
+            <aura:set attribute="else">
+                <div aura:id="pageContent" class="slds">
+                    <aura:if isTrue="{!v.isTrial}">
+                        <div class="slds-box slds-box--x-small slds-theme--shade slds-m-bottom--large">Your subscription is a trial.</div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.isSandbox}">
+                        <Loop:ApplicationAuthorization aura:id="appAuth" viewContext="STAND_ALONE" businessContext="OTHER_ORG_AUTH" redirectTarget="{#v.AuthTarget.EDITION}"/>
+                        <div class="slds-text-heading--medium slds-m-bottom--xx-small">Connect Production Edition</div>
+                        <div class="slds-text-body--regular slds-m-bottom--x-small">{!$Label.loop.AuthorizeProductionOrg_Message}</div>
+                        <div class="slds-m-bottom--large slds-grid">
+                            <lightning:button aura:id="oAuthFlowButton" disabled="true" variant="brand" label="{!$Label.loop.AuthorizeProdOrg_Label}" onclick="{!c.startOAuthFlow}"/>
+                            <lightning:spinner aura:id="oAuthLoadingSpinner" variant="brand" size="small" class="oAuthLoadingSpinner"/>
+                        </div>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.isDdpAdmin}">
+                                <aura:if isTrue="{!v.hasContract &amp;&amp; !v.isStandard}">
+                                    <div class="slds-box slds-box--x-small slds-theme--shade slds-m-bottom--large">
+                                        <span class="slds-icon_container">
+                                            <Loop:Svg class="slds-icon slds-icon--small slds-icon-text-default slds-m-right--small" display="true" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#lock"/>
+                                        </span>
+                                        You have purchased Nintex DocGen. To update this page, contact your account executive.
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!v.hasContract &amp;&amp; v.isStandard}">
+                                    <div class="slds-box slds-box--x-small slds-theme--shade slds-m-bottom--large">
+                                        <span class="slds-icon_container">
+                                            <Loop:Svg class="slds-icon slds-icon--small slds-icon-text-default slds-m-right--small" display="true" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#lock"/>
+                                        </span>
+                                        You have purchased Standard Edition. You can upgrade to Business Edition, add user licenses, or both.
+                                        <div class="slds-m-top--x-small slds-m-left--x-large">
+                                            <button class="slds-button slds-button--brand" onclick="{!c.redirectPage}">Upgrade License</button>
+                                        </div>
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!!v.hasContract}">
+                                    <div class="slds-box slds-box--x-small slds-theme--shade slds-m-bottom--large">
+                                        <span class="slds-icon_container">
+                                            <Loop:Svg class="slds-icon slds-icon--small slds-icon-text-default slds-m-right--small" display="true" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#clock"/>
+                                        </span>
+                                        Purchase the app, select an edition, and add user licenses.
+                                        <div class="slds-m-top--x-small slds-m-left--x-large">
+                                            <button class="slds-button slds-button--brand" onclick="{!c.redirectPage}">{!$Label.loop.Purchase_App_Label}</button>
+                                        </div>
+                                    </div>
+                                </aura:if>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                    <div class="slds-text-heading--medium">Options</div>
+                    <div class="slds-text-body--regular slds-m-top--medium slds-m-bottom--small">Select an edition. For more information, see <a href="http://www.drawloop.com/pricing/salesforce-app/" target="_blank">comparison of edition options</a>.</div>
+                    <div class="slds-grid">
+                        <div id="business-container" class="slds-col slds-size--1-of-2">
+                            <div class="slds-m-right--large">
+                                <div class="slds-text-heading--medium slds-m-bottom--medium">Enterprise</div>
+                                <div class="slds-text-body--regular slds-m-bottom--medium" style="min-height:84px;">
+                                    Automated document services that allow you to create, deliver, and store DocGen Packages in Salesforce plus advanced enterprise features.
+                                </div>
+                                <div style="text-align:center;">
+                                    <aura:if isTrue="{!!v.isStandard}">
+                                        <button type="button" class="slds-button slds-button--brand" style="white-space:nowrap;" disabled="{!v.disableAll}" onclick="{!c.toggleServiceLevel}">
+                                            <span class="slds-m-right--x-small">
+                                                <Loop:Svg class="slds-icon slds-icon__container slds-icon--x-small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/action-sprite/svg/symbols.svg#check"/>
+                                            </span>
+                                            <span>Enterprise Enabled</span>
+                                        </button>
+                                        <aura:set attribute="else">
+                                            <button type="button" class="slds-button slds-button--neutral" style="white-space:nowrap;" disabled="{!v.disableAll}" onclick="{!c.toggleServiceLevel}">
+                                                <span>Enable Enterprise</span>
+                                            </button>
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                                <div class="slds-small-size--1-of-1 slds-medium-size--6-of-8 slds-large-size--6-of-12 slds-container--center slds-m-top--small">
+                                    <div class="slds-text-body--regular">To add or update add-ons, contact a sales executive.</div>
+                                    <div class="slds-text-body--regular"><b>{!$Label.loop.Email_Label}: </b><a href="mailto:sales@nintex.com?subject=Add%2Don%20Request" style="color: #0070d2;">sales@nintex.com</a></div>
+                                    <div class="slds-text-body--regular"><b>{!$Label.loop.Call_Label}: </b>(949) 242-0455 and select option 1</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="standard-container" class="slds-col slds-size--1-of-2 border-left">
+                            <div class="slds-m-left--x-large">
+                                <div id="standard-header-text" class="slds-text-heading--medium slds-m-bottom--medium">Standard</div>
+                                <h2 class="slds-text-body--regular slds-m-bottom--medium" style="min-height:84px;">
+                                    Automated document services that allow you to create, deliver, and store DocGen Packages in Salesforce.
+                                </h2>
+                                <div style="text-align:center;">
+                                    <aura:if isTrue="{!v.isStandard}">
+                                        <button type="button" class="slds-button slds-button--brand" style="white-space:nowrap;" disabled="{!v.disableAll}" onclick="{!c.toggleServiceLevel}">
+                                            <span class="slds-m-right--x-small">
+                                                <Loop:Svg class="slds-icon slds-icon__container slds-icon--small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/action-sprite/svg/symbols.svg#check"/>
+                                            </span>
+                                            <span>Standard Enabled</span>
+                                        </button>
+                                        <aura:set attribute="else">
+                                            <button type="button" class="slds-button slds-button--neutral" style="white-space:nowrap;" disabled="{!v.disableAll}" onclick="{!c.toggleServiceLevel}">
+                                                <span>Enable Standard</span>
+                                            </button>
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

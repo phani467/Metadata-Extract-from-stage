@@ -1,0 +1,10 @@
+<aura:documentation>
+	<aura:description>
+    	<p>Initialize this component without any parameters.</p>
+        <p>Pass in parameters using the <code>aura:method</code></p>
+        <p>
+            Note: This component utilizes the Static Resource process-ddp.js. When process-ddp.js makes updates to the progress bar, it looks
+            for specific class names (panel-progress, progress, progress-bar, progress-bar-inner, progress-bar-text, panel-preview, panel-error).
+        </p>
+    </aura:description>
+</aura:documentation>

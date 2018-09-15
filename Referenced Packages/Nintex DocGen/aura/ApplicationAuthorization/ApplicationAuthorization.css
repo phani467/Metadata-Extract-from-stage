@@ -1,0 +1,7 @@
+.THIS .warning-icon svg {
+    fill: t(colorBackgroundWarning);
+}
+
+.THIS #spinner-container {
+    height: t(squareIconMediumBoundary);
+}

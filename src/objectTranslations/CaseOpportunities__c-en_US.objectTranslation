@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case Opportunities</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case Opportunities</value>
+    </caseValues>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the Case you wish to relate to an Opportunity. --></help>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Case Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Close Date --></help>
+        <label><!-- Close Date --></label>
+        <name>CloseDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Revenue --></label>
+        <name>ExpectedRevenue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity Name --></help>
+        <label><!-- Opportunity Name --></label>
+        <name>OpportunityName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity Stage --></help>
+        <label><!-- Opportunity Stage --></label>
+        <name>OpportunityStage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the Opportunity you wish to relate to a Case. --></help>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Case Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID CaseOpportunities --></label>
+        <name>PKIDCaseOpportunities__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

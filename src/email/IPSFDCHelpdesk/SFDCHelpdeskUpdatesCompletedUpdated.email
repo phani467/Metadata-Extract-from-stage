@@ -1,0 +1,9 @@
+Dear {!Case.Contact}, 
+
+The requested updates have been completed in SFDC.
+
+Kind regards, 
+
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+IHS Markit SFDC Helpdesk
+{!Case.Thread_Id}

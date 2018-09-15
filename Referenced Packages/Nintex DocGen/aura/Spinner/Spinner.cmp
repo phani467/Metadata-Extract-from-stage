@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="class" type="string"/>
+    <aura:attribute name="visible" type="boolean"/>
+    <aura:attribute name="useGraySpinner" type="boolean" default="false"/>
+    <aura:attribute name="size" type="string"/>
+	<aura:if isTrue="{!v.visible}">
+        <div class="{!v.class}" style="{!'display: inline-block; margin-left: 5px;' + (v.size ? 'width: ' + v.size + ';' : '')}">
+            <aura:if isTrue="{!v.useGraySpinner}">
+            	<img src="{!$Resource.Loop__SalesforceLightning + '/assets/images/spinners/slds_spinner.gif'}" alt="Loading..." />
+            	<aura:set attribute="else">
+                	<img src="{!$Resource.Loop__SalesforceLightning + '/assets/images/spinners/slds_spinner_brand.gif'}" alt="Loading..." />
+                </aura:set>
+            </aura:if>
+        </div>
+    </aura:if>
+</aura:component>

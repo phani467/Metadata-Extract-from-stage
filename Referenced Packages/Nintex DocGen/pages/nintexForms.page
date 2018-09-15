@@ -1,0 +1,17 @@
+<apex:page title="Nintex Forms">
+    <style>
+        .message .messageText {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .bPageTitle .pageTitleIcon {
+            display: none;
+        }
+        .bPageTitle .ptBody .pageDescription,
+        .bPageTitle .ptBreadcrumb {
+            margin-left: 20px !important;
+        }
+    </style>
+    <apex:sectionHeader subtitle="Nintex DocGen"/>
+    <apex:pageMessage summary="This feature is discontinued." severity="error" strength="3"/>
+</apex:page>

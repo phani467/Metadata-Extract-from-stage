@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>Manage relationships from IHS Markit accounts to accounts in Legacy CRM Systems</description>
+    <mobileReady>false</mobileReady>
+    <motif>Custom96: Street Sign</motif>
+</CustomTab>

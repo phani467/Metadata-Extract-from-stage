@@ -1,0 +1,180 @@
+<apex:page standardController="Loop__dsRecipient__c" tabStyle="Loop__DDP__c" extensions="Loop.recipientExt" title="{!$ObjectType.Loop__dsRecipient__c.label}: {!Loop__dsRecipient__c.Name}">
+    <script src="{!URLFOR($Resource.Scripts, 'jQuery.js')}"></script>
+    <script src="{!URLFOR($Resource.Scripts, 'jquery.drawloop.js')}"></script>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(function(){
+            if ('{!JSENCODE(deliveryType)}' == 'SignNow') {
+                var $fieldList = jQuery('[id$=":fieldList"]');
+                var $fieldListColumnHeaders = $fieldList.find('th') ;
+                $fieldList.find('input.btn[value="New Secure Field"]').val(' New Field ').attr('title', 'New Field');
+                $fieldListColumnHeaders.filter(function() { return jQuery(this).text() == 'Group Name' }).text('Friendly Name');
+                $fieldListColumnHeaders.filter(function() { return jQuery(this).text() == 'Tool Tip' }).text('Label');
+                var $typeColumn = $fieldListColumnHeaders.filter(function() { return jQuery(this).text() == 'Type' });
+                if ($typeColumn != null) {
+                    var typeColumnIndex = $fieldListColumnHeaders.index($typeColumn);
+                    $fieldList.find('tr').each(function() {
+                        jQuery(this).find('th,td').eq(typeColumnIndex).remove();
+                    });
+                }
+            }
+            if ('{!JSENCODE(deliveryType)}' == 'e_SignLive') {
+                var $fieldList = jQuery('[id$=":fieldList"]');
+                var $fieldListColumnHeaders = $fieldList.find('th');
+                $fieldList.find('input.btn[value="New Secure Field"]').val(' New Field ').attr('title', 'New Field');
+                var $toolTipColumn = $fieldListColumnHeaders.filter(function() { return jQuery(this).text() == 'Tool Tip' });
+                if ($toolTipColumn != null) {
+                    var toolTipColumnIndex = $fieldListColumnHeaders.index($toolTipColumn);
+                    $fieldList.find('tr').each(function() {
+                        jQuery(this).find('th,td').eq(toolTipColumnIndex).remove();
+                    });
+                }
+            }        
+        });
+    </script>
+    <apex:sectionHeader title="{!$ObjectType.Loop__dsRecipient__c.label}" subtitle="{!Loop__dsRecipient__c.Name}" />
+    <apex:form id="aForm">
+        <apex:inputHidden value="{!Loop__dsRecipient__c.Loop__StaticEmail__c}" />
+        <apex:inputHidden value="{!Loop__dsRecipient__c.Loop__Host_Static_Email__c}" />
+        <apex:pageMessages id="pgmsgs" />
+        <apex:pageBlock title="{!$ObjectType.Loop__dsRecipient__c.label} Detail" mode="maindetail">
+            <apex:pageBlockButtons >
+                <apex:commandButton value=" Edit " id="editBtn" action="{!edit}" />
+                <apex:commandButton value="Delete" id="deleteBtn" action="{!deleteRecipient}" onclick="return confirm('Are you sure?');" />
+                <apex:commandButton value="Clone" id="cloneBtn" action="{!URLFOR($Action.dsRecipient__c.Clone, dsRecipient__c.Id)}" />
+                <apex:commandButton value=" Save " id="saveBtn" style="display: none;" action="{!saveRecipient}" />
+                <apex:commandButton value="Cancel" id="cancelBtn" style="display: none;" onclick="resetInlineEdit();" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:inlineEditSupport showOnEdit="saveBtn,cancelBtn" hideOnEdit="editBtn,deleteBtn,cloneBtn" disabled="false" resetFunction="resetInlineEdit" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Name}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__IntegrationOption__c}">
+                    <apex:inlineEditSupport disabled="true" />
+                </apex:outputField>
+                
+                <!-- Signing Order (EchoSign) -->
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsRoutingOrder__c}" rendered="{!deliveryType=='EchoSign'}" />
+                
+                <!-- Type (non-EchoSign) -->
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsType__c}" rendered="{!deliveryType=='DocuSign'}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsType__c}" rendered="{!OR(deliveryType='SignNow',deliveryType='Sertifi')}">
+                    <apex:inlineEditSupport disabled="true" />
+                </apex:outputField>
+                
+                <!-- Recipient # (DocuSign) -->
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__SigningOrder__c}" rendered="{!OR(deliveryType=='DocuSign',deliveryType=='e_SignLive')}" />
+                
+                <!-- Signing Order (DocuSign) -->
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsRoutingOrder__c}" rendered="{!deliveryType=='DocuSign'}" />
+                
+                <!-- Role -->
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsRoleName__c}" />
+                
+                <!-- Signing Order (SignNow) -->
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsRoutingOrder__c}" rendered="{!deliveryType='SignNow'}" />
+                
+                <!-- Signing Order (Sertifi) -->
+                <apex:pageBlockSectionItem rendered="{!AND(deliveryType='Sertifi',Loop__dsRecipient__c.Loop__dsType__c!='Carbon Copy')}" helptext="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsRoutingOrder__c.inlineHelpText}">
+                    <apex:outputLabel value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsRoutingOrder__c.label}" />
+                    <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsRoutingOrder__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!AND(deliveryType='Sertifi',Loop__dsRecipient__c.Loop__dsType__c=='Carbon Copy')}" />
+                
+                <apex:pageBlockSectionItem rendered="{!deliveryType=='EchoSign'}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsRoutingOrder__c}" rendered="{!deliveryType=='e_SignLive'}" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsAllowAccessCode__c}" rendered="{!deliveryType='DocuSign'}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsRequired__c}" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsCheckId__c}" rendered="{!deliveryType='DocuSign'}" />
+                <apex:pageBlockSectionItem rendered="{!deliveryType!='DocuSign'}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__DisplayTitle__c}" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsSignOptions__c}" rendered="{!OR(deliveryType='DocuSign', deliveryType='e_SignLive')}" >
+                    <apex:inlineEditSupport disabled="true"/>
+                </apex:outputField>
+                <apex:pageBlockSectionItem rendered="{!deliveryType='Sertifi'}" />
+                <apex:pageBlockSectionItem rendered="{!OR(deliveryType='DocuSign', deliveryType='e_SignLive', deliveryType='Sertifi')}" >
+                    <apex:outputLabel for="embeddedSigner" value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__Embedded_Signer__c.label}" />
+                    <apex:outputText id="embeddedSigner" value="{!Loop__dsRecipient__c.Loop__Embedded_Signer__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!AND(Loop__dsRecipient__c.Loop__Embedded_Signer__c!='', deliveryType=='DocuSign')}" />
+                <apex:pageBlockSectionItem rendered="{!AND(Loop__dsRecipient__c.Loop__Embedded_Signer__c!='', deliveryType=='DocuSign')}">
+                    <apex:outputLabel for="redirectUrl" value="Redirect URL" />
+                    <apex:outputField id="redirectUrl" value="{!Loop__dsRecipient__c.Loop__OnSigningComplete__c}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="{!$ObjectType.Loop__dsRecipient__c.label} Options" rendered="{!Loop__dsRecipient__c.Loop__dsType__c='Signing Group'}">
+                <apex:outputField label="Signing Group Name" value="{!Loop__dsRecipient__c.Loop__SigningGroupName__c}"/>
+                <apex:outputField label="Signing Group Id" value="{!Loop__dsRecipient__c.Loop__SigningGroupId__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="{!$ObjectType.Loop__dsRecipient__c.label} Options" rendered="{!Loop__dsRecipient__c.Loop__dsType__c!='Signing Group'}">
+                <apex:inlineEditSupport showOnEdit="saveBtn,cancelBtn" hideOnEdit="editBtn,deleteBtn,cloneBtn" disabled="false" resetFunction="resetInlineEdit" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsStaticRecipient__c}">
+                    <apex:inlineEditSupport disabled="true" />
+                </apex:outputField>
+                
+                <apex:inlineEditSupport showOnEdit="saveBtn,cancelBtn" hideOnEdit="editBtn,deleteBtn,cloneBtn" disabled="false" resetFunction="resetInlineEdit" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__RoleGroupNames__c}" rendered="{!Loop__dsRecipient__c.Loop__dsStaticRecipient__c='Roles or Groups'}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__StaticName__c}" rendered="{!showStaticName}" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsContact__c}" rendered="{!showContact}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__dsUser__c}" rendered="{!showUser}" />
+                
+                <apex:pageBlockSectionItem rendered="{!showAddress}" />
+                <apex:outputField id="address" value="{!Loop__dsRecipient__c.Loop__Address__c}" rendered="{!showAddress}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Host Options" rendered="{!Loop__dsRecipient__c.Loop__dsType__c='In Person Signer'}">
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__Specified_Host__c}" rendered="{!Loop__dsRecipient__c.Loop__dsType__c='In Person Signer'}">
+                    <apex:inlineEditSupport disabled="true" />
+                </apex:outputField>
+                <apex:inlineEditSupport showOnEdit="saveBtn,cancelBtn" hideOnEdit="editBtn,deleteBtn,cloneBtn" disabled="false" resetFunction="resetInlineEdit" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__Host_Role_Group_Names__c}" rendered="{!showHostRolesGroups}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__Host_Static_Name__c}" rendered="{!showHostStaticName}" />
+                
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__Host_Contact__c}" rendered="{!showHostContact}" />
+                <apex:outputField value="{!Loop__dsRecipient__c.Loop__Host_User__c}" rendered="{!showHostUser}" />
+                
+                <apex:pageBlockSectionItem rendered="{!showHostAddress}" />
+                <apex:outputField id="hostaddress" value="{!Loop__dsRecipient__c.Loop__Host_Address__c}" rendered="{!showHostAddress}" />
+            </apex:pageBlockSection>
+            
+            <apex:outputPanel id="embedOpts">
+                <apex:pageBlockSection title="Language Options" columns="1" rendered="{!AND(deliveryType='DocuSign',Loop__dsRecipient__c.Loop__Language__c!='')}">
+                    <apex:inlineEditSupport showOnEdit="saveBtn,cancelBtn" hideOnEdit="editBtn,deleteBtn,cloneBtn" disabled="false" resetFunction="resetInlineEdit" />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__Language__c.label}" />
+                        <apex:outputText value="{!docuSignLanguageLabel}" />
+                    </apex:pageBlockSectionItem>
+                    <apex:outputField value="{!Loop__dsRecipient__c.Loop__Subject__c}" />
+                    <apex:outputField value="{!Loop__dsRecipient__c.Loop__EmailText__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="System Information">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Created By" />
+                    <apex:outputPanel >
+                        <apex:outputField value="{!Loop__dsRecipient__c.CreatedById}" />,&nbsp;
+                        <apex:outputfield value="{!Loop__dsRecipient__c.CreatedDate}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Last Modified By" />
+                    <apex:outputPanel >
+                        <apex:outputField value="{!Loop__dsRecipient__c.LastModifiedById}" />,&nbsp;
+                        <apex:outputfield value="{!Loop__dsRecipient__c.LastModifiedDate}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:relatedList id="fieldList" title="{!IF(deliveryType='DocuSign',$ObjectType.Loop__SecureField__c.labelplural,'Fields')}" list="Secure_Fields__r" rendered="{!OR(deliveryType='DocuSign',OR(deliveryType='SignNow', deliveryType='e_SignLive'))}" />
+</apex:page>

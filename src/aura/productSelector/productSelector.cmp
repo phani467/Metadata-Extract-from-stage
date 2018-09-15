@@ -1,0 +1,4 @@
+<aura:component controller="ProductSelectorController" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="isCommunity" type="Boolean" access="global"/>
+</aura:component>

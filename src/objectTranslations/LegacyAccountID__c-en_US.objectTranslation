@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Legacy Account ID</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Legacy Account IDs</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Account to which this legacy ID is related. --></help>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Legacy Account IDs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system id (unfriendly) referencing the source record and is populated via migrating system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source record. --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- The SFDC Account ID of the account from which the Legacy ID originated. This ID may be different than the existing Account if the ID was added to an account that was later merged with the current account. --></help>
+        <label><!-- PKID Account --></label>
+        <name>PKIDAccount__c</name>
+    </fields>
+    <fields>
+        <help><!-- A unique auto generated ID for the Account Legacy ID record. --></help>
+        <label><!-- PKID AcctLegacy --></label>
+        <name>PKIDAcctLegacy__c</name>
+    </fields>
+    <layouts>
+        <layout>Legacy Account ID Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

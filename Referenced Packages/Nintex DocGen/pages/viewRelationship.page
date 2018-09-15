@@ -1,0 +1,69 @@
+<apex:page standardController="Loop__Related_Object__c" tabStyle="Loop__DDP__c" title="{!$ObjectType.Loop__Related_Object__c.label}: {!relObj.Name}" extensions="Loop.relatedObjectExt">
+    <script src="{!URLFOR($Resource.Scripts, 'jQuery.js')}"></script>
+    <script src="{!URLFOR($Resource.Scripts, 'jquery.drawloop.js')}"></script>
+    <script>
+        jQuery.noConflict(); // Can not use $ because prototype and jQuery will have naming issues.
+                             // This command fixes that, but you must use "jQuery" instead of "$"
+                             // for jQuery commands.
+        
+        jQuery(function() {
+            var $groupSection = jQuery('[id$=":groupSection"]');
+            if ($groupSection) {
+                $groupSection.css('margin-top', '15px');
+                var $orderSection = jQuery('div.pbSubheader:contains(Order)');
+                if (!$orderSection)
+                    jQuery('div.pbSubsection:first').after($groupSection);
+                else
+                    $orderSection.before($groupSection);
+            }
+
+            //The Loop__Custom_Delete button has been deprecated. This removes it if is still on a layout.
+            jQuery('.pbButton input[name="loop__custom_delete"], .pbButtonb input[name="loop__custom_delete"]').remove();
+            //For moving the custom markup delete button to the right of the standard edit button
+            //pbButton is the container for the top set of buttons. pbButtonb is the container for the bottom set of buttons.
+            jQuery('.pbButton input.deleteButton').insertAfter(jQuery('.pbButton input[name="edit"]')).css('margin-left', '4px');
+            jQuery('.pbButtonb input.deleteButton').insertAfter(jQuery('.pbButtonb input[name="edit"]')).css('margin-left', '4px');
+        });
+    </script>
+    
+    <apex:detail subject="{!relObj.Id}" inlineEdit="false" rendered="{!relObj.Loop__Parent_Object_Field__c!=SOQL_QUERY}" relatedListHover="false" />
+    <apex:form >
+        <apex:actionFunction name="deleteRelationship" action="{!deleteRelationship}"/>
+        <div style="display:none;">
+            <apex:pageBlock >
+                <apex:pageBlockButtons >
+                    <apex:commandButton styleClass="deleteButton" value="Delete" onclick="return confirm('Are you sure?') ? deleteRelationship() : false;" />
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </div>
+    </apex:form>
+    <apex:pageBlock mode="maindetail" id="groupSection" rendered="{!relObj.Loop__Copy_Type__c=='Group'}">
+        <apex:pageBlockSection title="Grouping">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="{!$ObjectType.Loop__Related_Object__c.fields.Loop__Group_By_Fields__c.label}" />
+                <apex:outputText value="{!viewGroupBy}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+    <apex:form rendered="{!relObj.Loop__Parent_Object_Field__c==SOQL_QUERY}">
+        <apex:sectionHeader title="{!$ObjectType.Loop__Related_Object__c.label}" subtitle="{!relObj.Name}" />
+        <apex:pageBlock mode="maindetail" title="{!$ObjectType.Loop__Related_Object__c.label} Detail">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Edit" action="{!edit}" />
+                <apex:commandButton value="Delete" action="{!deleteRelationship}" onclick="return confirm('Are you sure?');" />
+                <apex:commandButton value="Clone" action="{!URLFOR($Action.Related_Object__c.Clone, relObj.Id, [retURL=relObj.DDP__c])}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:outputField value="{!relObj.Name}" />
+                <apex:outputField value="{!relObj.Loop__DDP__c}" />
+                <apex:outputField value="{!relObj.Loop__SOQL__c}" />
+                <apex:outputField value="{!relObj.Loop__Related_Object_Alias__c}" />
+                <apex:pageBlockSectionItem />
+                <apex:outputField value="{!relObj.Loop__Copy_Type__c}" />
+                <apex:pageBlockSectionItem />
+                <apex:outputField value="{!relObj.Loop__Delete_Table__c}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Survey Response</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Survey Responses</value>
+    </caseValues>
+    <fields>
+        <help><!-- Account related to the Survey Response. --></help>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Survey Responses --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please enter details on the Alert follow-up and resolution. --></help>
+        <label><!-- Alert Comments --></label>
+        <name>AlertComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- When Alert type is not null, a status must be provided identifying the progress of the follow-up of the Alert. --></help>
+        <label><!-- Alert Status --></label>
+        <name>AlertStatus__c</name>
+        <picklistValues>
+            <masterLabel>In-Progress</masterLabel>
+            <translation><!-- In-Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Null</masterLabel>
+            <translation><!-- Null --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolved</masterLabel>
+            <translation><!-- Resolved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Identifies if the survey has been identified as a response needing action by the --></help>
+        <label><!-- Alert Type --></label>
+        <name>AlertType__c</name>
+        <picklistValues>
+            <masterLabel>Commendation</masterLabel>
+            <translation><!-- Commendation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hot Alert</masterLabel>
+            <translation><!-- Hot Alert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Null</masterLabel>
+            <translation><!-- Null --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Calculated Customer Engagement Score.  This score is provided by the survey team on a scale from 0-7. --></help>
+        <label><!-- CES Score --></label>
+        <name>CESScore__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date the surveyed Case was Closed. --></help>
+        <label><!-- Case Closed Date --></label>
+        <name>CaseClosedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Email address of the Owner of the surveyed Case. --></help>
+        <label><!-- Case Owner Manager Email Id --></label>
+        <name>CaseOwnerEmailId__c</name>
+    </fields>
+    <fields>
+        <help><!-- Owner of the surveyed Case. --></help>
+        <label><!-- Case Owner --></label>
+        <name>CaseOwner__c</name>
+    </fields>
+    <fields>
+        <help><!-- Case related to this Survey Response. --></help>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Survey Responses --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 10 --></label>
+        <name>Comment10__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 1 --></label>
+        <name>Comment1__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 2 --></label>
+        <name>Comment2__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 3 --></label>
+        <name>Comment3__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 4 --></label>
+        <name>Comment4__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 5 --></label>
+        <name>Comment5__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 6 --></label>
+        <name>Comment6__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 7 --></label>
+        <name>Comment7__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 8 --></label>
+        <name>Comment8__c</name>
+    </fields>
+    <fields>
+        <help><!-- New fields, in place to capture data when bringing it back from the surveys --></help>
+        <label><!-- Comment 9 --></label>
+        <name>Comment9__c</name>
+    </fields>
+    <fields>
+        <help><!-- Verbatim open comments from the survey. --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact&apos;s Email Id --></help>
+        <label><!-- Contact Email --></label>
+        <name>ContactEmail__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact related to the Survey Response. --></help>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Survey Responses --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Initial mailing list to receive Alert emails. --></help>
+        <label><!-- Distribution List 1 --></label>
+        <name>DistributionList1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default mailing list to receive Alert emails if Distribution List 1 is not provided. --></help>
+        <label><!-- Distribution List 2 --></label>
+        <name>DistributionList2__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID SurvResp --></label>
+        <name>PKIDSurvResp__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 10 --></help>
+        <label><!-- Question 10 --></label>
+        <name>Question10__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 1 --></help>
+        <label><!-- Question 1 --></label>
+        <name>Question1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 2 --></help>
+        <label><!-- Question 2 --></label>
+        <name>Question2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 3 --></help>
+        <label><!-- Question 3 --></label>
+        <name>Question3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 4 --></help>
+        <label><!-- Question 4 --></label>
+        <name>Question4__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 5 --></help>
+        <label><!-- Question 5 --></label>
+        <name>Question5__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 6 --></help>
+        <label><!-- Question 6 --></label>
+        <name>Question6__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 7 --></help>
+        <label><!-- Question 7 --></label>
+        <name>Question7__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 8 --></help>
+        <label><!-- Question 8 --></label>
+        <name>Question8__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Question 9 --></help>
+        <label><!-- Question 9 --></label>
+        <name>Question9__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  10 --></help>
+        <label><!-- Response 10 --></label>
+        <name>Response10__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  1 --></help>
+        <label><!-- Response 1 --></label>
+        <name>Response1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  2 --></help>
+        <label><!-- Response 2 --></label>
+        <name>Response2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  3 --></help>
+        <label><!-- Response 3 --></label>
+        <name>Response3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  4 --></help>
+        <label><!-- Response 4 --></label>
+        <name>Response4__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  5 --></help>
+        <label><!-- Response 5 --></label>
+        <name>Response5__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  6 --></help>
+        <label><!-- Response 6 --></label>
+        <name>Response6__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  7 --></help>
+        <label><!-- Response 7 --></label>
+        <name>Response7__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  8 --></help>
+        <label><!-- Response 8 --></label>
+        <name>Response8__c</name>
+    </fields>
+    <fields>
+        <help><!-- Survey Response  9 --></help>
+        <label><!-- Response 9 --></label>
+        <name>Response9__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date the survey response was received --></help>
+        <label><!-- Response Date --></label>
+        <name>ResponseDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculated Overall Score.  This score is provided by the survey team. --></help>
+        <label><!-- Score --></label>
+        <name>Score__c</name>
+    </fields>
+    <fields>
+        <help><!-- A unique survey identifier provided by the survey tool --></help>
+        <label><!-- Survey System Reference --></label>
+        <name>SurveySystemReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Identifies the type of Survey that was sent to the Contact. --></help>
+        <label><!-- Survey Type --></label>
+        <name>SurveyType__c</name>
+        <picklistValues>
+            <masterLabel>Customer Care</masterLabel>
+            <translation><!-- Customer Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer First</masterLabel>
+            <translation><!-- Customer First --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field will hold a version number determined by the survey team to identify the survey questions used --></help>
+        <label><!-- Survey Version --></label>
+        <name>SurveyVersion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Training Activity related to this Survey Response. --></help>
+        <label><!-- Training --></label>
+        <name>Training__c</name>
+        <relationshipLabel><!-- Survey Responses --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Survey Responses</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Hot Alert --></label>
+            <section>Hot Alert</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Questions and Responses --></label>
+            <section>Questions and Responses</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- If alert status is resolved, the alert comments may not be null --></errorMessage>
+        <name>AlertCommentsShouldNotBeNull</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Alert type is not null then alert status should be populated --></errorMessage>
+        <name>AlertStatusIsRequired</name>
+    </validationRules>
+</CustomObjectTranslation>

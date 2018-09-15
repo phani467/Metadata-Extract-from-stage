@@ -1,0 +1,225 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes" controller="OpportunitySplitRelatedController" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="environmentType" type="String" default="Lightning"/>
+    <aura:attribute name="oppySplitWrap" type="OpportunitySplitRelatedController.OppySplitWrapper"/>
+    <aura:attribute name="oppyId" type="String" />
+    <aura:attribute name="lstOppySplitRevenue" type="OpportunitySplit[]" />
+    <aura:attribute name="lstOppySplitOverlay" type="OpportunitySplit[]" />
+    <aura:attribute name="lstOppySplitOverlayDel" type="OpportunitySplit[]"/>
+    <aura:attribute name="revenueTotal" type="Long"/>
+    <aura:attribute name="overlayTotal" type="Long"/>
+    <aura:attribute name="isOverlayValid" type="Boolean"/>
+    <aura:attribute name="overlayInValidMessage" type="String"/>
+    <aura:attribute name="overlayUserChange" type="String"/>
+    <aura:attribute name="isRevenueValid" type="Boolean"/>
+    <aura:attribute name="revenueInValidMessage" type="String"/>
+    <aura:attribute name="revenueUserChange" type="String"/>
+    <aura:handler name="change" value="{!v.overlayUserChange}" action="{!c.validOverlay}"/>    
+    <aura:handler name="change" value="{!v.lstOppySplitOverlay}" action="{!c.validOverlay}"/>    
+    <aura:handler name="change" value="{!v.overlayTotal}" action="{!c.validOverlay}"/>
+    <aura:handler name="change" value="{!v.revenueUserChange}" action="{!c.validRevenue}"/>    
+    <aura:handler name="change" value="{!v.lstOppySplitRevenue}" action="{!c.validRevenue}"/>    
+    <aura:handler name="change" value="{!v.revenueTotal}" action="{!c.validRevenue}"/>    
+    <lightning:card variant="base" class="slds-m-left_large slds-size_11-of-12"  iconName="standard:opportunity" aura:id="card" >
+        <aura:set attribute="title">
+            <p>
+                <b class="slds-text-heading--medium">Opportunity</b>
+                <div >{!v.oppySplitWrap.oppy.Name}</div>
+            </p>
+        </aura:set>
+    </lightning:card>
+    <lightning:button variant="brand" label="Back" iconName="utility:back" iconPosition="left" onclick="{!c.back}" class="slds-m-left_xx-large  slds-m-top_large" />
+    <lightning:tabset variant="scoped"  class="slds-m-left_xx-large slds-m-top_large slds-size_10-of-12" >
+        <lightning:tab label="REVENUE">
+            <div>
+                <div class="slds-text-heading--medium">
+                    Revenue
+                </div>
+                <div class="slds-text-heading--small">
+                    Split on Opportunity Amount
+                </div>
+                <div class="slds-text-heading--x_small">
+                    Each split assignment for this split type must total 100%.
+                </div>
+                <aura:if isTrue="{!v.revenueInValidMessage!=''}">                    
+                    <ui:message title="Error" severity="error" closable="false">
+                        <aura:unescapedHtml value="{!v.revenueInValidMessage}"/>
+                    </ui:message>
+                </aura:if>
+            </div>
+            <div class="table slds-m-top_large">
+                <table class="slds-table slds-table_bordered">
+                    <thead>
+                        <tr class="slds-text-title_caps slds-cell-wrap">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Action">Action</div>
+                            </th>
+                            <th scope="col"  >
+                                <div title="Team Member">Team Member</div>
+                            </th>
+                            <th scope="col"  >
+                                <div title="Percent">Percent(%)</div>
+                            </th>
+                            <th scope="col" class="slds-cell-wrap">
+                                <div class="slds-truncate" title="Amount">Amount</div>
+                            </th>
+                            <th scope="col" class="slds-cell-wrap">
+                                <div class="slds-truncate" title="Note">Note</div>
+                            </th>
+                            <th scope="col" class="slds-cell-wrap">
+                                <div class="slds-truncate" title="Sales Region">Sales Region</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration var="split" items="{!v.lstOppySplitRevenue}" indexVar="index">
+                            <tr scope="row" data-label="Action">
+                                <th>
+                                    <div class="slds-truncate" title="Delete">
+                                        <lightning:button name="{!index+'revenue'}" variant="neutral" label="Delete" iconName="utility:delete" iconPosition="left"
+                                                          disabled="{!and(split.SplitOwnerId!='',split.SplitOwner.Name==v.oppySplitWrap.oppy.Owner.Name)}" onclick="{!c.deleteItem}"/>                      
+                                    </div>
+                                </th>
+                                <td data-label="Team Member"  class="slds-cell-wrap">
+                                    <div  title="Team Member">
+                                        <aura:if isTrue="{!and(split.SplitOwnerId!='',split.SplitOwnerId==v.oppySplitWrap.oppy.OwnerId)}">
+                                            <lightning:input type="text" value="{!split.SplitOwner.Name}" variant="label-hidden"
+                                                             disabled="true"/>        
+                                            <aura:set attribute="else">                                               
+                                                <c:customLookup objectAPIName="user" IconName="standard:user" selectedRecord="{!split.SplitOwner}" 
+                                                                selectedRecordId="{!split.SplitOwnerId}" isChanged="{!v.revenueUserChange}"/>
+                                            </aura:set>                                        
+                                        </aura:if>
+                                    </div>
+                                </td>
+                                <td data-label="Percent(%)"  class="slds-cell-wrap">
+                                    <div  title="Percent(%)">
+                                        <lightning:input type="number"  value="{!split.SplitPercentage}" variant="label-hidden" 
+                                                         step="any" min="0.00" max="100.00" name="{!index}" onchange="{!c.onRevenueSplitChange}" onblur="{!c.calculateRevenueTotal}"
+                                                          messageWhenRangeOverflow="Cannot be greater than 100"/>
+                                    </div>
+                                </td>
+                                <td data-label="Amount"  class="slds-cell-wrap">
+                                    <div  title="Amount">                                      
+                                        <lightning:formattedNumber value="{!split.SplitAmount}" style="currency" 
+                                                                   currencyCode="{!v.oppySplitWrap.oppy.CurrencyIsoCode}" currencyDisplayAs="symbol"/>
+                                    </div>
+                                </td>
+                                <td data-label="Note"  class="slds-cell-wrap">
+                                    <div  title="Note">
+                                        <lightning:input type="text"  value="{!split.SplitNote}" variant="label-hidden" />
+                                    </div>
+                                </td>
+                                <td data-label="Sales Region"  class="slds-cell-wrap">
+                                    <div  title="Sales Region">
+                                        <ui:outputText value="{!split.SalesRegion__c}" />
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slds-m-top_small">
+                <lightning:button variant="base" label="Add new row" iconName="utility:add" iconPosition="right"
+                                  name="Revenue" onclick="{!c.addnewItem}"/>
+            </div>
+            <lightning:layout horizontalAlign="center" verticalAlign="end" >
+                <lightning:button variant="brand" label="Save" iconName="utility:save" iconPosition="right" 
+                                  onclick="{!c.saveRevenueOppySplits}" disabled="{!v.revenueInValidMessage!=''}" name="save"  />
+                <lightning:button variant="brand" label="Save &amp; Close" iconName="utility:close" iconPosition="right" 
+                                  disabled="{!v.revenueInValidMessage!=''}" name="close" onclick="{!c.saveRevenueOppySplits}"  />
+            </lightning:layout>
+        </lightning:tab>
+        <lightning:tab label="OVERLAY" aura:id="overlayTab">
+            <div class="slds-text-heading--medium">
+                Overlay
+            </div>
+            <div class="slds-text-heading--small">
+                Split on Opportunity Amount
+            </div>
+            <!--<div class="slds-text-heading\-\-x_small">
+                Each split assignment for this split type must total 100%.
+            </div>-->
+            
+            <aura:if isTrue="{!v.overlayInValidMessage!=''}">
+                <ui:message title="Error" severity="error" closable="false">
+                    <aura:unescapedHtml value="{!v.overlayInValidMessage}"/>
+                </ui:message>
+            </aura:if>
+            <div class="table slds-m-top_large">
+                <table class="slds-table slds-table_bordered">
+                    <thead>
+                        <tr class="slds-text-title_caps slds-cell-wrap">                           
+                            <th scope="col"  >
+                                <div title="Team Member">Team Member</div>
+                            </th>
+                            <th scope="col"  >
+                                <div title="Percent">Percent(%)</div>
+                            </th>
+                            <th scope="col" class="slds-cell-wrap">
+                                <div class="slds-truncate" title="Amount">Amount</div>
+                            </th>
+                            <th scope="col" class="slds-cell-wrap">
+                                <div class="slds-truncate" title="Note">Note</div>
+                            </th>
+                            <th scope="col" class="slds-cell-wrap">
+                                <div class="slds-truncate" title="Sales Region">Sales Region</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration var="split" items="{!v.lstOppySplitOverlay}" indexVar="index">
+                            <tr scope="row" data-label="Team Member">             
+                                
+                                <td data-label="Team Member"  class="slds-cell-wrap">
+                                    <div  title="Team Member">     
+                                        <lightning:input type="text" value="{!split.SplitOwner.Name}" variant="label-hidden"
+                                                             disabled="true"/>                                 
+                                    </div>
+                                </td>
+                                <td data-label="Percent(%)"  class="slds-cell-wrap">
+                                    <div  title="Percent(%)">
+                                        <lightning:input type="number"  value="{!split.SplitPercentage}" variant="label-hidden" 
+                                                         step="any" min="0.00" max="100.0" name="{!index}" onchange="{!c.onOverlaySplitChange}" onblur="{!c.calculateOverlayTotal}"
+                                                          messageWhenRangeOverflow="Cannot be greater than 100" disabled="{!true}" />
+                                    </div>
+                                </td>
+                                <td data-label="Amount"  class="slds-cell-wrap">
+                                    <div  title="Amount">
+                                        <lightning:formattedNumber value="{!split.SplitAmount}" style="currency" 
+                                                                   currencyCode="{!v.oppySplitWrap.oppy.CurrencyIsoCode}" currencyDisplayAs="symbol"/>
+                                    </div>
+                                </td>
+                                <td data-label="Note"  class="slds-cell-wrap">
+                                    <div  title="Note">
+                                        <lightning:input type="text"  value="{!split.SplitNote}" variant="label-hidden" disabled="{!true}" />
+                                    </div>
+                                </td>
+                                <td data-label="Sales Region"  class="slds-cell-wrap">
+                                    <div  title="Sales Region">
+                                        <ui:outputText value="{!split.SalesRegion__c}" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+            <!--
+            <div class="slds-m-top_small">
+                <lightning:button variant="base" label="Add new row" iconName="utility:add" iconPosition="right"
+                                  name="Overlay" onclick="{!c.addnewItem}" />
+            </div>
+            <div>
+                <lightning:layout horizontalAlign="center" verticalAlign="end" >
+                    <lightning:button variant="brand" label="Save" iconName="utility:save" iconPosition="right" onclick="{!c.saveOverlayOppySplits}" disabled="{!v.overlayInValidMessage!=''}" name="save" />
+                    <lightning:button variant="brand" label="Save &amp; Close" iconName="utility:close" iconPosition="right"  disabled="{!v.overlayInValidMessage!=''}"  name="close" onclick="{!c.saveOverlayOppySplits}" />
+                </lightning:layout>
+            </div>
+			-->
+        </lightning:tab>
+    </lightning:tabset>
+    
+</aura:component>

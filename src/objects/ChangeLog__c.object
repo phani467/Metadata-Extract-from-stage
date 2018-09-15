@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <comment>This  is used in WRF POLK , and is used to redirect to Change Log vf page</comment>
+        <content>ChangeLog</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>This is used in WRF POLK , and is used to redirect to Change Log vf page</comment>
+        <content>ChangeLog</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object is used for WRF-POLK. Object to track all Work Request change log data.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ChangeDescription__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Change Description</label>
+        <length>32768</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ChangeDocumentedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Change Documented By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Change_Logs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CreateDate__c</fullName>
+        <defaultValue>today()</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Create Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>This field is used for data integration to store legacy system id in WRF POLK application.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field is used for data integration to store legacy system id in WRF POLK application.</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyReference__c</fullName>
+        <description>SFDC1-7046: Legacy Reference field is a friendly system reference to the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is a friendly system reference to the source record.</inlineHelpText>
+        <label>LegacyReference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PLCJob__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>PLC Job</label>
+        <referenceTo>PLCJob__c</referenceTo>
+        <relationshipLabel>Change Logs</relationshipLabel>
+        <relationshipName>ChangeLogs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductionComments__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Production Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Programmer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Programmer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Change_Logs1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RevisedRequestDate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Revised Request Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubmittedDateTime__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Submitted Date/Time</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>WRStatus__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>text(WorkRequestForm__r.RequestStatus__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>WR Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WorkRequestForm__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Work Request Form</label>
+        <referenceTo>WorkRequestForm__c</referenceTo>
+        <relationshipLabel>Change Logs</relationshipLabel>
+        <relationshipName>ChangeLogs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Change Log</label>
+    <listViews>
+        <fullName>APACWRF_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>APAC WRF</label>
+        <queue>APACWRF</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AustraliaWRF_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Australia WRF</label>
+        <queue>AustraliaWRF</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Autonews_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Autonews</label>
+        <queue>Autonews</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CanadaProduction_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Canada</label>
+        <queue>Canada</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Canada_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Canada</label>
+        <queue>Canada</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EuropeanWRF_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>European WRF</label>
+        <queue>EuropeanWRF</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>JeffAllen_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Jeff Allen</label>
+        <queue>JeffAllen</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MCMAnalytics_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MCM - Analytics</label>
+        <queue>MCMAnalytics</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MarketReportingAnalytics_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Market Reporting - Analytics</label>
+        <queue>MarketReportingAnalytics</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MarketReportingCAP_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Market Reporting - CAP</label>
+        <queue>MarketReportingCAP</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MarketReportingLoyalty_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Market Reporting - Loyalty</label>
+        <queue>MarketReportingLoyalty</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MarketReportingOEMStat_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Market Reporting - OEM Stat</label>
+        <queue>MarketReportingOEMStat</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PolkConnectAnalytics_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>PolkConnect Analytics</label>
+        <queue>PolkConnectAnalytics</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PolkConnectSystem_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>PolkConnect System</label>
+        <queue>PolkConnectSystem</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SalesforceSupport_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Salesforce Support</label>
+        <queue>SalesforceSupport</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>VFACTS_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>VFACTS</label>
+        <queue>VFACTS</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>VINtelligenceRecall_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>VINtelligence - Recall</label>
+        <queue>VINtelligenceRecall</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>VINtelligenceSWS_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>VINtelligence - SWS</label>
+        <queue>VINtelligenceSWS</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Visualization_ChangeLog</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Visualization</label>
+        <queue>Visualization</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>CL-{000000}</displayFormat>
+        <label>Change Log Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Change Logs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

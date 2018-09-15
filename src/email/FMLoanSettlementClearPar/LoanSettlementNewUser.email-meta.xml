@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5069 : Loan Settlement - New User</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loan Settlement - New User</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+Your user set up request has been completed. Please see below for details: 
+
+Notes: 
+
+ClearPar is only Compatible with Internet Explorer. 
+
+Please disable your Pop-Up blocker before attempting to log into ClearPar. 
+
+User Name: 
+
+Your temporary password / Pin # and further instructions will follow in a separate email. 
+
+If you have any questions or need assistance please call 646-690-4288. For trade specific assistance, please contact your ClearPar closer at 646-690-4300. 
+
+
+When using Internet Explorer 8.0 or higher, please enable Compatibility View, within your Internet Explorer browser. 
+
+On the ClearPar login screen, select Tools &gt; Compatibility View Settings &gt; Add (to add the ClearPar site to the list). 
+
+
+If you do not see the tools tab option you may have to hit your ALT key in order for it show at the top. It will bring up the old style menu (File, Edit, View, Favorites, TOOLS, Help) – that is the Tools tab you will need. 
+
+Best Regards, 
+
+{!User.FirstName} {!User.LastName}
+{!User.Title} | Loan Settlement Support 
+711 Executive Blvd., Suite A | Valley Cottage, New York 10989 
+Support: +1 646 690 4288 Main: +1 646 690 4300 
+ClearParSupport@markit.com 
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

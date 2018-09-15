@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-206 This is a junction object to create Many-to-Many relationship between Account and Account Address object</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>SFDC1-206 Primary master-detail relationship with account object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the account associated to address</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Addresses</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>AddressDetail__c</fullName>
+        <description>SFDC1-206 Formula field to important address information from Account Address object.</description>
+        <externalId>false</externalId>
+        <formula>Address__r.Street1__c &amp; Address__r.Street2__c &amp; &quot;, &quot; &amp;  Address__r.DeptMailStop__c  &amp; &quot;, &quot; &amp; Address__r.City__c &amp; &quot;, &quot; &amp; Address__r.StateProvince__c &amp; &quot;, &quot; &amp; Address__r.AddressCountry__r.Name  &amp; &quot;, &quot; &amp; Address__r.ZipPostalCode__c</formula>
+        <inlineHelpText>Displays address details for the Account Address record</inlineHelpText>
+        <label>Address Details</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address__c</fullName>
+        <description>SFDC1-206 Secondary master-detail relationship with account address object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Address associated with account</inlineHelpText>
+        <label>Address Company Name</label>
+        <referenceTo>AccountAddress__c</referenceTo>
+        <relationshipLabel>Related Addresses</relationshipLabel>
+        <relationshipName>Addresses</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>BillTo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-206 Specify whether the association is for Bill to address or not.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if it is a Bill to address</inlineHelpText>
+        <label>Bill To</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PKIDAcctAddy__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>AAd{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID AcctAddy</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ShipTo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-206 To specify whether the address is a Ship to Address.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if this is a Ship to address</inlineHelpText>
+        <label>Ship To</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Related Address</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>AA-{0000}</displayFormat>
+        <label>Related Address#</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Related Addresses</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Address__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AddressDetail__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Address__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AddressDetail__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Address__c</searchFilterFields>
+        <searchFilterFields>AddressDetail__c</searchFilterFields>
+        <searchResultsAdditionalFields>Address__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AddressDetail__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

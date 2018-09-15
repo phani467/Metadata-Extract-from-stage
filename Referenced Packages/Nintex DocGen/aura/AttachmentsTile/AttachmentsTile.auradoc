@@ -1,0 +1,8 @@
+<aura:documentation>
+	<aura:description>
+    	<p>Initialize this component without any parameters.</p>
+        <p>Pass in parameters using the <code>aura:method</code></p>
+        <p>This component is for holding a list of Tile.cmp within a Modal. Clicking on the button should open up a Modal.cmp with a list of Tile.cmp.</p>
+        <p>Note: This is currently only used for ad hoc files for a DocGen Package. If it starts being used elsewhere, this component should be renamed.</p>
+    </aura:description>
+</aura:documentation>

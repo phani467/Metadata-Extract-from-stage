@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>OpportunityToContract-LineItemMapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>OpportunityToContract-LineItemMapping</value>
+    </caseValues>
+    <fields>
+        <help><!-- Contract Line Item Field --></help>
+        <label><!-- Contract Line Item Field --></label>
+        <name>ContractLineItemField__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity Field API Name --></help>
+        <label><!-- Opportunity Line Item Field --></label>
+        <name>OpportunityLineItemField__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

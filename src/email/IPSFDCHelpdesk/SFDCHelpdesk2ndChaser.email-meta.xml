@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2775 SFDC Helpdesk - 2nd Chaser</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SFDC Helpdesk - 2nd Chaser</name>
+    <style>none</style>
+    <subject>Your IHS Markit SFDC Case {!Case.CaseNumber} - On Hold due to pending information</subject>
+    <type>text</type>
+</EmailTemplate>

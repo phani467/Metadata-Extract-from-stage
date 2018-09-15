@@ -1,0 +1,72 @@
+<aura:component >
+    <!--Attributes passed in from DocGen Admin-->
+    <aura:attribute name="isStandard" type="boolean" default="true" required="true"/>
+    <aura:attribute name="isSandbox" type="boolean" default="false" required="true"/>
+    <aura:attribute name="integrationUsername" type="string" default=""/>
+
+    <!--Internal attributes-->
+    <aura:attribute name="hasContract" type="boolean" default="false" access="private"/>
+    <aura:attribute name="usedLicenses" type="integer" default="0" access="private"/>
+    <aura:attribute name="daysRemainingInTrial" type="integer" default="0" access="private"/>
+    <aura:attribute name="allowedLicenses" type="string" default="0" access="private"/>
+    <aura:attribute name="licenseButtonLabel" type="string" default="{!$Label.loop.Purchase_App_Label}" access="private"/>
+    <aura:attribute name="editionHeader" type="string" default="Enterprise Edition"/>
+    <aura:attribute name="isCustomizeApplication" type="boolean" default="true" required="true"/>
+    
+    <aura:registerEvent name="redirectPage" type="Loop:redirectPage"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    
+    <aura:method name="load" action="{!c.load}">
+        <aura:attribute name="hasContract" type="boolean" default="false"/>
+        <aura:attribute name="usedLicenses" type="integer" default="0"/>
+        <aura:attribute name="daysRemainingInTrial" type="integer" default="0"/>
+        <aura:attribute name="allowedLicenses" type="integer" default="0"/>
+    </aura:method>
+    
+    <div class="slds">
+        <div class="slds-m-left--xxx-small slds-grid slds-grid--vertical-stretch">
+            <div class="slds-col cell">
+                <div class="border slds-float--left block">
+                    <Loop:Svg xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/standard-sprite/svg/symbols.svg#apps_admin" class="slds-icon__container slds-icon__container--square button-icon-color slds-icon slds-icon--medium"/>
+                    <h1 class="slds-text-heading--medium slds-m-bottom--medium slds-m-left--small iconFloat" style="vertical-align: top;">Classic Experience Buttons</h1>
+                    <h2 class="slds-text-heading--small slds-m-bottom--small">Basic Buttons</h2>
+                    <div>Add single-record buttons to page layouts on standard or custom objects. Users can use these buttons in the Salesforce classic experience and will see the classic document generation experience. To use Nintex DocGen in Salesforce Lightning, see <a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9036" target="_blank">Add the DocGen Lightning Component to page layouts</a>.</div><br/>
+                    <button id="basicButtons" class="slds-button slds-button--brand" onclick="{!c.redirectPage}">Add Basic Buttons</button>
+                    <hr/>
+                    <h2 class="slds-text-heading--small slds-m-bottom--small">Button Wizard</h2>
+                    <div class="slds-word-wrap">Create single-record or Mass DocGen Package elements (buttons, links, or tabs) for running DocGen Packages in the Salesforce classic experience.</div><br/>
+                    <button id="buttonWizard" class="slds-button slds-button--brand" onclick="{!c.redirectPage}">Create Advanced Buttons</button>
+                </div>
+                <div class="block slds-float--left border borderbelow slds-m-top--small" style="min-height:347px;">
+                    <h1 class="slds-text-heading--medium slds-m-bottom--small" style="vertical-align: top;">{!$Label.loop.Authorize_App_Label}</h1>
+                    <!-- TODO: (LDSP-1407) Replace with ApplicationAuthorization -->
+                    <Loop:LoopAuthorizationSummary isCustomizeApplication="{!v.isCustomizeApplication}" integrationUsername="{!v.integrationUsername}"/>
+                </div>
+            </div>
+            <div class="slds-col slds-m-left--small slds-m-right--small supportcell">
+                <aura:if isTrue="{!!v.isSandbox}">
+                    <div class="border slds-m-bottom--small" style="height:calc(100% - 590px);">
+                        <Loop:Svg xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/custom-sprite/svg/symbols.svg#custom15" class="slds-icon__container slds-icon__container--square license-icon-color slds-icon slds-icon--medium"/>
+                        <h1 class="slds-text-heading--medium slds-m-bottom--small slds-m-left--small iconFloat" style="vertical-align: top;">License</h1>
+                        <aura:if isTrue="{!!v.hasContract}">
+                            <h2 class="slds-text-body--regular">Trial Expires in {!v.daysRemainingInTrial} Day{!v.daysRemainingInTrial == 1 ? '' : 's'}</h2>
+                            <aura:set attribute="else">
+                                <aura:if isTrue="{!v.isStandard}">
+                                    <h2 class="slds-text-body--regular">Standard Edition</h2>
+                                    <aura:set attribute="else">
+                                    	<h2 class="slds-text-body--regular">Enterprise Edition</h2>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                        <h2 class="slds-text-body--regular slds-m-bottom--small">{!v.usedLicenses} of {!v.allowedLicenses} users provisioned</h2>
+                        <button id="purchaseForm" class="slds-button slds-button--brand" onclick="{!c.redirectPage}">{!v.licenseButtonLabel}</button>
+                    </div>
+                </aura:if>
+                <div class="border" style="{!!v.isSandbox ? 'height:575px;' : 'height:100%'}">
+                    <Loop:SupportSidebar />
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

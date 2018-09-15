@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-7592 Lift &amp; Shift from Legacy Markit</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>SFDC1-7592 Lookup to the account that this ranking is related</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account that this ranking is related</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Rankings</relationshipLabel>
+        <relationshipName>AccountRankings</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Criteria__c</fullName>
+        <description>SFDC1-7592 Criteria of the Value</description>
+        <externalId>false</externalId>
+        <label>Criteria</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Assets on Balance Sheet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AUM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Trades</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wilshire Index</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <description>SFDC1-7592 concat of system and ID with @ separator</description>
+        <externalId>true</externalId>
+        <label>LegacyID Unique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7592 System ID from migrated records, will be on Markit records only</description>
+        <externalId>false</externalId>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7592 Legacy System tells which system the record was migrated from</description>
+        <externalId>false</externalId>
+        <label>Legacy System</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MetricsKey__c</fullName>
+        <description>SFDC1-7592 concatenation of Rank Country and Criteria value</description>
+        <externalId>false</externalId>
+        <formula>TEXT(RankCountry__c) &amp; TEXT(Criteria__c)</formula>
+        <label>Metrics Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDAccountRanking__c</fullName>
+        <description>SFDC1-7592 PK field for Data Migration Support</description>
+        <displayFormat>AR{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID AccountRanking</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>RankCountry__c</fullName>
+        <defaultValue>&apos;Global&apos;</defaultValue>
+        <description>SFDC1-7592 Rank Country picklist values</description>
+        <externalId>false</externalId>
+        <label>Rank Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>CountriesPicklist</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Rank__c</fullName>
+        <description>SFDC1-7592 Read-only as this is a calculated field, should be triggered on record add or edit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Read-only calculated field</inlineHelpText>
+        <label>Rank</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source__c</fullName>
+        <description>SFDC1-7592 Source of where the value was received</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Source of where the value was received</inlineHelpText>
+        <label>Source</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Reuters</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Factset</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data.com</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BigDough</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Investor Relations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PREQIN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ValueAsOf__c</fullName>
+        <description>SFDC1-7592 Value to be considered in ranking</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value to be considered in ranking</inlineHelpText>
+        <label>Value as of</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <description>SFDC1-7592 Account Ranking Value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Account Ranking Value</inlineHelpText>
+        <label>Value</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Account Ranking</label>
+    <nameField>
+        <displayFormat>AR-{000}</displayFormat>
+        <label>Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Account Rankings</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

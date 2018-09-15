@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>SFDC1-46 Lead to Other object conversion</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>DefaultValue__c</fullName>
+        <description>Default Value is where we have to set a particular value for a Target Field if the value isn&apos;t available in source</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter the Default Value( if applicable)</inlineHelpText>
+        <label>Default Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SourceAPIField__c</fullName>
+        <description>API field name of the Source object (Lead)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter Source API name, if Source API is not known please enter &quot;NoUse&lt;IntergerValue&gt;&quot;</inlineHelpText>
+        <label>Source API Field</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TargetAPIField__c</fullName>
+        <description>API field name of the Target object,  if Target API is not known please enter &quot;NoUse&lt;IntergerValue&gt;&quot; (only for querying on lead object)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter Target API name, if Target API is not known please enter &quot;NoUse&lt;IntergerValue&gt;&quot;</inlineHelpText>
+        <label>Target API Field</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TargetObjectName__c</fullName>
+        <description>Target Object API name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter Target Object API Name</inlineHelpText>
+        <label>Target Object Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Lead Conversion Field Mapping</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>DefaultValue__c</columns>
+        <columns>SourceAPIField__c</columns>
+        <columns>TargetAPIField__c</columns>
+        <columns>TargetObjectName__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,880 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Page(WREdit2) is related to Legacy POLK application.
+// @return: NA
+// @Last Updated: Anjani Shukla: 11/14 - Edit,Cancel and Close button 
+//                Anjani Shukla: 12/6  - Added CSS to remove user drop down appearing on page.
+-->
+
+<apex:page standardController="WorkRequestForm__c" extensions="WRACE" id="thePage" >
+    
+    <apex:includeScript value="{!URLFOR($Resource.JQuery, '/js/jquery-1.7.2.min.js')}"  />
+    <apex:includeScript value="{!URLFOR($Resource.JQuery, '/js/jquery-ui-1.8.19.custom.min.js')}"  />
+    <apex:includeScript value="{!URLFOR($Resource.JQuery, '/js/jquery.autosize-min.js')}"  />
+    <apex:stylesheet value="{!URLFOR($Resource.JQuery, '/css/ui-lightness/jquery-ui-1.8.19.custom.css')}"  />
+    <apex:stylesheet value="{!URLFOR($Resource.Styles)}"/>
+    <style>  
+    .hideDropdown select{
+        visibility: hidden;
+        display: none;
+    }
+    </style>
+    <script>
+    var j$ = jQuery.noConflict();
+    
+    function xedeStyle(){
+        //var isV = {!isView};
+        var isV = {!editMode};
+        if(!(isV)){ 
+            j$(".requiredField").css("border","1px solid red");
+        }
+        debugger;
+        j$(".changeTab").css({"color":"red!important", "font-weight":"bold!important"});
+        if(isV){
+            j$("[id$=mainBlock] :input").attr('disabled','true'); 
+            j$("[id$=mainBlock] .dataCol").attr('disabled','true');
+            j$("[id$=mainBlock] #output").attr('disabled','true').attr('multiple','');
+            j$("[id$=mainBlock] option").attr('disabled','true');
+        }
+        j$("[id$=mainBlock] .viewBtn").removeAttr('disabled');
+        j$("[id$=approveBlock] option").removeAttr('disabled');
+        j$("[id$=approveBlock] *").removeAttr('disabled'); 
+        j$("[id$=OrderRequest] option").removeAttr('disabled');
+        j$("[id$=OrderRequest] *").removeAttr('disabled'); 
+        j$("[id$=mainBlock] .autogrow").autosize();         
+    }
+    
+    function cloneWithWarnings() {
+        var logs = {!wrf.ChangeLogs__c};
+        var instr = "{!JSENCODE(wrf.SpecialInstructions__c)}";
+        var msg = "";
+        
+        if(logs > 0)
+            msg += "-Please review and transfer all relevant change log details into the new WRF.";
+        
+        if(instr) {
+            if(msg)
+                msg += "\n\n";
+            
+            msg += "-You are attempting to clone a WRF with Special Instructions that will not be carried over. Please review and transfer all relevant instructions to the new WRF.";
+        }
+        
+        if(msg)
+            alert(msg);
+        
+        return false;
+    }
+    </script>  
+    <apex:sectionHeader title="Work Request Form" subtitle="{!formtype} - {!WorkRequestForm__c.RequestStatus__c} "/>
+    <chatter:feedWithFollowers entityId="{!WorkRequestForm__c.ID}"/> <br/>  
+    
+    <apex:pageMessages id="MSG"/>
+    <apex:form id="theForm" >
+        
+        <apex:pageBlock id="mainBlock" >
+            <apex:pageblockButtons location="top"  >
+                <apex:commandButton value="Save Draft" rendered="{!!isView}" rerender="MSG" action="{!SaveDraft}" disabled="{!if(WorkRequestForm__c.RequestStatus__c='Submitted' || WorkRequestForm__c.RequestStatus__c='Approved' || WorkRequestForm__c.RequestStatus__c='Approval Pending',true,false)}"/>
+                <apex:commandButton value="Save & Submit" rendered="{!!isView}" rerender="MSG"  action="{!Submit}" disabled="{!if((WorkRequestForm__c.RequestStatus__c='Submitted' || WorkRequestForm__c.RequestStatus__c='Approved' || WorkRequestForm__c.RequestStatus__c='Approval Pending')&&NOT(editapproved),true,false)}"/>
+                <apex:commandButton value="Convert Estimate" rendered="{!if(WorkRequestForm__c.JobType__c=='Estimate' && WorkRequestForm__c.RequestStatus__c == 'Approved' ,true,false)}" action="{!convertEstimate}" styleClass="viewBtn" />
+                <!--apex:commandButton value="Cancel" rendered="{!!isView}" rerender="MSG"  action="{!Cancel}"/-->
+                <apex:commandButton value="Cancel" rendered="{!!isView}" rerender="MSG"  action="{!cancelOverride}"/>
+                <!--apex:commandButton value="Edit" rendered="{!isView}" rerender="MSG"  action="{!Edit}" styleClass="viewBtn" disabled="{!if((WorkRequestForm__c.RequestStatus__c='Submitted' || WorkRequestForm__c.RequestStatus__c='Approved' || WorkRequestForm__c.RequestStatus__c='Approval Pending')&&NOT(editapproved),true,false)}" /-->    
+                <apex:commandButton rendered="{!editMode}" rerender="MSG" action="{!editOverride2}" value="Edit" styleClass="viewBtn" disabled="{!if((WorkRequestForm__c.RequestStatus__c='Submitted' || WorkRequestForm__c.RequestStatus__c='Approved' || WorkRequestForm__c.RequestStatus__c='Approval Pending') && NOT(editapproved),true,false)}">    
+                    <apex:param name="buttonValue" value="Edit Override" id="buttonValue"/>
+                </apex:commandButton>
+                <apex:commandButton value="Delete" disabled="{!!$User.CanDeleteWRFPLCRecords__c}" rendered="{!isView}" rerender="MSG"  action="{!Delete}" styleClass="viewBtn"  />
+                <apex:commandButton value="Close" rendered="{!isView}" rerender="MSG"  action="{!Close}" styleClass="viewBtn"/>             
+                <apex:commandButton onclick="window.open('/apex/WRPRintPDF2?ID={!wrf.id}');return false;" value="{!IF(WorkRequestForm__c.FormType__c == 'Aftermarket' && !ISBLANK(WorkRequestForm__c.SubmittedDate__c) && WorkRequestForm__c.SubmittedDate__c < DATE(2014,02,08),'Archive View','Print')}"  styleClass="viewBtn"
+                                    rendered="{!isView && (formType == 'Recall' || formType == 'Aftermarket'|| formType == 'NewUsed Registration'|| formType == 'Australia' || formtype == 'APAC')}" />
+                
+                
+                <apex:commandButton value="Clone" rendered="{!isView}" rerender="MSG"  action="{!wrClone}" styleClass="viewBtn" disabled="{!if((WorkRequestForm__c.FormType__c ='Parts & Service'),true,false)}" 
+                                    onclick="cloneWithWarnings()"/>
+                <apex:commandButton value="DUC Save" rendered="{! !isView && formtype<>'APAC'}" rerender="MSG"  action="{!DUCSave}" disabled="{!if((WorkRequestForm__c.DUCApproved__c || NOT($User.DUCApprover__c)),true,false)}"/>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <apex:commandButton value="Clone Request" action="{!wrClone}" rendered="{!IF(wrf.id<>null,TRUE,FALSE)}"/>         -->
+            </apex:pageblockButtons>
+            <apex:actionStatus id="formstatus" onstop="xedeStyle()" >
+                <apex:facet name="start" >
+                    <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                                                                         height: 100%;opacity:0.75;width:100%;"> 
+                        <div class="waitingHolder" >
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                            <span class="waitingDescription">Updating Form...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+                
+            </apex:actionStatus>
+            <apex:pageBlock rendered="{!WorkRequestForm__c.RequestStatus__c = 'Rejected'}">
+                
+                <c:WRRejection wrf="{!wrf}"/>
+                
+            </apex:pageBlock>
+            <apex:outputPanel layout="none" id="xyz">
+                <apex:pageblock rendered="{!IF(AND(WorkRequestForm__c.IsSubmitted__c,WorkRequestForm__c.RequestStatus__c<>'Approved'),TRUE,FALSE)}" id="approveBlock" >
+                    
+                    <c:WRApproval wrf="{!wrf}" isView="{!isView}"/>
+                    
+                </apex:pageblock>
+            </apex:outputPanel>
+            
+            <apex:tabPanel switchType="ajax" selectedTab="Overview">
+                <script>
+                var j$ = jQuery.noConflict();
+                j$(document).ready(xedeStyle());
+                </script>   
+                <apex:tab rerender="MSG" id="Overview" label="Job Overview">
+                    <apex:actionRegion >
+                        <apex:pageblocksection title="Information" collapsible="false" id="info">
+                            <apex:inputfield value="{!WorkRequestForm__c.name}" styleClass="requiredField extraWide" id="JobName"/>
+                            <apex:pageblocksectionitem >
+                                <apex:outputLabel for="Owner" value="Owner Name"/>
+                                <apex:outputfield value="{!WorkRequestForm__c.owner.name}"/>
+                            </apex:pageblocksectionitem>
+                            
+                            <apex:pageBlockSectionItem id="jt" > 
+                                <apex:outputLabel for="Jobtype" value="Job Type"/>
+                                <apex:selectList size="1" value="{!jobtype}" id="jobtype" styleClass="requiredField" >
+                                    <apex:selectOptions value="{!JTypeList}" />
+                                    <apex:actionSupport reRender="info,MSG" event="onchange" status="formstatus"/>
+                                </apex:selectList>
+                            </apex:pageBlockSectionItem>
+                            
+                            
+                            
+                            <apex:inputfield value="{!WorkRequestForm__c.PrimarySalesContact__c}" styleClass="requiredField hideDropdown"/>
+                            
+                            <!-- UK FORM ONLY -->
+                            <apex:inputField value="{!WorkRequestForm__c.Billable__c}" styleClass="requiredField"
+                                             rendered="{! NULLVALUE(formType, 'ZZZ') == 'UK'}"/>
+                            <apex:pageBlockSectionItem rendered="{! NULLVALUE(formType, 'ZZZ') == 'UK'}"/>
+                            <!-- UK FORM ONLY -->
+                            
+                            <apex:inputfield value="{!WorkRequestForm__c.PreviousJob__c}" rendered="{!IF(jobtype == 'Renewal'|| jobtype == 'Cyclical',TRUE,FALSE)}" />
+                            <apex:pageBlockSectionItem rendered="{!!IF(jobtype == 'Renewal'|| jobtype == 'Cyclical',TRUE,FALSE)}"  />
+                            <apex:outputField value="{!WorkRequestForm__c.PrimarySalesPhone2__c}"/>
+                            <apex:inputfield value="{!WorkRequestForm__c.PreviousLegacyJob__c}" rendered="{!IF(jobtype == 'Renewal'|| jobtype == 'Cyclical',TRUE,FALSE)}"/> 
+                            <apex:pageBlockSectionItem rendered="{!!IF(jobtype == 'Renewal'|| jobtype == 'Cyclical',TRUE,FALSE)}" />
+                            <apex:inputfield value="{!WorkRequestForm__c.SecondarySalesContact__c}" styleClass="hideDropdown"/>
+                            <apex:inputfield value="{!WorkRequestForm__c.Cycle__c}" rendered="{!IF(jobtype == 'Cyclical',TRUE,FALSE)}" styleclass="requiredField" />
+                            <apex:pageblocksectionitem rendered="{!!IF(jobtype == 'Cyclical',TRUE,FALSE)}" />
+                            <apex:outputfield value="{!WorkRequestForm__c.CostCenter__c}"/>
+                            <apex:inputfield value="{!WorkRequestForm__c.CycleStart__c}" rendered="{!IF(jobtype == 'Cyclical',TRUE,FALSE)}" styleclass="requiredField" />
+                            <apex:pageblocksectionitem rendered="{!!IF(jobtype == 'Cyclical',TRUE,FALSE)}" />
+                            <apex:outputfield value="{!WorkRequestForm__c.SubmittedDate__c}"/>
+                            <apex:inputfield value="{!WorkRequestForm__c.NumberOfCycles__c}" rendered="{!IF(jobtype == 'Cyclical',TRUE,FALSE)}" styleclass="requiredField" />
+                            <apex:pageblocksectionitem rendered="{!!IF(jobtype == 'Cyclical',TRUE,FALSE)}" />
+                            <apex:inputfield value="{!WorkRequestForm__c.RequestedDueDate__c}" styleClass="requiredField"/>                
+                            <apex:inputField value="{!WorkRequestForm__c.Priority__c}" rendered="{!IF(formtype =='Parts & Service' || formtype == 'NOC',TRUE,FALSE)}" styleClass="requiredField"/>                                
+                            <apex:outputField value="{!wrf.ChangeLogs__c}" />  
+                            <apex:outputField value="{!wrf.ClonedFromWRF__c}" rendered="true" />
+                        </apex:pageblocksection>
+                        <apex:pageBlockSection title="Data Use Committee" id="DUC" collapsible="false" rendered="{! !IF(formtype =='Parts & Service' || formtype == 'NOC' || formtype=='APAC',TRUE,FALSE)}">
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel for="ducapprove" value="DUC Approval Reason"/>
+                                <apex:inputfield value="{!WorkRequestForm__c.DUCApprovalRequired__c}" id="ducapprove"> 
+                                    <apex:actionSupport reRender="DUC,MSG" event="onchange" status="formstatus"/>
+                                </apex:inputfield>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputfield value="{!WorkRequestForm__c.DUCApproved__c}" rendered="{!IF(editDUC,TRUE,FALSE)}" />
+                            <apex:outputfield value="{!WorkRequestForm__c.DUCApproved__c}" rendered="{!!IF(editDUC,TRUE,FALSE)}" />
+                            <apex:pageblocksection />
+                            <apex:outputField value="{!WorkRequestForm__c.DUCApprovalDate__c}"/>
+                            <apex:inputField style="width:60%" value="{!WorkRequestForm__c.DUCOther__c}" rendered="{!IF(CONTAINS(WorkRequestForm__c.DUCApprovalRequired__c,'Other'),TRUE,FALSE)}" styleClass="requiredField"/>    
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection title="Royalty" id="ROY" collapsible="false" rendered="{!!IF(formtype =='Parts & Service' || formtype == 'NOC',TRUE,FALSE)}">
+                            <apex:inputfield value="{!WorkRequestForm__c.RoyaltyVendor__c}" styleClass="requiredField" />
+                        </apex:pageBlockSection>
+                        
+                    </apex:actionRegion>
+                    <apex:actionRegion >  
+                        
+                        <apex:pageBlockSection title="Request Type" id="RequestType" collapsible="false" rendered="{!!IF(formtype =='Parts & Service' || formtype == 'NOC',TRUE,FALSE)}">
+                            <apex:inputfield value="{!WorkRequestForm__c.TLAS__c}" rendered="{!IF(formtype == 'TLAS'||formtype=='Sales Match',TRUE,FALSE)}"/>  
+                            <apex:inputfield value="{!WorkRequestForm__c.ListRequest__c}" rendered="{!IF(formtype == 'TLAS'||formtype=='Sales Match',TRUE,FALSE)}"/>  
+                            <apex:inputField value="{!WorkRequestForm__c.SalesMatch__c}" rendered="{!IF(formtype == 'Sales Match'||formtype=='TLAS',TRUE,FALSE)}" />
+                            
+                            <apex:inputfield value="{!WorkRequestForm__c.AdHocReport__c}" rendered="{!IF(formtype == 'Stat'||formtype=='Canada',TRUE,FALSE)}"/>  
+                            <apex:inputfield value="{!WorkRequestForm__c.AutoTrackerReport__c}" rendered="{!IF(formtype == 'Stat',TRUE,FALSE)}"/>  
+                            <apex:inputfield value="{!WorkRequestForm__c.PolkInsightProductionMessage__c}" rendered="{!IF(formtype == 'Stat',TRUE,FALSE)}"/>  
+                            
+                            <apex:pageBlockSectionItem rendered="{!IF(formtype=='Canada',TRUE,FALSE)}" HelpText="{!$ObjectType.WorkRequestForm__c.fields.PolkInsightProductionMessage__c.inlineHelpText}">
+                                <apex:outputLabel value="Canadian Site Message"/>
+                                <apex:inputfield value="{!WorkRequestForm__c.PolkInsightProductionMessage__c}" rendered="{!IF(formtype=='Canada',TRUE,FALSE)}"/>               
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:inputfield value="{!WorkRequestForm__c.Loyalty__c}" rendered="{!IF(formtype == 'Analytics',TRUE,FALSE)}"/>  
+                            <apex:inputfield value="{!WorkRequestForm__c.AdhocCustom__c}" rendered="{!IF(formtype == 'Analytics',TRUE,FALSE)}"/>  
+                            <apex:inputfield value="{!WorkRequestForm__c.Profile__c}" rendered="{!IF(formtype == 'Analytics',TRUE,FALSE)}"/>  
+                            <apex:inputfield value="{!WorkRequestForm__c.ModelSegmentation__c}" rendered="{!IF(formtype == 'Analytics',TRUE,FALSE)}"/>  
+                            <apex:inputfield value="{!WorkRequestForm__c.TIPNetNewTruck__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/>                  
+                            <apex:inputfield value="{!WorkRequestForm__c.TIPNetVehiclesInOperation__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/>
+                            <apex:inputfield value="{!WorkRequestForm__c.TIPNetNewTrailer__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/>
+                            <apex:inputfield value="{!WorkRequestForm__c.NewRegNewFor__c}" rendered="{!IF(formtype == 'Stat',TRUE,FALSE)}"/> 
+                            <apex:inputfield value="{!WorkRequestForm__c.ChinaDataRequests__c}" rendered="{!IF(formtype == 'Stat',TRUE,FALSE)}"/> 
+                            <apex:inputfield value="{!WorkRequestForm__c.PARCGlobal__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/> 
+                            <apex:inputfield value="{!WorkRequestForm__c.ChinaCV__c}" rendered="{!IF(formtype == 'CVGGlobal',TRUE,FALSE)}"/> 
+                            <apex:inputfield value="{!WorkRequestForm__c.Recall__c}" rendered="{!IF(formtype == 'Recall',TRUE,FALSE)}"/> 
+                            <apex:inputfield value="{!WorkRequestForm__c.CARB__c}" rendered="{!IF(formtype == 'Recall',TRUE,FALSE)}"/> 
+                            <apex:inputfield value="{!WorkRequestForm__c.VINTrace__c}" rendered="{!IF(formtype == 'Recall'||formtype=='Canada',TRUE,FALSE)}"/>       
+                            <apex:inputfield value="{!WorkRequestForm__c.SMARTLink__c}" rendered="{!IF(formtype=='Canada',TRUE,FALSE)}"/>
+                            <apex:inputfield value="{!WorkRequestForm__c.FileCleanse__c}" rendered="{!IF(formtype=='Canada',TRUE,FALSE)}"/>
+                            <apex:inputField value="{!WorkRequestForm__c.TIPNetSystem__c}" rendered="{!IF(formtype == 'TIPNet',TRUE,FALSE)}"/> 
+                            
+                            <!-- Global New & Used Registration -->
+                            <apex:inputField value="{!WorkRequestForm__c.NewRegSystem__c}" 
+                                             rendered="{!IF(formtype == 'NewUsed Registration' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.DataExtractNewReg__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.NewRegSystem__c}" 
+                                              rendered="{!IF(formtype == 'NewUsed Registration' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.DataExtractNewReg__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.MarketInsightSystem__c}" 
+                                             rendered="{!IF(formtype == 'NewUsed Registration' && WorkRequestForm__c.NewRegSystem__c == false && WorkRequestForm__c.DataExtractNewReg__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.MarketInsightSystem__c}" 
+                                              rendered="{!IF(formtype == 'NewUsed Registration' && (WorkRequestForm__c.NewRegSystem__c == true || WorkRequestForm__c.DataExtractNewReg__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.DataExtractNewReg__c}" 
+                                             rendered="{!IF(formtype == 'NewUsed Registration' && WorkRequestForm__c.NewRegSystem__c == false && WorkRequestForm__c.MarketInsightSystem__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.DataExtractNewReg__c}"
+                                              rendered="{!IF(formtype == 'NewUsed Registration' && (WorkRequestForm__c.NewRegSystem__c == true || WorkRequestForm__c.MarketInsightSystem__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.LicenseExpirationDate__c}"  rendered="{!IF(formtype == 'NewUsed Registration' && (WorkRequestForm__c.NewRegSystem__c || WorkRequestForm__c.MarketInsightSystem__c),TRUE,FALSE)}" styleClass="requiredField"/> 
+                            <!-- END Global New & Used Registration -->
+                            
+                            <!-- Aftermarket -->
+                            <!--MarketInsight VIO System was Global VIO Data Files -->
+                            <apex:inputField value="{!WorkRequestForm__c.PARCDataFiles__c}" 
+                                             rendered="{!IF(formtype == 'Aftermarket' && WorkRequestForm__c.WorldviewVIO__c == false && WorkRequestForm__c.WorldviewVIO__c==false && WorkRequestForm__c.WorldviewParc__c==false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c==false &&WorkRequestForm__c.ReportDataFile__c==false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <!--MarketInsight VIO was Global VIO Data Files -->
+                            <apex:outputField value="{!WorkRequestForm__c.PARCDataFiles__c}" 
+                                              rendered="{!IF(formtype == 'Aftermarket'  && ( WorkRequestForm__c.WorldviewVIO__c== true || WorkRequestForm__c.WorldviewVIO__c==true || WorkRequestForm__c.WorldviewParc__c==true ||WorkRequestForm__c.DataExtractGlobalVIOPARC__c==true ||WorkRequestForm__c.ReportDataFile__c==true),TRUE,FALSE)}">
+                            </apex:outputfield> 
+                            
+                            <!--WorldView System was  US/CAN/PR VIO -->
+                            <apex:inputField value="{!WorkRequestForm__c.WorldviewVIO__c}" 
+                                             rendered="{!IF(formtype == 'Aftermarket' && WorkRequestForm__c.ReportDataFile__c== false && WorkRequestForm__c.PARCDataFiles__c==false&& WorkRequestForm__c.DataExtractGlobalVIOPARC__c==false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>                                                 
+                            <!--WorldView System was  US/CAN/PR VIO -->
+                            <apex:outputField value="{!WorkRequestForm__c.WorldviewVIO__c}" 
+                                              rendered="{!IF(formtype == 'Aftermarket' && (WorkRequestForm__c.ReportDataFile__c== true || WorkRequestForm__c.PARCDataFiles__c==true|| WorkRequestForm__c.DataExtractGlobalVIOPARC__c==true),TRUE,FALSE)}">
+                            </apex:outputfield> 
+                            
+                            <!-- Data Extract Global VIO (GLOBAL VIO PARC)  -->
+                            <apex:inputField value="{!WorkRequestForm__c.DataExtractGlobalVIOPARC__c}" 
+                                             rendered="{!IF(formtype == 'Aftermarket'  && WorkRequestForm__c.WorldviewVIO__c==false && WorkRequestForm__c.WorldviewParc__c ==false &&WorkRequestForm__c.PARCDataFiles__c==false ,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>  
+                            
+                            <!--Data Extract Global VIO (GLOBAL VIO PARC) -->
+                            <apex:outputField value="{!WorkRequestForm__c.DataExtractGlobalVIOPARC__c}" rendered="{!IF(formtype == 'Aftermarket' && (WorkRequestForm__c.WorldviewVIO__c== true || WorkRequestForm__c.PARCDataFiles__c==true || WorkRequestForm__c.WorldviewParc__c == true),TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>
+                            </apex:outputfield> 
+                            
+                            
+                            <!--Data Extract North America was  US/CAN/PR VIO Report/Data File -->
+                            <apex:inputField value="{!WorkRequestForm__c.ReportDataFile__c}" 
+                                             rendered="{!IF(formtype == 'Aftermarket'  && WorkRequestForm__c.WorldviewVIO__c==false&& WorkRequestForm__c.PARCDataFiles__c==false && WorkRequestForm__c.WorldviewParc__c ==false ,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>                    
+                            <!--Data Extract North America was  US/CAN/PR VIO Report/Data File -->
+                            <apex:outputField value="{!WorkRequestForm__c.ReportDataFile__c}" rendered="{!IF(formtype == 'Aftermarket' && (WorkRequestForm__c.WorldviewVIO__c== true|| WorkRequestForm__c.PARCDataFiles__c==true || WorkRequestForm__c.WorldviewParc__c == true),TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>
+                            </apex:outputfield> 
+                            
+                            <!-- Removed per Deb - WorldView Global VIO                
+                                <apex:inputfield value="{!WorkRequestForm__c.Worldview_Parc__c}" rendered="{!IF(formtype =='Aftermarket' && WorkRequestForm__c.ReportDataFile__c == false && WorkRequestForm__c.PARCDataFiles__c == false,TRUE,FALSE)}">
+
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                                </apex:inputfield> 
+                                <apex:outputfield value="{!WorkRequestForm__c.Worldview_Parc__c}" rendered="{!IF(formtype =='Aftermarket' && ( WorkRequestForm__c.ReportDataFile__c== true || WorkRequestForm__c.PARCDataFiles__c==true ),TRUE,FALSE)}">
+
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                                </apex:outputfield>                 
+                                -->
+                                                            <!--ACES Catalog Merge removed per deb, move to datafile tab 
+                                <apex:inputField value="{!WorkRequestForm__c.Catalog_Merge__c}" rendered="{!IF(formtype == 'Aftermarket' ,TRUE,FALSE)}"/>                
+                                -->
+                                                            
+                                                            <!-- Removed per Deb - WorldView OE Part Research
+                                <apex:inputField value="{!WorkRequestForm__c.WorldviewVIO__c}" rendered="{!IF(formtype == 'Aftermarket' && WorkRequestForm__c.ReportDataFile__c == false && WorkRequestForm__c.PARCDataFiles__c == false ,TRUE,FALSE)}">                                       
+
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                                </apex:inputfield> 
+                                <apex:outputField value="{!WorkRequestForm__c.WorldviewVIO__c}" rendered="{!IF(formtype == 'Aftermarket' && ( WorkRequestForm__c.ReportDataFile__c== true || WorkRequestForm__c.PARCDataFiles__c==true ),TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                                </apex:outputfield> 
+                                -->
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.ScrappageMedianAge__c}" rendered="{!IF(formtype == 'Aftermarket' &&(WorkRequestForm__c.PARCDataFiles__c==false &&WorkRequestForm__c.WorldviewVIO__c==false),TRUE,FALSE)}"/>                                        
+                            <apex:outputField value="{!WorkRequestForm__c.ScrappageMedianAge__c}" rendered="{!IF(formtype == 'Aftermarket' &&(WorkRequestForm__c.PARCDataFiles__c=true ||WorkRequestForm__c.WorldviewVIO__c==true),TRUE,FALSE)}"/> 
+                            
+                            <apex:inputfield value="{!WorkRequestForm__c.ContinentalTire__c}" rendered="{!IF(formtype =='Continental Tire Aftermarket',TRUE,FALSE)}"/>
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.Mapping__c}" rendered="{!IF((formtype=='Aftermarket' &&(WorkRequestForm__c.PARCDataFiles__c=false&&WorkRequestForm__c.WorldviewVIO__c==false))||formtype=='TIPNet'||formtype=='Recall'
+                                                                                                ||formtype=='CVGGlobal'||formtype=='Analytics'||formtype=='Stat'||formtype=='Sales Match'||formtype=='TLAS',TRUE,FALSE)}"/>  
+                            <apex:outputField value="{!WorkRequestForm__c.Mapping__c}" rendered="{!IF(formtype=='Aftermarket' &&(WorkRequestForm__c.PARCDataFiles__c=true||WorkRequestForm__c.WorldviewVIO__c==true),TRUE,FALSE)}"/>  
+                            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.LicenseExpirationDate__c}"  rendered="{!IF(formtype == 'Aftermarket' && (WorkRequestForm__c.PARCDataFiles__c || WorkRequestForm__c.WorldviewVIO__c || WorkRequestForm__c.WorldviewParc__c || WorkRequestForm__c.WorldviewVIO__c),TRUE,FALSE)}" styleClass="requiredField"/> 
+                            
+                            <!-- END AFTERMARKET  -->
+                            
+                            <!-- Australia -->
+                            <apex:inputField value="{!WorkRequestForm__c.AutoNews__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c == false && WorkRequestForm__c.DrivewayCalculator__c == false && WorkRequestForm__c.Mapping__c == false && WorkRequestForm__c.DMS__c == false && WorkRequestForm__c.PS__c == false && WorkRequestForm__c.VFacts__c == false && WorkRequestForm__c.Vindicator__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.AutoNews__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.DataExtractGlobalVIOPARC__c == true || WorkRequestForm__c.DrivewayCalculator__c == true || WorkRequestForm__c.Mapping__c == true || WorkRequestForm__c.DMS__c == true || WorkRequestForm__c.PS__c == true || WorkRequestForm__c.VFacts__c == true || WorkRequestForm__c.Vindicator__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.Vindicator__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c == false && WorkRequestForm__c.DrivewayCalculator__c == false && WorkRequestForm__c.Mapping__c == false && WorkRequestForm__c.DMS__c == false && WorkRequestForm__c.PS__c == false && WorkRequestForm__c.VFacts__c == false && WorkRequestForm__c.AutoNews__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.Vindicator__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.DataExtractGlobalVIOPARC__c == true || WorkRequestForm__c.DrivewayCalculator__c == true || WorkRequestForm__c.Mapping__c == true || WorkRequestForm__c.DMS__c == true || WorkRequestForm__c.PS__c == true || WorkRequestForm__c.VFacts__c == true || WorkRequestForm__c.AutoNews__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.DMS__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c == false && WorkRequestForm__c.DrivewayCalculator__c == false && WorkRequestForm__c.Mapping__c == false && WorkRequestForm__c.AutoNews__c == false && WorkRequestForm__c.PS__c == false && WorkRequestForm__c.VFacts__c == false && WorkRequestForm__c.Vindicator__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.DMS__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.DataExtractGlobalVIOPARC__c == true || WorkRequestForm__c.DrivewayCalculator__c == true || WorkRequestForm__c.Mapping__c == true || WorkRequestForm__c.AutoNews__c == true || WorkRequestForm__c.PS__c == true || WorkRequestForm__c.VFacts__c == true || WorkRequestForm__c.Vindicator__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.Mapping__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c == false && WorkRequestForm__c.DrivewayCalculator__c == false && WorkRequestForm__c.AutoNews__c == false && WorkRequestForm__c.DMS__c == false && WorkRequestForm__c.PS__c == false && WorkRequestForm__c.VFacts__c == false && WorkRequestForm__c.Vindicator__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.Mapping__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.DataExtractGlobalVIOPARC__c == true || WorkRequestForm__c.DrivewayCalculator__c == true || WorkRequestForm__c.AutoNews__c == true || WorkRequestForm__c.DMS__c == true || WorkRequestForm__c.PS__c == true || WorkRequestForm__c.VFacts__c == true || WorkRequestForm__c.Vindicator__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.DrivewayCalculator__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c == false && WorkRequestForm__c.AutoNews__c == false && WorkRequestForm__c.Mapping__c == false && WorkRequestForm__c.DMS__c == false && WorkRequestForm__c.PS__c == false && WorkRequestForm__c.VFacts__c == false && WorkRequestForm__c.Vindicator__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.DrivewayCalculator__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.DataExtractGlobalVIOPARC__c == true || WorkRequestForm__c.AutoNews__c == true || WorkRequestForm__c.Mapping__c == true || WorkRequestForm__c.DMS__c == true || WorkRequestForm__c.PS__c == true || WorkRequestForm__c.VFacts__c == true || WorkRequestForm__c.Vindicator__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.DataExtractGlobalVIOPARC__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.AutoNews__c == false && WorkRequestForm__c.DrivewayCalculator__c == false && WorkRequestForm__c.Mapping__c == false && WorkRequestForm__c.DMS__c == false && WorkRequestForm__c.PS__c == false && WorkRequestForm__c.VFacts__c == false && WorkRequestForm__c.Vindicator__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.DataExtractGlobalVIOPARC__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.AutoNews__c == true || WorkRequestForm__c.DrivewayCalculator__c == true || WorkRequestForm__c.Mapping__c == true || WorkRequestForm__c.DMS__c == true || WorkRequestForm__c.PS__c == true || WorkRequestForm__c.VFacts__c == true || WorkRequestForm__c.Vindicator__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.PS__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c == false && WorkRequestForm__c.DrivewayCalculator__c == false && WorkRequestForm__c.Mapping__c == false && WorkRequestForm__c.DMS__c == false && WorkRequestForm__c.AutoNews__c == false && WorkRequestForm__c.VFacts__c == false && WorkRequestForm__c.Vindicator__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.PS__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.DataExtractGlobalVIOPARC__c == true || WorkRequestForm__c.DrivewayCalculator__c == true || WorkRequestForm__c.Mapping__c == true || WorkRequestForm__c.DMS__c == true || WorkRequestForm__c.AutoNews__c == true || WorkRequestForm__c.VFacts__c == true || WorkRequestForm__c.Vindicator__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.MarketInsightSystem__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.AutoNews__c == false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c == false && WorkRequestForm__c.DrivewayCalculator__c == false && WorkRequestForm__c.Mapping__c == false && WorkRequestForm__c.DMS__c == false && WorkRequestForm__c.PS__c == false && WorkRequestForm__c.VFacts__c == false && WorkRequestForm__c.Vindicator__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.MarketInsightSystem__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.AutoNews__c == true || WorkRequestForm__c.DataExtractGlobalVIOPARC__c == true || WorkRequestForm__c.DrivewayCalculator__c == true || WorkRequestForm__c.Mapping__c == true || WorkRequestForm__c.DMS__c == true || WorkRequestForm__c.PS__c == true || WorkRequestForm__c.VFacts__c == true || WorkRequestForm__c.Vindicator__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.VFacts__c}" 
+                                             rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c == false && WorkRequestForm__c.DataExtractGlobalVIOPARC__c == false && WorkRequestForm__c.DrivewayCalculator__c == false && WorkRequestForm__c.Mapping__c == false && WorkRequestForm__c.DMS__c == false && WorkRequestForm__c.PS__c == false && WorkRequestForm__c.AutoNews__c == false && WorkRequestForm__c.Vindicator__c == false,TRUE,FALSE)}">
+                                <apex:actionSupport reRender="RequestType,MSG" event="onchange" status="formstatus"/>               
+                            </apex:inputfield>            
+                            <apex:outputField value="{!WorkRequestForm__c.VFacts__c}" 
+                                              rendered="{!IF(formtype == 'Australia' && (WorkRequestForm__c.MarketInsightSystem__c == true || WorkRequestForm__c.DataExtractGlobalVIOPARC__c == true || WorkRequestForm__c.DrivewayCalculator__c == true || WorkRequestForm__c.Mapping__c == true || WorkRequestForm__c.DMS__c == true || WorkRequestForm__c.PS__c == true || WorkRequestForm__c.AutoNews__c == true || WorkRequestForm__c.Vindicator__c == true),TRUE,FALSE)}">
+                            </apex:outputField>            
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.LicenseExpirationDate__c}"  rendered="{!IF(formtype == 'Australia' && WorkRequestForm__c.MarketInsightSystem__c,TRUE,FALSE)}" styleClass="requiredField"/> 
+                            <!-- END Australia -->
+                            
+                            <apex:selectRadio value="{!PNS}" rendered="{!IF(formtype =='Parts & Service/NOC',TRUE,FALSE)}" layout="pageDirection">
+                                <apex:selectOptions value="{!PNSList}" />
+                            </apex:selectRadio>      
+                            
+                            <apex:pageBlockSectionItem rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}">
+                                <apex:selectRadio id="ssRadio" value="{!SS}"  layout="pageDirection"  >
+                                    <apex:selectOptions value="{!SSList}" />
+                                    <apex:actionSupport reRender="MSG,tdf" event="onchange" status="formstatus"/>
+                                </apex:selectRadio> 
+                            </apex:pageBlockSectionItem> 
+                            
+                            <!-- APAC Request Types -->
+                            <!-- Editable Report -->
+                            <apex:inputfield value="{!wrf.AdHocReport__c}" 
+                                             rendered="{! formtype=='APAC' && !wrf.ChinaDataRequests__c  
+                                                       && !wrf.MarketInsightSystem__c && !wrf.ChinaCV__c 
+                                                       && !wrf.DataExtractGlobalVIOPARC__c 
+                                                       && !wrf.Mapping__c && !wrf.PolkInsightChinaSystem__c 
+                                                       && !wrf.DataExtractNewReg__c && !wrf.WorldviewVIO__c}">
+                                <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                            </apex:inputfield>
+                            <!-- Locked Report -->
+                            <apex:outputfield value="{!wrf.AdHocReport__c}" 
+                                              rendered="{! formtype=='APAC' && (wrf.ChinaDataRequests__c 
+                                                        || wrf.MarketInsightSystem__c || wrf.ChinaCV__c 
+                                                        || wrf.DataExtractGlobalVIOPARC__c || wrf.Mapping__c 
+                                                        || wrf.PolkInsightChinaSystem__c || wrf.DataExtractNewReg__c
+                                                        || wrf.WorldviewVIO__c)}"/>
+                            <!-- Editable China PV Data Requests -->
+                            <apex:pageBlockSectionItem rendered="{! formtype=='APAC' 
+                                                                 && !wrf.AdHocReport__c 
+                                                                 && !wrf.MarketInsightSystem__c && !wrf.ChinaCV__c 
+                                                                 && !wrf.DataExtractGlobalVIOPARC__c  
+                                                                 && !wrf.Mapping__c && !wrf.PolkInsightChinaSystem__c 
+                                                                 && !wrf.DataExtractNewReg__c && !wrf.WorldviewVIO__c}">
+                                <apex:outputLabel value="China PV Data Requests" for="chinaPVW"/>
+                                <apex:inputfield value="{!wrf.ChinaDataRequests__c}" id="chinaPVW">
+                                    <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                                </apex:inputfield>
+                            </apex:pageBlockSectionItem>
+                            <!-- Locked China PV Data Requests -->
+                            <apex:pageBlockSectionItem rendered="{! formtype=='APAC' 
+                                                                 && (wrf.AdHocReport__c
+                                                                 || wrf.MarketInsightSystem__c || wrf.ChinaCV__c 
+                                                                 || wrf.DataExtractGlobalVIOPARC__c || wrf.Mapping__c 
+                                                                 || wrf.PolkInsightChinaSystem__c || wrf.DataExtractNewReg__c
+                                                                 || wrf.WorldviewVIO__c)}">
+                                <apex:outputLabel value="China PV Data Requests" for="chinaPVR"/>
+                                <apex:outputfield value="{!wrf.ChinaDataRequests__c}" id="chinaPVR"/>   
+                            </apex:pageBlockSectionItem>
+                            <!-- Editable PolkInsight - China System -->
+                            <apex:inputfield value="{! wrf.PolkInsightChinaSystem__c}"
+                                             rendered="{! formtype=='APAC' && !wrf.AdHocReport__c  
+                                                       && !wrf.ChinaDataRequests__c && !wrf.ChinaCV__c 
+                                                       && !wrf.MarketInsightSystem__c 
+                                                       && !wrf.Mapping__c && !wrf.DataExtractGlobalVIOPARC__c 
+                                                       && !wrf.DataExtractNewReg__c && !wrf.WorldviewVIO__c}">
+                                <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                            </apex:inputfield>
+                            <!-- Locked PolkInsight - China System -->
+                            <apex:outputfield value="{! wrf.PolkInsightChinaSystem__c}"
+                                              rendered="{! formtype=='APAC' && (wrf.AdHocReport__c
+                                                        || wrf.ChinaDataRequests__c || wrf.ChinaCV__c 
+                                                        || wrf.MarketInsightSystem__c|| wrf.Mapping__c 
+                                                        || wrf.DataExtractGlobalVIOPARC__c || wrf.DataExtractNewReg__c
+                                                        || wrf.WorldviewVIO__c)}"/>
+                            <!-- Editable China CV Data Requests -->
+                            <apex:pageBlockSectionItem rendered="{! formtype=='APAC' 
+                                                                 && !wrf.AdHocReport__c  
+                                                                 && !wrf.ChinaDataRequests__c && !wrf.MarketInsightSystem__c
+                                                                 && !wrf.DataExtractGlobalVIOPARC__c  
+                                                                 && !wrf.Mapping__c && !wrf.PolkInsightChinaSystem__c 
+                                                                 && !wrf.DataExtractNewReg__c && !wrf.WorldviewVIO__c}">
+                                <apex:outputLabel value="China CV Data Requests" for="ChinaCVW"/>
+                                <apex:inputfield value="{! wrf.ChinaCV__c }" id="ChinaCVW">
+                                    <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                                </apex:inputfield>
+                            </apex:pageBlockSectionItem>
+                            <!-- Locked China CV Data Requests -->
+                            <apex:pageBlockSectionItem rendered="{! formtype=='APAC' 
+                                                                 && (wrf.AdHocReport__c
+                                                                 || wrf.ChinaDataRequests__c || wrf.MarketInsightSystem__c
+                                                                 || wrf.DataExtractGlobalVIOPARC__c || wrf.Mapping__c 
+                                                                 || wrf.PolkInsightChinaSystem__c || wrf.DataExtractNewReg__c
+                                                                 || wrf.WorldviewVIO__c)}">
+                                <apex:outputLabel value="China CV Data Requests" for="ChinaCVR"/>
+                                <apex:outputfield value="{! wrf.ChinaCV__c }" id="ChinaCVR"/>
+                            </apex:pageBlockSectionItem>
+                            <!-- Editable Data Extract Global VIO PARC -->
+                            <apex:inputfield value="{! wrf.DataExtractGlobalVIOPARC__c}"
+                                             rendered="{! formtype=='APAC' && !wrf.AdHocReport__c  
+                                                       && !wrf.ChinaDataRequests__c && !wrf.ChinaCV__c 
+                                                       && !wrf.MarketInsightSystem__c 
+                                                       && !wrf.Mapping__c && !wrf.PolkInsightChinaSystem__c 
+                                                       && !wrf.DataExtractNewReg__c && !wrf.WorldviewVIO__c}">
+                                <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                            </apex:inputfield>
+                            <!-- Locked Data Extract Global VIO PARC -->
+                            <apex:outputfield value="{!wrf.DataExtractGlobalVIOPARC__c}"
+                                              rendered="{! formtype=='APAC' && (wrf.AdHocReport__c
+                                                        || wrf.ChinaDataRequests__c || wrf.ChinaCV__c 
+                                                        || wrf.MarketInsightSystem__c|| wrf.Mapping__c 
+                                                        || wrf.PolkInsightChinaSystem__c || wrf.DataExtractNewReg__c
+                                                        || wrf.WorldviewVIO__c)}"/>
+                            <!-- Editable Mapping -->
+                            <apex:inputfield value="{! wrf.Mapping__c}" 
+                                             rendered="{! formtype=='APAC' && !wrf.AdHocReport__c  
+                                                       && !wrf.ChinaDataRequests__c && !wrf.MarketInsightSystem__c
+                                                       && !wrf.DataExtractGlobalVIOPARC__c  
+                                                       && !wrf.ChinaCV__c && !wrf.PolkInsightChinaSystem__c 
+                                                       && !wrf.DataExtractNewReg__c && !wrf.WorldviewVIO__c}">
+                                <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                            </apex:inputfield>
+                            <!-- Locked Mapping -->
+                            <apex:outputfield value="{! wrf.Mapping__c}" 
+                                              rendered="{! formtype=='APAC' && (wrf.AdHocReport__c
+                                                        || wrf.ChinaDataRequests__c || wrf.MarketInsightSystem__c
+                                                        || wrf.DataExtractGlobalVIOPARC__c || wrf.ChinaCV__c 
+                                                        || wrf.PolkInsightChinaSystem__c || wrf.DataExtractNewReg__c
+                                                        || wrf.WorldviewVIO__c)}"/>
+                            <!-- Editable Worldview System -->
+                            
+                            <apex:inputfield value="{! wrf.WorldviewVIO__c}" 
+                                             rendered="{! formtype=='APAC' && !wrf.AdHocReport__c  
+                                                       && !wrf.ChinaDataRequests__c && !wrf.ChinaCV__c 
+                                                       && !wrf.DataExtractGlobalVIOPARC__c  
+                                                       && !wrf.Mapping__c && !wrf.PolkInsightChinaSystem__c 
+                                                       && !wrf.DataExtractNewReg__c && !wrf.MarketInsightSystem__c}">
+                                <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                            </apex:inputfield>
+                            
+                            <!-- Locked Worldview System -->
+                            
+                            <apex:outputfield value="{! wrf.WorldviewVIO__c}" 
+                                              rendered="{! formtype=='APAC' && (wrf.AdHocReport__c
+                                                        || wrf.ChinaDataRequests__c || wrf.ChinaCV__c 
+                                                        || wrf.DataExtractGlobalVIOPARC__c || wrf.Mapping__c 
+                                                        || wrf.PolkInsightChinaSystem__c || wrf.DataExtractNewReg__c
+                                                        || wrf.MarketInsightSystem__c)}"/>
+                            
+                            <!-- Editable Market Insight System -->
+                            <apex:inputfield value="{! wrf.MarketInsightSystem__c}" 
+                                             rendered="{! formtype=='APAC' && !wrf.AdHocReport__c  
+                                                       && !wrf.ChinaDataRequests__c && !wrf.ChinaCV__c 
+                                                       && !wrf.DataExtractGlobalVIOPARC__c  
+                                                       && !wrf.Mapping__c && !wrf.PolkInsightChinaSystem__c 
+                                                       && !wrf.DataExtractNewReg__c && !wrf.WorldviewVIO__c}">
+                                <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                            </apex:inputfield>
+                            <!-- Locked Market Insight System -->
+                            <apex:outputfield value="{! wrf.MarketInsightSystem__c}" 
+                                              rendered="{! formtype=='APAC' && (wrf.AdHocReport__c
+                                                        || wrf.ChinaDataRequests__c || wrf.ChinaCV__c 
+                                                        || wrf.DataExtractGlobalVIOPARC__c || wrf.Mapping__c 
+                                                        || wrf.PolkInsightChinaSystem__c || wrf.DataExtractNewReg__c
+                                                        || wrf.WorldviewVIO__c)}"/>        
+                            <!-- Editable Market Insight Data Extract -->
+                            <apex:pageBlockSectionItem rendered="{! formtype=='APAC' 
+                                                                 && !wrf.AdHocReport__c  
+                                                                 && !wrf.ChinaDataRequests__c && !wrf.ChinaCV__c 
+                                                                 && !wrf.MarketInsightSystem__c 
+                                                                 && !wrf.Mapping__c && !wrf.DataExtractGlobalVIOPARC__c 
+                                                                 && !wrf.PolkInsightChinaSystem__c && !wrf.WorldviewVIO__c}">
+                                <apex:outputLabel value="Market Insight Data Extract" for="MIDataW"/>
+                                <apex:inputfield value="{! wrf.DataExtractNewReg__c}" id="MIDataW">
+                                    <apex:actionSupport event="onchange" rerender="RequestType" status="formstatus"/>
+                                </apex:inputfield>
+                            </apex:pageBlockSectionItem>
+                            <!-- Locked Market Insight Data Extract -->
+                            <apex:pageBlockSectionItem rendered="{! formtype=='APAC' 
+                                                                 && (wrf.AdHocReport__c
+                                                                 || wrf.ChinaDataRequests__c || wrf.ChinaCV__c 
+                                                                 || wrf.MarketInsightSystem__c|| wrf.Mapping__c 
+                                                                 || wrf.DataExtractGlobalVIOPARC__c || wrf.PolkInsightChinaSystem__c
+                                                                 || wrf.WorldviewVIO__c)}">
+                                <apex:outputLabel value="Market Insight Data Extract" for="MIDataR"/>
+                                <apex:outputfield value="{! wrf.DataExtractNewReg__c}" id="MIDataR"/>
+                            </apex:pageBlockSectionItem>
+                            <!-- License Expiration for Market Insight System -->
+                            <apex:inputField value="{!WorkRequestForm__c.LicenseExpirationDate__c}" styleclass="requiredField"
+                                             rendered="{! formtype=='APAC' && (wrf.MarketInsightSystem__c || wrf.WorldviewVIO__c)}" />
+                            
+                            <!-- End APAC Request Types -->
+                            <apex:inputField value="{!WorkRequestForm__c.TableauVisualization__c}" />
+                        </apex:pageBlockSection>
+                    </apex:actionRegion>  
+                    
+                    <!-- Allow for users to input/change opportunity information as long as the WRF is still a non-internal draft -->
+                    <apex:outputPanel rendered="{!!wrf.Internal__c && wrf.RequestStatus__c == 'Draft'}" id="editOpportunity">
+                        <apex:pageBlockSection title="Opportunity Information" collapsible="false">
+                            <apex:inputfield value="{!WorkRequestForm__c.OpportunityNumber__c}" styleClass="requiredField" id="optyNumberInput">
+                                <apex:actionSupport event="onchange" rerender="editOpportunity,customerInfo,MSG,JobName"
+                                                    action="{!lookupOpportunityByNumber}"/>
+                            </apex:inputfield> 
+                            <apex:outputField value="{!WorkRequestForm__c.Revenue__c}" styleClass="requiredField" id="optyRevenueInput" /> 
+                            
+                            <apex:inputfield value="{!WorkRequestForm__c.OpportunityName__c}" styleClass="requiredField" id="optyNameInput">
+                                <apex:actionSupport event="onchange" rerender="editOpportunity,customerInfo,MSG,JobName" 
+                                                    action="{!lookupOpportunityByName}"/> 
+                            </apex:inputfield>
+                        </apex:pageBlockSection>            
+                    </apex:outputPanel>
+                    
+                    <!-- If the WRF is non-internal and is NOT a draft, at output opty information -->
+                    <apex:outputPanel rendered="{! !wrf.Internal__c && wrf.RequestStatus__c <> 'Draft'}">
+                        <apex:pageBlockSection title="Opportunity Information" collapsible="false">
+                            <apex:outputfield value="{!WorkRequestForm__c.OpportunityNumber__c}"/> 
+                            <apex:outputfield value="{!WorkRequestForm__c.Revenue__c}"/> 
+                            <apex:outputfield value="{!WorkRequestForm__c.OpportunityName__c}"/>
+                        </apex:pageBlockSection>            
+                    </apex:outputPanel>
+                    
+                    <!-- Display Customer Information section -->
+                    <apex:outputPanel rendered="{! !wrf.Internal__c}" id="customerInfo">
+                        <apex:pageBlockSection title="Customer Information" collapsible="false">
+                            <apex:outputfield value="{!WorkRequestForm__c.AccountName__c}" /> 
+                            <!-- This piece of code is commented out to remove the dependency of CustomerContact__c as per new business use case for POLK
+                    <apex:outputfield value="{!WorkRequestForm__c.CustomerContact__c}" /> -->
+                        </apex:pageBlockSection>            
+                    </apex:outputPanel>
+                    
+                    <apex:actionRegion >  
+                        
+                        <apex:pageBlockSection title="Output" id="Output" collapsible="false" rendered="{!!IF(formtype == 'Software Services' ,TRUE,FALSE)}">
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel for="Output" value="Output Type"/>
+                                <apex:inputfield value="{!WorkRequestForm__c.OutputType__c}" id="output" styleClass="requiredField">
+                                    <apex:actionSupport reRender="Output,MSG" event="onchange" status="formstatus"/>
+                                </apex:inputfield>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel for="OutputMed" value="Output Medium"/>
+                                <apex:inputfield value="{!WorkRequestForm__c.OutputMedium__c}" id="outputmed" styleClass="requiredField">
+                                    <apex:actionSupport reRender="Output,MSG" event="onchange" status="formstatus"/>
+                                </apex:inputfield>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:inputfield style="width:70%" value="{!WorkRequestForm__c.OtherOutputType__c}" rendered="{!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Other'),TRUE,FALSE)}" styleClass="requiredField"/>                   
+                            <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Other'),TRUE,FALSE)}" /> 
+                            
+                            <apex:inputfield style="width:70%" value="{!WorkRequestForm__c.OtherOutputMedium__c}" rendered="{!IF(CONTAINS(WorkRequestForm__c.OutputMedium__c,'Other'),TRUE,FALSE)}" styleClass="requiredField"/> 
+                            <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(WorkRequestForm__c.OutputMedium__c,'Other'),TRUE,FALSE)}"/>       
+                            
+                            <apex:inputfield value="{!WorkRequestForm__c.DelimitedBy__c}" rendered="{!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Text - Delimited by'),TRUE,FALSE)}" styleClass="requiredField"/>
+                            <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Text - Delimited by'),TRUE,FALSE)}"/>        
+                            
+                            <apex:inputField value="{!WorkRequestForm__c.ExcelVersion__c}" styleclass="requiredField" rendered="{!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Excel'),TRUE,FALSE)}"/>
+                            <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(WorkRequestForm__c.OutputType__c,'Excel'),TRUE,FALSE)}"/> 
+                            
+                        </apex:pageblocksection> 
+                        
+                    </apex:actionRegion>
+                    <apex:actionRegion >
+                        
+                        <apex:pageblock rendered="{!!IF(formtype == 'Software Services',TRUE,FALSE)}">
+                            <apex:pageBlockSection title="Shipping" id="Shipping" collapsible="false" >
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel for="Email" value="Email" />
+                                    <apex:inputfield value="{!WorkRequestForm__c.ShipEmail__c}" id="email">
+                                        <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                                    </apex:inputfield>
+                                </apex:pageBlockSectionItem>
+                                
+                                <apex:inputfield value="{!WorkRequestForm__c.ReturnToSales__c}"/>
+                                <apex:inputfield value="{!WorkRequestForm__c.Email__c}" rendered="{!WorkRequestForm__c.ShipEmail__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipEmail__c}"/>
+                                <apex:pageblocksection />
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel for="PolkFTP" value="Polk FTP"/>
+                                    <apex:inputfield value="{!WorkRequestForm__c.ShipFTPPolk__c}" id="polkftp">
+                                        <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                                    </apex:inputfield>
+                                </apex:pageblocksectionitem> 
+                                
+                                <apex:inputfield value="{!WorkRequestForm__c.ShipOther__c}" />
+                                <apex:inputfield value="{!WorkRequestForm__c.FTPLogin__c}" rendered="{!WorkRequestForm__c.ShipFTPPolk__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTPPolk__c}"/>
+                                <apex:pageblocksection />
+                                <apex:inputfield value="{!WorkRequestForm__c.PGPKey__c}" rendered="{!WorkRequestForm__c.ShipFTPPolk__c}" />
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTPPolk__c}"/>
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel for="Carrier" value="Carrier"></apex:outputLabel>
+                                    <apex:inputfield value="{!WorkRequestForm__c.ShipCarrier__c}" id="carrier">
+                                        <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                                    </apex:inputfield>
+                                </apex:pageBlockSectionItem>     
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel for="FTP" value="Customer FTP"/>
+                                    <apex:inputfield value="{!WorkRequestForm__c.ShipFTP__c}" id="ftp">
+                                        <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                                    </apex:inputfield>
+                                </apex:pageBlockSectionItem>
+                                
+                                <apex:inputfield value="{!WorkRequestForm__c.AccountName__c}" rendered="{!WorkRequestForm__c.ShipCarrier__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipCarrier__c}"/> 
+                                <apex:inputfield value="{!WorkRequestForm__c.FTPLogin__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                                <apex:inputfield value="{!WorkRequestForm__c.Attention__c}" rendered="{!WorkRequestForm__c.ShipCarrier__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipCarrier__c}"/>
+                                <apex:inputfield value="{!WorkRequestForm__c.FTPPasswordEnc__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                                <apex:pageblocksectionitem />
+                                <apex:inputfield value="{!WorkRequestForm__c.FTPSite__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                                <apex:pageblocksectionitem />
+                                <apex:inputfield value="{!WorkRequestForm__c.PGPKey__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" />
+                            </apex:pageBlockSection>
+                        </apex:pageblock>
+                        
+                        <!-- Render if the form is SoftwareServices -->
+                        
+                        <apex:pageblock rendered="{!IF(formtype == 'Software Services',TRUE,FALSE)}">
+                            <apex:pageBlockSection title="Shipping" id="Shipping" collapsible="false" >      
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel for="FTP" value="FTP"/>
+                                    <apex:inputfield value="{!WorkRequestForm__c.ShipFTP__c}" id="ftp">
+                                        <apex:actionSupport reRender="Shipping,MSG" event="onchange" status="formstatus"/>
+                                    </apex:inputfield>
+                                </apex:pageblocksectionitem> 
+                                
+                                <apex:inputfield value="{!WorkRequestForm__c.ReturnToSales__c}"/>    
+                                <apex:inputfield value="{!WorkRequestForm__c.FTPLogin__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>                      
+                                <apex:inputfield value="{!WorkRequestForm__c.ShipOther__c}" />
+                                <apex:inputfield value="{!WorkRequestForm__c.FTPPasswordEnc__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                                <apex:pageblocksection />
+                                <apex:inputfield value="{!WorkRequestForm__c.FTPSite__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" styleClass="requiredField"/>
+                                <apex:pageblocksectionitem rendered="{!!WorkRequestForm__c.ShipFTP__c}"/>
+                                <apex:pageblocksectionitem />
+                                <apex:inputfield value="{!WorkRequestForm__c.PGPKey__c}" rendered="{!WorkRequestForm__c.ShipFTP__c}" />
+                            </apex:pageBlockSection>
+                        </apex:pageblock>       
+                        
+                    </apex:actionRegion>  
+                    
+                    <apex:pageblocksection columns="1" collapsible="false">
+                        <apex:inputfield style="width:100%" value="{!WorkRequestForm__c.ShippingInstructions__c}" />
+                        <apex:inputfield style="width:100%" value="{!WorkRequestForm__c.PathToFilesOnShareDrive__c}" />    
+                    </apex:pageblocksection>
+                    <script>
+                    j$(document).ready(xedeStyle());
+                    </script>
+                    
+                </apex:tab>
+                <apex:tab label="Data Files" status="formstatus" rendered="{!IF(formtype=='TLAS'||formtype=='Stat'||formtype=='Canada'||formtype=='Software Services'||formtype=='Recall'||formtype=='CVGGlobal'
+                                                                           ||formtype=='Aftermarket'||formtype=='NewUsed Registration'||formtype=='Australia'||formtype=='Analytics'||formtype='Continental Tire Aftermarket'||formtype=='TIPNet'||formtype=='Sales Match' || formtype=='APAC',TRUE,FALSE)}" rerender="tdf,MSG" >    
+                    <c:tabDataFile2 id="tdf" pageExt="{!This}" wrf="{!wrf}" MC="{!MC}" cnt="{!CNT}" df="{!DF}" formtype="{!formtype}" editSymbol="{!editSymbol}" editDUC="{!editDUC}" editapproved="{!editApproved}"  /> 
+                    <script>
+                    var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+                    </script>
+                </apex:tab>
+                
+                <apex:tab label="Order Request" status="formstatus" rendered="{!formtype='TLAS'}" rerender="order,MSG" id="OrderRequest">
+                    
+                    <c:tabOrderReq2 id="order" wrf="{!wrf}" isView="false"  />
+                    <script>
+                    var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+                    </script> 
+                </apex:tab>
+                
+                <apex:tab label="Input Files" status="formstatus" rendered="{!IF(OR(formtype='TLAS',formtype='Stat',formtype='Canada',formtype='Sales Match',formtype='Analytics'),TRUE,FALSE)}" rerender="input,MSG">
+                    
+                    <c:tabInputFiles id="input" wrf="{!wrf}"/>
+                    <script>
+                    var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+                    </script>
+                </apex:tab>
+                
+                <apex:tab label="Internal Data" status="formstatus" rendered="{!IF(formtype='TLAS',TRUE,FALSE)}" rerender="internal,MSG">
+                    
+                    <c:tabInternalData id="internal" wrf="{!wrf}"/>
+                    <script>
+                    var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+                    </script>
+                </apex:tab>
+                
+                
+                <apex:tab label="SWS Delivery Times" status="formstatus" rendered="{!formtype='Software Services'}" rerender="SWS,MSG">
+                    
+                    <c:tabSWSDelivery id="sws" wrf="{!wrf}" formtype="{!formtype}"/>
+                    <script>
+                    var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+                    </script>
+                </apex:tab>
+                
+                <apex:tab label="Special Instructions" status="formstatus" rerender="MSG">      
+                    
+                    <apex:pageblocksection title="Special Instructions" id="SpecialInst" collapsible="false" columns="1">
+                        <apex:inputfield value="{!WorkRequestForm__c.SpecialInstructions__c}" style="width:95%" styleclass="autogrow" />
+                    </apex:pageBlockSection>                
+                    
+                    <!--  <c:tabSpecialInstruction2 wrf="{!wrf}" /> -->
+                    <script>
+                    var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+                    </script>         
+                </apex:tab>
+                
+                <apex:tab label="Change Log" status="formstatus" rendered="{!wrf.IsSubmitted__c}" rerender="MSG" styleClass="{!IF(checkChange,'changeTab','')}">
+                    
+                    <c:tabChangelog2 wrf="{!wrf}" isView="{!IsView}"  /><!--editMode-->
+                    <script>
+                    var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+                    </script>
+                </apex:tab>
+                <script>
+                var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+                </script>          
+            </apex:tabPanel>
+            
+            
+            
+            
+            
+            <apex:pageblockButtons location="bottom"  >
+                <apex:commandButton value="Save Draft" rendered="{!!isView}" rerender="MSG" action="{!SaveDraft}" disabled="{!if(WorkRequestForm__c.RequestStatus__c='Submitted' || WorkRequestForm__c.RequestStatus__c='Approved' || WorkRequestForm__c.RequestStatus__c='Approval Pending',true,false)}"/>
+                <apex:commandButton value="Save & Submit" rendered="{!!isView}" rerender="MSG"  action="{!Submit}" disabled="{!if((WorkRequestForm__c.RequestStatus__c='Submitted' || WorkRequestForm__c.RequestStatus__c='Approved' || WorkRequestForm__c.RequestStatus__c='Approval Pending')&&NOT(editapproved),true,false)}"/>
+                <apex:commandButton value="Convert Estimate" rendered="{!if(WorkRequestForm__c.JobType__c=='Estimate' && WorkRequestForm__c.RequestStatus__c == 'Approved' ,true,false)}" action="{!convertEstimate}" />
+                <apex:commandButton value="Cancel" rendered="{!!isView}" rerender="MSG"  action="{!Cancel}"/>
+                <apex:commandButton value="Edit" rendered="{!isView}" rerender="MSG"  action="{!editOverride2}" styleClass="viewBtn" disabled="{!if((WorkRequestForm__c.RequestStatus__c='Submitted' || WorkRequestForm__c.RequestStatus__c='Approved' || WorkRequestForm__c.RequestStatus__c='Approval Pending')&&NOT(editapproved),true,false)}" />    
+                <apex:commandButton value="Delete" disabled="{!!$User.CanDeleteWRFPLCRecords__c}" rendered="{!isView}" rerender="MSG"  action="{!Delete}" styleClass="viewBtn"  />
+                <apex:commandButton value="Close" rendered="{!isView}" rerender="MSG"  action="{!Close}" styleClass="viewBtn"/>                          
+                <apex:commandButton onclick="window.open('/apex/WRPRintPDF2?ID={!wrf.id}');return false;" value="{!IF(WorkRequestForm__c.FormType__c == 'Aftermarket' && !ISBLANK(WorkRequestForm__c.SubmittedDate__c) && WorkRequestForm__c.SubmittedDate__c < DATE(2014,02,08),'Archive View','Print')}"  styleClass="viewBtn"
+                                    rendered="{!isView && (formType == 'Recall' || formType == 'Aftermarket'|| formType == 'NewUsed Registration'|| formType == 'Australia' || formType == 'APAC')}" />
+                <apex:commandButton value="Clone" rendered="{!isView}" rerender="MSG"  action="{!wrClone}" styleClass="viewBtn" disabled="{!if((WorkRequestForm__c.FormType__c ='Parts & Service'),true,false)}" 
+                                    onclick="cloneWithChangeLogWarning()"/>
+                <apex:commandButton value="DUC Save" rendered="{! !isView && formtype<>'APAC'}" rerender="MSG"  action="{!DUCSave}" disabled="{!if((WorkRequestForm__c.DUCApproved__c || NOT($User.DUCApprover__c)),true,false)}"/>
+            </apex:pageblockButtons>
+            
+            
+        </apex:pageBlock>
+    </apex:form>
+    <apex:pageblock > 
+        
+        <apex:outputText ><b> Only Attachments for general selections should be added here.<br/>
+            Attachments for:
+            <ul>
+                <li> Input Files</li>
+                <li>Order Requests</li>
+                <li>Internal Data</li>
+                <li>Change Logs</li>
+            </ul> should be entered within those selections.</b><br/></apex:outputText>
+        <apex:relatedList id="noteslist" list="CombinedAttachments" title="General Attachments" />
+    </apex:pageblock>
+    <apex:relatedList id="Jobs" list="PLCJobs__r" rendered="{!if(WorkRequestForm__c.RequestStatus__c='Approved',true,false)}"  />
+    
+    <!-- Opportunity Work Request Form Section-->
+    <!-- Open related list for full editing and creation priveleges -->
+    <apex:relatedList list="OpportunityWorkRequestForms__r" title="Opportunities"
+                      rendered="{! !wrf.Internal__c && (wrf.RequestStatus__c=='Draft' || wrf.RequestStatus__c=='Approved' || wrf.RequestStatus__c=='Submitted')}"/>
+    
+    <!-- Locked related list for all other statuses on external WRFs -->
+    <div class="hideRelatedListLinks hideRelatedListButton">
+        <apex:relatedList list="OpportunityWorkRequestForms__r" title="Opportunities"
+                          rendered="{! !wrf.Internal__c && wrf.RequestStatus__c<>'Draft' && wrf.RequestStatus__c<>'Approved' && wrf.RequestStatus__c<>'Submitted'}"/>
+    </div>
+    
+    <script>
+    var j$ = jQuery.noConflict();         j$(document).ready(xedeStyle());
+    </script>
+    
+</apex:page>

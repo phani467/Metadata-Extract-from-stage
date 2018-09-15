@@ -1,0 +1,232 @@
+<apex:page standardController="Loop__dsRecipient__c" tabStyle="Loop__DDP__c" extensions="Loop.recipientExt" title="{!$ObjectType.Loop__dsRecipient__c.label} Edit: {!IF(recipient.Id='','New ' & $ObjectType.Loop__dsRecipient__c.label,recipient.Name)}">
+    <apex:sectionHeader title="{!$ObjectType.Loop__dsRecipient__c.label} Edit" subtitle="{!IF(recipient.Id='','New ' & $ObjectType.Loop__dsRecipient__c.label,recipient.Name)}" />
+    <apex:pageMessages id="pgmsgs" />
+    <apex:form >
+        <apex:inputHidden value="{!recipient.Loop__dsSignOptions__c}" />
+        <apex:inputHidden value="{!recipient.Loop__StaticEmail__c}" />
+        <apex:inputHidden value="{!recipient.Loop__Host_Static_Email__c}" />
+        <apex:pageBlock title="{!$ObjectType.Loop__dsRecipient__c.label} Edit" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value=" Save " action="{!saveRecipient}" />
+                <apex:commandButton value="Save & New" action="{!saveAndNew}" rerender="pgmsgs" />
+                <apex:commandButton value="Cancel" action="{!cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Information" id="infopbs">
+                <apex:pageBlockSectionItem rendered="{!clone}"/>
+                <apex:outputField value="{!recipient.Name}" rendered="{!NOT(clone)}"/>
+                
+                <apex:inputField value="{!recipient.Loop__IntegrationOption__c}" rendered="{!recipient.Id=''}" required="true" />
+                <apex:outputField value="{!recipient.Loop__IntegrationOption__c}" rendered="{!recipient.Id!=''}" />
+                
+                <!-- Signing Order (EchoSign) -->
+                <apex:inputField value="{!recipient.Loop__dsRoutingOrder__c}" rendered="{!deliveryType=='EchoSign'}" />
+                
+                <!-- Type (non-EchoSign) -->
+                <apex:pageBlockSectionItem rendered="{!AND(deliveryType!='EchoSign', deliveryType!='e_SignLive')}">
+                    <apex:outputLabel value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsType__c.label}" for="type" />
+                    <apex:outputPanel >
+                        <apex:selectList size="1" id="type" value="{!recipient.Loop__dsType__c}" required="true">
+                            <apex:selectOption itemValue="Signer" />
+                            <apex:selectOption itemValue="Carbon Copy" rendered="{!deliveryType!='e_SignLive'}"/>
+                            <apex:selectOption itemValue="Certified Delivery" rendered="{!deliveryType='DocuSign'}" />
+                            <apex:selectOption itemValue="In Person Signer" rendered="{!deliveryType='DocuSign'}" />
+                            <apex:selectOption itemValue="Signing Group" rendered="{!deliveryType='DocuSign'}" />
+                            <apex:selectOption itemValue="Agent" rendered="{!deliveryType='DocuSign'}" />
+                            <apex:actionSupport event="onchange" rerender="recipientPBS,signingGroupOpts,hostOpts,roleNameSectionItem,infopbs" status="typeStatus" />
+                        </apex:selectList>
+                        <apex:actionStatus stopText="" id="typeStatus">
+                            <apex:facet name="start">
+                                <span class="statusContainer"><span class="status"><img src="/img/loading.gif" alt="Processing..." width="16" height="16" title="Processing..." /></span></span>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                <!-- Recipient # (DocuSign, e-SignLive) -->
+                <apex:pageBlockSectionItem rendered="{!OR(deliveryType=='DocuSign',deliveryType=='e_SignLive')}" >
+                    <apex:outputLabel for="signingOrder" value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__SigningOrder__c.label}" />
+                    <apex:outputPanel styleClass="requiredInput" layout="block">
+                        <apex:outputPanel styleClass="requiredBlock" layout="block" rendered="{!deliveryType=='e_SignLive'}" />
+                        <apex:inputField id="signingOrder" value="{!recipient.Loop__SigningOrder__c}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                                
+                <!-- Signing Order (DocuSign) -->
+                <apex:inputField value="{!recipient.Loop__dsRoutingOrder__c}" rendered="{!deliveryType=='DocuSign'}" />
+                
+                <!-- Role -->
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsRoleName__c.label}" for="roleName" />
+                    <apex:outputPanel styleClass="requiredInput" layout="block" id="roleNameSectionItem">
+                        <apex:outputPanel styleClass="requiredBlock" layout="block" rendered="{!AND(deliveryType='SignNow',OR(recipient.Loop__dsType__c='Signer',ISBLANK(recipient.Loop__dsType__c)))}" />
+                        <apex:inputField value="{!recipient.Loop__dsRoleName__c}" id="roleName" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                <!-- Signing Order (SignNow) -->
+                <apex:inputField value="{!recipient.Loop__dsRoutingOrder__c}" rendered="{!deliveryType=='SignNow'}"/>
+                
+                <!-- Signing Order (Sertifi) -->
+                <apex:pageBlockSectionItem rendered="{!AND(deliveryType=='Sertifi',recipient.Loop__dsType__c!='Carbon Copy')}" helptext="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsRoutingOrder__c.inlineHelpText}">
+                    <apex:outputLabel for="signingOrder" value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsRoutingOrder__c.label}" />
+                    <apex:inputField id="signingOrder" value="{!recipient.Loop__dsRoutingOrder__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!AND(deliveryType=='Sertifi',recipient.Loop__dsType__c=='Carbon Copy')}" />
+                
+                <apex:pageBlockSectionItem rendered="{!deliveryType=='EchoSign'}" />
+                <apex:inputField value="{!Loop__dsRecipient__c.Loop__dsRoutingOrder__c}" rendered="{!deliveryType=='e_SignLive'}" />
+                
+                <apex:inputField value="{!recipient.Loop__dsAllowAccessCode__c}" rendered="{!deliveryType='DocuSign'}" />
+                <apex:inputField value="{!recipient.Loop__dsRequired__c}" />
+                
+                <apex:inputField value="{!recipient.Loop__dsCheckId__c}" rendered="{!deliveryType='DocuSign'}" />
+                <apex:pageBlockSectionItem rendered="{!deliveryType!='DocuSign'}" />
+                <apex:inputField value="{!recipient.Loop__DisplayTitle__c}" />
+                
+                <apex:pageBlockSectionItem rendered="{!OR(deliveryType='DocuSign',deliveryType='e_SignLive')}" >
+                    <apex:outputLabel for="dual" value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsSignOptions__c.label}" />
+                    <c:dualSelectList availableLabel="Available {!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsSignOptions__c.label}" chosenLabel="Chosen {!$ObjectType.Loop__dsRecipient__c.fields.Loop__dsSignOptions__c.label}" size="{!listSize}" allSelectOptions="{!allSignOptions}" chosenSelectOptions="{!chosenSignOptions}" id="dualSelect" />
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem rendered="{!deliveryType='Sertifi'}" />
+                <apex:pageBlockSectionItem rendered="{!OR(deliveryType='DocuSign', deliveryType='e_SignLive', deliveryType='Sertifi')}" >
+                    <apex:outputLabel for="embeddedSigner" value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__Embedded_Signer__c.label}" />
+                    <!-- <apex:outputText id="embeddedSigner" value="{!recipient.Loop__Embedded_Signer__c}" /> -->
+                    <apex:selectList id="embeddedSigner" value="{!recipient.Loop__Embedded_Signer__c}" size="1" >
+                        <apex:selectOptions value="{!embeddedSigners}" />
+                        <apex:actionSupport event="onchange" rerender="infopbs" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem />
+                <apex:pageBlockSectionItem rendered="{!AND(recipient.Loop__Embedded_Signer__c!='',deliveryType=='DocuSign')}">
+                    <apex:outputLabel for="redirectUrl" value="Redirect URL" />
+                    <apex:inputText id="redirectUrl" value="{!recipient.Loop__OnSigningComplete__c}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:outputPanel id="signingGroupOpts">
+                <apex:pageBlockSection title="{!$ObjectType.Loop__dsRecipient__c.label} Options" id="recipientSigningGroup" rendered="{!recipient.Loop__dsType__c='Signing Group'}">
+                    <apex:pageBlockSectionItem rendered="{! dsSigningGroups.size > 1}">
+                        <apex:outputLabel for="signingGroupList" value="SigningGroup"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock"/>
+                            <apex:selectList id="signingGroupList" value="{!dsSigningGroup}" size="1" >
+                                <apex:selectOptions value="{!dsSigningGroups}" />
+                                <apex:actionSupport action="{!setSigningGroupFields}" event="onchange" rerender="signingGroupOpts" status="signingGroupStatus" />
+                            </apex:selectList>
+                            <apex:actionStatus stopText="" id="signingGroupStatus">
+                                <apex:facet name="start">
+                                    <span class="statusContainer"><span class="status"><img src="/img/loading.gif" alt="Processing..." width="16" height="16" title="Processing..." /></span></span>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{! dsSigningGroups.size > 1}" />
+                    <apex:pageBlockSectionItem rendered="{! dsSigningGroups.size <= 1 || dsSigningGroup == 'Manual'}" >
+                        <apex:outputLabel for="signingGroupName" value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__SigningGroupName__c.Label}"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock"/>
+                            <apex:inputField id="signingGroupName" value="{!recipient.Loop__SigningGroupName__c}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{! dsSigningGroups.size <= 1 || dsSigningGroup == 'Manual'}" >
+                        <apex:outputLabel for="signingGroupId" value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__SigningGroupId__c.Label}"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock"/>
+                            <apex:inputField id="signingGroupId" value="{!recipient.Loop__SigningGroupId__c}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="recipientPBS">
+                <apex:pageBlockSection title="{!$ObjectType.Loop__dsRecipient__c.label} Options" rendered="{!recipient.Loop__dsType__c!='Signing Group'}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel for="specRec" value="Specified {!recipient.Loop__dsType__c}" />
+                        <apex:outputPanel >
+                            <apex:inputField id="specRec" value="{!recipient.Loop__dsStaticRecipient__c}">
+                                <apex:actionSupport event="onchange" rerender="recipientPBS" status="specRecStatus" />
+                            </apex:inputField>
+                            <apex:actionStatus stopText="" id="specRecStatus">
+                                <apex:facet name="start">
+                                    <span class="statusContainer"><span class="status"><img src="/img/loading.gif" alt="Processing..." width="16" height="16" title="Processing..." /></span></span>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:inputField value="{!recipient.Loop__RoleGroupNames__c}" rendered="{!recipient.Loop__dsStaticRecipient__c='Roles or Groups'}" />
+                    <apex:inputField value="{!recipient.Loop__dsContact__c}" rendered="{!showContact}" />
+                    <apex:inputField value="{!recipient.Loop__dsUser__c}" rendered="{!showUser}" />
+                    <apex:pageBlockSectionItem rendered="{!showStaticName}"  helpText="{!IF(showHostAddress,'','The parameter name used in the ' + $ObjectType.Loop__DDP__c.label + ' button URL or automated parameters (Apex or Outbound Message). This is specified as param_name and param_email.')}">
+                        <apex:outputLabel for="staticName" value="{!IF(showAddress,$ObjectType.Loop__dsRecipient__c.fields.Loop__StaticName__c.label,'Recipient Parameter')}" />
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock" layout="block" rendered="{!NOT(showAddress)}" />
+                            <apex:inputField id="staticName" value="{!recipient.Loop__StaticName__c}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!showAddress}" />
+                    <apex:inputField value="{!recipient.Loop__Address__c}" rendered="{!showAddress}" />
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="hostOpts">
+                <apex:pageBlockSection title="Host Options" rendered="{!recipient.Loop__dsType__c='In Person Signer'}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__Specified_Host__c.label}" for="specHost" />
+                        <apex:outputPanel >
+                            <apex:inputField id="specHost" value="{!recipient.Loop__Specified_Host__c}" rendered="{!recipient.Loop__dsType__c='In Person Signer'}">
+                                <apex:actionSupport event="onchange" rerender="hostOpts" status="specHostStatus" />
+                            </apex:inputField>
+                            <apex:actionStatus stopText="" id="specHostStatus">
+                                <apex:facet name="start">
+                                    <span class="statusContainer"><span class="status"><img src="/img/loading.gif" alt="Processing..." width="16" height="16" title="Processing..." /></span></span>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:inputField value="{!recipient.Loop__Host_Role_Group_Names__c}" rendered="{!showHostRolesGroups}" />
+                    <apex:inputField value="{!recipient.Loop__Host_Contact__c}" rendered="{!showHostContact}" />
+                    <apex:inputField value="{!recipient.Loop__Host_User__c}" rendered="{!showHostUser}" />
+                    <apex:pageBlockSectionItem rendered="{!showHostStaticName}" helpText="{!IF(showHostAddress,'','The parameter name used in the ' + $ObjectType.Loop__DDP__c.label + ' button URL or automated parameters (Apex or Outbound Message). This is specified as \'param_name\' and \'param_email\'.')}">
+                        <apex:outputLabel for="hostStaticName" value="{!IF(showHostAddress,$ObjectType.Loop__dsRecipient__c.fields.Loop__Host_Static_Name__c.label,'Host Parameter')}" />
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock" layout="block" rendered="{!NOT(showHostAddress)}" />
+                            <apex:inputField id="hostStaticName" value="{!recipient.Loop__Host_Static_Name__c}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!showHostAddress}" />
+                    <apex:inputField value="{!recipient.Loop__Host_Address__c}" rendered="{!showHostAddress}" />
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="languageOptions">
+                <apex:pageBlockSection title="Language Options" columns="1" rendered="{!deliveryType='DocuSign'}">
+                    <apex:pageBlockSectionItem helpText="Select 'Other...' and use the Field Tagger to make this dynamic.">
+                        <apex:outputLabel for="languageSel" value="{!$ObjectType.Loop__dsRecipient__c.fields.Loop__Language__c.label}" />
+                        <apex:outputPanel >
+                            <apex:selectList size="1" value="{!docuSignLanguage}" id="languageSel">
+                                <apex:selectOption itemValue="" itemLabel="--Default--" />
+                                <apex:selectOptions value="{!docuSignLanguages}" />
+                                <apex:selectOption itemValue="other" itemLabel="Other..." />
+                                <apex:actionSupport event="onchange" rerender="languageOptions" />
+                            </apex:selectList>
+                            <apex:inputField value="{!recipient.Loop__Language__c}" rendered="{!docuSignLanguage='other'}">
+                                <apex:actionSupport event="onchange" rerender="languageOptions" />
+                            </apex:inputField>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:inputField value="{!recipient.Loop__Subject__c}" rendered="{!docuSignLanguage!=''}" style="width: 450px;" />
+                    <apex:inputField value="{!recipient.Loop__EmailText__c}" rendered="{!docuSignLanguage!=''}" style="width: 450px;" />
+                    <apex:pageblockSectionItem >
+                        <apex:outputPanel />
+                        <apex:outputLink value="javascript:openIntegration('{!JSENCODE($Page.Loop__fieldTagger)}?id={!recipient.IntegrationOption__r.Loop__DDP__c}','height=600,width=800,location=no,toolbar=no,status=no,menubar=no,scrollbars=1',1);" rendered="{!docuSignLanguage!=''}">Field Tagger</apex:outputLink>
+                    </apex:pageblockSectionItem>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Address</value>
+        </caseValues>
+        <name>address_information_account</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Company Address</value>
+        </caseValues>
+        <name>billing_address_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>City</value>
+        </caseValues>
+        <name>billing_city_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Country</value>
+        </caseValues>
+        <name>billing_country_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Country Code</value>
+        </caseValues>
+        <name>billing_country_code_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Latitude</value>
+        </caseValues>
+        <name>billing_latitude_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Longitude</value>
+        </caseValues>
+        <name>billing_longitude_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>State/Province</value>
+        </caseValues>
+        <name>billing_state_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>State/Province Code</value>
+        </caseValues>
+        <name>billing_state_code_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Street</value>
+        </caseValues>
+        <name>billing_street_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Zip/Postal Code</value>
+        </caseValues>
+        <name>billing_zip_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>DUNS Number</value>
+        </caseValues>
+        <name>duns_number</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Number of Employees</value>
+        </caseValues>
+        <name>employees_account</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>6-Digit NAICS Code</value>
+        </caseValues>
+        <name>naics_code</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>6-Digit NAICS Description</value>
+        </caseValues>
+        <name>naics_description</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Account Type</value>
+        </caseValues>
+        <name>type_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <help><!-- Read-only field, updated indirectly by a change of Company&apos;s Billing Country --></help>
+        <label><!-- Account Country --></label>
+        <name>AccountCountry__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Read-only field referencing Account Country&apos;s geography --></help>
+        <label><!-- Account Geography --></label>
+        <name>AccountGeography__c</name>
+    </fields>
+    <fields>
+        <help><!-- Formula field to return the 18 character system generated Unique Account ID for Account Governance reporting purposes. --></help>
+        <label><!-- AccountID 18 Character --></label>
+        <name>AccountID18Character__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Info --></label>
+        <name>AccountInfo__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read-only field referencing Account Country&apos;s region. --></help>
+        <label><!-- Account Region --></label>
+        <name>AccountRegion__c</name>
+    </fields>
+    <fields>
+        <help><!-- For Global Alliance accounts. Please select from picklist. --></help>
+        <label><!-- Account Sub Type --></label>
+        <name>AccountSubType__c</name>
+        <picklistValues>
+            <masterLabel>Distributor</masterLabel>
+            <translation><!-- Distributor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integration Partner</masterLabel>
+            <translation><!-- Integration Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referral Partner</masterLabel>
+            <translation><!-- Referral Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reseller</masterLabel>
+            <translation><!-- Reseller --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Value Added Reseller</masterLabel>
+            <translation><!-- Value Added Reseller --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Created when a new account is created and is read only. --></help>
+        <label><!-- Additional Account Fields --></label>
+        <name>AdditionalAccountFields__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Alternate Name/Trading Name for this account (multiple values should be separated by a comma in the same field). --></help>
+        <label><!-- Alternate Name/Trading Name --></label>
+        <name>AlternateNameTradingName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Displays the contract count --></help>
+        <label><!-- Approved Contract Summary Count --></label>
+        <name>ApprovedContractSummaryCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- BP# --></label>
+        <name>BP__c</name>
+    </fields>
+    <fields>
+        <help><!-- When field is true the account will be identified as part of the CAM (Corporate Account Manager) list. --></help>
+        <label><!-- CAM --></label>
+        <name>CAM__c</name>
+    </fields>
+    <fields>
+        <help><!-- When set at the Ultimate Parent level, this restriction will then display as the Compliance Restriction for all child accounts.  Otherwise, when a child record has a different restriction than the parent, this field allows for that difference to be set. --></help>
+        <label><!-- Compliance Restriction Exception --></label>
+        <name>ComplianceRestrictionException__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculated field. If the Compliance Restriction Exception on the account is null, then the Compliance Restriction Exception value of the Ultimate Parent, if any, will display. --></help>
+        <label><!-- Compliance Restriction --></label>
+        <name>ComplianceRestriction__c</name>
+    </fields>
+    <fields>
+        <help><!-- D&amp;B Updated Date --></help>
+        <label><!-- D&amp;B Updated Date --></label>
+        <name>DBUpdatedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Record sources for verifying company information when there is not a D&amp;B nor an EID record. --></help>
+        <label><!-- Account Governance Notes --></label>
+        <name>DataGovernanceNotes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maintained by the Account Governance team. --></help>
+        <label><!-- Account Governance Status --></label>
+        <name>DataGovernanceStatus__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unapproved</masterLabel>
+            <translation><!-- Unapproved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DoNotdelete --></label>
+        <name>DoNotdelete__c</name>
+    </fields>
+    <fields>
+        <help><!-- Domestic Ultimate Company DUNS is provided by Customer Master --></help>
+        <label><!-- Domestic Ultimate Company DUNS --></label>
+        <name>DomesticUltimateCompanyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maintained by the Account Governance team and populated through the integration with Customer Master data --></help>
+        <label><!-- Domestic Ultimate Company Name --></label>
+        <name>DomesticUltimateCompanyName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field maintained by Sales Operations --></help>
+        <label><!-- External Org Type --></label>
+        <name>ExternalOrgType__c</name>
+        <picklistValues>
+            <masterLabel>Academic</masterLabel>
+            <translation><!-- Academic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accountant</masterLabel>
+            <translation><!-- Accountant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alliances</masterLabel>
+            <translation><!-- Alliances --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy-Side</masterLabel>
+            <translation><!-- Buy-Side --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate</masterLabel>
+            <translation><!-- Corporate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fund Admins</masterLabel>
+            <translation><!-- Fund Admins --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Official Institutions</masterLabel>
+            <translation><!-- Official Institutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sell-Side</masterLabel>
+            <translation><!-- Sell-Side --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter a Global Account Manager for this account. --></help>
+        <label><!-- Account Manager --></label>
+        <name>GlobalAccountManager__c</name>
+        <relationshipLabel><!-- Accounts (Account Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Only updated by CDI Integration. --></help>
+        <label><!-- Global Ultimate Account --></label>
+        <name>GlobalUltimateAccount__c</name>
+        <relationshipLabel><!-- Global Ultimate Child Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Populated via integration with Customer Master Data --></help>
+        <label><!-- Global Ultimate Company DUNS --></label>
+        <name>GlobalUltimateCompanyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maintained by the Account Governance team and populated through the integration with Customer Master data --></help>
+        <label><!-- Global Ultimate Company Name --></label>
+        <name>GlobalUltimateCompanyName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maintained by Goldfire Customer Care --></help>
+        <label><!-- Goldfire Expiration Date --></label>
+        <name>GoldfireExpirationDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the Country of Incorporation for this account. --></help>
+        <label><!-- Incorporated In --></label>
+        <name>IncorporatedIn__c</name>
+        <relationshipLabel><!-- Accounts (Incorporated In) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please select Institution Type. --></help>
+        <label><!-- Institution Type --></label>
+        <name>InstitutionType__c</name>
+        <picklistValues>
+            <masterLabel>Academic</masterLabel>
+            <translation><!-- Academic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accountant</masterLabel>
+            <translation><!-- Accountant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alias Account</masterLabel>
+            <translation><!-- Alias Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Management</masterLabel>
+            <translation><!-- Asset Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Management - Holding Company</masterLabel>
+            <translation><!-- Asset Management - Holding Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bank - Central</masterLabel>
+            <translation><!-- Bank - Central --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bank - Development</masterLabel>
+            <translation><!-- Bank - Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carbon Agency</masterLabel>
+            <translation><!-- Carbon Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carbon Retailer</masterLabel>
+            <translation><!-- Carbon Retailer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central Bank/Bank Supervisor</masterLabel>
+            <translation><!-- Central Bank/Bank Supervisor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing</masterLabel>
+            <translation><!-- Clearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commodity Producer</masterLabel>
+            <translation><!-- Commodity Producer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consulting and Advisory</masterLabel>
+            <translation><!-- Consulting and Advisory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate (Non-Financial)</masterLabel>
+            <translation><!-- Corporate (Non-Financial) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Broker</masterLabel>
+            <translation><!-- Corporate Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Union</masterLabel>
+            <translation><!-- Credit Union --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Lender</masterLabel>
+            <translation><!-- Direct Lender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ETF Issuer</masterLabel>
+            <translation><!-- ETF Issuer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Merchants</masterLabel>
+            <translation><!-- Energy Merchants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Oil or Gas Company</masterLabel>
+            <translation><!-- Energy Oil or Gas Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Trading</masterLabel>
+            <translation><!-- Energy Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Utilities</masterLabel>
+            <translation><!-- Energy Utilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exchange/Clearer/Trading Venue</masterLabel>
+            <translation><!-- Exchange/Clearer/Trading Venue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foundations &amp; Endowments</masterLabel>
+            <translation><!-- Foundations &amp; Endowments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fund Administrator/Custodian/Trustee/Servicer</masterLabel>
+            <translation><!-- Fund Administrator/Custodian/Trustee/Servicer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fund of Funds</masterLabel>
+            <translation><!-- Fund of Funds --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government Institutions &amp; Regulators</masterLabel>
+            <translation><!-- Government Institutions &amp; Regulators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government/Government Research Authority</masterLabel>
+            <translation><!-- Government/Government Research Authority --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Governmental Market/Securities Regulators</masterLabel>
+            <translation><!-- Governmental Market/Securities Regulators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hedge Fund</masterLabel>
+            <translation><!-- Hedge Fund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Individuals (for personal use)</masterLabel>
+            <translation><!-- Individuals (for personal use) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information Service Provider</masterLabel>
+            <translation><!-- Information Service Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Company</masterLabel>
+            <translation><!-- Insurance Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Company - Healthcare</masterLabel>
+            <translation><!-- Insurance Company - Healthcare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Company - Life</masterLabel>
+            <translation><!-- Insurance Company - Life --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Company - Monoline</masterLabel>
+            <translation><!-- Insurance Company - Monoline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Company - Other</masterLabel>
+            <translation><!-- Insurance Company - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Company - P&amp;C</masterLabel>
+            <translation><!-- Insurance Company - P&amp;C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Company - Reinsurance</masterLabel>
+            <translation><!-- Insurance Company - Reinsurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integrated Oil &amp; Gas</masterLabel>
+            <translation><!-- Integrated Oil &amp; Gas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intermediaries</masterLabel>
+            <translation><!-- Intermediaries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Bank</masterLabel>
+            <translation><!-- International Bank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investment Bank/Securities Firm</masterLabel>
+            <translation><!-- Investment Bank/Securities Firm --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investment Consultants</masterLabel>
+            <translation><!-- Investment Consultants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Law Firm</masterLabel>
+            <translation><!-- Law Firm --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local/Municipal/State Authority</masterLabel>
+            <translation><!-- Local/Municipal/State Authority --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media/Press/PR</masterLabel>
+            <translation><!-- Media/Press/PR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NGO</masterLabel>
+            <translation><!-- NGO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National Bank</masterLabel>
+            <translation><!-- National Bank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National Oil Company (NOC)</masterLabel>
+            <translation><!-- National Oil Company (NOC) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pension Fund</masterLabel>
+            <translation><!-- Pension Fund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private Equity/Venture Capital</masterLabel>
+            <translation><!-- Private Equity/Venture Capital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Developer</masterLabel>
+            <translation><!-- Project Developer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Retirement Fund</masterLabel>
+            <translation><!-- Public Retirement Fund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quant</masterLabel>
+            <translation><!-- Quant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ratings Agency</masterLabel>
+            <translation><!-- Ratings Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refiner</masterLabel>
+            <translation><!-- Refiner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registered Investment Advisor</masterLabel>
+            <translation><!-- Registered Investment Advisor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research, Independent</masterLabel>
+            <translation><!-- Research, Independent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SEF</masterLabel>
+            <translation><!-- SEF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Regulatory Organization (SRO)</masterLabel>
+            <translation><!-- Self-Regulatory Organization (SRO) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sovereign Wealth Fund</masterLabel>
+            <translation><!-- Sovereign Wealth Fund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standards Organisation</masterLabel>
+            <translation><!-- Standards Organisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supranational or National Lender/Investor</masterLabel>
+            <translation><!-- Supranational or National Lender/Investor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Systems Integrator</masterLabel>
+            <translation><!-- Systems Integrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology / Solution Provider</masterLabel>
+            <translation><!-- Technology / Solution Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade/Industry Association</masterLabel>
+            <translation><!-- Trade/Industry Association --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trading Company</masterLabel>
+            <translation><!-- Trading Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turn Key Asset Provider</masterLabel>
+            <translation><!-- Turn Key Asset Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Regionals</masterLabel>
+            <translation><!-- US Regionals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Utility</masterLabel>
+            <translation><!-- Utility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor - Data</masterLabel>
+            <translation><!-- Vendor - Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor - Hardware</masterLabel>
+            <translation><!-- Vendor - Hardware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor - Other</masterLabel>
+            <translation><!-- Vendor - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor - Recruitment</masterLabel>
+            <translation><!-- Vendor - Recruitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor - Services</masterLabel>
+            <translation><!-- Vendor - Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor - Software</masterLabel>
+            <translation><!-- Vendor - Software --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor - Technology</masterLabel>
+            <translation><!-- Vendor - Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verifier/Validator</masterLabel>
+            <translation><!-- Verifier/Validator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wealth Management &amp; Family Offices</masterLabel>
+            <translation><!-- Wealth Management &amp; Family Offices --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Maintained by Kingdom Customer Care --></help>
+        <label><!-- Kingdom Expiration Date --></label>
+        <name>KingdomExpirationDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Only editable by Data Governance. --></help>
+        <label><!-- Not in Data.com --></label>
+        <name>NotInDataDotCom__c</name>
+    </fields>
+    <fields>
+        <help><!-- Generated by Salesforce --></help>
+        <label><!-- PKID Account --></label>
+        <name>PKIDAccount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Only updated by Customer Master --></help>
+        <label><!-- Parent Company DUNS --></label>
+        <name>ParentCompanyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maintained by the Account Governance team and populated through the integration with Customer Master data --></help>
+        <label><!-- Parent Company Name --></label>
+        <name>ParentCompanyName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maintained by Petra Customer Care --></help>
+        <label><!-- Petra Expiration Date --></label>
+        <name>PetraExpirationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Owner --></label>
+        <name>PreviousOwner__c</name>
+        <relationshipLabel><!-- Accounts (Previous Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Priority 1: with 3+ billable contracts, RRR &gt; $500K; Priority 2: with 2+ billable contracts, RRR &gt; $250K; Priority 3: billable accounts that do not meet P2 criteria; Priority 4: non-billable accounts; PP: Priority Prospect; PD: Priority Development --></help>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>Priority 1</masterLabel>
+            <translation><!-- Priority 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Priority 2</masterLabel>
+            <translation><!-- Priority 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Priority 3</masterLabel>
+            <translation><!-- Priority 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Priority 4</masterLabel>
+            <translation><!-- Priority 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Priority Development</masterLabel>
+            <translation><!-- Priority Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Priority Prospect</masterLabel>
+            <translation><!-- Priority Prospect --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Specifies current relationship between Account and IHS Markit --></help>
+        <label><!-- Relationship --></label>
+        <name>Relationship__c</name>
+    </fields>
+    <fields>
+        <help><!-- Any additional information regarding the account like specific instructions, special requests, unique details --></help>
+        <label><!-- Sales Notes --></label>
+        <name>SalesNotes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sanctioned/Prohibited status of country --></help>
+        <label><!-- Sanctioned/Prohibited --></label>
+        <name>SanctionedProhibited__c</name>
+    </fields>
+    <fields>
+        <help><!-- Case from which account was created --></help>
+        <label><!-- Source Case --></label>
+        <name>SourceCase__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This value can be captured for legal reasons, it is mandatory if the Country of Incorporation is United States. --></help>
+        <label><!-- State of Incorporation --></label>
+        <name>StateOfIncorporation__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select account status. --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive - Invalid</masterLabel>
+            <translation><!-- Inactive - Invalid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive - Out of Business</masterLabel>
+            <translation><!-- Inactive - Out of Business --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Maintained by the Account Governance team and populated through the integration with Customer Master data --></help>
+        <label><!-- 3-Digit NAICS Code Description --></label>
+        <name>ThreeDigitNAICSCodeDescription__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maintained by the Account Governance team and populated through the integration with Customer Master data --></help>
+        <label><!-- 3-Digit NAICS Code --></label>
+        <name>ThreeDigitNAICSCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Displays the Total Annual Contract value for the account. --></help>
+        <label><!-- Total Annual Contract Value --></label>
+        <name>TotalAnnualContractValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- UserSalesBusinessLine --></label>
+        <name>UserSalesBusinessLine__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter account&apos;s VAT/Tax ID --></help>
+        <label><!-- VAT/Tax ID --></label>
+        <name>VATTaxID__c</name>
+    </fields>
+    <fields>
+        <label><!-- blee_ID --></label>
+        <name>blee_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label><!-- Account Governance --></label>
+            <section>Account Governance</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Entitlement Designation --></label>
+            <section>Entitlement Designation</section>
+        </sections>
+        <sections>
+            <label><!-- Legal &amp; Compliance --></label>
+            <section>Legal &amp; Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Notes --></label>
+            <section>Sales Notes</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Account Assistance --></label>
+        <name>AccountAssistance</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Child Account --></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create DPA Contract --></label>
+        <name>CreateDPAContract</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Master Agreement Contract --></label>
+        <name>CreateGeneralAgreementContract</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create MST Contract --></label>
+        <name>CreateMSTContract</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create NDA Contract --></label>
+        <name>CreateNDAContract</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Salesforce Helpdesk Case --></label>
+        <name>CreateSFDCHelpdeskCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Forecast Placeholder Opportunity --></label>
+        <name>ForecastingPlaceholder</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Account Overview --></label>
+        <name>NewAccountOverview</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New Business Opportunity --></label>
+        <name>NewBusinessOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Gratis Opportunity --></label>
+        <name>NewGratisOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Renewal Opportunity --></label>
+        <name>NewRenewalOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- View Entitlements --></label>
+        <name>ViewEntitlements</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage><!-- Account Sub Type is required if Account Type is &quot;Global Alliance&quot;. --></errorMessage>
+        <name>AccountSubTypeValueRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Account&apos;s address fields (Street, City and Country) are required. --></errorMessage>
+        <name>BillingAddressIsRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Data Governance or System Administrator can create account.Please either select an existing account or request one from the Lead page. --></errorMessage>
+        <name>BlockCreatingAccount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Data Governance and System Admin can edit Account Name and Status fields.Please either select an existing account or request one from the Lead page. --></errorMessage>
+        <name>BlockNameUpdateForNonDataGovernance</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Due to U.S. export controls and sanctions restrictions, Account records cannot be created for the selected country. --></errorMessage>
+        <name>BlockProhibitedCountry</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Account Type and Priority are required for Data Governance Status to be set to &quot;Approved&quot;. --></errorMessage>
+        <name>DataGovernanceStatusApproved</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Account record cannot have Data Governance Status of &quot;Approved&quot; if the Status is &quot;Inactive - Invalid&quot;. --></errorMessage>
+        <name>DataGovernanceStatusApprovedInactive</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- External Org Type is required if Institution Type is selected --></errorMessage>
+        <name>ExternalOrgTypeRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If &quot;Incorporated In&quot; country is &quot;United States&quot;, please select &quot;State of Incorporation&quot; as it is mandatory. --></errorMessage>
+        <name>StateOfIncorporationIsRequiredForUS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Users may update the Account Description and Formally Known As fields. Please use *Account Assistance* to open a case for Data Governance to request any other changes to this account. --></errorMessage>
+        <name>ValidatedAccountFields</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Verify_with_DNB --></label>
+        <name>dsfs__Verify_with_DNB</name>
+    </webLinks>
+</CustomObjectTranslation>

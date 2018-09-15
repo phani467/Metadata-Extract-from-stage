@@ -1,0 +1,30 @@
+.THIS div .fillWidth {
+    width: 100%;
+}
+.THIS.fillHeight {
+    height: 100%;
+}
+.THIS div.fillHeight {
+    height: 100%;
+}
+.THIS ul.fillHeight {
+    height: 100%;
+}
+.THIS .spinnerImg {
+    height: 64px;
+}
+.THIS ul.isLoading li {
+    display: none;
+}
+.THIS ul div#spinner {
+    display: none;
+}
+.THIS ul.isLoading div#spinner {
+    display: flex;
+}
+.THIS ul .hidden {
+    display: none;
+}
+.THIS ul .nonClick {
+    pointer-events: none;
+}

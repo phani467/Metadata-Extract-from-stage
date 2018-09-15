@@ -1,0 +1,13 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt">**JOB CANCELLED**<FONT color=#ff0000><!--?xml:namespace prefix = o /--><?xml:namespace prefix = "o" /><o:p></o:p></FONT></SPAN></P>
+<DIV>&nbsp;</DIV>
+<DIV>This email is to alert you that your PLC job has been cancelled.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Below is a link to the job:</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>PLC Job Link: {!PLCJob__c.Link}</DIV>
+<DIV>Job Name:&nbsp;{!PLCJob__c.JobName__c}</DIV>]]></td>
+</tr>
+</table>

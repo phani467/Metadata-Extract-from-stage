@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2733 - Template used to verify enhancement with contact.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>TS - Enhancement Request</name>
+    <style>none</style>
+    <subject>You requested an Enhancement to The Kingdom Software : {!Case.CaseNumber}</subject>
+    <textOnly>Account:
+{!Case.Account}
+
+Contact:
+{!Case.Contact}
+
+Case ID:
+{!Case.CaseNumber}
+
+Case Summary:
+{!Case.Title}
+
+Dear {!Case.Contact},
+
+I am pleased to inform you that we are preparing an enhancement request for Case {!Case:CaseNumber} in The KINGDOM Software filed in your name.
+
+Enhancement Description:
+{!Case:Description}
+
+If this requested enhancement does not meet with your approval, please just let us know. If we don&apos;t hear back from you, we will assume that the enhancement request is sufficient, and automatically submit it in your name.
+
+Thank you,
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+IHS Kingdom Customer Care Team</textOnly>
+    <type>custom</type>
+</EmailTemplate>

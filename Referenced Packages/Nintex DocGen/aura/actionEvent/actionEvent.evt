@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Fire when needing to fire an event. We should use this as our go-to event.">
+    <aura:attribute name="action" type="string" default="" required="true" description="Name of desired action. The handler should use this value to determine what sort of action to take."/>
+    <aura:attribute name="params" type="string" default="" description="JSON serialized string of parameters."/>
+</aura:event>

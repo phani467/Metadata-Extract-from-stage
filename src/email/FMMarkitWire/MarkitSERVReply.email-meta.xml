@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5143: Reply Email template with Case# &amp; Email Trail</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MarkitSERV Reply</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.Contact} 
+
+Thank You. 
+MarkitServ Client Services 
+
+---------------- Original Message ------------------ 
+
+From: {!Case.SuppliedEmail} 
+Subject: {!Case.Subject} 
+Email: {!Case.Description}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

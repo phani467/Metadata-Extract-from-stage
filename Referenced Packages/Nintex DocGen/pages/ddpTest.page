@@ -1,0 +1,49 @@
+<apex:page standardController="Loop__DDP__c" extensions="Loop.DdpTestExt" action="{!onLoad}" showheader="false" sidebar="false">
+    <apex:stylesheet value="{!URLFOR($Resource.Loop__SalesforceLightning, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+    <apex:slds />
+    <style>
+        .activationPanel {
+            width: 90%;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        if ('{!JSENCODE(action)}' === 'activate' || '{!JSENCODE(action)}' === 'deactivate') {
+            window.onload = function resize() {
+                if (window.innerWidth !== 350 || window.innerHeight != 100) {
+                    window.resizeTo(350 + window.outerWidth - window.innerWidth, 100 + window.outerHeight - window.innerHeight);
+                }
+            }
+            window.onunload = function reloadOpener() {
+                window.opener.location.reload(true);
+            }
+        }
+    </script>
+
+    <apex:pageMessages />
+    <apex:outputPanel layout="block" rendered="{!showLightningTest}">
+        <apex:includeLightning />
+        <div id="spinner" style="display:flex; height:100%;">
+            <img src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." class="spinner" style="width:5rem; margin:auto; align-items:center;"/>
+        </div>
+        <div id="lightning"/>
+        <script type="text/javascript">
+            $Lightning.use("Loop:RunDdpApp",function() {
+                $Lightning.createComponent("Loop:RunDdp", { recordId : "{!JSENCODE(Id)}", sessionId: "{!JSENCODE(sessionId)}", context: "TEST", loopUrl: "{!JSENCODE(loopUrl)}"}, "lightning", function() {
+                    document.getElementById('spinner').style.display = 'none';
+                });
+            });
+        </script>
+    </apex:outputPanel>
+    <apex:outputPanel layout="block" rendered="{! !ISBLANK($CurrentPage.parameters.action)}">
+        <apex:outputPanel layout="block" id="spinner" style="display:flex; height:100%;" rendered="{! ISBLANK(activationMessage)}">
+            <img src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." class="spinner" style="width:5rem; margin:auto; align-items:center;"/>
+        </apex:outputPanel>
+        <apex:outputPanel layout="block" rendered="{! !ISBLANK(activationMessage)}" styleClass="activationPanel slds-text-align--center slds-m-top--small">
+            {!activationMessage}
+            <div class="slds-m-top--small">
+                <button class="slds-button slds-button_brand" onclick="window.close()">Close</button>
+            </div>
+        </apex:outputPanel>
+    </apex:outputPanel>
+</apex:page>

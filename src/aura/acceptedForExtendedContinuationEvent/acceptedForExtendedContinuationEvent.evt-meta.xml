@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>41.0</apiVersion>
+    <description>This even is created to pass parameter from child to parent .This is done as part of SFDC1-5897</description>
+</AuraDefinitionBundle>

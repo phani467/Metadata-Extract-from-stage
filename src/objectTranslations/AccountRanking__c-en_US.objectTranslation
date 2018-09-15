@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Ranking</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Rankings</value>
+    </caseValues>
+    <fields>
+        <help><!-- Lookup to the account that this ranking is related --></help>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Account Rankings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Criteria --></label>
+        <name>Criteria__c</name>
+        <picklistValues>
+            <masterLabel>AUM</masterLabel>
+            <translation><!-- AUM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assets</masterLabel>
+            <translation><!-- Assets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assets on Balance Sheet</masterLabel>
+            <translation><!-- Assets on Balance Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Assets</masterLabel>
+            <translation><!-- Equity Assets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Trades</masterLabel>
+            <translation><!-- Equity Trades --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wilshire Index</masterLabel>
+            <translation><!-- Wilshire Index --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LegacyID Unique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Legacy System --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Metrics Key --></label>
+        <name>MetricsKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID AccountRanking --></label>
+        <name>PKIDAccountRanking__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rank Country --></label>
+        <name>RankCountry__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read-only calculated field --></help>
+        <label><!-- Rank --></label>
+        <name>Rank__c</name>
+    </fields>
+    <fields>
+        <help><!-- Source of where the value was received --></help>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+        <picklistValues>
+            <masterLabel>BigDough</masterLabel>
+            <translation><!-- BigDough --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data.com</masterLabel>
+            <translation><!-- Data.com --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Factset</masterLabel>
+            <translation><!-- Factset --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investor Relations</masterLabel>
+            <translation><!-- Investor Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PREQIN</masterLabel>
+            <translation><!-- PREQIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuters</masterLabel>
+            <translation><!-- Reuters --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Value to be considered in ranking --></help>
+        <label><!-- Value as of --></label>
+        <name>ValueAsOf__c</name>
+    </fields>
+    <fields>
+        <help><!-- Account Ranking Value --></help>
+        <label><!-- Value --></label>
+        <name>Value__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Ranking Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,1450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PLC Job</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PLC Jobs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active Days On Hold --></label>
+        <name>ActiveDaysOnHold__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Cost --></label>
+        <name>ActualCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Am I Assigned WR Rep? --></label>
+        <name>AmIAssignedRep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Production Lag Time --></label>
+        <name>AssignedToStart__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendar Week Range --></label>
+        <name>CalendarWeekRange__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendar Week --></label>
+        <name>CalendarWeek__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendar Year &amp; Week --></label>
+        <name>CalendarYearWeek__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendar Year --></label>
+        <name>CalendarYear__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change Counter --></label>
+        <name>ChangeCounter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change Log --></label>
+        <name>ChangeLog__c</name>
+        <relationshipLabel><!-- PLC Jobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Change # --></label>
+        <name>ChangeNumber__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation><!-- 04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation><!-- 05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation><!-- 06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation><!-- 07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation><!-- 08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation><!-- 09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation><!-- 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation><!-- 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation><!-- 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation><!-- 13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation><!-- 14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation><!-- 15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16</masterLabel>
+            <translation><!-- 16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17</masterLabel>
+            <translation><!-- 17 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18</masterLabel>
+            <translation><!-- 18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>19</masterLabel>
+            <translation><!-- 19 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation><!-- 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21</masterLabel>
+            <translation><!-- 21 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>22</masterLabel>
+            <translation><!-- 22 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>23</masterLabel>
+            <translation><!-- 23 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24</masterLabel>
+            <translation><!-- 24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>25</masterLabel>
+            <translation><!-- 25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>26</masterLabel>
+            <translation><!-- 26 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>27</masterLabel>
+            <translation><!-- 27 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>28</masterLabel>
+            <translation><!-- 28 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>29</masterLabel>
+            <translation><!-- 29 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31</masterLabel>
+            <translation><!-- 31 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>32</masterLabel>
+            <translation><!-- 32 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>33</masterLabel>
+            <translation><!-- 33 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>34</masterLabel>
+            <translation><!-- 34 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>35</masterLabel>
+            <translation><!-- 35 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>36</masterLabel>
+            <translation><!-- 36 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>37</masterLabel>
+            <translation><!-- 37 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>38</masterLabel>
+            <translation><!-- 38 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>39</masterLabel>
+            <translation><!-- 39 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40</masterLabel>
+            <translation><!-- 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>41</masterLabel>
+            <translation><!-- 41 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>42</masterLabel>
+            <translation><!-- 42 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>43</masterLabel>
+            <translation><!-- 43 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>44</masterLabel>
+            <translation><!-- 44 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45</masterLabel>
+            <translation><!-- 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>46</masterLabel>
+            <translation><!-- 46 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>47</masterLabel>
+            <translation><!-- 47 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>48</masterLabel>
+            <translation><!-- 48 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>49</masterLabel>
+            <translation><!-- 49 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50</masterLabel>
+            <translation><!-- 50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>51</masterLabel>
+            <translation><!-- 51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>52</masterLabel>
+            <translation><!-- 52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>53</masterLabel>
+            <translation><!-- 53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>54</masterLabel>
+            <translation><!-- 54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>55</masterLabel>
+            <translation><!-- 55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>56</masterLabel>
+            <translation><!-- 56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>57</masterLabel>
+            <translation><!-- 57 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>58</masterLabel>
+            <translation><!-- 58 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>59</masterLabel>
+            <translation><!-- 59 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60</masterLabel>
+            <translation><!-- 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>61</masterLabel>
+            <translation><!-- 61 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62</masterLabel>
+            <translation><!-- 62 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>63</masterLabel>
+            <translation><!-- 63 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>64</masterLabel>
+            <translation><!-- 64 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>65</masterLabel>
+            <translation><!-- 65 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>66</masterLabel>
+            <translation><!-- 66 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>67</masterLabel>
+            <translation><!-- 67 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>68</masterLabel>
+            <translation><!-- 68 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>69</masterLabel>
+            <translation><!-- 69 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70</masterLabel>
+            <translation><!-- 70 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>71</masterLabel>
+            <translation><!-- 71 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>72</masterLabel>
+            <translation><!-- 72 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>73</masterLabel>
+            <translation><!-- 73 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>74</masterLabel>
+            <translation><!-- 74 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>75</masterLabel>
+            <translation><!-- 75 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>76</masterLabel>
+            <translation><!-- 76 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>77</masterLabel>
+            <translation><!-- 77 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>78</masterLabel>
+            <translation><!-- 78 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>79</masterLabel>
+            <translation><!-- 79 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80</masterLabel>
+            <translation><!-- 80 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>81</masterLabel>
+            <translation><!-- 81 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>82</masterLabel>
+            <translation><!-- 82 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>83</masterLabel>
+            <translation><!-- 83 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>84</masterLabel>
+            <translation><!-- 84 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>85</masterLabel>
+            <translation><!-- 85 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>86</masterLabel>
+            <translation><!-- 86 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>87</masterLabel>
+            <translation><!-- 87 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>88</masterLabel>
+            <translation><!-- 88 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>89</masterLabel>
+            <translation><!-- 89 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90</masterLabel>
+            <translation><!-- 90 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>91</masterLabel>
+            <translation><!-- 91 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>92</masterLabel>
+            <translation><!-- 92 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>93</masterLabel>
+            <translation><!-- 93 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>94</masterLabel>
+            <translation><!-- 94 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95</masterLabel>
+            <translation><!-- 95 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>96</masterLabel>
+            <translation><!-- 96 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>97</masterLabel>
+            <translation><!-- 97 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>98</masterLabel>
+            <translation><!-- 98 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>99</masterLabel>
+            <translation><!-- 99 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Change --></label>
+        <name>Change__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Wait Time --></label>
+        <name>CloseToDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Lag Time --></label>
+        <name>CloseToSubmitted__c</name>
+    </fields>
+    <fields>
+        <help><!-- Add comments you feel pertinent to the job --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commercial Job Tasks --></label>
+        <name>CommercialJobTasks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Factor --></label>
+        <name>CostFactor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Create Documentation Task --></label>
+        <name>CreateDocumentationTask__c</name>
+    </fields>
+    <fields>
+        <label><!-- Create Peer Review Task --></label>
+        <name>CreatePeerReviewTask__c</name>
+    </fields>
+    <fields>
+        <label><!-- Create Setup Meeting Task --></label>
+        <name>CreateSetupMeetingTask__c</name>
+    </fields>
+    <fields>
+        <label><!-- Create To Submitted --></label>
+        <name>CreateToSubmitted__c</name>
+    </fields>
+    <fields>
+        <help><!-- Exact timing only required if SLA requires measure of 4 hour turnaround --></help>
+        <label><!-- Created To Delivery --></label>
+        <name>CreatedToDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Type --></label>
+        <name>CustomerType__c</name>
+        <picklistValues>
+            <masterLabel>OEM</masterLabel>
+            <translation><!-- OEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production</masterLabel>
+            <translation><!-- Production --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SM</masterLabel>
+            <translation><!-- SM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cycle Occurance --></label>
+        <name>CycleOccurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cycle Start --></label>
+        <name>CycleStart__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cycle Year --></label>
+        <name>CycleYear__c</name>
+        <picklistValues>
+            <masterLabel>2010</masterLabel>
+            <translation><!-- 2010 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2011</masterLabel>
+            <translation><!-- 2011 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2012</masterLabel>
+            <translation><!-- 2012 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2013</masterLabel>
+            <translation><!-- 2013 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation><!-- 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2018</masterLabel>
+            <translation><!-- 2018 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2019</masterLabel>
+            <translation><!-- 2019 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2020</masterLabel>
+            <translation><!-- 2020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2021</masterLabel>
+            <translation><!-- 2021 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2022</masterLabel>
+            <translation><!-- 2022 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2023</masterLabel>
+            <translation><!-- 2023 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2024</masterLabel>
+            <translation><!-- 2024 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2025</masterLabel>
+            <translation><!-- 2025 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cycle --></label>
+        <name>Cycle__c</name>
+        <picklistValues>
+            <masterLabel>Annually</masterLabel>
+            <translation><!-- Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-Annually</masterLabel>
+            <translation><!-- Semi-Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-Monthly</masterLabel>
+            <translation><!-- Semi-Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Six Week Cycle</masterLabel>
+            <translation><!-- Six Week Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Week Days</masterLabel>
+            <translation><!-- Week Days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date On Hold1 --></label>
+        <name>DateOnHold1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date On Hold2 --></label>
+        <name>DateOnHold2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date On Hold3 --></label>
+        <name>DateOnHold3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date On Hold4 --></label>
+        <name>DateOnHold4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date On Hold5 --></label>
+        <name>DateOnHold5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Released from Hold1 --></label>
+        <name>DateReleasedFromHold1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Released from Hold2 --></label>
+        <name>DateReleasedFromHold2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Released from Hold3 --></label>
+        <name>DateReleasedFromHold3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Released From Hold4 --></label>
+        <name>DateReleasedFromHold4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Released From Hold5 --></label>
+        <name>DateReleasedFromHold5__c</name>
+    </fields>
+    <fields>
+        <help><!-- Exact timing only required if SLA requires measure of 4 hour turnaround. --></help>
+        <label><!-- Date &amp; Time Of Delivery --></label>
+        <name>DateTimeOfDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Delivery --></label>
+        <name>DateofDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days On Hold #1 --></label>
+        <name>DaysOnHold1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days On Hold #2 --></label>
+        <name>DaysOnHold2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days On Hold #3 --></label>
+        <name>DaysOnHold3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days On Hold #4 --></label>
+        <name>DaysOnHold4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days On Hold #5 --></label>
+        <name>DaysOnHold5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Defect Free Counter --></label>
+        <name>DefectFree10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Defect Free --></label>
+        <name>DefectFree__c</name>
+    </fields>
+    <fields>
+        <label><!-- Defective Deliverables --></label>
+        <name>DefectiveDeliverables__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deliverable Estimate --></label>
+        <name>DeliverableEstimate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discovery To Delivery --></label>
+        <name>DiscoveryToDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effort Completed Date --></label>
+        <name>EffortCompletedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Encryption Key --></label>
+        <name>EncryptionKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Encryption Required --></label>
+        <name>EncryptionRequired__c</name>
+    </fields>
+    <fields>
+        <help><!-- Internal Job # - Occurrence # - Part # - Change # --></help>
+        <label><!-- Extended Job --></label>
+        <name>ExtendedJob__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Deliverables --></label>
+        <name>ExternalDeliverables__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTP Information In WRF --></label>
+        <name>FTPInformationInWRF__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTP Password --></label>
+        <name>FTPPassword__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTP Path --></label>
+        <name>FTPPath__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTP Required --></label>
+        <name>FTPRequired__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTP User ID --></label>
+        <name>FTPUserID__c</name>
+    </fields>
+    <fields>
+        <help><!-- If this is checked this job is part of a multi-part job. Changes to the fields below will not affect the other jobs that have been created, and should be used for reference purposes only. --></help>
+        <label><!-- Is Multipart --></label>
+        <name>IsMultipart__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Actual Hours --></label>
+        <name>JobActualHours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Completed &amp; Delivered --></label>
+        <name>JobCompletedDelivered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Estimated Hours --></label>
+        <name>JobEstimatedHours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Name --></label>
+        <name>JobName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Number --></label>
+        <name>JobNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Revenue --></label>
+        <name>JobRevenue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Status Override --></label>
+        <name>JobStatusOverride__c</name>
+        <picklistValues>
+            <masterLabel>Being Estimated</masterLabel>
+            <translation><!-- Being Estimated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job Cancelled</masterLabel>
+            <translation><!-- Job Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job On Hold</masterLabel>
+            <translation><!-- Job On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Override</masterLabel>
+            <translation><!-- No Override --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Job Status --></label>
+        <name>JobStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Type --></label>
+        <name>JobType__c</name>
+        <picklistValues>
+            <masterLabel>Ad Hoc</masterLabel>
+            <translation><!-- Ad Hoc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ad-Hoc (non-cyclical)</masterLabel>
+            <translation><!-- Ad-Hoc (non-cyclical) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cyclical</masterLabel>
+            <translation><!-- Cyclical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Development</masterLabel>
+            <translation><!-- Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estimate only</masterLabel>
+            <translation><!-- Estimate only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Ad-Hoc</masterLabel>
+            <translation><!-- Internal Ad-Hoc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Cyclical</masterLabel>
+            <translation><!-- Internal Cyclical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lights Out Process</masterLabel>
+            <translation><!-- Lights Out Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Billable</masterLabel>
+            <translation><!-- Non-Billable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Late Deliverables Calculated --></label>
+        <name>LateDeliverablesCalculated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Late Deliverables --></label>
+        <name>LateDeliverables__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used for data integration to store legacy system id in WRF POLK application. --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source record. --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Multi-Part --></label>
+        <name>Multipart__c</name>
+    </fields>
+    <fields>
+        <label><!-- Multipart # --></label>
+        <name>Multipartnum__c</name>
+    </fields>
+    <fields>
+        <help><!-- If no Negotiated Date was provided, use the date from Requested Due Date to populate this required field --></help>
+        <label><!-- Negotiated Date --></label>
+        <name>NegotiatedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- MAX Number of Cycles = 50. You can repeat creating cyclical jobs if you need to add more than 50. --></help>
+        <label><!-- Number Of Cycles --></label>
+        <name>NumberOfCycles__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Of Parts --></label>
+        <name>NumberOfParts__c</name>
+    </fields>
+    <fields>
+        <label><!-- On Time 1 --></label>
+        <name>OnTime1__c</name>
+    </fields>
+    <fields>
+        <label><!-- On Time --></label>
+        <name>OnTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Tasks --></label>
+        <name>OpenTasks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Value --></label>
+        <name>OpportunityValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- PLC Jobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order Request --></label>
+        <name>OrderRequest__c</name>
+        <relationshipLabel><!-- PLC Jobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Royalties and other data cost --></help>
+        <label><!-- Other Cost Estimate --></label>
+        <name>OtherCostEstimate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Email --></label>
+        <name>OwnerEmail__c</name>
+    </fields>
+    <fields>
+        <help><!-- Development work in excess of 20 hours estimated required &quot;Code Review&quot; by a member of the PTSC (Polk Technical Standards Committee) or a sub-delete of that committee.  Please select a code review contact from the following list. --></help>
+        <label><!-- PTSC Code Review --></label>
+        <name>PSCCodeReview__c</name>
+        <relationshipLabel><!-- PLC Jobs (PTSC Code Review) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Parent Job --></label>
+        <name>ParentJob__c</name>
+        <relationshipLabel><!-- PLC Jobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Peer Review Job Tasks --></label>
+        <name>PeerReviewJobTasks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Peer Review Status --></label>
+        <name>PeerReviewStatus__c</name>
+        <picklistValues>
+            <masterLabel>Corrected</masterLabel>
+            <translation><!-- Corrected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fail</masterLabel>
+            <translation><!-- Fail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passed on 1st Attempt</masterLabel>
+            <translation><!-- Passed on 1st Attempt --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Peer Reviewer --></label>
+        <name>PeerReviewer__c</name>
+        <relationshipLabel><!-- PLC Jobs (Peer Reviewer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Primary Sales Email --></label>
+        <name>PrimarySalesEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process To Use --></label>
+        <name>ProcessToUse__c</name>
+        <picklistValues>
+            <masterLabel>Analytics Custom Solution</masterLabel>
+            <translation><!-- Analytics Custom Solution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics Loyalty</masterLabel>
+            <translation><!-- Analytics Loyalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics Loyalty Compilation</masterLabel>
+            <translation><!-- Analytics Loyalty Compilation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics Mapping</masterLabel>
+            <translation><!-- Analytics Mapping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics Modeling</masterLabel>
+            <translation><!-- Analytics Modeling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics Profile</masterLabel>
+            <translation><!-- Analytics Profile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China data-CV</masterLabel>
+            <translation><!-- China data-CV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China data-Polkinsight</masterLabel>
+            <translation><!-- China data-Polkinsight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Account File</masterLabel>
+            <translation><!-- Commercial Account File --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Solutions-OEM List</masterLabel>
+            <translation><!-- Custom Solutions-OEM List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Solutions-OEM Stat</masterLabel>
+            <translation><!-- Custom Solutions-OEM Stat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Solutions-Other</masterLabel>
+            <translation><!-- Custom Solutions-Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital</masterLabel>
+            <translation><!-- Digital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global NewReg</masterLabel>
+            <translation><!-- Global NewReg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global PARC</masterLabel>
+            <translation><!-- Global PARC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IFOF</masterLabel>
+            <translation><!-- IFOF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NVPP</masterLabel>
+            <translation><!-- NVPP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NVPP Online</masterLabel>
+            <translation><!-- NVPP Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PMC</masterLabel>
+            <translation><!-- PMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PolkInsight</masterLabel>
+            <translation><!-- PolkInsight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSD</masterLabel>
+            <translation><!-- RSD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall</masterLabel>
+            <translation><!-- Recall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TIP</masterLabel>
+            <translation><!-- TIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TIPNet System</masterLabel>
+            <translation><!-- TIPNet System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TLAS</masterLabel>
+            <translation><!-- TLAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIN Decoding Products Cyclical</masterLabel>
+            <translation><!-- VIN Decoding Products Cyclical --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Production Wait Time --></label>
+        <name>ProductionWaitTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Programmer Assigned Date --></label>
+        <name>ProgrammerAssignedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason For Delay --></label>
+        <name>ReasonForDelay__c</name>
+        <picklistValues>
+            <masterLabel>Awaiting PO or Contract</masterLabel>
+            <translation><!-- Awaiting PO or Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer requests later date</masterLabel>
+            <translation><!-- Customer requests later date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other reason</masterLabel>
+            <translation><!-- Other reason --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales requests hold</masterLabel>
+            <translation><!-- Sales requests hold --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reason For Failure --></label>
+        <name>ReasonForFailure__c</name>
+        <picklistValues>
+            <masterLabel>Coding</masterLabel>
+            <translation><!-- Coding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data</masterLabel>
+            <translation><!-- Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Formatting</masterLabel>
+            <translation><!-- Formatting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requirements</masterLabel>
+            <translation><!-- Requirements --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recall --></label>
+        <name>Recall__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Date --></label>
+        <name>ReceivedDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested Date --></label>
+        <name>RequestedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested To Delivery --></label>
+        <name>RequestedToDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested To Negotiated --></label>
+        <name>RequestedToNegotiated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Click if you have Rerun, CAR or External Influence data to enter --></help>
+        <label><!-- Rerun CAR --></label>
+        <name>RerunCAR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Royalty Records Included --></label>
+        <name>RoyaltyRecordsIncluded__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Sales Email --></label>
+        <name>SecondarySalesEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Setup Notes Attached --></label>
+        <name>SetupNotesAttached__c</name>
+    </fields>
+    <fields>
+        <label><!-- Setup Notes --></label>
+        <name>SetupNotes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Production Work Time --></label>
+        <name>StartToDelivered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitted Date --></label>
+        <name>SubmittedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Production Queue --></label>
+        <name>SubmittedToAssigned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Production Time to Serve --></label>
+        <name>SubmittedToDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Programmer&apos;s Team --></label>
+        <name>Team1__c</name>
+        <picklistValues>
+            <masterLabel>APAC</masterLabel>
+            <translation><!-- APAC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales-Chrysler</masterLabel>
+            <translation><!-- Aftersales-Chrysler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ESS-Delivery</masterLabel>
+            <translation><!-- ESS-Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting</masterLabel>
+            <translation><!-- Forecasting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCM-Analytics</masterLabel>
+            <translation><!-- MCM-Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCM-Market Research</masterLabel>
+            <translation><!-- MCM-Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCM-Marketing Databases</masterLabel>
+            <translation><!-- MCM-Marketing Databases --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCM-Target Marketing Services</masterLabel>
+            <translation><!-- MCM-Target Marketing Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MEL-Delivery</masterLabel>
+            <translation><!-- MEL-Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MR-Aftermarket</masterLabel>
+            <translation><!-- MR-Aftermarket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MR-Commercial</masterLabel>
+            <translation><!-- MR-Commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MR-Loyalty</masterLabel>
+            <translation><!-- MR-Loyalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MR-Market Reporting BI</masterLabel>
+            <translation><!-- MR-Market Reporting BI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MR-Network Management</masterLabel>
+            <translation><!-- MR-Network Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PolkConnect Analytics</masterLabel>
+            <translation><!-- PolkConnect Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PolkConnect System</masterLabel>
+            <translation><!-- PolkConnect System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIN-Recall</masterLabel>
+            <translation><!-- VIN-Recall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIN-VIN Decoders</masterLabel>
+            <translation><!-- VIN-VIN Decoders --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIN-VVS</masterLabel>
+            <translation><!-- VIN-VVS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Team &amp; Group --></label>
+        <name>TeamGroup__c</name>
+        <picklistValues>
+            <masterLabel>AIS</masterLabel>
+            <translation><!-- AIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytic Solutions - Loyalty</masterLabel>
+            <translation><!-- Analytic Solutions - Loyalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytic Solutions - Services</masterLabel>
+            <translation><!-- Analytic Solutions - Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial/Aftermarket</masterLabel>
+            <translation><!-- Commercial/Aftermarket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mapping</masterLabel>
+            <translation><!-- Mapping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM Marketing - Analytics</masterLabel>
+            <translation><!-- OEM Marketing - Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM Marketing - List Fulfillment</masterLabel>
+            <translation><!-- OEM Marketing - List Fulfillment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM Marketing - Marketing Development</masterLabel>
+            <translation><!-- OEM Marketing - Marketing Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM Marketing - Recall/Trace</masterLabel>
+            <translation><!-- OEM Marketing - Recall/Trace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM Marketing - Unified Fulfillment</masterLabel>
+            <translation><!-- OEM Marketing - Unified Fulfillment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM Stat - Fulfillment</masterLabel>
+            <translation><!-- OEM Stat - Fulfillment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM Stat - PolkInsight</masterLabel>
+            <translation><!-- OEM Stat - PolkInsight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software Services</masterLabel>
+            <translation><!-- Software Services --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Third Resource --></label>
+        <name>ThirdResource__c</name>
+        <relationshipLabel><!-- PLC Jobs (Third Resource) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Third Team --></label>
+        <name>ThirdTeam__c</name>
+        <picklistValues>
+            <masterLabel>Analytics</masterLabel>
+            <translation><!-- Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAP</masterLabel>
+            <translation><!-- CAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mapping</masterLabel>
+            <translation><!-- Mapping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM-List</masterLabel>
+            <translation><!-- OEM-List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM-Stat</masterLabel>
+            <translation><!-- OEM-Stat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software Services</masterLabel>
+            <translation><!-- Software Services --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Actual Cost --></label>
+        <name>TotalActualCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Days On Hold --></label>
+        <name>TotalDaysOnHold__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Deliverables --></label>
+        <name>TotalDeliverables__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Estimated Cost --></label>
+        <name>TotalEstimatedCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Programming Hours Estimate --></label>
+        <name>TotalJobEstimate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Rework Hours --></label>
+        <name>TotalReworkHours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Setup --></label>
+        <name>WRFQuality__c</name>
+        <picklistValues>
+            <masterLabel>Approved, No Set-up</masterLabel>
+            <translation><!-- Approved, No Set-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approved, Set-up Required</masterLabel>
+            <translation><!-- Approved, Set-up Required --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Used by the St. Albans production team. --></help>
+        <label><!-- WRF Sub Brand --></label>
+        <name>WRFSubBrand__c</name>
+    </fields>
+    <fields>
+        <label><!-- WRF Submitted --></label>
+        <name>WRFSubmitted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Request Form --></label>
+        <name>WorkRequestForm__c</name>
+        <relationshipLabel><!-- PLC Jobs --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>PLC Job Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

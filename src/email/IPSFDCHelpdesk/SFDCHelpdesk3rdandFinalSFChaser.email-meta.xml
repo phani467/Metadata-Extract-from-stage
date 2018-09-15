@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2779 SFDC Helpdesk - 3rd and Final SF Chaser</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SFDC Helpdesk - 3rd and Final SF Chaser</name>
+    <style>none</style>
+    <subject>Your IHS Markit SFDC Case {!Case.CaseNumber} - Closed due to incomplete information</subject>
+    <type>text</type>
+</EmailTemplate>

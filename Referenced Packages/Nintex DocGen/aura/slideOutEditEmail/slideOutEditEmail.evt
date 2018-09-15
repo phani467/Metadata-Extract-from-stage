@@ -1,0 +1,1 @@
+<aura:event type="COMPONENT" description="This event hides the content in the slide functionality." />

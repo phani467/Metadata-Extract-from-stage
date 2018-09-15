@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object is used for WRF-POLK. Object to store all Production Team queues for the Work Request process.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Queues__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Queues</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>APAC WRF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Australia WRF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Autonews</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>European WRF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Market Reporting - Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Market Reporting - CAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Market Reporting - Loyalty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Market Reporting - OEM Stat</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MCM - Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PolkConnect Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PolkConnect System</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VFACTS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VINtelligence - Recall</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VINtelligence - SWS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Visualization</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Queues</label>
+    <nameField>
+        <label>Queue Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Queues</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

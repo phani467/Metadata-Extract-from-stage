@@ -1,0 +1,48 @@
+<aura:component controller="Loop.DdpSelectionController">
+    <!--Required attributes-->
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="ddpIds" type="string" default=""/>
+    <aura:attribute name="filter" type="string" default=""/>
+    <aura:attribute name="filterType" type="string" default=""/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="loading" type="boolean" default="true"/>
+    <aura:attribute name="selectedDdp" type="string" default=""/>
+    <aura:attribute name="records" type="List" description="Need: Name, Description1, and Id"/>
+    <aura:attribute name="hasErrorOccurred" type="boolean" default="false"/>
+    <aura:attribute name="errorMessage" type="string" description="Error message to display to user."/>
+    <aura:attribute name="svgClass" type="string" default="slds-icon-standard-document"/>
+    <aura:attribute name="svgLink" type="string" default="/assets/icons/standard-sprite/svg/symbols.svg#document"/>
+    <aura:attribute name="ddpLabel" type="string" default="DocGen Package"/>
+    
+    <!--Handled events-->
+    <aura:handler name="error" event="Loop:error" action="{!c.handleError}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="error" type="Loop:error"/>
+    
+    <!--Methods-->
+    <aura:method name="search" action="{!c.search}">
+        <aura:attribute name="searchString" type="string"/>
+    </aura:method>
+    <aura:method name="load" action="{!c.load}">
+        <aura:attribute name="recordId" type="string" required="true"/>
+        <aura:attribute name="ddpIds" type="list"/>
+        <aura:attribute name="filter" type="string"/>
+        <aura:attribute name="filterType" type="string"/>
+        <aura:attribute name="ddpLabel" type="string"/>
+    </aura:method>
+    <aura:method name="clearTiles" action="{!c.clearTiles}"/>
+    
+    <aura:if isTrue="{!v.loading}">
+        <Loop:LoadingTile />
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.hasErrorOccurred}">
+                <Loop:CustomTile status="error" message="{!v.errorMessage}"/>
+                <aura:set attribute="else">
+                    <Loop:SelectTiles aura:id="selectTiles" recordType="ddp" records="{!v.records}" svgLink="{!v.svgLink}" svgClass="{!v.svgClass}" displaySvg="true" isMultiSelect="false"/>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,163 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component controller="CountrySelectorGridViewController">
+    <apex:attribute type="String" description="request type to filter on" name="reqType" assignTo="{!requestType}" required="true"/>
+    <apex:includeScript value="{!URLFOR($Resource.JQuery, '/js/jquery-1.7.2.min.js')}"  />
+    <style>
+        .noresize {
+        resize:none;
+        width:97.5%;
+        }
+        
+        .borderedTable {
+        /*border-collapse: collapse;
+        border-spacing: 3px;*/
+        border-spacing: 1px;
+        }
+        
+        .borderedTable th {
+            background-color: #08ac4b;
+            color: white;
+            border-radius:5px;
+            user-select: none; /* CSS3 (little to no support) */
+            -ms-user-select: none; /* IE 10+ */
+            -moz-user-select: none; /* Gecko (Firefox) */
+            -webkit-user-select: none; /* Webkit (Safari, Chrome) */
+            padding-top: .35em;
+            padding-bottom: .35em;
+        }
+        
+        .borderedTable td {
+        /*-border: 1px solid black;*/
+        border: 1px dotted #6aafac !important;
+        border-radius:5px;
+        height: 3em;
+        }
+        
+        .borderedTable td:last-child, .borderedTable td:first-child {
+        width: 20%;
+        }
+        
+        .borderedTable td:first-child, .borderedTable td:last-child {
+        font-weight: bold;
+        margin-left: .25em;
+        margin: auto auto;
+        }
+        
+        .comments {
+            font-weight: normal;
+        }
+        
+        .selected {
+        background: #06C0F0;
+        }
+        
+        .hidden {
+        visibility: hidden;
+        display: none;
+        }
+        
+        .inline {
+        display:inline;
+        }
+        
+        .table_heading {
+        font-size:1.5em;
+        }
+    </style>
+    
+    <script>
+    function bandedRows() {
+        var band = true;
+        j$(".borderedTable tbody tr").each(function(){
+            if(!j$(this).hasClass("hidden")) {
+                if(band) {
+                    band = false;
+                    //j$(this).css("background", "rgba(20, 186, 134, 0.2)");
+                    j$(this).css("background", "rgba(8, 172, 75, 0.2)");
+                } else {
+                    band = true;
+                }
+            }
+        });
+    }
+    </script>
+    <!-- style="text-decoration:none;padding:4px 3px; font-size:.9em;font-weight:bold;"  styleClass="btn" -->
+    <apex:outputPanel rendered="{! !isView}">
+        <apex:commandButton value="Refresh Table(s)" status="formstatus" action="{!refresh}" 
+                          reRender="{!$Component.optionGrids}"
+                            rendered="{! !isView}"/>
+        <br/>
+        <apex:outputText style="font-style:italic;font-size:.9em;" rendered="{! !isView}"
+            value="*To see new selections from the pop-up window, you must first refresh the tables."/>
+        <br/><br/>
+    </apex:outputPanel>
+    <outputPanel id="optionGrids" layout="none" rendered="{! hasSelections}">      
+        <apex:pageMessage rendered="{! !hasSelections}" severity="warning" strength="3" 
+                      summary="This Work Request Form does not have any market selections for its current request type."/>
+        <apex:repeat value="{!dataTypes}" var="dt">
+            <h1 class="table_heading {! IF(dataTypeRowCounts[dt] == 0, 'hidden', '')}">
+                {!dt}
+            </h1>
+            <table width="100%" class="borderedTable {! IF(dataTypeRowCounts[dt] == 0, 'hidden', '')}">
+                <!-- Build header rows -->
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <apex:repeat value="{!dataTypeGeographies[dt]}" var="g">
+                            <th colspan="{!dataTypeVehicleTypeCounts[dt]}">{!g}</th>
+                        </apex:repeat>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <th></th> <!-- placeholder below country -->
+                        <apex:repeat value="{!dataTypeGeographies[dt]}" var="g" id="geoLoop">
+                            <apex:repeat value="{!dataTypeVehicleTypes[dt]}" var="v" id="vtLoop">
+                                <th style="width:{!ROUND(60/(dataTypeVehicleTypeCounts[dt]*dataTypeGeographyCounts[dt]), 3)}%;" id="{!g}|{!v}">{!v}</th>
+                            </apex:repeat>
+                        </apex:repeat>
+                        <th></th><!-- placeholder below comments -->
+                    </tr>
+                </thead>
+                <!-- Build main table -->
+                <tbody>
+                    <apex:repeat value="{!dataTypeCountryRows[dt]}" var="c" id="test">
+                        <tr>
+                            <td class="unselectable">{!c.Country}</td>
+                            <apex:repeat value="{!dataTypeGeographies[dt]}" var="g">
+                                <apex:repeat value="{!c.vehicleTypeMap[g]}" var="v">
+                                    <td class="{!IF(v.selected, 'selected', '')}"
+                                        id="{!c.country}_{!v.Geography}_{!v.VehicleType}">
+                                        <!--{!v.Geography} | {!v.VehicleType} | {!v.selected}-->
+                                    </td>
+                                </apex:repeat>
+                            </apex:repeat>
+                            <td class="unselectable" unselectable="on">
+                                <!-- <apex:inputTextArea value="{!c.Comments}" cols="40" rows="2" styleClass="noresize" disabled="true"/>-->
+                                <apex:outputText value="{!c.Comments}" styleClass="comments"/>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+            <div class="{! IF(dataTypeRowCounts[dt] == 0, 'hidden', '')}">
+                <br/>
+                <hr/>
+                <br/>
+            </div>
+        </apex:repeat>
+        <script>
+        j$=jQuery.noConflict();
+        j$(document).ready(function(){
+            bandedRows();
+            j$(".saveMessage").hide();
+        });
+        </script>
+    </outputPanel>
+</apex:component>

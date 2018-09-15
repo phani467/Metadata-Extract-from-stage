@@ -1,0 +1,18 @@
+The following knowledge article has been approved and published.
+
+Title: {!Knowledge__kav.Title}
+Created By: {!Knowledge__kav.CreatedBy}
+Created Date: {!Knowledge__kav.ArticleCreatedDate}
+Published Date: {!Knowledge__kav.FirstPublishedDate}
+
+Article Summary
+-----------------------------
+{!Knowledge__kav.Summary}
+-----------------------------
+
+Approval Comments
+-----------------------------
+{!ApprovalRequest.Comments}
+-----------------------------
+
+Article Link: {!Knowledge__kav.Link}

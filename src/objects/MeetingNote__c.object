@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>MeetingNoteRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-863; Lookup to the Account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Select the Account</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meeting Notes</relationshipLabel>
+        <relationshipName>MeetingNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Achieved__c</fullName>
+        <description>SFDC1-863; Long text field for Achieved</description>
+        <externalId>false</externalId>
+        <label>Achieved</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>AgendaItems__c</fullName>
+        <description>SFDC1-863; field for Agenda Items</description>
+        <externalId>false</externalId>
+        <label>Agenda Items</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>AssetClass__c</fullName>
+        <description>SFDC1-863; Asset Class</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Select Asset Class</inlineHelpText>
+        <label>Asset Class</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Credit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cross Asset;</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rates</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AttendeeNames__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter Client Attendee&apos;s Name</inlineHelpText>
+        <label>Client Attendee Names</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CEOWorthyTakeaway__c</fullName>
+        <externalId>false</externalId>
+        <label>CEO- Worthy Takeaway</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-863; Campaign Lookup</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Select Campaign</inlineHelpText>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Meeting Notes</relationshipLabel>
+        <relationshipName>MeetingNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClientMainContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client Main Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Meeting Notes (Client Main Contact)</relationshipLabel>
+        <relationshipName>MeetingNotes2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContactLookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Additional Attendees</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Meeting Notes</relationshipLabel>
+        <relationshipName>MeetingNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FullAddress__c</fullName>
+        <description>SFDC1-6541, To display the full address in Meeting note email template w/o extra comma if few fields are blank.</description>
+        <externalId>false</externalId>
+        <formula>Street__c +
+IF(AND(NOT(ISBLANK(Street__c)), NOT(ISBLANK(City__c)) || NOT(ISBLANK(StateProvince__c)) || NOT(ISBLANK(ZipPostalCode__c))), BR(), &apos;&apos;) + 
+IF(NOT(ISBLANK(City__c)), City__c + &apos;, &apos; + StateProvince__c + &apos; &apos; + ZipPostalCode__c, StateProvince__c + &apos; &apos; + ZipPostalCode__c) +
+IF(NOT(ISBLANK(Street__c)) || NOT(ISBLANK(City__c)) || NOT(ISBLANK(StateProvince__c)) || NOT(ISBLANK(ZipPostalCode__c)), BR(), &apos;&apos;) + 
+IF(NOT(ISBLANK(Country__c)), Country__c, &apos;&apos;)</formula>
+        <label>Full Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IHSMarkitAttendeeNames__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter IHS Markit Attendee&apos;s Name</inlineHelpText>
+        <label>IHS Markit Attendee Names</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Info__c</fullName>
+        <externalId>false</externalId>
+        <label>Info</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>InternalContactLookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Add non-salesforce users</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>You can only send meeting notes to internal customers.</errorMessage>
+            <filterItems>
+                <field>Contact.Email</field>
+                <operation>contains</operation>
+                <value>@ihsmarkit.com</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Meeting Notes (Add non-salesforce users)</relationshipLabel>
+        <relationshipName>MeetingNotes1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7046: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (unfriendly) referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MarkitAttendeeNames__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter Attendee&apos;s Name</inlineHelpText>
+        <label>Markit Attendee Names</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MeetingOutcome__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter the Outcome of the Meeting</inlineHelpText>
+        <label>Meeting Outcome</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NextSteps__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Steps</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NumberOfOpportunities__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Opportunities</label>
+        <summaryForeignKey>RelatedOpportunity__c.MeetingNote__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Meeting Notes</relationshipLabel>
+        <relationshipName>MeetingNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PKIDMeetNote__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>MtN{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID MeetNote</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ProductFamilyLookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-3843 : This field will hold the values from the Product Family field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Enter the Product Family</inlineHelpText>
+        <label>Product Family</label>
+        <referenceTo>Family__c</referenceTo>
+        <relationshipLabel>Meeting Notes</relationshipLabel>
+        <relationshipName>MeetingNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RecipientList__c</fullName>
+        <externalId>false</externalId>
+        <label>Recipient List</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sentiment__c</fullName>
+        <externalId>false</externalId>
+        <label>Sentiment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Positive</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Negative</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Neutral</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StateProvince__c</fullName>
+        <externalId>false</externalId>
+        <label>State/Province</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Street__c</fullName>
+        <externalId>false</externalId>
+        <label>Street</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubAssetClass__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Asset Class</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Adoption</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Auto Processing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Blockchain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Broker Affirmations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Development</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clearing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CLS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compression</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Custom Processing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DealHub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DMS tool</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DSMatch</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FX Options</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FX Post trade enterprise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FX TradeSTP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FX Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitWire</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Migration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MTM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New Products</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New Ventures</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Operations/Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Roadmap</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tools &amp; Applications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unification</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>UserLookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Additional Recipients</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MeetingNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>When__c</fullName>
+        <externalId>false</externalId>
+        <label>When</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WhereFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Street__c &amp; BR() &amp; City__c + &quot;, &quot; + StateProvince__c + &quot;, &quot; + Country__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Where</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Where__c</fullName>
+        <externalId>false</externalId>
+        <label>Where</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZipPostalCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Zip/Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Meeting Note</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Meeting Note Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Meeting Notes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Read</sharingModel>
+    <webLinks>
+        <fullName>SendToAccountTeam</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send to Account Team</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if(&quot;{!MeetingNote__c.AccountId__c}&quot; == null || &quot;{!MeetingNote__c.AccountId__c}&quot; == &quot;&quot;) { 
+alert(&apos;Please link an Account to the meeting note to send to Account Team&apos;); 
+} else { 
+var url = &quot;/apex/SendMeetingNoteToAccountTeam?meetingId={!MeetingNote__c.Id}&quot; 
+window.location.href = url; 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SendToOpportunityTeam</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send to Opportunity Team</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if(&apos;{!MeetingNote__c.NumberOfOpportunities__c}&apos; == 0) { 
+alert(&apos;Please link an Opportunity to the meeting note to send to Opportunity Team&apos;); 
+} else { 
+var url = &quot;/apex/SendMeetingNoteToOpportunityTeam?meetingId={!MeetingNote__c.Id}&quot; 
+window.location.href = url; 
+}</url>
+    </webLinks>
+</CustomObject>

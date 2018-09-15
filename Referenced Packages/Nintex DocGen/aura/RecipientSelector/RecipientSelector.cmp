@@ -1,0 +1,125 @@
+<aura:component >
+    <!--Required attributes-->
+    <aura:attribute name="recipient" type="Object" default="" required="true" description="Instance of TileData.ESignRecipient."/>
+    <aura:attribute name="isHost" type="boolean" default="false" required="true" description="If true, this recipient is the host for the signer." />
+    <aura:attribute name="eSignType" type="string" default="" required="true" description="The record type developer name of the e-sign delivery option." />
+    
+    <!--Internal attributes-->
+    <aura:attribute name="signerLabel" type="string" default="Signer" access="private" description="If isHost is true, this will be Host instead of Signer."/>
+    <aura:attribute name="remainingCharacters" type="string" default="100 characters remaining" access="private" description="The number of characters user has left for the access code."/>
+    <aura:attribute name="accessCodeValue" type="string" default="" access="private" description="Stores the access code value."/>
+    <aura:attribute name="noteValue" type="string" default="" access="private" description="Stores the note value."/>
+    <aura:attribute name="name" type="string" default="" access="private" description="Stores the recipient name."/>
+    <aura:attribute name="email" type="string" default="" access="private" description="Stores the recipient email."/>
+    <aura:attribute name="selectedRecipientId" type="string" default="" access="private" description="Stores the Id of the selected contact or user for the recipient or 'name_email'."/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="recipientSelected" event="Loop:recipientSelected" action="{!c.handleRecipientSelected}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="recipientSelectorClicked" type="Loop:recipientSelectorClicked"/>
+    <aura:registerEvent name="storeRecipientInfo" type="Loop:storeRecipientInfo"/>
+    
+    <!--Methods-->
+    <!--We should make this work with onfocus/onblur instead of open/close (problems with Dropdown.cmp).-->
+    <aura:method name="open" action="{!c.open}"/>
+    <aura:method name="close" action="{!c.close}"/>
+    
+    <div class="slds" id="{!v.recipient.Id}">
+        <div class="slds-form-element">
+            <aura:if isTrue="{!v.recipient.RoleName != '' &amp;&amp; (!v.recipient.HasHost || v.isHost)}">
+                <div class="slds-text-body--small">
+                    <p>{!v.recipient.RoleName}</p>
+                </div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.recipient.RecipientType != 'NameEmail' &amp;&amp; v.recipient.RecipientType != 'SigningGroup'}">
+                <label class="slds-form-element__label">
+                    {!v.signerLabel}
+                    <aura:if isTrue="{!v.recipient.Required &amp;&amp; v.recipient.RecipientType != 'StaticText'}">
+                        <abbr class="slds-required" title="required">*</abbr>
+                    </aura:if>
+                </label>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.recipient.RecipientType == 'StaticText'}">
+                <div class="slds-form-element__control">
+                    <span class="slds-text-body--regular">{!v.recipient.Label}</span>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.recipient.RecipientType == 'UserLookup'}">
+                <div class="slds-form-element__control" onclick="{!c.clicked}">
+                    <Loop:Lookup aura:id="lookup" objectType="User" searchString="{!v.recipient.Name}"
+                              svgLink="/assets/icons/standard-sprite/svg/symbols.svg#user"
+                              svgClass="slds-icon slds-icon--small icon-standard-people icon-name-margin"/>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.recipient.RecipientType == 'ContactLookup'}">
+                <div class="slds-form-element__control" onclick="{!c.clicked}">
+                    <Loop:Lookup aura:id="lookup" objectType="Contact" searchString="{!v.recipient.Name}"
+                              svgLink="/assets/icons/standard-sprite/svg/symbols.svg#contact"
+                              svgClass="slds-icon slds-icon--small slds-icon-standard-contact icon-name-margin"/>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.recipient.RecipientType == 'NameEmail'}">
+                <label class="slds-form-element__label">
+                    <aura:if isTrue="{!v.recipient.Required &amp;&amp; v.recipient.RecipientType != 'StaticText'}">
+                    	{!v.signerLabel} Name<abbr class="slds-required" title="required">*</abbr>
+                        <aura:set attribute="else">
+                            {!v.signerLabel} Name
+                        </aura:set>
+                    </aura:if>
+                </label>
+                <div class="slds-form-element__control" onclick="{!c.clicked}">
+                    <input class="slds-input" type="text" value="{!v.recipient.Name}" oninput="{!c.updateStaticName}"/>
+                </div>
+                <label class="slds-form-element__label user-selected-email">
+                    <aura:if isTrue="{!v.recipient.Required &amp;&amp; v.recipient.RecipientType != 'StaticText'}">
+                    	{!v.signerLabel} Email<abbr class="slds-required" title="required">*</abbr>
+                        <aura:set attribute="else">
+                            {!v.signerLabel} Email
+                        </aura:set>
+                    </aura:if>
+                </label>
+                <div class="slds-form-element__control" onclick="{!c.clicked}">
+                    <input class="slds-input" type="text" value="{!v.recipient.Email}" oninput="{!c.updateStaticEmail}"/>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.recipient.RecipientType == 'DropDown'}">
+                <div class="slds-form-element__control" onclick="{!c.clicked}">
+                    <Loop:Dropdown aura:id="recipientDropdown" dropdownList="{!v.recipient.SelectionItems}" showTitles="{!v.recipient.DisplayTitle}" />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.recipient.RecipientType == 'SigningGroup'}">
+                <aura:if isTrue="{!v.recipient.Required}">
+                	Signing Group Name<abbr class="slds-required" title="required">*</abbr>
+                    <div class="slds-form-element__control">
+                        <span class="slds-text-body--regular">{!v.recipient.GroupName}</span>
+                    </div>
+                    <aura:set attribute="else">
+                    	Signing Group Name
+                        <div class="slds-form-element__control" onclick="{!c.clicked}">
+                            <Loop:Dropdown aura:id="recipientDropdown" dropdownList="{!v.recipient.SelectionItems}"/>
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </aura:if>
+        </div>
+        <aura:if isTrue="{!v.eSignType == 'DocuSign' &amp;&amp; !v.isHost}">
+            <ui:outputURL aura:id="noteLink" class="link-style slds-m-top--x-small" click="{!c.exposeNoteInput}" value="" label="Add Note" />
+            <div aura:id="noteInput" class="slds-m-top--x-small hidden">
+                <label for="{!v.recipient.Id + '_note'}">Note</label><br/>
+                <textarea aura:id="note" id="{!v.recipient.Id + '_note'}" class="slds-input" maxlength="255" rows="4" oninput="{!c.inputNote}"/>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.recipient.AllowAccessCode &amp;&amp; !v.isHost}">
+            <div aura:id="accessCodeLink" class="link-style slds-m-top--x-small" onclick="{!c.exposeAccessCodeInput}">Access Code</div>
+            <div aura:id="accessCodeInput" class="slds-m-top--x-small hidden">
+                <label for="accessCode">Access Code</label><br/>
+                <input aura:id="accessCode" id="accessCode" class="slds-input" maxlength="100" type="text" oninput="{!c.inputAccessCode}"/>
+                <div aura:id="characters">{!v.remainingCharacters}</div>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

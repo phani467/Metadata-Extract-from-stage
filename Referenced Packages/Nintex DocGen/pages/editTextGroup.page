@@ -1,0 +1,1544 @@
+<apex:page standardController="Loop__Text_Group__c" extensions="Loop.TextGroupExt" docType="html-5.0" title="{!$ObjectType.Loop__Text_Group__c.label} Edit: {!headerSubTitle}" applyHtmlTag="{!applyHtmlTag}">
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <apex:includeScript value="{!URLFOR($Resource.Loop__Scripts, 'jQuery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Loop__Scripts, 'jQuery-UI.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Loop__Scripts, 'nestable.js')}"/>
+    <apex:includescript value="{!URLFOR($Resource.Loop__CKEditor, 'ckeditor/ckeditor.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.Loop__Scripts, 'textgroup.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Loop__Styles, 'css/textgroup.css')}"/>
+    <apex:slds />
+    
+    <style>
+        .outer td.oRight {
+            padding: 0 0 20px 10px;
+        }
+        .slds-col {
+            margin: 5px 0px;
+        }
+        
+        .slds .slds-section-title--divider {
+            width: 100%;
+            margin: 0;
+        }
+        
+        .slds .slds-text-heading--label {
+            font-weight: bold;
+            font-size: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .search-container {
+            margin-bottom: 10px;
+        }
+        
+        .search-container .slds-button {
+            vertical-align: top;
+        }
+        
+        .slds .slds-button--icon-bare.help-icon {
+            vertical-align: text-top;
+        }
+        
+        .default-cursor, .slds button.default-cursor {
+            cursor: default;
+        }
+
+        #toolTip {
+            display: none;
+            min-width: 200px;
+            position: absolute;
+            bottom: 30px;
+            left: -17px;
+            min-height: 0px;
+            border-radius: 4px;
+            z-index: 6000;
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .16);
+        }
+
+        button:hover > #toolTip {
+            display: block;
+        }
+
+        #toolTip.lowTip {
+            display: none;
+            min-width: 150px;
+            bottom: -58px;
+            left: -50px;
+        }
+
+        #toolTip.lowTip::before {
+            left: 58px;
+            top: 0;
+        }
+
+        #toolTip.lowTip::after, #clauseSearch:placeholder-shown + #clauseSearchIcons > #clauseSearchClear, .hidden {
+            display: none;
+        }
+
+        button:hover > #toolTip.lowTip {
+            display: block;
+        }
+    </style>
+
+    <div class="drawloop">
+        <div class="slds-scope">
+            <div class="slds-page-header">
+                <div class="slds-grid slds-grid--align-spread">
+                    <div class="slds-media slds-col">
+                        <div class="slds-media__figure">
+                            <svg aria-hidden="true" class="slds-icon slds-icon--large slds-icon-custom-13">
+                                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/custom-sprite/svg/symbols.svg#custom13')}"></use>
+                            </svg>
+                        </div>
+                        <div class="slds-media__body">
+                            <p class="slds-text-heading--label">{!$ObjectType.Text_Group__c.label} Edit</p>
+                            <div class="slds-grid">
+                                <div class="slds-col">
+                                    <h1 class="slds-text-heading--medium slds-m-right--small slds-truncate">{!headerSubTitle}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <span id="taggerURL" style="display:none;">{!fieldTaggerUrl}</span>
+            <div class="">
+                <div id="msgSection" class="slds-col slds-size--1-of-1">
+                   <div id="messagesContainer" class="row text-center"></div>
+                </div>
+
+                <div class="slds-col slds-size--1-of-1">
+                    <div class="slds-grid ">
+                        <div class="slds-col slds-size--1-of-1 slds-col--padded">
+                            <div class="slds-float--right">
+                                <button type="button" class="slds-button slds-button--brand   save-Group"      >Save</button>
+                                <button type="button" class="slds-button slds-button--neutral quicksave-Group" >Quick Save</button>
+                                <button type="button" class="slds-button slds-button--neutral clone-Group"     >Clone</button>
+                                <button type="button" class="slds-button slds-button--neutral cancel-Group"    >Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size--1-of-1" style="clear: both;">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size--1-of-2 slds-col--padded">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="groupName">{!$ObjectType.Text_Group__c.fields.Name.label}</label>
+                                <input id="groupName" class="slds-input" type="text" value="{!groupName}" />
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size--1-of-2 slds-col--padded">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="groupDescription">{!$ObjectType.Text_Group__c.fields.Description__c.label}</label>
+                                <textarea id="groupDescription" class="slds-textarea">{!groupDescription}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="slds-section-title--divider">{!$ObjectType.Text_Snippet__c.labelplural}</h3>
+
+                <div class="slds-col slds-size--1-of-1">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size--1-of-3 slds-col--padded unselected-col">
+                            <div class="slds-text-heading--label">Available</div>
+                            <div class="slds-form-element search-container">
+                                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right slds-size--2-of-3" style="display:inline-block;">
+                                    <svg class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#search')}"></use>
+                                    </svg>
+                                    <input id="clauseSearch" style="margin-right: 5px;" class="slds-input" type="text" placeholder="Search"/>
+                                    <div id="clauseSearchIcons" class="slds-input__icon-group slds-input__icon-group_right">
+                                        <div id="clauseSearchSpinner" role="status" class="slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner hidden">
+                                            <span class="slds-assistive-text">Loading</span>
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                        <button id="clauseSearchClear" class="slds-input__icon slds-input__icon_right slds-button slds-button_icon">
+                                            <svg class="slds-button__icon slds-icon-text-light" aria-hidden="true">
+                                                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#clear')}"></use>
+                                            </svg>
+                                            <span class="slds-assistive-text">Clear</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button id="searchClauses" class="slds-button slds-button--neutral" type="button">Search</button>
+                                <button id="createClauseButton" class="slds-button slds-button--neutral slds-float--right" type="button">New</button>
+                                <div id="searchLimitExceeded" class="hidden" style="color:red;">Search limited. Refine your criteria to see more results.</div>
+                            </div>
+                            <div class="dd" id="nestable"></div>
+                        </div>
+                        <div class="slds-col slds-size--2-of-3 slds-col--padded">
+                            <div class="slds-text-heading--label">Selected</div>
+                            <div class="dd" id="nestable2" ></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size--1-of-1">
+                    <div class="slds-grid ">
+                        <div class="slds-col slds-size--1-of-1 slds-col--padded">
+                            <div class="slds-float--right">
+                                <button type="button" class="slds-button slds-button--brand   save-Group"      >Save</button>
+                                <button type="button" class="slds-button slds-button--neutral quicksave-Group" >Quick Save</button>
+                                <button type="button" class="slds-button slds-button--neutral clone-Group"     >Clone</button>
+                                <button type="button" class="slds-button slds-button--neutral cancel-Group"    >Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+
+              <!-- Modal -->
+              <div>
+                  <div aria-hidden="false" role="dialog" class="slds-modal slds-modal--large" id="modalSFDC" >
+                      <div class="slds-modal__container" style="width: 45%;">
+                          <div class="slds-modal__header">
+                              <h2 class="slds-text-heading--medium modal-title" >Modal Header</h2>
+                              <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="UTILS.closeModal('modalSFDC')">
+                                <span class="slds-assistive-text">Close</span>
+                              </button>
+                          </div>
+                          <div class="slds-modal__content slds-p-around--medium" id="modalBody"></div>
+                          <div class="slds-modal__footer">
+                              <button class="slds-button slds-button--neutral slds-button-cancel-modal" onclick="UTILS.closeModal('modalSFDC')" id="cancelModal">Cancel</button>
+                              <button class="slds-button slds-button--neutral slds-button--brand" id="storageFilters">Done</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div id="modalSFDC_background" class="slds-modal-backdrop"></div>
+              </div>
+
+            <div>
+                <div aria-hidden="false" role="dialog" class="slds-modal slds-modal--large" id="clauseModal">
+                  <div class="slds-modal__container" style="width: 45%;">
+                    <div class="slds-modal__header">
+                      New {!$ObjectType.Text_Snippet__c.label}
+                      <button onclick="UTILS.closeModal('clauseModal')" class="slds-button slds-button--icon-inverse slds-modal__close">
+                        <span class="slds-assistive-text">Close</span>
+                      </button>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium" id="clasueModalBody">
+                        <div class="slds-col slds-size--1-of-1 clause-field-container">
+                           <div class="slds-form-element">
+                               <label class="slds-form-element__label slds-float--left" for="newClauseName" style="float: left;">{!$ObjectType.Text_Snippet__c.fields.Name.label}</label>
+                               <div class="slds-form-element__control">
+                                   <input id="newClauseName" class="slds-input" type="text" />
+                               </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size--1-of-1 clause-field-container">
+                           <div class="slds-form-element">
+                               <label class="slds-form-element__label " for="newClauseBody">{!$ObjectType.Text_Snippet__c.fields.Body__c.label}</label>
+                               <div class="slds-form-element__control">
+                                   <textarea id="newClauseBody" class="slds-textarea" ></textarea>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="slds-col slds-size--1-of-1 clause-field-container">
+                           <div class="slds-form-element">
+                               <a class="fieldTagger slds-button slds-button--neutral" href="#">Field Tagger</a>
+                           </div>
+                        </div>
+                    </div>
+                    <!-- <br/><br/> -->
+                    <div class="slds-modal__footer">
+                      <button class="slds-button slds-button--neutral slds-button-cancel-modal" onclick="UTILS.closeModal('clauseModal')" id="cancelCreateClause">Cancel</button>
+                      <button class="slds-button slds-button--neutral slds-button--brand" id="createClause">Create</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="clauseModal_background" class="slds-modal-backdrop"></div>
+          </div>
+            <br/><br/>
+            <div id="DDPContainer">
+                <apex:pageBlock title="Associated {!$ObjectType.Loop__DDP__c.labelplural}" rendered="{!associatedDDPs.size > 0}">
+                    <apex:pageBlockTable value="{!associatedDDPs}" var="ddp" styleClass="slds-table slds-table--bordered" rowClasses="slds-hint-parent" headerClass="slds-text-heading--label">
+                        <apex:column value="{!ddp.Loop__DDP__c}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+            </div>
+        </div>
+    </div>
+    <apex:form >
+        <apex:actionFunction name="cancelJS" action="{!cancel}"/>
+    </apex:form>
+    
+
+    <script>
+    //window.UTILS is extended by the textgroup.js resource, here we only add the things specific to this page.
+        (function(w){
+            var date = new Date();
+            var dateTime = date.getTime();
+            var namespace = window.Loop ? 'loop__' : '';
+            var gearSVG_URL = '/resource/'+dateTime+'/' + namespace + 'SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#settings';
+            var backSVG_URL = '/resource/'+dateTime+'/' + namespace + 'SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#delete';
+            //define additional functions
+            function setupItemClause(isSelected , clause) {
+                w.UTILS.mapClauses[clause.clauseId] = clause;
+                var $clauseItemSection    = $(window.UTILS.clauseItemHTML);
+                if (!(clause.clauseBody))clause.clauseBody = '';
+                $clauseItemSection.data('clause',clause);
+                $clauseItemSection.attr('id',clause.clauseId);
+                $clauseItemSection.attr('data-id',clause.clauseId);
+                $clauseItemSection.find('.clause-title').text(clause.clauseName);
+                $clauseItemSection.find('.gear-container .gear').attr('id','gear'+clause.clauseId);
+                $clauseItemSection.find('.gear-container .gear').data('clauseId',clause.clauseId);
+                return $clauseItemSection;
+            };
+            function sortClauses(containerId){
+                var mapClauses =  {};
+                var listToSort =  [];
+                var elementsToAppend = [];
+                $(containerId+' .dd-item').each(function(){
+                    var $elem = $(this);
+                    var clause = $elem.data('clause');
+                    var $newClauseItem =  window.UTILS.setupItemClause(false,clause);
+                    var key  =  clause.clauseName.trim().toUpperCase();
+                    key = key.replace(/\s+/g, '');
+                    mapClauses[key]=$newClauseItem;
+                    listToSort.push(key);
+                });
+
+                listToSort.sort();
+
+                for(var i =  0 ; i < listToSort.length ; i++){
+                    elementsToAppend.push(mapClauses[listToSort[i]]);
+                }
+                $(containerId).find('.dd-list').first().empty();
+                $(containerId).find('.dd-list').first().append(elementsToAppend);
+            };
+
+            //add functions and markup to window.UTILS
+            w.UTILS = {
+                setupItemClause : setupItemClause,
+                sortClauses : sortClauses,
+                mapClauses : {},
+                isQuickSave : false,
+                wrapperGroup : {
+                    onGroup : {
+                        id : null,
+                        Name : '',
+                        Description__c: ''
+                    },
+                    selectedClasues:[]
+                },
+                clauseGroupHTML : '<ol class="dd-list"></ol>',
+                filterTaggerHTML :
+                    '<div class="filerTagger-btns-container slds-grid slds-col slds-size--1-of-1">'+
+                        '<div class="slds-grid">'+
+                            '<div class="filerTagger-btns-container">'+
+                                '<a class="addFilter slds-button slds-button--neutral" href="#">Add Filter</a>'+
+                                '<a class="fieldTagger slds-button slds-button--neutral" href="#">Field Tagger</a>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>',
+                advancedFilterHTML :
+                    '<div class="advancedFilter-container slds-col slds-size--1-of-1">'+
+                        '<div class="slds-form-element">'+
+                            '<label class="slds-form-element__label" for="sample1">Advanced Filter Conditions</label>' +
+                            '<button class="help-icon slds-button slds-button--icon-bare slds-m-right--xx-small">' +
+                                '<svg aria-hidden="true" class="default-cursor slds-button__icon" style="margin-top: 1px;">' +
+                                    '<use xlink:href="/resource/' + dateTime + '/' + namespace + 'SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#info" class="default-cursor"></use>' +
+                                '</svg>' +
+                                '<span class="slds-assistive-text">Help</span>' +
+                                '<div class="slds-popover--tooltip slds-nubbin--bottom-left" role="tooltip" id="toolTip">' +
+                                    '<div class="slds-popover__body">Example: AND(1, 2, OR(3, 4)).</div>' +
+                                '</div>' +
+                            '</button>' +
+                            '<div class="slds-form-element__control">'+
+                                '<input  class="filter-advanced-input slds-input" type="text" >'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>',
+                clauseFieldsHTML :
+                    '<div class="clauseFields-container">'+
+                        '<h3 class="clause-body-label">Component Body</h3><br/>'+
+                        '<textarea type="text" class="ckeditor clause-body-input"/>'+
+                    '</div>',
+                nofiltersSpeaceSection : '<div class="text-center" id="noFilterCriteria">ADD SOME FILTERS</div>',
+                text_btn_updateClause : 'Update Component Body',
+                noClausesSelectedBoxHTML : '<div class="dd-empty dd-drag drag"><div class="drag-text" style="position: relative;">Drag Here</div></div>',
+                ckeditorInstance : {},
+                clauseItemHTML :
+                    '<li class="dd-item">'+
+                        '<div class="dd-tool-icons-container">'+
+                            '<a class="gear" ><svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-text-default"><use xlink:href="'+gearSVG_URL+'"></use></svg></a>'+
+                            '<a class="removeClause" ><svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-text-default"><use xlink:href="'+backSVG_URL+'"></use></svg></a>'+
+                        '</div>'+
+                        '<a class="dd-handle" data-toggle="tooltip"  ><span class="clause-title"></span></a>'+
+                    '</li>'
+            };
+        })(window);
+
+        var CGRemote = (function(apexCtrl) {
+            var factory = {};
+
+            factory.getGroupDdps = function(groupId) {
+                var deferred = new $.Deferred();
+                apexCtrl.getGroupDdps(groupId, function(returnedMap, event) {
+                    if (event.status) {
+                        var parsedReturnMap = JSON.parse(returnedMap);
+                        var parsedDdpObjectFields = parsedReturnMap['ddpObjectTags'];
+                        var parsedGroupDdps = parsedReturnMap['groupDdpIds'];
+
+                        deferred.resolve([parsedDdpObjectFields, parsedGroupDdps]);
+                    } else {
+                        deferred.reject(event.message);
+                    }
+                }, {
+                    escape : false
+                });
+                return deferred.promise();
+            };
+
+            factory.getDdpFilterData = function(ddpId) {
+                var deferred = new $.Deferred();
+                apexCtrl.getDdpFilterData(ddpId, function(response, event) {
+                    if (event.status) {
+                        var parsedResponse = JSON.parse(response);
+
+                        deferred.resolve(parsedResponse['objectsAndFields']);
+                    } else {
+                        deferred.reject(event.message);
+                    }
+                }, {escape : false});
+                return deferred.promise();
+            };
+
+            factory.getClausesLists = function (groupId, maxClauses){
+                var deferred = new $.Deferred();
+                apexCtrl.getClausesLists(groupId, maxClauses , function(result, event){
+                    if (event.status){
+                        deferred.resolve(result, maxClauses);
+                    } else {
+                        deferred.reject(event.message);
+                    }
+                  }, {escape: false});
+                return deferred.promise();
+            };
+
+            factory.createClause = function (groupId, name, body){
+                var deferred = new $.Deferred();
+                apexCtrl.createNewClause(groupId, name, body, function(result, event){
+                    if (event.status){
+                        deferred.resolve(result);
+                    } else {
+                        deferred.reject(event.message);
+                    }},
+                    {escape: false});
+                return deferred.promise();
+            };
+
+            factory.searchClauses = function (searchString, selectedClauses, maxRecords){
+                var deferred = new $.Deferred();
+                apexCtrl.searchClauses(searchString, selectedClauses, maxRecords, function(result, event){
+                    if (event.status) {
+                        deferred.resolve(result);
+                    } else {
+                        deferred.reject(event.message);
+                    }},
+                    {escape: false});
+                return deferred.promise();
+            };
+
+            factory.saveGroup = function (wrapperGroup, currentUrl){
+                var deferred = new $.Deferred();
+                apexCtrl.saveGroup(wrapperGroup, currentUrl,function(result, event){
+                    if (event.status){
+                        deferred.resolve(result);
+                    } else {
+                        deferred.reject(event.message);
+                    }
+                }, {escape: false});
+                return deferred.promise();
+            };
+
+            return factory;
+
+        })(window.TextGroupExt ? TextGroupExt : Loop.TextGroupExt);
+
+        var CGView = (function(CGRemote, $, window, document) {
+            var factory = {};
+            var namespace = window.Loop ? 'Loop__' : '';
+
+            var addDdpOptions = function ($elem, selectedDdp) {
+                var error = '';
+                var ddps = window.UTILS.wrapperGroup.groupDdps;
+                var ddpIds = Object.keys(ddps).sort(function(x, y) {var v1 = ddps[x]; var v2 = ddps[y]; return v1.Name < v2.Name ? -1 : v1.Name > v2.Name ? 1 : 0; });
+                for(var i = 0 ; i < ddpIds.length ; i++){
+                    var ddpId = ddpIds[i];
+                    $elem.append($('<option />')
+                        .text($('<div/>').html(ddps[ddpId].ddpName).text())
+                        .val(ddpId));
+                }
+
+                if (selectedDdp && selectedDdp != 'None') {
+                    var allDdps = window.UTILS.wrapperGroup.allDdps;
+                    if (!(selectedDdp in ddps) && selectedDdp in allDdps) {
+                        $elem.append($('<option />')
+                            .text($('<div/>').html(allDdps[selectedDdp].ddpName).text())
+                            .val(selectedDdp));
+                        var badLists = $elem.closest('td').siblings().children('.slds-form-element:lt(1)');
+                        badLists.push($elem.closest('td').children('.slds-form-element')[0]);
+                        badLists.addClass('slds-has-error');
+
+                        error = factory.filterErrorMessage(allDdps[selectedDdp].ddpName);
+                    }
+
+                    $elem.val(selectedDdp);
+                }
+
+                return error;
+            }
+
+            var addObjectOptions = function($elem, ddpId) {
+                var ddp;
+                if (ddpId in window.UTILS.wrapperGroup.allDdps) {
+                    ddp = window.UTILS.wrapperGroup.allDdps[ddpId];
+                } else {
+                    ddp = window.UTILS.wrapperGroup.allDdps['None'];
+                }
+
+                var deferred = new $.Deferred();
+                if (ddp.objectsAndFields) {
+                    deferred.resolve();
+                } else {
+                    $elem.prop('disabled', true);
+                    CGRemote.getDdpFilterData(ddpId).done(function(objectsAndFields) {
+                        ddp.objectsAndFields = objectsAndFields;
+                        Object.keys(objectsAndFields).forEach(function(object){
+                            window.UTILS.mapOF[object] = objectsAndFields[object];
+                        });
+                        deferred.resolve();
+                    });
+                }
+                deferred.done(function() {
+                    var relTitlesSorted = Object.keys(ddp.objectsAndFields);
+                    relTitlesSorted.sort();
+                    for (var i = 0; i < relTitlesSorted.length; i++) {
+                        var relTitle = ddp.objectsAndFields[relTitlesSorted[i]];
+                        $elem.append($('<option />').text($('<div/>').html(relTitle.objectLabel).text()).val(relTitlesSorted[i]));
+                    }
+                    $elem.prop('disabled', false);
+                });
+            }
+
+            var addFieldOptions = function ($elem, objectAlias) {
+                var objectFieldMap = window.UTILS.mapOF[objectAlias].fieldsAndTags;
+                if (objectFieldMap) {
+                    var objectFields = Object.keys(objectFieldMap).sort();
+                    for (var i = 0; i < objectFields.length; i++){
+                        var objectField = objectFields[i];
+                        $elem.append($('<option />')
+                            .text($('<div/>').html(objectFieldMap[objectField].fieldLabel).text())
+                            .val(objectField));
+                    }
+                }
+            }
+
+            var clauseSearch = function (maxClauses){
+                $('#clauseSearchSpinner').removeClass('hidden');
+                var selectedClauseIds = [];
+                $.each($('#nestable2 .dd-list .dd-item'), function(i, selectedClause) {
+                    selectedClauseIds.push(selectedClause.id);
+                });
+                $('#nestable ol').remove();
+                CGRemote.searchClauses($('#clauseSearch').val(), selectedClauseIds, maxClauses).done(function (clauses) {
+                    var $clauseGroup =  $(window.UTILS.clauseGroupHTML);
+                    for (var i = 0 ; i < clauses.length ; i++){
+                        $clauseGroup.append(window.UTILS.setupItemClause(false,clauses[i]));
+                    }
+                    $('#nestable').prepend($clauseGroup);
+                    $('#clauseSearchSpinner').addClass('hidden');
+                    $('#nestable2').data('nestable').el.trigger('change');
+                    if (clauses.length >= maxClauses) {
+                        $('#searchLimitExceeded').removeClass('hidden');
+                    } else {
+                        $('#searchLimitExceeded').addClass('hidden');
+                    }
+                }).fail(function(error){
+                    window.UTILS.handleMSG('slds-theme--error',error);
+                    $saveButtons.removeAttr('disabled');
+                });
+            };
+
+            //Name : handleDragAndDropSpace
+            //Note : function which recalculate the height of the empty drag area
+            //       if the first element .dd-list within the container is too tall we define a default height equals 200px
+            factory.handleDragAndDropSpace = function (){
+                // for nestable
+                var $nestable  =  $('#nestable');
+                var height_list =  ( $nestable.find('.dd-list').length > 0 ) ? $nestable.find('.dd-list').first().height() : 0 ;
+                var dragArea = {};
+                if ($nestable.find('.drag').length == 0 ){
+                    dragArea = $(window.UTILS.noClausesSelectedBoxHTML);
+                } else {
+                    dragArea = $nestable.find('.drag').last();
+                }
+                var height_drag  = $nestable.height() - height_list -  10;
+                if (height_drag<20){
+                    height_drag = 200;
+                }
+                dragArea.css('height',height_drag);
+                dragArea.find('.drag-text').css('margin-top',(height_drag/2)-5);
+                $nestable.append(dragArea);
+
+
+
+                // for nestable2
+                var $nestable2  =  $('#nestable2');
+                height_list =  ( $nestable2.find('.dd-list').length > 0 ) ? $nestable2.find('.dd-list').first().height() : 0 ;
+                dragArea  = {};
+                if ($nestable2.find('.drag').length == 0 ){
+                    dragArea = $(window.UTILS.noClausesSelectedBoxHTML);
+                } else {
+                    dragArea = $nestable2.find('.drag').last();
+                }
+                var height_drag  = $nestable2.height() - height_list;
+                if (height_drag<20){
+                    height_drag = 200;
+                }
+                dragArea.css('height',height_drag);
+                dragArea.find('.drag-text').css('margin-top',(height_drag/2)-5);
+                $nestable2.append(dragArea);
+            }
+
+
+            //Name : factory.activeRemoveClause
+            //Note : add event to the arrow for remove clause in the selected clauses section
+            //       each .dd-item has a arrow which remove the selected clause and append it to the unselected clauses section
+            factory.activeRemoveClause = function (){
+                $(document).on('click','.removeClause',function(){
+                    var $elem = $(this);
+                    var $clauseElement  = $($elem.parents('.dd-item')[0]);
+                    var onClause  = $clauseElement.data('clause');
+                    var $elemToRemove = $('#'+onClause.clauseId);
+                    // get nested .dd-list (nested clauses within .dd-list)
+                    var $levels = $elemToRemove.children('.dd-list');
+                    var $childrenClauses = '';
+                    //  if there is children .dd-list, get them
+                    if ($levels.length > 0){
+                        $childrenClauses = $levels.first().contents();
+                    }
+                    // append the children element after which we want to remove
+                    $elemToRemove.after($childrenClauses);
+                    $elemToRemove.remove();
+
+                    // now we need to create a new .dd-item element , because the .data() info was removed when we remove the element from the dom
+                    // this new element .dd-item  is which we will add in the uselected clauses section with the removed .data() info about the clause
+                    var $newElem = window.UTILS.setupItemClause(false,onClause);
+
+                    // chech if in the unselected clauses section there isn't clauses, if there isn't , we need to  create a .dd-list element to warapp the .dd-item
+                    var $list = {};
+                    if ($('#nestable').find('.dd-list').length > 0 ){
+                        $('#nestable').find('.dd-list').first().prepend($newElem);
+                    }else{
+                        $list = $(window.UTILS.clauseGroupHTML);
+                        $list.append($newElem);
+                        // prepend the element before the .drag section
+                        $('#nestable').prepend($list);
+                    }
+
+                    // trigger the change event on the unselected clauses, that way we force to reorder the .dd-items by Name
+                    $('#nestable').data('nestable').el.trigger('change');
+                });
+            }
+
+            factory.activeCloseModal  =  function (){
+                $('.slds-modal__close , .slds-button-cancel-modal').on('click',function(){
+                    $('#modalSFDC').removeClass(window.UTILS.sldsFadeInOpen_Class);
+                    $('#modalSFDC_background').removeClass(window.UTILS.sldsModalBackdropOpen_Class);
+                });
+            }
+
+            factory.activeCloseModalCC  =  function (){
+                $('.slds-modal__close , .slds-button-cancel-modal').on('click',function(){
+                    $('#createClauseModal').removeClass(window.UTILS.sldsFadeInOpen_Class);
+                    $('#createClauseModal_background').removeClass(window.UTILS.sldsModalBackdropOpen_Class);
+                });
+            }
+
+            factory.setupModalFromContainer  =  function (containerSelector){
+                  // on gears
+                if (containerSelector == '#nestable'){
+                    $(containerSelector+' .gear').on('click',function(){
+                        var $elem   =  $(this);
+                        var clauseId =  $elem.data('clauseId');
+                        $('#removeClause').hide();
+                    });
+                }
+            }
+
+            factory.activeCancelGroup = function (){
+                $('.cancel-Group').on('click',function(){
+                    if (history.length >0){
+                        history.back();
+                    }else{
+                        cancelJS();
+                    }
+                });
+            }
+
+            factory.activeOnChangeDragAndDrop = function (){
+                $('.dd').on('change', function() {
+                    factory.handleDragAndDropSpace();
+                });
+            }
+
+            factory.activeCloneGroup = function (){
+                $('.clone-Group').on('click', function(){
+                    window.UTILS.wrapperGroup.onGroup.id = null;
+                    $('#groupName').val($('#groupName').val()+'--Clone');
+                    $('.clone-Group').hide('Create');
+
+                    var $modalBody = jQuery('#modalBody');
+                    $modalBody.empty();
+
+                    $('#nestable2 .dd-item').each(function(i, el){
+                        var $clauseElem = jQuery(this);
+                        var clause = $clauseElem.data('clause');
+
+                        $filterCriteriaSection = jQuery(window.UTILS.filterCriteriaHTML);
+                        var $filterTable = $(window.UTILS.filterTableHTML.replace('{DocumentPackageLabel}', '{!$ObjectType.DDP_Text_Group__c.fields.DDP__c.label}'));
+                        $filterCriteriaSection.append($filterTable);
+
+                        if (clause.fc && (clause.fc.length > 0)){
+                            for(var i = 0 ; i < clause.fc.length ; i++){
+                                var filter = clause.fc[i];
+                                var $filter = jQuery(window.UTILS.filterTableRowHTML);
+                                $filter.attr('id', i);
+                                $filter.find('.filter-count').text(i + 1);
+                                addDdpOptions($filter.find('.select-ddp'), filter.ddpId || '');
+                                addObjectOptions($filter.find('.select-object'), filter.ddpId);
+                                $filter.find('.select-field').removeAttr('disabled');
+                                $filter.find('.select-object').val(filter.objectName || '');
+                                addFieldOptions( $filter.find('.select-field') , filter.objectName);
+                                $filter.find('.select-field').removeAttr('disabled');
+                                $filter.find('.select-field').val(filter.fieldName || '');
+                                $filter.find('.select-operator').val(filter.operator || '');
+                                $filter.find('.operand2').val(filter.value || '');
+
+                                var $allRows = $filterTable.find('tr');
+                                $allRows.last().after($filter);
+                            }
+                        }
+                        else {
+                            $filterCriteriaSection.append(window.UTILS.nofiltersSpeaceSection);
+                        }
+
+                        var $advancedFilterSection = '';
+                        if (clause.fc.length >= 2){
+                            $advancedFilterSection =  jQuery(window.UTILS.advancedFilterHTML);
+                            $advancedFilterSection.find('.filter-advanced-input').val(clause.clauseAdvancedFilterConditions || '');
+                            $filterCriteriaSection.append($advancedFilterSection);
+                        }
+
+                        $modalBody.append($filterCriteriaSection);
+                        var $filterElements = $($modalBody.find('#filter-table').find('tr.filter-row'));
+                        var $advancedFilterElement = $modalBody.find('.filter-advanced-input');
+                        var advancedFilter = $advancedFilterElement.val() || '' ;
+                        advancedFilter = advancedFilter.replace(/ /g,'');
+                        advancedFilter = advancedFilter.toUpperCase();
+                        clause.conditionJSON = window.UTILS.generateFilterJSON($filterElements,advancedFilter);
+
+                        $modalBody.empty();
+                    });
+                });
+            }
+
+            factory.activeSaveBtnAction = function(Sobject,fieldSelectElem){
+                $('.save-Group, .quicksave-Group').on('click', function(){
+                    var $saveButtons = $('.save-Group, .quicksave-Group');
+                    $saveButtons.attr('disabled', 'disabled');
+                    var $elem = $(this);
+                    if ($elem.hasClass('quicksave-Group')){
+                        window.UTILS.isQuickSave = true;
+                    }
+                    window.UTILS.wrapperGroup.onGroup.Name = $('#groupName').val();
+                    window.UTILS.wrapperGroup.onGroup.Description__c = $('#groupDescription').val();
+
+                    var $modalBody = jQuery('#modalBody');
+                    $modalBody.empty();
+
+                    $('#nestable2 .dd-item').each(function(i, el){
+                        var $clauseElem = jQuery(this);
+                        var clause = $clauseElem.data('clause');
+
+                        $filterCriteriaSection = jQuery(window.UTILS.filterCriteriaHTML);
+                        var $filterTable = $(window.UTILS.filterTableHTML.replace('{DocumentPackageLabel}', '{!$ObjectType.DDP_Text_Group__c.fields.DDP__c.label}'));
+                        $filterCriteriaSection.append($filterTable);
+
+                        var numberedFcs = {};
+                        clause.fc.forEach(function(filter) {
+                            numberedFcs[filter.filterNum] = filter;
+                        })
+                        if (clause.fc && (clause.fc.length > 0)){
+                            for(var i = 0 ; i < clause.fc.length ; i++){
+                                var filter = numberedFcs[i + 1];
+                                var $filter = jQuery(window.UTILS.filterTableRowHTML);
+                                $filter.attr('id', i + 1);
+                                $filter.find('.filter-count').text(i + 1);
+                                var error = addDdpOptions($filter.find('.select-ddp'), filter.ddpId || '');
+                                addObjectOptions($filter.find('.select-object'), filter.ddpId);
+                                $filter.find('.select-object').removeAttr('disabled');
+                                $filter.find('.select-object').val(filter.objectName || '');
+                                addFieldOptions( $filter.find('.select-field') , filter.objectName);
+                                $filter.find('.select-field').removeAttr('disabled');
+                                $filter.find('.select-field').val(filter.fieldName || '');
+                                $filter.find('.select-operator').val(filter.operator || '');
+                                $filter.find('.operand2').val(filter.value || '');
+
+                                var $allRows = $filterTable.find('tr');
+                                $allRows.last().after($filter);
+
+                                if (error) {
+                                    $filter.after(window.UTILS.filterTableRowErrorHTML.replace('{error}', error));
+                                }
+                            }
+                        }
+                        else {
+                            $filterCriteriaSection.append(window.UTILS.nofiltersSpeaceSection);
+                        }
+
+                        var $advancedFilterSection = '';
+                        if (clause.fc.length >= 2){
+                            $advancedFilterSection =  jQuery(window.UTILS.advancedFilterHTML);
+                            $advancedFilterSection.find('.filter-advanced-input').val(clause.clauseAdvancedFilterConditions || '');
+                            $filterCriteriaSection.append($advancedFilterSection);
+                        }
+
+                        $modalBody.append($filterCriteriaSection);
+                        var $filterElements = $($modalBody.find('#filter-table').find('tr.filter-row'));
+                        var $advancedFilterElement = $modalBody.find('.filter-advanced-input');
+                        var advancedFilter = $advancedFilterElement.val() || '';
+                        advancedFilter = advancedFilter.replace(/ /g,'');
+                        advancedFilter = advancedFilter.toUpperCase();
+                        clause.conditionJSON = window.UTILS.generateFilterJSON($filterElements,advancedFilter);
+                        $modalBody.empty();
+                    });
+
+
+                    var selectedClauses = [];
+                    $('#nestable2 .dd-item').each(function(){
+                        var $clauseElem = $(this);
+                        selectedClauses.push($clauseElem.data('clause'));
+                    });
+                    window.UTILS.wrapperGroup.selectedClauses = selectedClauses;
+                    var wrapperGroup = {
+                        onGroup:{
+                            id : window.UTILS.wrapperGroup.onGroup.id,
+                            Name : window.UTILS.wrapperGroup.onGroup.Name
+                        },
+                        selectedClasues : window.UTILS.wrapperGroup.selectedClauses
+                    }
+                    wrapperGroup['onGroup'][namespace + 'Description__c'] = window.UTILS.wrapperGroup.onGroup.Description__c;
+
+                    var wrapperString = JSON.stringify(wrapperGroup);
+                    CGRemote.saveGroup(wrapperString, document.location.href).done(function(data){
+                        window.UTILS.handleMSG('slds-theme--success','Group Saved.');
+                        setTimeout(function() {
+                            if (window.UTILS.isQuickSave) {
+                                window.location.reload();
+                            } else {
+                                $saveButtons.removeAttr('disabled');
+                                if (data) {
+                                    document.location=data;
+                                } else {
+                                    history.back();
+                                }
+                            }
+                        }, 1000);
+                    }).fail(function(error){
+                        window.UTILS.handleMSG('slds-theme--error',error);
+                        $saveButtons.removeAttr('disabled');
+                    });
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                });
+            }
+
+            factory.setGroupDdps = function(allDdps, groupDdps) {
+                window.UTILS.wrapperGroup['allDdps'] = allDdps;
+                var relatedDdps = {};
+                for (var i = 0; i < groupDdps.length; i++) {
+                    relatedDdps[groupDdps[i]] = allDdps[groupDdps[i]];
+                }
+                window.UTILS.wrapperGroup['groupDdps'] = relatedDdps;
+            }
+
+            factory.setDdpObjects = function(ddpObjects) {
+                window.UTILS.wrapperGroup['ddpObjects'] = ddpObjects;
+            }
+
+            factory.setObjectFields = function(ddpObjTag) {
+                for (var ddp in ddpObjTag) {
+                    for (var obj in ddpObjTag[ddp].objectsAndFields) {
+                        window.UTILS.mapOF[obj] = ddpObjTag[ddp].objectsAndFields[obj];
+                    }
+                }
+            }
+
+            factory.setObjectLabels = function(objectLabels) {
+                window.UTILS.wrapperGroup['objectLabels'] = window.UTILS.mapOF;
+            }
+
+            factory.activeDependentPicklist = function () {
+                // Update Objects List
+                $(document).on('change', '.select-ddp', function() {
+                    var $elem = $(this);
+
+                    var clause = $('#modalBody').data('clause');
+                    var parentIdElement = $($elem.parents('tr')[0]).attr('id');
+                    var $ddpSelect = $('#' + parentIdElement + ' .select-ddp');
+                    var $objectSelect = $('#' + parentIdElement + ' .select-object');
+                    var $fieldSelect = $('#' + parentIdElement + ' .select-field');
+                    var $operatorSelect = $('#' + parentIdElement + ' .select-operator');
+                    var $valueInput = $('#' + parentIdElement + ' .filter-compare-to-input');
+
+                    $objectSelect.removeAttr('disabled');
+                    $objectSelect.empty();
+                    $objectSelect.append('<option value="None">--None--</option>');
+                    addObjectOptions($objectSelect, $elem.val());
+                    $fieldSelect.empty();
+                    $fieldSelect.append('<option value="None">--None--</option>');
+                    $fieldSelect.attr('disabled','disabled');
+                    $operatorSelect.attr('disabled','disabled');
+                    $valueInput.attr('disabled','disabled');
+
+                    // Update error
+                    if ($elem.val() in window.UTILS.wrapperGroup.groupDdps || $elem.val() == 'None') {
+                        $ddpSelect.closest('div.slds-form-element').removeClass('slds-has-error');
+                        $objectSelect.closest('div.slds-form-element').removeClass('slds-has-error');
+                        $fieldSelect.closest('div.slds-form-element').removeClass('slds-has-error');
+                        var errorRow = $elem.parents('tr').next('.filter-error');
+                        if (errorRow) errorRow.remove();
+                    } else if ($elem.val() in window.UTILS.wrapperGroup.allDdps) {
+                        $ddpSelect.closest('div.slds-form-element').addClass('slds-has-error');
+                        $objectSelect.closest('div.slds-form-element').addClass('slds-has-error');
+                        var ddpName = window.UTILS.wrapperGroup.allDdps[$elem.val()].ddpName;
+                        $elem.closest('tr').after(window.UTILS.filterTableRowErrorHTML.replace('{error}', factory.filterErrorMessage(ddpName)));
+                    }
+                });
+
+                // Update Fields List
+                $(document).on('change', '.select-object', function() {
+                    var $elem = $(this);
+
+                    var clause = $('#modalBody').data('clause');
+                    var parentIdElement = $($elem.parents('tr')[0]).attr('id');
+                    var $fieldSelect = $('#' + parentIdElement + ' .select-field');
+                    var $operatorSelect = $('#' + parentIdElement + ' .select-operator');
+                    var $valueInput = $('#' + parentIdElement + ' .filter-compare-to-input');
+
+                    if ($elem.val() == 'None') {
+                        $fieldSelect.attr('disabled','');
+                        $operatorSelect.attr('disabled','');
+                        $valueInput.attr('disabled','');
+                        $fieldSelect.empty();
+                        $fieldSelect.append('<option value="None">--None--</option>');
+                    } else {
+                        $fieldSelect.removeAttr('disabled');
+                        $operatorSelect.removeAttr('disabled');
+                        $valueInput.removeAttr('disabled');
+                        $fieldSelect.empty();
+                        addFieldOptions($fieldSelect, $elem.val());
+                    }
+                });
+            }
+
+            factory.activeRecalculateSelectedClauseOrders = function(){
+                $('#nestable2').on('change',function(e){
+                    $(this).find('.dd-item').each(function(order,elem){
+                        var $clauseElem =  $(this);
+                        var clauseData  = $clauseElem.data('clause');
+                        clauseData.clauseOrder = order;
+                        var numberOfLavels = $clauseElem.parents('.dd-item').length + 1;
+                        clauseData.clauseLevel    = numberOfLavels.toString();
+                        clauseData.clauseLevelInt = numberOfLavels;
+                    });
+                    if ( $(this).find('.dd-item').length == 0 ){
+                        $('#nestable2').empty();
+                        $('#nestable2').append(window.UTILS.noClausesSelectedBoxHTML);
+                    }
+                });
+            }
+
+            factory.activeRecalculateOnSave = function(){
+                $('#nestable2').find('.dd-item').each(function(order,elem){
+                    console.log('recalculate on save');
+                    var $clauseElem =  $(this);
+                    var clauseData  = $clauseElem.data('clause');
+                    clauseData.clauseOrder = order;
+                    var numberOfLavels = $clauseElem.parents('.dd-item').length + 1;
+                    clauseData.clauseLevel    = numberOfLavels.toString();
+                    clauseData.clauseLevelInt = numberOfLavels;
+                });
+                if ( $(this).find('.dd-item').length == 0 ){
+                    $('#nestable2').empty();
+                    $('#nestable2').append(window.UTILS.noClausesSelectedBoxHTML);
+                }
+            }
+
+            factory.activeReorderClausesItems = function(){
+                $('#nestable').on('change',function(e){
+                    window.UTILS.sortClauses('#nestable');
+                });
+            }
+
+            factory.activeCreateClauseModal = function(){
+                $('#createClauseButton').on('click',function(){
+                    $('#newClauseName').val('');
+                    $('#newClauseBody').val('');
+                    $('#clauseModal_background').addClass(window.UTILS.sldsModalBackdropOpen_Class);
+                    $('#clauseModal').addClass(window.UTILS.sldsFadeInOpen_Class);
+                    if (CKEDITOR.instances['newClauseBody']){
+                        CKEDITOR.instances['newClauseBody'].destroy();
+                    }
+                    CKEDITOR.replace('newClauseBody', {toolbar : 'componentLibrary'});
+                });
+            };
+
+            factory.activeGearModal = function (){
+                $(document).on('click','.gear',function(){
+                    var $gearElem = $(this);
+                    var clause = $($gearElem.parents('.dd-item')[0]).data('clause');
+                    var $modalBody = $('#modalBody');
+
+                    $('#modalSFDC').find('.modal-title').text(clause.clauseName);
+                    $modalBody.data('clause',clause);
+                    $modalBody.empty();
+
+                    if (!clause.clauseBody) {clause.clauseBody = '';}
+
+                    var $clauseFieldSection = $(window.UTILS.clauseFieldsHTML);
+                    var bodyClasueId = 'body'+clause.clauseId
+                    $clauseFieldSection.find('.clause-body-input').attr('id', bodyClasueId);
+
+                    $clauseFieldSection.find('#'+bodyClasueId).val(clause.clauseBody);
+
+                    if ($gearElem.parents('#nestable2').length != 0){
+                    $filterCriteriaSection = $(window.UTILS.filterCriteriaHTML);
+                    var ddps = Object.keys(window.UTILS.wrapperGroup.groupDdps);
+                    if (clause.fc && (clause.fc.length > 0)) {
+                        var $filterTable = $(window.UTILS.filterTableHTML.replace('{DocumentPackageLabel}', '{!$ObjectType.DDP_Text_Group__c.fields.DDP__c.label}'));
+                        $filterCriteriaSection.append($filterTable);
+                        var numberedFcs = {};
+                        clause.fc.forEach(function(filter) {
+                            numberedFcs[filter.filterNum] = filter;
+                        })
+                        for(var i = 0 ; i < clause.fc.length ; i++){
+                            var filter = numberedFcs[i + 1];
+                            var $filter = $(window.UTILS.filterTableRowHTML);
+                            $filter.attr('id', i + 1);
+                            $filter.find('.filter-count').text(i + 1);
+
+                            if (ddps.length == 0 && filter.ddpId == 'None') {
+                                $filter.find('.select-ddp').attr('disabled', 'disabled');
+                            }
+
+                            var error = addDdpOptions($filter.find('.select-ddp'), filter.ddpId || '');
+                            addObjectOptions($filter.find('.select-object'), filter.ddpId);
+                            addFieldOptions($filter.find('.select-field') , filter.objectName);
+
+                            $filter.find('.select-object').val(filter.objectName || '');
+                            $filter.find('.select-field').removeAttr('disabled');
+                            $filter.find('.select-field').val(filter.fieldName || '');
+                            $filter.find('.select-operator').val(filter.operator || '');
+                            $filter.find('.operand2').val(filter.value || '');
+
+                            var $lastRow = $filterTable.find('tr:last');
+                            $lastRow.after($filter);
+
+                            if (error) {
+                                $filter.after(window.UTILS.filterTableRowErrorHTML.replace('{error}', error));
+                            }
+                        }
+                    } else {
+                        $filterCriteriaSection.append(window.UTILS.nofiltersSpeaceSection);
+                    }
+
+                    var $filterTaggerBtnSection =  $(window.UTILS.filterTaggerHTML);
+                    $filterCriteriaSection.append($filterTaggerBtnSection);
+                    var $advancedFilterSection = '';
+                    if (clause.fc.length >= 2){
+                        $advancedFilterSection =  $(window.UTILS.advancedFilterHTML);
+                        $advancedFilterSection.find('.filter-advanced-input').val(clause.clauseAdvancedFilterConditions || '');
+                        $filterCriteriaSection.append($advancedFilterSection);
+                    }
+                    $modalBody.append($filterCriteriaSection);
+
+                    var $bodyModal = $('#modalBody');
+                    var $filterElements = $($bodyModal.find('#filter-table').find('tr.filter-row'));
+                    var $advancedFilterElement = $bodyModal.find('.filter-advanced-input');
+                    var advancedFilter = $advancedFilterElement.val() || '' ;
+                    advancedFilter = advancedFilter.replace(/ /g,'');
+                    advancedFilter = advancedFilter.toUpperCase();
+                    clause.conditionJSON = window.UTILS.generateFilterJSON($filterElements, advancedFilter);
+
+                    $('#removeClause').show();
+                    $('#storageFilters').show();
+                    $('#cancelModal').show();
+                    }
+
+                    if ($gearElem.parents('#nestable').length != 0){
+                    $('#removeClause').hide();
+                    $('#storageFilters').hide();
+                    $('#cancelModal').hide();
+                    options = { on: {
+                        instanceReady: function() {
+                          this.setReadOnly(true);
+                        }
+                    }};
+                    $clauseFieldSection.append('<div class="clause-body-container">'+clause.clauseBody+'</div>');
+                    }
+
+
+                    $modalBody.append($clauseFieldSection);
+
+                    if ($gearElem.parents('#nestable2').length != 0){
+                        CKEDITOR.config.allowedContent = true;
+                        window.UTILS.ckeditorInstance = CKEDITOR.replace(bodyClasueId, {toolbar : 'componentLibrary'});
+                    }
+
+                    factory.activeAddFilter();
+
+                    $('#modalSFDC_background').addClass(window.UTILS.sldsModalBackdropOpen_Class);
+                    $('#modalSFDC').addClass(window.UTILS.sldsFadeInOpen_Class);
+                });
+            }
+
+
+            factory.activeAddFilter = function (){
+                $('.addFilter').on('click',function(){
+                    $('#noFilterCriteria').remove();
+                    var $newFilter = $(window.UTILS.filterTableRowHTML);
+                    $newFilter.find('.select-operator').attr('disabled','');
+                    $newFilter.find('.filter-compare-to-input').attr('disabled','');
+
+                    var $filterRows = $('#filter-table').find('tr.filter-row');
+                    if ($filterRows.length > 0) {
+                        $newFilter.find('.filter-count').text($filterRows.length + 1);
+                        if ($filterRows.length > 9) {
+                            $newFilter.find('.filter-count').removeClass('slds-p-horizontal--xx-small');
+                        }
+                        $newFilter.attr('id', $filterRows.length + 1);
+                        $('#filter-table').find('tr').last().after($newFilter);
+                    } else {
+                        $filterCriteriaSection = $(window.UTILS.filterCriteriaHTML);
+                        $filterTable = $(window.UTILS.filterTableHTML.replace('{DocumentPackageLabel}', '{!$ObjectType.DDP_Text_Group__c.fields.DDP__c.label}'));
+                        $filterCriteriaSection.append($filterTable);
+                        $('#filterCriteriaContainer').prepend($filterCriteriaSection);
+
+                        $newFilter.attr('id','1');
+                        $newFilter.find('.filter-count').text(1);
+                        $('#filter-table').find('tr').last().after($newFilter);
+                    }
+                    addDdpOptions($newFilter.find('.select-ddp'), 'None');
+                    addObjectOptions($newFilter.find('.select-object'), 'None');
+                    $newFilter.find('.select-field').attr('disabled', 'disabled');
+
+                    if ($filterRows.length == 1) {
+                        $advancedFilterSection =  $(window.UTILS.advancedFilterHTML);
+                        $('#filterCriteriaContainer').append($advancedFilterSection);
+                    }
+                });
+            }
+
+            factory.activeStageFilters = function (){
+
+                $('#storageFilters').on('click',function(){
+                    var O_OR = 'OR';
+                    var O_AND = 'AND';
+                    var $bodyModal = $('#modalBody');
+                    var clause =  $bodyModal.data('clause');
+                    var $filterElements = $($bodyModal.find('#filter-table').find('tr.filter-row'));
+                    var $advancedFilterElement = $bodyModal.find('.filter-advanced-input');
+                    var advancedFilter = $advancedFilterElement.val() || '' ;
+                    advancedFilter = advancedFilter.replace(/ /g,'');
+                    advancedFilter = advancedFilter.toUpperCase();
+                    var filterJSONString = window.UTILS.generateFilterJSON($filterElements,advancedFilter);
+                    // object reference, we do not need to assign it to any new object or old clasue object in the li item
+                    clause.fc = [];
+                    var counterFilterError = 0;
+                    var filterError = false;
+                    $filterElements.each(function(iter, elem) {
+                    counterFilterError++;
+                    var $elem = $(this);
+                    if (!$elem.find('.select-field').attr('disabled')) {
+                        var id  = $elem.attr('id');
+                        clause.fc.push({
+                            fieldName:  $elem.find('.select-field').val(),
+                            filterNum:  id,
+                            ddpId: $elem.find('.select-ddp').val(),
+                            objectName: $elem.find('.select-object').val(),
+                            operator:   $elem.find('.select-operator').val(),
+                            value:      $elem.find('.filter-compare-to-input').val()
+                        });
+                    }
+                    else {
+                        window.UTILS.handleMSG('slds-theme--error','Object in filter '+ counterFilterError +' can not be --None--');
+                        filterError = true;
+                    }
+                    });
+
+                    if (filterJSONString == 'Error') {
+                        return;
+                    }
+
+                    clause.conditionJSON = filterJSONString;
+                    clause.clauseAdvancedFilterConditions =  advancedFilter;
+
+                    if (filterError){
+                        return;
+                    }
+
+                    var clauseBodyIdElement = 'body'+clause.clauseId;
+                    var editorInstance = CKEDITOR.instances[clauseBodyIdElement];
+                    clause.clauseBody = editorInstance.getData();
+
+                    window.UTILS.closeModal('modalSFDC');
+                });
+            }
+
+            //Name : factory.activeCreateClause
+            //Note : add on click event in the #createClause btn. This event will create a new clause record to create.
+            factory.activeCreateClause = function (){
+                $('#createClause').on('click',function(){
+                    //disable createClause button
+                    $('#createClause').attr('disabled', 'disabled');
+                    // get the editor instance for the #newClauseBody text area element
+                    var editorInstance = CKEDITOR.instances['newClauseBody'];
+                    // get the fields data
+                    var clauseName = $('#newClauseName').val();
+                    var clauseBody = editorInstance.getData();
+
+                    // get the related Clause Group
+                    var onGroupId  = window.UTILS.wrapperGroup.onGroup.id;
+
+                    // Call apex remote
+                    CGRemote.createClause(onGroupId, clauseName , clauseBody).done(function(data){
+                        data.isCreated =  true;
+                        // On success call
+                        // Enable createClause button
+                        $('#createClause').removeAttr('disabled');
+                        // create a new .dd-item
+                        var $clauseItem = window.UTILS.setupItemClause(true , data);
+                        // create a new .dd-list
+                        var itemsGroup = $(window.UTILS.clauseGroupHTML);
+                        // check if #nestable2 has .dd-list
+                        if ($('#nestable2').children('.dd-list').length > 0){
+                            // if there is a .dd-list child , then we append the new .dd-item to the bottom of the .dd-item
+                            $('#nestable2').children('.dd-list').first().append($clauseItem);
+                        } else {
+                            // if there isn't we need to create a new .dd-list element to wrapp the .dd-item elements
+                            // and we use the .dd-list element created before
+                            itemsGroup.append($clauseItem);
+                            // and append the .dd-list before the drag area
+                            $('#nestable2').prepend(itemsGroup);
+                        }
+
+                        // trigger the change event on the selected clause section,
+                        // that way we force to set the order data in the asociated .data('clasue') object for each .dd-item element
+                        $('#nestable2').data('nestable').el.trigger('change');
+
+                        // once we finish , we need to destroy the instance of CKEDITOR for #newClauseBody text area element
+                        var editorInstance = CKEDITOR.instances['newClauseBody'];
+                        editorInstance.destroy();
+
+                        // close modal
+                        window.UTILS.closeModal('clauseModal');
+
+                        $('#newClauseBody').text('');
+                    }).fail(function(error){
+                        // Enable createClause button
+                        $('#createClause').removeAttr('disabled');
+                        window.UTILS.handleMSG('slds-theme--error',error);
+                    });
+                });
+            }
+
+            factory.activeTaggerURL = function () {
+                $(document).on('click', '.fieldTagger', function() {
+                    var url = $('#taggerURL').text();
+                    if (Object.keys(window.UTILS.wrapperGroup.groupDdps).length > 1) {
+                        url += '?textgroup=true&textgroupid=' + window.UTILS.wrapperGroup.onGroup.id;
+                    } else if (Object.keys(window.UTILS.wrapperGroup.groupDdps).length == 1) {
+                        url += '?id=' + Object.keys(window.UTILS.wrapperGroup.groupDdps)[0];
+                    } else {
+                        url += '?textgroup=true';
+                    }
+                    window.open(url, 'Tagger','left=20,top=20,width=1000,height=700,toolbar=1,resizable=0,scrollbars=1');
+                });
+            }
+
+            factory.activeRemoveFilterAction = function (){
+                $(document).on('click','.remove-filter',function(){
+                    var $elem = $(this);
+                    var $parent = $($elem.parents('tr')[0]);
+                    var clause = $('#modalBody').data('clause');
+
+                    if ($parent && clause) {
+                        var filterId = $parent.attr('id');
+                        var filterRow = $('#'+filterId)
+                        if (filterRow.next().attr('class') == 'filter-error') {
+                            filterRow.next().remove();
+                        }
+                        filterRow.remove();
+                        var $filterRows = $('#filter-table').find('tr.filter-row');
+                        $filterRows.each(function(index, elem) {
+                            var $elem = $(this);
+                            $elem.attr('id', index + 1);
+                            $elem.find('.filter-count').text(index + 1);
+                        });
+                        if ($filterRows.length == 0) {
+                            $('#filterCriteriaContainer').prepend(window.UTILS.nofiltersSpeaceSection);
+                             $('.conditionFilters-container').remove();
+                        }
+                        if ($filterRows.length == 1) {
+                            $('#filterCriteriaContainer').find('.advancedFilter-container').remove();
+                        }
+                        if ($('.filter-item').length > 0) {
+                            $('.filter-item').first().find('.field-label').css('display','initial');
+                            $('.conditionFilters-container').first().find('.icon-section').css('margin-top','37px');
+                        }
+                    }
+                });
+            }
+
+            //Name : factory.activeTooltip
+            factory.activeTooltip = function (){
+                $(document).on('mouseover','.clause-title',function(){
+                    var $elem = $(this);
+                    if ($elem.parents('.dd-item').first().find('.slds-popover').length == 0) {
+                        var html = '<div class="slds-popover slds-nubbin--top-left slds-hide" role="dialog" style="max-width: none;"><div class="slds-popover__body "></div></div>';
+                        var $popover = $(html);
+                        var nametext = $elem.parents('.dd-item').first().data('clause').clauseName;
+                        var  $span = $('<div></div>');
+                        $span.text(nametext);
+                        var bodytext = $elem.parents('.dd-item').first().data('clause').clauseBody.substring(0,150);
+                        if ((bodytext != null) && (bodytext != '')){
+                            $span.append('<br>');
+                            $span.append(bodytext);
+                        }
+                        $popover.find('.slds-popover__body').append($span);
+                        $elem.parents('.dd-item').first().prepend($popover);
+                        $popover.show();
+                    }
+                });
+                $(document).on('mouseleave mousedown','.clause-title',function(){
+                    var $elem = $(this);
+                    $elem.parents('.dd-item').first().find('.slds-popover').remove();
+                });
+                $(document).on('click','.dd-item',function(){
+                    var $elem = $(this);
+                    $elem.find('.slds-popover').hide();
+                });
+            }
+
+            factory.activeKeyupSearch = function (maxClauses){
+                $('#clauseSearch').on('keyup',function(event){
+                    if (event.which == 13 || event.which == 27) {
+                        if (event.which == 27) {
+                            $(this).val('');
+                        }
+                        clauseSearch(maxClauses);
+                    }
+                });
+            }
+
+            factory.activeSearch = function (maxClauses){
+                $('#searchClauses').click(function(event){
+                    clauseSearch(maxClauses);
+                });
+            }
+
+            factory.activeClearSearch = function (maxClauses){
+                $('#clauseSearchClear').click(function(event){
+                    $('#clauseSearch').val('');
+                    clauseSearch(maxClauses);
+                });
+            }
+
+            factory.activeCloseNotification = function (){
+                $(document).on('click','.closeNotification',function(){
+                    $('#msgSection').empty();
+                });
+            }
+
+            factory.filterErrorMessage = function(ddpName) {
+                var encodedDdpName = $('<div/>').text(ddpName).html();
+                return 'This filter condition depends on \'' + encodedDdpName + '\' which is not related to this Component Group.';
+            }
+
+            return factory;
+        })(CGRemote, window.jQuery, window, document);
+
+        var CGCtrl = (function(CGView, CGRemote, $, w){
+
+            var date =  new Date();
+            var resourceTimer = date.getTime();
+            var namespace = window.Loop ? 'loop__' : '';
+            var gearSVG_URL = '/resource/'+resourceTimer+'/' + namespace + 'SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#settings';
+            var backSVG_URL = '/resource/'+resourceTimer+'/' + namespace + 'SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#delete';
+            var defaults = {
+                maxClauses : 200,
+                sobjectOptions   : ['aaaaa','sssss','dddddd','fffffff'],
+                clauseGroupHTML  : '<ol class="dd-list"></ol>'
+            };
+            var clauses  = [];
+            var unselectedClauses = [];
+            var selectedClauses = [];
+
+            var addCKEDITOR = function (){
+                $('.clause-body-input').each(function(){
+                    $elem = $(this);
+                    var ckeditorInstance = CKEDITOR.replace( $elem.attr('id'), {toolbar : 'componentLibrary'});
+                    $elem.data('ckeditor',ckeditorInstance);
+                });
+            };
+
+            var getUrlParameter = function (sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+
+            var processUnselected = function (clauses, maxClauses){
+                var unselectedClauses = clauses;
+                if (clauses.length > 0){
+                    var $clauseGroup =  $(w.UTILS.clauseGroupHTML);
+                    for (var i = 0 ; i < clauses.length ; i++){
+                        $clauseGroup.append(w.UTILS.setupItemClause(false,clauses[i]));
+                    }
+                    $('#nestable').append($clauseGroup);
+                    if (clauses.length >= maxClauses) {
+                        $('#searchLimitExceeded').removeClass('hidden');
+                    }
+                }
+            }
+
+            var processSelected = function (clauses){
+
+                var unselectedClauses = clauses;
+
+                if (clauses.length > 0){
+
+                    var $parentGroup =  $(w.UTILS.clauseGroupHTML);
+                    var savedElem  = {};
+                    var savedLabel = -1;
+
+                    for(var i = 0 ; i < clauses.length ; i++){
+
+                        if (clauses[i].clauseLevelInt == 1) {
+
+                            $parentGroup.append(w.UTILS.setupItemClause(true,clauses[i]));
+                            savedLabel = 1;
+
+                        } else {
+                            if (clauses[i].clauseLevelInt > savedLabel) {
+                                var $clauseGroup =  $(w.UTILS.clauseGroupHTML);
+                                $clauseGroup.append(w.UTILS.setupItemClause(true,clauses[i]));
+                                $parentGroup.find('#'+savedElem.clauseId).append($clauseGroup);
+                            } else if (clauses[i].clauseLevelInt <= savedLabel){
+                                if (clauses[i].clauseLevelInt == savedLabel){
+                                    $parentGroup.find('#'+savedElem.clauseId).parent('.dd-list').append(w.UTILS.setupItemClause(true,clauses[i]));
+                                }
+                                if (clauses[i].clauseLevelInt < savedLabel){
+                                    $($parentGroup.find('#'+savedElem.clauseId).parents('.dd-list')[ (savedLabel - clauses[i].clauseLevelInt)  ]).append(w.UTILS.setupItemClause(true,clauses[i]));
+                                }
+                            }
+                        }
+                      savedLabel = clauses[i].clauseLevelInt;
+                      savedElem  = clauses[i];
+                    }
+                    $('#nestable2').append($parentGroup);
+                }
+            }
+
+            var activeNestable = function (){
+              $('.dd').nestable();
+              $('#nestable').data('nestable').options.maxDepth = 2;
+            }
+
+            var setTaggerURL = function () {
+              w.UTILS.filterTaggerHTML = w.UTILS.filterTaggerHTML.replace("{taggerURL}", $('#taggerURL').text());
+            }
+
+            var setCloseModalIcon = function (){
+              $('.slds-modal__close').append('<svg aria-hidden="true" class="slds-button__icon slds-button__icon--large"><use xlink:href="/resource/'+ resourceTimer +'/' + namespace + 'SalesforceLightning/assets/icons/action-sprite/svg/symbols.svg#close" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>');
+            }
+
+            function init() {
+                var onGroupId = getUrlParameter('id')  || null;
+                w.UTILS.wrapperGroup.onGroup.id = onGroupId;
+                w.UTILS.wrapperGroup.onGroup.Name = onGroupId;
+                w.UTILS.wrapperGroup.onGroup.id = onGroupId;
+                setCloseModalIcon();
+                if (onGroupId){
+                    CGView.activeCloneGroup();
+                } else {
+                    $('.clone-Group').hide();
+                }
+
+                CGRemote.getGroupDdps(onGroupId).done(function(data) {
+                    CGView.setGroupDdps(data[0], data[1]);
+                    CGView.setDdpObjects(data[0]);
+                    CGView.setObjectFields(data[0]);
+                    CGView.setObjectLabels(data[0]);
+                }).fail(function(error){
+                    console.log('ERROR');
+                    w.UTILS.handleMSG('slds-theme--error',error);
+                });
+
+                CGRemote.getClausesLists(onGroupId, defaults.maxClauses).done(function(data, maxClauses) {
+                    processUnselected(data.unselected, maxClauses);
+                    processSelected(data.selected);
+                    activeNestable();
+
+                    CGView.activeDependentPicklist();
+                    CGView.activeSaveBtnAction();
+                    CGView.activeRecalculateSelectedClauseOrders();
+                    CGView.activeGearModal();
+                    CGView.activeCreateClauseModal();
+                    CGView.activeStageFilters();
+                    CGView.activeCreateClause();
+                    CGView.activeTaggerURL();
+                    CGView.activeRemoveFilterAction();
+                    CGView.activeRemoveClause();
+                    CGView.activeTooltip();
+                    CGView.activeCloseNotification();
+                    CGView.activeKeyupSearch(maxClauses);
+                    CGView.activeSearch(maxClauses);
+                    CGView.activeClearSearch(maxClauses);
+                    CGView.activeReorderClausesItems();
+                    CGView.handleDragAndDropSpace();
+                    CGView.activeOnChangeDragAndDrop();
+                }).fail(function(error){
+                    console.log('ERROR');
+                    w.UTILS.handleMSG('slds-theme--error',error);
+                });
+            }
+
+            init();
+
+            CGView.activeCancelGroup();
+        })(CGView, CGRemote, window.jQuery, window);
+    </script>
+</html>
+
+</apex:page>

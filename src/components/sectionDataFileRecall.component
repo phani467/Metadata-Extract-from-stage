@@ -1,0 +1,300 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+
+        <!-- SHOW THIS DATA SPECS SECTION IF Recall WRF IS SELECTED -->
+        
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />         
+    <apex:actionregion >
+    
+    <apex:pageblock rendered="{!wrf.Recall__c}" id="Recall" title="Request for Recall" >
+           <apex:pageblocksection title="Vehicle Selection" columns="1" collapsible="false">  
+               <apex:inputField value="{!wrf.VehicleSelectionRecall__c}"/>
+               <apex:inputfield style="width:100%" value="{!wrf.VehicleModels__c}" />
+               <apex:inputfield style="width:100%" value="{!wrf.ModelYears__c}" />        
+           </apex:pageBlockSection>   
+           
+           <apex:pageblocksection title="Job Type" columns="1" collapsible="false">  
+               <apex:inputField value="{!wrf.JobTypeRecall__c}" styleClass="requiredField"/>  
+           </apex:pageBlockSection>   
+           
+           <apex:pageblocksection title="Input Information" columns="1" collapsible="false">  
+               <apex:inputfield style="width:100%" value="{!wrf.ReceiptDateOfFile__c}"/>  
+               <apex:inputfield style="width:100%" value="{!wrf.InputRecordCount__c}"/>                
+               <apex:inputfield style="width:100%" value="{!wrf.InputSoldCount__c}" />                               
+           </apex:pageBlockSection>              
+           
+           <apex:pageblocksection title="Matching Options" columns="1" collapsible="false">  
+               <apex:pageBlockSectionItem >
+                    <apex:outputlabel for="matching" value="Matching Options" />
+                    <apex:inputField value="{!wrf.MatchingOptions__c}" id="matching" styleClass="requiredField">  
+                    <apex:actionSupport reRender="Recall,MSG" event="onchange" status="formstatus"/>
+                    </apex:inputfield> 
+               </apex:pageBlockSectionItem>
+                    <apex:inputfield style="width:100%" value="{!wrf.VINPatterns__c}" rendered="{!IF(CONTAINS(wrf.MatchingOptions__c,'Block Select (List VIN Patterns)'),TRUE,FALSE)}"  styleClass="requiredField"/>               
+                    <apex:inputField value="{!wrf.AdditionalInfoReturnedToClient__c}" styleClass="requiredField" />                               
+           </apex:pageBlockSection>              
+  
+           <apex:pageBlockSection title="" collapsible="false">
+               <apex:inputField value="{!wrf.ROBCoding__c}"/>
+               <apex:inputField value="{!wrf.LeaseEnhance__c}"/>
+               <apex:inputField value="{!wrf.SalesDataEnhance__c}"/>
+              
+
+              
+               <apex:inputField value="{!wrf.DealerizationRecall__c}"/>      
+               
+               <apex:inputField value="{!wrf.InputSalesPriority__c}"/>
+                
+               <apex:inputField value="{!wrf.RecordSelectionByDate__c}"/>
+                 <apex:inputField value="{!wrf.UnmatchedRecords__c}"/>  
+  
+  
+  
+               <apex:inputField value="{!wrf.PhoneAppend__c}"/>    
+               
+               <apex:inputField value="{!wrf.RestrictedAddressProcessing__c}"/> 
+               
+               <apex:inputField value="{!wrf.EmailAppend__c}"/>    
+ 
+                 <apex:inputField value="{!wrf.MailabilityProcessing__c}"/> 
+              
+                 <apex:inputField value="{!wrf.ApartmentAppend__c}"/> 
+  
+     <apex:pageblockSectionItem >
+                       <apex:outputLabel for="ncoa" value="NCOA Processing"/>
+                       <apex:inputField value="{!wrf.NCOAProcessing__c}" id="ncoa" styleClass="requiredField">
+                       <apex:actionSupport reRender="Recall,MSG" event="onchange" status="formstatus"/>
+                       </apex:inputfield>                                                           
+                    </apex:pageblockSectionItem>
+            
+  
+  
+               <apex:inputField value="{!wrf.EnhancedDataHygiene__c}"/>   
+ 
+   
+                                               
+               
+
+ 
+            
+       
+            
+                 
+                                      
+                                      <apex:inputField value="{!wrf.FinancialAddressProcessing__c}"/>
+                        
+                        <apex:pageblocksection />
+                        <apex:inputField value="{!wrf.FinancialAddressAdditionalFiles__c}"/>
+                        <apex:inputField value="{!wrf.PAF__c}" rendered="{!IF(CONTAINS(wrf.NCOAProcessing__c,'Process through NCOA'),TRUE,FALSE)}" styleClass="requiredField"/>
+                        <apex:pageblocksection />
+                        <apex:inputField value="{!wrf.PAFExpireDate__c}" rendered="{!IF(CONTAINS(wrf.NCOAProcessing__c,'Process through NCOA'),TRUE,FALSE)}" styleClass="requiredField"/>
+                        
+                          
+           </apex:pageBlockSection>
+           
+                                  
+           
+           <apex:pageBlockSection title="" collapsible="false">
+               <apex:inputField value="{!wrf.NameSelect__c}"/>
+               <apex:inputField value="{!wrf.EnhancedDataIndicators__c}"/> 
+               <apex:inputField value="{!wrf.OwnerSearchDepth__c}"/>
+               <apex:inputField value="{!wrf.BrandedTitleIndicator__c}" styleClass="requiredField"/>
+               <apex:inputField value="{!wrf.DetailBrandedTitleCoding__c}" styleClass="requiredField"/>
+               <apex:inputField value="{!wrf.DuplicateInProcessing__c}" styleClass="requiredField" />
+           </apex:pageBlockSection>
+           
+           <apex:pageBlockSection title="Puerto Rico Options" columns="1" collapsible="false">
+                <apex:pageblockSectionItem >
+                       <apex:outputLabel for="pr" value="Puerto Rico Options"/>
+                       <apex:inputField value="{!wrf.PuertoRicoOptions__c}" id="pr">
+                       <apex:actionSupport reRender="Recall,MSG" event="onchange" status="formstatus"/>
+                       </apex:inputfield>
+                </apex:pageblockSectionItem>
+                        <apex:inputField value="{!wrf.IncludeUrbanization__c}" rendered="{!wrf.PuertoRicoOptions__c=='Match Against PR Records'}"/>
+                        <apex:inputField value="{!wrf.DoNotIncludeUrbanization__c}" rendered="{!wrf.PuertoRicoOptions__c=='Match Against PR Records'}"/>
+                        <apex:inputField value="{!wrf.BlankOutPRDataMatchCode5__c}" rendered="{!wrf.PuertoRicoOptions__c=='Do not Match Against PR Records'}"/>         
+                        <apex:inputField value="{!wrf.StripOffPRVINs__c}" rendered="{!wrf.PuertoRicoOptions__c=='Do not Match Against PR Records'}"/>                  
+           </apex:pageBlockSection>
+
+           <apex:pageBlockSection title="Geography" collapsible="false" >
+                    <apex:inputField value="{!wrf.US__c}"/>
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel for="geo" value="Other Geography"/>
+                            <apex:inputField value="{!wrf.OtherGeography__c}" id="geo">
+                            <apex:actionSupport reRender="Recall,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                        </apex:pageblockSectionItem>  
+                            <apex:pageblocksection />
+                            <apex:inputField value="{!wrf.GeographyDetails__c}" rendered="{!wrf.OtherGeography__c}"/>         
+            </apex:pageBlockSection>
+            
+            <apex:pageblockSection title="" columns="1" collapsible="false" >
+                        <apex:inputField value="{!wrf.CaliforniaDataOptions__c}"/>
+                        <apex:inputfield style="width:100%" value="{!wrf.RequestorCode__c}"/>
+            </apex:pageblockSection>    
+    </apex:pageblock>
+      
+              <!-- SHOW THIS DATA SPECS SECTION IF VIN TRACE WRF - VINTRACE IS SELECTED -->
+     
+    <apex:pageblock rendered="{!wrf.VINTrace__c}" id="VIN" title="Request VIN Trace" >
+            <apex:pageBlockSection columns="1" collapsible="false" >
+                    <apex:inputField value="{!wrf.VehicleSelectionVIN__c}" styleClass="requiredField"/>
+                    <apex:inputfield style="width:100%" value="{!wrf.VehicleModels__c}"/>
+                    <apex:inputfield style="width:100%" value="{!wrf.ModelYears__c}"/>
+            </apex:pageBlockSection>
+          
+            <apex:pageblockSection title="Choose ONE option below and complete the required information for that Trace purpose" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                            <apex:outputLabel for="VehSales" value="Trace for Vehicle Sales"/>
+                            <apex:inputfield value="{!wrf.TraceForVehicleSales__c}" id="VehSales" >
+                            <apex:actionSupport reRender="VIN,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageblockSectionItem >
+                            <apex:outputLabel for="legal" value="Trace for Legal" />
+                            <apex:inputfield value="{!wrf.TraceForLegal__c} " id="legal" >
+                            <apex:actionSupport reRender="VIN,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                    </apex:pageblockSectionItem>
+                    <apex:pageblockSectionItem >
+                            <apex:outputLabel for="Repurchase" value="Trace for Repurchase" />
+                            <apex:inputfield value="{!wrf.TraceForRepurchase__c} " id="Repurchase" >
+                            <apex:actionSupport reRender="VIN,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                    </apex:pageblockSectionItem>
+                    <apex:pageblockSectionItem >
+                            <apex:outputLabel for="Law" value="Trace for Law" />
+                            <apex:inputfield value="{!wrf.TraceForLaw__c}" id="Law" >                         
+                            <apex:actionSupport reRender="VIN,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                    </apex:pageblockSectionItem>
+                    <apex:pageBlockSectionItem >
+                            <apex:outputLabel for="Emp" value="Trace for Employee" />
+                            <apex:inputfield value="{!wrf.TraceForEmployee__c}" id="Emp" >                            
+                            <apex:actionSupport reRender="VIN,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                            <apex:outputLabel for="Lost" value="Trace for Lost" />
+                            <apex:inputfield value="{!wrf.TraceForLost__c}" id="Lost" >                           
+                            <apex:actionSupport reRender="VIN,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                    </apex:pageBlockSectionItem>    
+                    <apex:pageBlockSectionItem >
+                            <apex:outputLabel for="Trecall" value="Trace for Recall" />
+                            <apex:inputfield value="{!wrf.TraceForRecall__c}" id="Trecall" >                          
+                            <apex:actionSupport reRender="VIN,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                            <apex:outputLabel for="Other" value="Trace for Other Reasons" />
+                            <apex:inputfield value="{!wrf.TraceForOtherReasons__c}" id="Other" >                         
+                            <apex:actionSupport reRender="VIN,MSG" event="onchange" status="formstatus"/>
+                            </apex:inputfield>
+                    </apex:pageBlockSectionItem>
+          </apex:pageblockSection>
+            
+          <apex:pageblocksection id="Sales" title="VIN TRACE PURPOSE-Sales v Reg for Dealer Audit" rendered="{!wrf.TraceForVehicleSales__c}" columns="1">  
+                        <apex:inputfield style="width:100%" value="{!wrf.TraceDescriptionSales__c}" styleClass="requiredField" />  
+                        <apex:inputfield value="{!wrf.MatchSelectionOwner__c}" styleClass="requiredField"/>
+                        <apex:inputfield value="{!wrf.MatchSelectionVIN__c}" styleClass="requiredField"/>
+          </apex:pageblockSection>
+    
+          <apex:pageblockSection id="Legal" title="VIN TRACE PURPOSE-Legal" rendered="{!wrf.TraceForLegal__c}" columns="1" >
+                        <apex:inputfield value="{!wrf.CaseName__c}"/>
+                        <apex:inputfield value="{!wrf.Case__c}"/>
+                        <apex:inputfield style="width:100%" value="{!wrf.TraceDescriptionSales__c}" styleClass="requiredField"/>
+                        <apex:inputfield value="{!wrf.MatchSelectionOwner__c}" styleClass="requiredField"/>
+                        <apex:inputfield value="{!wrf.MatchSelectionVIN__c}" styleClass="requiredField"/> 
+         </apex:pageblockSection>                   
+          
+          <apex:pageblockSection id="repurchase" title="VIN TRACE PURPOSE-Repurchse/Lemon Law" rendered="{!wrf.TraceForRepurchase__c}" columns="1" >
+                        <apex:inputfield value="{!wrf.BuybackCase__c}"/>        
+                        <apex:inputfield style="width:100%" value="{!wrf.TraceDescriptionSales__c}" styleClass="requiredField" />          
+                        <apex:inputfield value="{!wrf.MatchSelectionOwner__c}" styleClass="requiredField"/>
+                        <apex:inputfield value="{!wrf.MatchSelectionVIN__c}" styleClass="requiredField"/> 
+          </apex:pageblocksection>
+                
+          <apex:pageblockSection id="law" title="VIN TRACE PURPOSE-Law Enforcement" rendered="{!wrf.TraceForLaw__c}" columns="1" >
+                    <apex:inputfield style="width:100%" value="{!wrf.TraceDescriptionSales__c}" styleClass="requiredField"/>  
+                    <apex:inputfield value="{!wrf.MatchSelectionOwner__c}" styleClass="requiredField"/>
+                    <apex:inputfield value="{!wrf.MatchSelectionVIN__c}" styleClass="requiredField" /> 
+          </apex:pageblockSection>                       
+          
+          <apex:pageblockSection id="audit" title="VIN TRACE PURPOSE-Employee Vehicle Audit" rendered="{!wrf.TraceForEmployee__c}" columns="1" >
+                    <apex:inputfield style="width:100%" value="{!wrf.TraceDescriptionSales__c}" styleClass="requiredField"/>                
+                    <apex:inputfield value="{!wrf.MatchSelectionOwner__c}" styleClass="requiredField"/>
+                    <apex:inputfield value="{!wrf.MatchSelectionVIN__c}" styleClass="requiredField"/> 
+          </apex:pageblockSection>             
+          
+          <apex:pageblockSection id="lost" title="VIN TRACE PURPOSE-Lost or Mis-Delivered Vehicles" rendered="{!wrf.TraceForLost__c}" columns="1" >
+                    <apex:inputfield style="width:100%" value="{!wrf.TraceDescriptionSales__c}" styleClass="requiredField"/>              
+                    <apex:inputfield value="{!wrf.MatchSelectionOwner__c}" styleClass="requiredField"/>
+                    <apex:inputfield value="{!wrf.MatchSelectionVIN__c}" styleClass="requiredField"/> 
+          </apex:pageblockSection>                          
+          
+          <apex:pageblockSection id="recall" title="VIN TRACE PURPOSE-Recall Investigation " rendered="{!wrf.TraceForRecall__c}"  columns="1" >
+                    <apex:inputfield style="width:100%" value="{!wrf.TraceDescriptionSales__c}" styleClass="requiredField"/>                       
+                    <apex:inputfield value="{!wrf.MatchSelectionOwner__c}" styleClass="requiredField"/>
+                    <apex:inputfield value="{!wrf.MatchSelectionVIN__c}" styleClass="requiredField"/> 
+          </apex:pageblockSection>                           
+          
+          <apex:pageblockSection id="other" title="VIN TRACE PURPOSE-Other " rendered="{!wrf.TraceForOtherReasons__c}" columns="1" >
+                    <apex:inputfield style="width:100%" value="{!wrf.TraceDescriptionSales__c}" styleClass="requiredField"/>                      
+                    <apex:inputfield value="{!wrf.MatchSelectionOwner__c}" styleClass="requiredField"/>
+                    <apex:inputfield value="{!wrf.MatchSelectionVIN__c}" styleClass="requiredField"/> 
+          </apex:pageblockSection>                           
+                
+          <apex:pageblockSection title="DATA TO BE DISPLAYED on OUTPUT RESULTS " columns="1" collapsible="false">
+                    <apex:inputField value="{!wrf.OutputResults__c}" styleClass="requiredField"/>
+                    <apex:inputfield style="width:100%" value="{!wrf.OtherOutputResults__c}"/>         
+          </apex:pageblockSection>         
+        
+      </apex:pageblock>
+      
+      <!-- SHOW THIS SECTION IF MAPPING IS SELECTED -->   
+           
+      <apex:pageblock title="Request for Mapping" rendered="{!wrf.Mapping__c}" >
+                <apex:pageblocksection title="Initiate" columns="1" collapsible="false">
+                    <apex:inputfield style="width:100%" value="{!wrf.ProjectBackground__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection >
+                    <apex:pageblockSectionItem >
+                            <apex:outputLabel for="Internal" styleClass="requiredField" value="Internal" >
+                            </apex:outputLabel>
+                            <!-- BUG: 6/21/2016 - Replaced Incorrect Internal field -->
+                            <!--<apex:inputField value="{!wrf.Internal__c}" id="Internal" />-->
+                            <apex:inputField value="{!wrf.InternalMapping__c}" id="Internal"/>
+                    </apex:pageblockSectionItem>
+                    <apex:pageblockSectionItem >
+                            <apex:outputLabel for="External" styleClass="requiredField" value="External" >
+                            </apex:outputLabel>
+                            <apex:inputField value="{!wrf.External__c}" id="External" />
+                    </apex:pageblockSectionItem>
+                </apex:pageblocksection> 
+                <apex:pageBlockSection title="Storage Notes" columns="1" collapsible="false">
+                        <apex:inputfield style="width:100%" value="{!wrf.CustomerDataset__c}"/>
+                        <apex:inputfield style="width:100%" value="{!wrf.EditRename__c}"/>
+                </apex:pageblocksection> 
+                <apex:pageBlockSection title="Design Specs - Map Process" columns="2" collapsible="false">
+                        <apex:inputfield style="width:70%" value="{!wrf.StdGeoTemplate__c}" styleClass="requiredField"/>
+                        <apex:inputfield style="width:70%" value="{!wrf.CustomGeoTemplate__c}" styleClass="requiredField"/>
+                        <apex:inputfield style="width:70%" value="{!wrf.LAVAMassMapping__c}" styleClass="requiredField"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Design Specs - Admin" collapsible="false">
+                        <apex:outputfield value="{!wrf.Revenue__c}"/>
+                        <apex:inputfield value="{!wrf.JobRevenue__c}"/>
+                        <apex:inputfield style="width:70%" value="{!wrf.PLC__c}"/>
+                <apex:pageblocksection />
+                        <apex:inputfield style="width:70%" value="{!wrf.TotalMaps__c}"/>
+                </apex:pageBlockSection>
+        </apex:pageblock>
+</apex:actionregion>
+</apex:component>

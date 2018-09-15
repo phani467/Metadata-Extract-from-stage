@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>KnowledgeableUser</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Knowledgeable Users</description>
+    <label>Knowledgeable Users</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Network</field>
+            <table>KnowledgeableUser</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>User</field>
+            <table>KnowledgeableUser</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Topic</field>
+            <table>KnowledgeableUser</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RawRank</field>
+            <table>KnowledgeableUser</table>
+        </columns>
+        <masterLabel>Knowledgeable Users</masterLabel>
+    </sections>
+</ReportType>

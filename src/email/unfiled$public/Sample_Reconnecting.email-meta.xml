@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Not taking no for an answer</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>SAMPLE: Reconnecting</name>
+    <style>none</style>
+    <subject>Timing is everything</subject>
+    <type>custom</type>
+</EmailTemplate>

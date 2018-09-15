@@ -1,0 +1,150 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+
+         <!-- SHOW THIS SECTION IF CANADA WRF IS SELECTED WITH (CANADA SIGHT MESSAGE) POLKINSIGHT PRODUCTION MESSAGE REQUEST TYPE -->
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+    
+    <apex:pageBlock title="Canadian Site Message" id="CanSightMsg" rendered="{!wrf.PolkInsightProductionMessage__c}">
+      <apex:pageblocksection collapsible="false" >
+               <!--  <apex:inputfield value="{!wrf.Message_of_the_day__c}" label="Message of the day (CANNET)" styleclass="requiredField" /> -->
+                <apex:inputfield value="{!wrf.ApprovedByProductStrategy__c}"/>
+                
+                <!-- 
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.Work_Request_Form__c.fields.Data_Links__c.inlineHelpText}">
+                   <apex:outputLabel value="Message for Report Site or eMAR Site"/>
+                    <apex:inputfield value="{!wrf.Data_Links__c}"/>               
+                </apex:pageBlockSectionItem>  
+                
+                -->
+                              
+                <apex:inputfield value="{!wrf.ApprovedByProductReleaseSpecialist__c}"/> 
+                <apex:inputfield value="{!wrf.StartDate__c}"/>
+                <apex:inputfield value="{!wrf.ExpirationDate__c}"/>
+                <apex:inputfield style="width:100%" value="{!wrf.OEMToSeeMessage__c}" label="Site to Be Impacted" styleclass="requiredField"/>
+                <apex:inputfield style="width:100%" value="{!wrf.Message__c}"/>
+                <apex:pageblocksectionitem />
+      
+            </apex:pageBlockSection>  
+     </apex:pageBlock>          
+
+          
+             <!-- SHOW THIS SECTION IF CANADA WRF IS SELECTED WITH AD-HOC REPORT REQUEST TYPE -->             
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />   
+      <apex:pageblocksection id="AdHoc" columns="1" title="Ad Hoc Report" collapsible="false" rendered="{!wrf.AdHocReport__c}"  >     
+           <apex:pageblock >
+            <apex:pageBlockSection >
+                <apex:inputfield value="{!wrf.DataTypeCanada__c}" styleclass="requiredField" />  
+             </apex:pageBlockSection>   
+            </apex:pageblock>
+            
+            <apex:pageBlock >
+              <apex:pageBlockSection >                 
+                 <apex:inputfield value="{!wrf.TimePeriodCanada__c}" id="time" styleclass="requiredField"/>               
+              <apex:pageblocksectionitem />
+               <apex:inputfield style="width:70%" value="{!wrf.TimePeriodDescription__c}" />
+        
+              <p>List All VIO time periods required for this system and NVR output</p>
+              </apex:pageBlockSection>
+           </apex:pageBlock>
+           
+           <apex:pageblock >
+             <apex:pageblockSection >
+                     <apex:inputfield value="{!wrf.RegistrationTypeStandard__c}" styleclass="requiredField" />
+                     <apex:pageblocksectionitem />
+                     <apex:inputfield style="width:70%" value="{!wrf.RegistrationDetails__c}"  />
+                     <apex:pageblocksectionitem />
+               <apex:pageBlockSectionItem >
+                     <apex:outputLabel for="VSS" value="Vehicle Segmentation Standard"  />
+                     <apex:inputField value="{!wrf.VehicleSegmentationStandard__c}" id="vss" styleclass="requiredField">
+                     <apex:actionSupport reRender="AdHoc,MSG" event="onchange" status="formstatus"/> 
+                     </apex:inputfield>
+               </apex:pageBlockSectionItem>             
+                     <apex:inputfield value="{!wrf.GVW__c}" rendered="{!IF((CONTAINS(wrf.VehicleSegmentationStandard__c,'Full Size Pickup')||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Compact Pickup')
+                     ||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Medium Heavy Trucks')||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Mid Size Pickup'))))),TRUE,FALSE)}" styleclass="requiredField"/>
+                     <apex:pageblocksectionitem rendered="{!!IF((CONTAINS(wrf.VehicleSegmentationStandard__c,'Full Size Pickup')||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Compact Pickup')
+                     ||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Medium Heavy Trucks')||(CONTAINS(wrf.VehicleSegmentationStandard__c,'Mid Size Pickup'))))),TRUE,FALSE)}" />
+                     <apex:inputfield style="width:70%" value="{!wrf.VehicleSegmentationDetails__c}" />  
+            </apex:pageblockSection>
+          </apex:pageBlock>
+   </apex:pageBlocksection> 
+
+        <!-- STANDARD GEOGRAPHY SECTION TO REPEAT ON SEVERAL FORMS -->
+        
+        <apex:pageblock > 
+         <apex:actionRegion >
+           <apex:pageblocksection title="Geography" collapsible="false" id="geo" rendered="{!wrf.AdHocReport__c}">
+                <apex:inputfield value="{!wrf.GeographyTypeCanada__c}" styleclass="requiredField"/>
+                <apex:pageblocksection />
+                <apex:inputfield value="{!wrf.GeographyDetails__c}" />
+          </apex:pageblocksection>
+         </apex:actionregion>
+        </apex:pageBlock>
+        
+         <!-- STANDARD GEOGRAPHY SECTION TO REPEAT ON SEVERAL FORMS -->
+         
+         <!--STAT FORM AD HOC REPORT - DATA TO BE DISPLAYED --> 
+        
+           <apex:pageblocksection title="Data to be Displayed" collapsible="false" rendered="{!wrf.AdHocReport__c}" >
+                <apex:inputfield value="{!wrf.DataToBeDisplayedCanada__c}" styleclass="requiredField"/>
+                <apex:pageblocksection />
+                <apex:inputfield style="width:70%" value="{!wrf.DataToBeDisplayedInstructions__c}"  />
+
+
+                <apex:pageblocksection />
+                <apex:inputfield value="{!wrf.Motorcycle__c}"/>   
+          </apex:pageblocksection>
+          
+           
+            <!-- SHOW THIS DATA SPECS SECTION IF CANADA WRF - VINTRACE IS SELECTED -->
+     
+    <apex:pageblock rendered="{!wrf.VINTrace__c}" id="VIN2" title="Request VIN Trace" >
+            <apex:pageBlockSection columns="1" collapsible="false" >
+                    <apex:inputField value="{!wrf.VehicleSelectionVINCanada__c}" styleClass="requiredField"/>
+    
+                <apex:pageBlockSectionItem HelpText="{!$ObjectType.WorkRequestForm__c.fields.VehicleModels__c.inlineHelpText}">
+                   <apex:outputLabel value="Custom Filtering"/>
+                   <apex:inputfield style="width:100%" value="{!wrf.VehicleModels__c}"/>               
+                </apex:pageBlockSectionItem>  
+  
+            </apex:pageBlockSection>
+  
+          <apex:pageblockSection title="DATA TO BE DISPLAYED on OUTPUT RESULTS " columns="1" collapsible="false">
+                    <apex:inputField value="{!wrf.OutputResults__c}" styleClass="requiredField"/>
+                    <apex:inputfield style="width:100%" value="{!wrf.OtherOutputResults__c}"/>         
+          </apex:pageblockSection>         
+        
+      </apex:pageblock>
+
+
+            <!-- SHOW THIS DATA SPECS SECTION IF SMART LINK IS SELECTED -->
+     
+    <apex:pageblock rendered="{!wrf.SMARTLink__c}" id="Smart" title="Request SmartLink" >
+            <apex:pageBlockSection columns="1" collapsible="false" >
+                    <apex:inputField style="width:100%" value="{!wrf.DataNeededDescription__c}" label="Detailed Instructions" styleClass="requiredField"/>
+  
+            </apex:pageBlockSection>
+       
+        
+      </apex:pageblock>
+      
+                  <!-- SHOW THIS DATA SPECS SECTION IF FILE CLEANSE IS SELECTED -->
+     
+    <apex:pageblock rendered="{!wrf.FileCleanse__c}" id="Cleanse" title="Request File Cleanse" >
+            <apex:pageBlockSection columns="1" collapsible="false" >
+                    <apex:inputField style="width:100%" value="{!wrf.DetailedInstructions__c}" styleClass="requiredField"/>
+  
+            </apex:pageBlockSection>
+       
+        
+      </apex:pageblock>
+
+        
+
+</apex:component>

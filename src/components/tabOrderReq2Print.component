@@ -1,0 +1,97 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component controller="OrderReqTabCE" allowDML="true">
+    <apex:attribute name="wrf" assignTo="{!wrf}" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+<apex:pageBlock title="Order Requests - {!wrf.name}" rendered="{!!IF(wrf.id<>null,TRUE,FALSE)}">
+    <apex:pageMessage summary="You must save a draft version of your Request form in order to add Order requests." severity="info" strength="3" />
+</apex:pageBlock>
+<apex:pageblock id="Orderrequest" title="Order Requests - {!wrf.name}" rendered="{!IF(wrf.id<>null,TRUE,FALSE)}" >
+<apex:pageMessages />
+
+    <apex:outputpanel id="specialrows">
+   <apex:repeat value="{!OrderRequests}" var="o" id="rows">
+    <apex:pageblocksection >
+        <apex:pageblocksectionitem >
+        <apex:outputPanel >
+            <apex:outputText style="font-weight:bold" value="New" Rendered="{!IF(o.id==null,TRUE,FALSE)}" />
+            <apex:outputLink title="" value="/{!o.id}/e?retURL=/apex/{!$CurrentPage.Name}?id={!wrf.id}" style="font-weight:bold" rendered="{!!IF(o.id==null,TRUE,FALSE)}">Edit&nbsp;|&nbsp;</apex:outputLink>
+            <apex:outputLink value="javascript:if (window.confirm('Are you sure?')) DeleteAccount('{!o.Id}');" style="font-weight:bold" rendered="{!!IF(o.id==null,TRUE,FALSE)}" >Del</apex:outputLink>
+        </apex:outputPanel>
+        </apex:pageblocksectionitem>
+        </apex:pageblocksection>
+        <apex:pageblockSection title="{!IF(o.id==null,'New','Edit')} Information" collapsible="false">
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="ac" value="Availability Count"></apex:outputlabel>
+            <apex:outputField id="ac" value="{!o.AvailabilityCount__c}" />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="dc" value="Desired Count"></apex:outputlabel>
+            <apex:outputField id="dc" value="{!o.DesiredCount__c}"  />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="jq" value="Job#/Query ID"></apex:outputlabel>
+            <apex:outputField id="jq" value="{!o.JobQueryID__c}" />
+        </apex:pageblocksectionitem>
+         <apex:pageblocksectionitem >
+            <apex:outputlabel for="cpp" value="Cust./Post Processing"></apex:outputlabel>
+        <apex:outputField value="{!o.CustPostProcessing__c}" id="cpp"/>
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="ps" value="Pre-Sort"></apex:outputlabel>
+            <apex:outputField id="ps" value="{!o.PreSort__c}" />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="co" value="Cutback Options"></apex:outputlabel>
+            <apex:outputField value="{!o.CutbackOptions__c}" id="co" />
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+         <apex:outputlabel for="psd" value="Pre-Sort Description"></apex:outputlabel>
+            <apex:outputField value="{!o.PreSortDescription__c}" id="psd" />
+         </apex:pageblocksectionitem>
+         <apex:pageblocksectionitem >
+            <apex:outputlabel for="kc" value="Keyfield/Code"></apex:outputlabel>
+            <apex:outputField value="{!o.KeyfieldCode__c}" id="kc" />
+        </apex:pageblocksectionitem>
+
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="pos" value="Post-Sort"></apex:outputlabel>
+            <apex:outputField value="{!o.PostSort__c}" id="pos" />
+        </apex:pageblocksectionitem>
+       
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="ora" value="Order Request Attachments"></apex:outputlabel>
+            <apex:outputField value="{!o.OrderRequestAttachements__c}" id="ora"/>
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem > 
+            <apex:outputlabel for="posd" value="Post-Sort Description"></apex:outputlabel>
+            <apex:outputField value="{!o.PostSortDecription__c}" id="posd"/>
+        </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem />
+         <apex:pageblocksectionitem >
+            <apex:outputlabel for="fo" value="Output Format"></apex:outputlabel>
+            <apex:outputField value="{!o.FormatOrder__c}" id="fo" />
+        </apex:pageblocksectionitem>
+        </apex:pageblockSection>
+        <apex:pageblockSection columns="1">
+        <apex:pageblocksectionitem >
+            <apex:outputlabel for="cd" value="Custom Description"></apex:outputlabel>
+            <apex:outputField value="{!o.CustomDescription__c}" id="cd" style="width:95%"  />
+        </apex:pageblocksectionitem>
+        </apex:pageblockSection>
+        <apex:pageblocksection columns="1">
+        <apex:pageblocksectionitem >
+         <apex:facet name="header">Attachments</apex:facet>
+            <c:CMPAttachmentLoader aController="{! aMultiAttachmentController }" objId="{!o.id}" rendered="{!!IF(o.id==null,TRUE,FALSE)}" />
+        </apex:pageblocksectionitem> 
+        </apex:pageblocksection>
+   </apex:repeat>
+   </apex:outputpanel>
+ </apex:pageblock>
+
+</apex:component>

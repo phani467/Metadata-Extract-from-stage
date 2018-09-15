@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Fire when an attachment is selected.">
+    <aura:attribute name="selectedAttachments" type="List" default="[]" description="Contains selected attachments."/>
+</aura:event>

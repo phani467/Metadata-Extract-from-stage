@@ -1,0 +1,10 @@
+Dear {!Case.OwnerFirstName},
+
+Your assigned case number {!Case.CaseNumber} with the subject "{!Case.Subject}" has a new comment or email.
+
+Please click on the following link to action your case - {!Case.Link}  
+
+Kind regards,
+IHS Markit SFDC
+
+{!Case.Thread_Id}

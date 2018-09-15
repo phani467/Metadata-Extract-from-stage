@@ -1,0 +1,132 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component controller="CountrySelectorController">
+ 
+    <apex:attribute type="WRACE" description="extension of parent page" name="pageExt" assignTo="{!pageExtension}" required="true"/>
+    <apex:attribute type="String" description="Id of Work Request Form record" name="wrfId" assignTo="{!parentId}" required="true"/>
+    <apex:attribute type="String" description="Used to determine initial picklist values" name="reqType" assignTo="{!requestType}" required="true"/>
+        
+            <apex:outputPanel id="outerPanel">
+
+                <apex:outputPanel layout="none" rendered="{!!pageExtension.isView}">
+                <apex:pageMessage summary="{!$Label.MultiSelectInstructions}" severity="info" strength="1" />
+                    <table width="90%">
+                        <thead>
+                            <tr>
+                                <th class="selectorColumnNarrow">Data Type</th>
+                                <th class="selectorColumnNarrow">Vehicle Type</th>
+                                <th class="selectorColumn">Region</th>
+                                <th class="selectorColumn">Country</th>
+                                <th class="selectorColumn">Geography</th>
+                                <th class="buttonColumn"></th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <apex:selectList id="dataTypeSelect" styleClass="selectorOptions" value="{!onDeckSelection.DataType__c}" size="5" multiselect="true">
+                                        <apex:selectOptions value="{!dataTypeOptions}"/>
+                                        <apex:actionSupport event="onchange" action="{!clearDownStreamValues}" rerender="vehicleTypeSelect,regionSelect,countrySelect,geographySelect,addCountrySelectionButton" status="formstatus">
+                                            <apex:param name="startingField" value="Vehicle_Type__c"/>
+                                        </apex:actionSupport>
+                                    </apex:selectList>
+                                </td>
+                                <td>
+                                    <apex:selectList id="vehicleTypeSelect" styleClass="selectorOptions" value="{!onDeckSelection.VehicleType__c}" size="5" multiselect="true">
+                                        <apex:selectOptions value="{!vehicleTypeOptions}"/>
+                                        <apex:actionSupport event="onchange" action="{!clearDownStreamValues}" rerender="regionSelect,countrySelect,geographySelect,addCountrySelectionButton" status="formstatus">
+                                            <apex:param name="startingField" value="Region__c"/>
+                                        </apex:actionSupport>
+                                    </apex:selectList>
+                                </td>
+                                <td>
+                                    <apex:selectList id="regionSelect" styleClass="selectorOptions" value="{!onDeckSelection.Region__c}" size="5" multiselect="true">
+                                        <apex:selectOptions value="{!regionOptions}"/>
+                                        <apex:actionSupport event="onchange" action="{!clearDownStreamValues}" rerender="countrySelect,geographySelect,addCountrySelectionButton" status="formstatus">
+                                            <apex:param name="startingField" value="Country__c"/>
+                                        </apex:actionSupport>
+                                    </apex:selectList>
+                                </td>
+                                <td>
+                                    <apex:selectList id="countrySelect" styleClass="selectorOptions" value="{!onDeckSelection.Country__c}" size="5" multiselect="true">
+                                        <apex:selectOptions value="{!countryOptions}"/>
+                                        <apex:actionSupport event="onchange" action="{!clearDownStreamValues}" rerender="geographySelect,addCountrySelectionButton" status="formstatus">
+                                            <apex:param name="startingField" value="Geography__c"/>
+                                        </apex:actionSupport>
+                                    </apex:selectList>
+                                </td>
+                                <td>
+                                    <apex:selectList id="geographySelect" styleClass="selectorOptions" value="{!onDeckSelection.Geography__c}" size="5" multiselect="true">
+                                        <apex:selectOptions value="{!geographyOptions}"/>
+                                        <apex:actionSupport event="onchange" action="{!clearDownStreamValues}" rerender="addCountrySelectionButton" status="formstatus">
+                                            <apex:param name="startingField" value="Time_Period__c"/>
+                                        </apex:actionSupport>
+                                    </apex:selectList>
+                                </td>
+                                <td>
+                                    <apex:commandButton id="addCountrySelectionButton" value="Add" title="Add this selection." action="{!addSelection}" rerender="outerPanel" disabled="{!selectionIsValid == false}" status="formstatus"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+                <br/>
+                <apex:pageBlockSection title="Selections" columns="1" collapsible="false" rendered="{!retainedSelections.size > 0}"/>
+                <apex:outputPanel layout="none" rendered="{!retainedSelections.size > 0}">
+                    <table rules="rows" width="90%">
+                        <thead>
+                            <tr style="height:25px;">
+                                <th class="selectorColumnNarrow">Data Type</th>
+                                <th class="selectorColumnNarrow">Vehicle Type</th>
+                                <th class="selectorColumn">Region</th>
+                                <th class="selectorColumn">Country</th>
+                                <th class="selectorColumn">Geography</th>
+                                <th class="buttonColumn"></th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!retainedSelections}" var="each">
+                                <tr style="background-color:white;">
+                                    <td class="selectionCell">{!each.dataType}</td>
+                                    <td class="selectionCell">{!each.vehicleType}</td>
+                                    <td class="selectionCell">{!each.region}</td>
+                                    <td class="selectionCell">{!each.country}</td>
+                                    <td class="selectionCell">{!each.geography}</td>
+                                    <td class="buttonColumn">
+                                        <apex:commandButton value="Remove" title="Remove this row." action="{!each.removeRow}" rerender="outerPanel" rendered="{!!pageExtension.isView}"/>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+            </apex:outputPanel>
+
+            
+    <style>
+        .buttonColumn {
+            width:5%;
+            color:rgb(74, 74, 86);
+        }
+        .selectorColumnNarrow {
+            width:17%;
+            color:rgb(74, 74, 86);
+        }
+        .selectorColumn {
+            width:20%;
+            color:rgb(74, 74, 86);
+        }
+        .selectorOptions {
+            width:95%;
+        }
+        .selectionCell {
+            padding:5px 0px;
+        }
+    </style>  
+</apex:component>

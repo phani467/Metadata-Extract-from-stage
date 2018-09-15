@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-5442 :This Object will hold the SAP History records.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>OpportunityNumber__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-5442: This field will hold Opportunity Number on SAP History</description>
+        <externalId>false</externalId>
+        <label>Opportunity Number</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>SAP Histories</relationshipLabel>
+        <relationshipName>SAPHistories</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RenewalOpportunityNumber__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-5442: This field will hold Renewal Opportunity Number on SAP History</description>
+        <externalId>false</externalId>
+        <label>Renewal Opportunity Number</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>SAP Histories (Renewal Opportunity Number)</relationshipLabel>
+        <relationshipName>SAPHistory</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SAPContractNumberNew__c</fullName>
+        <description>SFDC1-5442: This field will hold SAP Contract Number on SAP History</description>
+        <externalId>false</externalId>
+        <label>SAP Contract Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFDCContractNumber__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-5442: This field will hold SFDC Contract Number on SAP History</description>
+        <externalId>false</externalId>
+        <label>SFDC Contract Number</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>SAP Histories (SFDC Contract Number)</relationshipLabel>
+        <relationshipName>SAPHistories</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>SAP History</label>
+    <nameField>
+        <label>SAP History Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>SAP Histories</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

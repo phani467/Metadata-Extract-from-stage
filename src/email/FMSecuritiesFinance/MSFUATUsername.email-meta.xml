@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-3365: MSF UAT Username</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MSF UAT Username</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Securities Finance Username: UAT ACCESS</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+You now have UAT access to Performance Explorer.  Please click on the link below:
+ 
+UAT Performance Explorer &lt;https://uat.dataexplorers.com/PX/PerformanceExplorer/&gt;
+ 
+Your username is: &lt;enter user name&gt;
+NOTE: All usernames and passwords are case sensitive.
+ 
+For security reasons, the password will be provided to you in a separate email shortly.
+ 
+Please be aware that our UAT environment is not a fully supported environment and should not be used for any production purposes.  By their very nature, UAT applications will be subject to intermittent down-time and data errors.
+
+By logging in and installing the Toolkit for Microsoft Excel you are agreeing to our Trial Terms &lt;http://www.markit.com/en/products/data/securities-finance/trial/trial.page#&gt; and/or Terms of Business &lt;http://www.markit.com/en/products/data/securities-finance/legal/terms.page#&gt;.
+
+If you require any additional assistance, please contact us on live chat, email or phone.
+
+Thank You. 
+
+Kind regards, 
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

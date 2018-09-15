@@ -1,0 +1,12 @@
+<aura:interface description="Enum describing which component we are authorizing from. Used for redirection logic in landingPage.">
+    <aura:attribute name="AuthTarget" type="Map" default="{
+        DDP_MIGRATION: 'DDP_MIGRATION',
+        EDITION: 'EDITION',
+        INTEGRATION_INFO: 'INTEGRATION_INFO',
+        LAYOUT_BUTTON: 'LAYOUT_BUTTON',
+        SAMPLE_DDP: 'SAMPLE_DDP',
+        AUTHORIZE_LOOP: 'AUTHORIZE_LOOP',
+        O365: 'O365',
+        BOX: 'BOX'
+    }"/>
+</aura:interface>

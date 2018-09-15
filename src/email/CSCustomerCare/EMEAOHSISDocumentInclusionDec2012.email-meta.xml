@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2664: Request for document inclusion into the Occupational Health and Safety Information Service.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>EMEA - OHSIS Document Inclusion (Dec 2012)</name>
+    <style>none</style>
+    <subject>EMEA - OHSIS Document Inclusion</subject>
+    <type>text</type>
+</EmailTemplate>

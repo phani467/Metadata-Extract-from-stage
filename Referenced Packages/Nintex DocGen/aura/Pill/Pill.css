@@ -1,0 +1,18 @@
+.THIS.drawloop .blue-color {
+    background-color: #0070D2;
+    color: #fff;
+    margin-left: 12px;
+    display: inline-block;
+    border: 1px solid white;
+}
+.THIS.drawloop .pillLabel {
+    cursor: default;
+    top: 1px;
+    max-width: 11.5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+.THIS .button-left {
+    left: 2px;
+    bottom: 1px;
+}

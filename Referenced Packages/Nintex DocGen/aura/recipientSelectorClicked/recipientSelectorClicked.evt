@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Fire when RecipientSelector is clicked.">
+    <aura:attribute name="globalId" type="string" description="Global Id of RecipientSelector.cmp."/>
+    <aura:attribute name="id" type="string" description="Unique Id of RecipientSelector."/>
+    <aura:attribute name="recipientSelected" type="boolean" description="True if a recipient has been selected."/>
+</aura:event>

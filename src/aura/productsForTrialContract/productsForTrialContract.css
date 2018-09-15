@@ -1,0 +1,10 @@
+.THIS .myCheckbox{
+  display: inline-block;
+  float: left;
+  padding: 0px;
+}
+.THIS .myText{
+  float: left;
+  padding: 0px;
+  margin-left:5px;
+}

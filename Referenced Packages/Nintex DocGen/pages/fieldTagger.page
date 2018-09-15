@@ -1,0 +1,36 @@
+<apex:page standardController="Loop__DDP__c" title="Field Tagger{!IF(ISBLANK(currentDdpName), '', ': ' + currentDdpName)}" sidebar="false" extensions="Loop.fieldTaggerExt" id="apage">
+    <script type="text/javascript">
+        var header = document.getElementById("AppBodyHeader");
+        if (header) {
+            header.style.display = 'none';
+        }
+    </script>
+    <apex:sectionHeader title="Field Tagger{!IF(ISBLANK(currentDdpName), '', ': ' + currentDdpName)}" help="http://support.drawloop.com/salesforce/looplus/basic/tagging-documents/" />
+    <div id="ieMsgs" />
+    <apex:actionRegion immediate="true">
+        <apex:form id="form">
+            <apex:pageBlock title="Find Field" mode="edit" id="pb">
+                <apex:pageBlockButtons location="top">
+                    <input type="submit" value="Reset Options" class="btn" onclick="window.location.reload(); return false;" />
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="{!$ObjectType.Loop__DDP__c.labelplural}" rendered="{!displayDdps}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Loop__DDP__c.label}" for="ddpList"/>
+                        <apex:outputPanel >
+                            <apex:selectList value="{!selectedDdpId}" rendered="{!displayDdps}" multiselect="false" size="1" id="ddpList">
+                                <apex:selectOptions value="{!ddpList}"/>
+                                <apex:actionSupport event="onchange" action="{!rerenderFieldTagger}" rerender="fieldTagger" status="ddpListStatus"/>
+                            </apex:selectList>
+                            <apex:actionStatus id="ddpListStatus" >
+                                <apex:facet name="start">
+                                    <span class="statusContainer"><span class="status"><img src="/img/loading.gif" alt="Processing..." width="16" height="16" title="Processing..." /></span></span>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <c:fieldTagger con="{!extension}" id="fieldTagger"/>
+            </apex:pageBlock>
+        </apex:form>
+    </apex:actionRegion>
+</apex:page>

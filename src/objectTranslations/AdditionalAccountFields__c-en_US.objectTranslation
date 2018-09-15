@@ -1,0 +1,2064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Additional Account Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Additional Account Fields</value>
+    </caseValues>
+    <fields>
+        <help><!-- Lookup Reference of the account connected to the Additional Account Fields --></help>
+        <label><!-- Account --></label>
+        <name>AccountReference__c</name>
+        <relationshipLabel><!-- Additional Account Fields (Account) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Back Office System --></label>
+        <name>BackOfficeSystem__c</name>
+        <picklistValues>
+            <masterLabel>Advent</masterLabel>
+            <translation><!-- Advent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advent APX</masterLabel>
+            <translation><!-- Advent APX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advent Geneva</masterLabel>
+            <translation><!-- Advent Geneva --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Arena (Invest One)</masterLabel>
+            <translation><!-- Asset Arena (Invest One) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Avaloq</masterLabel>
+            <translation><!-- Avaloq --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Calypso</masterLabel>
+            <translation><!-- Calypso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearwater</masterLabel>
+            <translation><!-- Clearwater --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DST - HiPort</masterLabel>
+            <translation><!-- DST - HiPort --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DST GPS</masterLabel>
+            <translation><!-- DST GPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digia Asset Manager (Samstock)</masterLabel>
+            <translation><!-- Digia Asset Manager (Samstock) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle Price</masterLabel>
+            <translation><!-- Eagle Price --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle SRM</masterLabel>
+            <translation><!-- Eagle SRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle STAR</masterLabel>
+            <translation><!-- Eagle STAR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMC</masterLabel>
+            <translation><!-- FMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finacle</masterLabel>
+            <translation><!-- Finacle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Findur Openlink</masterLabel>
+            <translation><!-- Findur Openlink --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finnova</masterLabel>
+            <translation><!-- Finnova --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geneva</masterLabel>
+            <translation><!-- Geneva --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indus Valley Partners (I.V.P.)</masterLabel>
+            <translation><!-- Indus Valley Partners (I.V.P.) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internally Developed</masterLabel>
+            <translation><!-- Internally Developed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>InvestOne</masterLabel>
+            <translation><!-- InvestOne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Linedata - Chorus</masterLabel>
+            <translation><!-- Linedata - Chorus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Linedata - ICON</masterLabel>
+            <translation><!-- Linedata - ICON --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.I.K</masterLabel>
+            <translation><!-- M.I.K --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maximus</masterLabel>
+            <translation><!-- Maximus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Misys Summit</masterLabel>
+            <translation><!-- Misys Summit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multifonds</masterLabel>
+            <translation><!-- Multifonds --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Murex</masterLabel>
+            <translation><!-- Murex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Olympic</masterLabel>
+            <translation><!-- Olympic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outsourced</masterLabel>
+            <translation><!-- Outsourced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PDV - Decide</masterLabel>
+            <translation><!-- PDV - Decide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFS PAM</masterLabel>
+            <translation><!-- PFS PAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paladyne</masterLabel>
+            <translation><!-- Paladyne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portia</masterLabel>
+            <translation><!-- Portia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proprietary</masterLabel>
+            <translation><!-- Proprietary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuters Kondor+</masterLabel>
+            <translation><!-- Reuters Kondor+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS&amp;C Advisorware</masterLabel>
+            <translation><!-- SS&amp;C Advisorware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS&amp;C CAMRA</masterLabel>
+            <translation><!-- SS&amp;C CAMRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS&amp;C D&amp;D (Debt &amp; Derivatives)</masterLabel>
+            <translation><!-- SS&amp;C D&amp;D (Debt &amp; Derivatives) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS&amp;C Pacer</masterLabel>
+            <translation><!-- SS&amp;C Pacer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS&amp;C Total Return</masterLabel>
+            <translation><!-- SS&amp;C Total Return --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security APL</masterLabel>
+            <translation><!-- Security APL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SimCorp Dimension</masterLabel>
+            <translation><!-- SimCorp Dimension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sophis</masterLabel>
+            <translation><!-- Sophis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard - Ambit</masterLabel>
+            <translation><!-- Sungard - Ambit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard - Apsys</masterLabel>
+            <translation><!-- Sungard - Apsys --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard - GPIII</masterLabel>
+            <translation><!-- Sungard - GPIII --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard - VPM</masterLabel>
+            <translation><!-- Sungard - VPM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard GlobalOne</masterLabel>
+            <translation><!-- Sungard GlobalOne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Temenos T24</masterLabel>
+            <translation><!-- Temenos T24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tradar</masterLabel>
+            <translation><!-- Tradar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vestmark</masterLabel>
+            <translation><!-- Vestmark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wallstreet Suite</masterLabel>
+            <translation><!-- Wallstreet Suite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Xentis - Profidata</masterLabel>
+            <translation><!-- Xentis - Profidata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mPower</masterLabel>
+            <translation><!-- mPower --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date MSF started receiving the Collateral data from the customer --></help>
+        <label><!-- Collateral Delivery Date --></label>
+        <name>CollateralDeliveryDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status of MSF Data Onboarding Process of the Collateral data from this customer (if applicable) --></help>
+        <label><!-- Collateral Status --></label>
+        <name>CollateralStatus__c</name>
+        <picklistValues>
+            <masterLabel>Agreed in principle</masterLabel>
+            <translation><!-- Agreed in principle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacted</masterLabel>
+            <translation><!-- Contacted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivered via Pirum</masterLabel>
+            <translation><!-- Delivered via Pirum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivered via triparty agent</masterLabel>
+            <translation><!-- Delivered via triparty agent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not contacted</masterLabel>
+            <translation><!-- Not contacted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not interested</masterLabel>
+            <translation><!-- Not interested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onboarded</masterLabel>
+            <translation><!-- Onboarded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially onboarded</masterLabel>
+            <translation><!-- Partially onboarded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work in progress</masterLabel>
+            <translation><!-- Work in progress --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Reporting system used by the customer --></help>
+        <label><!-- Customer Reporting System --></label>
+        <name>CustomerReportingSystem__c</name>
+        <picklistValues>
+            <masterLabel>Actuate</masterLabel>
+            <translation><!-- Actuate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Objects</masterLabel>
+            <translation><!-- Business Objects --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cognos</masterLabel>
+            <translation><!-- Cognos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crystal</masterLabel>
+            <translation><!-- Crystal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DeskNet</masterLabel>
+            <translation><!-- DeskNet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle - Client Reporting</masterLabel>
+            <translation><!-- Eagle - Client Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equipos</masterLabel>
+            <translation><!-- Equipos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundworks</masterLabel>
+            <translation><!-- Fundworks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IBI Webfocus</masterLabel>
+            <translation><!-- IBI Webfocus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information Builders</masterLabel>
+            <translation><!-- Information Builders --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internally Developed</masterLabel>
+            <translation><!-- Internally Developed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kurtosys</masterLabel>
+            <translation><!-- Kurtosys --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proprietary</masterLabel>
+            <translation><!-- Proprietary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS&amp;C Pages</masterLabel>
+            <translation><!-- SS&amp;C Pages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSRS</masterLabel>
+            <translation><!-- SSRS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simcorp Dimension</masterLabel>
+            <translation><!-- Simcorp Dimension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vermillion</masterLabel>
+            <translation><!-- Vermillion --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Comments/Notes field from MSF Data Onboarding team --></help>
+        <label><!-- Data Comments --></label>
+        <name>DataComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contractual terms that the customer is required to comply to in relation to their contract for MSF for data submission --></help>
+        <label><!-- Data Contractual Terms --></label>
+        <name>DataContractualTerms__c</name>
+    </fields>
+    <fields>
+        <help><!-- Datafeeds ingested by the customer --></help>
+        <label><!-- Data Feeds --></label>
+        <name>DataFeeds__c</name>
+        <picklistValues>
+            <masterLabel>Alacra</masterLabel>
+            <translation><!-- Alacra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Argos</masterLabel>
+            <translation><!-- Argos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Avox</masterLabel>
+            <translation><!-- Avox --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Barclays</masterLabel>
+            <translation><!-- Barclays --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Barclays Point</masterLabel>
+            <translation><!-- Barclays Point --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg</masterLabel>
+            <translation><!-- Bloomberg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg (ref/corp action/ownership)</masterLabel>
+            <translation><!-- Bloomberg (ref/corp action/ownership) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg (sec, equity &amp; fixed price)</masterLabel>
+            <translation><!-- Bloomberg (sec, equity &amp; fixed price) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg BO</masterLabel>
+            <translation><!-- Bloomberg BO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg PS</masterLabel>
+            <translation><!-- Bloomberg PS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDS</masterLabel>
+            <translation><!-- CDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CME</masterLabel>
+            <translation><!-- CME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computershare</masterLabel>
+            <translation><!-- Computershare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Copps Clark</masterLabel>
+            <translation><!-- Copps Clark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Module</masterLabel>
+            <translation><!-- Credit Module --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Risk</masterLabel>
+            <translation><!-- Credit Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Datastream</masterLabel>
+            <translation><!-- Datastream --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dominion Credit Ratings</masterLabel>
+            <translation><!-- Dominion Credit Ratings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dun and Bradstreet</masterLabel>
+            <translation><!-- Dun and Bradstreet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EFA price</masterLabel>
+            <translation><!-- EFA price --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eurex</masterLabel>
+            <translation><!-- Eurex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exshare</masterLabel>
+            <translation><!-- Exshare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FTID</masterLabel>
+            <translation><!-- FTID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Factset</masterLabel>
+            <translation><!-- Factset --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fitch</masterLabel>
+            <translation><!-- Fitch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heren</masterLabel>
+            <translation><!-- Heren --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICAP Broker Pages</masterLabel>
+            <translation><!-- ICAP Broker Pages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICB (sector details)</masterLabel>
+            <translation><!-- ICB (sector details) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IDC</masterLabel>
+            <translation><!-- IDC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IDC (corp actions)</masterLabel>
+            <translation><!-- IDC (corp actions) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IDC (sec/eqty/loan/OTC prc, bnd prc/yld)</masterLabel>
+            <translation><!-- IDC (sec/eqty/loan/OTC prc, bnd prc/yld) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intex</masterLabel>
+            <translation><!-- Intex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joburg BX</masterLabel>
+            <translation><!-- Joburg BX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joburg SX</masterLabel>
+            <translation><!-- Joburg SX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML</masterLabel>
+            <translation><!-- ML --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSCI</masterLabel>
+            <translation><!-- MSCI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkIT</masterLabel>
+            <translation><!-- MarkIT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moody&apos;s</masterLabel>
+            <translation><!-- Moody&apos;s --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MorningStar (Hemscott ownership data)</masterLabel>
+            <translation><!-- MorningStar (Hemscott ownership data) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Muller</masterLabel>
+            <translation><!-- Muller --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAIC</masterLabel>
+            <translation><!-- NAIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTC Valuations</masterLabel>
+            <translation><!-- OTC Valuations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PC Bond Analytics</masterLabel>
+            <translation><!-- PC Bond Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platts</masterLabel>
+            <translation><!-- Platts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proquote</masterLabel>
+            <translation><!-- Proquote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RIMES</masterLabel>
+            <translation><!-- RIMES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuters</masterLabel>
+            <translation><!-- Reuters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuters - RMDS</masterLabel>
+            <translation><!-- Reuters - RMDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuters DSE (ref/corp action)</masterLabel>
+            <translation><!-- Reuters DSE (ref/corp action) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S&amp;P</masterLabel>
+            <translation><!-- S&amp;P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>STOXX global components</masterLabel>
+            <translation><!-- STOXX global components --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Six Telekurs (finalim)</masterLabel>
+            <translation><!-- Six Telekurs (finalim) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Six Telekurs (ref/dividend/traded inst)</masterLabel>
+            <translation><!-- Six Telekurs (ref/dividend/traded inst) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statpro</masterLabel>
+            <translation><!-- Statpro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TSX</masterLabel>
+            <translation><!-- TSX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telekurs</masterLabel>
+            <translation><!-- Telekurs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ValueLink</masterLabel>
+            <translation><!-- ValueLink --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WM Daten</masterLabel>
+            <translation><!-- WM Daten --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yieldbook</masterLabel>
+            <translation><!-- Yieldbook --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data Management System --></label>
+        <name>DataManagementSystem__c</name>
+        <picklistValues>
+            <masterLabel>AIM - Gain Software</masterLabel>
+            <translation><!-- AIM - Gain Software --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ab Initio</masterLabel>
+            <translation><!-- Ab Initio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Control - AC+</masterLabel>
+            <translation><!-- Asset Control - AC+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Control - ACInvest</masterLabel>
+            <translation><!-- Asset Control - ACInvest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biztalk</masterLabel>
+            <translation><!-- Biztalk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charles River Data Service</masterLabel>
+            <translation><!-- Charles River Data Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle Pace for Warehouse</masterLabel>
+            <translation><!-- Eagle Pace for Warehouse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle SRM or Pricing</masterLabel>
+            <translation><!-- Eagle SRM or Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Golden Source</masterLabel>
+            <translation><!-- Golden Source --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indus Valley Partners (I.V.P.)</masterLabel>
+            <translation><!-- Indus Valley Partners (I.V.P.) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Informatica</masterLabel>
+            <translation><!-- Informatica --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intalus</masterLabel>
+            <translation><!-- Intalus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internally developed system</masterLabel>
+            <translation><!-- Internally developed system --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.I.K</masterLabel>
+            <translation><!-- M.I.K --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit EDM</masterLabel>
+            <translation><!-- Markit EDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Netik</masterLabel>
+            <translation><!-- Netik --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paladyne</masterLabel>
+            <translation><!-- Paladyne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PolarLake</masterLabel>
+            <translation><!-- PolarLake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Princeton</masterLabel>
+            <translation><!-- Princeton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference Data Factory</masterLabel>
+            <translation><!-- Reference Data Factory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simcorp Dimension</masterLabel>
+            <translation><!-- Simcorp Dimension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smartco</masterLabel>
+            <translation><!-- Smartco --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sterci</masterLabel>
+            <translation><!-- Sterci --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ThompsonReuters EDM - TREP</masterLabel>
+            <translation><!-- ThompsonReuters EDM - TREP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Xenomorph</masterLabel>
+            <translation><!-- Xenomorph --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zema</masterLabel>
+            <translation><!-- Zema --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- To identify if this customer provides us with Securities Finance Data  - i.e. are they contributing to the database --></help>
+        <label><!-- Data Provision --></label>
+        <name>DataProvision__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data Warehouse --></label>
+        <name>DataWarehouse__c</name>
+        <picklistValues>
+            <masterLabel>Asset Control</masterLabel>
+            <translation><!-- Asset Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EDM Data Store</masterLabel>
+            <translation><!-- EDM Data Store --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle PACE</masterLabel>
+            <translation><!-- Eagle PACE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indus Valley Partners (I.V.P.)</masterLabel>
+            <translation><!-- Indus Valley Partners (I.V.P.) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internally Developed Warehouse</masterLabel>
+            <translation><!-- Internally Developed Warehouse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.I.K</masterLabel>
+            <translation><!-- M.I.K --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Netik</masterLabel>
+            <translation><!-- Netik --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oracle (MDS)</masterLabel>
+            <translation><!-- Oracle (MDS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teradata</masterLabel>
+            <translation><!-- Teradata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Xenomorph</masterLabel>
+            <translation><!-- Xenomorph --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date MSF started receiving the customer&apos;s data to ingest into our database (into production) --></help>
+        <label><!-- Date Onboarded --></label>
+        <name>DateOnboarded__c</name>
+    </fields>
+    <fields>
+        <help><!-- Lookup to a User that indicates the EDM Salesperson for the Account. --></help>
+        <label><!-- EDM Salesperson --></label>
+        <name>EDMSalesperson__c</name>
+        <relationshipLabel><!-- Additional Account Fields (EDM Salesperson) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Front Office System --></label>
+        <name>FrontOfficeSystem__c</name>
+        <picklistValues>
+            <masterLabel>Advent</masterLabel>
+            <translation><!-- Advent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Allocare</masterLabel>
+            <translation><!-- Allocare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Black Mountain Everest</masterLabel>
+            <translation><!-- Black Mountain Everest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blackrock Aladdin</masterLabel>
+            <translation><!-- Blackrock Aladdin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg AIM</masterLabel>
+            <translation><!-- Bloomberg AIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Calypso</masterLabel>
+            <translation><!-- Calypso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charles River</masterLabel>
+            <translation><!-- Charles River --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Endur</masterLabel>
+            <translation><!-- Endur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enfusion Integrata</masterLabel>
+            <translation><!-- Enfusion Integrata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equalizer</masterLabel>
+            <translation><!-- Equalizer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EzeCastle</masterLabel>
+            <translation><!-- EzeCastle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Factset</masterLabel>
+            <translation><!-- Factset --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finacle Treasury</masterLabel>
+            <translation><!-- Finacle Treasury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flextrade</masterLabel>
+            <translation><!-- Flextrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geneva Moxy</masterLabel>
+            <translation><!-- Geneva Moxy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IRESS Portfolio/Order System</masterLabel>
+            <translation><!-- IRESS Portfolio/Order System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indus Valley Partners (I.V.P.)</masterLabel>
+            <translation><!-- Indus Valley Partners (I.V.P.) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Build</masterLabel>
+            <translation><!-- Internal Build --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Latent Zero</masterLabel>
+            <translation><!-- Latent Zero --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Linedata</masterLabel>
+            <translation><!-- Linedata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Liquidity Book</masterLabel>
+            <translation><!-- Liquidity Book --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LongView Trading</masterLabel>
+            <translation><!-- LongView Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.I.K</masterLabel>
+            <translation><!-- M.I.K --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MacGregor XIP</masterLabel>
+            <translation><!-- MacGregor XIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Murex</masterLabel>
+            <translation><!-- Murex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Odyssey - TripleA</masterLabel>
+            <translation><!-- Odyssey - TripleA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OpenLink Findur</masterLabel>
+            <translation><!-- OpenLink Findur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuters - Kondor+</masterLabel>
+            <translation><!-- Reuters - Kondor+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS&amp;C Antares</masterLabel>
+            <translation><!-- SS&amp;C Antares --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simcorp Dimension</masterLabel>
+            <translation><!-- Simcorp Dimension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sophis</masterLabel>
+            <translation><!-- Sophis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard - Decalog</masterLabel>
+            <translation><!-- Sungard - Decalog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard Front Arena</masterLabel>
+            <translation><!-- Sungard Front Arena --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard Investran</masterLabel>
+            <translation><!-- Sungard Investran --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thinkfolio</masterLabel>
+            <translation><!-- Thinkfolio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Capture</masterLabel>
+            <translation><!-- Trade Capture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wall Street Office</masterLabel>
+            <translation><!-- Wall Street Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yardi</masterLabel>
+            <translation><!-- Yardi --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date MSF started receiving the Intraday trades data from the customer --></help>
+        <label><!-- Intraday Delivery Date --></label>
+        <name>IntradayDeliveryDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status of MSF Data Onboarding Process of the Intraday trades from this customer (if applicable) --></help>
+        <label><!-- Intraday Status --></label>
+        <name>IntradayStatus__c</name>
+        <picklistValues>
+            <masterLabel>Agreed in Principle</masterLabel>
+            <translation><!-- Agreed in Principle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacted</masterLabel>
+            <translation><!-- Contacted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivered via Pirum</masterLabel>
+            <translation><!-- Delivered via Pirum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in contributing via Pirum</masterLabel>
+            <translation><!-- Interested in contributing via Pirum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Contacted</masterLabel>
+            <translation><!-- Not Contacted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Interested</masterLabel>
+            <translation><!-- Not Interested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onboarded</masterLabel>
+            <translation><!-- Onboarded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially Onboarded</masterLabel>
+            <translation><!-- Partially Onboarded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work in Progress</masterLabel>
+            <translation><!-- Work in Progress --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Type of KY3P Account or relationship to IHS Markit from a KY3P perspective --></help>
+        <label><!-- KY3P --></label>
+        <name>KY3P__c</name>
+        <picklistValues>
+            <masterLabel>Consumer</masterLabel>
+            <translation><!-- Consumer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor</masterLabel>
+            <translation><!-- Vendor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor &amp; Consumer</masterLabel>
+            <translation><!-- Vendor &amp; Consumer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Live CM Brokers is calculated by the number of related &quot;CM Relationships&quot; records where Account Status is &quot;Live&quot; --></help>
+        <label><!-- Live CM Brokers --></label>
+        <name>LiveCMBrokers__c</name>
+    </fields>
+    <fields>
+        <help><!-- Comments/Notes field in respect of MRM for this account --></help>
+        <label><!-- MRM Account Comments --></label>
+        <name>MRMAccountComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Products from the MRM Suite that this customer subscribes to --></help>
+        <label><!-- MRM Products Used --></label>
+        <name>MRMProductsUsed__c</name>
+        <picklistValues>
+            <masterLabel>Calendar</masterLabel>
+            <translation><!-- Calendar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commission Manager</masterLabel>
+            <translation><!-- Commission Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hub</masterLabel>
+            <translation><!-- Hub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research Payment</masterLabel>
+            <translation><!-- Research Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research Questionnaire</masterLabel>
+            <translation><!-- Research Questionnaire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vote</masterLabel>
+            <translation><!-- Vote --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Lookup to a User that indicates the MRM Relationship Manager for the Account. --></help>
+        <label><!-- MRM Relationship Manager --></label>
+        <name>MRMRelationshipManager__c</name>
+        <relationshipLabel><!-- Additional Account Fields (MRM Relationship Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MSFA Sub Segment --></label>
+        <name>MSFASubSegment__c</name>
+        <picklistValues>
+            <masterLabel>Academic</masterLabel>
+            <translation><!-- Academic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Beneficial Owner</masterLabel>
+            <translation><!-- Beneficial Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Borrower</masterLabel>
+            <translation><!-- Borrower --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy Side</masterLabel>
+            <translation><!-- Buy Side --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate</masterLabel>
+            <translation><!-- Corporate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lender</masterLabel>
+            <translation><!-- Lender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partnership</masterLabel>
+            <translation><!-- Partnership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulator/supranational/industry body</masterLabel>
+            <translation><!-- Regulator/supranational/industry body --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor</masterLabel>
+            <translation><!-- Vendor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MSF Contracted Year --></label>
+        <name>MSFContractedYear__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag to identify if they are an MSF Customer, prospect, Academic etc. (Not all accounts in salesforce will be an MSF Customer so this is used for reporting on customers of MSF) --></help>
+        <label><!-- MSF Type --></label>
+        <name>MSFType__c</name>
+        <picklistValues>
+            <masterLabel>Academic</masterLabel>
+            <translation><!-- Academic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Customer</masterLabel>
+            <translation><!-- Academic Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate/IR</masterLabel>
+            <translation><!-- Corporate/IR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost Customer</masterLabel>
+            <translation><!-- Lost Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost Prospect</masterLabel>
+            <translation><!-- Lost Prospect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press</masterLabel>
+            <translation><!-- Press --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect</masterLabel>
+            <translation><!-- Prospect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor</masterLabel>
+            <translation><!-- Vendor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong Customer Type</masterLabel>
+            <translation><!-- Wrong Customer Type --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Reason as to why the customer is not providing us with data per the MSF rules of &quot;give-to-get data&quot; --></help>
+        <label><!-- No Data Reason --></label>
+        <name>NoDataReason__c</name>
+        <picklistValues>
+            <masterLabel>Academic</masterLabel>
+            <translation><!-- Academic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative parent company account</masterLabel>
+            <translation><!-- Administrative parent company account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Affiliate account providing data</masterLabel>
+            <translation><!-- Affiliate account providing data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultancy only</masterLabel>
+            <translation><!-- Consultancy only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate</masterLabel>
+            <translation><!-- Corporate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive Trading</masterLabel>
+            <translation><!-- Inactive Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investor Relations</masterLabel>
+            <translation><!-- Investor Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Long only</masterLabel>
+            <translation><!-- Long only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSF Contract Cancelled</masterLabel>
+            <translation><!-- MSF Contract Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No SF data provided (Div/ETP/IM only)</masterLabel>
+            <translation><!-- No SF data provided (Div/ETP/IM only) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Securities Lending Program</masterLabel>
+            <translation><!-- No Securities Lending Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RX only</masterLabel>
+            <translation><!-- RX only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulator</masterLabel>
+            <translation><!-- Regulator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research</masterLabel>
+            <translation><!-- Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAR/SAF Access Removed</masterLabel>
+            <translation><!-- SAR/SAF Access Removed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special contractual terms</masterLabel>
+            <translation><!-- Special contractual terms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK IX only</masterLabel>
+            <translation><!-- UK IX only --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Who at IHS Markit is liaising with the customer to onboard this customer&apos;s data --></help>
+        <label><!-- Onboarding Contact --></label>
+        <name>OnboardingContact__c</name>
+        <picklistValues>
+            <masterLabel>Adam Oakley</masterLabel>
+            <translation><!-- Adam Oakley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>David Murphy</masterLabel>
+            <translation><!-- David Murphy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dharmendra Kumar</masterLabel>
+            <translation><!-- Dharmendra Kumar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gargi Nagar</masterLabel>
+            <translation><!-- Gargi Nagar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jason Yang</masterLabel>
+            <translation><!-- Jason Yang --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jordan Maskowitz</masterLabel>
+            <translation><!-- Jordan Maskowitz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pushap Karan</masterLabel>
+            <translation><!-- Pushap Karan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sahil Nangia</masterLabel>
+            <translation><!-- Sahil Nangia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swati Singh</masterLabel>
+            <translation><!-- Swati Singh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tom Ingram</masterLabel>
+            <translation><!-- Tom Ingram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vani Priya</masterLabel>
+            <translation><!-- Vani Priya --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vineet Nanda</masterLabel>
+            <translation><!-- Vineet Nanda --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Stage of MSF Data Onboarding process if data is being given or if in progress (dependent on value in &quot;Data Provision&quot;) --></help>
+        <label><!-- Onboarding Stage --></label>
+        <name>OnboardingStage__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Actively being worked on</masterLabel>
+            <translation><!-- Actively being worked on --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Do Not Contact</masterLabel>
+            <translation><!-- Do Not Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalated</masterLabel>
+            <translation><!-- Escalated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First stage escalation</masterLabel>
+            <translation><!-- First stage escalation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Second stage escalation</masterLabel>
+            <translation><!-- Second stage escalation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third stage escalation</masterLabel>
+            <translation><!-- Third stage escalation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Status of MSF Data Onboarding process if data is being given or if in progress (dependent on value in &quot;Onboarding Status&quot;) --></help>
+        <label><!-- Onboarding Status --></label>
+        <name>OnboardingStatus__c</name>
+        <picklistValues>
+            <masterLabel>Academic</masterLabel>
+            <translation><!-- Academic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Access Revoked</masterLabel>
+            <translation><!-- Access Revoked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Project</masterLabel>
+            <translation><!-- Client Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client onboarded</masterLabel>
+            <translation><!-- Client onboarded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Negotiations</masterLabel>
+            <translation><!-- Contract Negotiations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Spec Sent</masterLabel>
+            <translation><!-- Data Spec Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Do Not Contact</masterLabel>
+            <translation><!-- Do Not Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalated</masterLabel>
+            <translation><!-- Escalated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final escalation</masterLabel>
+            <translation><!-- Final escalation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Give to get Waived</masterLabel>
+            <translation><!-- Give to get Waived --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive Trading</masterLabel>
+            <translation><!-- Inactive Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue Resolution</masterLabel>
+            <translation><!-- Issue Resolution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal letter being sent</masterLabel>
+            <translation><!-- Legal letter being sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Long Only</masterLabel>
+            <translation><!-- Long Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSF Contract Cancelled</masterLabel>
+            <translation><!-- MSF Contract Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No SAF/SAR</masterLabel>
+            <translation><!-- No SAF/SAR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending escalation</masterLabel>
+            <translation><!-- Pending escalation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refer to Account manager</masterLabel>
+            <translation><!-- Refer to Account manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulator</masterLabel>
+            <translation><!-- Regulator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk Client</masterLabel>
+            <translation><!-- Risk Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing files</masterLabel>
+            <translation><!-- Testing files --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UKIX Only</masterLabel>
+            <translation><!-- UKIX Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for client</masterLabel>
+            <translation><!-- Waiting for client --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Management System (OMS) --></label>
+        <name>OrderManagementSystemOMS__c</name>
+        <picklistValues>
+            <masterLabel>Blackrock Aladdin</masterLabel>
+            <translation><!-- Blackrock Aladdin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg AIM</masterLabel>
+            <translation><!-- Bloomberg AIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charles River Development</masterLabel>
+            <translation><!-- Charles River Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ClearStructure Sentry PM</masterLabel>
+            <translation><!-- ClearStructure Sentry PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eze Castle</masterLabel>
+            <translation><!-- Eze Castle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Liquidity Book</masterLabel>
+            <translation><!-- Liquidity Book --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Murex</masterLabel>
+            <translation><!-- Murex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orchestrade</masterLabel>
+            <translation><!-- Orchestrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sophis</masterLabel>
+            <translation><!-- Sophis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thinkfolio</masterLabel>
+            <translation><!-- Thinkfolio --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PKID AdditionalAccountFields --></label>
+        <name>PKIDAdditionalAccountFields__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date MSF started receiving the Pending trades data from the customer --></help>
+        <label><!-- Pending Delivery Date --></label>
+        <name>PendingDeliveryDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status of MSF Data Onboarding Process of the Pending Trades data from this customer (if applicable) --></help>
+        <label><!-- Pending Status --></label>
+        <name>PendingStatus__c</name>
+        <picklistValues>
+            <masterLabel>Agreed in Principle</masterLabel>
+            <translation><!-- Agreed in Principle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacted</masterLabel>
+            <translation><!-- Contacted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivered via Pirum</masterLabel>
+            <translation><!-- Delivered via Pirum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in contributing via Pirum</masterLabel>
+            <translation><!-- Interested in contributing via Pirum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Contacted</masterLabel>
+            <translation><!-- Not Contacted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Interested</masterLabel>
+            <translation><!-- Not Interested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onboarded</masterLabel>
+            <translation><!-- Onboarded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially Onboarded</masterLabel>
+            <translation><!-- Partially Onboarded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work in Progress</masterLabel>
+            <translation><!-- Work in Progress --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Performance System --></label>
+        <name>PerformanceSystem__c</name>
+        <picklistValues>
+            <masterLabel>BI-SAM</masterLabel>
+            <translation><!-- BI-SAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Barclays POINT</masterLabel>
+            <translation><!-- Barclays POINT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DST Performance System</masterLabel>
+            <translation><!-- DST Performance System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle PACE</masterLabel>
+            <translation><!-- Eagle PACE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eagle Performance</masterLabel>
+            <translation><!-- Eagle Performance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Factset</masterLabel>
+            <translation><!-- Factset --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internally Developed</masterLabel>
+            <translation><!-- Internally Developed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ortec Pearl</masterLabel>
+            <translation><!-- Ortec Pearl --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Perform</masterLabel>
+            <translation><!-- Perform --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security APL</masterLabel>
+            <translation><!-- Security APL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SimCorp</masterLabel>
+            <translation><!-- SimCorp --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statpro</masterLabel>
+            <translation><!-- Statpro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statpro (through Citi GTS)</masterLabel>
+            <translation><!-- Statpro (through Citi GTS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard</masterLabel>
+            <translation><!-- Sungard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sylvan</masterLabel>
+            <translation><!-- Sylvan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sylvan (from SS&amp;C)</masterLabel>
+            <translation><!-- Sylvan (from SS&amp;C) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UBS Delta</masterLabel>
+            <translation><!-- UBS Delta --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vermillion</masterLabel>
+            <translation><!-- Vermillion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vestmark</masterLabel>
+            <translation><!-- Vestmark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wallstreet Suite</masterLabel>
+            <translation><!-- Wallstreet Suite --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Who the prime broker is for this customer (only applicable to buyside MSF Customers) --></help>
+        <label><!-- Prime Brokers --></label>
+        <name>PrimeBrokers__c</name>
+        <picklistValues>
+            <masterLabel>ABN Amro</masterLabel>
+            <translation><!-- ABN Amro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMO Nesbitt</masterLabel>
+            <translation><!-- BMO Nesbitt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BNP</masterLabel>
+            <translation><!-- BNP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Barclays</masterLabel>
+            <translation><!-- Barclays --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BoA ML</masterLabel>
+            <translation><!-- BoA ML --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BoNY</masterLabel>
+            <translation><!-- BoNY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDC IXIS Capital Markets</masterLabel>
+            <translation><!-- CDC IXIS Capital Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cantor Fitzgerald</masterLabel>
+            <translation><!-- Cantor Fitzgerald --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Citigroup</masterLabel>
+            <translation><!-- Citigroup --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Suisse</masterLabel>
+            <translation><!-- Credit Suisse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daiwa</masterLabel>
+            <translation><!-- Daiwa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deutsche Bank</masterLabel>
+            <translation><!-- Deutsche Bank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fidelity</masterLabel>
+            <translation><!-- Fidelity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fortis</masterLabel>
+            <translation><!-- Fortis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goldman Sachs</masterLabel>
+            <translation><!-- Goldman Sachs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HSBC</masterLabel>
+            <translation><!-- HSBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ING</masterLabel>
+            <translation><!-- ING --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JP Morgan</masterLabel>
+            <translation><!-- JP Morgan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jefferies</masterLabel>
+            <translation><!-- Jefferies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Knight</masterLabel>
+            <translation><!-- Knight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macquarie</masterLabel>
+            <translation><!-- Macquarie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morgan Stanley</masterLabel>
+            <translation><!-- Morgan Stanley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NewEdge</masterLabel>
+            <translation><!-- NewEdge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nomura</masterLabel>
+            <translation><!-- Nomura --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RBC Dexia</masterLabel>
+            <translation><!-- RBC Dexia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Raymond James</masterLabel>
+            <translation><!-- Raymond James --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIG</masterLabel>
+            <translation><!-- SIG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scotia Capital</masterLabel>
+            <translation><!-- Scotia Capital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smith Barney</masterLabel>
+            <translation><!-- Smith Barney --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Societé General</masterLabel>
+            <translation><!-- Societé General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Street PB</masterLabel>
+            <translation><!-- State Street PB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Timber Hill (Interactive Brokers)</masterLabel>
+            <translation><!-- Timber Hill (Interactive Brokers) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UBS</masterLabel>
+            <translation><!-- UBS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wachovia</masterLabel>
+            <translation><!-- Wachovia --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reconciliation System --></label>
+        <name>ReconciliationSystem__c</name>
+        <picklistValues>
+            <masterLabel>CheckFree</masterLabel>
+            <translation><!-- CheckFree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chesapeake T-Recs</masterLabel>
+            <translation><!-- Chesapeake T-Recs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electra Stars</masterLabel>
+            <translation><!-- Electra Stars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fiserv Frontier</masterLabel>
+            <translation><!-- Fiserv Frontier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fiserv NXG</masterLabel>
+            <translation><!-- Fiserv NXG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fiserv Recon+</masterLabel>
+            <translation><!-- Fiserv Recon+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hydrobatch</masterLabel>
+            <translation><!-- Hydrobatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indus Valley Partners (I.V.P.)</masterLabel>
+            <translation><!-- Indus Valley Partners (I.V.P.) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internally Developed</masterLabel>
+            <translation><!-- Internally Developed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.I.K</masterLabel>
+            <translation><!-- M.I.K --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Omgeo</masterLabel>
+            <translation><!-- Omgeo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outsourced</masterLabel>
+            <translation><!-- Outsourced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS&amp;C Recon/Evare</masterLabel>
+            <translation><!-- SS&amp;C Recon/Evare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smartstream TLM</masterLabel>
+            <translation><!-- Smartstream TLM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sungard IntelliMatch</masterLabel>
+            <translation><!-- Sungard IntelliMatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vertas</masterLabel>
+            <translation><!-- Vertas --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Flag if the MSF buyside Customer is &quot;allowed&quot; to see SAF/SAR (Buyside Premium Fee fields) in the products to which they have subscribed. --></help>
+        <label><!-- SAF/SAR --></label>
+        <name>SAFSAR__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Lookup reference of which analyst is working on onboarding this customer and looking after the account from a Trade EQM perspective --></help>
+        <label><!-- Trade EQM Analyst --></label>
+        <name>TradeEQMAnalyst__c</name>
+        <relationshipLabel><!-- Additional Account Fields (Trade EQM Analyst) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Weekly status on customer onboarding for  Trade EQM --></help>
+        <label><!-- Trade EQM Current Onboarding Status --></label>
+        <name>TradeEQMCurrentOnboardingStatus__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tick the checkbox if Trade EQM Training is complete --></help>
+        <label><!-- Trade EQM Customer Training --></label>
+        <name>TradeEQMCustomerTraining__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tick the checkbox if Trade EQM Data Integration is complete --></help>
+        <label><!-- Trade EQM Data Integration --></label>
+        <name>TradeEQMDataIntegration__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tick the checkbox if Trade EQM Platform Customization is complete --></help>
+        <label><!-- Trade EQM Platform Customized --></label>
+        <name>TradeEQMPlatformCustomized__c</name>
+    </fields>
+    <fields>
+        <help><!-- Region of the WSO Software --></help>
+        <label><!-- WSO Software Region --></label>
+        <name>WSOSoftwareRegion__c</name>
+        <picklistValues>
+            <masterLabel>APAC</masterLabel>
+            <translation><!-- APAC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Americas</masterLabel>
+            <translation><!-- Americas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMEA</masterLabel>
+            <translation><!-- EMEA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Risk status from a WSO perspective of this account for IHS Markit --></help>
+        <label><!-- WSO Software Relationship Status --></label>
+        <name>WSOSoftwareRelationshipStatus__c</name>
+        <picklistValues>
+            <masterLabel>Amber</masterLabel>
+            <translation><!-- Amber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Green</masterLabel>
+            <translation><!-- Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Red</masterLabel>
+            <translation><!-- Red --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Addition Account Fields Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- MSF Account Information --></label>
+            <section>MSF Account Information</section>
+        </sections>
+        <sections>
+            <label><!-- MSF Customer Data --></label>
+            <section>MSF Customer Data</section>
+        </sections>
+        <sections>
+            <label><!-- Support - MRM --></label>
+            <section>Support - MRM</section>
+        </sections>
+        <sections>
+            <label><!-- Support - Trade EQM --></label>
+            <section>Support - Trade EQM</section>
+        </sections>
+        <sections>
+            <label><!-- WSO Software Information --></label>
+            <section>WSO Software Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Additional Account Fields Name is not editable --></errorMessage>
+        <name>AdditionalAccountFieldsName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The selected Account already has an Additional Account Fields record related to it. --></errorMessage>
+        <name>OneAdditionalAccountFieldForAccount</name>
+    </validationRules>
+</CustomObjectTranslation>

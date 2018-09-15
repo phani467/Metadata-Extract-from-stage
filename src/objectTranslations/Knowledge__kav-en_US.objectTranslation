@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Knowledge</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Knowledge</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Resources --></label>
+        <name>AdditionResources__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide any desired comments to help with the approval of this article such as what you changed and why --></help>
+        <label><!-- Approval Submission Comments --></label>
+        <name>ApprovalSubmissionComments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cause --></label>
+        <name>Cause__c</name>
+    </fields>
+    <fields>
+        <help><!-- What type of content this article will hold --></help>
+        <label><!-- Content Type --></label>
+        <name>ContentType__c</name>
+        <picklistValues>
+            <masterLabel>FAQ</masterLabel>
+            <translation><!-- FAQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How To Guide</masterLabel>
+            <translation><!-- How To Guide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video Tutorial</masterLabel>
+            <translation><!-- Video Tutorial --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Details --></label>
+        <name>Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internal Notes --></label>
+        <name>InternalNotes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Keywords --></label>
+        <name>Keywords__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to store legacy article number for a reference --></help>
+        <label><!-- Legacy Article Id --></label>
+        <name>LegacyArticleId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Links --></label>
+        <name>Links__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Group --></label>
+        <name>Product_Group__c</name>
+        <relationshipLabel><!-- Knowledge Articles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Products And Versions --></label>
+        <name>ProductsAndVersions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to publish customer community articles.  Article will be published according to the defined Publish Behavior. --></help>
+        <label><!-- Publish Article --></label>
+        <name>PublishArticle__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to define the behavior when publishing customer community articles.  A MINOR change will keep the current article version.  A MAJOR change will create a new article version, archive the current version, and send an email alert. --></help>
+        <label><!-- Publish Behavior --></label>
+        <name>PublishBehavior__c</name>
+        <picklistValues>
+            <masterLabel>Major Change - New Article Version</masterLabel>
+            <translation><!-- Major Change - New Article Version --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minor Change - Keep Article Version</masterLabel>
+            <translation><!-- Minor Change - Keep Article Version --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Resolution --></label>
+        <name>Resolution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Submitted For Approval By --></label>
+        <name>SubmitForApprovalBy__c</name>
+        <relationshipLabel><!-- Knowledge --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Check to submit this article for approval.  NOTE: Once submitted, the record will be locked for editing and you will not be able to make any more changes to the article. --></help>
+        <label><!-- Submit For Approval --></label>
+        <name>SubmitForApproval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Audience --></label>
+        <name>TargetAudience__c</name>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation><!-- All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workflow --></label>
+        <name>Workflow__c</name>
+    </fields>
+    <layouts>
+        <layout>Community Knowledge Layout - General</layout>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Community Knowledge Layout - Goldfire</layout>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Community Knowledge Layout - Kingdom</layout>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Community Knowledge Layout - Partner</layout>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Knowledge Layout</layout>
+        <sections>
+            <label><!-- Article Actions --></label>
+            <section>Article Actions</section>
+        </sections>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Article Visibility --></label>
+            <section>Article Visibility</section>
+        </sections>
+        <sections>
+            <label><!-- Version Information --></label>
+            <section>Version Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Knowledge Layout - General</layout>
+        <sections>
+            <label><!-- Article Actions --></label>
+            <section>Article Actions</section>
+        </sections>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Article Visibility --></label>
+            <section>Article Visibility</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Version Information --></label>
+            <section>Version Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Knowledge Layout - Goldfire</layout>
+        <sections>
+            <label><!-- Article Actions --></label>
+            <section>Article Actions</section>
+        </sections>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Article Visibility --></label>
+            <section>Article Visibility</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Version Information --></label>
+            <section>Version Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Knowledge Layout - Kingdom</layout>
+        <sections>
+            <label><!-- Article Actions --></label>
+            <section>Article Actions</section>
+        </sections>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Article Visibility --></label>
+            <section>Article Visibility</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Version Information --></label>
+            <section>Version Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Knowledge Layout - Partner</layout>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Article Visibility --></label>
+            <section>Article Visibility</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Version Information --></label>
+            <section>Version Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Knowledge Layout - Sales</layout>
+        <sections>
+            <label><!-- Article Summary --></label>
+            <section>Article Summary</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- General --></label>
+        <name>General</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Goldfire --></label>
+        <name>Goldfire</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Kingdom --></label>
+        <name>Kingdom</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Partners --></label>
+        <name>Partners</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Salesforce HelpDesk --></label>
+        <name>SalesforceHelpDesk</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Training Documentation --></label>
+        <name>TrainingDocumentation</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must specify the Publish Behavior in order to submit for review --></errorMessage>
+        <name>EnforcePublishBehavioToSubmitForApproval</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- New Articles that have not yet been published must have a publish behavior of &quot;Major Change - New Article Version&quot; in order to publish --></errorMessage>
+        <name>EnforcePublishBehaviorMajorForNewArticle</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Article must be visible to customers to submit for review --></errorMessage>
+        <name>VisibleToCustomerToSubmitForApproval</name>
+    </validationRules>
+</CustomObjectTranslation>

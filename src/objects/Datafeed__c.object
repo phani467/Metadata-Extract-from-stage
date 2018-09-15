@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>DatafeedRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-2521 MSFA Custom Object for Contacts - Datafeeds</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Datafeeds</relationshipLabel>
+        <relationshipName>Datafeeds</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DatafeedDescription__c</fullName>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>Datafeed Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DatafeedFilename__c</fullName>
+        <description>SFDC1-2521 This is the filename that the client sees at their end</description>
+        <externalId>false</externalId>
+        <label>Datafeed Filename</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DatafeedFrequency__c</fullName>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>Datafeed Frequency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Daily</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Twice Daily</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Weekly (Wed Datasest, Fri Publish)</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DatafeedStatus__c</fullName>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>Datafeed Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Live</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Extinct</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Delivery__c</fullName>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>Delivery</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FTP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SFTP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sharefile</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-6785: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (unfriendly) referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>Legacy ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LoginName__c</fullName>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>Login Name</label>
+        <length>75</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PGPKey__c</fullName>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>PGP Key</label>
+        <length>75</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDDatafeed__c</fullName>
+        <description>SFDC1-6785 PKID is used for data migration support from the legacy system</description>
+        <displayFormat>Dfe{000000}</displayFormat>
+        <externalId>true</externalId>
+        <inlineHelpText>PKID is used for data migration support from the legacy system and is auto-generated</inlineHelpText>
+        <label>PKID Datafeed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ProductLogin__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-7972 This is a lookup to the Product Login table the DataFeed is related to.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the Product Login table the DataFeed is related to</inlineHelpText>
+        <label>Product Login</label>
+        <referenceTo>ProductLogin__c</referenceTo>
+        <relationshipLabel>Datafeeds</relationshipLabel>
+        <relationshipName>Datafeeds</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ReportConfig__c</fullName>
+        <description>SFDC1-2521 Data Feed Related Object for Contacts</description>
+        <externalId>false</externalId>
+        <label>Report Config</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ReportStyle__c</fullName>
+        <externalId>false</externalId>
+        <label>Report Style</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Old</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Datafeed</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Datafeed-{0000}</displayFormat>
+        <label>Datafeed ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Datafeeds</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Case__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DatafeedDescription__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DatafeedFilename__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DatafeedFrequency__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DatafeedStatus__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Delivery__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ReportStyle__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+</CustomObject>

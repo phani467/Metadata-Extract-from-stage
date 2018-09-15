@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is related to POLK application.This is used to create Work Request Form for Lightning</description>
+    <height>250</height>
+    <label>Create New Work Request Form Lightning</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>WRDriver</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

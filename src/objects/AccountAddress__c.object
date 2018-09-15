@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-205 This holds multiple accounts related to an Account.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AddressCountry__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>SFDC1-394 use lookup to Country object to prevent creating Additional Addresses in prohibited country</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter country for this address.</inlineHelpText>
+        <label>Country</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Account Addresses</relationshipLabel>
+        <relationshipName>Countries</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <description>SFDC1-205 To capture City of the address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter city</inlineHelpText>
+        <label>City</label>
+        <length>40</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DataGovernanceNotes__c</fullName>
+        <description>SFDC1-1029 Data Governance Notes, new field on the additional address object which will allow the Data Governance user to add notes about researching the address. This field will be used the same as the Data Governance notes field found on the account.</description>
+        <externalId>false</externalId>
+        <label>Account Governance Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DataGovernanceStatus__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Governance Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Reviewed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Governed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DeptMailStop__c</fullName>
+        <externalId>false</externalId>
+        <label>Dept/MailStop</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDAccountAddress__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>AAd{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID AccountAddress</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>PostalCode__c</fullName>
+        <description>SFDC1-205 capture postal/zip code related to address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter postal/Zip code</inlineHelpText>
+        <label>zzPostal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StateProvince__c</fullName>
+        <description>SFDC1-205 capture state of the address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter state</inlineHelpText>
+        <label>State/Province</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <description>SFDC1-205 capture state of the address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter state</inlineHelpText>
+        <label>zzState</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Street1__c</fullName>
+        <description>SFDC1-205 capture first address line of the address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter first address line</inlineHelpText>
+        <label>Street 1</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Street2__c</fullName>
+        <description>SFDC1-205 to capture second address line of the address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter second address line</inlineHelpText>
+        <label>Street 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZipPostalCode__c</fullName>
+        <description>SFDC1-205 capture postal/zip code related to address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter postal/Zip code</inlineHelpText>
+        <label>Zip/Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Account Address</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>New_Addresses</fullName>
+        <columns>CREATED_DATE</columns>
+        <columns>NAME</columns>
+        <columns>Street1__c</columns>
+        <columns>Street2__c</columns>
+        <columns>DeptMailStop__c</columns>
+        <columns>City__c</columns>
+        <columns>StateProvince__c</columns>
+        <columns>AddressCountry__c</columns>
+        <columns>ZipPostalCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>DataGovernanceStatus__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <label>New Addresses</label>
+    </listViews>
+    <nameField>
+        <label>Address Company Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Account Addresses</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>DeptMailStop__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Street1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Street2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>City__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StateProvince__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AddressCountry__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>DeptMailStop__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Street1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Street2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>City__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StateProvince__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AddressCountry__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DeptMailStop__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Street1__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Street2__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>City__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StateProvince__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AddressCountry__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>DeptMailStop__c</searchFilterFields>
+        <searchFilterFields>Street1__c</searchFilterFields>
+        <searchFilterFields>Street2__c</searchFilterFields>
+        <searchFilterFields>City__c</searchFilterFields>
+        <searchFilterFields>StateProvince__c</searchFilterFields>
+        <searchFilterFields>AddressCountry__c</searchFilterFields>
+        <searchResultsAdditionalFields>Street1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DeptMailStop__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Street2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StateProvince__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AddressCountry__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>PreventProhibitedCountriedFromSelection</fullName>
+        <active>true</active>
+        <description>SFDC1-394 Prevent creating Additional Addresses in prohibited country</description>
+        <errorConditionFormula>AddressCountry__r.IsProhibited__c</errorConditionFormula>
+        <errorDisplayField>AddressCountry__c</errorDisplayField>
+        <errorMessage>Due to U.S. export controls and sanctions restrictions, Address records cannot be created for the selected country.</errorMessage>
+    </validationRules>
+</CustomObject>

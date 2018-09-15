@@ -1,0 +1,37 @@
+<aura:component controller="Loop.ProcessDdpController">
+    <aura:handler name="init" value="this" action="{!c.onInit}"/>
+    <ltng:require scripts="/resource/Loop__Scripts/jQuery.js,/resource/Loop__Scripts/process-ddp.js"/>
+    
+    <aura:attribute name="ddpLabel" type="string" default="DocGen Package"/>
+
+    <!-- Internal Attributes -->
+    <aura:attribute name="containerId" type="string" access="private" description="Randomized 'id' value."/>
+    <aura:attribute name="hasErrored" type="boolean" access="private" default="false" description="'True' when error has occured."/>
+    <aura:attribute name="formattedRecipients" type="string" access="private" default="[]" description="List of key-value pairs for E-Sign recipients. Used inside proess-ddp.js."/>
+    <aura:attribute name="isSandbox" type="boolean" default="false" access="private"/>
+
+    <aura:method name="start" action="{!c.start}">
+        <aura:attribute name="parameters" type="Object" description="Instance of ProcessDdpParameters."/>
+        <!--Passing in recipients this way is easier than trying to make eSignRecipients part of 'parameters'.-->
+        <aura:attribute name="eSignRecipients" type="List" description="List of recipient information."/>
+        <aura:attribute name="globalId" type="string" description="GlobalId of RunDdp.cmp."/>
+    </aura:method>
+    <aura:method name="resetBar" action="{!c.resetBar}"/>
+    
+    <div id="{!v.containerId}" class="slds">
+        <div aura:id="panel-progress" class="panel-progress">
+            <div class="progress-container round-corners slds-m-horizontal--medium slds-m-vertical--x-small">
+                <div class="progress">
+                    <div aura:id="progressBarInnerText" class="progress-bar-inner"></div>
+                    <div aura:id="progressBar" class="progress-bar round-corners custom-texture" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                </div>
+            </div>
+            <div aura:id="progressBarText" class="progress-bar-text"></div>
+        </div>
+        <div aura:id="panel-preview" class="theme-drawloop">
+            <div class="panel-preview"/>
+        </div>
+        <div aura:id="panel-error" class="slds-m-horizontal--medium slds-m-vertical--small"/>
+    </div>
+</aura:component>

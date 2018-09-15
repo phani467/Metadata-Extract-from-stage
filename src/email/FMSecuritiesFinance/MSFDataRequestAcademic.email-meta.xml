@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2905 : MSF Data Request (Academic)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MSF Data Request (Academic)</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Securities Finance Data Academic Request</subject>
+    <textOnly>Dear {!Case.Contact},
+
+Thank you for expressing an interest in Markit&apos;s securities financing data.
+
+Before we proceed with your request please could you clarify the following:
+
+1. Your full contact details, including your position at the University;
+2. Intended use of the data, i.e. the provisional title of the research paper and a brief synopsis;
+3. Do you have a research grant to purchase Data Explorers content and if so, for how much?
+4. Are you currently using market data from any other source and if so, who?
+5. Are you collaborating with any co-author(s) from the same or any other institution(s)? If so, please can you confirm their full contact details (including position at the University)?
+6. Intended distribution (if any) for the paper and
+7. The scale, region or description of data required.
+
+If you have any questions, please do not hesitate to get in touch – I hope to hear from you soon.
+
+Kind regards,
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

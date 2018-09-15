@@ -1,0 +1,4 @@
+<aura:event type="Component" description="After clicking the X on an attachment pill, this event is handled in RunDdp to update the list of selected tiles in SelectAttachmentTiles.">
+    <aura:attribute name="removeAttachmentId" type="string" default="" description="Id of tile to deselect in DocGen Package."/>
+    <aura:attribute name="remainingAttachments" type="list" default="[]"/>
+</aura:event>

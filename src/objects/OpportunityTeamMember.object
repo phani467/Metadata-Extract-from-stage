@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddAccountTeam</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddDefaultTeam</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddOppTeam</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DeleteTeam</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DisplayAccess</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BusinessLine__c</fullName>
+        <description>SFDC1-1958 Formula field to Pull the Business Line field on the User Record into the Opportunity Team</description>
+        <externalId>false</externalId>
+        <formula>TEXT(User.SalesBusinessLineglobalpicklist__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Business Line</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7046: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (unfriendly) referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OpportunityAccessLevel</fullName>
+    </fields>
+    <fields>
+        <fullName>OpportunityGAMValue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field specifies if the GAM Opportunity team member is being created from opportunity GAM field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populate the GAM value here</inlineHelpText>
+        <label>Opportunity GAM Value</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PKIDOppTeam__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>OpT{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID OppTeam</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>SalesBusinessLine__c</fullName>
+        <description>SFDC1-5518
+Sales Business Line field to pull from Sales Business Line on Opportunity</description>
+        <externalId>false</externalId>
+        <formula>Text(User.SalesBusinessLine__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Business Line</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TeamMemberRole</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>UserId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <validationRules>
+        <fullName>GAMOpportunityTeamMember</fullName>
+        <active>true</active>
+        <description>This validation rule prevents the GAM member to be added manually.</description>
+        <errorConditionFormula>AND(
+    ISPICKVAL(TeamMemberRole  , &apos;GAM&apos;) ,
+    OpportunityGAMValue__c = FALSE
+)</errorConditionFormula>
+        <errorMessage>GAM member should be added on Opportunity. They should not be added manually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NoOppTeamChangeWhen6WP</fullName>
+        <active>true</active>
+        <description>SFDC1-6858 Users cannot update the Opportunity Team when oppty is 6WP</description>
+        <errorConditionFormula>AND 
+( 
+ISPICKVAL((Opportunity.StageName),&quot;6WP-Closed Won/Order Processed&quot;), 
+$Profile.Name &lt;&gt; &quot;IHSMarkit System Admin&quot;, 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+NOT(CONTAINS($Profile.Name,&apos;Sales Ops&apos;))
+)</errorConditionFormula>
+        <errorDisplayField>TeamMemberRole</errorDisplayField>
+        <errorMessage>Since the Related Opportunity is in 6WP stage, no updates can be made to oppty team</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OpptyTeamOpptyRecordTypeValidationCheck</fullName>
+        <active>false</active>
+        <description>SFDC1-7794:Users with the Sales General Profile should not be able to add or remove Team members in the Opportunity Team section of the Inner Year Opportunity.</description>
+        <errorConditionFormula>AND(
+Opportunity.RecordType.Name = &apos;Inner Year&apos;, 
+$Profile.Name = &apos;IHSMarkit Sales: General&apos;
+)</errorConditionFormula>
+        <errorDisplayField>TeamMemberRole</errorDisplayField>
+        <errorMessage>This User is not allowed to add/modify Team members in the Opportunity Team.</errorMessage>
+    </validationRules>
+</CustomObject>

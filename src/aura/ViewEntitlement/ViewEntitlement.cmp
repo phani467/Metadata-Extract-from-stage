@@ -1,0 +1,172 @@
+<aura:component implements="flexipage:availableForRecordHome,force:lightningQuickAction" controller="ViewEntitlementsController" access="global" >
+    <aura:attribute name="showProductSummary" type="boolean" default="false"/>
+    <aura:attribute name="showHierarchy" type="boolean" default="true"/>
+    <aura:attribute name="AccountRecord" type="Object"/>
+    <aura:attribute name="accountId" type="String" access="global"></aura:attribute>
+    <aura:attribute name="licenseInfoStartIndex" type="Integer" default="0"/>
+    <aura:attribute name="licenseInfoEndIndex" type="Integer" default="20"/>
+    <aura:attribute name="licenseInfoSize" type="Integer" default="20"/>
+    <aura:attribute name="summaryStartIndex" type="Integer" default="0"/>
+    <aura:attribute name="summaryEndIndex" type="Integer" default="10"/> 
+    <aura:attribute name="entitlementSummarySize" type="Integer" default="10"/>
+    <aura:attribute name="contactList" type="List"/>
+    <aura:attribute name="entireListProductLicense" type="List"/>
+    <aura:attribute name="listProductLicense" type="List"/>
+    <aura:attribute name="entireProductUsageSummaryList" type="List"/>
+    <aura:attribute name="productUsageSummary" type="List"/>
+    
+    <aura:attribute name="showNextLicenseButton" type="boolean" default="true"/>
+    <aura:attribute name="showNextEntitlementInfo" type="boolean" default="true"/>
+    
+    <aura:attribute name="showPreviousLicenseButton" type="boolean" default="false"/>
+    <aura:attribute name="showPrevEntitlementInfo" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <force:recordData aura:id="recordLoader" recordId="{!v.accountId}" fields="Name" 
+                      targetFields="{!v.AccountRecord}" />
+
+	<div class="slds-page-header">
+		<div class="slds-media">
+			<div class="slds-media__body">
+				<h1 iconName="standard:account" class="slds-page-header__title slds-truncate slds-align-middle" title="Account summary">
+					{!v.AccountRecord.Name}
+				</h1>
+			</div>
+		</div>
+	</div>
+    
+	<lightning:card title="Entitlement Summary">
+        <div class="slds-page-header">
+			<div class="slds-grid slds-wrap">
+				<aura:if isTrue="{!v.showHierarchy}">
+					<lightning:button  label="View Account(only) Entitlements" onclick="{! c.showAccountOnly }"/>
+					<aura:set attribute="else">
+						<lightning:button  label="View Account(hierarchy) Entitlements" onclick="{! c.showAccountHierarchy }"/>
+					</aura:set>
+				</aura:if>
+				<lightning:button aura:id="exportButton" label="Export Data"  onclick="{!c.downloadCsv}"/>
+			</div>
+		</div>
+		
+		<aura:if isTrue="{!v.listProductLicense.length>0}">
+			<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+				<thead>
+					<tr class="slds-text-title_caps">
+						<th scope="col">
+							<div class="slds-truncate" title="Product">Product Group</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="Allocated Licenses (UserXS)">Allocated Licenses (UserXS)</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<aura:iteration items="{!v.listProductLicense}" var="pm">
+						<tr>
+							<th scope="row" data-label="Product">
+								<div class="slds-truncate" title="Product">
+									<a data-attriVal="{!pm.productId}" onclick="{!c.showEntitlementInfo}">{!pm.productName}</a>
+								</div>
+							</th>
+							<td data-label="Allocated Licenses (UserXS)">
+								<div class="slds-truncate" title="Cloudhub">{!pm.licenseCount}</div>
+							</td>
+						</tr>
+					</aura:iteration>
+				</tbody>
+			</table>
+			
+			<aura:set attribute="else">
+				<ui:message title="" severity="info" closable="false">
+					This account has no entitlements
+				</ui:message>
+			</aura:set>
+		</aura:if>
+    
+		<div class="slds-p-top_medium">
+			<div class="slds-button-group " role="group">
+				<div class="slds-p-left_small">
+					<lightning:button class="slds-button slds-button_neutral" label="Back" variant="base" disabled="{!!v.showPreviousLicenseButton}"
+									  iconName="utility:chevronleft" iconPosition="left"
+									  onclick="{! c.previousLicensePage }" />
+				</div>
+				<div class="slds-p-left_small">
+					<lightning:button class="slds-button slds-button_neutral" label="Next" disabled="{!!v.showNextLicenseButton}"
+									  variant="base" 
+								  iconName="utility:chevronright" iconPosition="right"
+								  onclick="{! c.nextLicensePage }" />
+				</div>
+			</div>
+		</div>
+	</lightning:card>
+   
+	<aura:if isTrue="{!v.showProductSummary}">
+		<lightning:card title="Product Group Summary">
+			<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+				<thead>
+					<tr class="slds-text-title_caps">
+						<th scope="col">
+							<div class="slds-truncate" title="Contact">Contact</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="Start Date">Start Date</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="End Date">End Date</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="Account Name">Account</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="Usage in last 30 days">Usage in last 30 days</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<aura:iteration items="{!v.productUsageSummary}" var="e">
+						<tr>
+							<th scope="row" data-label="Contact">
+								<div class="slds-truncate" title="Contact"><a data-attriVal="{!e.ContactId}" onclick="{!c.navigateToRecord}">{!e.ContactName}</a></div>
+							</th>
+							<td data-label="Start Date">
+								<div class="slds-truncate" title="Start Date"><lightning:formattedDateTime value="{!e.startDate}"/>
+								</div>
+							</td>
+							<td data-label="End Date">
+								<div class="slds-truncate" title="End Date"><lightning:formattedDateTime value="{!e.endDate}"/></div>
+							</td>
+							<td data-label="Account Name">
+								<div class="slds-truncate" title="Account"><a data-attriVal="{!e.AccountId}" onclick="{!c.navigateToRecord}">{!e.AccountName}</a></div>
+							</td>
+							<td data-label="Usage in last 30 days">
+								<div class="slds-truncate" title="Usage"><ui:outputText value="{!e.usageCount}"/>
+								</div>
+							</td>
+							
+						</tr>
+					</aura:iteration>
+				</tbody>
+			</table>
+			<div class="slds-p-top_medium slds-p-bottom_large">
+				<div class="slds-button-group" role="group">
+					<div class="slds-p-left_small">
+						<lightning:button class="slds-button slds-button_neutral" label="Back" variant="base"  disabled="{!!v.showPrevEntitlementInfo}"
+										  iconName="utility:chevronleft" iconPosition="left"
+										  onclick="{!c.previousEntitlementPage}" />
+					</div>
+					<div class="slds-p-left_small">
+						<lightning:button class="slds-button slds-button_neutral slds-p-left_small" label="Next" disabled="{!!v.showNextEntitlementInfo}"
+									  variant="base" 
+									  iconName="utility:chevronright" iconPosition="right"
+									  onclick="{!c.nextEntitlementPage}" />
+					</div>
+				</div>
+				<aura:set attribute="else">
+					<ui:message title="" severity="error" closable="false">
+						No Product Group summary Found
+					</ui:message>
+				</aura:set>
+			</div>
+		</lightning:card>  
+	</aura:if>
+</aura:component>

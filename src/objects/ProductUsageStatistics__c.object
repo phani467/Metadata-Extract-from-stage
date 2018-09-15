@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ProductUsageStatisticsRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-7972 This object is created for capturing product usage by the user</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>HitCount__c</fullName>
+        <description>SFDC1-6785 Number of times logged in</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provides a roll up of the number of times the user hits the system in a day.</inlineHelpText>
+        <label>Hit Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-6785: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (user unfriendly) referencing the source record and is populated via migrating system.</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDProductUsageStatistics__c</fullName>
+        <description>SFDC1-6785 PKID is used for data migration support from the legacy system</description>
+        <displayFormat>Usg{000000}</displayFormat>
+        <externalId>true</externalId>
+        <inlineHelpText>PKID is used for data migration support from the legacy system and is auto-generated</inlineHelpText>
+        <label>PKID ProductUsageStatistics</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ProductLicense__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-6785 Link related to License to this usage</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link the related Product License to this Usage record.</inlineHelpText>
+        <label>Product License</label>
+        <referenceTo>ProductLicense__c</referenceTo>
+        <relationshipLabel>Product Usage Statistics</relationshipLabel>
+        <relationshipName>ProductUsageStatistics</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductLogin__c</fullName>
+        <description>SFDC1-6785 User related to this usage</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link the related Product Login to this Usage record.</inlineHelpText>
+        <label>Product Login</label>
+        <referenceTo>ProductLogin__c</referenceTo>
+        <relationshipLabel>Product Usage Statistics</relationshipLabel>
+        <relationshipName>ProductUsageStatistics</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SoftwareVersion__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-6785 Version of software used</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Tracks the last software version last used.</inlineHelpText>
+        <label>Software Version</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Source__c</fullName>
+        <description>SFDC1-6785 Source of the usage data</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Data can only be uploaded automatically from external entitlement and authentications systems.</inlineHelpText>
+        <label>Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>UserXS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MSF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>USERXS-MARKIT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>USERXS-TRADE-MANAGER</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>UniqueExternalSystemID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>SFDC1-6785 Unique System ID for the external system</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Unique System ID for the external system</inlineHelpText>
+        <label>Unique External System ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>UsageDate__c</fullName>
+        <description>SFDC1- 6785 Date of usage</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Usage can be tracked on a daily roll-up or can be insterted per instance or a Product Login.</inlineHelpText>
+        <label>Usage Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Product Usage Statistics</label>
+    <nameField>
+        <displayFormat>USG-{000000}</displayFormat>
+        <label>Usage Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Product Usage Statistics</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>ProductLogin__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProductLicense__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SoftwareVersion__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UsageDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>HitCount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Source__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductLogin__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductLicense__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SoftwareVersion__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>UsageDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>HitCount__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Source__c</lookupPhoneDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

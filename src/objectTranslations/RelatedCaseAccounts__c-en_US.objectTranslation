@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Related Case Accounts</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Case Accounts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Type --></label>
+        <name>AccountType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Related Case Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Additional Field --></label>
+        <name>AdditionalField__c</name>
+        <relationshipLabel><!-- Related Case Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID RelCaseAcct --></label>
+        <name>PKIDRelCaseAcct__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Account --></label>
+        <name>ParentAccount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Role --></label>
+        <name>RelatedRole__c</name>
+        <picklistValues>
+            <masterLabel>Central Counterparty Clearing House</masterLabel>
+            <translation><!-- Central Counterparty Clearing House --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Broker</masterLabel>
+            <translation><!-- Clearing Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executing Broker</masterLabel>
+            <translation><!-- Executing Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fund Administrator</masterLabel>
+            <translation><!-- Fund Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prime Broker</masterLabel>
+            <translation><!-- Prime Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SEF - Execution Facility</masterLabel>
+            <translation><!-- SEF - Execution Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>STP Vendor</masterLabel>
+            <translation><!-- STP Vendor --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Related Case Accounts Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,30 @@
+<apex:page controller="CountrySelectorPageController" showHeader="false" sidebar="false" tabStyle="WorkRequestForm__c">
+    <apex:includeScript value="{!URLFOR($Resource.JQuery, '/js/jquery-1.7.2.min.js')}"  />
+    <!--
+    <apex:pageBlock title="Country Selector 2">
+    <apex:form >
+        <c:sectionCountrySelector2 reqType="Data Extract"/>
+    </apex:form>
+    </apex:pageBlock>
+    -->
+
+    <apex:pageBlock title="Country Selector Grid">
+        <apex:form >
+            <apex:commandButton value="Close" onclick="window.close();"/>
+            <!--<apex:commandButton value="Close & Refresh" onClick="opener.location.reload();window.close()"/>-->
+
+            <br/>
+            <c:sectionCountrySelectorGrid reqType="{!requestType}"/>
+            <br/>
+            <apex:commandButton value="Close" onclick="window.close();"/>
+            <!-- <apex:commandButton value="Close & Refresh" onClick="opener.location.reload();window.close()"/>-->
+
+        </apex:form>
+        
+    </apex:pageBlock>
+    <script>
+        window.resizeTo(1024,768);
+    </script>
+    <!--<a href="javascript:void(0);" onclick='window.open("/apex/CountrySelector2TestPage?id=a0R220000002ujK&retURL=Test", "Country Picker", "width=600,height=400,left=150,top=200,location=0,menubar=0,toolbar=0,status=0,");'>Click me</a>-->
+    
+</apex:page>

@@ -1,0 +1,7 @@
+<aura:event type="COMPONENT" description="Fire to update DocuSign reminders">
+    <aura:attribute name="globalId" type="string"/>
+    <aura:attribute name="reminderDelay" type="decimal"/>
+    <aura:attribute name="daysTillSigningExpires" type="decimal"/>
+    <aura:attribute name="reminderFrequency" type="decimal"/>
+    <aura:attribute name="warnOfExpiration" type="decimal"/>
+</aura:event>

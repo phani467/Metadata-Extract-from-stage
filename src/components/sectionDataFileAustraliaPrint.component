@@ -1,0 +1,198 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+
+<apex:component >
+        <!-- SHOW THIS DATA SPECS SECTION IF Australia WRF IS SELECTED -->
+        <apex:attribute type="WRACE" description="extension of parent page" name="pageExt" required="true"/>  
+        <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />       
+
+       <apex:actionRegion >  
+
+         <!-- SHOW THIS SECTION IF VINDICATOR IS SELECTED -->     
+        <apex:pageblock title="Request for Vindicator" rendered="{!wrf.Vindicator__c}" id="ausVindicator">
+            <apex:pageblocksection columns="1">
+                <apex:outputField value="{!wrf.DRDTTYPE__c}" styleclass="requiredField"/>
+            </apex:pageBlockSection>
+
+            <apex:outputPanel id="drdttypeDetailsPanel">
+                <c:AustraliaVindicatorDRDT0001 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_01')}"/>
+                <c:AustraliaVindicatorDRDT0002 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_02')}"/>
+                <c:AustraliaVindicatorDRDT0003 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_03')}"/>
+                <c:AustraliaVindicatorDRDT0004 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_04')}"/>
+                <c:AustraliaVindicatorDRDT0005 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_05')}"/>
+                <c:AustraliaVindicatorDRDT0006 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_06')}"/>
+                <c:AustraliaVindicatorDRDT0007 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_07')}"/>
+                <c:AustraliaVindicatorDRDT0008 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_08')}"/>
+                <c:AustraliaVindicatorDRDT0009 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_09')}"/>
+                <c:AustraliaVindicatorDRDT0010 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_10')}"/>
+                <c:AustraliaVindicatorDRDT0011 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_11')}"/>
+                <c:AustraliaVindicatorDRDT0012 rendered="{!wrf.DRDTTYPE__c != null && CONTAINS(wrf.DRDTTYPE__c,'DRDTTYPE_12')}"/>
+            </apex:outputPanel>
+        </apex:pageblock>
+
+    <!-- END VINDICATOR --> 
+
+
+    <!-- THIS SECTION IS FOR DATA EXTRACT GLOBAL VIO PARC --> 
+ <apex:pageblock rendered="{!wrf.DataExtractGlobalVIOPARC__c}" id="Data4" 
+            title="Request for Data Extract Global VIO PARC">
+            <apex:pageBlockSection title="Year Coverage" collapsible="false"  id="yr">
+                <apex:outputField value="{!wrf.Periodicity__c}" />
+                <apex:pageblockSectionItem > 
+                    <apex:outputLabel for="year" value="Custom Year" />
+                    <apex:outputField value="{!wrf.CustomYearCoverage__c}" />
+                </apex:pageblockSectionItem> 
+                 
+                <apex:outputField value="{!wrf.CustomPeriodicity__c}" rendered="{!wrf.Periodicity__c == 'Other'}"  styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.Periodicity__c != 'Other'}"/>
+
+                <apex:outputField value="{!wrf.CustomYearFrom__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField" />
+                <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>
+
+                <apex:outputField value="{!wrf.ForecastYears__c}" />
+                <apex:outputField value="{!wrf.CustomYearTo__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>                 
+
+                <apex:outputField value="{!wrf.CustomForecastYears__c}" rendered="{!wrf.ForecastYears__c == 'Other'}"  styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.ForecastYears__c != 'Other'}"/>
+
+            </apex:pageBlockSection>
+       
+           <apex:pageblocksection title="Markets" collapsible="false" id="geo" columns="1" >
+               
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="MarketInsight VIO System" wrfId="{!wrf.Id}" rendered="{!wrf.PARCDataFiles__c}"/>
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="Data Extract Global VIO (PARC)" wrfId="{!wrf.Id}" rendered="{!wrf.DataExtractGlobalVIOPARC__c}"/>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="OEMGeo" value="Custom Geography"/>
+                    <apex:outputField value="{!wrf.CustomGeography__c}" id="oemgeo"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageblocksectionitem rendered="{!!wrf.CustomGeography__c}"/>
+                <apex:outputField style="width:50%;height:80px;" value="{!wrf.OEMGeographyDetails__c}" rendered="{!wrf.CustomGeography__c || CONTAINS(wrf.PARCGeography__c,'Other')}" styleClass="requiredField"/>
+          </apex:pageblocksection>
+
+          <apex:pageblockSection title="Vehicle Attributes" columns="2" id="vehicleAttributesSection">
+            
+            <apex:outputField value="{!wrf.VehicleAttributesPARC__c}" />
+            <apex:outputField value="{!wrf.EssenVehicleAttributes__c}"/>
+            
+            <apex:outputField value="{!wrf.VehicleSegmentation__c}" />
+            <apex:pageBlockSectionItem rendered="{!wrf.VehicleSegmentation__c == null || CONTAINS(wrf.VehicleSegmentation__c,'Other') == false}"/>
+            <apex:outputField style="width:100%;height:80px;" value="{!wrf.VehicleSegmentationDetails__c}" rendered="{!wrf.VehicleSegmentation__c != null && CONTAINS(wrf.VehicleSegmentation__c,'Other')}" styleClass="requiredField"/>
+            
+            <apex:outputField value="{!wrf.AgeClasses__c}" styleClass="requiredField"/>
+            <apex:pageBlockSectionItem rendered="{!wrf.AgeClasses__c == null || !CONTAINS(wrf.AgeClasses__c,'Custom Age Classes')}"/>
+            <apex:outputField style="width:100%;height:80px;" value="{!wrf.CustomAgeClasses__c}" rendered="{!wrf.AgeClasses__c != null && CONTAINS(wrf.AgeClasses__c,'Custom Age Classes')}" styleClass="requiredField"/>
+
+          </apex:pageblockSection>
+          
+        </apex:pageblock>
+    <!-- END DATA EXTRACT GLOBAL VIO PARC --> 
+
+
+         <!-- SHOW THIS SECTION IF MARKET INSIGHT IS SELECTED -->     
+        <apex:pageblock rendered="{!wrf.MarketInsightSystem__c}"  id="ausMarketInsight">
+            <apex:pageBlockSection title="Year Coverage" collapsible="false"  id="yr">
+
+                <apex:outputField value="{!wrf.Periodicity__c}" />
+                <apex:pageblockSectionItem > 
+                    <apex:outputLabel for="year" value="Custom Year" />
+                    <apex:outputField value="{!wrf.CustomYearCoverage__c}" />
+                </apex:pageblockSectionItem> 
+                 
+                <apex:outputField value="{!wrf.CustomPeriodicity__c}" rendered="{!wrf.Periodicity__c == 'Other'}"  styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.Periodicity__c != 'Other'}"/>
+
+                <apex:outputField value="{!wrf.CustomYearFrom__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField" />
+                <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>
+
+                <apex:outputField value="{!wrf.ForecastYears__c}" />
+                <apex:outputField value="{!wrf.CustomYearTo__c}" rendered="{!wrf.CustomYearCoverage__c}" styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}"/>                 
+
+                <apex:outputField value="{!wrf.CustomForecastYears__c}" rendered="{!wrf.ForecastYears__c == 'Other'}"  styleClass="requiredField"/>
+                <apex:pageBlockSectionItem rendered="{!wrf.ForecastYears__c != 'Other'}"/>
+
+            </apex:pageBlockSection>
+        </apex:pageblock>
+
+       <apex:pageblock id="Data" title="Market Insight System" rendered="{!wrf.MarketInsightSystem__c}">
+
+       <apex:pageblock > 
+           <apex:pageblocksection title="Markets" collapsible="false" id="geo" columns="1" >
+               
+                <c:sectionCountrySelector pageext="{!pageExt}" reqtype="MarketInsight System" wrfId="{!wrf.Id}" rendered="{!wrf.MarketInsightSystem__c}"/>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="OEMGeo" value="Custom Geography"/>
+                    <apex:outputField value="{!wrf.CustomGeography__c}" id="oemgeo"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageblocksectionitem rendered="{!!wrf.CustomGeography__c}"/>
+                <apex:outputField style="width:50%;height:80px;" value="{!wrf.OEMGeographyDetails__c}" rendered="{!wrf.CustomGeography__c || CONTAINS(wrf.PARCGeography__c,'Other')}" styleClass="requiredField"/>
+          </apex:pageblocksection>
+
+        </apex:pageBlock>
+
+          
+          <apex:pageblockSection title="Vehicle Attributes" columns="1" id="vehicleAttributesSection">
+            
+            <apex:outputField value="{!wrf.EssenVehicleAttributes__c}" />
+            <apex:outputField value="{!wrf.VehicleSegmentation__c}" />
+            <apex:outputField style="width:50%;height:80px;" value="{!wrf.VehicleSegmentationDetails__c}" rendered="{!wrf.VehicleSegmentation__c != null && CONTAINS(wrf.VehicleSegmentation__c,'Other')}" styleClass="requiredField"/>
+            <apex:outputField style="width:50%;height:80px;" value="{!wrf.ClusteringAgeClass__c}" />
+            <apex:outputField style="width:50%;height:80px;" value="{!wrf.ClusteringRegistrationMonth__c}" />
+
+          </apex:pageblockSection>
+          
+      </apex:pageblock>
+
+    <!-- END MARKET INSIGHT --> 
+
+         <!-- SHOW THIS SECTION IF MAPPING IS SELECTED -->     
+            
+         <apex:pageblock title="Request for Mapping" rendered="{!wrf.Mapping__c}" id="ausMapping">
+            <apex:pageblocksection title="Initiate" columns="1">
+                <apex:outputField style="width:100%"  value="{!wrf.ProjectBackground__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel for="Internal" styleClass="requiredField" value="Internal" >
+                    </apex:outputLabel>
+                    <!-- BUG: 6/21/2016 - Replaced Incorrect Internal field -->
+                    <!--<apex:outputField value="{!wrf.Internal__c}" id="Internal" />-->
+                    <apex:outputField value="{!wrf.InternalMapping__c}" id="Internal"/>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel for="External" styleClass="requiredField" value="External" >
+                    </apex:outputLabel>
+                    <apex:outputField value="{!wrf.External__c}" id="External" />
+                </apex:pageblockSectionItem>
+            </apex:pageblocksection> 
+            <apex:pageBlockSection title="Storage Notes" columns="1">
+                <apex:outputField style="width:70%"  value="{!wrf.CustomerDataset__c}"/>
+                <apex:outputField style="width:70%"  value="{!wrf.EditRename__c}"/>
+            </apex:pageblocksection> 
+            <apex:pageBlockSection title="Design Specs - Map Process" columns="2">
+                <apex:outputField style="width:70%"  value="{!wrf.StdGeoTemplate__c}"/>
+                <apex:outputField style="width:70%"  value="{!wrf.CustomGeoTemplate__c}"/>
+                <apex:outputField style="width:70%"  value="{!wrf.LAVAMassMapping__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Design Specs - Admin">
+                <apex:outputfield value="{!wrf.Revenue__c}"/>
+                <apex:outputField value="{!wrf.JobRevenue__c}"/>
+                <apex:outputField style="width:70%"  value="{!wrf.PLC__c}"/>
+                <apex:pageblocksection />
+                <apex:outputField style="width:70%"  value="{!wrf.TotalMaps__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+
+    <!-- END MAPPING --> 
+    
+  </apex:actionRegion>
+</apex:component>

@@ -1,0 +1,37 @@
+<aura:component >
+    <aura:attribute name="attachments" type="List" default="[]"/>
+    <aura:attribute name="globalIdTag" type="string" default="" description="Id of this component."/>
+    <aura:attribute name="selectedAttachments" type="List" default="[]" description="List of attachments previously selected by user."/>
+    <aura:attribute name="updatedSelectedAttachments" type="List" default="[]"/>
+    <aura:attribute name="disableApply" type="boolean" default="true"/>
+    
+    <aura:method name="load" action="{!c.loadAttachments}">
+        <aura:attribute name="globalIdTag" type="string" default="" description="Id of this component."/>
+        <aura:attribute name="attachments" type="List" default="[]"/>
+    </aura:method>
+    <aura:method name="updateDeselectedAttachments" action="{!c.updateDeselectedAttachments}">
+        <aura:attribute name="removedAttachmentId" type="string" default=""/>
+        <aura:attribute name="remainingAttachments" type="List" default="[]"/>
+    </aura:method>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="attachmentsSelected" type="Loop:attachmentsSelected"/>
+    <aura:registerEvent name="slideOutAttachments" type="Loop:slideOutAttachments"/>
+    
+    <!--Handled events-->
+    <aura:handler name="tileClicked" event="Loop:tileClicked" action="{!c.handleTileClicked}"/>
+    
+    <div class="slds">
+        <div class="slds-scrollable--y" style="background-color:#eef1f6; max-height:400px;">
+            <ul class="slds-list--vertical slds-has-cards slds-has-cards--space slds-has-list-interactions" style="padding: .5rem 1rem;">
+                <aura:iteration items="{!v.attachments}" var="attachment">
+                    <Loop:Tile aura:id="tile" id="{!v.globalIdTag + attachment.Id}" type="attachment" record="{!attachment}" isMultiSelect="true"/>
+                </aura:iteration>
+            </ul>
+        </div>
+         <div class="border-top button-padding next-button">
+             <button class="slds-button slds-button--neutral" onclick="{!c.cancel}">Cancel</button>
+             <button class="slds-button slds-button--neutral slds-button--brand slds-m-left--x-small" onclick="{!c.updateAttachments}" disabled="{!v.disableApply}">Apply</button>
+        </div>
+    </div>
+</aura:component>

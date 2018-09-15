@@ -1,0 +1,47 @@
+<apex:page controller="SendMeetingNoteToOpportunityTeam" tabStyle="Contract">
+  <apex:form >
+      <apex:messages style="color:green"></apex:messages>
+      <apex:pageBlock title="Send email to Opportunity Team">
+      
+      <apex:pageBlockSection title="Please add any other recipients" id="addrecs">
+          <!-- apex:inputField value="{!meeting.User_lookup__c}"/-->
+          <apex:inputField value="{!meeting.InternalContactLookup__c}" label="Additional recipient"/>
+          <apex:commandButton action="{!addRow}" title="Test" value="Add User" reRender="table,addrecs"/>
+      </apex:pageBlockSection>
+          
+      <apex:pageBlockSection title="Current Recipients">  
+        <apex:pageBlockTable value="{!Recipients}" var="rec" id="table">
+            <apex:column headerValue="No." style="width:20px; text-align:center;" headerClass="centertext">
+                <apex:outputText value="{!rec.numberInList}" style="text-align:center;"> 
+                            
+                </apex:outputText>
+            </apex:column>
+                
+            <apex:column >
+                <apex:outputField value="{!rec.oppyTeamMember.UserId}" rendered="{!IF((rec.oppyTeamMember.UserId != NULL && rec.contact.Id == NULL), TRUE, FALSE)}"/>
+                <apex:outputLink value="/{!rec.contact.Id}"  target="_blank" rendered="{!IF((rec.oppyTeamMember.UserId == NULL && rec.contact.Id != NULL), TRUE, FALSE)}">
+	                       <apex:outputField value="{!rec.contact.Name}"/>
+	           </apex:outputLink>   
+                <!--apex:outputField value="{!rec.contact.Name}" rendered="{!IF((rec.oppyTeamMember.UserId == NULL && rec.contact.Id != NULL), TRUE, FALSE)}"/-->
+            </apex:column>
+            
+            <apex:column >
+                <apex:outputText value="{!rec.emailOfUser}"/>
+            </apex:column>
+            
+            <apex:column headerValue="Action" >
+                <apex:commandButton value="Delete" action="{!deleteRow}" reRender="table" immediate="true">
+                    <apex:param name="deleteNum" assignTo="{!deleteNum}" value="{!rec.numberInList}"></apex:param>
+                </apex:commandButton>                    
+            </apex:column>
+                
+            </apex:pageBlockTable>    
+      </apex:pageBlockSection>
+      <apex:pageBlockButtons location="bottom" >
+            <apex:commandButton value="Send meeting note" action="{!sendEmail}" />
+            <apex:commandButton value="Cancel" action="{!cancel}" immediate="true"/>
+      </apex:pageBlockButtons>    
+          
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

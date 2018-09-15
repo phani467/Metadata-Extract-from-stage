@@ -1,0 +1,18 @@
+<aura:component controller="Loop.LayoutButtonController">
+    <aura:attribute name="objectGroups" type="List"/>
+    
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    
+    <div class="slds" style="margin-bottom: 25px;">
+        <div class="slds-grid">
+            <div class="slds-size--1-of-3">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--left">
+                        <Loop:Svg class="slds-input__icon" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#search"/>
+                        <input aura:id="searchText" type="text" class="slds-input" placeholder="Search..." oninput="{!c.filterLayouts}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,15 @@
+Dear {!Opportunity.OwnerFullName},
+
+This is a reminder regarding your opportunity: 
+
+Opportunity name: "{!Opportunity.Name}" 
+Link to your Opportunity: {!Opportunity.Link}"
+which shall be reviewed at the upcoming Transactions Management Committee on {!Opportunity.NextReview__c}
+
+If you haven't already done so, 
+
+Please confirm your attendance by email to "MK-Transaction Management Committee Administration" and a meeting invitation will be forwarded with dial-in details. 
+
+Thank you. 
+
+Transactions Management Committee

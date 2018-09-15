@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Opportunity Validation Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Opportunity Validation Fields</value>
+    </caseValues>
+    <fields>
+        <help><!-- API name of the unlocked field --></help>
+        <label><!-- API Name --></label>
+        <name>APIName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the validation rule to which the unlocked field is related to --></help>
+        <label><!-- Rule Name --></label>
+        <name>RuleName__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

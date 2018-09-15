@@ -1,0 +1,26 @@
+<aura:component controller="Loop.SupportSidebarController">
+    <aura:attribute name="orgId" type="String"/>
+    <aura:attribute name="versionNumber" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <div class="slds">
+        <div class="slds-grid">
+            <div class="slds-col">
+                <Loop:Svg id="buttonToggle" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/custom-sprite/svg/symbols.svg#custom71" class="slds-icon__container slds-icon__container--square slds-icon-action-description slds-icon slds-icon--medium"/>
+                <h1 class="slds-text-heading--medium slds-m-bottom--medium slds-m-left--small iconFloat slds-word-wrap" style="vertical-align: top;">Support</h1>
+                <h2 class="slds-text-heading--small slds-m-bottom--small slds-word-wrap">Need Help?</h2>
+                <a href="https://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9003" target="_blank" style="text-decoration: underline;">Support Site</a><br/>
+                <button class="slds-m-top--small slds-button slds-button--brand" onclick="{!c.openCase}">Log a Case</button>
+                <button class="slds-m-top--small slds-button slds-button--brand" onclick="{!c.loginAccess}">Grant Login Access</button>
+                <div class="slds-m-top--medium slds-word-wrap">Your organization Id is:<br/>{!v.orgId}</div>
+                <div class="slds-m-top--medium slds-word-wrap">Your package version number is:<br/>{!v.versionNumber}</div>
+                <hr/>
+                <h2 class="slds-text-heading--small slds-m-bottom--small slds-word-wrap">Support Contacts</h2>
+                <div class="slds-m-bottom--small slds-word-wrap"><b>{!$Label.loop.Email_Label}: </b>support@nintex.com</div>
+                <div class="slds-m-right--xx-small slds-m-bottom--small slds-word-wrap slds-float--left"><b>{!$Label.loop.Call_Label}: </b></div>
+                <div class="slds-m-bottom--small slds-word-wrap" style="margin-left: 52px;">US: +1 (425) 533-2827<br/>EMEA: +44 203 695 5056<br/>APAC: +6 138 820 5139</div>
+                <div class="slds-float--left"><b>Support Hours:</b>  M-F, 6am - 5pm PT<br/>Extended hours available on request.</div>
+            </div>
+        </div>
+    </div>
+</aura:component>

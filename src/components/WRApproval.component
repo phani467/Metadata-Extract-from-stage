@@ -1,0 +1,64 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+// @Modification - SFDC1-6052 Added CSS to remove user drop down from lookup.
+-->
+<apex:component controller="WRApprovalController" allowDML="true">
+<apex:attribute assignTo="{!isView}" name="isView" required="true" type="boolean" description="Reading from WREXT"/>
+    <style>
+textarea {
+width: 95%;
+}
+</style>
+    <style>  
+    .hideDropdown select{ 
+        visibility: hidden; 
+        display: none;
+    }
+    </style>
+    <apex:attribute name="wrf" assignTo="{!wrf}" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+  
+    <apex:pageBlock title="Work Request Approval - {!wrf.name}" >
+        <apex:pagemessage summary="{!pmsg}" severity="info" strength="2"  /> 
+      <apex:pageBlockSection collapsible="false" columns="3" rendered="{!canApproveRecords}" >  
+        <apex:commandButton value="Approve" action="{!approved}" styleClass="viewBtn"/>
+        <apex:commandButton value="Reject" action="{!rejected}" styleClass="viewBtn"/>
+        <apex:commandButton value="Assign without Approval" action="{!assigned_pending}" styleClass="viewBtn"/>
+        
+        </apex:pageBlockSection>
+        <apex:pageBlockSection collapsible="false" columns="1" rendered="{!canApproveRecords}">
+        <apex:outputField value="{!wrf.RequestStatus__c}"/>
+        <apex:inputField value="{!wrf.ProgrammerAssigned__c}" styleClass="viewBtn hideDropdown"/>       
+        <!-- <apex:inputTextarea cols="5" value="{!wrf.RejectionComments__c}" styleClass="viewBtn" /> -->
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel for="rejection_comments" value="{!$ObjectType.WorkRequestForm__c.fields.RejectionComments__c.Label}"/>
+            <apex:inputTextarea cols="5" value="{!wrf.RejectionComments__c}" styleClass="viewBtn" />
+        </apex:pageBlockSectionItem>
+        <!--<apex:inputTextarea cols="5" value="{!wrf.RejectionComments__c}" required="true"  styleClass="requiredField"/>-->
+
+        <apex:outputField value="{!wrf.ChangeLogs__c}" />
+       
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+     <script>
+        var j$ = jQuery.noConflict();
+         
+           var isV = {!isView};
+           if(!(isV)){ 
+               j$(".requiredField").css("border","1px solid red");
+           }
+           j$(".changeTab").css({"color":"red!important", "font-weight":"bold!important"});
+           if(isV){
+               j$("[id$=mainBlock] :input").attr('disabled','true'); 
+                j$("[id$=mainBlock] .dataCol").attr('disabled','true');
+                j$("[id$=mainBlock] #output").attr('disabled','true').attr('multiple','');
+                j$("[id$=mainBlock] option").attr('disabled','false');
+                j$("[id$=mainBlock] .viewBtn").removeAttr('disabled');
+            }
+        
+       </script>
+</apex:component>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Family</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Families</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please select Case. --></help>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Product Families --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Family Number --></label>
+        <name>FamilyNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID Family --></label>
+        <name>PKIDFamily__c</name>
+    </fields>
+    <fields>
+        <help><!-- Lookup to Product Group table. --></help>
+        <label><!-- Product Group --></label>
+        <name>ProductGroup__c</name>
+        <relationshipLabel><!-- Product Families --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Family Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

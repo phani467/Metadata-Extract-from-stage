@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4411 Notification to new order request programmer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>Order Request Owner Change</name>
+    <style>freeForm</style>
+    <subject>Order Request Change of Owner Notification</subject>
+    <textOnly>** ATTENTION – ACTION NEEDED **&lt;?xml:namespace prefix = o /&gt;
+
+
+The following Order Request has had a owner change:
+
+Change Log Name: {!OrderRequest__c.Name}
+Work Request Name: {!OrderRequest__c.WorkRequestForm__c}
+Status: {!OrderRequest__c.Status__c}
+Record Owner: {!OrderRequest__c.OwnerFullName}
+Link: http://na13.salesforce.com/{!OrderRequest__c.Id}</textOnly>
+    <type>html</type>
+</EmailTemplate>

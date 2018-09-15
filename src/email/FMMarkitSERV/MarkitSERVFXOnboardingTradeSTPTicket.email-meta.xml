@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5112: MarkitSERV FX Onboarding TradeSTP Ticket Request for Additional Information</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MarkitSERV FX Onboarding TradeSTP Ticket</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - TradeSTP Onboarding Request</subject>
+    <textOnly>Dear {!Case.OpportunityOwnerFullName__c},
+
+Your case {!Case.CaseNumber} needs to be filled out before it can be transferred to the IO team queue MSERV FX Onboarding - TradeSTP.
+
+Case Link : {!Case.Link}
+
+These details need to be filled in:
+
+Section Field
+Subject  Please fill in as ‘Vendor’ – ‘Asset’ – ‘Client’ example “Test Vendor – FX – TEST Client”
+Description  Description of the request including:
+
+TradeSTP Info Type
+TradeSTP Info Sub Type
+TradeSTP Info TradeSTP Vendor
+TradeSTP Info DB Sales Region (If applicable)
+TradeSTP Info FX Asset
+TradeSTP Info Customer Legal Entity
+TradeSTP On-boarding Info
+
+
+If you have any queries about the fields please select the help? icon next to the field
+
+Regards,
+{!Case.OwnerFullName}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

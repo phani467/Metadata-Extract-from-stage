@@ -1,0 +1,137 @@
+.THIS .page-message {
+    text-align: center;
+    margin-top: 144px;
+    margin-bottom: 144px;
+    font-size: 1.125rem;
+    color: rgb(84, 105, 141);
+}
+.THIS .header {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    font-size: .875rem;
+    letter-spacing: .1em;
+}
+.THIS .slds-tree-container .slds-tree .slds-tree__branch .section-header {
+    border: 1px solid rgb(21, 137, 238);
+}
+.THIS .icon {
+  	fill: rgb(84, 105, 141);
+    width: 10px;
+    height: 10px;
+    margin-top: .55rem;
+    margin-right: .5rem;
+}
+.THIS .icon-on {
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin: 30% 50%;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: 30% 50%;
+    transform: rotate(90deg);
+    transform-origin: 30% 50%;
+}
+.THIS .icon-transition {
+    webkit-transition: 0.2s -webkit-transform linear,0.2s linear;
+    transition: 0.2s transform linear,0.2s linear;
+}
+.THIS .slds-tree-container .slds-tree .slds-tree__branch .slds-tree__group .itemHide[data-hidden=true]{
+    display: none;
+}
+.THIS .slds-tree-container .slds-tree .slds-tree__branch .sectionHide[data-hidden=true]{
+    display: none;
+}
+.THIS .slds-tree .noResultsHide[data-hidden=true] {
+ 	display: none;
+}
+.THIS .slds-tree-container.nav {
+    min-width: 275px;
+    max-width: 275px;
+}
+.THIS .nav {
+    padding: 1rem;
+    background: #ffffff;
+    border-right: 1px solid rgb(216, 221, 230);
+    overflow-y: auto;
+    z-index: 1000;
+}
+.THIS .page-footer {
+    padding: 24px;
+    background: #f4f6f9;
+    border-bottom-right-radius: 5px;
+    bottom: 0px;
+    border-bottom: 0px;
+}
+.THIS .indent {
+    text-indent: 32px;
+}
+.THIS .indent-edition {
+    text-indent: 50px;
+}
+.THIS .border {
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+}
+.THIS .hidden {
+    display: none;
+}
+.THIS .override-focus-outline:focus {
+    outline: auto 0px
+}
+.THIS .override-tree-item-hover:hover {
+    background: none;
+    box-shadow: #0070d2 4px 0 0 inset;
+    cursor: pointer;
+}
+.THIS .override-tree-item-focus:focus {
+    background: #f0f8fc;
+    box-shadow: #0070d2 4px 0 0 inset;
+    cursor: pointer;
+}
+.THIS .column-container {
+	vertical-align: top;
+	padding: 0;
+    height: 100%;
+}
+.THIS .navigation-container {
+    float: left;
+    background-color: #fff;
+    width: 275px;
+    position: relative;
+	overflow-x: hidden;
+}
+.THIS .overflow {
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+    position: relative;
+}
+.THIS .content-container {
+    position: relative;
+	overflow: auto;
+    border-left: 1px solid rgb(216, 221, 230);
+}
+.THIS .content-body-with-footer {
+    height: calc(100% - 84px);
+}
+.THIS .content-body {
+    height: 100%;
+}
+.THIS .content-footer {
+	height: 84px;
+	background-color: #f4f6f9;
+}
+.THIS .breadcrumb {
+    text-decoration: none;
+    display: block;
+    padding: 0 .5rem;
+}
+.THIS .breadcrumb-font {
+    font-size: .75rem;
+    line-height: 1.25;
+    text-transform: uppercase;
+    letter-spacing: .0625rem;
+}
+.THIS .edition-height {
+    display: flex;
+    line-height: 34px;
+    cursor: pointer;
+}

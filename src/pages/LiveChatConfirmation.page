@@ -1,0 +1,28 @@
+<!--------------------------------------------------------------------------------------------------------------------
+// @author: Uttam Arya
+// @date: 22 July 2017
+// @param: NA
+// @description: SFDC1-834 LiveChatConfirmation - confirmation page presented after post chat survey or offline form completed
+// @return: NA
+---------------------------------------------------------------------------------------------------------------------->
+<apex:page showHeader="false" standardStylesheets="false">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+    <apex:stylesheet value="{!URLFOR($Resource.LiveAgentMarkit, 'liveagentmarkit.css')}"/>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="https://cdn.ihs.com/wwwihsmarkit/images/favicon.png"/>
+    <div class="herohome w-section">
+        <div class="w-container">
+            <div class="homecontent">
+                <div style="text-align:right;">
+                    <img src="{!$Resource.la_markitlogo}" style="vertical-align:right;margin-top:8px;" width="250px"/>
+                </div>
+                <div style="button w-button">
+                    <h1>Thank you</h1>
+                </div>
+                <p>{!HTMLENCODE($CurrentPage.parameters.confirmationmsg)}</p>
+            </div>
+        </div>
+    </div>
+</apex:page>

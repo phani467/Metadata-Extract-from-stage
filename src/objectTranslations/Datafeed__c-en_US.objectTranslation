@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Datafeed</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Datafeeds</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Datafeeds --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Datafeed Description --></label>
+        <name>DatafeedDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Datafeed Filename --></label>
+        <name>DatafeedFilename__c</name>
+    </fields>
+    <fields>
+        <label><!-- Datafeed Frequency --></label>
+        <name>DatafeedFrequency__c</name>
+        <picklistValues>
+            <masterLabel>Daily</masterLabel>
+            <translation><!-- Daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Twice Daily</masterLabel>
+            <translation><!-- Twice Daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly (Wed Datasest, Fri Publish)</masterLabel>
+            <translation><!-- Weekly (Wed Datasest, Fri Publish) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Datafeed Status --></label>
+        <name>DatafeedStatus__c</name>
+        <picklistValues>
+            <masterLabel>Extinct</masterLabel>
+            <translation><!-- Extinct --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live</masterLabel>
+            <translation><!-- Live --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trial</masterLabel>
+            <translation><!-- Trial --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Delivery --></label>
+        <name>Delivery__c</name>
+        <picklistValues>
+            <masterLabel>FTP</masterLabel>
+            <translation><!-- FTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFTP</masterLabel>
+            <translation><!-- SFTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharefile</masterLabel>
+            <translation><!-- Sharefile --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This is the system id (unfriendly) referencing the source record and is populated via migrating system --></help>
+        <label><!-- Legacy ID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Login Name --></label>
+        <name>LoginName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- PGP Key --></label>
+        <name>PGPKey__c</name>
+    </fields>
+    <fields>
+        <help><!-- PKID is used for data migration support from the legacy system and is auto-generated --></help>
+        <label><!-- PKID Datafeed --></label>
+        <name>PKIDDatafeed__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the Product Login table the DataFeed is related to --></help>
+        <label><!-- Product Login --></label>
+        <name>ProductLogin__c</name>
+        <relationshipLabel><!-- Datafeeds --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Report Config --></label>
+        <name>ReportConfig__c</name>
+    </fields>
+    <fields>
+        <label><!-- Report Style --></label>
+        <name>ReportStyle__c</name>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Old</masterLabel>
+            <translation><!-- Old --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Datafeed Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

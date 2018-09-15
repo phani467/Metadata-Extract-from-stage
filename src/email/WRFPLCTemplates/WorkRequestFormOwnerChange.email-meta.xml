@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>SFDC1-4411 Notification of owner change to new WRF owner</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>Work Request Form Owner Change</name>
+    <style>freeForm</style>
+    <subject>A Work Request Form Has Been Assigned To You</subject>
+    <textOnly>** ATTENTION – ACTION NEEDED **
+
+
+The following work request form has had a owner change:
+
+Work Request Name:  {!WorkRequestForm__c.Name}
+Account Name: {!WorkRequestForm__c.AccountName__c}
+Opportunity Name: {!WorkRequestForm__c.OpportunityName__c}
+New Status: {!WorkRequestForm__c.RequestStatus__c}
+Record Owner: {!WorkRequestForm__c.OwnerFullName}
+Link to WRF:  {!WorkRequestForm__c.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>

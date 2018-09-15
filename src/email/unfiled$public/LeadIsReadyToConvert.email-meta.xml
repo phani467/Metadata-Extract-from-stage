@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-965 Lead is ready to be converted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Lead is ready to convert</name>
+    <style>none</style>
+    <subject>The account: {!Lead.AccountName__c} has been created</subject>
+    <type>text</type>
+</EmailTemplate>

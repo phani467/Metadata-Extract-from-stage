@@ -1,0 +1,15 @@
+<aura:event type="COMPONENT" description="Fire when a Tile is clicked.">
+    <aura:attribute name="globalId" type="string" default="" description="Global Id of clicked Tile.cmp."/>
+    <aura:attribute name="id" type="string" default="" description="Id of the clicked tile."/>
+    <aura:attribute name="name" type="string" default="" description="Name of the clicked tile."/>
+    <aura:attribute name="deliveryType" type="string" default="" description="Record type of the clicked tile."/>
+    <aura:attribute name="attachToRecord" type="boolean" default="false" description="Attach copy of document to record (used only for delivery)."/>
+    <aura:attribute name="selectedContentLibrary" type="string" default="" description="The Id for the selected content library folder the user wants to attach the final output to."/>
+    <aura:attribute name="emailSubject" type="string" default="" description="The default email subject in the delivery option."/>
+    <aura:attribute name="emailBody" type="string" default="" description="The default email body in the delivery option."/>
+    <aura:attribute name="reminderDelay" type="decimal" default="0" description="DocuSign expiration and reminder settings from DS deliveries."/>
+    <aura:attribute name="reminderFrequency" type="decimal" default="0" description="DocuSign expiration and reminder settings from DS deliveries."/>
+    <aura:attribute name="expireAfter" type="decimal" default="0" description="DocuSign expiration and reminder settings from DS deliveries."/>
+    <aura:attribute name="expireWarn" type="decimal" default="0" description="DocuSign expiration and reminder settings from DS deliveries."/>
+    <aura:attribute name="jsonAttachment" type="string" default="" description="This is the serialized JSON Adhoc Attachment record"/>
+</aura:event>

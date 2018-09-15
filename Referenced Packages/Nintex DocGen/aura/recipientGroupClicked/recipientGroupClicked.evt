@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Fire when a RecipientGroup has been clicked.">
+    <aura:attribute name="globalId" type="string" default="" required="true" description="Global Id of clicked RecipientGroup.cmp."/>
+    <aura:attribute name="id" type="string" default="" required="true" description="Id of RecipientGroup. Same as signingOrder."/>
+</aura:event>

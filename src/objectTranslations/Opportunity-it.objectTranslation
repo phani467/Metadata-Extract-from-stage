@@ -1,0 +1,1299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- AIS Ultimate Client --></label>
+        <name>AISUltimateClient__c</name>
+    </fields>
+    <fields>
+        <help><!-- Roll ups all users that are in an Opportunity Split of type Account Managers. --></help>
+        <label><!-- Account Managers --></label>
+        <name>AccountManagers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Activity Created --></label>
+        <name>ActivityCreated__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field holds the Additional Opportunity Fields --></help>
+        <label><!-- Additional Opportunity Fields --></label>
+        <name>AdditionalOpportunityFields__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Amount calculated from related products --></help>
+        <label><!-- Total Opportunity Value --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Associated with Response Management Team --></label>
+        <name>AssociatedwithResponseManagementTeam__c</name>
+    </fields>
+    <fields>
+        <help><!-- Stop Auto Renew? --></help>
+        <label><!-- Auto Renew Stopped --></label>
+        <name>AutoRenewStopped__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auto-Renewal --></label>
+        <name>AutoRenewal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Average Discount Percentage on all products --></help>
+        <label><!-- Average Discount Percentage --></label>
+        <name>AverageDiscountPercentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- BSI # --></label>
+        <name>BSI__c</name>
+    </fields>
+    <fields>
+        <help><!-- City description in Billing information --></help>
+        <label><!-- Bill To : City --></label>
+        <name>BillToCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Name in Billing Address --></help>
+        <label><!-- Bill To : Client Name --></label>
+        <name>BillToClientName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Company SAP # in Billing information --></help>
+        <label><!-- Bill To : Company SAP# --></label>
+        <name>BillToCompanySAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact Email Address in Billing information --></help>
+        <label><!-- Bill To : Contact Email Address --></label>
+        <name>BillToContactEmailAddress__c</name>
+    </fields>
+    <fields>
+        <help><!-- First Name in Billing Address --></help>
+        <label><!-- Bill To : Contact First Name --></label>
+        <name>BillToContactFirstName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last Name in Billing Address --></help>
+        <label><!-- Bill To : Contact Last Name --></label>
+        <name>BillToContactLastName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact SAP # in Billing information --></help>
+        <label><!-- Bill To : Contact SAP# --></label>
+        <name>BillToContactSAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Telephone Contact Number in Billing information --></help>
+        <label><!-- Bill To : Contact Telephone Number --></label>
+        <name>BillToContactTelephoneNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Country description in Billing information --></help>
+        <label><!-- Bill To : Country --></label>
+        <name>BillToCountryNew__c</name>
+    </fields>
+    <fields>
+        <help><!-- Postal/Zipcode description in Billing information --></help>
+        <label><!-- Bill To : Postal/Zip Code --></label>
+        <name>BillToPostalZipCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- State/Province description in Billing information --></help>
+        <label><!-- Bill To : State/Province --></label>
+        <name>BillToStateProvince__c</name>
+    </fields>
+    <fields>
+        <help><!-- Street description in Billing information --></help>
+        <label><!-- Bill To : Street --></label>
+        <name>BillToStreet__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please provide the Budget Range. --></help>
+        <label><!-- Budget Range --></label>
+        <name>BudgetRange__c</name>
+        <picklistValues>
+            <masterLabel>25,000-50,000</masterLabel>
+            <translation><!-- 25,000-50,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50,000-100,000</masterLabel>
+            <translation><!-- 50,000-100,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&lt; 25,000</masterLabel>
+            <translation><!-- &lt; 25,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt; 100,000</masterLabel>
+            <translation><!-- &gt; 100,000 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field will be used to by pass the opportunity validations that are executed when opportunity line items are deleted while changing currency. --></help>
+        <label><!-- By Pass Validation --></label>
+        <name>ByPassValidation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner --></label>
+        <name>ChannelPartner__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Close Date - Original --></label>
+        <name>CloseDateOriginal__c</name>
+    </fields>
+    <fields>
+        <help><!-- For accounts with restrictions compliance approval is required on opportunities before they can be moved to closed won. --></help>
+        <label><!-- Compliance Restrictions --></label>
+        <name>ComplianceRestrictions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Continuation End Date --></help>
+        <label><!-- Continuation End Date --></label>
+        <name>ContinuationEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select a Contract --></help>
+        <label><!-- Originating Contract --></label>
+        <lookupFilter>
+            <errorMessage><!-- Only Order Form contracts can be added as originating contract. --></errorMessage>
+        </lookupFilter>
+        <name>ContractBeingRenewed__c</name>
+        <relationshipLabel><!-- Renewal Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Updates to Contract End Date on the Opportunity will update the Contract End Date on the Opportunity Product --></help>
+        <label><!-- Contract End Date --></label>
+        <name>ContractEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Updates to Contract Start Date on the Opportunity will update the Contract Start Date on the Opportunity Product --></help>
+        <label><!-- Contract Start Date --></label>
+        <name>ContractStartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- European Cost Centers:
+4110500 (Germany)
+4210500 (Spain)
+4410500 (France/Italy)
+4510500 (UK) --></help>
+        <label><!-- Cost Center --></label>
+        <name>CostCenter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of renewal at risk --></label>
+        <name>Countofrenewalatrisk__c</name>
+    </fields>
+    <fields>
+        <help><!-- Editable until the product is selected --></help>
+        <label><!-- Customer Contact --></label>
+        <name>CustomerContact__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Region where Customer is based --></help>
+        <label><!-- Customer Region --></label>
+        <name>CustomerRegion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tracks: Stage changes, Product changes, Value changes, Comments added, Campaign added, Attachment added, Activities added,Closed Date Changes --></help>
+        <label><!-- Date Last Updated --></label>
+        <name>DateLastUpdated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Slipped --></label>
+        <name>DaysSlipped__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Stale --></label>
+        <name>DaysStale__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please check it before stage 4 --></help>
+        <label><!-- Decision Maker Identified --></label>
+        <name>DecisionMakerIdentified__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of &apos;Discount Approval&apos; attachments --></help>
+        <label><!-- Discount Approval Attachment Count --></label>
+        <name>DiscountApprovalAttachmentCount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checked if product(s) are discounted over threshold --></help>
+        <label><!-- Discount Over Threshold --></label>
+        <name>DiscountOverThreshold__c</name>
+    </fields>
+    <fields>
+        <help><!-- Red flag when one or more products discounted over threshold --></help>
+        <label><!-- Discount Threshold --></label>
+        <name>DiscountThreshold__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discovery Completed --></label>
+        <name>DiscoveryCompleted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discovery Date --></label>
+        <name>DiscoveryDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify if Auto Renewal has any changes. --></help>
+        <label><!-- Does this Auto Renewal Have Changes? --></label>
+        <name>DoesThisAutoRenewalHaveChanges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration from Closed Date --></label>
+        <name>DurationfromClosedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the Estimated Value for Variable Billings on this Opportunity. This field is used for reporting --></help>
+        <label><!-- Estimated Value of Variable Billing --></label>
+        <name>EstimatedValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Value at Risk --></label>
+        <name>EstimatedValueatRiskautoupdate__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Review --></label>
+        <name>FirstReview__c</name>
+    </fields>
+    <fields>
+        <help><!-- First Year Contract Value --></help>
+        <label><!-- First Year Value --></label>
+        <name>FirstYearValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Based on Probability: Pipeline/Stretch/Commit --></help>
+        <label><!-- Forecast Category --></label>
+        <name>ForecastCategory__c</name>
+    </fields>
+    <fields>
+        <help><!-- Former IP automatically populated by system --></help>
+        <label><!-- Former IP --></label>
+        <name>FormerIP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Global Account Manager can only be updated by System Administrators and GAM Administrators. --></help>
+        <label><!-- Account Manager --></label>
+        <name>GAM__c</name>
+        <relationshipLabel><!-- Opportunities (Account Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Government Contract Name --></label>
+        <name>GovernmentContractName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Government Contract Number --></label>
+        <name>GovernmentContractNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Important Message --></help>
+        <label><!-- Important Message --></label>
+        <name>ImportantMessage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checked if opportunity has subscription products which are pro-rated --></help>
+        <label><!-- Is Pro-Rated? --></label>
+        <name>IsProRated__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This checkbox is checked automatically when an auto renewal opportunity is auto closed --></help>
+        <label><!-- Is this Renewal Auto-Closed? --></label>
+        <name>IsThisRenewalAutoClosed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Review --></label>
+        <name>LastReview__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tracks: Stage changes, Product changes, Value changes, Comments added, Campaign added, Attachment added, Activities added,Closed Date changes --></help>
+        <label><!-- Last Updated Item --></label>
+        <name>LastUpdatedItem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Origin --></label>
+        <name>LeadOrigin__c</name>
+        <picklistValues>
+            <masterLabel>Analyst Generated</masterLabel>
+            <translation><!-- Analyst Generated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Care</masterLabel>
+            <translation><!-- Customer Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Generated</masterLabel>
+            <translation><!-- Marketing Generated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation><!-- Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rep Generated</masterLabel>
+            <translation><!-- Rep Generated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field stores the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populates from the legacy system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy Opportunity or SSO ID --></help>
+        <label><!-- Legacy Opportunity ID --></label>
+        <name>LegacyOpportunityID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source record. --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legal Entity related to this opportunity --></help>
+        <label><!-- Legal Entity --></label>
+        <name>LegalEntity__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Loss Reason --></label>
+        <name>LossReason__c</name>
+        <picklistValues>
+            <masterLabel>Lost to Competitor</masterLabel>
+            <translation><!-- Lost to Competitor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Budget / Lost Funding</masterLabel>
+            <translation><!-- No Budget / Lost Funding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Decision / Non-Responsive</masterLabel>
+            <translation><!-- No Decision / Non-Responsive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price</masterLabel>
+            <translation><!-- Price --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Choose a valid reason from the dropdown list --></help>
+        <label><!-- Lost Reason Code --></label>
+        <name>LostReasonCode__c</name>
+        <picklistValues>
+            <masterLabel>Bankruptcy/Went out of business</masterLabel>
+            <translation><!-- Bankruptcy/Went out of business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Too Small/Retail/Commerce</masterLabel>
+            <translation><!-- Company Too Small/Retail/Commerce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competition</masterLabel>
+            <translation><!-- Competition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Non Responsive/Wrong Contact</masterLabel>
+            <translation><!-- Contact Non Responsive/Wrong Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Lost Bid</masterLabel>
+            <translation><!-- Customer Lost Bid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer exiting business</masterLabel>
+            <translation><!-- Customer exiting business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer has merged / restructured</masterLabel>
+            <translation><!-- Customer has merged / restructured --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cutting Costs/Lost Budget</masterLabel>
+            <translation><!-- Cutting Costs/Lost Budget --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decided to do it Themselves</masterLabel>
+            <translation><!-- Decided to do it Themselves --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate/Existing Opp</masterLabel>
+            <translation><!-- Duplicate/Existing Opp --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHSM Decision to Pass/No Bid</masterLabel>
+            <translation><!-- IHSM Decision to Pass/No Bid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Key contact left company</masterLabel>
+            <translation><!-- Key contact left company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Military Base Closure</masterLabel>
+            <translation><!-- Military Base Closure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No further interest, has all information needed</masterLabel>
+            <translation><!-- No further interest, has all information needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No/low usage</masterLabel>
+            <translation><!-- No/low usage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Payment</masterLabel>
+            <translation><!-- Non Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Out of business/Site Closure</masterLabel>
+            <translation><!-- Out of business/Site Closure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product discontinued</masterLabel>
+            <translation><!-- Product discontinued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product/Solution does not match need</masterLabel>
+            <translation><!-- Product/Solution does not match need --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project completed/cancelled</masterLabel>
+            <translation><!-- Project completed/cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Systematically Closed Lost - Past Due</masterLabel>
+            <translation><!-- Systematically Closed Lost - Past Due --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terms &amp; Conditions Issues</masterLabel>
+            <translation><!-- Terms &amp; Conditions Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unfavorable Pricing</masterLabel>
+            <translation><!-- Unfavorable Pricing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Provide more information for losing this deal --></help>
+        <label><!-- Lost Reason Description --></label>
+        <name>LostReasonDescription__c</name>
+    </fields>
+    <fields>
+        <help><!-- System Managed Field: This field is used for MIS pipeline reporting. Whenever an activity is created for an opportunity,  MISActivityAdded field is auto populated with the current timestamp. --></help>
+        <label><!-- MIS Activity Added --></label>
+        <name>MISActivityAdded__c</name>
+    </fields>
+    <fields>
+        <help><!-- System Managed Field. This field is used for MIS pipeline reporting. Whenever an Attachment is added to an opportunity,  MISAttachmentAdded field is auto populated with the current timestamp. --></help>
+        <label><!-- MIS Attachment Added --></label>
+        <name>MISAttachmentAdded__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select a Marketing Camapign --></help>
+        <label><!-- Marketing Campaign --></label>
+        <name>MarketingCampaign__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Migration Source ID --></help>
+        <label><!-- External Source Id --></label>
+        <name>MigrationSourceID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populates from the Products if term of contract is greater than or equal to 2 years --></help>
+        <label><!-- MultiYear --></label>
+        <name>MultiYear__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Review --></label>
+        <name>NextReview__c</name>
+    </fields>
+    <fields>
+        <label><!-- OaRStatus --></label>
+        <name>OaRStatus__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity Name --></help>
+        <label><!-- Opportunity Name --></label>
+        <name>OpportunityName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity Owner name --></help>
+        <label><!-- Opportunity Owner --></label>
+        <name>OpportunityOwner__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity Record Type --></help>
+        <label><!-- Opportunity Record Type --></label>
+        <name>OpportunityRecordType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select a related Opportunity --></help>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- System generated opportunity number --></help>
+        <label><!-- Opportunity Num --></label>
+        <name>Opportunitynum__c</name>
+    </fields>
+    <fields>
+        <help><!-- Roll ups all users that are in an Opportunity Split of type Overlay. --></help>
+        <label><!-- Overlay --></label>
+        <name>Overlay__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID Opp --></label>
+        <name>PKIDOpp__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO Required? --></label>
+        <name>PORequired__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel Partner Account Id --></label>
+        <name>PartnerAccountId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Opportunity Owner --></label>
+        <name>PreviousOpportunityOwner__c</name>
+        <relationshipLabel><!-- Opportunities (Previous Opportunity Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please select opportunity --></help>
+        <label><!-- Previous Year Opportunity link --></label>
+        <name>PreviousYearOpportunitylink__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Populated from SAP --></help>
+        <label><!-- Previous Year Total Sales Price --></label>
+        <name>PreviousYearTotalSalesPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- To store primary contact name at Opportunity record level. --></help>
+        <label><!-- Primary Contact --></label>
+        <name>PrimaryContact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Renewals Only - Sum of the Prior Year Total Discount Amt --></help>
+        <label><!-- Prior Year Total Discount Amt --></label>
+        <name>PriorYearTotalDiscountAmtRollup__c</name>
+    </fields>
+    <fields>
+        <help><!-- Renewals Only - Sum of the Prior Year Total Sales Price for Active Products --></help>
+        <label><!-- Prior Year Total --></label>
+        <name>PriorYearTotalRollup__c</name>
+    </fields>
+    <fields>
+        <help><!-- SAP Contract Number --></help>
+        <label><!-- SAP Processed Contract Num --></label>
+        <name>ProcessedContractNum__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Count --></label>
+        <name>ProductCount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Product family of related products automatically populated by system --></help>
+        <label><!-- Product Family --></label>
+        <name>ProductFamily__c</name>
+    </fields>
+    <fields>
+        <help><!-- To display concatenated Product Groups in a single text field. --></help>
+        <label><!-- Product Group --></label>
+        <name>ProductGroup__c</name>
+    </fields>
+    <fields>
+        <help><!-- Profit center for related products automatically populated by system --></help>
+        <label><!-- Profit Center --></label>
+        <name>ProfitCenter__c</name>
+    </fields>
+    <fields>
+        <help><!-- Quote End Date --></help>
+        <label><!-- Quote End Date --></label>
+        <name>QuoteEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default is 60 days --></help>
+        <label><!-- Quote Valid For --></label>
+        <name>QuoteValidFor__c</name>
+    </fields>
+    <fields>
+        <label><!-- ROI Analysis Completed --></label>
+        <name>ROIAnalysisCompleted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ready For Processing Contract Exist? --></label>
+        <name>ReadyForProcessingContractExist__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sum of the Recommended Unit Price field on the Opp Products --></help>
+        <label><!-- Recommended Unit Price Total --></label>
+        <name>RecommendedUnitPriceTotalRollup__c</name>
+    </fields>
+    <fields>
+        <help><!-- Referred By --></help>
+        <label><!-- Referred By --></label>
+        <name>ReferredBy__c</name>
+        <relationshipLabel><!-- Opportunities (Referred By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Case --></label>
+        <name>RelatedCase__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Renewal Auto Close Date --></label>
+        <name>RenewalAutoCloseDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Renewal Term on Related Contract --></help>
+        <label><!-- Renewal Term --></label>
+        <name>RenewalTerm__c</name>
+    </fields>
+    <fields>
+        <help><!-- This checkbox should be checked if opportunity should be visited again in future. --></help>
+        <label><!-- Revisit --></label>
+        <name>Revisit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk Probability --></label>
+        <name>RiskProbability__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populate by System integration. Do not populate manually --></help>
+        <label><!-- SAP Contract Number --></label>
+        <name>SAPContractNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Ops Reviewed Date --></label>
+        <name>SalesOpsReviewedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Ops Reviewed --></label>
+        <name>SalesOpsReviewed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Ops Status --></label>
+        <name>SalesOpsStatus__c</name>
+        <picklistValues>
+            <masterLabel>Initially Reviewed</masterLabel>
+            <translation><!-- Initially Reviewed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Query/Issue</masterLabel>
+            <translation><!-- Query/Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed-off</masterLabel>
+            <translation><!-- Signed-off --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Sales Region of Opportunity Owner --></help>
+        <label><!-- Sales Region --></label>
+        <name>SalesRegion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Roll ups all users that are in an Opportunity Split of type Sales Specialists --></help>
+        <label><!-- Sales Specialists --></label>
+        <name>SalesSpecialists__c</name>
+    </fields>
+    <fields>
+        <help><!-- City Name in Shipping Information --></help>
+        <label><!-- Ship To : City --></label>
+        <name>ShipToCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Client Name in Shipping Information --></help>
+        <label><!-- Ship To : Client Name --></label>
+        <name>ShipToClientName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Company SAP# in Shipping Information --></help>
+        <label><!-- Ship To : Company SAP# --></label>
+        <name>ShipToCompanySAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact Email Address in Shipping Information --></help>
+        <label><!-- Ship To : Contact Email Address --></label>
+        <name>ShipToContactEmailAddress__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact First Name in Shipping Information --></help>
+        <label><!-- Ship To : Contact First Name --></label>
+        <name>ShipToContactFirstName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact Last Name in Shipping Information --></help>
+        <label><!-- Ship To : Contact Last Name --></label>
+        <name>ShipToContactLastName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact SAP Number in Shipping Information --></help>
+        <label><!-- Ship To : Contact SAP# --></label>
+        <name>ShipToContactSAP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact Telephone Number in Shipping Information --></help>
+        <label><!-- Ship To : Contact Telephone Number --></label>
+        <name>ShipToContactTelephoneNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Country Name in Shipping Information --></help>
+        <label><!-- Ship To : Country --></label>
+        <name>ShipToCountryNew__c</name>
+    </fields>
+    <fields>
+        <help><!-- Postal/ZipCode in Shipping Information --></help>
+        <label><!-- Ship To : Postal/Zip Code --></label>
+        <name>ShipToPostalZipCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- State/Province Name in Shipping Information --></help>
+        <label><!-- Ship To : State/Province --></label>
+        <name>ShipToStateProvince__c</name>
+    </fields>
+    <fields>
+        <help><!-- Street Name in Shipping Information --></help>
+        <label><!-- Ship To : Street --></label>
+        <name>ShipToStreet__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select a value --></help>
+        <label><!-- External Source System --></label>
+        <name>SourceSystem__c</name>
+        <picklistValues>
+            <masterLabel>Clone</masterLabel>
+            <translation><!-- Clone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHS CRM</masterLabel>
+            <translation><!-- IHS CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead Generated</masterLabel>
+            <translation><!-- Lead Generated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manually Generated</masterLabel>
+            <translation><!-- Manually Generated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit Salesforce</masterLabel>
+            <translation><!-- Markit Salesforce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Polk Salesforce</masterLabel>
+            <translation><!-- Polk Salesforce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAP</masterLabel>
+            <translation><!-- SAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party System</masterLabel>
+            <translation><!-- Third Party System --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Direct Customer or Global Alliance? --></help>
+        <label><!-- Sales Channel --></label>
+        <name>SubType__c</name>
+        <picklistValues>
+            <masterLabel>Direct Sale</masterLabel>
+            <translation><!-- Direct Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Alliance</masterLabel>
+            <translation><!-- Global Alliance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Populated through Contract integration. Do not populate manually --></help>
+        <label><!-- Subscription Id --></label>
+        <name>SubscriptionID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select if this Opportunity is a synergy Opportunity --></help>
+        <label><!-- Synergy --></label>
+        <name>Synergy__c</name>
+    </fields>
+    <fields>
+        <label><!-- TMC Acknowledged --></label>
+        <name>TMCAcknowledged__c</name>
+    </fields>
+    <fields>
+        <label><!-- TMC Active Status --></label>
+        <name>TMCActiveStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- TMC Status --></label>
+        <name>TMCStatus__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review Required</masterLabel>
+            <translation><!-- Review Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reviewed - Not Required</masterLabel>
+            <translation><!-- Reviewed - Not Required --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Annual Contract Value --></label>
+        <name>TotalAnnualContractValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Annualized total price of all active products --></help>
+        <label><!-- Total Annualized Amount --></label>
+        <name>TotalAnnualizedAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Days of Continuation --></help>
+        <label><!-- Total Days of Continuation --></label>
+        <name>TotalDaysOfContinuation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Days Stuck at current stage --></label>
+        <name>TotalDaysStuckatcurrentstage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sum of Discount Amount on  All Active Products on the Opportunity --></help>
+        <label><!-- Total Effective Discount Amt --></label>
+        <name>TotalEffectiveDiscountAmtRollup__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Price Book List Price for all Active Products --></help>
+        <label><!-- Total List Price --></label>
+        <name>TotalListPriceRollup__c</name>
+    </fields>
+    <fields>
+        <help><!-- Amount calculated from related products --></help>
+        <label><!-- Total Opportunity Amount --></label>
+        <name>TotalOpportunityAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Sales Price for all Active Products --></help>
+        <label><!-- Total Sales Price --></label>
+        <name>TotalSalesPriceRollup__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Sales Price - Previous Year Total --></help>
+        <label><!-- Variance --></label>
+        <name>VarianceFormula__c</name>
+    </fields>
+    <layouts>
+        <layout>Gratis Opportunity</layout>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inner Year Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Bill To Information --></label>
+            <section>Bill To Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Totals --></label>
+            <section>Product Totals</section>
+        </sections>
+        <sections>
+            <label><!-- Region Information --></label>
+            <section>Region Information</section>
+        </sections>
+        <sections>
+            <label><!-- Ship To Information --></label>
+            <section>Ship To Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>New Business</layout>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Totals --></label>
+            <section>Product Totals</section>
+        </sections>
+        <sections>
+            <label><!-- Region Information --></label>
+            <section>Region Information</section>
+        </sections>
+        <sections>
+            <label><!-- TMC Information --></label>
+            <section>TMC Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Placeholder Business</layout>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Renewal Business</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Bill To Information --></label>
+            <section>Bill To Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Totals --></label>
+            <section>Product Totals</section>
+        </sections>
+        <sections>
+            <label><!-- Region Information --></label>
+            <section>Region Information</section>
+        </sections>
+        <sections>
+            <label><!-- Ship To Information --></label>
+            <section>Ship To Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Add Product copy --></label>
+        <name>AddProductcopy</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Products --></label>
+        <name>AddProducts</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Case Opportunity Detail --></label>
+        <name>CaseOpportunityDetail</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Change Auto Renew? --></label>
+        <name>ChangeAutoRenew</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Change Opportunity Currency --></label>
+        <name>ChangeOpportunityCurrency</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Clone --></label>
+        <name>Clone</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Clone --></label>
+        <name>CloneWithProducts</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Ad Claim --></label>
+        <name>CreateAdClaim</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Contract --></label>
+        <name>CreateContract</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Salesforce Helpdesk Case --></label>
+        <name>CreateSFDCHelpdeskCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Sales Ops Case --></label>
+        <name>CreateSupportCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Edit Products --></label>
+        <name>EditProducts</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Opportunity Attachment --></label>
+        <name>NewOpportunityAttachment</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New SAP History --></label>
+        <name>NewSAPHistory</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Opportunity at Risk --></label>
+        <name>RenewalatRisk</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Revisit Opportunity --></label>
+        <name>RevisitOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Submit to Sales Support Processing --></label>
+        <name>SubmitToSalesSupportProcessing</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Gratis --></label>
+        <name>Gratis</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Inner Year --></label>
+        <name>InnerYear</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- New Business --></label>
+        <name>NewBusiness</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Forecasting Placeholder --></label>
+        <name>Placeholder</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Renewal --></label>
+        <name>Renewal</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- You can not set this reason.Please select another reason. --></errorMessage>
+        <name>APIAllowedLostReasonCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- On Stage 5-Contracting opportunity must have an activity referenced to it. --></errorMessage>
+        <name>ActivityRequiredForStage5NewBusiness</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please close opportunity by clicking ready for Processing on the contract --></errorMessage>
+        <name>AutoRenewalStoppedContracts</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please confirm the Budget Range and Closed Date for this opportunity as this is moving past Stage1. --></errorMessage>
+        <name>BudgetConfirmedRequiredPastStage2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please confirm the Budget Range and Closed Date for this opportunity. --></errorMessage>
+        <name>BudgetRangeRequiredForStage1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please populate Budget Range for this Opportunity --></errorMessage>
+        <name>BudgetRangeRequiredStage1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Channel Partner is required for &apos;Global Alliance&apos; Sales Channel --></errorMessage>
+        <name>ChannelPartnerRequiredforGASalesChannel</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHSMarkit Employees cannot transfer Opportunity to Channel Partner User --></errorMessage>
+        <name>CheckCommunityUserasNewOpportunityOwner</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract End Date must be Greater than or Equal to Contract Start Date --></errorMessage>
+        <name>ContractDates</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please update General Agreement Type and Agreement Effective Date on the Originating Contract to proceed. General Agreement Type and Agreement Effective Date is mandatory on Originating Contract. --></errorMessage>
+        <name>GenAgreementReqOnOrderFormOriginatingCon</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to update Opportunity values except Stage to &apos;6W-Renewal Won&apos;. --></errorMessage>
+        <name>InnerYearRecordValidationCheck</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &apos;Contract End Date&apos; cannot be changed when Opportunity is associated with Auto-Renewal Contract --></errorMessage>
+        <name>LockContractEndDateForAutoRenewalChecked</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to update Opportunity values except Primary Campaign Source value. --></errorMessage>
+        <name>LockOpportunityforMarketingProfile</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Lost Reason Code &amp; Lost Reason Description --></errorMessage>
+        <name>LoststagePopulateLostReasonCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can only update TMC Information fields. --></errorMessage>
+        <name>OppCloseDateUpdateNotAllowedTMCUser</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can only update TMC Information fields. --></errorMessage>
+        <name>OppCurrencyUpdateNotAllowedTMCUser</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can only update TMC Information fields. --></errorMessage>
+        <name>OppNameUpdateNotAllowedTMCUser</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can only update TMC Information fields. --></errorMessage>
+        <name>OppStageNameUpdateNotAllowedTMCUser</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to update Opportunity Record except Account Name --></errorMessage>
+        <name>OppUpdateRestrictionForDataGovernance</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please close opportunity by clicking ready for Processing on the contract --></errorMessage>
+        <name>OpportunityAutorenewalClosedCheck</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot put an amount for Gratis opportunity. --></errorMessage>
+        <name>OpportunityGratisValueZero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Opportunity does not have a Product. Please add a Product to this opportunity before you continue. --></errorMessage>
+        <name>OpportunityProductMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Opportunity does not have a Product. Please add a Product to this opportunity before you continue. --></errorMessage>
+        <name>OpportunityProductMandatoryFPRecordtype</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not able to edit this Opportunity as you are not the record owner. --></errorMessage>
+        <name>PartnerUsersEnforceRecordOwner</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot delete Opportunity products, please change the opportunity product&apos;s status to &quot;Lost&quot;. --></errorMessage>
+        <name>PreventDeleteOpportunityProduct</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Your Contract is not set to Ready For Processing. In order to 6W an Opportunity the Contract status must be set to Ready for Processing. --></errorMessage>
+        <name>ReadyForProcessingContractExist</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Opportunities can only be created for or associated with accounts that have been &quot;Approved&quot; by Data Governance. --></errorMessage>
+        <name>RelatedAccountMustBeApproved</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please note that you can no longer edit closed Lost Opportunity after 30 days of closing.If you need any assistance please contact System Administration. --></errorMessage>
+        <name>Reopening6LOpportunityforNewBusiness</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to change the Opportunity Owner --></errorMessage>
+        <name>RestrictOwnerChangeforUsers</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please update the Status on the Opportunity at Risk record before setting this Opportunity to Closed Lost or Closed Won --></errorMessage>
+        <name>RestrictStatustoLostWhenOaRNotClosed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please update the Status on the Opportunity at Risk record before setting this Opportunity to Closed Won --></errorMessage>
+        <name>RestrictStatustoWonWhenOaRNotClosed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The number of days entered should range between 7 to 90 days --></errorMessage>
+        <name>RestrictedRangeForQuoteValidity</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot mark an Opportunity for revisit directly, please click on the &apos;Revisit Opportunity&apos; button --></errorMessage>
+        <name>RevisitOpportunityOnlyByButton</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to create a &quot;Renewal&quot; Opportunity. --></errorMessage>
+        <name>SalesOpsCanNotCreateRenewalOpportunity</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please note that you can no longer edit closed lost opportunity. If you need any assistance please contact Sales Operation. --></errorMessage>
+        <name>SalesStage6LLockFields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please note that you can no longer edit closed Lost opportunity. If you need any assistance please contact Salesforce Operation --></errorMessage>
+        <name>SalesStage6LostLockFields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please note that you can no longer edit closed won opportunity. If you need any assistance please contact Salesforce Operation. --></errorMessage>
+        <name>SalesStage6WLockFields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please note that you can no longer edit 6WP opportunity. If you need any assistance please contact Global Sales Operations --></errorMessage>
+        <name>SalesStage6WPLockFields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- On Stage 4-Proposal Accepted and Verbal Commit, Opportunity must have an Activity referenced to it --></errorMessage>
+        <name>Stage4MandatoryFields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- On Stage 5-Contracting Opportunity must have Contract Dates on it. --></errorMessage>
+        <name>Stage5MandatoryFields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Order Management can set the Sales Stage to &quot;6WP-Closed Won/Order Processed&quot; --></errorMessage>
+        <name>StageUpdateTo6WPNotAllowed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This Opportunity is not an Auto Renewal. --></errorMessage>
+        <name>StoppingAutoRenewValidation</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- CreateWorkRequest --></label>
+        <name>CreateWorkRequest</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GenerateQuote --></label>
+        <name>GenerateQuote</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewLeadReports --></label>
+        <name>ViewLeadReports</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Verify_with_DNB --></label>
+        <name>dsfs__Verify_with_DNB</name>
+    </webLinks>
+</CustomObjectTranslation>

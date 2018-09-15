@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5057;Loan Recon- Position confirmation request</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loan Reconciliation - Position confirmation request</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+We cannot take responsibility to confirm positions over email. Please let us know if you will need access to our system and we can move forward from there. 
+
+Best Regards, 
+
+{!User.FirstName} {!User.LastName}
+{!User.Title} | Loan Recon Support 
+711 Executive Blvd., Suite A | Valley Cottage, New York 10989 
+Support: +1 646 690 4291 Main: +1 646 690 4300 
+LoanReconSupport@markit.com 
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

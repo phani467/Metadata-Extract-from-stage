@@ -1,0 +1,73 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+     <apex:attribute name="formtype" description="This is the active formtype" required="true" type="String" />
+
+       <apex:pageBlock rendered="{!IF(formtype=='TIPNet',TRUE,FALSE)}" >   >
+         <apex:pageblocksection title="TIPNet Package Options" id="TIPNetOps" collapsible="false" columns="1" >         
+            
+            <table border="1" cellpadding="5" cellspacing="5" width="70%" align="center">
+            <CAPTION><EM><b>WORK REQUEST - TIPNet SYSTEM</b></EM></CAPTION>
+            <tr>
+            <td><u><b>Registration Data</b></u></td>
+            <td><u><b>Vehicle Data*</b></u></td>
+            <td><u><b>Business Data</b></u></td>
+            </tr>
+            <tr><td> Registration Address</td><td> Bed Length </td><td> Business Address </td></tr>
+            <tr><td> Registration Carrier Type</td><td> Brakes </td><td> Business Carrier Route </td></tr>
+            <tr><td> Registration City</td><td> Cab Configuration </td><td> Business City </td></tr>            
+            <tr><td> Registration County Type</td><td> CID</td><td> Business First Name </td></tr>
+            <tr><td> Registration County Fips Code </td><td> Cylinders </td><td> Business Employee Size </td></tr>
+            <tr><td> Registration Local Fleet Size </td><td> Engine Manufacturer </td><td> Business Employee Size Range </td></tr>
+            <tr><td> Registration Name </td><td> Engine Model </td><td> Business Last Name </td></tr>
+            <tr><td> Registration Natl Fleet Size</td><td> Engine Type </td><td> Business Name </td></tr>
+            <tr><td> Registration State/County Fips Code</td><td> Front Axle </td><td> Business Phone </td></tr>
+            <tr><td> Registration State/Province </td><td> Fuel </td><td> Business Sales Volume </td></tr>
+            <tr><td> Registration State/Province Abbreviation </td><td> Liters </td><td> Business Sales Volume Range </td></tr>            
+            <tr><td> Registration State/Province Fips Code </td><td> Make </td><td> Business Secondary Name </td></tr>    
+            <tr><td> Registration Telephone Number </td><td> Model </td><td> Business SIC2 Code </td></tr>   
+            <tr><td> Registration Vocation </td><td> Rear Axle </td><td> Business SIC2 Desc </td></tr>   
+            <tr><td> Registration ZIP Base/Postal Code Base </td><td> Series </td><td> Business SIC4 Code </td></tr>
+            <tr><td> Registration ZIP/Postal Code </td><td> Vehicle Type</td><td> Business SIC4 Desc </td></tr>   
+            <tr><td>  </td><td> VIN GVW</td><td> Business Title </td></tr>   
+            <tr><td><b><u> Parent/Headquarter Data</u></b></td><td> Wheels </td><td> Business ZIP+4 </td></tr>    
+            <tr><td> Parent/Headquarter Address</td> <td> Year Model </td><td> </td></tr>    
+            <tr><td> Parent/Headquarter Carrier Type </td> <td>  </td><td><u><b> Used Data 1*</b></u></td></tr>    
+            <tr><td> Parent/Headquarter City </td> <td>  </td><td>Name Change Indicator</td></tr>    
+            <tr><td> Parent/Headquarter County </td> <td><b><u> Misc. Data</u></b></td><td>Name/Zip Change Date</td></tr>                
+            <tr><td> Parent/Headquarter Local Fleet Size</td> <td>County Name  </td><td>Used Count</td></tr>    
+            <tr><td> Parent/Headquarter Name</td> <td>Current Month </td><td>Used Inidcator</td></tr>               
+            <tr><td> Parent/Headquarter Natl Fleet Size</td> <td>DMA</td><td>Zip Change Inidcator</td></tr>                  
+            <tr><td> Parent/Headquarter State/Province Abbreviation</td> <td>DMA Code </td><td></td></tr>              
+            <tr><td> Parent/Headquarter Telephone Number</td> <td>Life Ind* </td><td><b><u> Used Data 2*</u></b></td></tr>            
+            <tr><td> Parent/Headquarter Vocation</td> <td>MSA </td><td>Change Date 1</td></tr>                
+            <tr><td> Parent/Headquarter ZIP/Postal Code</td> <td>MSA Code</td><td>Change Date 2</td></tr>      
+            <tr><td> </td> <td>Plant Code</td><td>Change Date 3</td></tr>               
+            <tr><td><b><u> Secondary Data</u></b></td> <td>Plant Location</td><td>Change Date 4</td></tr>             
+            <tr><td> Secondary Carrier Type</td> <td>Vehicle Company Name*</td><td>Change Date 5</td></tr>                   
+            <tr><td> Secondary Local Fleet Size</td> <td> </td><td>Chg Carrier Type 1</td></tr>          
+            <tr><td> Secondary Name</td> <td><b><u> Trailer Data </u></b></td><td>Chg Carrier Type 2</td></tr>    
+            <tr><td> Secondary Natl Fleet Size</td> <td>Axles </td><td>Chg Carrier Type 3</td></tr>          
+            <tr><td> Secondary Telephone Number</td> <td>Body Style </td><td>Chg Carrier Type 4</td></tr>                    
+            <tr><td> Secondary Vocation</td> <td>Length</td><td>Chg Carrier Type 5</td></tr>                   
+            <tr><td> </td> <td>Make</td><td>Chg Vocation 1</td></tr>             
+            <tr><td><b><u> Selling Dealer Data</u></b></td> <td>Year Model</td><td>Chg Vocation 2</td></tr>             
+            <tr><td>Selling Dlr Address</td> <td></td><td>Chg Vocation 3</td></tr>              
+            <tr><td>Selling Dlr Code</td> <td></td><td>Chg Vocation 4</td></tr>                   
+            <tr><td>Selling Dlr Name</td> <td></td><td>Chg Vocation 5</td></tr>    
+            <tr><td>Selling Dlr State</td> <td></td><td></td></tr>           
+            <tr><td>Selling Dlr Town</td> <td></td><td>*Does not apply to the Trailer Database</td></tr>               
+            <tr><td>Selling Dlr Yes-No</td> <td></td><td></td></tr>            
+            <tr><td>Selling Dlr ZIP</td> <td></td><td></td></tr>                    
+            </table> 
+
+         </apex:pageblocksection>
+      </apex:pageBlock>
+</apex:component>

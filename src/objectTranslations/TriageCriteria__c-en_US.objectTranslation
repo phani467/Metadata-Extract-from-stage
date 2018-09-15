@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Triage Criteria</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Triage Criteria</value>
+    </caseValues>
+    <fields>
+        <help><!-- Rule Complexity --></help>
+        <label><!-- Calculated Sort Order --></label>
+        <name>CalculatedSortOrder__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rule will be evaluated when the value is checked. --></help>
+        <label><!-- Is Active --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
+        <help><!-- Priority of this rule (1 being highest and being evaluated first). --></help>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+    </fields>
+    <fields>
+        <help><!-- Product Family --></help>
+        <label><!-- Product Family --></label>
+        <name>ProductFamily__c</name>
+        <relationshipLabel><!-- Triage Criteria --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Product Group --></help>
+        <label><!-- Product Group --></label>
+        <name>ProductGroup__c</name>
+        <relationshipLabel><!-- Triage Criteria --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Queue to which case will be assigned --></help>
+        <label><!-- Queue --></label>
+        <name>Queue__c</name>
+        <picklistValues>
+            <masterLabel>Accounts Receivable</masterLabel>
+            <translation><!-- Accounts Receivable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Chemical</masterLabel>
+            <translation><!-- CS | Chemical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | ECR/FCM | FCM</masterLabel>
+            <translation><!-- CS | ECR/FCM | FCM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Energy | CDN</masterLabel>
+            <translation><!-- CS | Energy | CDN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Energy | ETA</masterLabel>
+            <translation><!-- CS | Energy | ETA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Energy | FieldDirect</masterLabel>
+            <translation><!-- CS | Energy | FieldDirect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Energy | Insight</masterLabel>
+            <translation><!-- CS | Energy | Insight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Energy | Kingdom</masterLabel>
+            <translation><!-- CS | Energy | Kingdom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Energy | ODS Petrodata</masterLabel>
+            <translation><!-- CS | Energy | ODS Petrodata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Energy | Petra</masterLabel>
+            <translation><!-- CS | Energy | Petra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Energy | US</masterLabel>
+            <translation><!-- CS | Energy | US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Goldfire | Engineering</masterLabel>
+            <translation><!-- CS | Goldfire | Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Goldfire | Support</masterLabel>
+            <translation><!-- CS | Goldfire | Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | NRG | Prod Data</masterLabel>
+            <translation><!-- CS | NRG | Prod Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | NRG | Well Data</masterLabel>
+            <translation><!-- CS | NRG | Well Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Product Design</masterLabel>
+            <translation><!-- CS | Product Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Technology</masterLabel>
+            <translation><!-- CS | Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Trade</masterLabel>
+            <translation><!-- CS | Trade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS | Transportation</masterLabel>
+            <translation><!-- CS | Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | CTI | Client Support</masterLabel>
+            <translation><!-- FM | CTI | Client Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Counterparty Manager</masterLabel>
+            <translation><!-- FM | Counterparty Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Credit Data</masterLabel>
+            <translation><!-- FM | Credit Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Customer Care</masterLabel>
+            <translation><!-- FM | Customer Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | DS Match</masterLabel>
+            <translation><!-- FM | DS Match --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Data Delivery</masterLabel>
+            <translation><!-- FM | Data Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Data Delivery | Data</masterLabel>
+            <translation><!-- FM | Data Delivery | Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | EGUS Egains</masterLabel>
+            <translation><!-- FM | EGUS Egains --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Environmental Registry</masterLabel>
+            <translation><!-- FM | Environmental Registry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Equities</masterLabel>
+            <translation><!-- FM | Equities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Equities | Dividends</masterLabel>
+            <translation><!-- FM | Equities | Dividends --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | European ABS</masterLabel>
+            <translation><!-- FM | European ABS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | FRTB Client Services</masterLabel>
+            <translation><!-- FM | FRTB Client Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Fair Value</masterLabel>
+            <translation><!-- FM | Fair Value --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Indices</masterLabel>
+            <translation><!-- FM | Indices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Indices | IAS</masterLabel>
+            <translation><!-- FM | Indices | IAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | KY3P | Operations</masterLabel>
+            <translation><!-- FM | KY3P | Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | KYCS | Onboarding</masterLabel>
+            <translation><!-- FM | KYCS | Onboarding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | KYCS | Profile</masterLabel>
+            <translation><!-- FM | KYCS | Profile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | KYCS | Support</masterLabel>
+            <translation><!-- FM | KYCS | Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Loan Data Team</masterLabel>
+            <translation><!-- FM | Loan Data Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Loan Settlement | Clear Par</masterLabel>
+            <translation><!-- FM | Loan Settlement | Clear Par --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MCA</masterLabel>
+            <translation><!-- FM | MCA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MSACRT</masterLabel>
+            <translation><!-- FM | MSACRT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MSERV FX</masterLabel>
+            <translation><!-- FM | MSERV FX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MSERV Regulatory Reporting</masterLabel>
+            <translation><!-- FM | MSERV Regulatory Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MSERV UAT</masterLabel>
+            <translation><!-- FM | MSERV UAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MSF</masterLabel>
+            <translation><!-- FM | MSF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | All Other</masterLabel>
+            <translation><!-- FM | MW | All Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | Book Updates</masterLabel>
+            <translation><!-- FM | MW | Book Updates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | Clearing</masterLabel>
+            <translation><!-- FM | MW | Clearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | High Priority</masterLabel>
+            <translation><!-- FM | MW | High Priority --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | L1</masterLabel>
+            <translation><!-- FM | MW | L1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | Password Reset</masterLabel>
+            <translation><!-- FM | MW | Password Reset --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | Reports</masterLabel>
+            <translation><!-- FM | MW | Reports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | Static Data</masterLabel>
+            <translation><!-- FM | MW | Static Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | User Clones Static Conf.</masterLabel>
+            <translation><!-- FM | MW | User Clones Static Conf. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | User Deactivations</masterLabel>
+            <translation><!-- FM | MW | User Deactivations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MW | User Setup</masterLabel>
+            <translation><!-- FM | MW | User Setup --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Markit Research Manager</masterLabel>
+            <translation><!-- FM | Markit Research Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MarkitHub</masterLabel>
+            <translation><!-- FM | MarkitHub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | MarkitSERV</masterLabel>
+            <translation><!-- FM | MarkitSERV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Notice Manager</masterLabel>
+            <translation><!-- FM | Notice Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | OTC Derivatives Data</masterLabel>
+            <translation><!-- FM | OTC Derivatives Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | PMI</masterLabel>
+            <translation><!-- FM | PMI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Parsing</masterLabel>
+            <translation><!-- FM | Parsing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Portfolio Valuations</masterLabel>
+            <translation><!-- FM | Portfolio Valuations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Pricing | Operations</masterLabel>
+            <translation><!-- FM | Pricing | Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Reference Data Support</masterLabel>
+            <translation><!-- FM | Reference Data Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Research Signals</masterLabel>
+            <translation><!-- FM | Research Signals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | TCA</masterLabel>
+            <translation><!-- FM | TCA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Trade Processing</masterLabel>
+            <translation><!-- FM | Trade Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | Valuation Managers</masterLabel>
+            <translation><!-- FM | Valuation Managers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM | WSO</masterLabel>
+            <translation><!-- FM | WSO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Skill Level to be compared. --></help>
+        <label><!-- Skill Level --></label>
+        <name>SkillLevel__c</name>
+    </fields>
+    <fields>
+        <help><!-- Subject to be compared for Case --></help>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <help><!-- Case Subtype to be compared. --></help>
+        <label><!-- Subtype --></label>
+        <name>Subtype__c</name>
+    </fields>
+    <fields>
+        <help><!-- Case Type to be compared. --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Web Email --></help>
+        <label><!-- Web Email --></label>
+        <name>WebEmail__c</name>
+    </fields>
+    <layouts>
+        <layout>Triage Criteria Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Routing Criteria and Destination Details --></label>
+            <section>Routing Criteria and Destination Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- IHS --></label>
+        <name>IHS</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Markit --></label>
+        <name>Markit</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MarkitSERV --></label>
+        <name>MarkitSERV</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please specify priority of the rule. --></errorMessage>
+        <name>PriorityMandatoryForTriageRule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please specify Product group for the rule. --></errorMessage>
+        <name>ProductGroupMandatoryForIHSTriageRule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please specify Queue for the rule. In case a match is found, case will be assigned to this queue. --></errorMessage>
+        <name>QueueMandatoryForTriageRule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please specify Subject for the rule. --></errorMessage>
+        <name>SubjectMandatoryForMSERVTriageRule</name>
+    </validationRules>
+</CustomObjectTranslation>

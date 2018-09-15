@@ -1,0 +1,196 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+
+<apex:component id="sectDFNewReg" allowDML="true">
+
+    <!-- SHOW THIS DATA SPECS SECTION IF NewReg WRF IS SELECTED -->
+    <apex:attribute type="WRACE" description="extension of parent page"
+        name="pageExt" required="true" />
+    <apex:attribute name="wrf"
+        description="This is the active Work Request Form" required="true"
+        type="WorkRequestForm__c" />
+
+    <apex:actionFunction action="{!pageExt.CountryPickerSave}"
+        reRender="jscontainer,MSG" name="saveAndOpen"
+        oncomplete="openCountryPickerWindow()" />
+    <apex:actionFunction action="{!pageExt.CountryPickerSave}"
+        reRender="jscontainer,MSG" name="justSave" />
+    <apex:actionRegion >
+
+        <apex:pageblock rendered="{!wrf.NewRegSystem__c || wrf.MarketInsightSystem__c || wrf.DataExtractNewReg__c}">
+            <apex:pageBlockSection title="Year Coverage" collapsible="false"
+                id="yr">
+
+                <apex:inputField value="{!wrf.Periodicity__c}">
+                    <apex:actionSupport reRender="yr,MSG" event="onchange"
+                        status="formstatus" />
+                    </apex:inputfield>
+                    <apex:pageblockSectionItem >
+                        <apex:outputLabel for="year" value="Custom Year" />
+                        <apex:inputField value="{!wrf.CustomYearCoverage__c}">
+                            <apex:actionSupport reRender="yr,MSG" event="onchange"
+                                status="formstatus" />
+                            </apex:inputfield>
+                    </apex:pageblockSectionItem>
+
+                    <apex:inputField value="{!wrf.CustomPeriodicity__c}"
+                        rendered="{!wrf.Periodicity__c == 'Other'}"
+                        styleClass="requiredField" />
+                    <apex:pageBlockSectionItem rendered="{!wrf.Periodicity__c != 'Other'}" />
+
+                    <apex:inputField value="{!wrf.CustomYearFrom__c}"
+                        rendered="{!wrf.CustomYearCoverage__c}"
+                        styleClass="requiredField" />
+                    <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}" />
+
+                    <apex:inputField value="{!wrf.ForecastYears__c}">
+                        <apex:actionSupport reRender="yr,MSG" event="onchange"
+                            status="formstatus" />
+                        </apex:inputfield>
+                        <apex:inputField value="{!wrf.CustomYearTo__c}"
+                            rendered="{!wrf.CustomYearCoverage__c}"
+                            styleClass="requiredField" />
+                        <apex:pageBlockSectionItem rendered="{!wrf.CustomYearCoverage__c == false}" />
+
+                        <apex:inputField value="{!wrf.CustomForecastYears__c}"
+                            rendered="{!wrf.ForecastYears__c == 'Other'}"
+                            styleClass="requiredField" />
+                        <apex:pageBlockSectionItem rendered="{!wrf.ForecastYears__c != 'Other'}" />
+            </apex:pageBlockSection>
+            <!--    Commented out by Xede, slated for removal
+<apex:pageblocksection title="System Type" columns="1" collapsible="false" id="systyp">    
+<apex:pageBlockSectionItem >
+<apex:outputLabel for="type" value="System Type"/>
+<apex:inputfield value="{!wrf.System_Type__c}" id="systype" styleclass="requiredField" >
+<apex:actionSupport reRender="systyp,MSG" event="onchange" status="formstatus"/> 
+</apex:inputfield>
+</apex:pageBlockSectionItem>            
+<apex:pageblockSectionItem rendered="{!IF(CONTAINS(wrf.System_Type__c,'Windows'),TRUE,FALSE)}" >
+<apex:outputLabel for="WinYMS" styleClass="requiredField" value="Y/M/S Option" >
+</apex:outputLabel>
+<apex:inputField value="{!wrf.YMSOption_Win__c}" id="WinYMS" />
+</apex:pageblockSectionItem>                     
+<apex:pageblockSectionItem rendered="{!IF(CONTAINS(wrf.System_Type__c,'UNIX'),TRUE,FALSE)}" >
+<apex:outputLabel for="UNIXYMS" styleClass="requiredField" value="Y/M/S Option" >
+</apex:outputLabel>
+<apex:inputField value="{!wrf.UNIX_YMSOption__c}" id="UNIXYMS" />
+</apex:pageblockSectionItem>    
+<apex:pageblockSectionItem rendered="{!IF(CONTAINS(wrf.System_Type__c,'UNIX'),TRUE,FALSE)}" >
+<apex:outputLabel for="UNIXJNI" styleClass="requiredField" value="JNI" >
+</apex:outputLabel>
+<apex:inputField value="{!wrf.UNIX_JNI__c}" id="UNIXJNI" />
+</apex:pageblockSectionItem>    
+</apex:pageBlockSection>
+-->
+        </apex:pageblock>
+
+        <apex:pageblock id="Data" title="{!IF(wrf.DataExtractNewReg__c ,"
+            Data Extract for Global New/Used Registration","Global New/Used
+            RegistrationSystem")}">
+
+            <apex:pageblock >
+                <apex:pageblocksection title="Markets" collapsible="true" id="geo"
+                    columns="1" rendered="{!wrf.NewRegSystem__c || wrf.MarketInsightSystem__c || wrf.DataExtractNewReg__c}">
+
+                <!-- Country Picker Start -->
+                <!--
+                <a href="javascript:void(0);" style="text-decoration:none;padding:4px 3px;" 
+                  class="btn {! IF((!wrf.MarketInsightSystem__c && !wrf.NewRegSystem__c && !wrf.DataExtractNewReg__c ) || pageExt.isView, 'hidden','')}"
+                  onclick='window.open("/apex/CountrySelectorPage?id={!wrf.id}&rt={!URLENCODE(IF(wrf.MarketInsightSystem__c, "MarketInsight System", IF(wrf.NewRegSystem__c, "New Reg System", "Data Extract")))}&retURL=Test&core.apexpages.devmode.url=0",
+                           "Upload","width=600,height=400,left=150,top=200,location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1");'>
+                        Modify Country Selections...
+                </a>
+                -->
+                    <apex:outputPanel style="display:none; visibility:hidden"
+                        id="jscontainer">
+                        <script>
+                    function openCountryPickerWindow() {
+                        window.open("/apex/CountrySelectorPage?id={! pageExt.ControllerId}&rt={!URLENCODE(IF(wrf.MarketInsightSystem__c, 'MarketInsight System', IF(wrf.NewRegSystem__c, 'New Reg System', 'Data Extract')))}&retURL=Test&core.apexpages.devmode.url=0", "_blank","width=600,height=400,left=150,top=200,location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1", 1);
+                    }
+                   /*
+                   function saveThenOpen() {
+                        //justSave();
+                        openCountryPickerWindow();
+                   }
+                   */
+               </script>
+                    </apex:outputPanel>
+                    <!-- saves via action function >> rerenders js area >> calls js function with new Id -->
+                    <!--
+               <apex:commandLink value="Modify Country Selections..."
+                                 onclick="saveAndOpen();"
+                                 rerender="MSG"
+                                 style="text-decoration:none;padding:4px 3px;"
+                                 styleClass="btn"
+                                 status="formstatus"
+                                 rendered="{! (wrf.MarketInsightSystem__c || wrf.NewRegSystem__c 
+                                             || wrf.DataExtractNewReg__c ) && !pageExt.isView && 
+                                             (wrf.RequestStatus__c == 'Draft' || wrf.RequestStatus__c == 'Submitted' || wrf.RequestStatus__c == 'Rejected'
+                                               || ISBLANK(wrf.RequestStatus__c)) && !ISBLANK(wrf.id)}"
+               />
+               -->
+                    <apex:commandLink value="Modify Country Selections..."
+                        onclick="openCountryPickerWindow();" rerender="false"
+                        style="text-decoration:none;padding:4px 3px;" styleClass="btn"
+                        rendered="{! (wrf.MarketInsightSystem__c || wrf.NewRegSystem__c 
+                                             || wrf.DataExtractNewReg__c ) && !pageExt.isView && 
+                                             (wrf.RequestStatus__c == 'Draft' || wrf.RequestStatus__c == 'Submitted' || wrf.RequestStatus__c == 'Rejected'
+                                               || ISBLANK(wrf.RequestStatus__c)) && !ISBLANK(wrf.id)}" />
+                    <apex:pageMessage severity="warning" strength="3"
+                        summary="You must save this WRF before you can modify country selections."
+                        rendered="{! ISBLANK(wrf.id)}" />
+                    <apex:pageMessage severity="warning" strength="3"
+                        summary="Country selections cannot be modified while the WRF is in the {!wrf.RequestStatus__c} state."
+                        rendered="{! wrf.RequestStatus__c <> 'Draft' && wrf.RequestStatus__c <> 'Submitted' && wrf.RequestStatus__c <> 'Rejected' &&
+                                !pageExt.isView && !ISBLANK(wrf.RequestStatus__c)}" />
+                    <apex:pageMessage severity="warning" strength="3"
+                        summary="You must select a request type before market selection editing becomes available."
+                        rendered="{! !wrf.MarketInsightSystem__c && !wrf.NewRegSystem__c && !wrf.DataExtractNewReg__c  && !pageExt.isView}" />
+                    <c:sectionCountrySelectorGridView reqtype="{!IF(wrf.MarketInsightSystem__c, 'MarketInsight System',
+                                                           IF(wrf.NewRegSystem__c, 'New Reg System', 'Data Extract')
+                                                      )}" />
+                    <!-- Country Picker End -->
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel for="OEMGeo" value="Custom Geography" />
+                        <apex:inputfield value="{!wrf.CustomGeography__c}" id="oemgeo">
+                            <apex:actionSupport reRender="geo,MSG" event="onchange"
+                                status="formstatus" />
+                        </apex:inputfield>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageblocksectionitem rendered="{!!wrf.CustomGeography__c}" />
+                    <apex:inputfield style="width:50%;height:80px;"
+                        value="{!wrf.OEMGeographyDetails__c}"
+                        rendered="{!wrf.CustomGeography__c || CONTAINS(wrf.PARCGeography__c,'Other')}"
+                        styleClass="requiredField" />
+                </apex:pageblocksection>
+
+                </apex:pageBlock>
+
+
+                <apex:pageblockSection title="Vehicle Attributes" columns="1"
+                    id="vehicleAttributesSection" rendered="{!wrf.NewRegSystem__c || wrf.MarketInsightSystem__c || wrf.DataExtractNewReg__c}">
+
+                    <apex:inputfield value="{!wrf.EssenVehicleAttributes__c}" />
+                    <apex:inputField value="{!wrf.VehicleSegmentation__c}">
+                        <apex:actionSupport reRender="vehicleAttributesSection,MSG"
+                            event="onchange" status="formstatus" />
+                        </apex:inputfield>
+                        <apex:inputField style="width:50%;height:80px;"
+                            value="{!wrf.VehicleSegmentationDetails__c}"
+                            rendered="{!wrf.VehicleSegmentation__c != null && CONTAINS(wrf.VehicleSegmentation__c,'Other')}"
+                            styleClass="requiredField" />
+                        <apex:inputField style="width:50%;height:80px;"
+                            value="{!wrf.ClusteringAgeClass__c}" />
+                        <apex:inputField style="width:50%;height:80px;"
+                            value="{!wrf.ClusteringRegistrationMonth__c}" />
+                </apex:pageblockSection>
+
+            </apex:pageblock>
+    </apex:actionRegion>
+</apex:component>

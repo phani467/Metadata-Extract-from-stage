@@ -1,0 +1,56 @@
+<aura:component controller="SurveyRatingController" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="isContactNull" type="Boolean" default="false" access="global" />
+    <aura:attribute name="isAccountNull" type="Boolean" default="false" access="global" />
+    <aura:attribute name="isINCNull" type="Boolean" default="false" access="global" />
+    <aura:attribute name="survey" type="SurveyResponse__c" default="{ 'sobjectType': 'SurveyResponse__c' }"/>
+    <aura:attribute name="incidentTicket" type="Case" default="{ 'sobjectType': 'Case' }"/>
+    <aura:attribute name="avgScore" type="Double"  />
+    <aura:attribute name="accountId" type="Id" />
+    <aura:attribute name="accountName" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <b></b>
+       <lightning:card iconName="custom:custom26" title="Customer Engagement History"  class="{!if(v.isContactNull == true ,if(v.isAccountNull == true,if(v.isINCNull == true,'slds-hide','slds-show'),'slds-show'),'slds-show')}" >      
+            <table class="slds-table slds-table_fixed-layout">
+                <tbody>
+				<!-- First row -->
+				<tr class="{!if(v.isContactNull == true,'slds-hide','slds-show')}">
+					<td scope="row" data-label="Contact Sentiment" >
+					<div  title="Customer Engagement Score"><canvas aura:id="myCanvas" id="myCanvas" width="80" height="58"></canvas></div>
+					</td>
+					<td data-label="Contact" class="slds-size_2-of-2">
+					<div class="slds-truncate slds-text-body_small" title="Link to Contact" >
+					<a href="{!'/lightning/r/'+ v.survey.Contact__c + '/view'}" target="_parent">{!v.survey.Contact__r.FirstName}&nbsp;{!v.survey.Contact__r.LastName}</a> Sentiment Score 
+					</div>
+					</td>  
+				</tr>
+				<!-- Second row -->
+				<tr class="{!if(v.isAccountNull == true,'slds-hide','slds-show')}">
+					<td scope="row" data-label="Account Sentiment">
+					<div  title="Account Engagement Score"><canvas aura:id="myCanvasA" id="myCanvasA" width="80" height="58"></canvas></div>
+					</td>
+					<td data-label="Account" class="slds-size_2-of-2">
+					<div class="slds-truncate slds-text-body_small" title="Link to Account">   
+					<a href="{!'/lightning/r/'+ v.accountId + '/view'}" target="_parent">{!v.accountName}</a> Sentiment Score
+					</div>
+					</td>  
+				</tr>
+				<!-- Third row -->
+				<tr class="{!if(v.isINCNull == true,'slds-hide','slds-show')}">
+					<td scope="row" data-label="Last Incident Ticket" >
+					<div  class="slds-truncate" title="Incident Ticket Number">
+                        <a href="{!'/lightning/r/'+ v.incidentTicket.Id + '/view'}" target="_parent">
+                            <b><p style="color:black">{!v.incidentTicket.OIDTicket__c}</p></b>
+                        </a>
+                    </div>
+					</td>
+					<td data-label="Case" class="slds-size_2-of-2">
+					<div class="slds-truncate slds-text-body_small" title="Link to Case"> Last Incident 
+                        <a href="{!v.incidentTicket.ServiceLink__c }" class="uiOutputURL" target="_blank">Ticket</a> 
+					</div>
+					</td>  
+				</tr>
+				</tbody>
+			</table>
+           </lightning:card> 
+</aura:component>

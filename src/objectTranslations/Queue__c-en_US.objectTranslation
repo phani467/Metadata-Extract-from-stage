@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Queues</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Queues</value>
+    </caseValues>
+    <fields>
+        <label><!-- Queues --></label>
+        <name>Queues__c</name>
+        <picklistValues>
+            <masterLabel>APAC WRF</masterLabel>
+            <translation><!-- APAC WRF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation><!-- All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australia WRF</masterLabel>
+            <translation><!-- Australia WRF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autonews</masterLabel>
+            <translation><!-- Autonews --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>European WRF</masterLabel>
+            <translation><!-- European WRF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCM - Analytics</masterLabel>
+            <translation><!-- MCM - Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Reporting - Analytics</masterLabel>
+            <translation><!-- Market Reporting - Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Reporting - CAP</masterLabel>
+            <translation><!-- Market Reporting - CAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Reporting - Loyalty</masterLabel>
+            <translation><!-- Market Reporting - Loyalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Reporting - OEM Stat</masterLabel>
+            <translation><!-- Market Reporting - OEM Stat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PolkConnect Analytics</masterLabel>
+            <translation><!-- PolkConnect Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PolkConnect System</masterLabel>
+            <translation><!-- PolkConnect System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VFACTS</masterLabel>
+            <translation><!-- VFACTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VINtelligence - Recall</masterLabel>
+            <translation><!-- VINtelligence - Recall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VINtelligence - SWS</masterLabel>
+            <translation><!-- VINtelligence - SWS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualization</masterLabel>
+            <translation><!-- Visualization --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

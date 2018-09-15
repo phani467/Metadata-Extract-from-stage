@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Field Service Activity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Field Service Activities</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Field Service Activity ID</value>
+        </caseValues>
+        <name>parent_workorder_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Root Field Service Activity ID</value>
+        </caseValues>
+        <name>root_workorder_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Field Service Activity Edit</value>
+        </caseValues>
+        <name>workorder_edit</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Field Service Activity History</value>
+        </caseValues>
+        <name>workorder_history</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Field Service Activity ID</value>
+        </caseValues>
+        <name>workorder_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Field Service Activity Number</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Field Service Activity Numbers</value>
+        </caseValues>
+        <name>workorder_name</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Field Service Activity</value>
+        </caseValues>
+        <name>workorder_parentworkorder</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Root Field Service Activity</value>
+        </caseValues>
+        <name>workorder_rootworkorder</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- Activity Name --></label>
+        <name>ActivityName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Who requested this --></help>
+        <label><!-- Activity Request Origin --></label>
+        <name>ActivityRequestOrigin__c</name>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Care</masterLabel>
+            <translation><!-- Customer Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Referral</masterLabel>
+            <translation><!-- Other Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proactive</masterLabel>
+            <translation><!-- Proactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Training</masterLabel>
+            <translation><!-- Public Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referral</masterLabel>
+            <translation><!-- Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration</masterLabel>
+            <translation><!-- Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Referral</masterLabel>
+            <translation><!-- Sales Referral --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Type of Event --></help>
+        <label><!-- Activity Type --></label>
+        <name>ActivityType__c</name>
+        <picklistValues>
+            <masterLabel>Access/Usage</masterLabel>
+            <translation><!-- Access/Usage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Admin</masterLabel>
+            <translation><!-- Admin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analysis and Technical Issues</masterLabel>
+            <translation><!-- Analysis and Technical Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colleague Training</masterLabel>
+            <translation><!-- Colleague Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Webpage Development</masterLabel>
+            <translation><!-- Custom Webpage Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Consulting</masterLabel>
+            <translation><!-- Customer Consulting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Training</masterLabel>
+            <translation><!-- Customer Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deployment</masterLabel>
+            <translation><!-- Deployment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentation</masterLabel>
+            <translation><!-- Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E learning Creation</masterLabel>
+            <translation><!-- E learning Creation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation</masterLabel>
+            <translation><!-- Escalation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preparation</masterLabel>
+            <translation><!-- Preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proactive</masterLabel>
+            <translation><!-- Proactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research Focus Interaction</masterLabel>
+            <translation><!-- Research Focus Interaction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Demos</masterLabel>
+            <translation><!-- Sales Demos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales/Marketing Events</masterLabel>
+            <translation><!-- Sales/Marketing Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support Requirement Meeting</masterLabel>
+            <translation><!-- Support Requirement Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel</masterLabel>
+            <translation><!-- Travel --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Delivery Language --></label>
+        <name>DeliveryLanguage__c</name>
+        <picklistValues>
+            <masterLabel>Arabic</masterLabel>
+            <translation><!-- Arabic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Danish</masterLabel>
+            <translation><!-- Danish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dutch</masterLabel>
+            <translation><!-- Dutch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation><!-- German --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italian</masterLabel>
+            <translation><!-- Italian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese</masterLabel>
+            <translation><!-- Japanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korean</masterLabel>
+            <translation><!-- Korean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portuguese</masterLabel>
+            <translation><!-- Portuguese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russian</masterLabel>
+            <translation><!-- Russian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the Medium --></help>
+        <label><!-- Delivery Method --></label>
+        <name>DeliveryMethod__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On site</masterLabel>
+            <translation><!-- On site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public location</masterLabel>
+            <translation><!-- Public location --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web based</masterLabel>
+            <translation><!-- Web based --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Expense Billable --></label>
+        <name>ExpenseBillable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expense Non-Billable --></label>
+        <name>ExpenseNonBillable__c</name>
+    </fields>
+    <fields>
+        <help><!-- How long was session --></help>
+        <label><!-- Hours Delivered --></label>
+        <name>HoursDelivered__c</name>
+    </fields>
+    <fields>
+        <help><!-- Hours of Preperation --></help>
+        <label><!-- Hours of Prep --></label>
+        <name>HoursofPrep__c</name>
+    </fields>
+    <fields>
+        <help><!-- Concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- System ID referencing the source record Populated at Migration --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the Legacy CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where will it happen --></help>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Attendees --></label>
+        <name>NumberOfAttendees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Products --></label>
+        <name>NumberOfProducts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Work Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID FSA --></label>
+        <name>PKIDFSA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Instructor --></label>
+        <name>PrimaryInstructor__c</name>
+        <relationshipLabel><!-- Work Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Income from Activity --></help>
+        <label><!-- Revenue --></label>
+        <name>Revenue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Instructor --></label>
+        <name>SecondaryInstructor__c</name>
+        <relationshipLabel><!-- Work Orders (Secondary Instructor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Total Seats --></label>
+        <name>TotalSeats__c</name>
+    </fields>
+    <layouts>
+        <layout>Work Order Layout</layout>
+        <sections>
+            <label><!-- Training Information --></label>
+            <section>Training Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Send  Email --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Work Order Standard --></label>
+        <name>WorkOrderStandard</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- A Field Service Activity cannot be completed without a related Attendee record and a Product record. --></errorMessage>
+        <name>OneProductAndOneAttendeeIsRequired</name>
+    </validationRules>
+</CustomObjectTranslation>

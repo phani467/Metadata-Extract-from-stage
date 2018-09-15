@@ -1,0 +1,25 @@
+.THIS .border {
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+    max-width: 100%;
+}
+.THIS .borderbelow {
+    clear: left;
+}
+.THIS .block {
+    width: 100%;
+    min-width: 400px;
+}
+.THIS .supportcell {
+    max-width: 100%;
+    min-width: 300px;
+}
+.THIS .iconFloat {
+    display: inline-block;
+}
+.THIS .button-icon-color {
+    background: #edb566;
+}
+.THIS .license-icon-color {
+    background: #e9637e;
+}

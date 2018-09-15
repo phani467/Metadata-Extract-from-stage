@@ -1,0 +1,50 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" controller="CreateMeetingNoteEventController" access="global">
+    <aura:attribute name="eventId" type="Id" /> 
+    <aura:attribute name="meetingNote" type="MeetingNote__c" default="{ 'sobjectType': 'MeetingNote__c' }"/>
+    <aura:attribute name="hasAlreadyLoaded" type="Boolean" default="false"/>
+    <aura:attribute name="hasGoneNext" type="Boolean" default="false" />
+    
+    <!-- To handle the back button functionality -->
+    <aura:attribute name="relatedOpportunityList" type="RelatedOpportunity__c[]" />
+    <aura:attribute name="meetingAttendeeList" type="cAttendee[]"/>
+    <!-- end -->
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <div class="slds-card">
+        <div class="slds-grid slds-wrap slds-m-around_medium">
+            <div class="slds-col--padded slds-size--1-of-1 slds-text-heading--medium ">
+                <b><ui:outputText class="field" value="Please provide a name for the meeting"/></b>
+            </div>
+            <br /> <br />
+            <div class="slds-col--padded slds-size--1-of-1">
+                <div class="slds-form-element__control">
+                    <ui:inputText aura:id="noteName" label="Meeting Note Name" class="slds-input" value="{!v.meetingNote.Name}" required='true'/>
+                </div>
+            </div>
+            <div class="slds-col--padded slds-size--1-of-1 slds-text-heading--medium slds-m-top_large">
+                <b><ui:outputText class="field" value="Meeting Summary"/></b>
+            </div>
+            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="achieved" label="Achieved" class="slds-textarea" rows="3" value="{!v.meetingNote.Achieved__c}" required='true'/>
+                </div>
+            </div>
+            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="info" label="Info" class="slds-textarea" rows="3" value="{!v.meetingNote.Info__c}" required='true'/>
+                </div>
+            </div>
+            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="nextSteps" label="Next Steps" class="slds-textarea" rows="3" value="{!v.meetingNote.NextSteps__c}" required='true'/>
+                </div>
+            </div>
+        </div>
+        <div class="slds-button-group slds-align_absolute-center" role="group">
+            <button class="slds-button slds-button_neutral" onclick="{!c.addRelatedOpps}">Next</button>
+            <button class="slds-button slds-button_neutral" onclick="{!c.doSave}">Save</button>
+            <button class="slds-button slds-button_neutral" onclick="{!c.cancel}">Cancel</button>
+        </div>
+        <br />
+    </div>    
+</aura:component>

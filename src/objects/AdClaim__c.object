@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Ad_Claim_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-332: AdClaim Object will be used to Track the Opportunity Ad Claims.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AdDurationEndDate__c</fullName>
+        <description>SFDC1-332 : Ad Duration End Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the Ad Claim or other publication is requested to end (max of 1 year from start date)</inlineHelpText>
+        <label>Ad Duration End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>AdDurationStartDate__c</fullName>
+        <description>SFDC1-332 : Ad Duration Start Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the Ad Claim or other publication is requested to start</inlineHelpText>
+        <label>Ad Duration Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalValidationAssignedTo__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332 : Additional Validation Assigned To</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the claim or publication requires additional validation, such as a press release that must be reviewed by our PR team, please note that person here</inlineHelpText>
+        <label>Additional Validation Assigned To</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>AdditionalValidationAssignedTo</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalValidationRequired__c</fullName>
+        <description>SFDC1-332 : Additional Validation Required</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Explain the additional validation needed</inlineHelpText>
+        <label>Additional Validation Required</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AnnualSubscriptionOrContract__c</fullName>
+        <description>SFDC1-332 : Annual Subscription or Contract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Yes&apos; if this claim is purchased under a subscription package. &apos;No&apos; if not</inlineHelpText>
+        <label>Annual Subscription or Contract</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ApprovalComments__c</fullName>
+        <description>SFDC1-332 : Approval Comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Any comments that will be helpful to the account representative when discussing the claim with the requestor</inlineHelpText>
+        <label>Approval Comments</label>
+        <length>1000</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ApprovedClaimLanguage__c</fullName>
+        <description>SFDC1-332 : Approved Claim Language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Language that is approved to use in the claim. (This may be different from the proposed language)</inlineHelpText>
+        <label>Approved Claim Language</label>
+        <length>131072</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ApprovedDate__c</fullName>
+        <description>SFDC1-332 : Approved Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the claim is approved</inlineHelpText>
+        <label>Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ApprovedDisclaimerLanguage__c</fullName>
+        <description>SFDC1-332 : Approved Disclaimer Language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Language that is approved to use in the disclaimer.  (This may be different from the proposed language)</inlineHelpText>
+        <label>Approved Disclaimer Language</label>
+        <length>131072</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ApprovingParty__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332 : Approving Party</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the person approving the claim</inlineHelpText>
+        <label>Approving Party</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ApprovingParty</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ClaimExpirationDate__c</fullName>
+        <description>SFDC1-332 : Claim Expiration Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the claim must stop running. (max of 1 year from start date) Please see guidelines document for appropriate lengths</inlineHelpText>
+        <label>Claim Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ClaimTitle__c</fullName>
+        <description>SFDC1-332 : Claim Title</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Title for the claim</inlineHelpText>
+        <label>Claim Title</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClaimsStatus__c</fullName>
+        <description>SFDC1-332 : Claims Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Current status of claim in the review process</inlineHelpText>
+        <label>Claims Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>SFDC1-332 : Comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Any comments that will be helpful to the person reviewing the claim</inlineHelpText>
+        <label>Comments</label>
+        <length>131072</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ContactName__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332 : Contact Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of contact at the requesting organization</inlineHelpText>
+        <label>Contact Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Ad Claims</relationshipLabel>
+        <relationshipName>Contact</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CurrencyISOCode__c</fullName>
+        <description>SFDC1-332 : Currency ISO Code</description>
+        <externalId>false</externalId>
+        <label>Currency ISO Code</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Australian Dollar</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>British Pound</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Canadian Dollar</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chinese Yuan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Euro</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Japanese Yen</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Korean Won</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>U.S. Dollar</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DataValidated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-332 : Data Validated</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date claim validation is complete</inlineHelpText>
+        <label>Data Validated</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DataValidationCompletedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332 : Data Validation Completed By</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of person who validates that our data supports the claim</inlineHelpText>
+        <label>Data Validation Completed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>DataValidator</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DoesSubstantiatingDataExist__c</fullName>
+        <description>SFDC1-332 : Does Substantiating Data Exist?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Yes or No. Data must be attached to the claim and should be clear whether the customer or IHS Markit created the data. (The claim cannot be validated until this is a yes)</inlineHelpText>
+        <label>Does Substantiating Data Exist?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes (please attach)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FeeForClaim__c</fullName>
+        <description>SFDC1-332 : Fee for Claim</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The fee being charged for publication (This is in addition to the fee for licensing the data)</inlineHelpText>
+        <label>Fee for Claim</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IHSAccountRepresentative__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332: IHS Account Representative</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of account representative who created the claim</inlineHelpText>
+        <label>IHS Account Representative</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>AcctRep</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field stores the concatenation of the source system name and a source system record ID to ensure the record is uniquely identified</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7046: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system ID referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MediaType__c</fullName>
+        <description>SFDC1-332 : Media Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Media type in which the publication will be made. Select all that apply</inlineHelpText>
+        <label>Media Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Print</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Radio</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Web</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Press Release</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other (please list)</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332 : Opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Opportunity number of the publication fee to which this claim is related</inlineHelpText>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Ad Claims</relationshipLabel>
+        <relationshipName>Opportunity</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OtherMediaType__c</fullName>
+        <description>SFDC1-332 : Other Media Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the publication will be made in a media type outside of those listed, please enter</inlineHelpText>
+        <label>Other Media Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OtherSourceFileUsed__c</fullName>
+        <description>SFDC1-332 : Other Source File Used</description>
+        <externalId>false</externalId>
+        <label>Other Source File Used</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDAdClaim__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>AC{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID AdClaim</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>PhoneNumber__c</fullName>
+        <description>SFDC1-332 : Phone Number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Phone number of contact at the requesting organization</inlineHelpText>
+        <label>Phone Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>PriorClaim__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332 : Prior Claim</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Yes if this is an update of a prior claim that has expired. Note updates substantiating data is required</inlineHelpText>
+        <label>Prior Claim</label>
+        <referenceTo>AdClaim__c</referenceTo>
+        <relationshipLabel>Ad Claims</relationshipLabel>
+        <relationshipName>PriorClaim</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProposedClaimLanguage__c</fullName>
+        <description>SFDC1-332 : Proposed Claim Language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Claim language requested by the customer</inlineHelpText>
+        <label>Proposed Claim Language</label>
+        <length>131072</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProposedDisclaimerLanguage__c</fullName>
+        <description>SFDC1-332 : Proposed Disclaimer Language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Disclaimer language requested by the customer</inlineHelpText>
+        <label>Proposed Disclaimer Language</label>
+        <length>131072</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RejectionComments__c</fullName>
+        <description>SFDC1-332 : Rejection Comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Explain the reason for rejecting a claim</inlineHelpText>
+        <label>Rejection Comments</label>
+        <length>1000</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RepresentedOrganization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332 : Represented Organization</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The organization making the claim or publishing our data</inlineHelpText>
+        <label>Represented Organization</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Ad Claims</relationshipLabel>
+        <relationshipName>RepresentedOrganization</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RequestDate__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <description>SFDC1-332 : Request Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the claim is entered</inlineHelpText>
+        <label>Request Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RequestingOrganization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-332 : Requesting Organization</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This will often be the same as the represented organization. However, for OEM claims it will often be requested on behalf of the OEM by an agency of record</inlineHelpText>
+        <label>Requesting Organization</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Ad Claims (Requesting Organization)</relationshipLabel>
+        <relationshipName>RequestingOrganization</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SourceFileUsed__c</fullName>
+        <description>SFDC1-332 : Source File Used</description>
+        <externalId>false</externalId>
+        <inlineHelpText>File used requested by the customer</inlineHelpText>
+        <label>Source File Used</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Used</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loyalty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VIO/NVPP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Submitted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-332 : This field is checked by the approval process when the record is submitted for approval</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Submitted</inlineHelpText>
+        <label>Submitted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TypeOfClaim__c</fullName>
+        <description>SFDC1-332 : Type of Claim</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the type of claim from the drop down</inlineHelpText>
+        <label>Type of Claim</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Best Selling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Longevity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loyalty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loyalty Award</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Press Release</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>UpdateOfAPriorClaim__c</fullName>
+        <description>SFDC1-332 : Update of a Prior Claim</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Prior claim requested by the customer</inlineHelpText>
+        <label>Update of a Prior Claim</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes (if yes provide claim #)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Ad Claim</label>
+    <listViews>
+        <fullName>AdClaimsApproverQueue_AdClaim</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Ad Claims Approver Queue</label>
+        <queue>AdClaimsApproverQueue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>By_Status1</fullName>
+        <columns>NAME</columns>
+        <columns>ClaimsStatus__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>By Status</label>
+    </listViews>
+    <listViews>
+        <fullName>Submitted_Ad_Claims</fullName>
+        <columns>NAME</columns>
+        <columns>ClaimTitle__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Opportunity__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ClaimsStatus__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </filters>
+        <label>Submitted Ad Claims</label>
+    </listViews>
+    <nameField>
+        <displayFormat>AC{0000}</displayFormat>
+        <label>Ad Claim Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Ad Claims</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Read</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>AdClaimApproverCanNOTCreateAdClaim</fullName>
+        <active>true</active>
+        <description>SFDC1-1423 : Ad Claim Approver can not create AdClaim Record.</description>
+        <errorConditionFormula>ISNEW() &amp;&amp;  $User.AdClaimsApprover__c</errorConditionFormula>
+        <errorMessage>You are not authorized to create Ad Claim record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AdClaimCanNOTRejectAfterApprove</fullName>
+        <active>true</active>
+        <description>SFDC1-2023 : AdClaim can not be Rejected once Approved.</description>
+        <errorConditionFormula>TEXT(ClaimsStatus__c ) = &apos;Rejected&apos; &amp;&amp;  TEXT(PRIORVALUE(ClaimsStatus__c )) = &apos;Approved&apos;</errorConditionFormula>
+        <errorMessage>Approved AdClaim can not be Rejected.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ApprovedAdClaimCanBeEditedOnlyByApprover</fullName>
+        <active>true</active>
+        <description>SFDC1-2063 : Approved AdClaim can be only edited by Ad Claim Approver</description>
+        <errorConditionFormula>NOT( ISNEW() ) &amp;&amp; TEXT( ClaimsStatus__c ) = &apos;Approved&apos; &amp;&amp; NOT( $User.AdClaimsApprover__c )</errorConditionFormula>
+        <errorMessage>Approved AdClaims can be edited only by Approvers.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ConditionallyReqAdditionalValidator</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Requires user to fill out Additional Validation Assigned To if they selected &apos;Yes&apos; for Requires Additional Validation.</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) &amp;&amp;
+ISPICKVAL(AdditionalValidationRequired__c, &apos;Yes&apos;) &amp;&amp;
+ISBLANK(AdditionalValidationAssignedTo__c)</errorConditionFormula>
+        <errorMessage>Claims Approval Detail - You must fill out Additional Validation Assigned To if you selected &apos;Yes&apos; for Additional Validation Required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ConditionallyRequireOtherSourceFile</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Other Source File is required wheb Submitted or Approved.</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(  OtherSourceFileUsed__c  ) &amp;&amp;
+INCLUDES(  SourceFileUsed__c  , &apos;Other&apos;)</errorConditionFormula>
+        <errorMessage>IHS Representative - You must fill out Other Source File Used if you selected &apos;Other&apos; for Source File Used.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ConditionallyRequirePriorClaim</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Requires Update of Prior Claim if Prior Claim is Yes (if yes provide claim #)</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(  PriorClaim__c  ) &amp;&amp;
+ISPICKVAL(  UpdateOfAPriorClaim__c  , &apos;Yes (if yes provide claim #)&apos;)</errorConditionFormula>
+        <errorMessage>IHS Representative - You must fill out Prior Claim if you selected &apos;Yes&apos; for Update of a Prior Claim.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EndDateAfterStartDate</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Ad Duration End Date cannot come before Ad Duration Start Date</description>
+        <errorConditionFormula>NOT(ISBLANK(AdDurationStartDate__c)) &amp;&amp; NOT(ISBLANK(AdDurationEndDate__c)) &amp;&amp;
+AdDurationEndDate__c  &lt; AdDurationStartDate__c</errorConditionFormula>
+        <errorMessage>Client Information - Ad Duration End Date cannot come before Ad Duration Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OnlyApproverCanApproveRejectAdClaim</fullName>
+        <active>true</active>
+        <description>SFDC1-366 Only a user with &apos;Ad Claim Approver&apos; checkbox checked should be able to Approve/ reject the record.
+SFDC1-2107 : Updating the Validation Rule to bypass after Record is Rejected and allowing user to edit.</description>
+        <errorConditionFormula>AND( 
+    ISCHANGED(ClaimsStatus__c),
+	OR( 
+       ISPICKVAL( ClaimsStatus__c , &apos;Rejected&apos;), 
+       ISPICKVAL( ClaimsStatus__c , &apos;Approved&apos;) 
+    ), 
+    $User.AdClaimsApprover__c == FALSE 
+)</errorConditionFormula>
+        <errorMessage>Only an Authorized Ad Claim Approver can Approve/ Reject the record. Please contact your System Administrator for more information.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OtherMediaTypeMandatoryRule</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : When media type is selected as Other (Please List), then Other Media type cant be null</description>
+        <errorConditionFormula>IF(
+	AND(
+		INCLUDES(MediaType__c , &apos;Other (Please List)&apos;), 
+		ISBLANK(OtherMediaType__c ))
+	, true
+	, false)</errorConditionFormula>
+        <errorDisplayField>OtherMediaType__c</errorDisplayField>
+        <errorMessage>Client Information - You must fill out Other Media Type if you selected &apos;Other&apos; for Media Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireAdDurationEndDate</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Ad Duration End Date when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(AdDurationEndDate__c)</errorConditionFormula>
+        <errorMessage>Client Information - Ad Duration End Date is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireAdDurationStartDate</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Ad Duration Start Date when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(AdDurationStartDate__c)</errorConditionFormula>
+        <errorMessage>Client Information - Ad Duration Start Date is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireApprovedClaimLanguage</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Approved Claim Language is required when status equals approved.</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) &amp;&amp;
+ISBLANK(ApprovedClaimLanguage__c)</errorConditionFormula>
+        <errorMessage>Claims Approval Detail - Approved Claim Language is required for Approval.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireApprovedDate</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Approved Date is required when status equals approved</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) &amp;&amp;
+ISBLANK(ApprovedDate__c)</errorConditionFormula>
+        <errorMessage>Claims Approval Detail - Approved Date is required for Approval.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireApprovedDisclaimerLanguage</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Approved Disclaimer Language is required when status equals approved</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) &amp;&amp;
+ISBLANK(ApprovedDisclaimerLanguage__c)</errorConditionFormula>
+        <errorMessage>Claims Approval Detail - Approved Disclaimer Language is required for Approval.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireApprovingParty</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Approving Party is required when status equals approved</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) &amp;&amp;
+ISBLANK(ApprovingParty__c)</errorConditionFormula>
+        <errorMessage>Claims Approval Detail - Approving Party is required for Approval.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireClaimExpirationDate</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Claim Expiration Date is required when status equals approved</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) &amp;&amp;
+ISBLANK(ClaimExpirationDate__c)</errorConditionFormula>
+        <errorMessage>Claims Approval Detail - Claim Expiration Date is required for Approval.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireClaimTitle</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Claim Title is required when status equals submitted or approved</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) &amp;&amp;
+ISBLANK(ClaimTitle__c)</errorConditionFormula>
+        <errorMessage>Claim Title is required before submitting.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireContact</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Contact Name is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(ContactName__c)</errorConditionFormula>
+        <errorMessage>Client Information - Contact Name is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireDataValidated</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Data Validated is required when status equals approved</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) &amp;&amp;
+DataValidated__c == false</errorConditionFormula>
+        <errorMessage>Advisor Approval - Data Validated is required for Approval.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireDataValidator</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Data Validator is required when staus equals approved</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) &amp;&amp;
+ISBLANK(DataValidationCompletedBy__c)</errorConditionFormula>
+        <errorMessage>Advisor Approval - Data Validator is required for Approval.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireFeeforClaim</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Fee for Claim is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(FeeForClaim__c)</errorConditionFormula>
+        <errorMessage>IHS Representative - Fee for Claim is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireIHSAccountRep</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : IHS Account Representative is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISBLANK(IHSAccountRepresentative__c)</errorConditionFormula>
+        <errorMessage>IHS Representative - IHS Account Representative is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireMediaType</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Media Type is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(MediaType__c)</errorConditionFormula>
+        <errorMessage>Client Information - Media Type is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireOpportunity</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Opportunity is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISBLANK(Opportunity__c)</errorConditionFormula>
+        <errorMessage>IHS Representative - Opportunity is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequirePhoneNumber</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Phone Number is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(PhoneNumber__c)</errorConditionFormula>
+        <errorMessage>Client Information - Phone Number is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireProposedClaimLanguage</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Proposed Claim Language is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISBLANK(ProposedClaimLanguage__c)</errorConditionFormula>
+        <errorMessage>Client Information - Proposed Claim Language is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireProposedDisclaimerLanguage</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Proposed Disclaimer Language is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISBLANK(ProposedDisclaimerLanguage__c)</errorConditionFormula>
+        <errorMessage>Client Information - Proposed Disclaimer Language is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireRejectionComments</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Rejection Comments are required when status equals rejected</description>
+        <errorConditionFormula>ISPICKVAL(ClaimsStatus__c, &apos;Rejected&apos;) &amp;&amp;
+ISBLANK(RejectionComments__c)</errorConditionFormula>
+        <errorMessage>Claims Approval Detail - Rejection Comments are required before you can reject an Ad Claim.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireRepresentedOrganization</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Represented Organization is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(RepresentedOrganization__c)</errorConditionFormula>
+        <errorMessage>Client Information - Represented Organization is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireRequestDate</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Request Date is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISBLANK(RequestDate__c)</errorConditionFormula>
+        <errorMessage>Client Information - Request Date is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireRequestingOrganization</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Requesting Organization is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(RequestingOrganization__c)</errorConditionFormula>
+        <errorMessage>Client Information - Requesting Organization is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireSourceFileUsed</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Source File Used is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) || 
+ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp; 
+ISBLANK(SourceFileUsed__c)</errorConditionFormula>
+        <errorMessage>IHS Representative - Source File Used is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireSubOrContract</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Annual Subscription or Contract is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISPICKVAL(AnnualSubscriptionOrContract__c, &quot;&quot;)</errorConditionFormula>
+        <errorMessage>IHS Representative - Annual Subscription or Contract is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireSubstantiatingData</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Does Substantiating Data Exist is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISPICKVAL(DoesSubstantiatingDataExist__c, &quot;&quot;)</errorConditionFormula>
+        <errorMessage>IHS Representative - Does Substantiating Data Exist is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireTypeofClaim</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Type of Claim is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISPICKVAL(TypeOfClaim__c, &quot;&quot;)</errorConditionFormula>
+        <errorMessage>IHS Representative - Type of Claim is required for submission.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RequireUpdateofaPriorClaim</fullName>
+        <active>true</active>
+        <description>SFDC1-793 : Update of a Prior Claim is required when status equals submitted or approved</description>
+        <errorConditionFormula>(ISPICKVAL(ClaimsStatus__c, &apos;Submitted&apos;) ||  
+ ISPICKVAL(ClaimsStatus__c, &apos;Approved&apos;) )&amp;&amp;
+ ISPICKVAL(UpdateOfAPriorClaim__c, &quot;&quot;)</errorConditionFormula>
+        <errorMessage>IHS Representative - Update of a Prior Claim is required for submission.</errorMessage>
+    </validationRules>
+</CustomObject>

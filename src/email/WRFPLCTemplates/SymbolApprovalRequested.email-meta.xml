@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4411 Notification to the symbol approver that a request for approval has been submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>Symbol Approval Requested</name>
+    <style>freeForm</style>
+    <subject>Symbol Approval is being requested</subject>
+    <textOnly>** ATTENTION – ACTION NEEDED **
+
+
+{!WorkRequestForm__c.PrimarySalesContact__c} is requesting symbol approval for:
+
+WRF: {!WorkRequestForm__c.Name}.
+Account Name: {!WorkRequestForm__c.AccountName__c}
+Opportunity Name: {!WorkRequestForm__c.OpportunityName__c}
+
+Please click the link below to access the Work Request Form and check the Symbol Approval checkbox which is located on the DataFiles tab. Click on the Save &amp; Submit button to submit the form to production.
+
+An email notification will automatically get sent to {!WorkRequestForm__c.PrimarySalesContact__c} once the Symbol Approval box has been checked.
+
+Link to WRF:  {!WorkRequestForm__c.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>

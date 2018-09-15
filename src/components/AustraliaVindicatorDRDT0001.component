@@ -1,0 +1,40 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+	<apex:pageBlock title="DRDT 0001 Details">
+	    <apex:pageBlockSection title="Input" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >DRDT</td><td >0001</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >Year</td><td >2009</td></tr>
+				    </tbody>
+				</table>
+			</apex:outputPanel>
+	    </apex:pageBlockSection>
+	    <apex:pageBlockSection title="Output" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >ProcessFlag</td><td >NVICMatch</td></tr>
+				        <tr><td >CompanyCode</td><td >1</td></tr>
+				        <tr><td >UserName</td><td >admin</td></tr>
+				        <tr><td >RetrievalType</td><td >DRDT_0001</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >VehicleYear</td><td >2009</td></tr>
+				        <tr><td >UserDefinedKey</td><td >SingleVINMatchRequestWeb</td></tr>
+				    </tbody>
+				</table>
+	        </apex:outputPanel>
+	    </apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:component>

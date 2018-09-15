@@ -1,0 +1,68 @@
+<aura:component >
+    <aura:attribute name="id" type="string"/>
+    <aura:attribute name="reminderFields" type="List" default="[]" access="private"/>
+    <aura:attribute name="reminderDelay" type="decimal" default="" access="private" description="Locally stored value."/>
+    <aura:attribute name="daysTillSigningExpires" type="decimal" default="" access="private" description="Locally stored value."/>
+    <aura:attribute name="reminderFrequency" type="decimal" default="" access="private" description="Locally stored value."/>
+    <aura:attribute name="warnOfExpiration" type="decimal" default="" access="private" description="Locally stored value."/>
+    <aura:attribute name="fieldError" type="string" default="This field must be a number." access="private"/>
+    
+    <aura:registerEvent name="updateDocuSignReminders" type="Loop:updateDocuSignReminders"/>
+    <aura:registerEvent name="slideOutDocuSignReminders" type="Loop:slideOutDocuSignReminders"/>
+    
+    <aura:method name="setValues" action="{!c.setValues}">
+        <aura:attribute name="globalId" type="string"/>
+        <aura:attribute name="reminderDelay" type="decimal" default="0"/>
+        <aura:attribute name="daysTillSigningExpires" type="decimal" default="0"/>
+        <aura:attribute name="reminderFrequency" type="decimal" default="0"/>
+        <aura:attribute name="warnOfExpiration" type="decimal" default="0"/>
+    </aura:method>
+    
+    <div class="slds">
+        <h2 class="slds-text-heading--small slds-m-bottom--medium">Edit Reminders and Expirations</h2>
+        <div class="slds-grid slds-p-bottom--small">
+            <div class="slds-size--1-of-2">
+                <div class="{!'slds-p-right--small' + (v.reminderFields[0].hasError ? ' slds-has-error' : '')}">
+                    <label class="slds-form-element__label">{!v.reminderFields[0].label}</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="reminderDelay" id="{!v.reminderFields[0].id}" aria-describedby="error-message-redel" class="slds-input" value="{!v.reminderFields[0].value}" onblur="{!c.validateField}"/>
+                    </div>
+                    <div aura:id="reminderDelayError" id="error-message-redel" class="{!'slds-form-element__help' + (v.reminderFields[0].hasError ? '' : ' hidden')}">{!v.fieldError}</div>
+                </div>
+            </div>
+            <div class="slds-size--1-of-2">
+                <div class="{!v.reminderFields[1].hasError ? 'slds-has-error' : ''}">
+                    <label class="slds-form-element__label">{!v.reminderFields[1].label}</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="warnOfExpiration" id="{!v.reminderFields[1].id}" aria-describedby="error-message-warnexp" class="slds-input" value="{!v.reminderFields[1].value}" onblur="{!c.validateField}"/>
+                    </div>
+                    <div aura:id="warnOfExpirationError" id="error-message-warnexp" class="{!'slds-form-element__help' + (v.reminderFields[1].hasError ? '' : ' hidden')}">{!v.fieldError}</div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-p-bottom--small">
+            <div class="slds-size--1-of-2">
+                <div class="{!'slds-p-right--small' + (v.reminderFields[2].hasError ? ' slds-has-error' : '')}">
+                    <label class="slds-form-element__label">{!v.reminderFields[2].label}</label>
+                    <div class="slds-form-element__control">
+                    	<input aura:id="reminderFrequency" id="{!v.reminderFields[2].id}" aria-describedby="error-message-remfreq" class="slds-input" value="{!v.reminderFields[2].value}" onblur="{!c.validateField}"/>
+                    </div>
+                    <div aura:id="reminderFrequencyError" id="error-message-remfreq" class="{!'slds-form-element__help' + (v.reminderFields[2].hasError ? '' : ' hidden')}">{!v.fieldError}</div>
+                </div>
+            </div>
+            <div class="slds-size--1-of-2">
+                <div class="{!v.reminderFields[3].hasError ? 'slds-has-error' : ''}">
+                    <label class="slds-form-element__label">{!v.reminderFields[3].label}</label>
+                    <div class="slds-form-element__control">
+                    	<input aura:id="daysTillSigningExpires" id="{!v.reminderFields[3].id}" aria-describedby="error-message-dayexp" class="slds-input" value="{!v.reminderFields[3].value}" onblur="{!c.validateField}"/>
+                    </div>
+                    <div aura:id="daysTillSigningExpiresError" id="error-message-dayexp" class="{!'slds-form-element__help' + (v.reminderFields[3].hasError ? '' : ' hidden')}">{!v.fieldError}</div>
+                </div>
+            </div>
+        </div>
+        <div aura:id="contentButtons" style="text-align:right;">
+            <button class="slds-button slds-button--neutral" onclick="{!c.cancel}">Cancel</button>
+            <button class="slds-button slds-button--brand" onclick="{!c.updateDocuSignReminders}">Save</button>
+        </div>
+    </div>
+</aura:component>

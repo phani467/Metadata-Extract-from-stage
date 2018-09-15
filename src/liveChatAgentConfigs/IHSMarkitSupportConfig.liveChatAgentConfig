@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatAgentConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <profiles>
+            <profile>Admin</profile>
+            <profile>IHSMarkit Customer Care</profile>
+        </profiles>
+    </assignments>
+    <autoGreeting>Hello {!LiveAgent_VisitorName}, welcome to IHS Markit live chat support, my name is {!User_FirstName} how can I help you today?</autoGreeting>
+    <capacity>2</capacity>
+    <criticalWaitTime>5</criticalWaitTime>
+    <enableAgentFileTransfer>true</enableAgentFileTransfer>
+    <enableAgentSneakPeek>false</enableAgentSneakPeek>
+    <enableAssistanceFlag>true</enableAssistanceFlag>
+    <enableAutoAwayOnDecline>false</enableAutoAwayOnDecline>
+    <enableAutoAwayOnPushTimeout>false</enableAutoAwayOnPushTimeout>
+    <enableChatConferencing>true</enableChatConferencing>
+    <enableChatMonitoring>true</enableChatMonitoring>
+    <enableChatTransferToAgent>true</enableChatTransferToAgent>
+    <enableChatTransferToButton>true</enableChatTransferToButton>
+    <enableChatTransferToSkill>true</enableChatTransferToSkill>
+    <enableLogoutSound>true</enableLogoutSound>
+    <enableNotifications>true</enableNotifications>
+    <enableRequestSound>true</enableRequestSound>
+    <enableSneakPeek>true</enableSneakPeek>
+    <enableVisitorBlocking>false</enableVisitorBlocking>
+    <enableWhisperMessage>true</enableWhisperMessage>
+    <label>IHSMarkitSupportConfig</label>
+    <supervisorDefaultAgentStatusFilter>Online</supervisorDefaultAgentStatusFilter>
+    <supervisorSkills>
+        <skill>IHSMarkitCustomerCare</skill>
+    </supervisorSkills>
+    <transferableButtons>
+        <button>IHSMarkitSupportMCS</button>
+    </transferableButtons>
+    <transferableSkills>
+        <skill>IHSMarkitCustomerCare</skill>
+    </transferableSkills>
+</LiveChatAgentConfig>

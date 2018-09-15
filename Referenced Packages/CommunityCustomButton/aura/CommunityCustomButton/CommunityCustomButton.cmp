@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="btnURL" type="string" access="global" description="Title for the button" default="TEST"/>
+    <aura:attribute name="btnTitle" type="string" access="global" description="URL  for the button"/>
+    <ui:button aura:id="button" buttonTitle="{!v.btnTitle}" label="{!v.btnTitle}" press="{!c.navigate}" class="MyButton"/>
+</aura:component>

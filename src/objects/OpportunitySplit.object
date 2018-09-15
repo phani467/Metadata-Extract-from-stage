@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditOpportunitySplits</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveAndClose</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7046: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (unfriendly) referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>SalesRegion__c</fullName>
+        <description>Region calculated from user&apos;s region</description>
+        <externalId>false</externalId>
+        <formula>TEXT(SplitOwner.UserRegion__c)</formula>
+        <inlineHelpText>SFDC1-641 Formula field to fetch region based on user&apos;s country</inlineHelpText>
+        <label>Sales Region</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SplitAmount</fullName>
+    </fields>
+    <fields>
+        <fullName>SplitNote</fullName>
+    </fields>
+    <fields>
+        <fullName>SplitOwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SplitPercentage</fullName>
+    </fields>
+    <fields>
+        <fullName>SplitTypeId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>NoOppSplitChangeWhen6WP</fullName>
+        <active>true</active>
+        <description>SFDC1-6858 Users cannot update the Opportunity Split when oppty is 6WP
+SFDC1-7583 Making sure the validation rules is applicable only for 6WP</description>
+        <errorConditionFormula>AND
+(
+ISPICKVAL((Opportunity.StageName),&quot;6WP-Closed Won/Order Processed&quot;),
+$Profile.Name &lt;&gt; &quot;IHSMarkit System Admin&quot;, 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+NOT(CONTAINS($Profile.Name,&apos;Sales Ops&apos;))
+)</errorConditionFormula>
+        <errorMessage>Since the Related Opportunity is in 6WP stage, no updates can be made to oppty split</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OpptySplitOpptyRecordTypeValidationCheck</fullName>
+        <active>false</active>
+        <description>SFDC1-7803:Lock Down Opportunity Splits for the IHS Sales General Profile if Opportunity record type is Inner Year.</description>
+        <errorConditionFormula>AND(
+SplitType.DeveloperName  = &apos;Overlay&apos;,
+Opportunity.RecordType.Name = &apos;Inner Year&apos;, 
+$Profile.Name = &apos;IHSMarkit Sales: General&apos;
+)</errorConditionFormula>
+        <errorMessage>This User is not allowed to add/modify the Opportunity Splits.</errorMessage>
+    </validationRules>
+</CustomObject>

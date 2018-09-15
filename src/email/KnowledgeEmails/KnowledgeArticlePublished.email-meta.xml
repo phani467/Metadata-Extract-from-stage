@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>For the Customer Community.  Email to customer care team that an article has been published.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Knowledge - Article Published</name>
+    <style>none</style>
+    <subject>PUBLISHED -- Knowledge Article: {!Knowledge__kav.Title}</subject>
+    <type>text</type>
+</EmailTemplate>

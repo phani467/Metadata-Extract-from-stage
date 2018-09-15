@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChoosePricebook</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Opportunity_Product_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <compactLayoutAssignment>OpptyProductCompactLayout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>OpptyProductCompactLayout</fullName>
+        <fields>Product2Id</fields>
+        <fields>Quantity</fields>
+        <fields>UnitPrice</fields>
+        <fields>Status__c</fields>
+        <label>OpptyProductCompactLayout</label>
+    </compactLayouts>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ActiveInactiveNetUnitPrice__c</fullName>
+        <description>SFDC1-487 Field to hold salesprice in case opportunity product is inactive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sales price for Opportunity product</inlineHelpText>
+        <label>Active/Inactive Net Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ActiveInactiveTotalPrice__c</fullName>
+        <description>SFDC1-487 Ghost field created for reporting purposes. It holds total price for both active and inactive products</description>
+        <externalId>false</externalId>
+        <formula>ActiveInactiveNetUnitPrice__c  * Quantity</formula>
+        <inlineHelpText>Automatically calculated total price for product</inlineHelpText>
+        <label>Active/Inactive Total Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AnnualizedDiscountAmount__c</fullName>
+        <description>SFDC1-7082 Annualized discount amount to be copied over from discount amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Annualized discount amount auto calculated by system</inlineHelpText>
+        <label>Annualized Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AnnualizedPrice__c</fullName>
+        <description>SFDC1-173 This field holds the annualized price. Entered by the rep.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Annualized Price</inlineHelpText>
+        <label>Annualized Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AnnualizedTotalAmount__c</fullName>
+        <description>SFDC1-7082 Annualized Total Amount calculated field</description>
+        <externalId>false</externalId>
+        <formula>(( AnnualizedUnitPrice__c - AnnualizedDiscountAmount__c )*Quantity)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Calculates total amount using AnnualizedUnitPrice , AnnualizedDiscountAmount and Quantity</inlineHelpText>
+        <label>Annualized Total Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AnnualizedUnitPrice__c</fullName>
+        <description>SFDC1-7082 annualized unit price for subscription products</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Annualized unit price calculated from unit price automatically</inlineHelpText>
+        <label>Annualized Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CCID__c</fullName>
+        <description>SFDC1-1832 Custom Collection ID</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Custom Collection ID</inlineHelpText>
+        <label>CCID</label>
+        <length>25</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CCQuoteID__c</fullName>
+        <description>SFDC1-1832 Custom Collection QuoteID</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Custom Collection QuoteID</inlineHelpText>
+        <label>CCQuoteID</label>
+        <length>25</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContractEndDate__c</fullName>
+        <description>SFDC1-7027: Date field to store Opportunity’s Contract End Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Updates to the Contract End Date on the Opportunity will overwrite Contract End Date on the Opportunity Product</inlineHelpText>
+        <label>Contract End Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ContractStartDate__c</fullName>
+        <description>SFDC1-7027: Date field to store Opportunity’s Contract Start Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Updates to the Contract Start Date on the Opportunity will overwrite Contract Start Date on the Opportunity Product</inlineHelpText>
+        <label>Contract Start Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DeliveryPlatform__c</fullName>
+        <description>SFDC1-543 : Integration Partner Field for sales ops - petrik 
+This data will be used for reporting: closed business, forward looking pipeline and to see which opportunities (full oppy prod details) have revenue share and with who.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Legacy Markit field, please enter a value</inlineHelpText>
+        <label>Delivery Platform</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>BlackRock Aladdin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bloomberg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FactSet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MSCI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CloudMargin</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>IRESS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>SunGard</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>WRDS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Discount</fullName>
+    </fields>
+    <fields>
+        <fullName>DiscountOverThreshold__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4275 Indicates whether the opportunity product has been discounted over threshold</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked when product has been discounted over threshold</inlineHelpText>
+        <label>Discount Over Threshold</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DiscountPercentage__c</fullName>
+        <description>SFDC1-173 Denotes the discount percentage to be applied to the UnitPrice. Used in the pricing calculation customization.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please specify the discount percentage to be applied to the Updated List Price. Only required when the Discount Type is set to &quot;Percentage&quot;.</inlineHelpText>
+        <label>Discount %</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>DiscountThreshold__c</fullName>
+        <description>SFDC1-4275 Discount threshold flag calculated from product and product schedules</description>
+        <externalId>false</externalId>
+        <formula>IF(
+DiscountPercentage__c &gt;  PricebookEntry.Product2.DiscountThreshold__c,
+IMAGE(&quot;/img/samples/flag_red.gif&quot;, &apos;red&apos;, 30,30) + &quot; This discount is higher than the discount threshold and will trigger an alert to your supervisor once you move the Opportunity into the negotiation stage!&quot;,
+IMAGE(&quot;/img/samples/flag_green.gif&quot;, &apos;green&apos;, 30,30)
+)</formula>
+        <inlineHelpText>The flag will set to Red if discount is over discount threshold on the Product</inlineHelpText>
+        <label>Discount Threshold</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DiscountType__c</fullName>
+        <description>Specify what, if any, type of discount to be applied to the sales price.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field denotes the type of discount that is being applied.</inlineHelpText>
+        <label>Discount Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Discount</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Percentage</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Discount_Amount__c</fullName>
+        <description>SFDC1-173 Denotes the discount amount to be applied to the UnitPrice. Used in the pricing calculation customization.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please specify the discount amount to be applied to the Updated List Price. Only required when the Discount Type is set to &quot;Amount&quot;.</inlineHelpText>
+        <label>Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FirstYear__c</fullName>
+        <description>SFDC1-905 This fields holds the first year price for opportunity line items</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First Year Value</inlineHelpText>
+        <label>First Year Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IntegrationPartnerRevenueShare__c</fullName>
+        <description>SFDC1-543 : Integration Partner Field for sales ops - petrik
+This data will be used for reporting: closed business, forward looking pipeline and to see which opportunities (full oppy prod details) have revenue share and with who.
+SFDC1-8427: Added picklist value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Legacy Markit field, please enter a value</inlineHelpText>
+        <label>Integration Partner/Revenue Share</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ascendant Compliance Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BlackRock Aladdin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CloudMargin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compliance Solutions Strategies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Comyno</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IRESS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Simplitium</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SunGard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WRDS</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IsProRated__c</fullName>
+        <description>SFDC1-7082 flag to determine if the underlying product is pro-rated or not</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Internal Flag to handle pro-ration of subscription products</inlineHelpText>
+        <label>Is Pro-Rated?</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7046: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id referencing the source record and is populated via migration</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyReference__c</fullName>
+        <description>SFDC1-7046: Legacy Reference field is a friendly system reference to the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the reference to the source record populated via migration</inlineHelpText>
+        <label>LegacyReference</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LicenseNumber__c</fullName>
+        <description>SFDC1-4689 License Number is a field on the Opportunity Product Detail. The field is Editable on New Business opportunities, and is Read Only for Renewals. It is populated by the Renewal Integration.
+When the Contract is created the License Number from the Opportunity Product Detail should be sent to the License Number on the Contract Product Line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Actual license number for a customer to access a sold product</inlineHelpText>
+        <label>License Number</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LicenseType__c</fullName>
+        <description>SFDC1-4327 : Additional fields for Opportunity Product Detail - License Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the contracted license type with the customer</inlineHelpText>
+        <label>License Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Client License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Departmental License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Divisional License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enterprise Wide License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>One Time License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Site License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Standalone License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>User License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Departmental</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Site(s)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Standalone</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ListPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>ListPrice__c</fullName>
+        <description>SFDC1-173 Currency Field populated with the List Price from the Price Book at when a Product is added to an Opportunity. Used in customization for Pricing and Discounting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First Year Price Book List Price from Product Schedules</inlineHelpText>
+        <label>PriceBook List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ListPriceformula__c</fullName>
+        <description>SFDC1-7845 This field holds the List Price Field on Opportunity Product</description>
+        <externalId>false</externalId>
+        <formula>IF(ListPrice__c&lt;&gt;0,  ListPrice__c , PricingOpsListUnitPrice__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The List price from the price book or provided through the renewal process</inlineHelpText>
+        <label>List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MaterialCode__c</fullName>
+        <description>SFDC1-173 This formula field pulls in the material code from the related product.</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.MaterialCode__c</formula>
+        <inlineHelpText>Material Code from Product Master</inlineHelpText>
+        <label>Material Code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberofConcurrentUsersSeats__c</fullName>
+        <description>SFDC1-4327 : Additional fields for Opportunity Product Detail - Number of Concurrent Users/Seats</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of unique users or concurrent users licensed to access purchased product (supports pricing and licensing)</inlineHelpText>
+        <label>Number of Concurrent Users/Seats</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberofLocationsSites__c</fullName>
+        <description>SFDC1-4327 : Additional fields for Opportunity Product Detail - Number of Locations/Sites</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of locations licensed to access purchased product (supports pricing and licensing)</inlineHelpText>
+        <label>Number of Locations/Sites</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberofPotentialUsers__c</fullName>
+        <description>SFDC1-4327 : Additional fields for Opportunity Product Detail - Number of Potential Users</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of potential users licensed to access purchased product (supports pricing and licensing)</inlineHelpText>
+        <label>Number of Potential Users</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Opportunity Product</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PKIDOppLine__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>OpL{000000}</displayFormat>
+        <externalId>true</externalId>
+        <inlineHelpText>System generated Id in salesforce used for data migration purposes</inlineHelpText>
+        <label>PKID Opp Line</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>PriceReasonCode__c</fullName>
+        <description>SFDC1-292 Price reason code to track who and what updated the price</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Only populated on Renewals represents the status of the pricing fields on a renewal opportunity line - description on worksheet in this document</inlineHelpText>
+        <label>Price Reason Code</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PricingOpsListUnitPrice__c</fullName>
+        <description>SFDC1-7650 New Pricing Fields on the Opportunity Product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List price updated from Pricing Ops through the renewal process</inlineHelpText>
+        <label>Pricing Ops List Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PriorYearDiscountPrice__c</fullName>
+        <description>SFDC1-8201;Prior Year Discount field needed on the Opportunity Product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populated by SAP</inlineHelpText>
+        <label>Prior Year Discount Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PriorYearLicenseType__c</fullName>
+        <description>SFDC1-7847: Text field for displaying prior year license type information</description>
+        <externalId>false</externalId>
+        <inlineHelpText>License type used for the prior year contract</inlineHelpText>
+        <label>Prior Year License Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PriorYearNetUnitPrice__c</fullName>
+        <description>SFDC1-7847: Currency field for displaying Prior year net unit price</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Prior year net unit based on the list unit minus unit discount</inlineHelpText>
+        <label>Prior Year Net Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PriorYearNumberOfConcurrentUsersSeats__c</fullName>
+        <description>SFDC1-7847: Text field for number of concurrent users/seats during prior year</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Prior Year Number of Concurrent Users/Seats</inlineHelpText>
+        <label>Prior Year Num of Concurrent Users/Seats</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PriorYearNumberOfLocationsSites__c</fullName>
+        <description>SFDC1-7847: Text field for displaying Number of Locations/Sites during prior year</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Prior Year Number of Locations/Sites</inlineHelpText>
+        <label>Prior Year Number of Locations/Sites</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PriorYearPotentialUsers__c</fullName>
+        <description>SFDC1-7847: Text field for displaying potential users information during prior year</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Prior Year Potential Users</inlineHelpText>
+        <label>Prior Year Potential Users</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PriorYearQuantity__c</fullName>
+        <description>SFDC1-370 to be populated by SAP integration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Prior year contracted quantity for the product</inlineHelpText>
+        <label>Prior Year Quantity</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PriorYearTotalDiscountAmt__c</fullName>
+        <description>SFDC1-370 to be populated by SAP integration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populated from SAP integration</inlineHelpText>
+        <label>Prior Year Total Discount Amt</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PriorYearTotalSalesPrice__c</fullName>
+        <description>SFDC1-370 to be populated by SAP integration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populated from SAP integration</inlineHelpText>
+        <label>Prior Year Total Sales Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PriorYearUnit__c</fullName>
+        <description>SFDC1-370 Prior Year unit to be populated by SAP
+SFDC1-7847: Re-labelled field to Prior Year List Unit Price</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populated from SAP integration</inlineHelpText>
+        <label>Prior Year List Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProRatedDiscountAmount__c</fullName>
+        <description>SFDC1-7082 the discount amount applied on pro-rated price</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto calculated based on discount</inlineHelpText>
+        <label>Pro-Rated Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProRatedPrice__c</fullName>
+        <description>SFDC1-173 When the Opportunity is not for 12 months - need to calculate the Pro-Rated price automatically for the user based on Annualized Price.  Use SAP&apos;s 360 Calcualation. Calculation to follow with trigger/formula</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ProRated price based on SAP 360 day calculation</inlineHelpText>
+        <label>ProRated Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProRatedTotalAmount__c</fullName>
+        <description>SFDC1-7082 Pro rated amount auto-calculated</description>
+        <externalId>false</externalId>
+        <formula>( ProRatedUnitPrice__c - ProRatedDiscountAmount__c )* Quantity</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Pro-Rated total amount auto-calculated by system</inlineHelpText>
+        <label>Pro-Rated Total Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProRatedUnitPrice__c</fullName>
+        <description>SFDC1-7082 field calculated if user decides to pro-rate the</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field auto calculated for field subscription pro-rated products</inlineHelpText>
+        <label>Pro-Rated Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProcessedContractNum__c</fullName>
+        <description>SFDC1-7765: This field holds Processed Contract Number coming from SAP</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Once an Opportunity is closed won and processed by Order Management in SAP - a job will fill this field in with the Contract Number that was just added to SAP</inlineHelpText>
+        <label>Processed Contract Num</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessedSAPLineItem__c</fullName>
+        <description>SFDC1-7765: This field holds Processed SAP Line Item coming from SAP</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Once an Opportunity is closed won and processed by Order Management in SAP - a job will fill this field in with the Line Item Number that was just created in SAP for this product</inlineHelpText>
+        <label>Processed SAP Line Item</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product2Id</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+    </fields>
+    <fields>
+        <fullName>ProductType__c</fullName>
+        <description>SFDC1-772 : This field will be populated from the &apos;AAG&apos; field of Product.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(PricebookEntry.Product2.ProfitCenters__r.SaleType__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Sale Type from the Profit Center on the Product Master</inlineHelpText>
+        <label>Product Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProjectedUnitPrice__c</fullName>
+        <description>SFDC1-370 Proejected unit price to be populated by SAP integration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Prior year list price + uplift - initiall price loaded into Updated List Price field when oppy is generated</inlineHelpText>
+        <label>Projected Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Quantity</fullName>
+    </fields>
+    <fields>
+        <fullName>RecommendedUnitPrice__c</fullName>
+        <description>SFDC1-370 to be populated by SAP integration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The recommended unit price is provided by Pricing Ops through the renewal process which is a target net unit price for the offering on the renewal</inlineHelpText>
+        <label>Recommended Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>SAPLineItem__c</fullName>
+        <description>SFDC1-5206 SAP Line Item field for Opportunity Product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will be populated with the Line Item number from the SAP Contract - populated when Renewal is created, does not apply to new business</inlineHelpText>
+        <label>SAP Line Item</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAPPriceNote__c</fullName>
+        <description>SFDC1-4976: This field holds SAP Price Updates</description>
+        <externalId>false</externalId>
+        <inlineHelpText>SAP sends price updates to SF via integration. The pricing team will use this field to comment regarding the pricing provided</inlineHelpText>
+        <label>SAP Price Note</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ServiceDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Is this an existing, add on, or removal of this product compared to the previous opportunity?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status for that opportunity product - New, Existing or Lost</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Existing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lost</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Add On</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>Removal</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subtotal</fullName>
+    </fields>
+    <fields>
+        <fullName>TotalDiscountValue__c</fullName>
+        <description>SFDC1-173 This denotes the total discount.</description>
+        <externalId>false</externalId>
+        <formula>(UnitListPrice__c -Discount_Amount__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Updated List Price with the Discount Amount or Discount % applied</inlineHelpText>
+        <label>Discount Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TotalPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>UnitListPrice__c</fullName>
+        <description>SFDC1-173 Currency field that displays the intial value pre discount as entered by the rep</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List Price for the product populated by sales from pricing tools or through renewal process</inlineHelpText>
+        <label>Updated List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UnitPrice</fullName>
+    </fields>
+    <validationRules>
+        <fullName>ContractEndDtCantExceedContractStartDt</fullName>
+        <active>true</active>
+        <description>SFDC1-7027: The Contract End Date cannot precede the Contract Start Date on the Opportunity Product</description>
+        <errorConditionFormula>AND(NOT(ISNULL(ContractEndDate__c)), NOT(ISNULL(ContractStartDate__c)), ContractEndDate__c &lt;  ContractStartDate__c  )</errorConditionFormula>
+        <errorDisplayField>ContractEndDate__c</errorDisplayField>
+        <errorMessage>Contract End Date needs to be greater than or equal to the Contract Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ContractEndDtCantPrecedeOppContractEndDt</fullName>
+        <active>true</active>
+        <description>SFDC1-7027: The Contract End Date can not exceed the Opportunity’s Contract End Date</description>
+        <errorConditionFormula>OR(AND(NOT(ISNULL(ContractEndDate__c)), ContractEndDate__c &gt; Opportunity.ContractEndDate__c ),
+AND(NOT(ISNULL(ContractEndDate__c)),ISNULL(Opportunity.ContractEndDate__c))
+)</errorConditionFormula>
+        <errorDisplayField>ContractEndDate__c</errorDisplayField>
+        <errorMessage>Dates need to be within Opportunity Contract Dates.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ContractStartDtCantPrecedeOppConStartDt</fullName>
+        <active>true</active>
+        <description>SFDC1-7027: The Contract Start Date can not precede the Opportunity’s Contract Start Date</description>
+        <errorConditionFormula>OR(AND(NOT(ISNULL(ContractStartDate__c)), ContractStartDate__c &lt; Opportunity.ContractStartDate__c ),
+AND(NOT(ISNULL(ContractStartDate__c)),ISNULL(Opportunity.ContractStartDate__c))
+)</errorConditionFormula>
+        <errorDisplayField>ContractStartDate__c</errorDisplayField>
+        <errorMessage>Dates need to be within Opportunity Contract Dates</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>InnerYearRecordValidationCheck</fullName>
+        <active>true</active>
+        <description>SFDC1-7676 Disable modification for everyone but system admin.</description>
+        <errorConditionFormula>AND( 
+   $Profile.Name &lt;&gt; &apos;IHSMarkit System Admin&apos;, 
+   $Profile.Name &lt;&gt; &apos;System Administrator&apos;, 
+   Opportunity.RecordType.Name = &apos;Inner Year&apos;
+)</errorConditionFormula>
+        <errorMessage>You are not authorized to update Opportunity Product values.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OpportunityGratisProductValueZero</fullName>
+        <active>true</active>
+        <description>SFDC1-6554;Users cannot put an amount for gratis opportunity in opportunity product</description>
+        <errorConditionFormula>AND( (Opportunity.RecordType.Name = &apos;Gratis&apos; ),
+    (TotalPrice &gt; 0))</errorConditionFormula>
+        <errorMessage>Please note Opportunity Product Total price for Gratis Opportunity should be zero</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OppproductStatusCanNotChangedFromNew</fullName>
+        <active>true</active>
+        <description>SFDC1-5780 : Once Opportunity Product status is set to New, can not be Changed back to Existing or Lost.By passing this validation rule for admin and API  profile as per ticket SFDC1-6247</description>
+        <errorConditionFormula>AND ( 
+TEXT(PRIORVALUE(Status__c))  = &apos;New&apos; ,
+OR (
+	TEXT(Status__c) =&apos;Lost&apos; ,
+	TEXT(Status__c) =&apos;Existing&apos;,
+	TEXT(Status__c) =&apos;&apos;
+	) ,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;IHSMarkit System Admin&quot;, 
+$Profile.Name &lt;&gt; &quot;IHSMarkit System Admin: API&quot;
+)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>Status can not be changed from New to Lost or Existing or None. If you wish to remove it , Please delete the product.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RenewalsLicenseNumberEditableOnlyToAPI</fullName>
+        <active>true</active>
+        <description>SFDC1-4689 License Number on Renewals Opportunity Products is editable only to &quot;IHSMarkit System Admin: API&quot; profile</description>
+        <errorConditionFormula>ISCHANGED(LicenseNumber__c)
+&amp;&amp; ISPICKVAL(Status__c, &apos;Existing&apos;)
+&amp;&amp; $Profile.Name != &apos;IHSMarkit System Admin: API&apos;</errorConditionFormula>
+        <errorDisplayField>LicenseNumber__c</errorDisplayField>
+        <errorMessage>License Number on Renewals Opportunity Products is editable only to &quot;IHSMarkit System Admin: API&quot; profile</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5114;MarkitWire - Additional information Request; SFDC1-6620 :Renamed the template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MarkitWire - additional information request</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} -  Request for additional information</subject>
+    <textOnly>Dear {!Case.Contact},
+
+In order to investigate your case we need the following information: 
+
+- MarkitWire username of the person/Dealsink/API having the issue? 
+- Markitwire software version? 
+- Is this a new user? 
+- Does the user have a new pc? 
+- Have any other changes occurred that are unique to the user? 
+- Is anyone else in the office having similar issues? 
+
+As well as answering these questions, could you also please obtain the client logs from the user when they receive this error (see attached document). 
+
+I will then escalate the matter to my colleagues in the Engineering Services department. 
+
+Regards, 
+{!Case.OwnerFullName}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

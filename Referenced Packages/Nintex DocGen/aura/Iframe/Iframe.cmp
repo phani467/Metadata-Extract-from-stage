@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:attribute name="url" type="string"/>
+    <aura:attribute name="height" type="string"/>
+	<aura:attribute name="width" type="string"/>
+    <aura:attribute name="class" type="string"/>
+    <aura:attribute name="align" type="string"/>
+    
+    <iframe aura:id="iframe" src="{!v.url}" align="{!v.align}" height="{!v.height}" width="{!v.width}" scrolling="no" frameborder="0" class="{!v.class}"/>
+</aura:component>

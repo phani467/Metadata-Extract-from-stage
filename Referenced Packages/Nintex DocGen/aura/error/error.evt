@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Generic error event.">
+    <aura:attribute name="message" type="string" description="Error message."/>
+</aura:event>

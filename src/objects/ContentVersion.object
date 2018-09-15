@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ContentDirectory__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-4384 Look up to Content Directory</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Look up to Content Directory</inlineHelpText>
+        <label>Content Directory</label>
+        <referenceTo>ContentDirectory__c</referenceTo>
+        <relationshipLabel>Content Versions</relationshipLabel>
+        <relationshipName>ContentVersions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContentSize</fullName>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DocumentType__c</fullName>
+        <description>SFDC1-4384 Document type for the content</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the type for the content document</inlineHelpText>
+        <label>Document Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Annex</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Primer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rules Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Technical Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>User Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supplement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Release Notes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FileExtension</fullName>
+    </fields>
+    <fields>
+        <fullName>FileType</fullName>
+    </fields>
+    <fields>
+        <fullName>IsAssetEnabled</fullName>
+    </fields>
+    <fields>
+        <fullName>JiraID__c</fullName>
+        <description>SFDC1-4384 Jira ID associated to the content</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link Jira ID associated to the content</inlineHelpText>
+        <label>Jira ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Language</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-2445 When the Content Version is created via migration this field will be populated by the migration with the ID of the legacy system.</description>
+        <externalId>true</externalId>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MarkitSERVexternalURL__c</fullName>
+        <description>SFDC1-4384 This link can be used to share hidden files. Only works for the MarkitSERV Documentation Portal!</description>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(ContentDirectory__c)), 
+&apos;https://products.markit.com/support/Documentation/Document/&apos;+ Id,&apos;&apos; 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This link can be used to share hidden files. Only works for the MarkitSERV Documentation Portal!</inlineHelpText>
+        <label>MarkitSERV external URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PKIDContentVersion__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>CnV{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID ContentVersion</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ParentID__c</fullName>
+        <description>SFDC1-7947 hidden field serves as a temporary place-holder to store the ContentDocument&apos;s parent ID to assign the LinkedEntityId when creating ContentDocumentLink</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Hidden field serves as a temporary place-holder to store the ContentDocument&apos;s parent ID to assign the LinkedEntityId when creating ContentDocumentLink</inlineHelpText>
+        <label>Parent ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PublicationDate__c</fullName>
+        <description>SFDC1-4384 Date on which content is published</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link the date on which content is published</inlineHelpText>
+        <label>Publication Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SharingOption</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>SharingPrivacy</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TagCsv</fullName>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>X18DigitID__c</fullName>
+        <description>SFDC1-4384 18 digit case safe id used in customer portal</description>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>18 digit case safe id used in customer portal</inlineHelpText>
+        <label>18 Digit ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <searchLayouts>
+        <searchResultsAdditionalFields>VERSION.TITLE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VERSION.CONTENT_SIZE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VERSION.FILE_EXTENSION</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VERSION.LAST_UPDATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VERSION.OWNER</searchResultsAdditionalFields>
+    </searchLayouts>
+</CustomObject>

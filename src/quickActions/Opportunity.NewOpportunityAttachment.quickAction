@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-5493 - Button to automatically set Opporttunity Attachment record-type based on Opportunity record-type.</description>
+    <height>250</height>
+    <label>New Opportunity Attachment</label>
+    <lightningComponent>opportunityAttachment</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

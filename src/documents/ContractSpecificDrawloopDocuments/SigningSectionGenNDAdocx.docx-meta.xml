@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-6235.
+Signing Section for General Agreement and NDA</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>Signing_Section_Gen_NDA.docx</name>
+    <public>false</public>
+</Document>

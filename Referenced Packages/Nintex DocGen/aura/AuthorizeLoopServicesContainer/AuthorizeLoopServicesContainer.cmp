@@ -1,0 +1,30 @@
+<aura:component>
+    <aura:attribute name="isCustomizeApplication" type="boolean" required="true"/>
+    <aura:attribute name="isAuthLoading" type="boolean" default="true" access="private"/>
+
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+
+    <aura:handler name="actionEvent" event="Loop:actionEvent" action="{!c.handleActionEvent}"/>
+
+    <aura:method name="startOAuthFlow" action="c.startOAuthFlow"/>
+
+    <aura:if isTrue="{!v.isAuthLoading}">
+        <img src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." style="height:64px;"/>
+        <aura:set attribute="else">
+            <!--Known salesforce bug regarding nested aura:if/iteration/renderIf. Workaround: wrap stuff with span. It's dumb, but it works.-->
+            <span>
+                <aura:if isTrue="{! !v.isCustomizeApplication}">
+                    <div class="slds-m-bottom--xx-small">
+                        <Loop:Svg class="slds-icon slds-icon-text-warning slds-icon--small slds-m-right--x-small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#warning"/>
+                        <span class="slds-truncate">You must have the Customize Application permission to authorize the app.</span>
+                    </div>
+                </aura:if>
+            </span>
+            <div class="slds-grid slds-grid--align-center">
+                <button type="button" class="slds-button slds-button--brand" disabled="{! !v.isCustomizeApplication}" onclick="{!c.startOAuthFlow}">{!$Label.loop.Authorize_App_Label}</button>
+            </div>
+        </aura:set>
+    </aura:if>
+    <Loop:AuthorizeLoopServices aura:id="authorizeLoopServices"/>
+</aura:component>

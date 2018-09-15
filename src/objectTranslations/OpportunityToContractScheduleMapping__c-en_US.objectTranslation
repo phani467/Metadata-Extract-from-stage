@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>OpportunityToContract-ScheduleMapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>OpportunityToContract-ScheduleMapping</value>
+    </caseValues>
+    <fields>
+        <help><!-- Contract Schedule Field --></help>
+        <label><!-- Contract Schedule Field --></label>
+        <name>ContractScheduleField__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity Schedule Field --></help>
+        <label><!-- Opportunity Schedule Field --></label>
+        <name>OpportunityScheduleField__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

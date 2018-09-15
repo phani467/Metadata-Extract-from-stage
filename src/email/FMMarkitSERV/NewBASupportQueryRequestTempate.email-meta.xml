@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5127;New BA Support Query</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>New BA Support Query Request Tempate</name>
+    <style>none</style>
+    <subject>IHS Markit Customer Care Case {!Case.CaseNumber} -  New BA Support Request</subject>
+    <textOnly>Subject Line Asset Class 
+In the subject line state the asset class, one of Rates, Equities, Credit, Operations or Cross Asset. 
+
+Product 
+State which product (or asset class) the query relates to. If it is for multiple asset classes, use &apos;Cross-Asset&apos; 
+
+Workflow 
+The workflow that the issue relates to. 
+For example: New trade, Amendment, Clearing, PB, Novation etc 
+
+Environment 
+Which environment the issue was encountered in: UAT, Training or production. 
+
+Client 
+Which client reported the issue. 
+
+Summary 
+Briefly summarise the issue 
+
+Steps Taken 
+Detail the steps taken so far to investigate the issue. 
+Mention which docs you have referred to (i.e. external mapping specs, product annexes, MCAs etc) 
+Mention if anyone else has been involved with the investigation, i.e. Application Support. 
+If you were not able to investigate, you need to state why that is the case.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,6 @@
+<apex:page >
+    <apex:stylesheet value="{!URLFOR($Resource.Loop__SalesforceLightning, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+    <div class="drawloop">
+        <div class="slds" style="text-align: center; margin-top: 144px; font-size: 1.125rem; color: rgb(84, 105, 141);">This page has been deprecated.</div>
+    </div>
+</apex:page>

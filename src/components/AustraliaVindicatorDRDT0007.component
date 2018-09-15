@@ -1,0 +1,140 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+	<apex:pageBlock title="DRDT 0007 Details">
+	    <apex:pageBlockSection title="Input" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >DRDT</td><td >0007</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				    </tbody>
+				</table>
+			</apex:outputPanel>
+	    </apex:pageBlockSection>
+	    <apex:pageBlockSection title="Output" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >Date of Sale</td><td >30/07/2010 0:00</td></tr>
+				        <tr><td >State</td><td >SA</td></tr>
+				        <tr><td >Postcode</td><td >5000</td></tr>
+				        <tr><td >Buyer Type</td><td >STATE GOVERNMENT</td></tr>
+				        <tr><td >ve_id</td><td >20090302.16:25:16</td></tr>
+				        <tr><td >Vehicle Name</td><td >FORD PK RANGER XL 4X2 Crew Cab PU - 5 auto 3.0 T/Dies H/R</td></tr>
+				        <tr><td >Vehicle Rev</td><td >C</td></tr>
+				        <tr><td >Make</td><td >FORD</td></tr>
+				        <tr><td >Series</td><td >PK</td></tr>
+				        <tr><td >Model</td><td >RANGER</td></tr>
+				        <tr><td >Grade</td><td >XL 4X2</td></tr>
+				        <tr><td >Body</td><td >Crew Cab PU</td></tr>
+				        <tr><td >Version</td><td >5 auto 3.0 T/Dies H/R</td></tr>
+				        <tr><td >Release Date</td><td >1/03/2009 0:00</td></tr>
+				        <tr><td >Recommended Retail Price</td><td >34990</td></tr>
+				        <tr><td >Market Class</td><td >LIGHT TRUCKS</td></tr>
+				        <tr><td >Market Segment</td><td >PU/CC 4X2</td></tr>
+				        <tr><td >Discontinued Date</td><td >31/12/2011 0:00</td></tr>
+				        <tr><td >Cylinders</td><td >4</td></tr>
+				        <tr><td >Capacity (cm3)</td><td >2953</td></tr>
+				        <tr><td >Maximum Power</td><td >115kW @ 3200rpm</td></tr>
+				        <tr><td >Power (kW)</td><td >115</td></tr>
+				        <tr><td >Torque (Nm)</td><td >380</td></tr>
+				        <tr><td >Combined (l/100km)</td><td >10.4</td></tr>
+				        <tr><td >ABS Type</td><td >N/I</td></tr>
+				        <tr><td >ABS - Number of Channels</td><td >N/I</td></tr>
+				        <tr><td >ABS - Number of Senseors</td><td >N/I</td></tr>
+				        <tr><td >ABS - Operation</td><td >All wheels</td></tr>
+				        <tr><td >Length (mm)</td><td >5179</td></tr>
+				        <tr><td >Width (mm)</td><td >1789</td></tr>
+				        <tr><td >Height (mm)</td><td >1755</td></tr>
+				        <tr><td >Wheelbase (mm)</td><td >3000</td></tr>
+				        <tr><td >Track - Front (mm)</td><td >1445</td></tr>
+				        <tr><td >Track - Rear (mm)</td><td >1440</td></tr>
+				        <tr><td >Kerb Mass (kg)</td><td >1800</td></tr>
+				        <tr><td >GVM (kg)</td><td >2914</td></tr>
+				        <tr><td >Tare Mass (kg)</td><td >N/I</td></tr>
+				        <tr><td >Acceleration - 0-100km/h (secs)</td><td >N/I</td></tr>
+				        <tr><td >Maximum Speed</td><td >N/I</td></tr>
+				        <tr><td >Vin Sample</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >Engine Number Sample</td><td >WE AT 123456</td></tr>
+				        <tr><td >FCAI Class</td><td >Commercial</td></tr>
+				        <tr><td >FCAI Sub Market</td><td >Light Commercial</td></tr>
+				        <tr><td >FCAI Segment</td><td >PU/CC 4X2</td></tr>
+				        <tr><td >Crash Test Standard</td><td >-</td></tr>
+				        <tr><td >Driver Rating</td><td >-</td></tr>
+				        <tr><td >Pedestrian Protection Rating</td><td >-</td></tr>
+				        <tr><td >ANCAP Identifier</td><td >-</td></tr>
+				        <tr><td >ANCAP Make</td><td >-</td></tr>
+				        <tr><td >ANCAP Model</td><td >-</td></tr>
+				        <tr><td >ANCAP VType_id</td><td >-</td></tr>
+				        <tr><td >ANCAP Year</td><td >-</td></tr>
+				        <tr><td >ANCAP Link Type</td><td >-</td></tr>
+				        <tr><td >Anti-lock Brakes</td><td >O/PAK</td></tr>
+				        <tr><td >Electronic Brake Distribution System</td><td >O/PAK</td></tr>
+				        <tr><td >Brake Assist System</td><td >-</td></tr>
+				        <tr><td >Pre-crash/Collision Safety System</td><td >-</td></tr>
+				        <tr><td >Driver's airbag</td><td >STD</td></tr>
+				        <tr><td >Front Side (thorax) Airbags</td><td >O/PAK+</td></tr>
+				        <tr><td >Front Side (thorax) Airbag - Door Mounted</td><td >-</td></tr>
+				        <tr><td >Front Side (thorax) Airbag - Seat Mounted</td><td >O/PAK</td></tr>
+				        <tr><td >Front Head Airbags/Side Curtain</td><td >-</td></tr>
+				        <tr><td >Front Passenger Airbag</td><td >STD</td></tr>
+				        <tr><td >Rear Side (thorax) Airbags</td><td >-</td></tr>
+				        <tr><td >Rear Side (thorax) Airbag - Door Mounted</td><td >-</td></tr>
+				        <tr><td >Rear Side (thorax) Airbag - Seat Mounted</td><td >O/PAK</td></tr>
+				        <tr><td >Rear Head Airbags/Side Curtain</td><td >-</td></tr>
+				        <tr><td >Driver Knee Airbag</td><td >-</td></tr>
+				        <tr><td >Front Passenger Knee Airbags</td><td >-</td></tr>
+				        <tr><td >Driver Seat Belt Pretensioner</td><td >STD+</td></tr>
+				        <tr><td >Front Passenger Seat Belt Pretensioners</td><td >STD</td></tr>
+				        <tr><td >Second Row/Rear Seat Belt Pretensioners</td><td >-</td></tr>
+				        <tr><td >Driver Seat Belt with Force Limiter</td><td >STD+</td></tr>
+				        <tr><td >Front Passenger Seat Belts with Force Limiters</td><td >STD</td></tr>
+				        <tr><td >Rear Seat Belts with Force Limiters</td><td >-</td></tr>
+				        <tr><td >Height Adjustable Front Seat Belts</td><td >-</td></tr>
+				        <tr><td >Height Adjustable Second Row/Rear Seat Belts</td><td >-</td></tr>
+				        <tr><td >Centre Second Row/Rear Lap/Sash Belt</td><td >-</td></tr>
+				        <tr><td >ALR for Centre Seat Second Row/Rear Lap/Sash Seat Belt</td><td >-</td></tr>
+				        <tr><td >Rear Child Safety Seat</td><td >-</td></tr>
+				        <tr><td >Double Rear Child Safety Seat</td><td >-</td></tr>
+				        <tr><td >Side Door Anti-intrusion Beams</td><td >STD</td></tr>
+				        <tr><td >High-mount Rear Stop Lamp</td><td >-</td></tr>
+				        <tr><td >Cruise Control</td><td >D/F</td></tr>
+				        <tr><td >Cruise Control - Adaptive</td><td >-</td></tr>
+				        <tr><td >Lane Keeping Assist System</td><td >-</td></tr>
+				        <tr><td >Head Restraints</td><td >-</td></tr>
+				        <tr><td >Second Row/Rear Headrests</td><td >STD+</td></tr>
+				        <tr><td >Second Row/Rear High Seat Backs - Outboard Seats</td><td >-</td></tr>
+				        <tr><td >Second Row/Rear Seat Head Restraints - Outboard Seats</td><td >STD</td></tr>
+				        <tr><td >Second Row/Rear Seat Head Restraint - Centre Seat</td><td >-</td></tr>
+				        <tr><td >Second Row/Rear Seat Head Restraints - Height Adjustable</td><td >-</td></tr>
+				        <tr><td >Second Row/Rear Seat Head Restraints - Electrically Adjustable</td><td >-</td></tr>
+				        <tr><td >Park Distance Control - Front</td><td >-</td></tr>
+				        <tr><td >Park Distance Control - Rear</td><td >-</td></tr>
+				        <tr><td >Reversing Camera</td><td >-</td></tr>
+				        <tr><td >Bull Bar</td><td >-</td></tr>
+				        <tr><td >Bull Bar - Airbag Compatible</td><td >-</td></tr>
+				        <tr><td >Nudge Bar</td><td >-</td></tr>
+				        <tr><td >Active Suspension</td><td >-</td></tr>
+				        <tr><td >Hill Holder System</td><td >-</td></tr>
+				        <tr><td >Auto Decent Control</td><td >-</td></tr>
+				        <tr><td >Traction Control System</td><td >-</td></tr>
+				        <tr><td >Brake Actuated Traction and Road Holding Control System</td><td >-</td></tr>
+				        <tr><td >VehicleYear</td><td >2010</td></tr>
+				        <tr><td >RetrievalType</td><td >DRDT_0007</td></tr>
+				        <tr><td >UserDefinedKey</td><td >SingleVINMatchRequestWeb</td></tr>
+				    </tbody>
+				</table>
+	        </apex:outputPanel>
+	    </apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:component>

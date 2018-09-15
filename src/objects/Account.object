@@ -1,0 +1,1975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableCustomerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewCustomerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>WebsiteHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>Account_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Account_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>BillingAddress</fields>
+        <fields>Phone</fields>
+        <fields>Website</fields>
+        <fields>Status__c</fields>
+        <fields>OwnerId</fields>
+        <label>Account Compact Layout</label>
+    </compactLayouts>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AccountCountry__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-383 This field serves as a lookup to the Country object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Read-only field, updated indirectly by a change of Company&apos;s Billing Country</inlineHelpText>
+        <label>Account Country</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AccountGeography__c</fullName>
+        <description>SFDC1-383 This is a calculated field based on country.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(AccountCountry__r.Geography__c)</formula>
+        <inlineHelpText>Read-only field referencing Account Country&apos;s geography</inlineHelpText>
+        <label>Account Geography</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountID18Character__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Formula field to return the 18 character system generated Unique Account ID for Account Governance reporting purposes.</inlineHelpText>
+        <label>AccountID 18 Character</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountInfo__c</fullName>
+        <externalId>false</externalId>
+        <formula>BillingStreet &amp; &quot;, &quot; &amp; BillingCity &amp; &quot;, &quot; &amp; BillingCountry &amp; &quot; (&quot; &amp; TEXT(Status__c) &amp; &quot;, &quot; &amp; TEXT(DataGovernanceStatus__c) &amp; &quot;)&quot;</formula>
+        <label>Account Info</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountNumber</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>AccountRegion__c</fullName>
+        <description>SFDC1-383 This is a calculated field on the account that displays next to the address and shows the region of the account based on the company address&apos;s country. This is NOT sales region which will be on the User.
+Use the country table to find the region and display on the form as read only</description>
+        <externalId>false</externalId>
+        <formula>TEXT(AccountCountry__r.Region__c)</formula>
+        <inlineHelpText>Read-only field referencing Account Country&apos;s region.</inlineHelpText>
+        <label>Account Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountSource</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>AccountSubType__c</fullName>
+        <description>SFDC1-4380 Account Sub Type dependent picklist is only editable by the profiles that can edit the Account Type field. The field must have a value (and can only have a value) if &quot;Global Alliance&quot; is selected as Account Type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For Global Alliance accounts. Please select from picklist.</inlineHelpText>
+        <label>Account Sub Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>Type</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Reseller</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Distributor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Referral Partner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Value Added Reseller</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Integration Partner</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Global Alliance</controllingFieldValue>
+                <valueName>Reseller</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Global Alliance</controllingFieldValue>
+                <valueName>Distributor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Global Alliance</controllingFieldValue>
+                <valueName>Referral Partner</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Global Alliance</controllingFieldValue>
+                <valueName>Value Added Reseller</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Global Alliance</controllingFieldValue>
+                <valueName>Integration Partner</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>AdditionalAccountFields__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-785 This field is a link to a 1:1 relations ship between Account and Additional Account Fields object.  It is created when a new account is created and is read only. The user can easily click on this field to see the related object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Created when a new account is created and is read only.</inlineHelpText>
+        <label>Additional Account Fields</label>
+        <referenceTo>AdditionalAccountFields__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AlternateNameTradingName__c</fullName>
+        <description>SFDC1-144 Allows for alternate ways to search for the account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the Alternate Name/Trading Name for this account (multiple values should be separated by a comma in the same field).</inlineHelpText>
+        <label>Alternate Name/Trading Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AnnualRevenue</fullName>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ApprovedContractSummaryCount__c</fullName>
+        <description>SFDC1-5228 Account Overview Report, Displays the contract count</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Displays the contract count</inlineHelpText>
+        <label>Approved Contract Summary Count</label>
+        <summaryFilterItems>
+            <field>ApprovedContractSummary__c.AnnualContractValue__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </summaryFilterItems>
+        <summaryForeignKey>ApprovedContractSummary__c.Account__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>BP__c</fullName>
+        <description>SFDC1-5223 - This field holds the BP number value and its value cascades to the Contract object in the same field</description>
+        <externalId>false</externalId>
+        <label>BP#</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BillingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CAM__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-7512 designates that the account owner was assigned through the GAM.  It is possible that this box be marked true and an Account manager is not yet assigned.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When field is true the account will be identified as part of the CAM (Corporate Account Manager) list.</inlineHelpText>
+        <label>CAM</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ChannelProgramLevelName</fullName>
+    </fields>
+    <fields>
+        <fullName>ChannelProgramName</fullName>
+    </fields>
+    <fields>
+        <fullName>CleanStatus</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ComplianceRestrictionException__c</fullName>
+        <description>SFDC1-8049 Setting this designation at the Ultimate Parent will cascade the value in the Compliance Restriction field through the hierarchy to all accounts except those designated with a different exception value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When set at the Ultimate Parent level, this restriction will then display as the Compliance Restriction for all child accounts.  Otherwise, when a child record has a different restriction than the parent, this field allows for that difference to be set.</inlineHelpText>
+        <label>Compliance Restriction Exception</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>ComplianceRestrictions</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ComplianceRestriction__c</fullName>
+        <description>SFDC1-8049 if the Compliance Restriction Exception on the account is null, then set to the Compliance Restriction Exception value of the Ultimate Parent, else set to Compliance Restriction Exception value.</description>
+        <externalId>false</externalId>
+        <formula>IF(!ISBLANK(TEXT(ComplianceRestrictionException__c)), TEXT(ComplianceRestrictionException__c),
+   IF(!ISNULL(GlobalUltimateAccount__c), TEXT(GlobalUltimateAccount__r.ComplianceRestrictionException__c), &apos;&apos;)
+)</formula>
+        <inlineHelpText>Calculated field. If the Compliance Restriction Exception on the account is null, then the Compliance Restriction Exception value of the Ultimate Parent, if any, will display.</inlineHelpText>
+        <label>Compliance Restriction</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DBUpdatedDate__c</fullName>
+        <description>SFDC1-7199 D&amp;B Updated Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>D&amp;B Updated Date</inlineHelpText>
+        <label>D&amp;B Updated Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DandbCompanyId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DataGovernanceNotes__c</fullName>
+        <description>SFDC1-768 &amp; SFDC1-786 Data Governance Notes is record sources for verifying company info when there is not a D&amp;B or EID record, editable only by Data Governance and System Admin.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Record sources for verifying company information when there is not a D&amp;B nor an EID record.</inlineHelpText>
+        <label>Account Governance Notes</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DataGovernanceStatus__c</fullName>
+        <description>SFDC1-144 Signifies if the account has been validated by the Data Governance Team</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by the Account Governance team.</inlineHelpText>
+        <label>Account Governance Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unapproved</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Under Review</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <inlineHelpText>Description of the company&apos;s business. This Data is maintained by the Sales Operations team.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DoNotdelete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DoNotdelete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DomesticUltimateCompanyID__c</fullName>
+        <description>SFDC1-7199 Populated via integration with GDSA. Only updated by GDSA Integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Domestic Ultimate Company DUNS is provided by Customer Master</inlineHelpText>
+        <label>Domestic Ultimate Company DUNS</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DomesticUltimateCompanyName__c</fullName>
+        <description>SFDC1-7199 Populated via integration with GDSA. Only updated by GDSA Integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <label>Domestic Ultimate Company Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DunsNumber</fullName>
+        <inlineHelpText>The DUNS number maintained by the Account Governance group. When the number begins with an M, this signifies that an actual DUNS does not exist.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ExternalOrgType__c</fullName>
+        <description>SFDC1-776 Replaces the Legacy Markit &quot;Account Type&quot; and will be augmented with values relevant to legacy IHS:
+Buy Side
+Sell Side
+Vendor
+Supplier
+Corporate
+Other.
+
+Will be maintained by SF Ops team</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field maintained by Sales Operations</inlineHelpText>
+        <label>External Org Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>InstitutionType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Academic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accountant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alliances</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Buy-Side</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fund Admins</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Official Institutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sell-Side</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Investment Bank/Securities Firm</controllingFieldValue>
+                <controllingFieldValue>National Bank</controllingFieldValue>
+                <controllingFieldValue>Supranational or National Lender/Investor</controllingFieldValue>
+                <controllingFieldValue>US Regionals</controllingFieldValue>
+                <controllingFieldValue>International Bank</controllingFieldValue>
+                <valueName>Sell-Side</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Investment Consultants</controllingFieldValue>
+                <controllingFieldValue>Pension Fund</controllingFieldValue>
+                <controllingFieldValue>Private Equity/Venture Capital</controllingFieldValue>
+                <controllingFieldValue>Public Retirement Fund</controllingFieldValue>
+                <controllingFieldValue>Consulting and Advisory</controllingFieldValue>
+                <controllingFieldValue>Credit Union</controllingFieldValue>
+                <controllingFieldValue>Asset Management</controllingFieldValue>
+                <controllingFieldValue>Asset Management - Holding Company</controllingFieldValue>
+                <controllingFieldValue>Registered Investment Advisor</controllingFieldValue>
+                <controllingFieldValue>Sovereign Wealth Fund</controllingFieldValue>
+                <controllingFieldValue>ETF Issuer</controllingFieldValue>
+                <controllingFieldValue>Foundations &amp; Endowments</controllingFieldValue>
+                <controllingFieldValue>Fund of Funds</controllingFieldValue>
+                <controllingFieldValue>Turn Key Asset Provider</controllingFieldValue>
+                <controllingFieldValue>Hedge Fund</controllingFieldValue>
+                <controllingFieldValue>Insurance Company</controllingFieldValue>
+                <controllingFieldValue>Insurance Company - Healthcare</controllingFieldValue>
+                <controllingFieldValue>Insurance Company - Life</controllingFieldValue>
+                <controllingFieldValue>Insurance Company - Monoline</controllingFieldValue>
+                <controllingFieldValue>Insurance Company - Other</controllingFieldValue>
+                <controllingFieldValue>Insurance Company - P&amp;C</controllingFieldValue>
+                <controllingFieldValue>Wealth Management &amp; Family Offices</controllingFieldValue>
+                <controllingFieldValue>Insurance Company - Reinsurance</controllingFieldValue>
+                <valueName>Buy-Side</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Law Firm</controllingFieldValue>
+                <controllingFieldValue>Local/Municipal/State Authority</controllingFieldValue>
+                <controllingFieldValue>Media/Press/PR</controllingFieldValue>
+                <controllingFieldValue>National Oil Company (NOC)</controllingFieldValue>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Project Developer</controllingFieldValue>
+                <controllingFieldValue>Alias Account</controllingFieldValue>
+                <controllingFieldValue>Standards Organisation</controllingFieldValue>
+                <controllingFieldValue>Systems Integrator</controllingFieldValue>
+                <controllingFieldValue>Trade/Industry Association</controllingFieldValue>
+                <controllingFieldValue>Individuals (for personal use)</controllingFieldValue>
+                <controllingFieldValue>Intermediaries</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NGO</controllingFieldValue>
+                <controllingFieldValue>Commodity Producer</controllingFieldValue>
+                <controllingFieldValue>Corporate (Non-Financial)</controllingFieldValue>
+                <controllingFieldValue>Corporate Broker</controllingFieldValue>
+                <controllingFieldValue>Direct Lender</controllingFieldValue>
+                <controllingFieldValue>Energy Merchants</controllingFieldValue>
+                <controllingFieldValue>Energy Oil or Gas Company</controllingFieldValue>
+                <controllingFieldValue>Carbon Agency</controllingFieldValue>
+                <controllingFieldValue>Carbon Retailer</controllingFieldValue>
+                <controllingFieldValue>Energy Trading</controllingFieldValue>
+                <controllingFieldValue>Energy Utilities</controllingFieldValue>
+                <controllingFieldValue>Trading Company</controllingFieldValue>
+                <controllingFieldValue>Utility</controllingFieldValue>
+                <controllingFieldValue>Integrated Oil &amp; Gas</controllingFieldValue>
+                <valueName>Corporate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Central Bank/Bank Supervisor</controllingFieldValue>
+                <controllingFieldValue>Bank - Central</controllingFieldValue>
+                <controllingFieldValue>Bank - Development</controllingFieldValue>
+                <controllingFieldValue>Self-Regulatory Organization (SRO)</controllingFieldValue>
+                <controllingFieldValue>Government/Government Research Authority</controllingFieldValue>
+                <controllingFieldValue>Governmental Market/Securities Regulators</controllingFieldValue>
+                <controllingFieldValue>Government Institutions &amp; Regulators</controllingFieldValue>
+                <valueName>Official Institutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clearing</controllingFieldValue>
+                <controllingFieldValue>Ratings Agency</controllingFieldValue>
+                <controllingFieldValue>Research, Independent</controllingFieldValue>
+                <controllingFieldValue>SEF</controllingFieldValue>
+                <controllingFieldValue>Exchange/Clearer/Trading Venue</controllingFieldValue>
+                <controllingFieldValue>Technology / Solution Provider</controllingFieldValue>
+                <controllingFieldValue>Vendor - Data</controllingFieldValue>
+                <controllingFieldValue>Vendor - Hardware</controllingFieldValue>
+                <controllingFieldValue>Vendor - Other</controllingFieldValue>
+                <controllingFieldValue>Information Service Provider</controllingFieldValue>
+                <controllingFieldValue>Vendor - Recruitment</controllingFieldValue>
+                <controllingFieldValue>Vendor - Services</controllingFieldValue>
+                <controllingFieldValue>Vendor - Software</controllingFieldValue>
+                <controllingFieldValue>Vendor - Technology</controllingFieldValue>
+                <valueName>Alliances</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Academic</controllingFieldValue>
+                <valueName>Academic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accountant</controllingFieldValue>
+                <valueName>Accountant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fund Administrator/Custodian/Trustee/Servicer</controllingFieldValue>
+                <valueName>Fund Admins</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>GlobalAccountManager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-149 There will be Accounts that are GAM&apos;s and will be identified by the name of the GAM in the GAM Field on the account, this field is a lookup to users. Managing the GAM is in separate stories under the epic of adding the field.
+SFDC1-4204 : Updated Lookup filter to allow only Salesforce Users.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter a Global Account Manager for this account.</inlineHelpText>
+        <label>Account Manager</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.UserType</field>
+                <operation>equals</operation>
+                <value>Standard</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>GAMAccounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GlobalUltimateAccount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-144 Lookup to the existing account that is the Global Ultimate account. Only updated by Customer Master Integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Only updated by CDI Integration.</inlineHelpText>
+        <label>Global Ultimate Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Global Ultimate Child Accounts</relationshipLabel>
+        <relationshipName>GlobalUltimateChildAccounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GlobalUltimateCompanyID__c</fullName>
+        <description>SFDC1-144 Populated via integration with GDSA. Only updated by GDSA Integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populated via integration with Customer Master Data</inlineHelpText>
+        <label>Global Ultimate Company DUNS</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GlobalUltimateCompanyName__c</fullName>
+        <description>SFDC1-144 Populated via integration with GDSA. Only updated by GDSA Integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <label>Global Ultimate Company Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GoldfireExpirationDate__c</fullName>
+        <description>SFDC1-4484 Created for Service Communicty to mass-activate and deactive users.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by Goldfire Customer Care</inlineHelpText>
+        <label>Goldfire Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IncorporatedIn__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-4360 This is a look up to the Country Object that allows Sales users to select the Country of Incorporation. Sales user is responsible for editing and maintaining this field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the Country of Incorporation for this account.</inlineHelpText>
+        <label>Incorporated In</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Accounts (Incorporated In)</relationshipLabel>
+        <relationshipName>AccountsIncorporatedIn</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Industry</fullName>
+        <inlineHelpText>Maintained by GDSA</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>InstitutionType__c</fullName>
+        <description>SFDC1-1162 related to External Org Type. Will be maintained by SF Ops team.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select Institution Type.</inlineHelpText>
+        <label>Institution Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Academic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accountant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alias Account</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Asset Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Asset Management - Holding Company</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bank - Central</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bank - Development</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Carbon Agency</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Carbon Retailer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Central Bank/Bank Supervisor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clearing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Commodity Producer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consulting and Advisory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate (Non-Financial)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Broker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit Union</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Direct Lender</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy Merchants</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy Oil or Gas Company</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy Utilities</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ETF Issuer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Exchange/Clearer/Trading Venue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Foundations &amp; Endowments</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fund Administrator/Custodian/Trustee/Servicer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fund of Funds</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Government/Government Research Authority</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Governmental Market/Securities Regulators</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Government Institutions &amp; Regulators</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hedge Fund</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Individuals (for personal use)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Information Service Provider</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Company</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Company - Healthcare</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Company - Life</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Company - Monoline</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Company - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Company - P&amp;C</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Company - Reinsurance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Integrated Oil &amp; Gas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Intermediaries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>International Bank</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Investment Bank/Securities Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Investment Consultants</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Local/Municipal/State Authority</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Media/Press/PR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Bank</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Oil Company (NOC)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NGO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pension Fund</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Private Equity/Venture Capital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Project Developer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Public Retirement Fund</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ratings Agency</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Refiner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Registered Investment Advisor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research, Independent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Self-Regulatory Organization (SRO)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sovereign Wealth Fund</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Standards Organisation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supranational or National Lender/Investor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Systems Integrator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Technology / Solution Provider</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trade/Industry Association</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trading Company</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Turn Key Asset Provider</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Regionals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Utility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor - Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor - Hardware</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor - Recruitment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor - Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor - Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor - Technology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Verifier/Validator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wealth Management &amp; Family Offices</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Governmental Market/Securities Regulator</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IsCustomerPortal</fullName>
+    </fields>
+    <fields>
+        <fullName>IsPartner</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>KingdomExpirationDate__c</fullName>
+        <description>SFDC1-4484 Created for Service Communicty to mass-activate and deactive users.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by Kingdom Customer Care</inlineHelpText>
+        <label>Kingdom Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: related to Legacy ID and Legacy system, this field is a concatenation of those two fields to create a unique legacy UD that can be used as an external key for updates by the migration team, will not be visible to sales profiles to avoid confusion with related legacy ids object.
+This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-2445 When the account is created via migration this field will be populated by the migration with the winning ID of the legacy system.  Please note that all 3 legacy fields listed here are from the highest ranking source. Each source can be found in the related table Legacy Account ID - will not be visible to Sales profiles to avoid confusion with related legacy ids object.</description>
+        <externalId>true</externalId>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: related to Legacy ID, this field identifies the legacy system from which the legacy ID is from, will not be visible to Sales profiles to avoid confusion with related legacy ids object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NaicsCode</fullName>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>NaicsDesc</fullName>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>NotInDataDotCom__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-144 Flags accounts created manually without data.com validation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Only editable by Data Governance.</inlineHelpText>
+        <label>Not in Data.com</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NumberOfEmployees</fullName>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <inlineHelpText>Read-Only Field</inlineHelpText>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ownership</fullName>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PKIDAccount__c</fullName>
+        <description>SFDC1-2445 Every Object contains a PKID.  This is a system generated number in the format Act000000.  It is used as an external ID for identifying records across environments when an update is needed</description>
+        <displayFormat>Act{000000}</displayFormat>
+        <externalId>true</externalId>
+        <inlineHelpText>Generated by Salesforce</inlineHelpText>
+        <label>PKID Account</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ParentCompanyID__c</fullName>
+        <description>SFDC1-144 Populated via integration with GDSA. Only updated by GDSA Integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Only updated by Customer Master</inlineHelpText>
+        <label>Parent Company DUNS</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ParentCompanyName__c</fullName>
+        <description>SFDC1-144 Populated via integration with GDSA. Only updated by GDSA Integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <label>Parent Company Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <inlineHelpText>Please enter parent account.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>PetraExpirationDate__c</fullName>
+        <description>SFDC1-4484 Created for Service Communicty to mass-activate and deactive users.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by Petra Customer Care</inlineHelpText>
+        <label>Petra Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <inlineHelpText>Main Phone number of the Account</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>PreviousOwner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-470 This is a hidden field to store the Account&apos;s previous owner</description>
+        <externalId>false</externalId>
+        <label>Previous Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>PreviousAccounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <description>SFDC1-493; to set the Priority of the Account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Priority 1: with 3+ billable contracts, RRR &gt; $500K; Priority 2: with 2+ billable contracts, RRR &gt; $250K; Priority 3: billable accounts that do not meet P2 criteria; Priority 4: non-billable accounts; PP: Priority Prospect; PD: Priority Development</inlineHelpText>
+        <label>Priority</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Priority 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Priority 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Priority 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Priority 4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Priority Prospect</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Priority Development</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Rating</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Relationship__c</fullName>
+        <description>SFDC1-775 Read Only Calculated field on account. Updated in a daily fashion and audited on change.
+If At least 1 Closed won opportunity in last 12 months exists OR contract date is in range for today. Then set to &quot;Customer&quot;
+Else if – closed won opportunity &gt; 12 months and no contract date is in range for today. Then set to &quot;Previous Customer&quot;
+Else - – everything else &quot;Prospect&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies current relationship between Account and IHS Markit</inlineHelpText>
+        <label>Relationship</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SalesNotes__c</fullName>
+        <description>SFDC1-1407 Long Text field for Sales notes on Account. This was a legacy Markit field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Any additional information regarding the account like specific instructions, special requests, unique details</inlineHelpText>
+        <label>Sales Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SanctionedProhibited__c</fullName>
+        <description>SFDC1-7199 Sanctioned/Prohibited status of country in &apos;Incorporated In&apos; field</description>
+        <externalId>false</externalId>
+        <formula>TEXT(IncorporatedIn__r.LegalStatus__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Sanctioned/Prohibited status of country</inlineHelpText>
+        <label>Sanctioned/Prohibited</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ShippingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Sic</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>SicDesc</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Site</fullName>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>SourceCase__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-965 and SFDC1-638 Lookup to Case object. This field will be systematically filled when the Account is created from a Case request to the Data Governance team.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Case from which account was created</inlineHelpText>
+        <label>Source Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StateOfIncorporation__c</fullName>
+        <description>SFDC1-4360 Account&apos;s State of Incorporation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This value can be captured for legal reasons, it is mandatory if the Country of Incorporation is United States.</inlineHelpText>
+        <label>State of Incorporation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>UnitedStatesPicklist</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <description>SFDC1-9133 : This field is being used to capture the State value from Case while creating the Accout using the Quick Action &apos;Create New Account&apos;</description>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>SFDC1-144 Determines if the Account is Active or inactive.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select account status.</inlineHelpText>
+        <label>Status</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>InactiveOutOfBusiness</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>InactiveInvalid</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ThreeDigitNAICSCodeDescription__c</fullName>
+        <description>SFDC1-7199 3-Digit NAICS Code Description</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <label>3-Digit NAICS Code Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ThreeDigitNAICSCode__c</fullName>
+        <description>SFDC1-7199 3-Digit NAICS Code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <label>3-Digit NAICS Code</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TickerSymbol</fullName>
+        <inlineHelpText>Maintained by Sales Ops</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalAnnualContractValue__c</fullName>
+        <description>SFDC1-5228 Account Overview Report, Displays the Total Annual Contract value for the account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Displays the Total Annual Contract value for the account.</inlineHelpText>
+        <label>Total Annual Contract Value</label>
+        <summarizedField>ApprovedContractSummary__c.AnnualContractValue__c</summarizedField>
+        <summaryForeignKey>ApprovedContractSummary__c.Account__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Tradestyle</fullName>
+        <inlineHelpText>Maintained by the Account Governance Team. This is the company&apos;s alternate trading name</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <inlineHelpText>Maintained by the Account Governance team.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>UserSalesBusinessLine__c</fullName>
+        <description>SFDC1-6544 : used to retrieve Sales Business Line from User record</description>
+        <externalId>false</externalId>
+        <formula>TEXT($User.SalesBusinessLineglobalpicklist__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UserSalesBusinessLine</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VATTaxID__c</fullName>
+        <description>SFDC1-563 The company&apos;s tax ID based on which country they are in. Will be populated from D&amp;B when available. Otherwise Sales Support will provide it to the Data Governance Team to update. Editable only by Data Governance and System Admin.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter account&apos;s VAT/Tax ID</inlineHelpText>
+        <label>VAT/Tax ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Website</fullName>
+        <inlineHelpText>Maintained by GDSA</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>YearStarted</fullName>
+        <inlineHelpText>Maintained by the Account Governance team and populated through the integration with Customer Master data</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>blee_ID__c</fullName>
+        <description>this is a test field added by Matt Henderson</description>
+        <externalId>true</externalId>
+        <label>blee_ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>AllAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+        <columns>GlobalUltimateAccount__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Accounts</label>
+    </listViews>
+    <listViews>
+        <fullName>AllAccountsWaitingForValidation</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+        <columns>GlobalUltimateAccount__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>DataGovernanceStatus__c</field>
+            <operation>notEqual</operation>
+            <value>Approved</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <label>All Accounts waiting for validation</label>
+    </listViews>
+    <listViews>
+        <fullName>AllActiveAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+        <columns>GlobalUltimateAccount__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <label>All Active Accounts</label>
+    </listViews>
+    <listViews>
+        <fullName>AllInactiveAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+        <columns>GlobalUltimateAccount__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>InactiveInvalid,InactiveOutOfBusiness</value>
+        </filters>
+        <label>All Inactive Accounts</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Accounts_Approved</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+        <columns>GlobalUltimateAccount__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>DataGovernanceStatus__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </filters>
+        <label>All Accounts Approved</label>
+    </listViews>
+    <listViews>
+        <fullName>Cascade</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>GlobalUltimateAccount__c</columns>
+        <columns>ComplianceRestriction__c</columns>
+        <columns>ComplianceRestrictionException__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.NAME</field>
+            <operation>startsWith</operation>
+            <value>cascade</value>
+        </filters>
+        <label>Cascade</label>
+    </listViews>
+    <listViews>
+        <fullName>MyAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+        <columns>GlobalUltimateAccount__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Accounts</label>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_CITY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_COUNTRY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>GlobalUltimateAccount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.TYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.CREATED_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.ADDRESS1_STREET</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.ADDRESS1_CITY</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.ADDRESS1_COUNTRY_CODE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>GlobalUltimateAccount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DataGovernanceStatus__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.TYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.ADDRESS1_STREET</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.ADDRESS1_CITY</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.ADDRESS1_COUNTRY_CODE</lookupFilterFields>
+        <lookupFilterFields>DataGovernanceStatus__c</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.TYPE</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.ADDRESS1_STREET</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.ADDRESS1_CITY</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.ADDRESS1_COUNTRY_CODE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DataGovernanceStatus__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.TYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.CREATED_DATE</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AccountInfo__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.ADDRESS1_STREET</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.ADDRESS1_CITY</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.ADDRESS1_COUNTRY_CODE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>GlobalUltimateAccount__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DataGovernanceStatus__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.TYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>AccountSubTypeValueRequired</fullName>
+        <active>true</active>
+        <description>SFDC1-4380 if &quot;Global Alliance&quot; is selected in the &quot;Account Type&quot; field the user is required to select a value from the &quot;Account Sub Type&quot; picklist.</description>
+        <errorConditionFormula>ISPICKVAL(Type, &apos;Global Alliance&apos;)
+&amp;&amp; ISBLANK(AccountSubType__c)</errorConditionFormula>
+        <errorDisplayField>AccountSubType__c</errorDisplayField>
+        <errorMessage>Account Sub Type is required if Account Type is &quot;Global Alliance&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BillingAddressIsRequired</fullName>
+        <active>true</active>
+        <description>SFDC1-2235 validate Account&apos;s Billing Address and pop up error if it&apos;s missing</description>
+        <errorConditionFormula>ISBLANK(BillingStreet)
+|| ISBLANK(BillingCity)
+|| ISBLANK(BillingCountry)</errorConditionFormula>
+        <errorMessage>Account&apos;s address fields (Street, City and Country) are required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BlockCreatingAccount</fullName>
+        <active>true</active>
+        <description>SFDC1-684 Restrict the creation of Accounts to System Admin and Data Governance.</description>
+        <errorConditionFormula>ISNEW()
+&amp;&amp; $Profile.Name &lt;&gt; &quot;IHSMarkit Data Governance&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;System Administrator&quot;</errorConditionFormula>
+        <errorMessage>Only Data Governance or System Administrator can create account.Please either select an existing account or request one from the Lead page.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BlockNameUpdateForNonDataGovernance</fullName>
+        <active>true</active>
+        <description>SFDC1-2056 &amp; SFDC1-7981 Account Name and Status field should be locked down for all account, only Data Governance and System Admin should be able to edit these field.</description>
+        <errorConditionFormula>(ISCHANGED(Name) || ISCHANGED(Status__c))
+&amp;&amp; $Profile.Name &lt;&gt; &quot;IHSMarkit Data Governance&quot; 
+&amp;&amp; $Profile.Name &lt;&gt; &quot;IHSMarkit System Admin&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;System Administrator&quot;</errorConditionFormula>
+        <errorMessage>Only Data Governance and System Admin can edit Account Name and Status fields.Please either select an existing account or request one from the Lead page.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BlockProhibitedCountry</fullName>
+        <active>true</active>
+        <description>SFDC1-383 Do not allow an Account record to be created if the Account&apos;s country is a Prohibited Country</description>
+        <errorConditionFormula>VLOOKUP( $ObjectType.Country__c.Fields.IsProhibited__c ,  $ObjectType.Country__c.Fields.Name ,  BillingCountry )</errorConditionFormula>
+        <errorDisplayField>BillingCountry</errorDisplayField>
+        <errorMessage>Due to U.S. export controls and sanctions restrictions, Account records cannot be created for the selected country.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DataGovernanceStatusApproved</fullName>
+        <active>true</active>
+        <description>SFDC1-2259 make sure Data Governance&apos;s required fields are populated before Data Governance Status could be changed to &apos;Approved&apos;.
+SFDC1-8169 Website is no longer required because this data is not always provided.</description>
+        <errorConditionFormula>ISPICKVAL(DataGovernanceStatus__c, &quot;Approved&quot;)
+&amp;&amp;
+(
+   ISPICKVAL(Type, &quot;&quot;)
+|| ISPICKVAL(Priority__c, &quot;&quot;)
+)</errorConditionFormula>
+        <errorMessage>Account Type and Priority are required for Data Governance Status to be set to &quot;Approved&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DataGovernanceStatusApprovedInactive</fullName>
+        <active>true</active>
+        <description>SFDC1-5259 prevents an account from having Data Governance Status of Approved and Account Status of &quot;Invalid Inactive&quot;</description>
+        <errorConditionFormula>ISPICKVAL(DataGovernanceStatus__c, &quot;Approved&quot;)
+&amp;&amp; ISPICKVAL(Status__c, &quot;InactiveInvalid&quot;)</errorConditionFormula>
+        <errorMessage>Account record cannot have Data Governance Status of &quot;Approved&quot; if the Status is &quot;Inactive - Invalid&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ExternalOrgTypeRequired</fullName>
+        <active>true</active>
+        <description>SFDC1-797 External Org Type is required if Institution Type is selected</description>
+        <errorConditionFormula>ISPICKVAL(InstitutionType__c, &apos;&apos;) = false
+&amp;&amp; ISPICKVAL(ExternalOrgType__c, &apos;&apos;)</errorConditionFormula>
+        <errorDisplayField>ExternalOrgType__c</errorDisplayField>
+        <errorMessage>External Org Type is required if Institution Type is selected</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>StateOfIncorporationIsRequiredForUS</fullName>
+        <active>true</active>
+        <description>SFDC1-4360 if &quot;United States&quot; is selected in the &quot;Incorporated In&quot; field then &quot;State of Incorporation&quot; is mandatory.</description>
+        <errorConditionFormula>IncorporatedIn__r.CountryCode__c = &apos;US&apos;
+&amp;&amp; ISBLANK(TEXT(StateOfIncorporation__c))</errorConditionFormula>
+        <errorDisplayField>IncorporatedIn__c</errorDisplayField>
+        <errorMessage>If &quot;Incorporated In&quot; country is &quot;United States&quot;, please select &quot;State of Incorporation&quot; as it is mandatory.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ValidatedAccountFields</fullName>
+        <active>true</active>
+        <description>Once validated (DataGovernanceStatus = &quot;Approved&quot;), all account fields except &quot;Description&quot; and &quot;Formerly Known As&quot; are only editable by Data Governance or System Administrator.</description>
+        <errorConditionFormula>ISPICKVAL(DataGovernanceStatus__c, &quot;Approved&quot;)
+&amp;&amp; $Profile.Name &lt;&gt; &quot;IHSMarkit Data Governance&quot; 
+&amp;&amp; $Profile.Name &lt;&gt; &quot;IHSMarkit System Admin&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp; 
+(ISCHANGED(AlternateNameTradingName__c)
+|| ISCHANGED(Status__c)
+|| ISCHANGED(Phone)
+|| ISCHANGED(Website)
+|| ISCHANGED(CurrencyIsoCode)
+|| ISCHANGED(VATTaxID__c)
+|| ISCHANGED(BillingStreet)
+|| ISCHANGED(BillingCity)
+|| ISCHANGED(BillingState)
+|| ISCHANGED(BillingCountry)
+|| ISCHANGED(BillingPostalCode)
+)</errorConditionFormula>
+        <errorMessage>Users may update the Account Description and Formally Known As fields. Please use *Account Assistance* to open a case for Data Governance to request any other changes to this account.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Account_BillingStreet}+{!Account_BillingCity}+{!Account_BillingState}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/news?&amp;q={!Account_Name}&amp;btnG=Search+News</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>800</height>
+        <linkType>url</linkType>
+        <masterLabel>Create PDF</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loop?eid={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1000</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loopmerge?eid={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1200</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!Account.Id}&amp;sessionId={!$Api.Session_ID}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated Mass LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/loop__loopmerge?eid={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <page>Loop__massAccountDdp</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>dsfs__Send_with_DocuSign</fullName>
+        <availability>online</availability>
+        <description>This button will initiate a DocuSign Envelope that will be linked to the Account.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send with DocuSign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
+DocuSign_CreateEnvelope();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>dsfs__Verify_with_DNB</fullName>
+        <availability>online</availability>
+        <description>This button will initiate DnBs Pre-Contract Risk Screening linked to the Opportunity</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Verify with D&amp;B</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
+        
+{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js&apos;)} 
+{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js&apos;)} 
+
+var html = &apos;&lt;div id=&quot;dialog&quot; style=&quot;display: none;&quot;&gt;&lt;/div&gt;&apos;;
+
+var $g = jQuery.noConflict();
+
+var address = &apos;&lt;iframe id=&quot;dnbContent&quot; width=&quot;700&quot; height=&quot;730&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; frameborder=&quot;0&quot; src=&quot;&apos;+DocuSign_GetVerifyWithDnb(&apos;account&apos;)+&apos;&quot;&gt;&lt;/iframe&gt;&apos;;
+		
+$g(function() { 
+
+	$g(&apos;head&apos;).append(&apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css&quot;/&gt;&apos;);
+
+	if($g(&apos;#dialog&apos;).length == 0) {
+		$g(&apos;body&apos;).append(html); 
+	}
+	$g(&quot;#dialog&quot;).dialog({ 
+		autoOpen: true, 
+		modal: true, 
+		width: 700,
+		height: 783,
+		open: function(event, ui) {
+		  if($g(&apos;#myNewImage&apos;).length == 0) {
+		     $g(&quot;.ui-dialog-titlebar&quot;).append(&quot;&lt;img src=&apos;&quot;+getDnbLogo()+&quot;&apos; id=&apos;myNewImage&apos; /&gt;&quot;);
+		  }
+		  $g(&apos;.ui-widget-overlay&apos;).bind(&apos;click&apos;,function(){
+    			$g(&apos;#dialog&apos;).dialog(&quot;close&quot;);
+		  });
+		}
+	})
+	if($g(&apos;#dnbContent&apos;).length == 0) {
+		$g(&apos;#dialog&apos;).append(address); 
+	}
+
+
+	$g(&quot;.ui-dialog-title&quot;).hide();
+	$g(&quot;#dialog&quot;).css(&apos;padding&apos;, &apos;0px&apos;);
+	$g(&quot;.ui-widget-header&quot;).attr(&apos;style&apos;, &apos;padding-top:5px; padding-right:5px; padding-left:10px;padding-bottom:5px; border-radius:0px; background: #005172;border:0px;margin:auto;&apos;);
+	$g(&quot;.ui-button-text&quot;).css(&apos;padding&apos;, &apos;0&apos;);
+	$g(&quot;.ui-icon-closethick&quot;).attr(&apos;style&apos;, &apos;background-color:#005172; width:19px; height:19px; margin-top:-10px; margin-left:-10px;&apos;);
+	$g(&quot;.ui-dialog-titlebar-close&quot;).attr(&apos;style&apos;, &apos;border-radius:0px; padding:0px; width:18px; height:18px; border:0px;&apos;);
+	$g(&quot;.ui-dialog&quot;).css(&apos;z-index&apos;, &apos;10000&apos;);
+	$g(&quot;.ui-dialog&quot;).css(&apos;border-radius&apos;, &apos;0px&apos;);
+});</url>
+    </webLinks>
+</CustomObject>

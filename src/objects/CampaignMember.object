@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ConvertLead</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CreateOpportunity</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>CampaignId</fullName>
+        <inlineHelpText>The ID of the campaign to which the lead or contact belongs.</inlineHelpText>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>City</fullName>
+        <inlineHelpText>City portion of the lead or contact&apos;s address.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>CompanyOrAccount</fullName>
+        <inlineHelpText>The company, if the campaign member is based on a lead, or the account, if the campaign member is based on a contact.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>ContactId</fullName>
+        <inlineHelpText>The ID of the contact, if the campaign member is based on a contact.</inlineHelpText>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country</fullName>
+        <inlineHelpText>Country portion of user’s address. </inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <inlineHelpText>Description of the lead or contact.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+        <inlineHelpText>Whether the contact wants to be contacted by phone.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <inlineHelpText>Email address of the lead or contact.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <inlineHelpText>Fax number of the lead or contact.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>FirstName</fullName>
+        <inlineHelpText>First name of the lead or contact.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>FirstRespondedDate</fullName>
+        <inlineHelpText>Date the campaign member first responded. (Read only)</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+        <inlineHelpText>Whether the contact wants to receive email. </inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+        <inlineHelpText>Whether the contact wants to be included in broadcast faxes.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>HasResponded</fullName>
+        <inlineHelpText>Indicates if the campaign member has responded.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>LastName</fullName>
+        <inlineHelpText>Last name of the lead or contact.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>LeadId</fullName>
+        <inlineHelpText>The ID of the lead, if the campaign member is based on a lead.</inlineHelpText>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <inlineHelpText>Source of lead, for example, Market Generated or Rep Generated.</inlineHelpText>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <inlineHelpText>Mobile phone number for the lead or contact.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>PKIDCampaignMember__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>CmM{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID CampaignMember</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+    </fields>
+    <fields>
+        <fullName>PostalCode</fullName>
+        <inlineHelpText>Zip or postal code portion of the lead or contact&apos;s address.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>Salutation</fullName>
+        <inlineHelpText>The salutation for addressing the person, for example, Mr., Ms., Dr., or Prof.</inlineHelpText>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>State</fullName>
+        <inlineHelpText>State or province portion of user’s address.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <inlineHelpText>The status of the campaign member, for example, Sent or Responded.</inlineHelpText>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Street</fullName>
+        <inlineHelpText>Street portion of the lead or contact&apos;s address.</inlineHelpText>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <inlineHelpText>The title of the lead or contact, for example, President.</inlineHelpText>
+    </fields>
+    <sharingModel>ControlledByCampaign</sharingModel>
+</CustomObject>

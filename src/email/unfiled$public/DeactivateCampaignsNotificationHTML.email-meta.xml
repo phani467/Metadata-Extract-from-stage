@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-6635;Deactivate Campaigns 60 Days After the End Date and Notify Campaign Owner</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Deactivate Campaigns Notification</name>
+    <style>none</style>
+    <subject>Campaign Deactivation Notification</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+Best Regards, 
+
+{!User.FirstName} {!User.LastName}
+{!User.Title} | CIDD Support 
+711 Executive Blvd., Suite A | Valley Cottage, New York 10989 
+Support: +1 646 690 4291 Main: +1 646 690 4300 
+LSMDocDelivery@markit.com 
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

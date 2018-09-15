@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-905 This is a custom object, which will be related to contract line item.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>ContractLineItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-380 This field holds the value of contract line item record to which contract line item schedule is related</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract Line Item</inlineHelpText>
+        <label>Contract Line Item</label>
+        <referenceTo>ContractLineItem__c</referenceTo>
+        <relationshipLabel>Contract Line Item Schedules</relationshipLabel>
+        <relationshipName>ContractLineItemSchedule</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-380 This is a lookup to Contract record, to which contract line item schedule is related</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related Contract</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Contract Line Item Schedules</relationshipLabel>
+        <relationshipName>ContractLineItemSchedules</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DiscountAmount__c</fullName>
+        <description>SFDC1-380 This field gets populated from opportunity product schedule - Discount Amount field when contract is created from wizard</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Discount Amount</inlineHelpText>
+        <label>Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DiscountPercent__c</fullName>
+        <description>SFDC1-380 This field gets populated from opportunity product schedule - discount % field when contract is created from wizard</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Discount %</inlineHelpText>
+        <label>Discount%</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>DiscountType__c</fullName>
+        <description>SFDC1-380 This field gets populated from opportunity product schedule - discount type field when contract is created from wizard</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Discount Type</inlineHelpText>
+        <label>Discount Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Percentage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Discount</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ExternalListPrice__c</fullName>
+        <description>SFDC1-380 This field gets populated from opportunity product schedule - external list price field when contract is created from wizard</description>
+        <externalId>false</externalId>
+        <inlineHelpText>External List Price</inlineHelpText>
+        <label>External List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>InstallmentYear__c</fullName>
+        <description>SFDC1-380 This is a text field which copies InstallmentYear__c from Opportunity Product Schedule</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Installment Year</inlineHelpText>
+        <label>Installment Year</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InstallmentYears__c</fullName>
+        <description>SFDC1-380 This is a text field which copies InstallmentYears__c from Opportunity Product Schedule</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Installment Year</inlineHelpText>
+        <label>Installment Year</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SalesPrice__c</fullName>
+        <description>SFDC1-380 This field gets populated from opportunity product schedule - sales price field when contract is created from wizard</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sales Price</inlineHelpText>
+        <label>Sales Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Contract Line Item Schedule</label>
+    <nameField>
+        <displayFormat>CLS-{0000000}</displayFormat>
+        <label>Contract Line Item Schedule Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contract Line Item Schedules</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Read</sharingModel>
+</CustomObject>

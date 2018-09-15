@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contract Line Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contract Line Items</value>
+    </caseValues>
+    <fields>
+        <help><!-- Annualized discount amount auto calculated by system --></help>
+        <label><!-- Annualized Discount Amount --></label>
+        <name>AnnualizedDiscountAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculates total amount using AnnualizedUnitPrice , AnnualizedDiscountAmount and Quantity --></help>
+        <label><!-- Annualized Total Amount --></label>
+        <name>AnnualizedTotalAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Annualized unit price calculated from unit price automatically --></help>
+        <label><!-- Annualized Unit Price --></label>
+        <name>AnnualizedUnitPrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Asset Name --></label>
+        <name>AssetName__c</name>
+        <relationshipLabel><!-- Contract Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Product related to Opportunity Line Item --></help>
+        <label><!-- Associated Product --></label>
+        <name>AssociatedProduct__c</name>
+        <relationshipLabel><!-- Contract Line Items (Associated Product) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Authorized Users --></label>
+        <name>AuthorizedUsers__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Billing Period --></help>
+        <label><!-- Billing Periods --></label>
+        <name>BillingPeriods__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the Billing Schedule Type --></help>
+        <label><!-- Billing Schedule Type --></label>
+        <name>BillingScheduleType__c</name>
+        <picklistValues>
+            <masterLabel>Milestone</masterLabel>
+            <translation><!-- Milestone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-annual</masterLabel>
+            <translation><!-- Semi-annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>T &amp; M</masterLabel>
+            <translation><!-- T &amp; M --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Billing Start Month --></help>
+        <label><!-- Billing Start Month --></label>
+        <name>BillingStartMonth__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Billing Start Year --></help>
+        <label><!-- Billing Start Year --></label>
+        <name>BillingStartYear__c</name>
+    </fields>
+    <fields>
+        <help><!-- Custom Collection ID --></help>
+        <label><!-- CCID --></label>
+        <name>CCID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Custom Collection QuoteID --></help>
+        <label><!-- CCQuoteID --></label>
+        <name>CCQuoteID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Contract Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Discount Amount --></help>
+        <label><!-- Discount Amount --></label>
+        <name>DiscountAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Discount Type --></help>
+        <label><!-- Discount Type --></label>
+        <name>DiscountType__c</name>
+        <picklistValues>
+            <masterLabel>Amount</masterLabel>
+            <translation><!-- Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Discount</masterLabel>
+            <translation><!-- No Discount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Percentage</masterLabel>
+            <translation><!-- Percentage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Discount --></label>
+        <name>Discount__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- First Year --></help>
+        <label><!-- First Year --></label>
+        <name>FirstYear__c</name>
+    </fields>
+    <fields>
+        <help><!-- Captures the value from Governing Exhibit field on Product --></help>
+        <label><!-- Governing Exhibit --></label>
+        <name>GoverningExhibit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Remarks --></label>
+        <name>InvoiceRemarks__c</name>
+    </fields>
+    <fields>
+        <label><!-- License Number --></label>
+        <name>LicenseNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- License Type --></help>
+        <label><!-- License Type --></label>
+        <name>LicenseType__c</name>
+        <picklistValues>
+            <masterLabel>Client License</masterLabel>
+            <translation><!-- Client License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Departmental License</masterLabel>
+            <translation><!-- Departmental License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Divisional License</masterLabel>
+            <translation><!-- Divisional License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise- Wide License</masterLabel>
+            <translation><!-- Enterprise- Wide License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One- Time License</masterLabel>
+            <translation><!-- One- Time License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site License</masterLabel>
+            <translation><!-- Site License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standalone License</masterLabel>
+            <translation><!-- Standalone License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User License</masterLabel>
+            <translation><!-- User License --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Line Item Number --></label>
+        <name>LineItemNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Updated List Price --></label>
+        <name>ListPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Material Code --></help>
+        <label><!-- Material Code --></label>
+        <name>MaterialCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Type --></label>
+        <name>MediaType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Concurrent Users/Seats --></label>
+        <name>Numconuser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Potential Users --></label>
+        <name>Numpotusers__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity Product Id --></help>
+        <label><!-- Opportunity Product Id --></label>
+        <name>OpportunityProductId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Information --></label>
+        <name>OtherInformation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Contract Line Item --></label>
+        <name>ParentContractLineItem__c</name>
+        <relationshipLabel><!-- Contract Line Items (Parent Contract Line Item) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Prior Year Quantity --></label>
+        <name>PriorYearQuantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prior Year Total Discount Amt --></label>
+        <name>PriorYearTotalDiscountAmt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prior Year Total Sales Price --></label>
+        <name>PriorYearTotalSalesPrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prior Year Unit --></label>
+        <name>PriorYearUnit__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is populated from the Contract --></help>
+        <label><!-- Processed Contract # --></label>
+        <name>ProcessedContract__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Contract Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Projected Unit Price --></label>
+        <name>ProjectedUnitPrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recommended Unit Price --></label>
+        <name>RecommendedUnitPrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Root Contract Line Item --></label>
+        <name>RootContractLineItem__c</name>
+        <relationshipLabel><!-- Contract Line Items (Root Contract Line Item) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- SAP Line Item --></help>
+        <label><!-- SAP Line Item --></label>
+        <name>SAPLineItem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Price --></label>
+        <name>SalesPrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Locations/Sites --></label>
+        <name>Sites__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- StatusIcon --></label>
+        <name>StatusIcon__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Existing</masterLabel>
+            <translation><!-- Existing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost</masterLabel>
+            <translation><!-- Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Total Discount Amount --></help>
+        <label><!-- Discount Amount --></label>
+        <name>TotalDiscountAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Price --></help>
+        <label><!-- Total Price --></label>
+        <name>TotalPriceFromOpportunityLineItem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unit Price --></help>
+        <label><!-- Updated List Price --></label>
+        <name>UnitListPriceNew__c</name>
+    </fields>
+    <layouts>
+        <layout>Contract Line Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Create Volume/Variable Billing Line Item --></label>
+        <name>CreateVolumeVariableBillingLineItem</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Contract Start Date and Invoice Remark fields are non editable for Contract Record Type as Trial --></errorMessage>
+        <name>FieldPropertyModification</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract Line Items are locked for editing after stage is completed --></errorMessage>
+        <name>LockContractLineItem</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- StartDate is locked for editing as the Status is &quot;Existing&quot; --></errorMessage>
+        <name>LockContractLineItemStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Product Name cannot be changed after Contract Line Item is created. --></errorMessage>
+        <name>ProductNameFieldCannotBeChanged</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Ad_Claim_Change_Log_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-346 Creating a new object named Ad Claim Change Log</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AdClaim__c</fullName>
+        <description>SFDC1-346 Related Ad Claim</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related Ad Claim</inlineHelpText>
+        <label>Ad Claim</label>
+        <referenceTo>AdClaim__c</referenceTo>
+        <relationshipLabel>Ad Claim Change Logs</relationshipLabel>
+        <relationshipName>AdClaim</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ApprovalComments__c</fullName>
+        <description>SFDC1-346 Approval Comments to be provided if record is being approved.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Any comments that will be helpful to the account representative when discussing the claim with the requestor</inlineHelpText>
+        <label>Approval Comments</label>
+        <length>1000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ApprovalDate__c</fullName>
+        <description>SFDC1-346 Approval Date to be provided if record is being approved.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the change is approved</inlineHelpText>
+        <label>Approval Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ApprovedClaimLanguage__c</fullName>
+        <description>SFDC1-346 Approved Claim Language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Language that is approved to use in the claim. (This may be different from the proposed language)</inlineHelpText>
+        <label>Approved Claim Language</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ApprovedDate__c</fullName>
+        <description>SFDC1-346 Approved Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the claim is approved</inlineHelpText>
+        <label>Approved Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-346 Record Approver</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the person approving the claim</inlineHelpText>
+        <label>Approver</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Approver</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ApprovingParty__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-346 Approving Party</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the person approving the claim</inlineHelpText>
+        <label>Approving Party</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>NewApprovingParty</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ChangeComments__c</fullName>
+        <description>SFDC1-346 Change Comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Any comments that will be helpful to the person reviewing the claim change</inlineHelpText>
+        <label>Change Comments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field stores the concatenation of the source system name and a source system record ID to ensure the record is uniquely identified</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7046: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system ID referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NewApprovedDisclaimerLanguage__c</fullName>
+        <description>SFDC1-346 Approved Disclaimer Language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Language that is approved to use in the disclaimer.  (This may be different from the proposed language)</inlineHelpText>
+        <label>Approved Disclaimer Language</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NewMediaType__c</fullName>
+        <description>SFDC1-346 New Media Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Media type in which the publication will be made. Select all that apply</inlineHelpText>
+        <label>Media Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Print</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Radio</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Web</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Press Release</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other (please list)</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NewProposedDisclaimerLanguage__c</fullName>
+        <description>SFDC1-346 New Proposed Disclaimer Language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Disclaimer language requested by the customer</inlineHelpText>
+        <label>Proposed Disclaimer Language</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NewRejectionComments__c</fullName>
+        <description>SFDC1-346 Rejection Comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Explain the reason for rejecting a claim</inlineHelpText>
+        <label>New Rejection Comments</label>
+        <length>1000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>OtherMediaType__c</fullName>
+        <description>SFDC1-346 Other Media Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the publication will be made in a media type outside of those listed, please enter</inlineHelpText>
+        <label>Other Media Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDAdClaimChangeLog__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>ACL{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID AdClaimChangeLog</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ProposedClaimLanguage__c</fullName>
+        <description>SFDC1-346 Proposed Claim Language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Claim language requested by the customer</inlineHelpText>
+        <label>Proposed Claim Language</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RejectionComments__c</fullName>
+        <description>SFDC1-346 Rejection Comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Explain the reason for rejecting a claim</inlineHelpText>
+        <label>Rejection Comments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RequestDate__c</fullName>
+        <description>SFDC1-346 Request Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the claim change is entered</inlineHelpText>
+        <label>Request Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Requester__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-346 Requester</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the person requesting the change</inlineHelpText>
+        <label>Requester</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Requester</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>SFDC1-346 Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of change request in approval process</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Ad Claim Change Log</label>
+    <nameField>
+        <displayFormat>CL-{0000}</displayFormat>
+        <label>Change Log Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Ad Claim Change Logs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>AdClaimApproverCanNOTCreateAdClaimChange</fullName>
+        <active>true</active>
+        <description>SFDC1-1423 : Ad Claim Approver can not create AdClaim Change Log Record.</description>
+        <errorConditionFormula>ISNEW() &amp;&amp; $User.AdClaimsApprover__c</errorConditionFormula>
+        <errorMessage>You are not authorized to create Ad Claim Change Log record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AdClaimChangeCanNOTRejectAfterApprove</fullName>
+        <active>true</active>
+        <description>SFDC1-2023 : AdClaim Change can not be Rejected once Approved.</description>
+        <errorConditionFormula>TEXT(Status__c) = &apos;Rejected&apos; &amp;&amp; TEXT(PRIORVALUE(Status__c)) = &apos;Approved&apos;</errorConditionFormula>
+        <errorMessage>Approved AdClaim Change Log can not be Rejected.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ApprovedAdClaimChangelogEditOnlyApprover</fullName>
+        <active>true</active>
+        <description>SFDC1-2108 : Approved AdClaim Change log can be only edited by Ad Claim ChangeLog Approver</description>
+        <errorConditionFormula>NOT( ISNEW() ) &amp;&amp; TEXT( Status__c ) = &apos;Approved&apos; &amp;&amp; NOT( $User.AdClaimsApprover__c )</errorConditionFormula>
+        <errorMessage>Approved AdClaims Changelog can be edited only by Approvers.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ChangeLogCanNotCreateWithDraftAdClaim</fullName>
+        <active>true</active>
+        <description>SFDC1-2140 : ADClaim Change Log can not be created with Draft AdClaim Record.</description>
+        <errorConditionFormula>TEXT(AdClaim__r.ClaimsStatus__c ) = &apos;Draft&apos; &amp;&amp;  ISNEW()</errorConditionFormula>
+        <errorMessage>AdClaim Change Log can not be created with Draft AdClaim.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>FieldsMandatoryToSubmitOrApproveRecord</fullName>
+        <active>true</active>
+        <description>SFDC1-1057 At least one field in the &quot;Change Description&quot; section must be filled out before submitting or approving.</description>
+        <errorConditionFormula>AND(
+	OR(
+		ISPICKVAL( Status__c , &apos;Submitted&apos;),
+		ISPICKVAL( Status__c , &apos;Approved&apos;)
+		),
+	AND( 
+		ISBLANK( NewMediaType__c ),
+		ISBLANK( OtherMediaType__c ),
+		ISBLANK( ProposedClaimLanguage__c ),
+		ISBLANK( NewProposedDisclaimerLanguage__c ),
+		ISBLANK( ApprovedClaimLanguage__c ),
+		ISBLANK( NewApprovedDisclaimerLanguage__c ),
+		ISBLANK( ApprovalComments__c ),
+		ISBLANK( RejectionComments__c )
+		)
+	)</errorConditionFormula>
+        <errorMessage>At least one field in the &quot;Change Description&quot; section must be filled out before submitting or approving.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OnlyApproverCanApproveRejectTheRecord</fullName>
+        <active>true</active>
+        <description>SFDC1-460 Only a user with &apos;Ad Claim Approver&apos; checkbox checked should be able to Approve/ reject the record.
+SFDC1-2108 : Updating the Validation Rule to bypass after Record is Rejected and allowing user to edit.</description>
+        <errorConditionFormula>AND(
+	ISCHANGED(Status__c),
+	OR(
+		ISPICKVAL( Status__c , &apos;Rejected&apos;),
+		ISPICKVAL( Status__c , &apos;Approved&apos;)
+	),
+	$User.AdClaimsApprover__c == FALSE
+)</errorConditionFormula>
+        <errorMessage>Only an Authorized Ad Claim Approver can Approve/ Reject the record. Please contact your System Administrator for more information.</errorMessage>
+    </validationRules>
+</CustomObject>

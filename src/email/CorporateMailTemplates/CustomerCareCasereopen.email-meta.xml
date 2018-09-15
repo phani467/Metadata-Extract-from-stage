@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5154: Customer Care - Case Reopen - Auto-Response</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Customer Care Case reopen</name>
+    <style>none</style>
+    <subject>IHS Markit Customer Care Case {!Case.CaseNumber} - Reopened</subject>
+    <textOnly>CUSTOMER CARE
+
+Your IHS Markit Customer Care Case {!Case.CaseNumber}
+
+{!Today()}
+
+Dear IHS Markit Customer,
+
+Thank you for contacting our Customer Care Team, we have reopened your request.
+
+A unique case reference number {!Case.CaseNumber} with the subject &quot;{!Case.Subject}&quot; is currently being reviewed by one of our analysts.
+
+In order to allow you to track the progress of your enquiry, please quote the above case reference number when contacting us. Someone will be in touch with you shortly to ensure that your request is handled to your satisfaction.
+
+Kind regards,
+IHS Markit Customer Care
+
+{!Case.Thread_Id}
+
+{!Case.CheckHoliday__c}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

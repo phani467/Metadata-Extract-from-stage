@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template for Meeting Notes</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Meeting Notes Template</name>
+    <style>none</style>
+    <subject>{!MeetingNote__c.Name}</subject>
+    <textOnly>%%subject%%
+
+
+Subject: {!MeetingNotes__c.Name}
+When: {!MeetingNotes__c.When__c}
+Where:	
+{!MeetingNotes__c.City__c}, {!MeetingNotes__c.Country__c}
+CLIENT: {!MeetingNotes__c.AttendeeNames__c}
+MARKIT {!MeetingNotes__c.IHSMarkitAttendeeNames__c}
+Achieved:
+{!MeetingNotes__c.Achieved__c} Info:
+{!MeetingNotes__c.Info__c} Next Steps:
+{!MeetingNotes__c.NextSteps__c}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

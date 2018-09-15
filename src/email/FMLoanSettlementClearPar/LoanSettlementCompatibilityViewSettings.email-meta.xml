@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5065: Informing user about email compatibility settings</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loan Settlement - Compatibility View Settings</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>&lt;!----------------------- Header Begins -------------------------&gt;
+
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;link rel=&quot;SHORTCUT ICON&quot; href=&quot;/e/ref.ico&quot; /&gt;
+    
+&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+&lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;format-detection&quot; content=&quot;date=no&quot;&gt;
+    &lt;meta name=&quot;format-detection&quot; content=&quot;address=no&quot;&gt;
+    &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
+      /* Linked Styles */
+      a, img {
+        border: 0px;
+        outline: 0px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      body {
+        padding:0 !important;
+        margin:0 !important;
+        display:block !important;
+        width:100% !important;
+        background:#e4e7e6;
+        -webkit-text-size-adjust:none 
+      }
+      a {
+        color:#00B140;
+        text-decoration:none;
+        font-weight:bold 
+      }
+      p {
+        padding:0 !important;
+        margin:0 !important 
+      }
+      .button a:link {
+        color:#FFFFFF;
+        font-family:arial;
+        font-size:20px;
+        line-height:22px;
+        text-align:center;
+        font-weight:bold;
+        text-transform:uppercase
+      }
+      .button a:visited {
+        color:#FFFFFF;
+        font-family:arial;
+        font-size:20px;
+        line-height:22px;
+        text-align:center;
+        font-weight:bold;
+        text-transform:uppercase
+      }
+      .button a:active {
+        color:#FFFFFF;
+        font-family:arial;
+        font-size:20px;
+        line-height:22px;
+        text-align:center;
+        font-weight:bold;
+        text-transform:uppercase
+      }
+      .button a:hover {
+        color:#FFFFFF;
+        font-family:arial;
+        font-size:20px;
+        line-height:22px;
+        text-align:center;
+        font-weight:bold;
+        text-transform:uppercase
+      }
+      .greenbutton {
+        background-color: #78be20;
+        padding: 8px 12px;
+        font-family: arial;
+        text-transform: uppercase;
+        line-height: 14px;
+        font-size: 12px;
+        color:#ffffff !important;
+      }
+      .h4 {
+        margin: 0px;
+        text-align: left;
+        color: #485865 !important;
+        text-transform: uppercase;
+        line-height: 14px;
+        letter-spacing: normal;
+        font-family: arial;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: medium;
+      }
+      .h1 {
+        margin: 0px;
+        text-align: left;
+        color: #00b140 !important;
+        line-height: 32px;
+        letter-spacing: normal;
+        font-family: arial;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: normal;
+      }
+      .h5 {
+        margin: 0px 0px 30px;
+        text-align: left;
+        color: #485865 !important;
+        line-height: 16px;
+        letter-spacing: normal;
+        font-family: arial;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: bold;
+        display: block;
+      }
+      .paragraph {
+        line-height: 21px;
+        font-family: arial;
+        font-size: 14px;
+        color: #485865;
+        font-weight: normal;
+      }
+      .title {
+        line-height: 26px;
+        font-family: arial;
+        font-size: 20px;
+        color: #485865;
+        font-weight: bold;
+      }
+      /* Mobile styles */
+      @media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
+        table[class=&apos;w320&apos;] {
+          width: 320px !important;
+        }
+        div[class=&apos;mobile-br-5&apos;] {
+          height: 5px !important;
+        }
+        div[class=&apos;mobile-br-10&apos;] {
+          height: 10px !important;
+        }
+        div[class=&apos;mobile-br-15&apos;] {
+          height: 15px !important;
+        }
+        div[class=&apos;line&apos;] {
+          width: 100% !important;
+          height: 1px !important;
+          font-size:1px !important;
+        }
+        div[class=&apos;space-height&apos;] {
+          width: 100% !important;
+          height: 22px !important;
+          font-size:1px !important;
+        }
+        td[class=&apos;m-td&apos;], div[class=&apos;hide-for-mobile&apos;], span[class=&apos;hide-for-mobile&apos;] {
+          display: none !important;
+          width: 0 !important;
+          height: 0 !important;
+          font-size: 0 !important;
+          line-height: 0 !important;
+          min-height: 0 !important;
+        }
+        span[class=&apos;mobile-block&apos;] {
+          display: block !important;
+        }
+        div[class=&apos;wgmail&apos;] img {
+          min-width: 320px !important;
+          width: 320px !important;
+        }
+        div[class=&apos;full-width-img&apos;] img {
+          width: 100% !important;
+          height: auto !important;
+        }
+        div[class=&apos;full-width-img2&apos;] img {
+          width: 280px !important;
+          height: auto !important;
+        }
+        div[class=&apos;content-width-img&apos;] img {
+          width: 300px !important;
+          height: auto !important;
+        }
+        td[class=&apos;column-320&apos;] {
+          float: left !important;
+          width: 320px !important;
+          display: block !important;
+        }
+        td[class=&apos;column-300&apos;] {
+          float: left !important;
+          width: 300px !important;
+          display: block !important;
+        }
+        td[class=&apos;column-280&apos;] {
+          float: left !important;
+          width: 280px !important;
+          display: block !important;
+        }
+        td[class=&apos;column-270&apos;] {
+          float: left !important;
+          width: 270px !important;
+          display: block !important;
+        }
+        td[class=&apos;column-line&apos;] {
+          float: left !important;
+          width: 100% !important;
+          height: 1px !important;
+          font-size:0px !important;
+          display: block !important;
+          overflow:hidden;
+        }
+        td[class=&apos;content-spacing&apos;] {
+          width: 15px !important;
+        }
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+&lt;!----------------------- Header Ends-------------------------&gt;
+
+&lt;!----------------------- Body Begins-------------------------&gt;  
+&lt;body&gt;
+&lt;table bgcolor=&quot;#ebebeb&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td align=&quot;center&quot; valign=&quot;top&quot;&gt;
+			&lt;div style=&quot;height: 40px; line-height: 0pt; font-size: 0pt;&quot;&gt;&lt;img alt=&quot;&quot; border=&quot;0&quot; height=&quot;40&quot; src=&quot;{!$Label.EmailBodyLink1}&quot; style=&quot;height: 40px;&quot; width=&quot;1&quot;&gt;&lt;/div&gt;
+
+			&lt;div style=&quot;height: 24px; line-height: 0pt; font-size: 0pt;&quot;&gt;&lt;img alt=&quot;&quot; border=&quot;0&quot; height=&quot;24&quot; src=&quot;{!$Label.EmailBodyLink1}&quot; style=&quot;height: 24px;&quot; width=&quot;1&quot;&gt;&lt;/div&gt;
+
+			&lt;table bgcolor=&quot;#ffffff&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;w320&quot; width=&quot;600&quot;&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td height=&quot;90&quot; width=&quot;490&quot;&gt;
+						&lt;div class=&quot;full-width-img&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;{!$Label.EmailBodyLink2}&quot;&gt;&lt;/div&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td align=&quot;center&quot; style=&quot;-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;&quot; valign=&quot;top&quot;&gt;
+						&lt;table border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(204, 204, 204); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; border-collapse: collapse !important; -ms-text-size-adjust: 100%; background-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;&quot; width=&quot;100%&quot;&gt;
+							&lt;tbody&gt;
+								&lt;tr&gt;
+									&lt;td align=&quot;left&quot; class=&quot;bodyContent&quot; style=&quot;padding: 30px 0px 50px; text-align: left; color: rgb(102, 102, 102); line-height: 21px; font-family: arial; font-size: 14px;&quot; valign=&quot;top&quot;&gt;
+									&lt;table border=&quot;0&quot; cellmargin=&quot;0&quot; cellpadding=&quot;0&quot; style=&quot;margin: 0px 50px;&quot; width=&quot;600&quot;&gt;
+										&lt;tbody&gt;
+											&lt;tr&gt;
+												&lt;td&gt;
+												&lt;div&gt;&lt;span class=&quot;paragraph&quot;&gt;
+&lt;!-- Email Content Starts from here --&gt;
+&lt;br&gt;
+Dear {!Case.Contact}, 
+&lt;br&gt;&lt;br&gt;
+When using 8.0 or higher, Compatibility View needs to be enabled on your machine. 
+Please log-off the system, enable Compatibility View (instructions below), then log back onto the system. 
+&lt;br&gt;&lt;br&gt;
+The below is for compatibility view: 
+&lt;br&gt;&lt;br&gt;
+1. Click on the tools tab (press the Alt key if the tabs do not appear) 
+&lt;br&gt;2. Click on Compatibility View Settings 
+&lt;br&gt;3. Add the ClearPar website address (www.ClearPar.com) 
+&lt;br&gt;4. Click Close and everything should start working correctly  
+&lt;br&gt;&lt;br&gt;
+If you have any questions or need assistance please call 646-690-4288. 
+&lt;br&gt;&lt;br&gt;
+Best Regards, 
+&lt;br&gt;&lt;br&gt;
+{!User.FirstName} {!User.LastName}
+&lt;br&gt;{!User.Title} | Loan Settlement Support 
+&lt;br&gt;711 Executive Blvd., Suite A | Valley Cottage, New York 10989 
+&lt;br&gt;Support: +1 646 690 4288 Main: +1 646 690 4300 
+&lt;br&gt;ClearParSupport@markit.com 
+&lt;br&gt;&lt;br&gt;
+{!Case.Thread_Id}
+&lt;br&gt;
+			&lt;/span&gt;&lt;/div&gt;
+												&lt;/td&gt;
+											&lt;/tr&gt;
+										&lt;/tbody&gt;
+									&lt;/table&gt;
+									&lt;/td&gt;
+								&lt;/tr&gt;
+							&lt;/tbody&gt;
+						&lt;/table&gt;
+						
+&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+&lt;!-- End of email content --&gt;
+
+			&lt;div style=&quot;height: 40px; line-height: 0pt; font-size: 0pt;&quot;&gt;&lt;img alt=&quot;&quot; border=&quot;0&quot; height=&quot;40&quot; src=&quot;{!$Label.EmailBodyLink1}&quot; style=&quot;height: 40px;&quot; width=&quot;1&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;wgmail&quot; style=&quot;text-align: left; line-height: 0pt; font-size: 0pt;&quot;&gt;&lt;img alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;{!$Label.EmailBodyLink1}&quot; style=&quot;min-width: 640px;&quot; width=&quot;640&quot;&gt;&lt;/div&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt; 
+
+&lt;!----------------------- Body Ends -------------------------&gt; 
+
+&lt;!----------------------- Footer Begins ---------------------&gt; 
+
+&lt;p align=&quot;center&quot; style=&quot;FONT-FAMILY: arial; FONT-SIZE: 10px; color: #4c4b4c &quot;&gt;&lt;br&gt;
+Copyright © {!YEAR(TODAY())} IHS Markit Group Holdings Limited. All rights reserved.&lt;br&gt;
+&lt;a href=&quot;{!$Label.EmailFooterLink1}&quot; style=&quot;TEXT-DECORATION: none; color: #4c4b4c &quot;&gt;&lt;strong&gt;PRIVACY POLICY &lt;/strong&gt;&lt;/a&gt; | &lt;a href=&quot;{!$Label.EmailFooterLink2}&quot; style=&quot;TEXT-DECORATION: none; color: #4c4b4c &quot;&gt;&lt;strong&gt;TERMS OF USE&lt;/strong&gt;&lt;/a&gt; | &lt;a href=&quot;{!$Label.EmailFooterLink3}&quot; style=&quot;TEXT-DECORATION: none; color: #4c4b4c&quot;&gt;&lt;strong&gt;DISCLAIMER&lt;/strong&gt;&lt;/a&gt; | &lt;a href=&quot;{!$Label.EmailFooterLink4}&quot; style=&quot;TEXT-DECORATION: none; color: #4c4b4c&quot;&gt;&lt;strong&gt;CONTACT US&lt;/strong&gt;&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+IHS Markit Group Holdings Limited is registered and incorporated in England &amp; Wales (company number: 06240773).&lt;br&gt;
+Registered office:{!$Label.EmailFooterAddress1}
+
+&lt;!----------------------- Footer Ends ---------------------&gt;</textOnly>
+    <type>custom</type>
+</EmailTemplate>

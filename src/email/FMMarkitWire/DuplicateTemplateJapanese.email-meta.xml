@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5141: Inform Japanese client that they have created a duplicate case</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Duplicate Template - Japanese</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>**様、 
+
+いつもお世話になっております。 
+
+本ケースは01240435の重複となっておりますのでCLOSEさせて頂きます。 
+
+パスワード等特定のケースに対して追加メールを送る場合はお手数ですがCASE　THREADを題名、もしくわ本文に入れて下さい。 CASE　THREADは弊社の自動返信メールに必ず入っています。 
+
+
+例：　[Case#01240435] New Case Logged: Fw: 【Markit Wire】過去取引Search機能についてご照会 [ref:00D2oXXX.5002XXXMG:ref] ← こちらがCASE　THREADになります。 
+
+CASE THREADを含んで頂きますと、元々のケースにすべてのメールがリンクされますので重複を防ぐ事が出来ます。 
+
+自動メールから返信していただくだけでも結構です（自動的にCASE THREADが含まれます）。 
+
+今後ともどうぞ宜しくお願い致します。</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-3306;MSF SFTP Initial Set-Up</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MSF SFTP Initial Set-Up</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Securities Finance SFTP Details</subject>
+    <textOnly>YDear {!Case.Contact}, 
+
+We have been asked to set up a Secure FTP (SFTP/22) connection between Markit Securities Finance (MSF) and your company.
+ 
+Please can you provide any external IP addresses you will use for SFTP/22 communication to our servers in order for us to open our Firewalls.
+ 
+You may also need to allow access on your own Firewall.  If this is the case, please make sure you open the required ports to the following IP addresses.
+
+DNS Name: sftp.msf.markit.com
+PROD and DR IP Address: 8.38.16.34
+
+Once we have this information, the MSF Technical Support team will create a user account for you to access our SFTP server sftp.msf.markit.com and contact you with your username/password.
+
+Your SFTP scripts, if possible, should refer to DNS names to allow for automated failover in any planned or unplanned DR situation.
+
+If you require any additional assistance, please contact us on live chat, email or phone.
+
+Thank You. 
+
+Kind regards, 
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

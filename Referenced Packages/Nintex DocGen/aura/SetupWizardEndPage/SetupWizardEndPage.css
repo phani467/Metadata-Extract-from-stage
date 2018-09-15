@@ -1,0 +1,9 @@
+.THIS .container {
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+    width: 99%;
+}
+.THIS button.slds-button.buttonSpacing {
+    margin-left: 0px;
+    margin-top: 4px;
+}

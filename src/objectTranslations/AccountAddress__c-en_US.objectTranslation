@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Address</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Addresses</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please enter country for this address. --></help>
+        <label><!-- Country --></label>
+        <name>AddressCountry__c</name>
+        <relationshipLabel><!-- Account Addresses --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Enter city --></help>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Governance Notes --></label>
+        <name>DataGovernanceNotes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Governance Status --></label>
+        <name>DataGovernanceStatus__c</name>
+        <picklistValues>
+            <masterLabel>Governed</masterLabel>
+            <translation><!-- Governed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reviewed</masterLabel>
+            <translation><!-- Reviewed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dept/MailStop --></label>
+        <name>DeptMailStop__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID AccountAddress --></label>
+        <name>PKIDAccountAddress__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter postal/Zip code --></help>
+        <label><!-- zzPostal Code --></label>
+        <name>PostalCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter state --></help>
+        <label><!-- State/Province --></label>
+        <name>StateProvince__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter state --></help>
+        <label><!-- zzState --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter first address line --></help>
+        <label><!-- Street 1 --></label>
+        <name>Street1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter second address line --></help>
+        <label><!-- Street 2 --></label>
+        <name>Street2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter postal/Zip code --></help>
+        <label><!-- Zip/Postal Code --></label>
+        <name>ZipPostalCode__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Address Layout</layout>
+        <sections>
+            <label><!-- Address Details --></label>
+            <section>Address Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Due to U.S. export controls and sanctions restrictions, Address records cannot be created for the selected country. --></errorMessage>
+        <name>PreventProhibitedCountriedFromSelection</name>
+    </validationRules>
+</CustomObjectTranslation>

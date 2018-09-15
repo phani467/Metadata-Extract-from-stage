@@ -1,0 +1,294 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+
+        <!-- SHOW THIS DATA SPECS SECTION IF LIST WRF IS SELECTED -->
+        
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+
+    <apex:pageblocksection title="List" columns="1" id="List" collapsible="false" rendered="{!wrf.ListRequest__c}">
+ 
+     <apex:pageblock >
+        <apex:pageblocksection id="sect1" >
+                <apex:outputField value="{!wrf.SpecialModels__c}"/>
+        </apex:pageblocksection>
+     </apex:pageblock>
+     
+     <apex:pageblock >
+       <apex:pageblocksection id="sect3" > 
+                 <apex:pageBlockSectionItem >
+                          <apex:outputLabel for="Suppression" value="Supression"/>
+                          <apex:outputField value="{!wrf.SuppressionOnClientFiles__c}" id="suppression">
+                              <apex:actionSupport reRender="List,MSG" event="onchange" status="formstatus"/> 
+                              </apex:outputField>
+                 </apex:pageBlockSectionItem>    
+                 <apex:outputField style="width:70%" value="{!wrf.AFSTimePeriod__c}" rendered="{!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'AFS'),TRUE,FALSE)}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'AFS'),TRUE,FALSE)}" />
+                 <apex:outputField style="width:70%" value="{!wrf.OtherSpecificSuppressions__c}" rendered="{!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'Other'),TRUE,FALSE)}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'Other'),TRUE,FALSE)}" />
+                 <apex:outputField style="width:70%" value="{!wrf.MNVBTimePeriod__c}" rendered="{!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'MNVB (specify time period)'),TRUE,FALSE)}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'MNVB (specify time period)'),TRUE,FALSE)}"/> 
+                 <apex:pageblocksectionitem />
+                 <apex:outputField style="width:70%" value="{!wrf.RDRsCDRsdivisions__c}" rendered="{!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'RDRs/CDRs divisions'),TRUE,FALSE)}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'RDRs/CDRs divisions'),TRUE,FALSE)}" />
+                 <apex:pageblocksectionitem />
+                 <apex:outputField style="width:70%" value="{!wrf.Months__c}" rendered="{!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'RDRs/CDRs divisions'),TRUE,FALSE)}" styleClass="requiredField"/>
+                 <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.SuppressionOnClientFiles__c,'RDRs/CDRs divisions'),TRUE,FALSE)}" />                      
+         </apex:pageblocksection>
+      </apex:pageblock>  
+     
+     <apex:pageblock >
+       <apex:pageblocksection id="sect4" > 
+                  <apex:pageblockSectionItem >
+                          <apex:outputLabel for="Merge" value="Merge/Dedupe"/>
+                          <apex:outputField value="{!wrf.MergeDedupe__c}" id="merge">
+                          <apex:actionSupport reRender="List,MSG" event="onchange" status="formstatus"/>
+                          </apex:outputField>
+                  </apex:pageblockSectionItem>
+                  
+                  <apex:pageBlockSectionItem id="priortyList" rendered="{!IF(CONTAINS(wrf.MergeDedupe__c,'Priority'),TRUE,FALSE)}"  >
+                          <apex:outputLabel for="PriorityList" value="Priority List"/>
+                          <apex:outputField style="width:70%" value="{!wrf.PriorityList__c}" styleClass="requiredField" />
+                 </apex:pageBlockSectionItem>
+      </apex:pageblocksection>
+     </apex:pageblock> 
+  
+   <apex:pageblock >
+      <apex:pageblocksection id="sect5" >  
+                  <apex:pageblockSectionItem >
+                            <apex:outputLabel for="dealerization" value="Dealerization"/>
+                            <apex:actionRegion >
+                            <apex:outputField value="{!wrf.Dealerization__c}" id="dealerization">
+                            <apex:actionSupport reRender="List,MSG" event="onchange" status="formstatus"/>
+                            </apex:outputField>  
+                            </apex:actionRegion>
+                  </apex:pageblockSectionItem>  
+                          <apex:outputField style="width:70%" value="{!wrf.OtherDealerization__c}" rendered="{!IF(CONTAINS(wrf.Dealerization__c,'Other'),TRUE,FALSE)}" styleClass="requiredField"/>
+                          <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.Dealerization__c,'Other'),TRUE,FALSE)}"/>
+      </apex:pageblocksection>
+    </apex:pageBlock>                 
+    
+     <apex:pageblock >
+           <apex:pageBlockSection >                
+                  <apex:pageblockSectionItem >
+                            <apex:outputLabel for="sequence" value="Apply Sequence Numbers"></apex:outputLabel>
+                            <apex:outputField value="{!wrf.ApplySequenceNumbers__c}" id="sequence">
+                            <apex:actionSupport reRender="List,MSG" event="onchange" status="formstatus"/>  
+                            </apex:outputField>
+                  </apex:pageblockSectionItem>  
+       </apex:pageblocksection>
+    </apex:pageBlock>
+    
+    <apex:pageblock >
+       <apex:pageblocksection id="sect6" >                 
+                  <apex:pageblockSectionItem >
+                            <apex:outputLabel for="cutback" value="Cutback Required"/>
+                            <apex:outputField value="{!wrf.CutbackRequired__c}" id="cutback">
+                            <apex:actionSupport reRender="List,MSG,MSG" event="onchange" status="formstatus"/>  
+                            </apex:outputField>
+                  </apex:pageblockSectionItem> 
+                  
+                          <apex:outputField value="{!wrf.CutbackCountsRequested__c}" rendered="{!IF(CONTAINS(wrf.CutbackRequired__c,'Cutback counts requested'),TRUE,FALSE)}" styleClass="requiredField"/>
+                          <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.CutbackRequired__c,'Cutback counts requested'),TRUE,FALSE)}"/>
+                          <apex:outputField style="width:70%" value="{!wrf.SalesWillSupplyBy__c}" rendered="{!IF(CONTAINS(wrf.CutbackRequired__c,'To be determined'),TRUE,FALSE)}" styleClass="requiredField"/>
+                          <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.CutbackRequired__c,'To be determined'),TRUE,FALSE)}"/>
+                          <apex:outputField style="width:70%" value="{!wrf.CutbackInstructions__c}" rendered="{!IF(CONTAINS(wrf.CutbackRequired__c,'Cutback counts requested'),TRUE,FALSE)}" styleClass="requiredField"/>
+                          <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.CutbackRequired__c,'Cutback counts requested'),TRUE,FALSE)}"/>
+                          <apex:outputField style="width:70%" value="{!wrf.TypeOfCutbacks__c}" rendered="{!IF(CONTAINS(wrf.CutbackRequired__c,'Type of cutback in order'),TRUE,FALSE)}" styleClass="requiredField"/>
+                          <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.CutbackRequired__c,'Type of cutback in order'),TRUE,FALSE)}"/>
+                          <apex:pageblocksectionitem />
+        </apex:pageBlockSection>
+      </apex:pageBlock>
+      
+      <apex:pageblock >
+        <apex:pageblocksection >                                    
+                 <apex:pageblockSectionItem >
+                            <apex:outputLabel for="Enhancement" value="Data Enhancement/NCOA"></apex:outputLabel>
+                            <apex:outputField value="{!wrf.DataEnhancementNCOA__c}" id="enhancement">
+                            <apex:actionSupport reRender="List,MSG" event="onchange" status="formstatus"/>  
+                            </apex:outputField>
+                 </apex:pageblockSectionItem>
+                 
+                          <apex:outputField value="{!wrf.PAF__c}" rendered="{!IF(CONTAINS(wrf.DataEnhancementNCOA__c,'PAF'),TRUE,FALSE)}" styleClass="requiredField"/>
+                          <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.DataEnhancementNCOA__c,'PAF'),TRUE,FALSE)}"/>                         
+                          <apex:pageBlocksectionitem />
+                          <apex:outputField value="{!wrf.PAFExpireDate__c}" rendered="{!IF(CONTAINS(wrf.DataEnhancementNCOA__c,'PAF'),TRUE,FALSE)}" styleClass="requiredField"/>
+                          <apex:pageblocksectionitem rendered="{!!IF(CONTAINS(wrf.DataEnhancementNCOA__c,'PAF'),TRUE,FALSE)}"/>
+                                                
+       </apex:pageblocksection> 
+     </apex:pageBlock> 
+     <apex:pageBlock >
+         <apex:pageblocksection >
+                         <apex:outputField value="{!wrf.PhonesRequired__c}"/>  
+         </apex:pageblocksection>
+     </apex:pageBlock>
+ </apex:pageblocksection>
+ 
+               <!-- SHOW THIS DATA SPECS SECTION IF TLAS WRF IS SELECTED -->
+    <apex:pageBlock rendered="{!wrf.TLAS__c}">
+       
+    <apex:pageBlockSection title="TLAS Count Request" id="Countrequest" collapsible="false" columns="1">    
+                <apex:outputField style="width:100%" value="{!wrf.JobDescription__c}" styleclass="requiredField"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection >
+                <apex:outputField value="{!wrf.DirectMarketing__c}"/>
+                <apex:outputField value="{!wrf.MarketResearch__c}"/>
+                <apex:outputField value="{!wrf.DesiredCount__c}"/>
+                <apex:outputField value="{!wrf.UltimateCustomer__c}" />  
+    </apex:pageBlocksection>
+    <apex:pageBlocksection columns="1">      
+                <apex:outputField style="width:100%;height:6" value="{!wrf.Demographics__c}"/>
+    </apex:pageBlocksection>
+    <apex:pageblocksection >
+                <apex:outputField value="{!wrf.GeographyAttachment__c}"/>
+                <apex:outputField value="{!wrf.CustomGeography__c}"/>
+      </apex:pageBlockSection>
+      <apex:pageBlocksection columns="1">
+                <apex:outputField style="width:100%" value="{!wrf.GeographyDetails__c}" styleclass="requiredfield"/>
+      </apex:pageBlockSection>
+           
+      <apex:pageBlockSection title="Model Data (TMP) - List if order of priority (can be combined with other automotive data)" id="modeldata" collapsible="false" columns="1">
+
+            <apex:pageBlockSectionItem >  
+                <apex:outputLabel for="budget" value="{!$ObjectType.WorkRequestForm__c.fields.BudgetPredictor__c.label}"/>
+                <apex:outputField value="{!wrf.BudgetPredictor__c}" id="budget">
+                <apex:actionSupport reRender="modeldata,MSG" event="onchange" status="formstatus"/>  
+                </apex:outputField>
+            </apex:pageBlockSectionItem>
+                        
+            <apex:pageBlockSectionItem >  
+                <apex:outputLabel for="garage" value="Garage Predictor"/>
+                <apex:outputField value="{!wrf.GaragePredictor__c}" id="garage">
+                <apex:actionSupport reRender="modeldata,MSG" event="onchange" status="formstatus"/>  
+                </apex:outputField>
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >  
+                <apex:outputLabel for="purchase" value="Purchase Predictor"/>
+                <apex:outputField value="{!wrf.PurchasePredictor__c}" id="purchase">
+                <apex:actionSupport reRender="modeldata,MSG" event="onchange" status="formstatus"/>  
+                </apex:outputField>
+            </apex:pageBlockSectionItem>
+            <apex:outputField style="width:100%" value="{!wrf.PredictorInstructions__c}" rendered="{!wrf.PurchasePredictor__c || wrf.GaragePredictor__c || wrf.BudgetPredictor__c}"/>
+        </apex:pageBlockSection>
+            
+        <apex:pageblocksection title="Automotive Data - List in order of priority (can be combined with modeled data)" id="autodata" collapsible="false" columns="1" >
+               <apex:outputField value="{!wrf.Attachment__c}"/>
+               <apex:outputField value="{!wrf.SelfReported__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.PreShelby__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.History__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.ClassicAntique__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.CurrentRegistrations__c}" style="width:80%"/>               
+               <apex:outputField value="{!wrf.CommercialDatabase__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.OtherCountInformation__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.CountDeliveryTo__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.QuerySpecifications__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.BreakoutFields__c}" style="width:80%"/>
+               <apex:outputField value="{!wrf.PhonesRequired__c}"/>                
+         </apex:pageBlockSection>
+         </apex:pageBlock> 
+              
+   <!-- SHOW THIS DATA SPECS SECTION IF SALES MATCH WRF IS SELECTED -->
+            <apex:pageBlock rendered="{!wrf.SalesMatch__c}" >
+              <apex:pageBlockSection title="Sales Match Requirements" id="salesmatch" collapsible="false" >
+                <apex:outputField value="{!wrf.SalesToBeIncluded__c}" />
+                <apex:outputField value="{!wrf.SalesMatchDataRange__c}"/>
+                <apex:outputField value="{!wrf.ModelYearCutoffStart__c}"/>
+                <apex:outputField value="{!wrf.ModelYearCutoffEnd__c}"/>
+                <apex:pageBlockSectionItem >
+                     <apex:outputLabel for="regdata" value="Registration Data"/>
+                     <apex:outputField value="{!wrf.RegistrationData__c}" id="regdata">
+                     <apex:actionSupport reRender="salesmatch,MSG" event="onchange" status="formstatus"/>  
+                     </apex:outputField>
+               </apex:pageBlockSectionItem>
+                <apex:outputField value="{!wrf.WhatOEMDivision__c}" rendered="{!wrf.RegistrationData__c == 'Reg and Sales - OEM only'}"/>
+                <apex:outputField value="{!wrf.VehicleSalesRegistrationReturned__c}" />
+                <apex:outputField value="{!wrf.ExcludeAnyVehicles__c}"/>
+                <apex:outputField value="{!wrf.Deduping__c}" />
+                <apex:pageblocksection />
+                <apex:outputField value="{!wrf.DedupingInstructions__c}" />
+               </apex:pageBlockSection>
+
+               <apex:pageBlockSection title="Control File(s) specify control file(s) percentage from the list below" id="control" collapsible="false">
+                <apex:outputField value="{!wrf.RandomSample__c}" />
+                <apex:outputField value="{!wrf.TreatedControl__c}" />
+               </apex:pageBlockSection>        
+            
+               <apex:pageBlockSection title="Analytics" id="analytics" collapsible="false" >
+                <apex:outputField value="{!wrf.PostprogramAnalysis__c}" />
+                <apex:outputField value="{!wrf.ReportsAndSampleTables__c}" /> 
+                <apex:outputField value="{!wrf.WasMailListSourcedFromAPolkModel__c}" /> 
+                <apex:outputField value="{!wrf.TablesApprovedByClient__c}" /> 
+                <apex:outputField value="{!wrf.ObjectOfAnalysis__c}" /> 
+               </apex:pageBlockSection>            
+    </apex:pageBlock> 
+    
+            <!-- STANDARD GEOGRAPHY SECTION TO REPEAT ON SEVERAL FORMS - THIS ONE IS FOR A SALES MATCH REQUEST -->
+        
+        <apex:pageblock > 
+         <apex:actionRegion >
+           <apex:pageblocksection title="Geography" collapsible="false" id="geo" rendered="{!wrf.SalesMatch__c}" >
+                <apex:outputField value="{!wrf.StandardUS__c}"/>
+                <apex:outputField value="{!wrf.StandardCanadian__c}"/>
+                <apex:outputField value="{!wrf.StandardPuertoRico__c}"/>        
+                       <apex:pageBlockSectionItem >
+                 <apex:outputLabel for="OEMGeo" value="Custom Geography"/>
+                         <apex:outputField value="{!wrf.CustomGeography__c}" id="oemgeo">
+                             <apex:actionSupport reRender="geo,MSG" event="onchange" status="formstatus"/>
+                         </apex:outputField>
+                 </apex:pageBlockSectionItem>
+                <apex:pageblocksectionitem />
+                <apex:outputField value="{!wrf.OEMGeographyDetails__c}" rendered="{!wrf.CustomGeography__c}"/>
+                <apex:pageblocksectionitem rendered="{!!wrf.CustomGeography__c}"/> 
+          </apex:pageblocksection>
+         </apex:actionregion>
+        </apex:pageBlock>
+        
+         <!-- STANDARD GEOGRAPHY SECTION TO REPEAT ON SEVERAL FORMS -->
+         
+         <!-- SHOW THIS SECTION IF MAPPING IS SELECTED -->     
+            
+         <apex:pageblock title="Request for Mapping" rendered="{!wrf.Mapping__c}">
+           <apex:pageblocksection title="Initiate" columns="1">
+                    <apex:outputField value="{!wrf.ProjectBackground__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel for="Internal" styleClass="requiredField" value="Internal" >
+                    </apex:outputLabel>
+                    <!-- BUG: 6/21/2016 - Replaced Incorrect Internal field -->
+                    <!--<apex:outputField value="{!wrf.Internal__c}" id="Internal" />-->
+                    <apex:outputField value="{!wrf.InternalMapping__c}" id="Internal"/>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel for="External" styleClass="requiredField" value="External" >
+                    </apex:outputLabel>
+                    <apex:outputField value="{!wrf.External__c}" id="External" />
+                </apex:pageblockSectionItem>
+            </apex:pageblocksection> 
+            <apex:pageBlockSection title="Storage Notes" columns="1">
+                <apex:outputField style="width:100%" value="{!wrf.CustomerDataset__c}"/>
+                <apex:outputField style="width:100%" value="{!wrf.EditRename__c}"/>
+            </apex:pageblocksection> 
+            <apex:pageBlockSection title="Design Specs - Map Process" columns="2">
+                <apex:outputField style="width:70%" value="{!wrf.StdGeoTemplate__c}"/>
+                <apex:outputField style="width:70%" value="{!wrf.CustomGeoTemplate__c}"/>
+                <apex:outputField style="width:70%" value="{!wrf.LAVAMassMapping__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Design Specs - Admin">
+                <apex:outputfield value="{!wrf.Revenue__c}"/>
+                <apex:outputField value="{!wrf.JobRevenue__c}"/>
+                <apex:outputField style="width:70%" value="{!wrf.PLC__c}"/>
+                <apex:pageblocksection />
+                <apex:outputField style="width:70%" value="{!wrf.TotalMaps__c}"/>
+            </apex:pageBlockSection>
+
+        </apex:pageblock>
+
+</apex:component>

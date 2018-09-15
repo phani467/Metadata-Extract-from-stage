@@ -1,0 +1,39 @@
+<aura:component >
+    <!--Required attributes-->
+    <aura:attribute name="recipients" type="List" default="[]" required="true" description="List of recipients for this group."/>
+    <aura:attribute name="signingOrder" type="string" default="" required="true" description="Title of the group ('Recipient Group #' or 'Recipient #')."/>
+    <aura:attribute name="eSignType" type="string" default="" required="true" description="The record type developer name of the e-sign delivery option." />
+    
+    <!--Internal attributes-->
+    <aura:attribute name="title" type="string" default="" access="private" description="Group title."/>
+    <aura:attribute name="clickedGlobalId" type="string" default="" access="private" description="Global Id of clicked RecipientSelector.cmp."/>
+    <aura:attribute name="closeAllSelectors" type="boolean" default="false" access="private" description="True when a recipient selector has been clicked."/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="recipientSelectorClicked" event="Loop:recipientSelectorClicked" action="{!c.handleRecipientSelectorClicked}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="recipientGroupClicked" type="Loop:recipientGroupClicked"/>
+    
+    <!--Method-->
+    <aura:method name="closeRecipients" action="{!c.closeAllSelectors}"/>
+    
+    <div class="tile slds-tile--board" onclick="{!c.recipientGroupClicked}">
+        <p class="slds-truncate" style="line-height: 14px;">{!v.title}</p>
+        <div class="slds-tile__detail slds-text-body--small slds-m-around--small">
+            <ul class="recipient-selectors-list">
+                <aura:iteration items="{!v.recipients}" var="recipient">
+                    <li class="recipient-selector-list-item">
+                        <aura:if isTrue="{!recipient.HasHost}">
+                            <div class="recipient-host">
+                                <Loop:RecipientSelector aura:id="recipientSelector" recipient="{!recipient.Host}" eSignType="{!v.eSignType}" isHost="true" />
+                            </div>
+                        </aura:if>
+                        <Loop:RecipientSelector aura:id="recipientSelector" recipient="{!recipient}" eSignType="{!v.eSignType}" />
+                    </li>
+                </aura:iteration>
+            </ul>
+        </div>
+    </div>
+</aura:component>

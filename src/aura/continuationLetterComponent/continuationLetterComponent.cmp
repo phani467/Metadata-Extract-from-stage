@@ -1,0 +1,50 @@
+<aura:component controller="ContractRecordTypeSelectionController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="startDate" type="Date" />
+    <aura:attribute name="endDate" type="Date" />
+    <aura:attribute name="status" type="String" default="14"/>
+    <aura:attribute name="noOfDaysOfExtendedContinuation" type="String"/>
+	<aura:attribute name="oppRecordId" type="Id" />
+    <aura:attribute name="ismaincmp" type="Boolean" default="true" access="global" ></aura:attribute>
+    <aura:attribute name="isCommunity" type="Boolean" access="global" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:handler name="goBacktoParentCmp" event="c:acceptedForExtendedContinuationEvent" action="{!c.onBack}" />
+    
+    <div aura:id="firstsection" class="{!if(v.ismaincmp == true,'slds-show','slds-hide')}">
+    <div role="dialog" tabindex="-1" id="newClientSectionId" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <div id="productTable" class="slds-modal__content slds-p-around--medium">
+                <table>
+                    <tbody>
+                    	<tr>
+                            <td style="padding-right: 25px;">
+                        	<ui:inputDate aura:id="contractStartDate" 
+                              label="Contract Start Date" displayDatePicker="true" 
+                              value="{!v.startDate}" disabled="true"/></td>
+                        	<td style="padding-right: 25px;">
+                        	<ui:inputDate aura:id="contractEndDate" 
+                              label="Contract End Date" displayDatePicker="true" 
+                              value="{!v.endDate}" disabled="true"/></td>
+                                </tr>
+                                <tr><td style="padding-right: 25px;">
+                                <lightning:select value="{!v.status}" name="selectItem" label="Number of Days" onchange="{!c.calculateEndDate}" >
+                                    <option value="14">14</option>
+                                    <option value="30">30</option>
+                                    <option value="60">60</option>
+                                    <option value="90">90</option>
+                                </lightning:select></td>
+                                </tr></tbody></table>
+                        <button class="slds-button slds-button--neutral slds-not-selected slds-m-top--medium" onclick="{!c.validateContinuation}" >Continue</button>
+            			<button class="slds-button slds-button--neutral slds-not-selected slds-m-top--medium" onclick="{!c.cancel}" >Cancel</button>        
+            </div>
+        </div>
+	</div>
+    </div>
+    
+     <div aura:id="secondsection" class="{!if(v.ismaincmp == false,'slds-show','slds-hide')}">
+         <c:acceptanceForExtendedContinuation oppRecordId="{!v.oppRecordId}"
+                               		          startDate="{!v.startDate}" 
+                                         	  endDate="{!v.endDate}" 
+                                              status="{!v.status}"/> 
+    </div>
+</aura:component>

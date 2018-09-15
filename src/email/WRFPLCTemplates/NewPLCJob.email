@@ -1,0 +1,6 @@
+** ATTENTION – ACTION NEEDED **
+
+PLC Job Link: {!PLCJob__c.Link}
+Job Name: {!PLCJob__c.JobName__c}
+Job Number: {!PLCJob__c.ExtendedJob__c}
+Assigned to: {!PLCJob__c.OwnerFullName}

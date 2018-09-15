@@ -1,0 +1,20 @@
+.THIS .link {
+    background:none!important;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    color: #0070d2;
+}
+.THIS .link:hover {
+    text-decoration: underline;
+}
+.THIS .noBorderSpacing {
+    border-spacing: 0px;
+}
+.THIS .hidden {
+    display: none;
+}
+.THIS .inlineBlock {
+    display: inline-block;
+}

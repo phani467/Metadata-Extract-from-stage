@@ -1,0 +1,38 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal"><span style="font-size: 12pt;">** ATTENTION – ACTION NEEDED **<font color="#ff0000"><!--?XML:NAMESPACE PREFIX = "O" /--><o:p></o:p></font></span></p>
+<div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div>
+<div style="color: rgb(0, 0, 0);"><font face="Arial,Sans-Serif" size="2"><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; font-size: 9pt; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">This email is to inform you that a WRF
+has been assigned to you.</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">&nbsp;</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">Below is a link to the WRF and other
+WRF related information:&nbsp;&nbsp;</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">&nbsp;</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">Link to WRF:
+&nbsp;{!WorkRequestForm__c.Link}</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">Work Request Name:
+&nbsp;{!WorkRequestForm__c.Name}</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">Account Name:&nbsp;{!WorkRequestForm__c.AccountName__c}</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">Opportunity
+Name:&nbsp;{!WorkRequestForm__c.OpportunityName__c}</font></span></p><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Arial" size="2">Link to Opp: {!Opportunity.Link}</font></span></font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">New Status:&nbsp;{!WorkRequestForm__c.RequestStatus__c}</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 0pt; line-height: normal;"><span style='color: black; mso-bidi-font-family: Arial; mso-fareast-font-family: "Times New Roman";'><font face="Calibri" size="3">Record
+Owner:&nbsp;{!WorkRequestForm__c.OwnerFullName}</font></span></p><font face="Times New Roman" size="3">
+
+</font><p style="margin: 0in 0in 8pt;"><font face="Calibri" size="3">&nbsp;</font></p><font face="Times New Roman" size="3">
+
+</font></font></div><span style="font-size: 12pt;"><div style="color: rgb(0, 0, 0);"><br></div><div style="color: rgb(0, 0, 0);"><br></div></span>]]></td>
+</tr>
+</table>

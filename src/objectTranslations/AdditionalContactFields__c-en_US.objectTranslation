@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Additional Contact Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Additional Contact Fields</value>
+    </caseValues>
+    <fields>
+        <help><!-- Notes to provide more information on the Admin Responsibilities of this contact for MarkitSERV --></help>
+        <label><!-- Admin Responsibilities --></label>
+        <name>AdminResponsibilities__c</name>
+    </fields>
+    <fields>
+        <help><!-- Lookup Reference of the contact connected to the Additional Contact Fields --></help>
+        <label><!-- Contact --></label>
+        <name>ContactReference__c</name>
+        <relationshipLabel><!-- Additional Contact Fields --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- URL of last survey response --></help>
+        <label><!-- Last Survey Response --></label>
+        <name>LastSurveyResponse__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sales Lead Notes --></help>
+        <label><!-- Lead Notes - Sales --></label>
+        <name>LeadNotesSales__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please tick the check box if this contact is a MarkitSERV Contact --></help>
+        <label><!-- MarkitSERV Contact --></label>
+        <name>MarkitSERVContact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select a MarkitServ User Membership value --></help>
+        <label><!-- MarkitServ User Membership --></label>
+        <name>MarkitServUserMembership__c</name>
+        <picklistValues>
+            <masterLabel>Buyside Newsletter</masterLabel>
+            <translation><!-- Buyside Newsletter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Centre - CB User</masterLabel>
+            <translation><!-- Credit Centre - CB User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Centre - NCM User</masterLabel>
+            <translation><!-- Credit Centre - NCM User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Centre - Outage</masterLabel>
+            <translation><!-- Credit Centre - Outage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Centre - SEF User</masterLabel>
+            <translation><!-- Credit Centre - SEF User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Centre - Vendor User</masterLabel>
+            <translation><!-- Credit Centre - Vendor User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DS Match - Equity Only</masterLabel>
+            <translation><!-- DS Match - Equity Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DS Match / NCM Users</masterLabel>
+            <translation><!-- DS Match / NCM Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSMatch - Equity Repository</masterLabel>
+            <translation><!-- DSMatch - Equity Repository --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSMatch - Outage</masterLabel>
+            <translation><!-- DSMatch - Outage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EGUS</masterLabel>
+            <translation><!-- EGUS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Egains</masterLabel>
+            <translation><!-- Egains --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX Matcher</masterLabel>
+            <translation><!-- FX Matcher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX OES</masterLabel>
+            <translation><!-- FX OES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX TVS - Broker Affirm</masterLabel>
+            <translation><!-- FX TVS - Broker Affirm --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX TVS - Clearing</masterLabel>
+            <translation><!-- FX TVS - Clearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX TVS - Reporting</masterLabel>
+            <translation><!-- FX TVS - Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX TradeSTP</masterLabel>
+            <translation><!-- FX TradeSTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX Web</masterLabel>
+            <translation><!-- FX Web --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX – Only</masterLabel>
+            <translation><!-- FX – Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS Portal</masterLabel>
+            <translation><!-- MS Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTP - Client API</masterLabel>
+            <translation><!-- MTP - Client API --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTP - GFTP</masterLabel>
+            <translation><!-- MTP - GFTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTP - Technical</masterLabel>
+            <translation><!-- MTP - Technical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTP - Users</masterLabel>
+            <translation><!-- MTP - Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTP - Yellow Tool</masterLabel>
+            <translation><!-- MTP - Yellow Tool --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire - API Contact</masterLabel>
+            <translation><!-- MarkitWire - API Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire - Credit</masterLabel>
+            <translation><!-- MarkitWire - Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire - Equities</masterLabel>
+            <translation><!-- MarkitWire - Equities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire - FX</masterLabel>
+            <translation><!-- MarkitWire - FX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire - Rates</masterLabel>
+            <translation><!-- MarkitWire - Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire - TAM Contact</masterLabel>
+            <translation><!-- MarkitWire - TAM Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire - UAT/Training</masterLabel>
+            <translation><!-- MarkitWire - UAT/Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markitwire - End User</masterLabel>
+            <translation><!-- Markitwire - End User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markitwire - Regulatory Reporting</masterLabel>
+            <translation><!-- Markitwire - Regulatory Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markitwire - Retirement Contact</masterLabel>
+            <translation><!-- Markitwire - Retirement Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markitwire - Support</masterLabel>
+            <translation><!-- Markitwire - Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markitwire - UAT</masterLabel>
+            <translation><!-- Markitwire - UAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markitwire Clearing</masterLabel>
+            <translation><!-- Markitwire Clearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Port REC / Valuations Manager / MTP</masterLabel>
+            <translation><!-- Port REC / Valuations Manager / MTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP EB Client</masterLabel>
+            <translation><!-- TradeSTP EB Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP STDFIX Client</masterLabel>
+            <translation><!-- TradeSTP STDFIX Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP STDFIX Vendor</masterLabel>
+            <translation><!-- TradeSTP STDFIX Vendor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - 360T</masterLabel>
+            <translation><!-- TradeSTP Vendor - 360T --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - ABNPlatform</masterLabel>
+            <translation><!-- TradeSTP Vendor - ABNPlatform --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - ADSS_Traiana</masterLabel>
+            <translation><!-- TradeSTP Vendor - ADSS_Traiana --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - ALPARI</masterLabel>
+            <translation><!-- TradeSTP Vendor - ALPARI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Aphelion</masterLabel>
+            <translation><!-- TradeSTP Vendor - Aphelion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BAML</masterLabel>
+            <translation><!-- TradeSTP Vendor - BAML --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BAMLFutures</masterLabel>
+            <translation><!-- TradeSTP Vendor - BAMLFutures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BARXFUTAGG</masterLabel>
+            <translation><!-- TradeSTP Vendor - BARXFUTAGG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BBEMSX</masterLabel>
+            <translation><!-- TradeSTP Vendor - BBEMSX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BBFXGO</masterLabel>
+            <translation><!-- TradeSTP Vendor - BBFXGO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BBTradebookFX</masterLabel>
+            <translation><!-- TradeSTP Vendor - BBTradebookFX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BBTradebookFutures</masterLabel>
+            <translation><!-- TradeSTP Vendor - BBTradebookFutures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BCFXOpt</masterLabel>
+            <translation><!-- TradeSTP Vendor - BCFXOpt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BGC</masterLabel>
+            <translation><!-- TradeSTP Vendor - BGC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BNP</masterLabel>
+            <translation><!-- TradeSTP Vendor - BNP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BNPEFX</masterLabel>
+            <translation><!-- TradeSTP Vendor - BNPEFX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BTMU</masterLabel>
+            <translation><!-- TradeSTP Vendor - BTMU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BarCap</masterLabel>
+            <translation><!-- TradeSTP Vendor - BarCap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BarcapFutures</masterLabel>
+            <translation><!-- TradeSTP Vendor - BarcapFutures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Baxter</masterLabel>
+            <translation><!-- TradeSTP Vendor - Baxter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - BloombergFI</masterLabel>
+            <translation><!-- TradeSTP Vendor - BloombergFI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Bloomberg_P-Match_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - Bloomberg_P-Match_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Broker_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - Broker_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CFH</masterLabel>
+            <translation><!-- TradeSTP Vendor - CFH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CITIEB</masterLabel>
+            <translation><!-- TradeSTP Vendor - CITIEB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CLS</masterLabel>
+            <translation><!-- TradeSTP Vendor - CLS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CME_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - CME_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CRNXEDF</masterLabel>
+            <translation><!-- TradeSTP Vendor - CRNXEDF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CSFutures</masterLabel>
+            <translation><!-- TradeSTP Vendor - CSFutures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CURVE</masterLabel>
+            <translation><!-- TradeSTP Vendor - CURVE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Citi</masterLabel>
+            <translation><!-- TradeSTP Vendor - Citi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CitiFutures</masterLabel>
+            <translation><!-- TradeSTP Vendor - CitiFutures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - CreditSuisse</masterLabel>
+            <translation><!-- TradeSTP Vendor - CreditSuisse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Currenex</masterLabel>
+            <translation><!-- TradeSTP Vendor - Currenex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DCX</masterLabel>
+            <translation><!-- TradeSTP Vendor - DCX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DDN</masterLabel>
+            <translation><!-- TradeSTP Vendor - DDN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DEUT-FutOpt</masterLabel>
+            <translation><!-- TradeSTP Vendor - DEUT-FutOpt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DHFXT</masterLabel>
+            <translation><!-- TradeSTP Vendor - DHFXT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DHSpotstreamMidMatch</masterLabel>
+            <translation><!-- TradeSTP Vendor - DHSpotstreamMidMatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DHSpotstreamStreaming</masterLabel>
+            <translation><!-- TradeSTP Vendor - DHSpotstreamStreaming --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DKIB</masterLabel>
+            <translation><!-- TradeSTP Vendor - DKIB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DRTEST</masterLabel>
+            <translation><!-- TradeSTP Vendor - DRTEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Deutsche</masterLabel>
+            <translation><!-- TradeSTP Vendor - Deutsche --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Deutsche Pre RMS</masterLabel>
+            <translation><!-- TradeSTP Vendor - Deutsche Pre RMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - DeutschePB</masterLabel>
+            <translation><!-- TradeSTP Vendor - DeutschePB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Dexia</masterLabel>
+            <translation><!-- TradeSTP Vendor - Dexia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - EBSMQ</masterLabel>
+            <translation><!-- TradeSTP Vendor - EBSMQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - EBS_Trader_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - EBS_Trader_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - EFFEX</masterLabel>
+            <translation><!-- TradeSTP Vendor - EFFEX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FAROS</masterLabel>
+            <translation><!-- TradeSTP Vendor - FAROS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FCSTONE</masterLabel>
+            <translation><!-- TradeSTP Vendor - FCSTONE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FDFIXI</masterLabel>
+            <translation><!-- TradeSTP Vendor - FDFIXI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FDMizuho</masterLabel>
+            <translation><!-- TradeSTP Vendor - FDMizuho --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXALLFIX</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXALLFIX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXALLFIXBS</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXALLFIXBS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXALLQC</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXALLQC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXALL_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXALL_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXAll</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXAll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXAll_BankStream_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXAll_BankStream_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXAll_Port_Order_Mgt_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXAll_Port_Order_Mgt_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXAll_QuickTrade_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXAll_QuickTrade_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXCONNECT</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXCONNECT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXInUSBANK</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXInUSBANK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXInWELLS</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXInWELLS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXInside</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXInside --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXONE</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXONE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXRCG</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXRCG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXSpotStreamFix</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXSpotStreamFix --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FXSpotStream_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - FXSpotStream_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Fastmatch</masterLabel>
+            <translation><!-- TradeSTP Vendor - Fastmatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FirstDerivatives</masterLabel>
+            <translation><!-- TradeSTP Vendor - FirstDerivatives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FlexTrade</masterLabel>
+            <translation><!-- TradeSTP Vendor - FlexTrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FlexTrade7Hedge</masterLabel>
+            <translation><!-- TradeSTP Vendor - FlexTrade7Hedge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FlexTradeABN</masterLabel>
+            <translation><!-- TradeSTP Vendor - FlexTradeABN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FlexTradeADSS</masterLabel>
+            <translation><!-- TradeSTP Vendor - FlexTradeADSS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FlexTradeISAM</masterLabel>
+            <translation><!-- TradeSTP Vendor - FlexTradeISAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FlexTradeMarex</masterLabel>
+            <translation><!-- TradeSTP Vendor - FlexTradeMarex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - FortisWL</masterLabel>
+            <translation><!-- TradeSTP Vendor - FortisWL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - GAIN</masterLabel>
+            <translation><!-- TradeSTP Vendor - GAIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - GKGOH</masterLabel>
+            <translation><!-- TradeSTP Vendor - GKGOH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - GS</masterLabel>
+            <translation><!-- TradeSTP Vendor - GS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - GS-Futures</masterLabel>
+            <translation><!-- TradeSTP Vendor - GS-Futures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - GS-allocations</masterLabel>
+            <translation><!-- TradeSTP Vendor - GS-allocations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - GS-commodities</masterLabel>
+            <translation><!-- TradeSTP Vendor - GS-commodities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - GSFX</masterLabel>
+            <translation><!-- TradeSTP Vendor - GSFX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - GSRediPlusFutAllocs</masterLabel>
+            <translation><!-- TradeSTP Vendor - GSRediPlusFutAllocs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - HSBC</masterLabel>
+            <translation><!-- TradeSTP Vendor - HSBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - HSBCFutures</masterLabel>
+            <translation><!-- TradeSTP Vendor - HSBCFutures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - HSBCPB</masterLabel>
+            <translation><!-- TradeSTP Vendor - HSBCPB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - HSFX</masterLabel>
+            <translation><!-- TradeSTP Vendor - HSFX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - ICAP_Electronic_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - ICAP_Electronic_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - ICAP_Voice_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - ICAP_Voice_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - JPMCOM</masterLabel>
+            <translation><!-- TradeSTP Vendor - JPMCOM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - JPMorgan</masterLabel>
+            <translation><!-- TradeSTP Vendor - JPMorgan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - JPMorgan-PB</masterLabel>
+            <translation><!-- TradeSTP Vendor - JPMorgan-PB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - JULIUSBAER</masterLabel>
+            <translation><!-- TradeSTP Vendor - JULIUSBAER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - JYBM</masterLabel>
+            <translation><!-- TradeSTP Vendor - JYBM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - LCG</masterLabel>
+            <translation><!-- TradeSTP Vendor - LCG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - LMAX</masterLabel>
+            <translation><!-- TradeSTP Vendor - LMAX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - LMAXRTL</masterLabel>
+            <translation><!-- TradeSTP Vendor - LMAXRTL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Lava</masterLabel>
+            <translation><!-- TradeSTP Vendor - Lava --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Lucis</masterLabel>
+            <translation><!-- TradeSTP Vendor - Lucis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Lusis</masterLabel>
+            <translation><!-- TradeSTP Vendor - Lusis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MAPPED</masterLabel>
+            <translation><!-- TradeSTP Vendor - MAPPED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MAPPEDFUT</masterLabel>
+            <translation><!-- TradeSTP Vendor - MAPPEDFUT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MARKITSERVBA</masterLabel>
+            <translation><!-- TradeSTP Vendor - MARKITSERVBA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MSCME-Futures</masterLabel>
+            <translation><!-- TradeSTP Vendor - MSCME-Futures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Mako</masterLabel>
+            <translation><!-- TradeSTP Vendor - Mako --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Marex</masterLabel>
+            <translation><!-- TradeSTP Vendor - Marex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MarketFactory</masterLabel>
+            <translation><!-- TradeSTP Vendor - MarketFactory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MerrillLynch</masterLabel>
+            <translation><!-- TradeSTP Vendor - MerrillLynch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MizuhoFut</masterLabel>
+            <translation><!-- TradeSTP Vendor - MizuhoFut --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MorganStanley</masterLabel>
+            <translation><!-- TradeSTP Vendor - MorganStanley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - MorganStanleyEB</masterLabel>
+            <translation><!-- TradeSTP Vendor - MorganStanleyEB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - NewEdgeFX</masterLabel>
+            <translation><!-- TradeSTP Vendor - NewEdgeFX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Nomura</masterLabel>
+            <translation><!-- TradeSTP Vendor - Nomura --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Nordea</masterLabel>
+            <translation><!-- TradeSTP Vendor - Nordea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - ODL</masterLabel>
+            <translation><!-- TradeSTP Vendor - ODL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - OneZero</masterLabel>
+            <translation><!-- TradeSTP Vendor - OneZero --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - PENSON</masterLabel>
+            <translation><!-- TradeSTP Vendor - PENSON --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Portware</masterLabel>
+            <translation><!-- TradeSTP Vendor - Portware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - RBCCM</masterLabel>
+            <translation><!-- TradeSTP Vendor - RBCCM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - RBOS</masterLabel>
+            <translation><!-- TradeSTP Vendor - RBOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - RBS</masterLabel>
+            <translation><!-- TradeSTP Vendor - RBS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - RTFX_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - RTFX_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - RTNS</masterLabel>
+            <translation><!-- TradeSTP Vendor - RTNS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - RTNSVelo</masterLabel>
+            <translation><!-- TradeSTP Vendor - RTNSVelo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Reuters_Conversation_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - Reuters_Conversation_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Reuters_Matching_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - Reuters_Matching_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Reuters_Order_Watch_DH</masterLabel>
+            <translation><!-- TradeSTP Vendor - Reuters_Order_Watch_DH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SEB</masterLabel>
+            <translation><!-- TradeSTP Vendor - SEB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SFXCIBC</masterLabel>
+            <translation><!-- TradeSTP Vendor - SFXCIBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SFXCUREX</masterLabel>
+            <translation><!-- TradeSTP Vendor - SFXCUREX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SFXFLXTDParabellum</masterLabel>
+            <translation><!-- TradeSTP Vendor - SFXFLXTDParabellum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SFXHSBC</masterLabel>
+            <translation><!-- TradeSTP Vendor - SFXHSBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SFXOLFAINVESTEC</masterLabel>
+            <translation><!-- TradeSTP Vendor - SFXOLFAINVESTEC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SFXSMTRDBOCHK</masterLabel>
+            <translation><!-- TradeSTP Vendor - SFXSMTRDBOCHK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SFXSMTRDNBC</masterLabel>
+            <translation><!-- TradeSTP Vendor - SFXSMTRDNBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SFXTDAIR</masterLabel>
+            <translation><!-- TradeSTP Vendor - SFXTDAIR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SMBC</masterLabel>
+            <translation><!-- TradeSTP Vendor - SMBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SQUARED-CL</masterLabel>
+            <translation><!-- TradeSTP Vendor - SQUARED-CL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SQUARED-LP</masterLabel>
+            <translation><!-- TradeSTP Vendor - SQUARED-LP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SQUARED-PB</masterLabel>
+            <translation><!-- TradeSTP Vendor - SQUARED-PB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - STDCH</masterLabel>
+            <translation><!-- TradeSTP Vendor - STDCH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - STDFIXCTBFXONE</masterLabel>
+            <translation><!-- TradeSTP Vendor - STDFIXCTBFXONE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SocGen</masterLabel>
+            <translation><!-- TradeSTP Vendor - SocGen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - SolidFX</masterLabel>
+            <translation><!-- TradeSTP Vendor - SolidFX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - TRAIANA</masterLabel>
+            <translation><!-- TradeSTP Vendor - TRAIANA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - TTPRISM</masterLabel>
+            <translation><!-- TradeSTP Vendor - TTPRISM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - TradParFX</masterLabel>
+            <translation><!-- TradeSTP Vendor - TradParFX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - TraderTools</masterLabel>
+            <translation><!-- TradeSTP Vendor - TraderTools --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - TradingScreen</masterLabel>
+            <translation><!-- TradeSTP Vendor - TradingScreen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - TraianaEBSTOFIn</masterLabel>
+            <translation><!-- TradeSTP Vendor - TraianaEBSTOFIn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - UBS</masterLabel>
+            <translation><!-- TradeSTP Vendor - UBS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - VECTOR</masterLabel>
+            <translation><!-- TradeSTP Vendor - VECTOR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Velsys</masterLabel>
+            <translation><!-- TradeSTP Vendor - Velsys --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - VirtuFX</masterLabel>
+            <translation><!-- TradeSTP Vendor - VirtuFX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TradeSTP Vendor - Xenfin</masterLabel>
+            <translation><!-- TradeSTP Vendor - Xenfin --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select a MarkitWire User Membership value --></help>
+        <label><!-- MarkitWire User Membership --></label>
+        <name>MarkitWireUserMembership__c</name>
+        <picklistValues>
+            <masterLabel>APAC Broker Contacts</masterLabel>
+            <translation><!-- APAC Broker Contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bank Stats</masterLabel>
+            <translation><!-- Bank Stats --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Board</masterLabel>
+            <translation><!-- Board --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy &amp; Sellside Working Group</masterLabel>
+            <translation><!-- Buy &amp; Sellside Working Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS Approver</masterLabel>
+            <translation><!-- CLS Approver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPS Interested Parties</masterLabel>
+            <translation><!-- CPS Interested Parties --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - ASX</masterLabel>
+            <translation><!-- Clearing Contacts - ASX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - CB</masterLabel>
+            <translation><!-- Clearing Contacts - CB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - CME CB Credit</masterLabel>
+            <translation><!-- Clearing Contacts - CME CB Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - CME CB Rates</masterLabel>
+            <translation><!-- Clearing Contacts - CME CB Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - CME EB Credit</masterLabel>
+            <translation><!-- Clearing Contacts - CME EB Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - CME EB Rates</masterLabel>
+            <translation><!-- Clearing Contacts - CME EB Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - CMECE CB Rates</masterLabel>
+            <translation><!-- Clearing Contacts - CMECE CB Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - CMECE EB Rates</masterLabel>
+            <translation><!-- Clearing Contacts - CMECE EB Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - EB</masterLabel>
+            <translation><!-- Clearing Contacts - EB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - EUREX CB Equities</masterLabel>
+            <translation><!-- Clearing Contacts - EUREX CB Equities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - EUREX CB Rates</masterLabel>
+            <translation><!-- Clearing Contacts - EUREX CB Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - EUREX EB Equities</masterLabel>
+            <translation><!-- Clearing Contacts - EUREX EB Equities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - EUREX EB Rates</masterLabel>
+            <translation><!-- Clearing Contacts - EUREX EB Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - ICE CB Credit</masterLabel>
+            <translation><!-- Clearing Contacts - ICE CB Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - ICE EB Credit</masterLabel>
+            <translation><!-- Clearing Contacts - ICE EB Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - IDCG</masterLabel>
+            <translation><!-- Clearing Contacts - IDCG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - KRX</masterLabel>
+            <translation><!-- Clearing Contacts - KRX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - LCH CB Rates</masterLabel>
+            <translation><!-- Clearing Contacts - LCH CB Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - LCH EB Rates - SCM</masterLabel>
+            <translation><!-- Clearing Contacts - LCH EB Rates - SCM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - LCHSA CB Credit</masterLabel>
+            <translation><!-- Clearing Contacts - LCHSA CB Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - LCHSA EB Credit</masterLabel>
+            <translation><!-- Clearing Contacts - LCHSA EB Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - OCC</masterLabel>
+            <translation><!-- Clearing Contacts - OCC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - OTC Clear</masterLabel>
+            <translation><!-- Clearing Contacts - OTC Clear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts - SGX</masterLabel>
+            <translation><!-- Clearing Contacts - SGX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts LCH EB Rates – FCM</masterLabel>
+            <translation><!-- Clearing Contacts LCH EB Rates – FCM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts – JSCC Affiliate Rates</masterLabel>
+            <translation><!-- Clearing Contacts – JSCC Affiliate Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearing Contacts – JSCC Member Rates</masterLabel>
+            <translation><!-- Clearing Contacts – JSCC Member Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Onboarding - Buy-Side</masterLabel>
+            <translation><!-- Client Onboarding - Buy-Side --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Onboarding - Equities</masterLabel>
+            <translation><!-- Client Onboarding - Equities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Onboarding - Interest Rates</masterLabel>
+            <translation><!-- Client Onboarding - Interest Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Onboarding - PB contacts</masterLabel>
+            <translation><!-- Client Onboarding - PB contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commodities-Oil</masterLabel>
+            <translation><!-- Commodities-Oil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Actions - AEJ</masterLabel>
+            <translation><!-- Corporate Actions - AEJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Actions Europe</masterLabel>
+            <translation><!-- Corporate Actions Europe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Actions Japan</masterLabel>
+            <translation><!-- Corporate Actions Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Actions US</masterLabel>
+            <translation><!-- Corporate Actions US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit EAD</masterLabel>
+            <translation><!-- Credit EAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Management Meeting</masterLabel>
+            <translation><!-- Dealer Management Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Brokers</masterLabel>
+            <translation><!-- Equity Brokers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCA Email list</masterLabel>
+            <translation><!-- MCA Email list --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations Committee</masterLabel>
+            <translation><!-- Operations Committee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations Committee Equities</masterLabel>
+            <translation><!-- Operations Committee Equities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PM - End Users</masterLabel>
+            <translation><!-- PM - End Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PM - Equity Dealers</masterLabel>
+            <translation><!-- PM - Equity Dealers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PM - IDB/ECN</masterLabel>
+            <translation><!-- PM - IDB/ECN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PM - Prime Brokers</masterLabel>
+            <translation><!-- PM - Prime Brokers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PM - Rates Dealers</masterLabel>
+            <translation><!-- PM - Rates Dealers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Participant Matrix</masterLabel>
+            <translation><!-- Participant Matrix --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press</masterLabel>
+            <translation><!-- Press --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software Distribution</masterLabel>
+            <translation><!-- Software Distribution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TriOptima Participants</masterLabel>
+            <translation><!-- TriOptima Participants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WG - Brazilian Roll-out</masterLabel>
+            <translation><!-- WG - Brazilian Roll-out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WG - Broker Asia</masterLabel>
+            <translation><!-- WG - Broker Asia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WG - Buyside - EqDeriv</masterLabel>
+            <translation><!-- WG - Buyside - EqDeriv --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WG - Buyside Asia</masterLabel>
+            <translation><!-- WG - Buyside Asia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WG - Credit Asia</masterLabel>
+            <translation><!-- WG - Credit Asia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WG - EqDeriv</masterLabel>
+            <translation><!-- WG - EqDeriv --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WG - EqDeriv Asia</masterLabel>
+            <translation><!-- WG - EqDeriv Asia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WG - Rates Asia</masterLabel>
+            <translation><!-- WG - Rates Asia --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select the Processing Administrator Type --></help>
+        <label><!-- Processing Administrator Type --></label>
+        <name>ProcessingAdministratorType__c</name>
+        <picklistValues>
+            <masterLabel>Capitalab Administrator</masterLabel>
+            <translation><!-- Capitalab Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Actions Administrator</masterLabel>
+            <translation><!-- Corporate Actions Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX Administrator</masterLabel>
+            <translation><!-- FX Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTM Administrator</masterLabel>
+            <translation><!-- MTM Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire Administrator</masterLabel>
+            <translation><!-- MarkitWire Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory Reporting Administrator</masterLabel>
+            <translation><!-- Regulatory Reporting Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trioptima Administrator</masterLabel>
+            <translation><!-- Trioptima Administrator --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field is required if &quot;Live Products Used&quot; field is populated. --></help>
+        <label><!-- Subscription --></label>
+        <name>Subscription__c</name>
+        <picklistValues>
+            <masterLabel>Americas</masterLabel>
+            <translation><!-- Americas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asia</masterLabel>
+            <translation><!-- Asia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Europe</masterLabel>
+            <translation><!-- Europe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global</masterLabel>
+            <translation><!-- Global --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REPO DTCC GCF</masterLabel>
+            <translation><!-- REPO DTCC GCF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REPO FED ADM</masterLabel>
+            <translation><!-- REPO FED ADM --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Additional Contact Fields Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- MSERV Information --></label>
+            <section>MSERV Information</section>
+        </sections>
+        <sections>
+            <label><!-- MSF Product Information --></label>
+            <section>MSF Product Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Additional Account Fields Name is not editable --></errorMessage>
+        <name>AdditionalContactFieldsName</name>
+    </validationRules>
+</CustomObjectTranslation>

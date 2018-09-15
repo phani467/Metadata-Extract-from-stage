@@ -1,0 +1,38 @@
+<aura:component controller="CloneOpportunityWithProducts" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId">
+<aura:attribute name="selectedRecordType" type="String"/>
+<aura:attribute name="recordTypeList" type="Object[]"/>
+<aura:attribute name="recordId" type="Id" />
+<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+	<div aura:id="thecontainer" class="thecontainer" id="thecontainer">
+		<div role="dialog" tabindex="-1" id="exampleModal" aria-labelledby="header43" class="slds-modal slds-fade-in-open slds-modal--large" >
+			<div class="slds-modal__container">
+				<div class="slds-modal__header">
+				  <h2 id="header43" class="slds-text-heading--medium">Select New Currency</h2>
+				</div>
+				<div class="slds-modal__content slds-p-top--x-large slds-p-around--medium" aura:id="modalbody" id="modalbody">
+					<fieldset class="slds-form-element">
+						<div class="slds-form-element__control">
+							<aura:iteration items="{!v.recordTypeList}" var="item">
+								<label class="slds-radio slds-p-top--small">
+									<tr>
+										<td>
+											<ui:inputRadio name="benefits" change="{!c.onChange}" text="{!item.recordTypeId}" value="false"/>
+											<span class="slds-radio--faux"></span>
+										</td>
+										<td>
+											<span class="slds-form-element__label">{!item.recordTypeLabel}</span>
+										</td>
+									</tr>                   
+								</label>  
+							</aura:iteration> 
+						</div>
+					</fieldset> 
+				</div>   
+				<div class="slds-modal__footer">
+					<lightning:button aura:id="continueButton" variant="brand" label="Continue" onclick="{!c.onContinue }" />
+					<lightning:button aura:id="cancelButton" variant="brand" label="Cancel" onclick="{!c.hideExampleModal }" />                
+				</div>			            
+			</div>
+		</div>			            
+	</div>
+</aura:component>

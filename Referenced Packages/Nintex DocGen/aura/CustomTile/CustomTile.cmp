@@ -1,0 +1,36 @@
+<aura:component >
+    <aura:attribute name="status" type="string" default="warning" description="Valid values: 'warning', 'error'."/>
+    <aura:attribute name="message" type="string" default="" required="true"/>
+    <aura:attribute name="message2" type="string" default="" description="This provides a secondary message below the main message. Use it to give context or additional information."/>
+	
+    <div class="slds">
+        <ul class="slds-list--vertical slds-has-cards slds-has-cards--space slds-has-list-interactions" style="padding: .5rem 1rem; background-color: #eef1f6;">
+            <li>
+                <div class="slds-notify_container" style="text-align: center; position: static;">
+                    <div class="slds-notify slds-notify--toast slds-theme--warning warning-toast" style="fill: #54698d;position: static;box-shadow: 1px 1px 3px rgba(197, 197, 197, .8);margin: 0;width: 100%; min-width: 15rem;">
+                        <aura:if isTrue="{!v.status == 'warning'}">
+                        	<Loop:Svg class="slds-icon slds-icon--small slds-m-right--small slds-button__icon"
+                               xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#warning'}"
+                               style="float: left;"
+                               />
+                        </aura:if>
+                        <aura:if isTrue="{!v.status == 'error'}">
+                            <Loop:Svg class="slds-icon slds-icon--small slds-m-right--small slds-button__icon"
+                               xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#ban'}"
+                               style="float: left;"
+                               />
+                        </aura:if>
+                        <div class="notify__content" style="text-align: center;">
+                            <h2 class="slds-text-heading--small">{!v.message}</h2>
+                            <aura:if isTrue="{! !empty(v.message2)}">
+                                <br/>
+                                <br/>
+                                <h2 class="slds-text-heading--small">{!v.message2}</h2>
+                            </aura:if>  
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</aura:component>

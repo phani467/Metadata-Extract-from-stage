@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-3263 Markit Research Questionnaire</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Markit Research Questionnaire</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Research Questionnaire</subject>
+    <textOnly>Dear {!Case.Contact},
+
+Thank you for your request to access the Markit On Demand Research Questionnaire. Please be aware that the information entered for Firms, Products, and Contacts in the questionnaire is used by the multiple buy-side clients that you cover. This enables you to save time by only entering your firm’s information once, but be mindful that your edits will affect all covered clients.
+
+Your firm’s login information is listed below.
+
+URL—https://questionnaire.researchteam.com
+User Name—XXXXXXXX
+Password—XXXXXXX
+
+Important Notes: 
+•	Complete your firm’s information on the Company Overview tab. 
+•	Describe the research products your firm provides on the Products tab. Click +New Product to describe each product and please upload a sample of each product along with the description. 
+•	Please make sure that all your colleagues who are eligible to receive votes are added to the questionnaire on the People tab. To add a contact, click the People tab and then click the + New Person button. Make sure that all the required fields are completed, the appropriate working relationship box is checked, and the credit/payment region is correctly selected (not applicable to all clients). Please save the entry. Once added, the investment professionals are able to vote on them in the Vote platform. 
+•	Click Verify Information at the top of any page to submit your data. You are prompted if any data are missing. 
+
+
+For assistance with the questionnaire please contact mrmsupport@markit.com or call 1-800-208-6500.
+
+Thank you in advance for your participation and we look forward to working with you in the future.
+
+Kind Regards,
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+{!Case.OwnerTitle} | Trading Services
+450 West 33rd Street 5th Floor | New York | NY 10001
+P: +212 205 1793 G: +1 800 208 6500
+mrmsupport@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

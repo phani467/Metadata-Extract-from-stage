@@ -1,0 +1,14 @@
+<aura:event type="COMPONENT" description="Fire when a delivery option is selected.">
+    <aura:attribute name="id" type="string" default="" description="Id of selected delivery option."/>
+    <aura:attribute name="name" type="string" default="" description="Name of the delivery option."/>
+    <aura:attribute name="deliveryType" type="string" default="" description="Delivery option type (Download, Email, etc.)."/>
+    <aura:attribute name="attachToRecord" type="boolean" default="false" description="Attach copy of document to record (used only for delivery)"/>
+    <aura:attribute name="selectedContentLibrary" type="string" default="" description="The Id for the selected content library folder the user wants to attach the final output to."/>
+    <aura:attribute name="emailSubject" type="string" default="" description="The default email subject in the delivery option."/>
+    <aura:attribute name="emailBody" type="string" default="" description="The default email body in the delivery option."/>
+    <aura:attribute name="reminderDelay" type="decimal" default="0" description="DocuSign expiration and reminder settings from DS deliveries."/>
+    <aura:attribute name="reminderFrequency" type="decimal" default="0" description="DocuSign expiration and reminder settings from DS deliveries."/>
+    <aura:attribute name="expireAfter" type="decimal" default="0" description="DocuSign expiration and reminder settings from DS deliveries."/>
+    <aura:attribute name="expireWarn" type="decimal" default="0" description="DocuSign expiration and reminder settings from DS deliveries."/>
+    <aura:attribute name="isTestDelivery" type="boolean" default="false" description="Indicates the 'Download (Test)' Delivery Option was selected."/>
+</aura:event>

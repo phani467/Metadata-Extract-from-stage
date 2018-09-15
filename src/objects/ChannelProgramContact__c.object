@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ChannelProgramContact</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Default</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Default</fullName>
+        <fields>Name__c</fields>
+        <fields>Phone__c</fields>
+        <fields>Email__c</fields>
+        <fields>isPublic__c</fields>
+        <label>Default</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>For Channel Partner Community changes.  Contacts are displayed to Channel Partner community users in the Channel Partner Community.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ContactInformation__c</fullName>
+        <description>Field displayed to community users to summaries all contact information for the contact.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>&quot;Phone: &quot; &amp; HYPERLINK(&quot;tel:&quot; &amp; Phone__c, Phone__c)
+ &amp; BR() &amp;
+&quot;Email: &quot; &amp; HYPERLINK(&quot;mailto:&quot; &amp; Email__c, Email__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Information</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <description>Used in list views to display the contact name with hyperlink to record.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( 
+  RecordLink__c , 
+  Name__c ,
+  &quot;_self&quot;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomEmail__c</fullName>
+        <description>This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify a custom email address to override Salesforce user&apos;s email address</inlineHelpText>
+        <label>Custom Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomFullPhotoURL__c</fullName>
+        <description>This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify a custom URL to override the Salesforce User&apos;s profile photo to display in the Community.  Full Photo should be 200px by 300px (Width / Height)</inlineHelpText>
+        <label>Custom Full Photo URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomName__c</fullName>
+        <description>This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify a customer contact name to override Salesforce user&apos;s name</inlineHelpText>
+        <label>Custom Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomPhone__c</fullName>
+        <description>This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify a custom phone number to override the Salesforce User&apos;s phone number displayed</inlineHelpText>
+        <label>Custom Phone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>CustomSmallPhotoURL__c</fullName>
+        <description>This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify a custom URL to override the Salesforce User&apos;s profile photo to display in the Community. Small Photo should be 100px by 100px (Width / Height)</inlineHelpText>
+        <label>Custom Small Photo URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomTitle__c</fullName>
+        <description>This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify a custom title to override the Salesforce User&apos;s title</inlineHelpText>
+        <label>Custom Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <description>Used to display the salesforce user&apos;s email address, or the custom email address if one has been specified.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK( CustomEmail__c ) , SalesforceUser__r.Email, CustomEmail__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <description>Used to display the salesforce user&apos;s name, or the custom name if one has been specified.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK( CustomName__c ), 
+  SalesforceUser__r.FirstName &amp; &quot; &quot; &amp; SalesforceUser__r.LastName, 
+  CustomName__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phone__c</fullName>
+        <description>Used to display the salesforce user&apos;s phone, or custom phone if one has been specified.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK( CustomPhone__c ) , SalesforceUser__r.Phone, CustomPhone__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Phone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PhotoFull__c</fullName>
+        <description>Display the full photo of the channel program contact
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>IMAGE( 
+    IF(ISBLANK(CustomFullPhotoURL__c), SystemFullPhotoURL__c, CustomFullPhotoURL__c ) ,  
+    Name , 300, 200
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Photo</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PhotoListViewLink__c</fullName>
+        <description>Used in list views to display a clickable profile photo icon, which navigates to the record.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( RecordLink__c , 
+IMAGE( 
+    IF(ISBLANK(CustomSmallPhotoURL__c), SystemMediumPhotoURL__c , CustomSmallPhotoURL__c ) ,  
+    Name__c , 75, 75
+),
+&quot;_self&quot;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Photo</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RecordLink__c</fullName>
+        <description>Used to display the appropriate url link for the record, depending upon the view being internal or within the partner community.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS($Api.Enterprise_Server_URL_390,&quot;/partners/&quot;),
+  &quot;/partners/s/channelprogramcontact/&quot;,
+  &quot;/&quot;
+)
+&amp;
+Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SalesforceUser__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify a Salesforce user to automatically pull the user&apos;s contact information</inlineHelpText>
+        <label>Salesforce User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ChannelProgramContacts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SystemFullPhotoURL__c</fullName>
+        <description>Updated by Process builder using the User&apos;s Full Profile Photo URL
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>System - Full Photo URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SystemMediumPhotoURL__c</fullName>
+        <description>Set by process builder to update the url using the user profile photo URL
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>System - Medium Photo URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SystemSmallPhotoURL__c</fullName>
+        <description>Set by Process builder using the User&apos;s small profile photo URL
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <label>System - Small Photo URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <description>Used on page layout to display the user&apos;s title, or custom title if a value is specified.
+
+This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( CustomTitle__c ),  SalesforceUser__r.Title , CustomTitle__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Title</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>isPublic__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>This field is being used in Community related changes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Uncheck if this Contact should not be displayed in the community</inlineHelpText>
+        <label>Public</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Channel Program Contact</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>PhotoListViewLink__c</columns>
+        <columns>Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>ContactInformation__c</columns>
+        <columns>isPublic__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Channel Partner Team</label>
+    </listViews>
+    <listViews>
+        <fullName>ContractAdministrators</fullName>
+        <columns>PhotoListViewLink__c</columns>
+        <columns>Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>ContactInformation__c</columns>
+        <columns>isPublic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>contains</operation>
+            <value>Contract Administrator</value>
+        </filters>
+        <label>Contract Administrators</label>
+    </listViews>
+    <listViews>
+        <fullName>GlobalContacts</fullName>
+        <columns>PhotoListViewLink__c</columns>
+        <columns>Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>ContactInformation__c</columns>
+        <columns>isPublic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>contains</operation>
+            <value>Global</value>
+        </filters>
+        <label>Global Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>LegalLeads</fullName>
+        <columns>PhotoListViewLink__c</columns>
+        <columns>Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>ContactInformation__c</columns>
+        <columns>isPublic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>contains</operation>
+            <value>Legal Lead</value>
+        </filters>
+        <label>Legal Leads</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CPC-{000}</displayFormat>
+        <label>Contact ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Channel Program Contacts</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>PhotoListViewLink__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Title__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContactInformation__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>isPublic__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NewPolkLogo</letterhead>
+    <name>DUC Approval Requested-DUC</name>
+    <style>freeForm</style>
+    <subject>DUC Approval is being requested</subject>
+    <textOnly>** ATTENTION –ACTION NEEDED **&lt;?xml:namespace prefix = o /&gt;
+{!WorkRequestForm__c.PrimarySalesContact__c} is requesting DUC approval for:
+WRF: {!WorkRequestForm__c.Name}.
+Account Name: {!WorkRequestForm__c.AccountName__c}
+Opportunity Name: {!WorkRequestForm__c.OpportunityName__c}
+Once the Committee has approved the WRF, please click the link below to access the Work Request Form and check the DUC Approval checkbox.  The Approval Date will automatically populate.
+An email notification will automatically get sent to {!WorkRequestForm__c.PrimarySalesContact__c} and {!WorkRequestForm__c.OwnerFullName} once the DUC Approval box has been checked.
+Link to WRF:  {!WorkRequestForm__c.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>

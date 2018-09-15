@@ -1,0 +1,65 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+	<apex:pageBlock title="DRDT 0011 Details">
+	    <apex:pageBlockSection title="Input" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >DRDT</td><td >0011</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				    </tbody>
+				</table>
+			</apex:outputPanel>
+	    </apex:pageBlockSection>
+	    <apex:pageBlockSection title="Output" columns="1" collapsible="false">
+	        <apex:outputPanel >
+				<table style="text-align: left; width: 50%;" border="1" cellpadding="2" cellspacing="2">
+				    <tbody>
+				        <tr><th >Property</th><th >Value</th></tr>
+				        <tr><td >ManfacturerName</td><td >Ford</td></tr>
+				        <tr><td >Model</td><td >RANGER</td></tr>
+				        <tr><td >Grade</td><td >XL</td></tr>
+				        <tr><td >Generation</td><td >PK</td></tr>
+				        <tr><td >VehicleDescription</td><td >PK 3.0L DIE 5SPA XL CRWCAB UTE</td></tr>
+				        <tr><td >NumberOfDoors</td><td >4</td></tr>
+				        <tr><td >NumberOfSeats</td><td >5</td></tr>
+				        <tr><td >Engine_Capacity</td><td >2953</td></tr>
+				        <tr><td >CylinderConfig</td><td >INL</td></tr>
+				        <tr><td >CylinderNumber</td><td >4</td></tr>
+				        <tr><td >EnginePower</td><td >115</td></tr>
+				        <tr><td >FuelType</td><td >D</td></tr>
+				        <tr><td >NumberOfGears</td><td >5</td></tr>
+				        <tr><td >NumberOfWheels</td><td >4</td></tr>
+				        <tr><td >DrivenWheels</td><td >2</td></tr>
+				        <tr><td >GrossVehicleMass</td><td >2914</td></tr>
+				        <tr><td >CountryOfOrigin</td><td >THA</td></tr>
+				        <tr><td >ModelIdentifierCode</td><td >45083</td></tr>
+				        <tr><td >ModelIdentifier</td><td >57936CA 2009</td></tr>
+				        <tr><td >AlternateFuelType</td><td >N</td></tr>
+				        <tr><td >BodyStyle</td><td >CREW CAB UTILITY OR PICKUP</td></tr>
+				        <tr><td >GrossCombineMass</td><td >0</td></tr>
+				        <tr><td >WheelStyle</td><td >4X2</td></tr>
+				        <tr><td >Transmission</td><td >A</td></tr>
+				        <tr><td >Make</td><td >FORD</td></tr>
+				        <tr><td >NVIC</td><td >JFF09D</td></tr>
+				        <tr><td >ProcessFlag</td><td >NVICMatch</td></tr>
+				        <tr><td >CompanyCode</td><td >1</td></tr>
+				        <tr><td >UserName</td><td >admin</td></tr>
+				        <tr><td >RetrievalType</td><td >DRDT_0011</td></tr>
+				        <tr><td >Vin</td><td >MNALSFE90AW875653</td></tr>
+				        <tr><td >VehicleYear</td><td >2010</td></tr>
+				        <tr><td >UserDefinedKey</td><td >SingleVINMatchRequestWeb</td></tr>
+				    </tbody>
+				</table>
+	        </apex:outputPanel>
+	    </apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:component>

@@ -1,0 +1,2947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>PLCJobView</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>PLCOverride</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>PLCJobView</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object is used for WRF-POLK. Object to track all PLC Jobs.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ActiveDaysOnHold__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>IF (  (NOT (ISNULL( DateOnHold1__c))&amp;&amp; 
+      ISNULL( DateReleasedFromHold1__c) )
+	, TODAY() - DateOnHold1__c
+	, IF (  ( NOT (ISNULL( DateOnHold2__c))&amp;&amp; 
+		      ISNULL( DateReleasedFromHold2__c) )
+		, TODAY() - DateOnHold2__c
+			, IF (  ( NOT (ISNULL( DateOnHold3__c))&amp;&amp; 
+			      ISNULL( DateReleasedFromHold3__c) )
+			, TODAY() - DateOnHold3__c
+				, IF (  ( NOT (ISNULL( DateOnHold4__c))&amp;&amp; 
+				      ISNULL( DateReleasedFromHold4__c) )
+				, TODAY() - DateOnHold4__c
+					, IF (  ( NOT (ISNULL( DateOnHold5__c))&amp;&amp; 
+					      ISNULL( DateReleasedFromHold5__c) )
+					, TODAY() - DateOnHold5__c
+					, 0))))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Active Days On Hold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ActualCost__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Actual Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AmIAssignedRep__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>IF(  WorkRequestForm__r.PrimarySalesContact__c  = $User.Id ,&quot;True&quot;,&quot;False&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Am I Assigned WR Rep?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AssignedToStart__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>CASE(MOD( ProgrammerAssignedDate__c - DATE(1985,6,24),7), 
+
+0 , CASE( MOD( StartDate__c - ProgrammerAssignedDate__c ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 
+
+1 , CASE( MOD( StartDate__c - ProgrammerAssignedDate__c ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 
+
+2 , CASE( MOD( StartDate__c - ProgrammerAssignedDate__c,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 
+
+3 , CASE( MOD( StartDate__c - ProgrammerAssignedDate__c ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 
+
+4 , CASE( MOD( StartDate__c - ProgrammerAssignedDate__c ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 
+
+5 , CASE( MOD( StartDate__c - ProgrammerAssignedDate__c ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 
+
+6 , CASE( MOD( StartDate__c - ProgrammerAssignedDate__c ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 
+
+999) 
+
++ 
+
+(FLOOR(( StartDate__c - ProgrammerAssignedDate__c )/7)*5) - 1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Production Lag Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CalendarWeekRange__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(MONTH( DateofDelivery__c  - MOD( DateofDelivery__c  - DATE(1900, 1, 7), 7)))
++ &apos;/&apos; +
+TEXT(DAY( DateofDelivery__c  - MOD(DateofDelivery__c - DATE(1900, 1, 7), 7)))
++ &apos;/&apos; +
+TEXT(YEAR( DateofDelivery__c  - MOD( DateofDelivery__c  - DATE(1900, 1, 7), 7)))
++ &apos; to &apos; + 
+TEXT(MONTH(( DateofDelivery__c  + 7) - MOD( DateofDelivery__c  - DATE(1900, 1, 7), 7)))
++ &apos;/&apos; +
+TEXT(DAY(( DateofDelivery__c  + 7) - MOD( DateofDelivery__c  - DATE(1900, 1, 7), 7)))
++ &apos;/&apos; +
+TEXT(YEAR(( DateofDelivery__c  + 7) - MOD( DateofDelivery__c  - DATE(1900, 1, 7), 7)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calendar Week Range</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CalendarWeek__c</fullName>
+        <description>This field is used for WRF-POLK. Calendar Week # based upon date of delivery</description>
+        <externalId>false</externalId>
+        <formula>lpad(
+		text(CEILING((( DateofDelivery__c - DATE(YEAR( DateofDelivery__c ), 1, 1) + 1) + 
+						MOD(DATE(YEAR( DateofDelivery__c ), 1, 1) - DATE(1900, 1, 7), 7)) / 7) )
+		,2,&apos;0&apos;	
+	)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calendar Week</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CalendarYearWeek__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>CalendarYear__c &amp; (CalendarWeek__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calendar Year &amp; Week</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CalendarYear__c</fullName>
+        <description>This field is used for WRF-POLK. Calendar Year based on date of delivery.</description>
+        <externalId>false</externalId>
+        <formula>Text (YEAR( DateofDelivery__c ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calendar Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ChangeCounter__c</fullName>
+        <description>This field is used for WRF-POLK. Increments up whenever a job is created from a change request</description>
+        <externalId>false</externalId>
+        <label>Change Counter</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ChangeLog__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Change Log</label>
+        <referenceTo>ChangeLog__c</referenceTo>
+        <relationshipLabel>PLC Jobs</relationshipLabel>
+        <relationshipName>PLCJobs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ChangeNumber__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Change #</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>06</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>07</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>08</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>09</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>11</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>13</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>14</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>15</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>16</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>17</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>18</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>19</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>21</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>22</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>23</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>24</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>25</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>26</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>27</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>28</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>29</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>31</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>32</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>33</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>34</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>35</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>36</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>37</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>38</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>39</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>40</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>41</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>42</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>43</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>44</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>45</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>46</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>47</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>48</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>49</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>51</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>52</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>53</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>54</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>55</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>56</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>57</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>58</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>59</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>60</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>61</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>63</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>64</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>66</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>67</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>68</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>69</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>70</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>71</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>72</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>73</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>74</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>75</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>76</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>77</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>78</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>79</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>80</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>81</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>82</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>83</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>84</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>85</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>86</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>87</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>88</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>89</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>90</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>91</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>92</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>93</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>94</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>95</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>96</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>97</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>98</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>99</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Change__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Change</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CloseToDelivery__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>(datevalue(DateTimeOfDelivery__c) - Opportunity__r.CloseDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Wait Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CloseToSubmitted__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>(WRFSubmitted__c - Opportunity__r.CloseDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Lag Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Add comments you feel pertinent to the job</inlineHelpText>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CommercialJobTasks__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Commercial Job Tasks</label>
+        <summaryFilterItems>
+            <field>JobTask__c.TaskName__c</field>
+            <operation>equals</operation>
+            <value>Commercial Review</value>
+        </summaryFilterItems>
+        <summaryForeignKey>JobTask__c.PLCJob__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>CostFactor__c</fullName>
+        <description>This field is used for WRF-POLK. This is the average cost for someone in production.  Gets updated with a trigger.</description>
+        <externalId>false</externalId>
+        <label>Cost Factor</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CreateDocumentationTask__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Create Documentation Task</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CreatePeerReviewTask__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Create Peer Review Task</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CreateSetupMeetingTask__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Create Setup Meeting Task</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CreateToSubmitted__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>WRFSubmitted__c - Opportunity__r.CloseDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Create To Submitted</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CreatedToDelivery__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>datevalue(DateTimeOfDelivery__c) -  datevalue(Opportunity__r.CreatedDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Exact timing only required if SLA requires measure of 4 hour turnaround</inlineHelpText>
+        <label>Created To Delivery</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomerType__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Customer Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OEM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Production</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SM</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CycleOccurance__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Cycle Occurance</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CycleStart__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Cycle Start</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CycleYear__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Cycle Year</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>2010</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2011</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2012</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2013</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2014</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2015</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2016</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2017</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2018</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2019</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2020</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2021</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2022</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2023</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2024</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2025</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cycle__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Cycle</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Week Days</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Weekly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Semi-Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Six Week Cycle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quarterly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Semi-Annually</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Annually</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DateOnHold1__c</fullName>
+        <description>This field is used for WRF-POLK. Used to store the date PLC placed on hold</description>
+        <externalId>false</externalId>
+        <label>Date On Hold1</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateOnHold2__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Date On Hold2</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateOnHold3__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Date On Hold3</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateOnHold4__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Date On Hold4</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateOnHold5__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Date On Hold5</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateReleasedFromHold1__c</fullName>
+        <description>This field is used for WRF-POLK. Used to store date PLC was released from hold.</description>
+        <externalId>false</externalId>
+        <label>Date Released from Hold1</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateReleasedFromHold2__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Date Released from Hold2</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateReleasedFromHold3__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Date Released from Hold3</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateReleasedFromHold4__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Date Released From Hold4</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateReleasedFromHold5__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Date Released From Hold5</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateTimeOfDelivery__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Exact timing only required if SLA requires measure of 4 hour turnaround.</inlineHelpText>
+        <label>Date &amp; Time Of Delivery</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DateofDelivery__c</fullName>
+        <description>This field is used for WRF-POLK. Used to translate Date/Time of Delivery to just date for Calendar week formula field.</description>
+        <externalId>false</externalId>
+        <formula>DateTimeOfDelivery__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Date of Delivery</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DaysOnHold1__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>DateReleasedFromHold1__c  -  DateOnHold1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days On Hold #1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DaysOnHold2__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>DateReleasedFromHold2__c  -  DateOnHold2__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days On Hold #2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DaysOnHold3__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>DateReleasedFromHold3__c  -  DateOnHold3__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days On Hold #3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DaysOnHold4__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>DateReleasedFromHold4__c  -  DateOnHold4__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days On Hold #4</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DaysOnHold5__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>DateReleasedFromHold5__c  -  DateOnHold5__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days On Hold #5</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefectFree10__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>if( DefectiveDeliverables__c  = 0, 1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Defect Free Counter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefectFree__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>if( DefectiveDeliverables__c  = 0, &apos;Yes&apos;, &apos;No&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Defect Free</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefectiveDeliverables__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Defective Deliverables</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DeliverableEstimate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Deliverable Estimate</label>
+        <summarizedField>JobTask__c.EstimatedHours__c</summarizedField>
+        <summaryFilterItems>
+            <field>JobTask__c.TaskName__c</field>
+            <operation>equals</operation>
+            <value>Deliverable</value>
+        </summaryFilterItems>
+        <summaryForeignKey>JobTask__c.PLCJob__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>DiscoveryToDelivery__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>datevalue(DateTimeOfDelivery__c) - Opportunity__r.DiscoveryDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Discovery To Delivery</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EffortCompletedDate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Effort Completed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EncryptionKey__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Encryption Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EncryptionRequired__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Encryption Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ExtendedJob__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>JobNumber__c &amp;&quot;-&quot; &amp; text(CycleOccurance__c) &amp;&quot;-&quot;&amp;  text(Multipartnum__c) &amp; &quot;-&quot; &amp; text(ChangeCounter__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Internal Job # - Occurrence # - Part # - Change #</inlineHelpText>
+        <label>Extended Job</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ExternalDeliverables__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>External Deliverables</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FTPInformationInWRF__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>FTP Information In WRF</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FTPPassword__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>FTP Password</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FTPPath__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>FTP Path</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FTPRequired__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>FTP Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FTPUserID__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>FTP User ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsMultipart__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK. Gets updated to true when</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this is checked this job is part of a multi-part job. Changes to the fields below will not affect the other jobs that have been created, and should be used for reference purposes only.</inlineHelpText>
+        <label>Is Multipart</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>JobActualHours__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Job Actual Hours</label>
+        <summarizedField>JobTask__c.ActualHours__c</summarizedField>
+        <summaryForeignKey>JobTask__c.PLCJob__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>JobCompletedDelivered__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Job Completed &amp; Delivered</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>JobEstimatedHours__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Job Estimated Hours</label>
+        <summarizedField>JobTask__c.EstimatedHours__c</summarizedField>
+        <summaryForeignKey>JobTask__c.PLCJob__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>JobName__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Job Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>JobNumber__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Job Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>JobRevenue__c</fullName>
+        <description>This field is used for WRF-POLK. If it&apos;s a multi-cycle job we divide the revenue into the # of cycles.</description>
+        <externalId>false</externalId>
+        <formula>if(BlankValue(NumberOfCycles__c,0) = 0, Opportunity__r.Amount, Opportunity__r.Amount / NumberOfCycles__c)</formula>
+        <label>Job Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>JobStatusOverride__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Job Status Override</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Override</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Job Cancelled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Job On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Being Estimated</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>JobStatus__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>if(text(JobStatusOverride__c) == &apos;Job Cancelled&apos; || text(JobStatusOverride__c) == &apos;Job On Hold&apos; || text(JobStatusOverride__c) == &apos;Being Estimated&apos; ,text(JobStatusOverride__c), 
+
+if(JobCompletedDelivered__c = True, &apos;Phase 6 - Delivered&apos;,
+
+if( text(PeerReviewStatus__c) &lt;&gt; &apos;&apos;, &apos;Phase 5 - Reviewed&apos;,
+
+if( text(ProcessToUse__c) &lt;&gt; &apos;&apos; &amp;&amp;  StartDate__c &gt; DateValue(&apos;1980-01-01&apos;), &apos;Phase 3 - Designed&apos;,
+
+if( StartDate__c  &gt; DateValue(&apos;1980-01-01&apos;), &apos;Phase 2 - Planned&apos;,
+
+if( text(WRFQuality__c) &lt;&gt; &apos;&apos;, &apos;Phase 1 - Initiated&apos;,
+
+&apos;Unknown&apos;))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Job Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>JobType__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Job Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ad Hoc</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ad-Hoc (non-cyclical)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cyclical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Development</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Estimate only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal Ad-Hoc</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal Cyclical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lights Out Process</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Billable</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LateDeliverablesCalculated__c</fullName>
+        <description>If the date proves the PLC is late, but the late deliverable field is 0 or null (not populated correctly), all deliverables are considered late.  Also, if defective, then the deliverable is late, even if it was delivered on time.</description>
+        <externalId>false</externalId>
+        <formula>IF(   ( datevalue(DateTimeOfDelivery__c)&gt; NegotiatedDate__c   ) &amp;&amp; (  LateDeliverables__c =0  ||  ISNULL(LateDeliverables__c)  )
+
+,   TotalDeliverables__c 
+,    MAX(  DefectiveDeliverables__c ,  LateDeliverables__c)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Late Deliverables Calculated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LateDeliverables__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Late Deliverables</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>This field is used for data integration to store legacy system id in WRF POLK application.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field is used for data integration to store legacy system id in WRF POLK application.</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyReference__c</fullName>
+        <description>SFDC1-7046: Legacy Reference field is a friendly system reference to the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is a friendly system reference to the source record.</inlineHelpText>
+        <label>LegacyReference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Multipart__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Multi-Part</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Multipartnum__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Multipart #</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NegotiatedDate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If no Negotiated Date was provided, use the date from Requested Due Date to populate this required field</inlineHelpText>
+        <label>Negotiated Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NumberOfCycles__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>MAX Number of Cycles = 50. You can repeat creating cyclical jobs if you need to add more than 50.</inlineHelpText>
+        <label>Number Of Cycles</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberOfParts__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Number Of Parts</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OnTime1__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>if(NegotiatedDate__c &gt;=  datevalue(DateTimeOfDelivery__c) &amp;&amp; DefectiveDeliverables__c = 0 &amp;&amp;  LateDeliverables__c = 0, 1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>On Time 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OnTime__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>if(NegotiatedDate__c &gt;=  datevalue(DateTimeOfDelivery__c) &amp;&amp; DefectiveDeliverables__c = 0 &amp;&amp;  LateDeliverables__c = 0, &apos;Ontime&apos;, &apos;Late&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>On Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OpenTasks__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Open Tasks</label>
+        <summaryFilterItems>
+            <field>JobTask__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete</value>
+        </summaryFilterItems>
+        <summaryForeignKey>JobTask__c.PLCJob__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>OpportunityValue__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Amount</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>PLC Jobs</relationshipLabel>
+        <relationshipName>PLCJobs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OrderRequest__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Order Request</label>
+        <referenceTo>OrderRequest__c</referenceTo>
+        <relationshipLabel>PLC Jobs</relationshipLabel>
+        <relationshipName>PLCJobs1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OtherCostEstimate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Royalties and other data cost</inlineHelpText>
+        <label>Other Cost Estimate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OwnerEmail__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Owner Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PSCCodeReview__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Development work in excess of 20 hours estimated required &quot;Code Review&quot; by a member of the PTSC (Polk Technical Standards Committee) or a sub-delete of that committee.  Please select a code review contact from the following list.</inlineHelpText>
+        <label>PTSC Code Review</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>PLCJobs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ParentJob__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Parent Job</label>
+        <referenceTo>PLCJob__c</referenceTo>
+        <relationshipLabel>PLC Jobs</relationshipLabel>
+        <relationshipName>PLCJob</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PeerReviewJobTasks__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Peer Review Job Tasks</label>
+        <summaryFilterItems>
+            <field>JobTask__c.TaskName__c</field>
+            <operation>equals</operation>
+            <value>Peer Review</value>
+        </summaryFilterItems>
+        <summaryForeignKey>JobTask__c.PLCJob__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>PeerReviewStatus__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Peer Review Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Passed on 1st Attempt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corrected</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PeerReviewer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Peer Reviewer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>PLCJobs3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PrimarySalesEmail__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Primary Sales Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessToUse__c</fullName>
+        <description>POLK-WRF: This field is used for WRF related feature on PLC Job object.</description>
+        <externalId>false</externalId>
+        <label>Process To Use</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Analytics Custom Solution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analytics Loyalty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analytics Loyalty Compilation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analytics Mapping</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analytics Modeling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analytics Profile</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>China data-CV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>China data-Polkinsight</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Commercial Account File</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Custom Solutions-OEM List</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Custom Solutions-OEM Stat</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Custom Solutions-Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Digital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global NewReg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global PARC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IFOF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NVPP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NVPP Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PMC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PolkInsight</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Recall</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RSD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TIP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TIPNet System</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TLAS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VIN Decoding Products Cyclical</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProductionWaitTime__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>SubmittedToAssigned__c  +  AssignedToStart__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Production Wait Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgrammerAssignedDate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Programmer Assigned Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ReasonForDelay__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Reason For Delay</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Awaiting PO or Contract</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Customer requests later date</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales requests hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other reason</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ReasonForFailure__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Reason For Failure</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Formatting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coding</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Requirements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Recall__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>IF( WorkRequestForm__r.Recall__c , &apos;Recall&apos;, &apos;Not Recall&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Recall</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReceivedDateTime__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>WorkRequestForm__r.SubmittedDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RequestedDate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Requested Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RequestedToDelivery__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>datevalue(DateTimeOfDelivery__c)-WorkRequestForm__r.RequestedDueDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Requested To Delivery</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RequestedToNegotiated__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>NegotiatedDate__c  -  WorkRequestForm__r.RequestedDueDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Requested To Negotiated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RerunCAR__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Click if you have Rerun, CAR or External Influence data to enter</inlineHelpText>
+        <label>Rerun CAR</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RoyaltyRecordsIncluded__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Royalty Records Included</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SecondarySalesEmail__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Secondary Sales Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SetupNotesAttached__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Setup Notes Attached</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SetupNotes__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Setup Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>StartToDelivered__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>CASE(MOD( StartDate__c - DATE(1985,6,24),7), 
+
+0 , CASE( MOD( datevalue(DateTimeOfDelivery__c) - StartDate__c ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 
+
+1 , CASE( MOD( datevalue(DateTimeOfDelivery__c) - StartDate__c ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 
+
+2 , CASE( MOD( datevalue(DateTimeOfDelivery__c) - StartDate__c ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 
+
+3 , CASE( MOD( datevalue(DateTimeOfDelivery__c) - StartDate__c ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 
+
+4 , CASE( MOD( datevalue(DateTimeOfDelivery__c) - StartDate__c ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 
+
+5 , CASE( MOD( datevalue(DateTimeOfDelivery__c) - StartDate__c ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 
+
+6 , CASE( MOD( datevalue(DateTimeOfDelivery__c) - StartDate__c ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 
+
+999) 
+
++ 
+
+(FLOOR(( datevalue(DateTimeOfDelivery__c) - StartDate__c )/7)*5)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Production Work Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>text(JobStatusOverride__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubmittedDate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Submitted Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SubmittedToAssigned__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>(CASE(MOD( datevalue( SubmittedDate__c ) - DATE(1985,6,24),7), 
+0 , CASE( MOD( ProgrammerAssignedDate__c - datevalue(SubmittedDate__c) ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 
+1 , CASE( MOD( ProgrammerAssignedDate__c - datevalue(SubmittedDate__c) ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 
+2 , CASE( MOD( ProgrammerAssignedDate__c - datevalue(SubmittedDate__c) ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 
+3 , CASE( MOD( ProgrammerAssignedDate__c - datevalue(SubmittedDate__c) ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 
+4 , CASE( MOD( ProgrammerAssignedDate__c - datevalue(SubmittedDate__c) ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 
+5 , CASE( MOD( ProgrammerAssignedDate__c - datevalue(SubmittedDate__c) ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 
+6 , CASE( MOD( ProgrammerAssignedDate__c - datevalue(SubmittedDate__c) ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 
+999) 
++ 
+(FLOOR(( ProgrammerAssignedDate__c - datevalue(SubmittedDate__c) )/7)*5) ) - 1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Production Queue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubmittedToDelivery__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>(CASE(MOD( datevalue( SubmittedDate__c ) - DATE(1985,6,24),7), 
+0 , CASE( MOD (datevalue(DateTimeOfDelivery__c) - datevalue(SubmittedDate__c) ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 
+1 , CASE( MOD (datevalue(DateTimeOfDelivery__c )- datevalue(SubmittedDate__c) ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 
+2 , CASE( MOD (datevalue(DateTimeOfDelivery__c) - datevalue(SubmittedDate__c) ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 
+3 , CASE( MOD (datevalue(DateTimeOfDelivery__c) - datevalue(SubmittedDate__c) ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 
+4 , CASE( MOD (datevalue(DateTimeOfDelivery__c) - datevalue(SubmittedDate__c) ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 
+5 , CASE( MOD (datevalue(DateTimeOfDelivery__c) - datevalue(SubmittedDate__c) ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 
+6 , CASE( MOD (datevalue(DateTimeOfDelivery__c) - datevalue(SubmittedDate__c) ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 
+999) 
++ 
+(FLOOR(( datevalue(DateTimeOfDelivery__c) - datevalue(SubmittedDate__c) )/7)*5) ) - TotalDaysOnHold__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Production Time to Serve</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team1__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Programmer&apos;s Team</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Aftersales-Chrysler</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>APAC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ESS-Delivery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Forecasting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MCM-Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MCM-Marketing Databases</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MCM-Market Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MCM-Target Marketing Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MEL-Delivery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MR-Aftermarket</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MR-Commercial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MR-Loyalty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MR-Market Reporting BI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MR-Network Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PolkConnect Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PolkConnect System</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VIN-Recall</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VIN-VIN Decoders</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VIN-VVS</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TeamGroup__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Team &amp; Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AIS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analytic Solutions - Loyalty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analytic Solutions - Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Commercial/Aftermarket</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mapping</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM Marketing - Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM Marketing - List Fulfillment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM Marketing - Marketing Development</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM Marketing - Recall/Trace</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM Marketing - Unified Fulfillment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM Stat - Fulfillment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM Stat - PolkInsight</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software Services</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ThirdResource__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Third Resource</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>PLCJobs1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ThirdTeam__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Third Team</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mapping</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM-List</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OEM-Stat</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software Services</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TotalActualCost__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>ActualCost__c  +  (JobActualHours__c  * CostFactor__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Actual Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TotalDaysOnHold__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>DaysOnHold1__c  +  DaysOnHold2__c +  DaysOnHold3__c + DaysOnHold4__c  +  DaysOnHold5__c  +  ActiveDaysOnHold__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Days On Hold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalDeliverables__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Total Deliverables</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalEstimatedCost__c</fullName>
+        <description>This field is used for WRF-POLK. Total Cost based on Estimated hours</description>
+        <externalId>false</externalId>
+        <formula>ActualCost__c + ( JobEstimatedHours__c  * CostFactor__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Estimated Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TotalJobEstimate__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Programming Hours Estimate</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalReworkHours__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Total Rework Hours</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WRFQuality__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Setup</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved, Set-up Required</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approved, No Set-up</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>WRFSubBrand__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>text (WorkRequestForm__r.SubBrand__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Used by the St. Albans production team.</inlineHelpText>
+        <label>WRF Sub Brand</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WRFSubmitted__c</fullName>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <formula>WorkRequestForm__r.SubmittedDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>WRF Submitted</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WorkRequestForm__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used for WRF-POLK.</description>
+        <externalId>false</externalId>
+        <label>Work Request Form</label>
+        <referenceTo>WorkRequestForm__c</referenceTo>
+        <relationshipLabel>PLC Jobs</relationshipLabel>
+        <relationshipName>PLCJobs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>PLC Job</label>
+    <listViews>
+        <fullName>APACWRF_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>APAC WRF</label>
+        <queue>APACWRF</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AustraliaWRF_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Australia WRF</label>
+        <queue>AustraliaWRF</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Autonews_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Autonews</label>
+        <queue>Autonews</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CanadaProduction_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Canada</label>
+        <queue>Canada</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Canada_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Canada</label>
+        <queue>Canada</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>EuropeanWRF_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>European WRF</label>
+        <queue>EuropeanWRF</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PolkConnectAnalytics_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>PolkConnect Analytics</label>
+        <queue>PolkConnectAnalytics</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PolkConnectSystem_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>PolkConnect System</label>
+        <queue>PolkConnectSystem</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SalesforceSupport_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Salesforce Support</label>
+        <queue>SalesforceSupport</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>VFACTS_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>VFACTS</label>
+        <queue>VFACTS</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Visualization_PLCJob</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Visualization</label>
+        <queue>Visualization</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>PLC-{0000}</displayFormat>
+        <label>PLC Job Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>PLC Jobs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>JobName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>JobStatus__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>WorkRequestForm__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>JobNumber__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>JobType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.ALIAS</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>JobName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>JobType__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>JobName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>JobNumber__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ExtendedJob__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.LAST_NAME</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

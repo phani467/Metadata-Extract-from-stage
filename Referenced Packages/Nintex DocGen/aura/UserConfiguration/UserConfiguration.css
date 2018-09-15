@@ -1,0 +1,39 @@
+.THIS .max-height {
+    max-height: 652px;
+}
+.THIS .labelContainer {
+    height: 28px;
+}
+.THIS .ddpContainer {
+    height: 259px;
+}
+.THIS .adjustedHeight {
+    height: 624px;
+}
+.THIS .picklistHeight {
+    height: 663px;
+}
+.THIS .testUserContainer {
+    height: 367px;
+}
+.THIS #addAdminContainer {
+    margin-top: 216px;
+}
+.THIS #removeAdminContainer {
+    margin-top: 8px;
+}
+.THIS #addUserContainer {
+    margin-top: 112px;
+}
+.THIS #removeUserContainer {
+    margin-top: 8px;
+}
+.THIS #addTesterContainer {
+    margin-top: 164px;
+}
+.THIS #removeTesterContainer {
+    margin-top: 8px;
+}
+.THIS #purchaseLink {
+    text-decoration: none;
+}

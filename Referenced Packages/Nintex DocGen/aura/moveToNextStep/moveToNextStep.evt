@@ -1,0 +1,4 @@
+<aura:event type="component">
+    <aura:attribute name="success" type="boolean" default="true"/>
+    <aura:attribute name="successMessage" type="string" default="Save successful!"/>
+</aura:event>

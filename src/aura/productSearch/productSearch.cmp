@@ -1,0 +1,221 @@
+<aura:component controller="productSearchController"  implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:registerEvent name="onProceedEvent" type="c:productSelected"/>
+    <aura:attribute name="oppyId" type="String" access="global" />
+    <aura:attribute name="productName" type="String"/>
+    <aura:attribute name="lstProductsSearched" type="ProductSelectorWrapperClass"/>
+    <aura:attribute name="lstProductsSelected"  type="ProductSelectorWrapperClass"/>
+    <aura:attribute name="materialNumber" type="String"/>
+    <aura:attribute name="businessLine" type="String"/>
+    <aura:attribute name="subBusinessLine" type="String"/>
+    <aura:attribute name="profitCenter" type="String"/>
+    <aura:attribute name="internalProductName" type="String"/>
+    <aura:attribute name="mediaType" type="String"/>
+    <aura:attribute name="productsAlreadyInOppy" type="String[]"/>
+    <aura:attribute name="familyName" type="String"/>
+    <aura:attribute name="existingLegalEntity" type="String"/>
+    <aura:attribute name="legalEntity" type="String"/>
+    <aura:attribute name="lstLegalEntity" type="LegalEntity__c[]" />
+    <aura:attribute name="openModal" type="Boolean" default="False"/>
+    <aura:attribute name="scrollCheckIntervalId" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.familyName}" action="{!c.onFilterChange}"/>
+    <aura:handler name="change" value="{!v.productName}" action="{!c.onFilterChange}"/>
+    <aura:handler name="change" value="{!v.materialNumber}" action="{!c.onFilterChange}"/>
+    <aura:handler name="change" value="{!v.businessLine}" action="{!c.onFilterChange}"/>
+    <aura:handler name="change" value="{!v.subBusinessLine}" action="{!c.onFilterChange}"/>
+    <aura:handler name="change" value="{!v.profitCenter}" action="{!c.onFilterChange}"/>
+    <aura:handler name="change" value="{!v.internalProductName}" action="{!c.onFilterChange}"/>
+    <aura:handler name="change" value="{!v.mediaType}" action="{!c.onFilterChange}"/>
+    <aura:handler event="aura:waiting" action="{!c.waiting}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.doneWaiting}" />
+    <aura:attribute name="allProductsLoaded" type="Boolean" default="False"/> 
+    <aura:attribute name="offsetLimitReached" type="Boolean" default="False"/>
+    <aura:attribute name="delayTimer" type="String" />
+    
+    <lightning:card >
+        <lightning:layout horizontalAlign="center" verticalAlign="end">
+            <p class="slds-text-heading--large">Search Products</p>
+        </lightning:layout>
+        <!--Legal Entity section-->
+        <div class="slds-grid">
+            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--3-of-12 slds-large-size--3-of-12">
+                
+                <b><ui:outputText class="field" value="Legal Entity "/></b>       
+                <lightning:select name="legalEntity"  value="{!v.legalEntity}" label="Legal Entity" variant="label-hidden" onchange="{!c.openModal}">
+                    <option value="--None--">--None--</option>
+                    <aura:iteration var="legEnt" items="{!v.lstLegalEntity}" indexVar="LE">
+                        <option value="{!legEnt.Id}">{!legEnt.Name}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+        </div>
+        <lightning:spinner variant="brand" size="large" aura:id="mySpinner" alternativeText="loading" class="slds-hide slds-is-relative"/>
+        <!--Legal Entity section Ends-->
+        <aura:if isTrue="true">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                    
+                    <lightning:input type="search" label="Product Name" 
+                                     name="product" placeholder="Type product name to search" value="{!v.productName}" disabled="{!v.legalEntity=='--None--'}" />
+                    <lightning:input type="search" label="Internal Product Name" 
+                                     name="internal product" placeholder="Type internal product name to search" value="{!v.internalProductName}" disabled="{!v.legalEntity=='--None--'}" />
+                    <lightning:input type="search" label="Media Type" 
+                                     name="mediaType" placeholder="Type Media type to search" value="{!v.mediaType}" disabled="{!v.legalEntity=='--None--'}" />
+                    <lightning:input type="search" label="Business line" 
+                                     name="businessLine" placeholder="Type business line to search" value="{!v.businessLine}" disabled="{!v.legalEntity=='--None--'}" />
+                </div>
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                    <div class=".slds-text-heading--large">
+                        <lightning:input type="search" label="Material Code" 
+                                         name="material" placeholder="Type Material Code to search" value="{!v.materialNumber}" disabled="{!v.legalEntity=='--None--'}" /> 
+                        <lightning:input type="search" label="Sub Business line" 
+                                         name="subbusiness" placeholder="Type Sub-business line to search" value="{!v.subBusinessLine}" disabled="{!v.legalEntity=='--None--'}" />
+                        <lightning:input type="search" label="Profit Center" 
+                                         name="profitcenter" placeholder="Type Profit center line to search" value="{!v.profitCenter}" disabled="{!v.legalEntity=='--None--'}" />
+                        <lightning:input type="search" label="Family Name" 
+                                         name="family" placeholder="Type product name to search" value="{!v.familyName}" disabled="{!v.legalEntity=='--None--'}" /> 
+                    </div>
+                </div>
+            </div>
+            <div class="slds-m-top_large">
+                <aura:If isTrue="{!!empty(v.lstProductsSelected)}">
+                    <lightning:layout horizontalAlign="spread" verticalAlign="end">
+                        <p class="slds-text-heading--medium">Selected products</p>
+                    </lightning:layout>
+                    <aura:iteration var="selProd" items="{!v.lstProductsSelected}" indexVar="index">
+                        <lightning:pill label="{!selProd.productName}"  name="{!index}" onremove="{!c.onRemoveButtonClick}" >
+                            <aura:set attribute="media">
+                                <lightning:icon iconName="standard:product"  alternativeText="Product"/>
+                            </aura:set>
+                        </lightning:pill>
+                    </aura:iteration>
+                </aura:If>
+            </div>
+            
+            
+            <div class="slds-p-top_small slds-p-bottom_xx-large slds-scrollable--y scroller"  aura:id="scrollContainer"  >
+                <aura:if isTrue="{!!empty(v.lstProductsSearched)}">
+                    <lightning:layout horizontalAlign="spread" verticalAlign="end">
+                        <p class="slds-text-heading--medium">Select products</p>
+                    </lightning:layout>
+                    
+                    <table class="slds-table slds-table_bordered"  >
+                        <thead>
+                            <tr class="slds-text-title_caps slds-cell-wrap">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Select">Select</div>
+                                </th>
+                                <th scope="col"  >
+                                    <div title="Product Name">Product Name</div>
+                                </th>
+                                <th scope="col"  >
+                                    <div title="Internal Product Name">Internal Product Name</div>
+                                </th>
+                                <th scope="col" class="slds-cell-wrap">
+                                    <div class="slds-truncate" title="Material">Material Code</div>
+                                </th>
+                                <th scope="col" class="slds-cell-wrap">
+                                    <div class="slds-truncate" title="Media Type">Media Type</div>
+                                </th>
+                                <th scope="col" class="slds-cell-wrap">
+                                    <div class="slds-truncate" title="Business Line">Business Line</div>
+                                </th>
+                                <th scope="col" class="slds-cell-wrap">
+                                    <div class="slds-truncate" title="Sub Business Line">Sub Business Line</div>
+                                </th>
+                                <th scope="col" class="slds-cell-wrap">
+                                    <div class="slds-truncate" title="Profit Center">SAP Profit Center</div>
+                                </th>
+                                <th scope="col" class="slds-cell-wrap">
+                                    <div class="slds-truncate" title="Family Name">SAP Family</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <aura:iteration var="prod" items="{!v.lstProductsSearched}" indexVar="index">
+                                <tr scope="row" data-label="Select">
+                                    <th>
+                                        <div class="slds-truncate" title="Select">
+                                            
+                                            <!-- <input type="checkbox" DATA-index="{!index}"  checked="" id="{!'cb'+index}" />-->                                             
+                                            <lightning:buttonIcon iconName="utility:add" variant="bare" name="{!index}" onclick="{! c.onProductSelection }" alternativeText="Select Product" />                                           
+                                            <!--<label class="slds-checkbox__label" for="{!'cb'+index}">
+                                                    <span class="slds-checkbox_faux"></span>
+                                                </label>-->
+                                            
+                                        </div>
+                                    </th>
+                                    <td data-label="Product Name"  class="slds-cell-wrap">
+                                        <div  title="Product Name"><ui:outputText value="{!prod.product.Name}" /></div>
+                                    </td>
+                                    <td data-label="Internal Product Name"  class="slds-cell-wrap">
+                                        <div title="Internal Product Name"><ui:outputText value="{!prod.product.InternalProductName__c}" /></div>
+                                    </td>
+                                    <td data-label="Material" class="slds-cell-wrap" >
+                                        <div  title="Material Code"><ui:outputText value="{!prod.product.MaterialCode__c}" /></div>
+                                    </td>
+                                    <td data-label="Media Type" class="slds-cell-wrap">
+                                        <div title="Media Type"><ui:outputText value="{!prod.product.MediaType__c}" /></div>
+                                    </td>
+                                    <td data-label="Business Line" class="slds-cell-wrap">
+                                        <div title="Business Line"><ui:outputText value="{!prod.product.BusinessLine2__r.Name}" /></div>
+                                    </td>
+                                    <td data-label="Sub Business Line" class="slds-cell-wrap">
+                                        <div  title="Sub Business Line"><ui:outputText value="{!prod.product.SubBusinessLine__r.Name}" /></div>
+                                    </td>
+                                    <td data-label="Profit Center" class="slds-cell-wrap">
+                                        <div  title="Profit Center"><ui:outputText value="{!prod.product.ProfitCenters__r.Name}" /></div>
+                                    </td>
+                                    <td data-label="Family Name" class="slds-cell-wrap">
+                                        <div  title="Family Name"><ui:outputText value="{!prod.product.Family__r.Name}" /></div>
+                                    </td>
+                                </tr>
+                            </aura:iteration>                            
+                        </tbody>
+                    </table>                    
+                </aura:if>
+            </div>
+            <lightning:spinner variant="brand" size="small" aura:id="productSpinner" alternativeText="loading more products" class="slds-hide slds-is-relative"/>
+            <aura:if isTrue="{!v.allProductsLoaded}">
+                <ui:message title="No More Products" severity="message " closable="false">
+                         {!$Label.c.ProductLoadError}
+                </ui:message>                
+            </aura:if>
+             <aura:if isTrue="{!v.offsetLimitReached}">
+                <ui:message title="List size limit reached" severity="message " closable="false">
+                         {!$Label.c.OffsetLimitError}
+                </ui:message>                
+            </aura:if>
+        </aura:if> 
+        <div class="slds-m-top_xx-large"></div>
+        <div class="slds-docked-form-footer">
+            <lightning:layout horizontalAlign="space" verticalAlign="end" >
+                <lightning:button variant="brand" label="Proceed" iconName="utility:chevronright" iconPosition="right" onclick="{!c.onProceed}" disabled="{!v.legalEntity=='--None--' || v.lstProductsSelected.length==0}" />
+                <lightning:button variant="brand" label="Cancel" iconName="utility:close" iconPosition="right" onclick="{!c.cancel}"  />
+            </lightning:layout>
+        </div>
+        <aura:if isTrue="{!v.openModal}">
+            <div class="demo-only" style="height: 640px;">
+                <div role="dialog" tabindex="-1"  class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick="{!c.closeModal}" >
+                                X
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Change Legal Entity?</h2>
+                        </div>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <p> {!$Label.c.LegalEntityError} </p>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <button class="slds-button slds-button_neutral" onclick="{!c.closeModal}">No</button>
+                            <button class="slds-button slds-button_brand" onclick="{!c.onLegalEntitySelection}">Yes</button>
+                        </footer>
+                    </div>
+                </div>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>    
+        </aura:if>
+    </lightning:card>
+</aura:component>

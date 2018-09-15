@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-675
+Required to add additional details to the processing additional fields record type.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AccountType__c</fullName>
+        <description>SFDC1-675.
+Account type of looked up account.</description>
+        <externalId>false</externalId>
+        <formula>Text( Account__r.Type )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-675
+Lookup to accounts.</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Related Case Accounts</relationshipLabel>
+        <relationshipName>RelatedCaseAccounts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalField__c</fullName>
+        <description>SFDC1-675
+Master-Detail with the additional fields object.</description>
+        <externalId>false</externalId>
+        <label>Additional Field</label>
+        <referenceTo>AdditionalCaseFields__c</referenceTo>
+        <relationshipLabel>Related Case Accounts</relationshipLabel>
+        <relationshipName>RelatedCaseAccounts</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>PKIDRelCaseAcct__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>RCA{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID RelCaseAcct</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>ParentAccount__c</fullName>
+        <description>SFDC1-675.
+Parent account of account lookup.</description>
+        <externalId>false</externalId>
+        <formula>Account__r.Parent.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Parent Account</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RelatedRole__c</fullName>
+        <description>SFDC1-675
+Role related to the account.</description>
+        <externalId>false</externalId>
+        <label>Related Role</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Central Counterparty Clearing House</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clearing Broker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executing Broker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fund Administrator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prime Broker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEF - Execution Facility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STP Vendor</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Related Case Accounts</label>
+    <nameField>
+        <displayFormat>RCA-{000000}</displayFormat>
+        <label>Related Case Accounts Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Related Case Accounts</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

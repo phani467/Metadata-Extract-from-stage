@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-466 Email Template for Status Change in Ad Claim Change Log</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Email On Ad Claim Change Log Status Change</name>
+    <style>none</style>
+    <subject>Ad Claim Change Log Status Change Notification - {!AdClaimChangeLog__c.Status__c}</subject>
+    <textOnly>**ATTENTION-ACTION NEEDED**
+
+The following Ad Claim Change Log has had a Status change:
+
+Change Log Number: {!AdClaimChangeLog__c.Name}
+Parent Ad Claim:{!AdClaimChangeLog__c.AdClaim__c}
+Requester: {!AdClaimChangeLog__c.Requester__c}
+Request Date:{!AdClaimChangeLog__c.RequestDate__c}
+Status:{!AdClaimChangeLog__c.Status__c}
+Link to Change Log:{!AdClaimChangeLog__c.Link}
+
+
+{!IF(ISPICKVAL(AdClaimChangeLog__c.Status__c,&apos;Rejected&apos;),&apos;Rejection Comments:&apos;+AdClaimChangeLog__c.RejectionComments__c,&apos;&apos;)}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

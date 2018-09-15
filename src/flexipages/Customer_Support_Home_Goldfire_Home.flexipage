@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>bannerText</name>
+                <value>Welcome!</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>bannerTextWithKnowledge</name>
+                <value>Explore other &lt;a href=&quot;javascript:void(0)&quot; class=&quot;headlineArticles&quot;&gt;articles&lt;/a&gt; and &lt;a href=&quot;javascript:void(0)&quot; class=&quot;headlineDiscussions&quot;&gt;discussions&lt;/a&gt; on this topic.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>bannerTextWithoutKnowledge</name>
+                <value>Explore other &lt;a href=&quot;javascript:void(0)&quot; class=&quot;headlineDiscussions&quot;&gt;discussions&lt;/a&gt; on this topic.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>pageType</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>searchTerm</name>
+                <value>{!searchString}</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showSubTopics</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Goldfire Support Home</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>topicId</name>
+                <value>{!topicId}</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>uniqueNameOrId</name>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:headline</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;p&gt;&lt;b style=&quot;font-size: 22px;&quot;&gt;Support Team Contact Information&lt;/b&gt;&lt;/p&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:richTextInline</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;div class=&quot;slds-grid slds-wrap&quot;&gt;
+    &lt;div class=&quot;slds-size_1-of-3 slds-p-around_large&quot;&gt;
+        &lt;div class=&quot;slds-box&quot;&gt;
+        	&lt;p&gt;
+                &lt;strong style=&quot;font-size:18px&quot;&gt;Phone&lt;/strong&gt;&lt;br/&gt;
+                &lt;a href=&quot;tel:+18004472273&quot;&gt;+1 800 IHS-CARE (+1 800 447-2273)&lt;/a&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;slds-size_1-of-3 slds-p-around_large&quot;&gt;
+        &lt;div class=&quot;slds-box&quot;&gt;
+			&lt;p&gt;
+                &lt;strong style=&quot;font-size:18px&quot;&gt;Email&lt;/strong&gt;&lt;br/&gt;
+                &lt;a href=&quot;mailto:GoldfireSupport@ihs.com&quot;&gt;GoldfireSupport@ihs.com&lt;/a&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;slds-size_1-of-3 slds-p-around_large&quot;&gt;
+        &lt;div class=&quot;slds-box&quot;&gt;
+			&lt;p&gt;
+                &lt;strong style=&quot;font-size:18px&quot;&gt;Hours of Operation&lt;/strong&gt;&lt;br/&gt;
+                Monday &amp;mdash; Friday&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;8:00am &amp;mdash; 6:00pm ET
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:htmlBlock</componentName>
+        </componentInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>btnTitle</name>
+                <value>Contact Support</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>btnURL</name>
+                <value>https://vertiba-ihsmarkitportal.cs90.force.com/customers/s/contactsupport</value>
+            </componentInstanceProperties>
+            <componentName>lightnksdn:CommunityCustomButton</componentName>
+        </componentInstances>
+        <name>featured</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;p&gt;&lt;b style=&quot;font-size: 22px;&quot;&gt;Take a Look at What&apos;s Going On In The Community&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;View Knowledge Articles, Contact Support, and More!&lt;/p&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:richTextInline</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Featured Topics</value>
+            </componentInstanceProperties>
+            <componentName>forceTopic:featuredTopics</componentName>
+        </componentInstances>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>numberOfTopics</name>
+                <value>5</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTopicsMetric</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Trending Topics</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:trendingTopics</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>numberOfArticles</name>
+                <value>5</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Trending Articles</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>topicId</name>
+            </componentInstanceProperties>
+            <componentName>selfService:topicTrendingArticles</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>numberOfTopics</name>
+                <value>5</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTopicsMetric</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Trending Topics</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:trendingTopics</componentName>
+        </componentInstances>
+        <name>sidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Home_Goldfire Home</masterLabel>
+    <pageTemplate>siteforce:sldsTwoCol84SidebarFeaturedLayout</pageTemplate>
+    <type>CommAppPage</type>
+</FlexiPage>

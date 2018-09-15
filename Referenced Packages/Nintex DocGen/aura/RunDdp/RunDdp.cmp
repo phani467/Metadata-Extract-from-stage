@@ -1,0 +1,225 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable,force:lightningQuickAction,forceCommunity:availableForAllPageTypes" controller="Loop.RunDdpController" access="global">
+    <ltng:require scripts="/resource/Loop__Scripts/eventListener.js"/>
+
+    <aura:attribute name="title" type="string" default="Nintex DocGen" access="global"/>
+    <aura:attribute name="startExpanded" type="boolean" default="false" access="global"/>
+    <aura:attribute name="ddpLabel" type="string" default="DocGen Package" access="global"/>
+    <aura:attribute name="runButtonLabel" type="string" default="Generate Documents" access="global"/>
+    
+    <!--Optional attributes-->
+    <aura:attribute name="ddpId" type="string"/>
+    <aura:attribute name="contactId" type="string"/>
+    <aura:attribute name="documentIds" type="List"/>
+    <aura:attribute name="deliveryOptionId" type="string"/>
+    <aura:attribute name="attachments" type="List" description="List of Adhoc.DocumentTileData"/>
+    <aura:attribute name="recordId" type="string"/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="globalId" type="string" default="" access="private"/>
+    <aura:attribute name="context" type="string" default="DEFAULT" description="Accepts DEFAULT, TEST, and UTILITYBAR to display the appropriate steps to run in different contexts."/>
+    <aura:attribute name="runTestAvailable" type="boolean" default="false" access="private"/>
+    <aura:attribute name="isTest" type="boolean" default="false"/>
+    <aura:attribute name="attachToRecord" type="boolean" default="false" access="private"/>
+    <aura:attribute name="selectedContentLibrary" type="string" default="" description="The Id for the selected content library folder the user wants to attach the final output to."/>
+    <aura:attribute name="downloadLinks" type="List" default="[]" description="Each element should contain a '.name', '.link' and '.fileType'."/>
+    <aura:attribute name="deliveryOptionType" type="string" access="private"/>
+   	<aura:attribute name="objectName" type="string" default="" description="Name of the starting object"/>
+    <aura:attribute name="objectPluralLabel" type="string" default="" description="Plural label of the starting object"/>
+    <aura:attribute name="contactRequired" type="boolean" default="false" access="private"/>
+    <aura:attribute name="attachmentAllowed" type="boolean" default="false" access="private"/>
+    <aura:attribute name="attachmentRequired" type="boolean" default="false" access="private"/>
+    <aura:attribute name="hasAdhocApexClass" type="boolean" default="false" access="private"/>
+    <aura:attribute name="runDisabled" type="boolean" default="true" access="private"/>
+    <aura:attribute name="ddpFinished" type="boolean" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="string" default="" access="private"/>
+    <aura:attribute name="returnUri" type="string" default="" access="private"/>
+    <aura:attribute name="displayDocumentSection" type="boolean" default="false"/>
+    <aura:attribute name="documentNextButtonDisabled" type="boolean" default="true" access="private" description="If the user has fulfilled the necessary selections for attachments or optional documents, this will be false."/>
+    <aura:attribute name="currentESignRecipients" type="List" default="[]" description="List of current E-Sign recipients."/>
+    <aura:attribute name="finalMessage" type="string" default="" access="private" description="Message to display to user after DocGen Package has finished."/>
+    <aura:attribute name="isTestDelivery" type="boolean" default="false" description="Indicates the 'Download (Test)' Delivery Option was selected."/>
+    <aura:attribute name="loopUrl" type="string" default="" description="Control what endpoint requests are sent to using: Staging, Previous, etc."/>
+    <aura:attribute name="hasDocuments" type="boolean" default="true" description="If a DocGen Package in the TEST context has no documents, hide everything and show a toast."/>
+    <aura:attribute name="isSalesforce1" type="boolean" default="false" description="Authorization is required prior to using the App in Salesforce1. Make sure users have it before moving forward."/>
+    <aura:attribute name="isReady" type="boolean" default="false" description="Once initialization is done, this is true."/>
+    <aura:attribute name="isCustomizeApplication" type="boolean" default="false"/>
+    <aura:attribute name="authorizationDenied" type="boolean" default="false"/>
+    
+    <!--Attributes for downloading in SF1-->
+    <aura:attribute name="sessionId" type="string"/>
+    <aura:attribute name="partnerServerUrl" type="string"/>
+    <aura:attribute name="userId" type="string"/>
+    <aura:attribute name="isSandbox" type="boolean"/>
+
+    <!--Email attributes-->
+    <aura:attribute name="emailSubject" type="string" default=""/>
+    <aura:attribute name="emailText" type="string" default=""/>
+    
+    <!--DocuSign reminder attributes-->
+    <aura:attribute name="reminderDelay" type="decimal" default="0"/>
+    <aura:attribute name="reminderFrequency" type="decimal" default="0"/>
+    <aura:attribute name="expireAfter" type="decimal" default="0"/>
+    <aura:attribute name="expireWarn" type="decimal" default="0"/>
+    
+    <!--OAuth attributes-->
+    <aura:attribute name="needsAuthentication" type="boolean" default="false"/>
+    <aura:attribute name="oAuthUrl" type="string"/>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="recordSelected" event="Loop:recordSelected" action="{!c.handleRecordSelected}"/>
+    <aura:handler name="ddpSelected" event="Loop:ddpSelected" action="{!c.handleDdpSelected}"/>
+    <aura:handler name="contactSelected" event="Loop:contactSelected" action="{!c.handleContactSelected}"/>
+    <aura:handler name="documentSelected" event="Loop:documentSelected" action="{!c.handleDocumentSelected}"/>
+    <aura:handler name="deliveryOptionSelected" event="Loop:deliveryOptionSelected" action="{!c.handleDeliveryOptionSelected}"/>
+    <aura:handler name="collapseOtherAccordionSections" event="Loop:collapseOtherAccordionSections" action="{!c.collapseOtherAccordionSections}"/>
+    <aura:handler name="showError" event="Loop:showError" action="{!c.showError}"/>
+    <aura:handler name="exposeSecondaryAccordionSections" event="Loop:exposeSecondaryAccordionSections" action="{!c.revealSecondaryAccordionSections}"/>
+    <aura:handler name="updateESignRecipientsList" event="Loop:updateESignRecipientsList" action="{!c.handleUpdateESignRecipientsList}"/>
+    <aura:handler name="enableModifyButtons" event="Loop:enableModifyButtons" action="{!c.enableModifyButtons}"/>
+    <aura:handler name="attachmentsSelected" event="Loop:attachmentsSelected" action="{!c.saveAttachments}"/>
+    <aura:handler name="removeAttachment" event="Loop:removeAttachment" action="{!c.updateRemoveAttachment}"/>
+    <aura:handler name="documentSelectionCompleted" event="Loop:documentSelectionCompleted" action="{!c.completedOptionalDocumentSelection}"/>
+    <aura:handler name="continueDelivery" event="Loop:continueDelivery" action="{!c.continueDelivery}"/>
+    <aura:handler name="actionEvent" event="Loop:actionEvent" action="{!c.handleActionEvent}"/>
+    
+    <!--Handled slider events-->
+    <aura:handler name="slideInAttachments" event="Loop:slideInAttachments" action="{!c.slideInAttachments}"/>
+    <aura:handler name="slideOutAttachments" event="Loop:slideOutAttachments" action="{!c.slideOutAttachments}"/>
+    <aura:handler name="slideInEditEmail" event="Loop:slideInEditEmail" action="{!c.slideInEditEmail}"/>
+    <aura:handler name="slideOutEditEmail" event="Loop:slideOutEditEmail" action="{!c.slideOutEditEmail}"/>
+    <aura:handler name="updateSlideEmail" event="Loop:updateSlideEmail" action="{!c.updateSlideEmail}"/>
+    <aura:handler name="slideInDocuSignReminders" event="Loop:slideInDocuSignReminders" action="{!c.slideInDocuSignReminders}"/>
+    <aura:handler name="slideOutDocuSignReminders" event="Loop:slideOutDocuSignReminders" action="{!c.slideOutDocuSignReminders}"/>
+    <aura:handler name="updateDocuSignReminders" event="Loop:updateDocuSignReminders" action="{!c.updateDocuSignReminders}"/>
+    <aura:handler name="slideInEmailComposer" event="Loop:slideInEmailComposer" action="{!c.slideInEmailComposer}"/>
+    <aura:handler name="slideOutEmailComposer" event="Loop:slideOutEmailComposer" action="{!c.slideOutEmailComposer}"/>
+    
+    <!--Methods-->
+    <aura:method name="processDdpFinished" action="{!c.processDdpFinished}"/>
+    <aura:method name="ddpSuccessful" action="{!c.ddpSuccessful}">
+        <aura:attribute name="message" type="string" default="" required="true"/>
+    </aura:method>
+    
+    <div class="slds">
+        <div class="slds-card">
+            <div aura:id="header" class="slds-card__header slds-grid" style="padding-bottom: .75rem;margin: 0;">
+                <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                    <div class="slds-grid" style="width: 100%;">
+                        <div class="slds-col slds-align-middle button-compensation-margin">
+                            <h2 class="slds-truncate">
+                                <div class="runDdpIcon">
+                                    <Loop:Svg class="runDdpSvg" xlinkHref="{!$Resource.Loop__Styles + '/images/runDdp.svg#runDdp'}"/>
+                                </div>
+                                <span class="component-header-label">{!v.title}</span>
+                            </h2>
+                        </div>
+                        <aura:if isTrue="{!v.context == 'TEST'}">
+                            <div class="slds-col--bump-left">
+                                <button class="slds-button slds-button--neutral" onclick="{!c.refresh}">Refresh</button>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!!v.startExpanded &amp;&amp; v.context != 'TEST' &amp;&amp; !v.isSalesforce1 &amp;&amp; v.isReady}">
+                            <div class="slds-col--bump-left">
+                                <button aura:id="selectDdpButton" class="slds-button slds-button--neutral" onclick="{!c.handleClickSelectDdp}">{!'Select ' + v.ddpLabel}</button>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+            <aura:if isTrue="{!v.hasDocuments}">
+                <div aura:id="runDdpContainer" class="hidden" style="background: #fff;">
+                    <div aura:id="runDdp">
+                        <aura:if isTrue="{!v.context == 'TEST' || v.context == 'UTILITYBAR'}">
+                            <Loop:AccordionSection aura:id="recordAccordionSection" sectionName="recordAccordionSection" label="Record">
+                                <Loop:RecordSelection aura:id="recordSelect-component" recordId="{!v.recordId}" selectedDdp="{!v.ddpId}" objectName="{!v.objectName}" objectPluralLabel="{!v.objectPluralLabel}" ddpLabel="{!v.ddpLabel}"/>
+                            </Loop:AccordionSection>
+                        </aura:if>
+                        <aura:if isTrue="{!v.context == 'DEFAULT' || v.context == 'UTILITYBAR'}">
+                            <Loop:AccordionSection aura:id="ddpAccordionSection" sectionName="ddpAccordionSection" label="{!v.ddpLabel}">
+                                <Loop:DdpSelection aura:id="ddpSelect-component" recordId="{!v.recordId}" selectedDdp="{!v.ddpId}" ddpLabel="{!v.ddpLabel}"/>
+                            </Loop:AccordionSection>
+                        </aura:if>
+                        <aura:if isTrue="{!!!v.ddpId &amp;&amp; !!v.recordId}">
+                            <Loop:LoadingTile aura:id="secondaryAccordionSectionsLoadingRow" class="top-border"/>
+                            <div aura:id="secondaryAccordionSections" class="hidden">
+                                <Loop:AccordionSection aura:id="contactAccordionSection" sectionName="contactAccordionSection" label="Contact" required="{!v.contactRequired}">
+                                    <Loop:ContactSelection aura:id="contactSelect-component" contactId="{!v.contactId}"/>
+                                </Loop:AccordionSection>
+                                <Loop:AccordionSection aura:id="documentAccordionSection" sectionName="documentAccordionSection" label="Document Selection" required="{!v.attachmentRequired}">
+                                    <Loop:HorizontalSlider aura:id="optionalDocumentSlider">
+                                        <Loop:OptionalDocumentSelection aura:id="documentSelect-component" ddpLabel="{!v.ddpLabel}"/>
+                                        <Loop:SelectAttachmentTiles aura:id="selectAttachmentTiles"/>
+                                    </Loop:HorizontalSlider>
+                                </Loop:AccordionSection>
+                                <Loop:AccordionSection aura:id="deliveryAccordionSection" sectionName="deliveryAccordionSection" label="Delivery Option" required="true">
+                                    <Loop:HorizontalSlider aura:id="deliveryOptionSlider">
+                                        <Loop:DeliveryOptionSelection aura:id="deliverySelect-component" objectName="{!v.objectName}" context="{!v.context}"/>
+                                        <div class="slds-grid" style="width:100%;">
+                                            <div class="slds-container-center content" style="min-width:100px; margin: .5rem 1rem;">
+                                                <div aura:id="emailContainer" hidden="true">
+                                                    <Loop:DeliveryOptionEmailForm aura:id="editEmail"/>
+                                                </div>
+                                                <div aura:id="reminderContainer" hidden="true">
+                                                    <Loop:ESignReminderForm aura:id="editDocuSignReminder"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Loop:HorizontalSlider>
+                                </Loop:AccordionSection>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+                <aura:set attribute="else">
+                    <div class="slds-m-horizontal--small" style="margin-bottom:4px;">
+                        <div class="slds-notify slds-theme--success toast-style" style="background-color:#4F6A92;">
+                            <div class="slds-notify__content slds-grid">
+                                <div class="slds-col slds-align-middle">
+                                    <h2 class="slds-text-heading--small">To test a DocGen Package, the "Select File" section must contain at least one document.</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aura:set>
+            </aura:if>
+            <div class="slds-grid">
+                <div aura:id="errorContainer" class="slds-grid--align-center slds-grid--vertical-align-center error-text border-top hidden" style="background: #fff;">
+                    <Loop:CustomTile status="error" message="{!v.errorMessage}" message2="{!v.context == 'TEST' ? 'If you have made any recent modifications, try refreshing the component and run again.' : ''}"/>
+                </div>
+            </div>
+            <div aura:id="documents" id="previewFiles" class="border-top hidden" style="background: white;">
+                <div style="overflow:hidden;">
+                    <Loop:HorizontalSlider aura:id="fileEmailSlider">
+                        <Loop:PreviewFiles aura:id="previewFiles" header="{!v.ddpLabel + ' Complete'}" message="{!v.finalMessage}" downloadLinks="{!v.downloadLinks}" deliveryOptionType="{!v.deliveryOptionType}" object="{!v.objectName}" returnUri="{!v.returnUri}" sessionId="{!v.sessionId}" partnerServerUrl="{!v.partnerServerUrl}" userId="{!v.userId}" isSandbox="{!v.isSandbox}"/>
+                        <Loop:EmailComposer aura:id="emailComposer" ddpLabel="{!v.ddpLabel}"/>
+                    </Loop:HorizontalSlider>
+                </div>
+            </div>
+            <div aura:id="processDdpContainer" class="border-top hidden">
+                <Loop:ProcessDdp aura:id="processDdp" ddpLabel="{!v.ddpLabel}"/>
+            </div>
+            <div aura:id="reRunButtons" class="border-top button-padding slds-align--absolute-center hidden">
+                <div class="slds-button-group">
+                    <button aura:id="startOverButton" class="slds-button slds-button--neutral" onclick="{!c.startOver}">Start Over</button>
+                    <button aura:id="modifyButton" class="slds-button slds-button--neutral" onclick="{!c.modifyDdp}">Modify Run</button>
+                    <button aura:id="rerunButton" class="slds-button slds-button--neutral" onclick="{!c.rerunDdp}">{!'Re-run ' + v.ddpLabel}</button>
+                </div>
+            </div>
+            <div aura:id="runDdpButton" class="border-top run-ddp-button hidden">
+                <aura:if isTrue="{!v.authorizationDenied}">
+                    <Loop:Toast toastClass="slds-notify slds-theme--warning slds-notify--toast" toastMessage="You need to authorize to generate documents." toastTextClass="" toastStyle="height:28px; margin: 0; width: 100%; min-width: 0px; text-align: left; padding: .25rem; border-radius: 0px;"/>
+                </aura:if>
+                <aura:if isTrue="{!v.ddpId &amp;&amp; v.needsAuthentication}">
+                    <Loop:Toast toastClass="slds-notify slds-notify--toast" toastMessage="Authorization is required to Run." toastTextClass="" toastStyle="height:28px; margin: 0; width: 100%; min-width: 0px; text-align: left; padding: .25rem; border-radius: 0px;"/>
+                </aura:if>
+                <div class="button-padding">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.handleRunTestClick}" style="{!'display:' + (v.runTestAvailable ? 'inline-block;' : 'none;')}" disabled="{!v.runDisabled}">{!v.needsAuthentication ? 'Authorize &amp; Test' : 'Run Test'}</button>
+                    <button class="slds-button slds-button--brand slds-m-left--x-small" onclick="{!c.handleRunDdpClick}" style="display:inline-block;" disabled="{!v.runDisabled}">{!v.runButtonLabel}</button>
+                    <Loop:ApplicationAuthorization aura:id="docGenAuth" businessContext="BASIC_AUTH" viewContext="STAND_ALONE"/>
+                </div>
+            </div>
+        </div>
+        <Loop:Prompt aura:id="errorPrompt" headerTheme="slds-theme--error slds-theme--alert-texture"/>
+    </div>
+</aura:component>

@@ -1,0 +1,302 @@
+<!----------------------- Header Begins ------------------------->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title></title><link rel="SHORTCUT ICON" href="/e/ref.ico" />
+    
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="telephone=no">
+    <style type="text/css" media="screen">
+      /* Linked Styles */
+      a, img {
+        border: 0px;
+        outline: 0px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      body {
+        padding:0 !important;
+        margin:0 !important;
+        display:block !important;
+        width:100% !important;
+        background:#e4e7e6;
+        -webkit-text-size-adjust:none 
+      }
+      a {
+        color:#00B140;
+        text-decoration:none;
+        font-weight:bold 
+      }
+      p {
+        padding:0 !important;
+        margin:0 !important 
+      }
+      .button a:link {
+        color:#FFFFFF;
+        font-family:arial;
+        font-size:20px;
+        line-height:22px;
+        text-align:center;
+        font-weight:bold;
+        text-transform:uppercase
+      }
+      .button a:visited {
+        color:#FFFFFF;
+        font-family:arial;
+        font-size:20px;
+        line-height:22px;
+        text-align:center;
+        font-weight:bold;
+        text-transform:uppercase
+      }
+      .button a:active {
+        color:#FFFFFF;
+        font-family:arial;
+        font-size:20px;
+        line-height:22px;
+        text-align:center;
+        font-weight:bold;
+        text-transform:uppercase
+      }
+      .button a:hover {
+        color:#FFFFFF;
+        font-family:arial;
+        font-size:20px;
+        line-height:22px;
+        text-align:center;
+        font-weight:bold;
+        text-transform:uppercase
+      }
+      .greenbutton {
+        background-color: #78be20;
+        padding: 8px 12px;
+        font-family: arial;
+        text-transform: uppercase;
+        line-height: 14px;
+        font-size: 12px;
+        color:#ffffff !important;
+      }
+      .h4 {
+        margin: 0px;
+        text-align: left;
+        color: #485865 !important;
+        text-transform: uppercase;
+        line-height: 14px;
+        letter-spacing: normal;
+        font-family: arial;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: medium;
+      }
+      .h1 {
+        margin: 0px;
+        text-align: left;
+        color: #00b140 !important;
+        line-height: 32px;
+        letter-spacing: normal;
+        font-family: arial;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: normal;
+      }
+      .h5 {
+        margin: 0px 0px 30px;
+        text-align: left;
+        color: #485865 !important;
+        line-height: 16px;
+        letter-spacing: normal;
+        font-family: arial;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: bold;
+        display: block;
+      }
+      .paragraph {
+        line-height: 21px;
+        font-family: arial;
+        font-size: 14px;
+        color: #485865;
+        font-weight: normal;
+      }
+      .title {
+        line-height: 26px;
+        font-family: arial;
+        font-size: 20px;
+        color: #485865;
+        font-weight: bold;
+      }
+      /* Mobile styles */
+      @media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
+        table[class='w320'] {
+          width: 320px !important;
+        }
+        div[class='mobile-br-5'] {
+          height: 5px !important;
+        }
+        div[class='mobile-br-10'] {
+          height: 10px !important;
+        }
+        div[class='mobile-br-15'] {
+          height: 15px !important;
+        }
+        div[class='line'] {
+          width: 100% !important;
+          height: 1px !important;
+          font-size:1px !important;
+        }
+        div[class='space-height'] {
+          width: 100% !important;
+          height: 22px !important;
+          font-size:1px !important;
+        }
+        td[class='m-td'], div[class='hide-for-mobile'], span[class='hide-for-mobile'] {
+          display: none !important;
+          width: 0 !important;
+          height: 0 !important;
+          font-size: 0 !important;
+          line-height: 0 !important;
+          min-height: 0 !important;
+        }
+        span[class='mobile-block'] {
+          display: block !important;
+        }
+        div[class='wgmail'] img {
+          min-width: 320px !important;
+          width: 320px !important;
+        }
+        div[class='full-width-img'] img {
+          width: 100% !important;
+          height: auto !important;
+        }
+        div[class='full-width-img2'] img {
+          width: 280px !important;
+          height: auto !important;
+        }
+        div[class='content-width-img'] img {
+          width: 300px !important;
+          height: auto !important;
+        }
+        td[class='column-320'] {
+          float: left !important;
+          width: 320px !important;
+          display: block !important;
+        }
+        td[class='column-300'] {
+          float: left !important;
+          width: 300px !important;
+          display: block !important;
+        }
+        td[class='column-280'] {
+          float: left !important;
+          width: 280px !important;
+          display: block !important;
+        }
+        td[class='column-270'] {
+          float: left !important;
+          width: 270px !important;
+          display: block !important;
+        }
+        td[class='column-line'] {
+          float: left !important;
+          width: 100% !important;
+          height: 1px !important;
+          font-size:0px !important;
+          display: block !important;
+          overflow:hidden;
+        }
+        td[class='content-spacing'] {
+          width: 15px !important;
+        }
+      }
+    </style>
+  </head>
+
+<!----------------------- Header Ends------------------------->
+
+<!----------------------- Body Begins------------------------->  
+<body>
+<table bgcolor="#ebebeb" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" valign="top">
+			<div style="height: 40px; line-height: 0pt; font-size: 0pt;"><img alt="" border="0" height="40" src="{!$Label.EmailBodyLink1}" style="height: 40px;" width="1"></div>
+
+			<div style="height: 24px; line-height: 0pt; font-size: 0pt;"><img alt="" border="0" height="24" src="{!$Label.EmailBodyLink1}" style="height: 24px;" width="1"></div>
+
+			<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="w320" width="600">
+				<tbody>
+					<tr>
+					</tr>
+					<tr>
+						<td height="90" width="490">
+						<div class="full-width-img"><img alt="" src="{!$Label.EmailBodyLink2}"></div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top">
+						<table border="0" cellpadding="0" cellspacing="0" style="border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(204, 204, 204); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; border-collapse: collapse !important; -ms-text-size-adjust: 100%; background-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+							<tbody>
+								<tr>
+									<td align="left" class="bodyContent" style="padding: 30px 0px 50px; text-align: left; color: rgb(102, 102, 102); line-height: 21px; font-family: arial; font-size: 14px;" valign="top">
+									<table border="0" cellmargin="0" cellpadding="0" style="margin: 0px 50px;" width="600">
+										<tbody>
+											<tr>
+												<td>
+												<div><span class="paragraph">
+<!-- Email Content Starts from here -->
+Best regards,
+<br>
+{!User.FirstName} {!User.LastName}
+<br>
+{!User.Title} | Loan Settlement Support 
+<br>
+711 Executive Blvd., Suite A | Valley Cottage, New York 10989  
+<br>
+Support: +1 646 690 4291 Main: +1 646 690 4300
+<br>
+ClearParSupport@markit.com 
+<br>
+{!Case.Thread_Id}
+<br>
+			</span></div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						
+</td>
+					</tr>
+				</tbody>
+			</table>
+<!-- End of email content -->
+
+			<div style="height: 40px; line-height: 0pt; font-size: 0pt;"><img alt="" border="0" height="40" src="{!$Label.EmailBodyLink1}" style="height: 40px;" width="1"></div>
+			<div class="wgmail" style="text-align: left; line-height: 0pt; font-size: 0pt;"><img alt="" border="0" height="1" src="{!$Label.EmailBodyLink1}" style="min-width: 640px;" width="640"></div>
+			</td>
+		</tr>
+	</tbody>
+</table> 
+
+<!----------------------- Body Ends -------------------------> 
+
+<!----------------------- Footer Begins ---------------------> 
+
+<p align="center" style="FONT-FAMILY: arial; FONT-SIZE: 10px; color: #4c4b4c "><br>
+Copyright © {!YEAR(TODAY())} IHS Markit Group Holdings Limited. All rights reserved.<br>
+<a href="{!$Label.EmailFooterLink1}" style="TEXT-DECORATION: none; color: #4c4b4c "><strong>PRIVACY POLICY </strong></a> | <a href="{!$Label.EmailFooterLink2}" style="TEXT-DECORATION: none; color: #4c4b4c "><strong>TERMS OF USE</strong></a> | <a href="{!$Label.EmailFooterLink3}" style="TEXT-DECORATION: none; color: #4c4b4c"><strong>DISCLAIMER</strong></a> | <a href="{!$Label.EmailFooterLink4}" style="TEXT-DECORATION: none; color: #4c4b4c"><strong>CONTACT US</strong></a><br>
+<br>
+<br>
+IHS Markit Group Holdings Limited is registered and incorporated in England & Wales (company number: 06240773).<br>
+Registered office:{!$Label.EmailFooterAddress1}
+
+<!----------------------- Footer Ends --------------------->

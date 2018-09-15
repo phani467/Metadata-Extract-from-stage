@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Opportunity Attachment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Opportunity Attachments</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please select the kind of attachment you are adding to an Opportunity --></help>
+        <label><!-- Attachment Type --></label>
+        <name>AttachmentType__c</name>
+        <picklistValues>
+            <masterLabel>Discount Approval</masterLabel>
+            <translation><!-- Discount Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>End User Certificate</masterLabel>
+            <translation><!-- End User Certificate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final Proposal</masterLabel>
+            <translation><!-- Final Proposal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Sheet</masterLabel>
+            <translation><!-- Pricing Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proposal</masterLabel>
+            <translation><!-- Proposal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quote Created</masterLabel>
+            <translation><!-- Quote Created --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please add any comments related to this Opportunity attachment --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a concatenation of the System and ID to ensure the number is unique, this field should be a unique external ID. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- Record IDs from the legacy system Opportunity attachments --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy System where this record was imported from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select an opportunity to which this contact attachment is associated --></help>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Opportunity Attachments --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Opportunity Attachment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- New Business --></label>
+        <name>NewBusiness</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Renewal --></label>
+        <name>Renewal</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

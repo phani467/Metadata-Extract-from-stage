@@ -1,0 +1,97 @@
+.THIS .slds-icon-standard-document{
+    background-color: #54698d;
+}
+.THIS .detail-line-height{
+    line-height: 18px;
+}
+.THIS .red[class~=slds-badge] {
+    background-color: #C23934;
+}
+.THIS .title-font {
+    color: #4E6892;
+}
+.THIS .description-font {
+    color: #16325C;
+	word-wrap: break-word;
+}
+.THIS.tile-background {
+    background-color: #FFFFFF;
+}
+.THIS .check {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 18px;
+    height: 100%;
+    background: inherit;
+    box-sizing: border-box;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: rgba(244, 246, 249, 1);
+    border-color: rgba(228, 232, 238, 1);
+    
+    /* Necessary to position check correctly in all browsers */
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.THIS .check-icon {
+    fill: #CFD7E6;
+    width: 14px;
+    height: 24px;
+   	margin: auto;
+}
+.THIS .check-is-selected {
+    background-color: rgba(0, 112, 210, 1);
+    border-color: rgba(0, 112, 210, 1);
+}
+.THIS .check-is-selected svg {
+    fill: #fff;
+}
+.THIS.is-selected {
+    box-shadow: #0070D2 0 0 0 1px inset;
+    background-color: #F0F8FB;
+}
+.THIS .hidden {
+    display: none;
+}
+.THIS.slds-list__item.esign-selected:hover {
+    box-shadow: #0070D2 0 0 0 1px inset;
+    /* Lightning has a '.slds-has-list-interations > .slds-list__item:hover' style that forces the background color to be the 'hover' color. This style will force it back to the 'selected' color. */
+    background-color: #F0F8FB !important;
+}
+.THIS.slds-list__item.esign-selected:active {
+    /* Lightning has a '.slds-has-list-interations > .slds-list__item:active' style that causes the border to flicker on each click. */
+    box-shadow: #0070D2 0 0 0 1px inset !important;
+    background-color: #F0F8FB !important;
+}
+.THIS .slds-has-dividers--around-space > .slds-item {
+    border: 1px solid #d8dde6;
+    border-radius: .25rem;
+    background-clip: padding-box;
+}
+.THIS .slds-has-dividers--around-space > .slds-item + .slds-item {
+    margin-top: .5rem;
+}
+.THIS .recipient-selectors-list > .recipient-selector + .recipient-selector {
+    margin-top: 1rem;
+    padding-top: .5rem;
+    border-top: 1px solid #d8dde6;
+}
+.THIS .white-background {
+    background-color: #ffffff;
+}
+.THIS.cursor-default:hover {
+    cursor: default;
+}
+.THIS.cursor-pointer:hover {
+    cursor: pointer;
+}
+.THIS .dropdown-width {
+    width: 75%;
+}
+.THIS .slds-button {
+    cursor: pointer;
+}

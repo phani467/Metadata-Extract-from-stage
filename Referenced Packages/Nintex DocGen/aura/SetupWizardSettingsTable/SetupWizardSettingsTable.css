@@ -1,0 +1,27 @@
+.THIS .link {
+    background:none!important;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    color: #0070d2;
+}
+.THIS .link:hover {
+    text-decoration: underline;
+}
+.THIS .noBorderSpacing {
+    border-spacing: 0px;
+}
+.THIS .slds-modal__content .modal-spinner {
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.THIS .hidden {
+    display: none;
+}
+.THIS .link-spinner {
+    width: 20px;
+   	height: 20px;
+}

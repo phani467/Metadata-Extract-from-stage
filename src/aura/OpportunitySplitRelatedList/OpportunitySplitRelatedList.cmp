@@ -1,0 +1,57 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes" controller="OpportunitySplitRelatedController" access="global" >
+    <aura:attribute name="oppySplitWrap" type="OpportunitySplitRelatedController.OppySplitWrapper"/>
+    <aura:attribute name="environmentType" type="String" default="Lightning"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-grid slds-card_boundary">
+    <lightning:card class="setWidth" iconName="standard:opportunity" title="{!'Opportunity Splits (' + v.oppySplitWrap.oppy.OpportunitySplits.length +')'}">
+        <aura:set attribute="actions">
+            <lightning:buttonMenu alternativeText="Edit Opportunity Splits" iconSize="x-small" menuAlignment="right" variant="border-filled" onselect="{!c.moveToOppySplit}">
+                <lightning:menuItem label="Edit" value="Edit" />
+            </lightning:buttonMenu>
+        </aura:set>
+        <div>
+            <ui:scrollerWrapper class="scrollerSize">
+                <aura:iteration items="{!v.oppySplitWrap.oppy.OpportunitySplits}" var="oppySplit">
+                    <lightning:tile class="slds-m-left_large" label="{!oppySplit.SplitOwner.Name}" href="{!'/'+oppySplit.SplitOwnerId}"  >
+                        <aura:set attribute="media">
+                            <lightning:icon iconName="utility:user" size="x-small" title="{!oppySplit.SplitOwner.Name}" alternativeText="{!oppySplit.SplitOwner.Name}"/>
+                        </aura:set>
+                        <dl class="slds-dl--horizontal">
+                            <dt class="slds-dl--horizontal__label">
+                                <p class="slds-truncate" title="Type">Type:</p>
+                            </dt>
+                            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="{!oppySplit.SplitType.DeveloperName}">{!oppySplit.SplitType.DeveloperName}</p>
+                            </dd>
+                            <dt class="slds-dl--horizontal__label">
+                                <p class="slds-truncate" title="Split Amount">Split Amount:</p>
+                            </dt>
+                            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="{!oppySplit.SplitAmount}">{!oppySplit.SplitAmount}</p>
+                            </dd>
+                            <dt class="slds-dl--horizontal__label">
+                                <p class="slds-truncate" title="Split Percentage">Split Percentage:</p>
+                            </dt>
+                            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="{!oppySplit.SplitPercentage}">{!oppySplit.SplitPercentage}</p>
+                            </dd>
+                            <dt class="slds-dl--horizontal__label">
+                                <p class="slds-truncate" title="Split Percentage">Note:</p>
+                            </dt>
+                            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="{!oppySplit.SplitNote}">{!oppySplit.SplitNote}</p>
+                            </dd>
+                            <dt class="slds-dl--horizontal__label">
+                                <p class="slds-truncate" title="Split Percentage">Sales Region:</p>
+                            </dt>
+                            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="{!oppySplit.SalesRegion__c}">{!oppySplit.SalesRegion__c}</p>
+                            </dd>
+                        </dl>
+                    </lightning:tile>
+                </aura:iteration>  
+            </ui:scrollerWrapper>
+        </div>
+    </lightning:card>
+        </div>
+</aura:component>

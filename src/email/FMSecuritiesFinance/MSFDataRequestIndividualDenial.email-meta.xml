@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2906 : MSF Data Request (Individual Denial)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MSF Data Request (Individual Denial)</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Securities Finance Data Enquiry</subject>
+    <textOnly>Dear {!Case.Contact},
+
+Thank you for your recent e-mail to us.
+
+Unfortunately, due to the agreements that we have with our customers, we are not able to send any data to anyone who is not a contributor to our database.
+
+Please see our News and Commentary Portal for publicly available information based on our data.
+
+Kind regards,
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

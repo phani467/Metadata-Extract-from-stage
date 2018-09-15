@@ -1,0 +1,10 @@
+<aura:event type="COMPONENT" description="Fire when sending information about RecipientSelector.cmp.">
+    <aura:attribute name="id" type="string" default="" description="Id of recipient object."/>
+    <aura:attribute name="selectedRecipientId" type="string" default="" description="Either the Id of selected User/Contact or 'name_email'."/>
+    <aura:attribute name="isHost" type="boolean" default="false" description="True if recipient is a host."/>
+    <aura:attribute name="recipientName" type="string" default="" description="Name of recipient."/>
+    <aura:attribute name="recipientEmail" type="string" default="" description="Email of recipient."/>
+    <aura:attribute name="accessCode" type="string" default=""/>
+    <aura:attribute name="note" type="string" default=""/>
+    <aura:attribute name="satisfied" type="boolean" default="false" description="True if recipient is required and a recipient has been selected. Also true, if recipient is not required."/>
+</aura:event>

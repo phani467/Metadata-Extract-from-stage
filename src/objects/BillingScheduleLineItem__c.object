@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-4488 This object is used to create a billing schedule for variable billing products.This object will be a child object to Variable Billing Schedule Object.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>AUMBPS__c</fullName>
+        <description>SFDC1-4488 This field holds the AUM BPS</description>
+        <externalId>false</externalId>
+        <inlineHelpText>AUM Basis Point (BPS)  value provided</inlineHelpText>
+        <label>AUM BPS</label>
+        <length>11</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AUMCurrency__c</fullName>
+        <description>SFDC1-4488 This field holds the AUM Currency</description>
+        <externalId>false</externalId>
+        <inlineHelpText>AUM currency</inlineHelpText>
+        <label>AUM Currency</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AUMValue__c</fullName>
+        <description>SFDC-4488 This field holds the AUM Value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>AUM value provided</inlineHelpText>
+        <label>AUM Value</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Billed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field will marks the product as billed and locked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically checked when the billing schedule line item has been sent to Order Management for entering into SAP</inlineHelpText>
+        <label>Billed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BillingEndDate__c</fullName>
+        <description>SFDC1-7471 This field will hold the Billing End date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>please enter the Billing end date</inlineHelpText>
+        <label>Billing End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BillingStartDate__c</fullName>
+        <description>SFDC1-7471 This field will hold the Billing Start Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the first date of the billing period</inlineHelpText>
+        <label>Billing Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ContractLineItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-7471 This field will hold Contract Line Item #</description>
+        <externalId>false</externalId>
+        <inlineHelpText>System populated reference to the Contract Line Item being billed</inlineHelpText>
+        <label>Contract Line Item</label>
+        <referenceTo>ContractLineItem__c</referenceTo>
+        <relationshipLabel>Billing Schedule Line Items</relationshipLabel>
+        <relationshipName>BillingScheduleLineItems</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IsCreatedfromQuickAction__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-7472 : This is an technical field only. This field will be an identifier whether this record is created using the quick action on Contract Line Item or using the Apex Clone based on the Billing period on Contract line Item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Only for DEV purpose. This field will be an identifier whether this record is created using the quick action on Contract Line Item or using the Apex Clone based on the Billing period on Contract line Item.</inlineHelpText>
+        <label>Is Created from Quick Action?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LineItemInvoiceRemarks__c</fullName>
+        <description>SFDC1-4488 This field holds the Line Item Invoice Remarks</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter line item detail needed to display on invoice</inlineHelpText>
+        <label>Line Item Invoice Remarks</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MaterialCode__c</fullName>
+        <description>SFDC1-7471 :This field is populated from Contract Line Item&apos;s Material Code</description>
+        <externalId>false</externalId>
+        <formula>ContractLineItem__r.MaterialCode__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>System populated reference to product material code being invoiced</inlineHelpText>
+        <label>Material Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Numberof__c</fullName>
+        <description>SFDC1-4488 This field is a picklist</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the value that represents what customer is being billied for</inlineHelpText>
+        <label>Number of</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>00 - Default</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>10 - Transactions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>20 - Users</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>30 - Positions Prices</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>70 - Entities Accessed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>80 - Securities SOI</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProcessedContract__c</fullName>
+        <description>SFDC-7471 This field holds the Processed Contract number</description>
+        <externalId>false</externalId>
+        <formula>ContractLineItem__r.ProcessedContract__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>System populated reference to the SAP Contract # from the Contract</inlineHelpText>
+        <label>Processed Contract #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QuantityVBAP__c</fullName>
+        <description>SFDC1-4488 This field stores the Quantity VBAP</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Quantity of VBAP items to be billed</inlineHelpText>
+        <label>Quantity VBAP</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <description>SFDC1-4488: This field will be user-filled and holds the quantity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter quantity being billed</inlineHelpText>
+        <label>Quantity</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReadyForBilling__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4607 &apos;Ready for Billing&apos; checkbox on Billing Schedule Line Item</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if ready for billing</inlineHelpText>
+        <label>Ready for Billing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SapLineItem__c</fullName>
+        <description>SFDC1-7471 This field will hold the SAP Line Item Number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>System populated reference to the SAP Line Item # once line has been added to SAP</inlineHelpText>
+        <label>SAP Line Item #</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SecondaryMaterialDescription__c</fullName>
+        <description>SFDC1-4488:This field will hold the Secondary Material Description</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Secondary SAP Material description if required</inlineHelpText>
+        <label>Secondary Material Description</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalUpdated__c</fullName>
+        <description>SFDC1-7471 This field hold the total</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the total to invoice for the billing period</inlineHelpText>
+        <label>Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UnitPrice__c</fullName>
+        <description>SFDC1-4488 : This field will be user-filled and holds the unit price, SFDC1-7471 Changed data type to currency</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the unit price</inlineHelpText>
+        <label>Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Billing Schedule Line Item</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>BSL{000000}</displayFormat>
+        <label>Billing Schedule Line Item Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Billing Schedule Line Items</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>BilledContractEditRestriction</fullName>
+        <active>true</active>
+        <description>SFDC1-4607 Only System Administrators can edit a Billing Schedule Line Item record if Billed is marked as true.</description>
+        <errorConditionFormula>AND(
+NOT(ISNEW()),
+Billed__c == TRUE,
+NOT(ISCHANGED(Billed__c)),
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;IHSMarkit System Admin&quot;, 
+$Profile.Name &lt;&gt; &quot;IHSMarkit System Admin: API&quot;
+)</errorConditionFormula>
+        <errorMessage>Only System Administrators can edit a Billing Schedule Line Item record if &apos;Billed&apos; is checked.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BillingEndDateCannotBeBlank</fullName>
+        <active>true</active>
+        <description>SFDC1-4607 Billing End Date cannot be blank when &apos;Ready for Billing&apos; is marked true</description>
+        <errorConditionFormula>AND(
+ ReadyForBilling__c == TRUE,
+ ISBLANK(BillingEndDate__c) 
+)</errorConditionFormula>
+        <errorDisplayField>BillingEndDate__c</errorDisplayField>
+        <errorMessage>Billing End Date cannot be blank when &apos;Ready for Billing&apos; is marked true</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BillingStartDateCannotBeBlank</fullName>
+        <active>true</active>
+        <description>SFDC1-4607 Billing Start Date cannot be blank when &apos;Ready for Billing&apos; is marked true</description>
+        <errorConditionFormula>AND(
+ ReadyForBilling__c == TRUE,
+ ISBLANK(BillingStartDate__c) 
+)</errorConditionFormula>
+        <errorDisplayField>BillingStartDate__c</errorDisplayField>
+        <errorMessage>Billing Start Date cannot be blank when &apos;Ready for Billing&apos; is marked true</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CLIBillingPeriodsNotBlankAtBSLICreate</fullName>
+        <active>true</active>
+        <description>SFDC1-7472 : This validation will prevent &apos;Billing Schedule Line Item&apos; record creation from CLI if Billing Periods is Blank on CLI.</description>
+        <errorConditionFormula>AND(
+ISNEW() ,
+NOT( ISBLANK(ContractLineItem__c) ) ,  ISBLANK(ContractLineItem__r.BillingPeriods__c)
+)</errorConditionFormula>
+        <errorMessage>Please enter Contract Line Item&apos;s Billing Periods before creating Volume/Variable Billing Line Item.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ProcessedContractCannotBeBlank</fullName>
+        <active>true</active>
+        <description>SFDC1-4607 Processed Contract cannot be blank when &apos;Ready for Billing&apos; is marked true, and related contract is &apos;Order Form&apos;.</description>
+        <errorConditionFormula>AND(
+ ReadyForBilling__c == TRUE,
+ ISBLANK(ProcessedContract__c),
+  ContractLineItem__r.Contract__r.RecordType.Name == &apos;Order Form&apos;  
+)</errorConditionFormula>
+        <errorDisplayField>ContractLineItem__c</errorDisplayField>
+        <errorMessage>Processed Contract cannot be blank when &apos;Ready for Billing&apos; is marked true, and related contract is &apos;Order Form&apos;, please update the &apos;Processed Contract&apos; information on related contract.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QuantityCannotBeBlank</fullName>
+        <active>true</active>
+        <description>SFDC1-4607 Quantity cannot be blank when &apos;Ready for Billing&apos; is marked true</description>
+        <errorConditionFormula>AND(
+ ReadyForBilling__c == TRUE,
+ ISBLANK(Quantity__c) 
+)</errorConditionFormula>
+        <errorDisplayField>Quantity__c</errorDisplayField>
+        <errorMessage>Quantity cannot be blank when &apos;Ready for Billing&apos; is marked true</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>UnitPriceCannotBeBlank</fullName>
+        <active>true</active>
+        <description>SFDC1-4607 Unit Price cannot be blank when &apos;Ready for Billing&apos; is marked true</description>
+        <errorConditionFormula>AND(
+ ReadyForBilling__c == TRUE,
+ ISBLANK(UnitPrice__c) 
+)</errorConditionFormula>
+        <errorDisplayField>UnitPrice__c</errorDisplayField>
+        <errorMessage>Unit Price cannot be blank when &apos;Ready for Billing&apos; is marked true</errorMessage>
+    </validationRules>
+</CustomObject>

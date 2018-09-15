@@ -1,0 +1,5 @@
+<apex:page standardController="Loop__Text_Group_Text_Snippet__c" action="{!URLFOR(IF(Text_Group_Text_Snippet__c.Id != null, $Action.Text_Group__c.Edit, $Action.Text_Group__c.New), Text_Group_Text_Snippet__c.Text_Group__c, [retURL=$Request.retURL])}">
+    <apex:form >
+        <apex:inputHidden value="{!Loop__Text_Group_Text_Snippet__c.Loop__Text_Group__c}" />
+    </apex:form>
+</apex:page>

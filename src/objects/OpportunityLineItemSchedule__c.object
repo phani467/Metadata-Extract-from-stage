@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-2043 Object to schedule opportunity products in case of multi-year opportunities</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AnnualizedDiscountAmount__c</fullName>
+        <description>SFDC1-7082 Annualized discount amount calculated for subscription products</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Annualized discount amount auto-calculated by system</inlineHelpText>
+        <label>Annualized Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AnnualizedTotalAmount__c</fullName>
+        <description>SFDC1-7082 Annualized total amount calculated for subscription products</description>
+        <externalId>false</externalId>
+        <formula>(AnnualizedUnitPrice__c -  AnnualizedDiscountAmount__c ) *  Quantity__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Annualized total amount calculated for Subscription products</inlineHelpText>
+        <label>Annualized Total Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AnnualizedUnitPrice__c</fullName>
+        <description>SFDC1-7082 Annualized unit price calculated for subscription product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Annualized unit price auto-calculated by system</inlineHelpText>
+        <label>Annualized Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DiscountAmount__c</fullName>
+        <description>SFDC1-1837 Amount of discount if discount type = Amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Amount of discount given</inlineHelpText>
+        <label>Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DiscountPercent__c</fullName>
+        <description>SFDC1-1837 percentage of discount if discount type = Percentage</description>
+        <externalId>false</externalId>
+        <label>Discount %</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>DiscountType__c</fullName>
+        <description>SFDC1-1837 Type of discount being applied to the Product</description>
+        <externalId>false</externalId>
+        <label>Discount Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Percentage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Discount</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ExternalListPrice__c</fullName>
+        <description>SFDC1-1837 List price entered manually or in Markit&apos;s case = Price book list price</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Updated List Price</inlineHelpText>
+        <label>Updated List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>InstallmentYear__c</fullName>
+        <description>SFDC1-1837 Field to fetch installment year from Product Schedule</description>
+        <externalId>false</externalId>
+        <formula>ProductSchedule__r.InstallmentYear__c</formula>
+        <label>Installment Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InstallmentYears__c</fullName>
+        <description>SFDC1-1837 To store year of schedule of Opportunity product fetched from Product Schedule</description>
+        <externalId>false</externalId>
+        <label>Installment Year</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-7046: Legacy ID Unique field is a concatenation of the source system name and a source system record id to ensure record is uniquely identified.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified.</inlineHelpText>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-7046: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (unfriendly) referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>SFDC1-7046: Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ListPrice__c</fullName>
+        <description>SFDC1-2043 List price derived from related Product schedule</description>
+        <externalId>false</externalId>
+        <formula>TEXT(ProductSchedule__r.ListPrice__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>List Price of Product</inlineHelpText>
+        <label>List Price</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OpportunityProductID__c</fullName>
+        <description>SFDC1-2043 Opportunity product to relate OPS with related opportunity product line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of related Opportunity Product</inlineHelpText>
+        <label>Opportunity Product ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OpportunityProductScheduleKey__c</fullName>
+        <description>SFDC1-2043 Unique key for Opportunity Product schedule. Combination of related Product Schedule + Related Oppy + Year of schedule</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique Identifier</inlineHelpText>
+        <label>Opportunity Product Schedule Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-2043 Related opportunity</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Opportunity Product Schedules</relationshipLabel>
+        <relationshipName>OpportunityProductSchedules</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PKIDOppLineSch__c</fullName>
+        <description>SFDC1-2445 : Creating PK field for Data Migration Support</description>
+        <displayFormat>OLS{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>PKID OppLineSch</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>PriceBookListPrice__c</fullName>
+        <description>SFDC1-1837 The list price populated from the Product schedule record</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List price of product from Product Schedules</inlineHelpText>
+        <label>Price Book List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProRatedDiscountAmount__c</fullName>
+        <description>SFDC1-7082 pro rated discount amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Pro rated discount amount calculated for subscription products</inlineHelpText>
+        <label>Pro-Rated Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProRatedTotalAmount__c</fullName>
+        <description>SFDC1-7082 Pro rated total amount calculated automatically</description>
+        <externalId>false</externalId>
+        <formula>( ProRatedUnitPrice__c -  ProRatedDiscountAmount__c )* Quantity__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Pro-rated total amount auto-calculated by system</inlineHelpText>
+        <label>Pro-Rated Total Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProRatedUnitPrice__c</fullName>
+        <description>SFDC1-7082 Pro rated unit price to calculated based on product type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Pro rated unit price calculated for subscription products</inlineHelpText>
+        <label>Pro-Rated Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProductSchedule__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-2043 related product schedule</description>
+        <externalId>false</externalId>
+        <label>Product Schedule</label>
+        <referenceTo>ProductSchedule__c</referenceTo>
+        <relationshipLabel>Opportunity Product Schedules</relationshipLabel>
+        <relationshipName>OpportunityProductSchedules</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-1843 Product related to Opportunity product schedule</description>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Opportunity Product Schedules</relationshipLabel>
+        <relationshipName>OpportunityProductSchedules</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <description>SFDC1-1837 Redundant field to capture all info in OPS.</description>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SalesPrice__c</fullName>
+        <description>SFDC1-1843 Sales price of the product on which product is being sold</description>
+        <externalId>false</externalId>
+        <label>Net Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>SFDC1-487 Ghost status field to store status of related opportunity product</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalPrice__c</fullName>
+        <description>SFDC1-1843 Total price of the producte. (External List Price - Discount) * qty</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total Sales Price</inlineHelpText>
+        <label>Total Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Opportunity Product Schedule</label>
+    <nameField>
+        <displayFormat>OPS-{0000000}</displayFormat>
+        <label>Opportunity Product Schedule Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Opportunity Product Schedules</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProductSchedule__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ExternalListPrice__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SalesPrice__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>TotalPrice__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DiscountType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DiscountAmount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DiscountPercent__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductSchedule__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ExternalListPrice__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SalesPrice__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>TotalPrice__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Product__c</searchFilterFields>
+        <searchFilterFields>ProductSchedule__c</searchFilterFields>
+        <searchFilterFields>DiscountType__c</searchFilterFields>
+        <searchFilterFields>DiscountPercent__c</searchFilterFields>
+        <searchFilterFields>DiscountAmount__c</searchFilterFields>
+        <searchFilterFields>ExternalListPrice__c</searchFilterFields>
+        <searchFilterFields>SalesPrice__c</searchFilterFields>
+        <searchFilterFields>TotalPrice__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

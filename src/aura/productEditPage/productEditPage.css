@@ -1,0 +1,30 @@
+.THIS input:disabled  {
+    background: #dddddd
+}
+.THIS.slds-card {
+        background: rgba(255, 255, 255, 0.60);
+}
+.THIS.card-class {
+        background: rgba(255, 255, 255, 0.60);
+}
+.THIS .card-classinner {
+        background: rgba(255, 255, 255, 0.40);
+}
+.THIS .card-product {
+        background: rgba(255,255,255,1);
+}
+.THIS .whiteSpaceClass {
+    white-space: nowrap;
+}
+.THIS .whiteSpaceNormal {
+    white-space: normal;
+}
+.THIS .boldFont {
+    font-weight: bold;
+}
+.THIS .boldFont th {
+    font-weight: bold;
+}
+.THIS .hiddenLabel label {
+    display: none;
+}

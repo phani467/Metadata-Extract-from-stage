@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>For Channel Partner Community.  Used to manage the list of available Channel Partner Program contacts.</description>
+    <mobileReady>false</mobileReady>
+    <motif>Custom22: Phone</motif>
+</CustomTab>

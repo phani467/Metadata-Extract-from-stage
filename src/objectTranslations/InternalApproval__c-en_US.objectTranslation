@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Internal Approval</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Internal Approvals</value>
+    </caseValues>
+    <fields>
+        <help><!-- Select the Team that you require the approval from --></help>
+        <label><!-- Approval Type --></label>
+        <name>ApprovalType__c</name>
+        <picklistValues>
+            <masterLabel>Business Line Leader</masterLabel>
+            <translation><!-- Business Line Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consulting Operations</masterLabel>
+            <translation><!-- Consulting Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Management</masterLabel>
+            <translation><!-- Contract Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Compliance</masterLabel>
+            <translation><!-- Corporate Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal</masterLabel>
+            <translation><!-- Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Manager</masterLabel>
+            <translation><!-- Product Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Leader</masterLabel>
+            <translation><!-- Sales Leader --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Approver Comments --></help>
+        <label><!-- Approver Comments --></label>
+        <name>ApproverComments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Name --></label>
+        <name>ClientName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Approver Comments --></help>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Internal Approvals --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Populates from Contract --></help>
+        <label><!-- Contract End Date --></label>
+        <name>ContractEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populates from Contract --></help>
+        <label><!-- Contract End Date --></label>
+        <name>ContractEndDateformula__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract Number --></help>
+        <label><!-- Contract# --></label>
+        <name>ContractNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract Created By --></help>
+        <label><!-- Contract Owner --></label>
+        <name>ContractOwner__c</name>
+        <relationshipLabel><!-- Internal Approvals --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Populates from Contract --></help>
+        <label><!-- Contract Start Date --></label>
+        <name>ContractStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Start Date --></label>
+        <name>ContractStartDateformula__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contract Number --></help>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Internal Approvals --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please check if Contact should not be sent email --></help>
+        <label><!-- Do Not Send Email --></label>
+        <name>DoNotSendEmail__c</name>
+    </fields>
+    <fields>
+        <help><!-- What requires an approval? --></help>
+        <label><!-- Reason --></label>
+        <name>Reason__c</name>
+    </fields>
+    <fields>
+        <help><!-- Requested or Approved? --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requested</masterLabel>
+            <translation><!-- Requested --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Internal Approval Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

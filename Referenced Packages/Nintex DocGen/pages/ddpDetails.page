@@ -1,0 +1,334 @@
+<apex:page doctype="html-5.0" standardController="Loop__DDP__c" extensions="Loop.ddpDetailsExt" id="apage">
+    <apex:stylesheet value="{!URLFOR($Resource.Loop__SalesforceLightning, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+    <apex:outputPanel rendered="{!ddp.RecordType.DeveloperName != 'Nintex_Form'}">
+        <apex:stylesheet value="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <style>
+            div.fixed-table-container-inner table tr.odd { background: #EEE; }
+            td.selectCell { vertical-align: top; }
+            td.selectCell.first { width: 250px; vertical-align: top; }
+            td.buttonCell { width: 45px; }
+            td.selectCell.last { width: 275px; vertical-align: top; }
+            .duelingListBox table.layout td.last { vertical-align: top; }
+            
+            .editPage .bPageBlock .detailList .list.outputFiles tr td,
+            .editPage .bPageBlock .detailList .list.inputFiles tr td {
+                border-bottom: 2px solid #e3deb8;
+            }
+            
+            div.fixed-table-container-inner {
+                overflow-y: auto;
+                height: 100%;
+            }
+            div.header-background {
+                background-color: #F2F3F3;
+                border: solid 1px #C0C0C0;
+                height: 25px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                border-bottom: solid 2px rgb(192, 192, 192);
+                border-collapse: separate;
+                border-left: solid 1px rgb(224, 227, 229);
+                border-right: solid 1px rgb(224, 227, 229);
+                border-top: solid 1px rgb(224, 227, 229);
+                display: table-header-group;
+            }
+            div.fixed-table-container {
+                position: relative;
+                width: 99%;
+                height: 190px;
+                border: 1px solid #e0e3e5;
+                margin: 10px auto;
+                background-color: white;
+                position: relative;
+                padding-top: 30px;
+            }
+            .header-background {
+                background-color: #D5ECFF;
+                height: 30px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                /*border-bottom: 1px solid black;*/
+            }
+            .fixed-table-container-inner {
+                overflow-x: hidden;
+                overflow-y: auto;
+                height: 100%;
+            }
+            div.fixed-table-container-inner table {
+                background-color: white;
+                width: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                display: table;
+                border-collapse: collapse;
+                border-color: gray;
+                margin-top: -10px;
+            }
+            .th-inner {
+                position: absolute;
+                top: 0;
+                line-height: 28px;
+            }
+            .apexp .detailList .list td {
+                text-align: left;
+            }
+            .btn.move {
+                cursor: move;
+            }
+            img.btn {
+                margin: 0;
+            }
+            .truncate {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: block;
+            }
+            td.selectCell.first option {
+                width: 250px;
+            }
+            input.btn.saveChange {
+                color: #FF6A00;
+                border-color: #FF6A00;
+            }
+            div.fixed-table-container-inner table.list.outputFiles th:first-child {
+                width: 250px;
+            }
+            
+            div.fixed-table-container-inner table.list.inputFiles th:first-child {
+                width: 90px;
+            }
+            div.fixed-table-container-inner table.list.inputFiles th:nth-child(2) {
+                width: 70px;
+            }
+            div.fixed-table-container-inner table.list.inputFiles th:nth-child(3) {
+                width: 60px;
+            }
+            div.fixed-table-container-inner table.list.inputFiles th:nth-child(4) {
+                width: 30px;
+            }
+            tr.selected { background-color: #7FCEFF; }
+            #fileOptionsDialog {
+            	width: 300px;
+            }
+            .testDdpContainer {
+            	display: inline-block;
+            	margin-left: 4px;
+            	opacity: 0;
+            }
+            .testDdp {
+                font-weight: 300;
+            }
+            .testButton {
+                margin-left: 53px;
+            }
+            .testDdpIcon {
+                vertical-align: middle;
+                background-color: #FF7900;
+                border-radius: .125rem;
+                display: inline-block;
+                margin-right: .75rem;
+                margin-left: .75rem;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            .testDdpSvg {
+                fill: #FFFFFF;
+                width: 1rem;
+                height: 1rem;
+                margin-left: 5px;
+                /* These are necessary to vertically align the icon in the middle across all browsers and devicees. */
+                vertical-align: top;
+                margin-top: 3px;
+            }
+        </style>
+        <script src="{!URLFOR($Resource.Scripts, 'jQuery.js')}"></script>
+        <script src="{!URLFOR($Resource.Scripts, 'jquery.drawloop.js')}"></script>
+        <script>
+            jQuery.noConflict(); // Can not use $ because prototype and jQuery will have naming issues.
+                                 // This command fixes that, but you must use "jQuery" instead of "$"
+                                 // for jQuery commands.
+            
+            jQuery(function(jQuery) {
+                jQuery('[id$="_ddpDetail"] div.pbSubheader:contains(Select Files)').next().remove();
+                jQuery('[id$="_ddpDetail"] div.pbSubheader:contains(Select Files)').remove();
+                jQuery('[id$="_ddpDetail"] div.pbSubheader:contains(Set Security)').next().remove();
+                jQuery('[id$="_ddpDetail"] div.pbSubheader:contains(Set Security)').remove();
+                jQuery('[id$="_ddpDetail"] div.pbSubheader:contains(Email Report To)').next().remove();
+                jQuery('[id$="_ddpDetail"] div.pbSubheader:contains(Email Report To)').remove();
+
+                //The Loop__Custom_Delete button has been deprecated. This removes it if is still on a layout.
+                jQuery('.pbButton input[name="loop__custom_delete"], .pbButtonb input[name="loop__custom_delete"]').remove();
+                //For moving the custom markup delete button to the right of the standard edit button
+                //pbButton is the container for the top set of buttons. pbButtonb is the container for the bottom set of buttons.
+                jQuery('.pbButton input.deleteButton').insertAfter(jQuery('.pbButton input[name="edit"]')).css('margin-left', '4px');
+                jQuery('.pbButtonb input.deleteButton').insertAfter(jQuery('.pbButtonb input[name="edit"]')).css('margin-left', '4px');
+
+                moveTestButtonIntoButtonSection();
+                moveVfFormIntoDetail();
+                
+                jQuery.notifie({
+                    allowCompatibilityView: false,
+                    requiredVersion: 7,
+                    containerSelector: '#ieMsgs',
+                    compatibilityViewMessage: '{!JSENCODE($Label.IE_Compatibility_View_Warning)}',
+                    versionMessage: '{!JSENCODE($Label.IE_Higher_Version_Required)}'
+                });
+                
+                checkNewerLDSVersionExists();
+                checkIfDdpIsUsingNonLightningFeatures();
+            });
+            
+            function updateNewVersionMessage() {
+                $newVersionDiv = jQuery('span[id$="newVersionMsg"] div.messageText:contains("Nintex DocGen") h4');
+                $newVersionDiv.parent().after(
+                    jQuery('<span></span>').append(
+                        jQuery('<a />')
+                            .attr('href', 'https://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9034')
+                            .attr('target', '_blank')
+                            .text('View the release notes.')
+                    )
+                );
+                $newVersionDiv.wrapInner(
+                    jQuery('<a />')
+                        .attr('href', 'https://appexchange.salesforce.com/listingDetail?listingId=a0N300000016Zn3EAE&tab=g')
+                        .attr('target', '_blank')
+                );
+            }
+            
+            function moveTestButtonIntoButtonSection() {
+                var $testButton = jQuery('[id$=":testDdp"]');
+                if ($testButton) {
+                    var $buttonSection = jQuery('#topButtonRowapage_ddpDetail');
+                    if ($buttonSection && $buttonSection.length) {
+                        $buttonSection.append($testButton);
+                        $testButton.delay(1000).animate({opacity: 1}, 1000);
+                    }
+                }
+            }
+            
+            function moveVfFormIntoDetail() {
+                var $form = jQuery('[id$=":aform"]');
+                console.log($form);
+                if ($form) {
+                    var $sysInfoSection = jQuery('div.pbSubheader:contains(System Information)');
+                    console.log($sysInfoSection);
+                    if ($sysInfoSection && $sysInfoSection.length)
+                        $sysInfoSection.before($form);
+                    else {
+                        $lastPbSubheader = jQuery('div.bPageBlock:first div.pbSubheader:last');
+                        console.log($lastPbSubheader);
+                        if ($lastPbSubheader && $lastPbSubheader.length)
+                            $lastPbSubheader.before($form);
+                        else
+                            jQuery('div.pbSubsection:first').after($form);
+                    }
+                }
+            }
+
+            function fadeSuccessMessage(visualforceElementId) {
+                var messageElement = jQuery('[id$=":'+visualforceElementId+'"] div.message:contains("update complete")');
+                messageElement.fadeOut(5000);
+                return (messageElement.length > 0);
+            }
+            
+            function setFocusOnLoad() {
+                // do nothing. We don't want to focus on the first available element here.
+            }
+            
+            function highlightSaveButton(visualforceElementId) {
+                jQuery('[id$=":'+visualforceElementId+'"]').addClass('saveChange');
+            }
+            
+            function javaScriptAction(type, data, callback) {
+                var ddpDetailsExtClass = typeof Loop === 'undefined' ? ddpDetailsExt : Loop.ddpDetailsExt;
+                if (type == 'query')
+                    ddpDetailsExtClass.apexquery(data, function(result, event) { callbackWrapper(result, event, callback); } );
+                else if (type == 'upsert')
+                    ddpDetailsExtClass.apexupsert(decodeURIComponent(data), function(result, event) { callbackWrapper(result, event, callback); } );
+                else if (type == 'delete')
+                    ddpDetailsExtClass.apexdelete(data, function(result, event) { callbackWrapper(result, event, callback); } );
+                else if (type == 'getOffice365Item')
+                    ddpDetailsExtClass.getOffice365Item(data, '{!JSENCODE($Request.loopurl)}', function(result, event) { callbackWrapper(result, event, callback); } );
+                else if (type == 'getOffice365Folders')
+                    ddpDetailsExtClass.getOffice365Folders(data, '{!JSENCODE($Request.loopurl)}', function(result, event) { callbackWrapper(result, event, callback); } );
+                else if (type == 'getOffice365Items')
+                    ddpDetailsExtClass.getOffice365Items(data, '{!JSENCODE($Request.loopurl)}', function(result, event) { callbackWrapper(result, event, callback); } );
+            }
+            function callbackWrapper(result, event, callback) {
+                var swf = document["apage:aform:pb:pbs:filesSwf:flash"];
+                result = jQuery('<div />').html(result).text();
+                swf.flexCallback(result, event, callback);
+            }
+        </script>
+        <apex:outputPanel id="testPanel">
+            <div id="ieMsgs" />
+            
+            <apex:outputPanel id="lightningFeaturesMessagePanel" layout="block">
+                <apex:pageMessage id="lightningFeaturesMessage" severity="info" rendered="{!isUsingNonLightningFeatures}" strength="2" title="This {!$ObjectType.Loop__DDP__c.label} contains the following features which are not currently available in the Run {!$ObjectType.Loop__DDP__c.label} Lightning Component:">
+                    <ul style="margin: 0;">
+                        <apex:repeat value="{!nonLightningFeatures}" var="feature">
+                            <li>{!feature}</li>
+                        </apex:repeat>
+                    </ul>
+                </apex:pageMessage>
+                <script>jQuery('div[id*=":lightningFeaturesMessage:"].messageText').height('1rem').find('br').remove();</script>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="newVersionMessagePanel" layout="block" style="height: 45px;">
+                <apex:pageMessage id="newVersionMsg" rendered="{!newerLDSVersionExists}" severity="info" strength="2"
+                    title="A newer version of Nintex DocGen is available to be installed from the AppExchange." />
+            </apex:outputPanel>
+
+            <apex:outputPanel id="testDdp" styleClass="testDdpContainer" layout="block" rendered="{!showLightningTest}">
+                <div class="drawloop">
+                    <div class="slds slds-card" style="padding: 5px;">
+                        <div class="testDdpIcon">
+                            <svg class="testDdpSvg">
+                                <use xmlns:xlink="http://www.w3.org/2000/xlink" xlink:href="{!URLFOR($Resource.Styles, 'images/runDdp.svg#runDdp')}" />
+                            </svg>
+                        </div>
+                        <span class="testDdp">
+                            Test {!$ObjectType.DDP__c.label}
+                        </span>
+                        <apex:outputLink onclick="window.open('{!'/apex/loop__ddpTest?id=' & id & IF(!ISBLANK(loopUrl), '&loopUrl=' &JSENCODE(loopUrl), '')}','','width=353,height=700,scrollbars=yes'); return false;" target="_blank" styleClass="testButton">
+                            <span class="slds-button slds-button--neutral">
+                                Select Record
+                            </span>
+                        </apex:outputLink>
+                    </div>
+                </div>
+            </apex:outputPanel>
+
+            <apex:detail id="ddpDetail" inlineEdit="true" oncomplete="window.location.reload();" relatedList="true" subject="{!ddp.Id}" title="true" />
+            
+            <apex:form id="aform" style="margin-top: 15px;">
+                <apex:actionFunction action="{!deleteDdp}" name="deleteDdp" />
+                <apex:actionFunction action="{!checkNewerLDSVersionExists}" name="checkNewerLDSVersionExists" rerender="newVersionMessagePanel" oncomplete="updateNewVersionMessage();" />
+                <apex:actionFunction action="{!checkIfDdpIsUsingNonLightningFeatures}" name="checkIfDdpIsUsingNonLightningFeatures" rerender="lightningFeaturesMessagePanel"/>
+
+                <apex:pageBlock id="pb" mode="maindetail">
+                    <apex:pageBlockButtons style="display:none;">
+                        <apex:commandButton styleClass="deleteButton" value="Delete" onclick="return confirm('Are you sure?') ? deleteDdp() : false;" />
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection title="Select Files" columns="1" id="pbs" collapsible="true">
+                    
+                        <apex:flash id="filesSwf" height="235" width="100%" src="{!$Resource.Loop__SelectDDPFilesSwf}" flashvars="ddpRT={!ddp.RecordType}&ddpId={!ddp.Id}&showErrors={!$Request.showErrors}&session_id={!$Api.Session_ID}&server_url={!$Api.Partner_Server_URL_300}" />
+
+                    </apex:pageBlockSection>
+                    
+                    <c:ddpSecurity ddpVar="{!ddp}" recordTypeId="{!ddp.RecordTypeId}" />
+                    
+                </apex:pageBlock>
+            </apex:form>
+        </apex:outputPanel>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!ddp.RecordType.DeveloperName == 'Nintex_Form'}">
+        <apex:pageMessage summary="The Nintex Form DocGen Package record type is discontinued." severity="error" strength="3"/>
+        <apex:detail inlineEdit="true" oncomplete="window.location.reload();" subject="{!ddp.Id}" title="true" />
+    </apex:outputPanel>
+</apex:page>

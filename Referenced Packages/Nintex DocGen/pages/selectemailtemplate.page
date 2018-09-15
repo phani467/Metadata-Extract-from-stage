@@ -1,0 +1,174 @@
+<apex:page controller="Loop.selectEmailTemplate" tabStyle="Loop__DDP__c" action="{!removeTemplate}" applyHtmlTag="flase" applyBodyTag="false" showHeader="false" sidebar="{!showSidebar}" docType="html-5.0">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.Loop__SalesforceLightning, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.Loop__Scripts, 'select2-4.0.2/select2.min.css')}" />
+        <script type="text/javascript" src="{!URLFOR($Resource.Scripts, 'jQuery.js')}"></script>
+        <script type="text/javascript" src="{!URLFOR($Resource.Scripts, 'select2-4.0.2/select2.min.js')}"></script>
+        <script src="{!URLFOR($Resource.Scripts, 'jquery.drawloop.js')}"></script>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            jQuery(function() {
+                jQuery.notifie({
+                    allowCompatibilityView: false,
+                    requiredVersion: 7,
+                    containerSelector: '#ieMsgs',
+                    compatibilityViewMessage: '{!JSENCODE($Label.IE_Compatibility_View_Warning)}',
+                    versionMessage: '{!JSENCODE($Label.IE_Higher_Version_Required)}'
+                });
+            });
+            
+            if ('{!JSENCODE(test)}' != '') {
+                if ({!useLightningExperience}) {
+                    window.parent.setEmailTemplate("{!JSENCODE(test)}");
+                    window.parent.toggleModal(false);
+                } else {
+                    window.parent.opener.setEmailTemplate("{!JSENCODE(test)}");
+                    window.parent.close();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="ieMsgs" />
+        <apex:form >
+            <script type="text/javascript">
+                if ({!!showHeader}) {
+                    jQuery('body').addClass('homeTab');
+                }
+            </script>
+            <apex:outputPanel layout="block" rendered="{!!useLightningExperience}">
+                <apex:sectionHeader title="{!$ObjectType.Loop__DDP__c.label}" subtitle="Select Email Template" rendered="{!showHeader}" />
+                <apex:pageBlock title="Templates">
+                    <apex:pageBlockButtons location="top">
+                        <apex:outputLabel for="templateType" value="Template Type: " rendered="{!ddpFiles.size>0}"/>&nbsp;
+                        <apex:actionRegion rendered="{!ddpFiles.size>0}">
+                            <apex:selectList id="templateType" size="1" value="{!templateType}">
+                                <apex:selectOption itemLabel="DocGen Package Template" itemValue="DdpFile" />
+                                <apex:selectOption itemLabel="Salesforce Email Template" itemValue="SfTemplate" />
+                                <apex:actionSupport event="onchange" action="{!selectOption}" />
+                            </apex:selectList>
+                        </apex:actionRegion>
+                        <apex:outputLabel for="folder" value="Folder: " rendered="{!templateType == 'SfTemplate'}"/>&nbsp;
+                        <apex:actionRegion rendered="{!templateType == 'SfTemplate'}">
+                            <apex:selectList id="folder" size="1" value="{!folderId}">
+                                <apex:selectOption itemLabel="Personal Folder" itemValue="{!$User.Id}" />
+                                <apex:selectOption itemLabel="Public Folder" itemValue="{!$Organization.Id}" />
+                                <apex:selectOptions value="{!folders}" />
+                                <apex:actionSupport event="onchange" rerender="out" action="{!selectOption}" />
+                            </apex:selectList>&nbsp;
+                        </apex:actionRegion>
+                        <apex:commandButton value="Cancel" action="{!cancel}" />
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockTable value="{!ddpFiles}" var="ddpFile" id="DdpFiles" rendered="{!templateType == 'DdpFile'}">
+                        <apex:column width="115px">
+                            <apex:facet name="header">Action</apex:facet>
+                            <apex:outputLink value="javascript:openPopupFocus('/{!ddpFile.Loop__Document_ID__c}','_blank', 620, 430, 'width=620,height=430,resizable=yes,toolbar=yes,status=yes,scrollbars=yes,menubar=yes,directories=yes,location=no,dependant=no', false, true);">
+                                Preview
+                            </apex:outputLink>
+                            &nbsp;|&nbsp;
+                            <apex:commandLink action="{!selectTemplate}" value="Select">
+                                <apex:param name="templateId" value="{!ddpFile.id}" />
+                                <apex:param name="ddpFileTemplateId" value="{!ddpFile.Loop__Document_ID__c}" />
+                            </apex:commandLink>
+                        </apex:column>
+                        <apex:column value="{!ddpFile.name}" headerValue="{!$ObjectType.Loop__DDP__c.label} {!$ObjectType.Loop__DDP_File__c.fields.Name.label}" />
+                        <apex:column value="{!ddpFile.CreatedBy.Name}" headerValue="Created By" />
+                        <apex:column value="{!ddpFile.CreatedDate}" headerValue="{!$ObjectType.Loop__DDP_File__c.fields.CreatedDate.label}" />
+                        <apex:column value="{!ddpFile.LastModifiedBy.Name}" headerValue="Last Modified By" />
+                        <apex:column value="{!ddpFile.LastModifiedDate}" headerValue="{!$ObjectType.Loop__DDP_File__c.fields.LastModifiedDate.label}" />
+                    </apex:pageBlockTable>
+                    <apex:pageBlockTable value="{!templates}" var="temp" id="out" rendered="{!templateType == 'SfTemplate'}">
+                        <apex:column width="115px">
+                            <apex:facet name="header">Action</apex:facet>
+                            <apex:outputLink value="javascript:openPopupFocus('/{!temp.id}/s?id={!temp.id}&previewMode=1','_blank', 620, 430, 'width=620,height=430,resizable=yes,toolbar=yes,status=yes,scrollbars=yes,menubar=yes,directories=yes,location=no,dependant=no', false, true);">
+                                Preview
+                            </apex:outputLink>
+                            &nbsp;|&nbsp;
+                            <apex:commandLink action="{!selectTemplate}" value="Select">
+                                <apex:param name="templateId" value="{!temp.id}" />
+                            </apex:commandLink>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Email Template Name</apex:facet>
+                            {!temp.name}
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Template Type</apex:facet>
+                            {!temp.templateType}
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Description</apex:facet>
+                            {!temp.description}
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+            </apex:outputPanel>
+            <apex:outputPanel layout="block" styleClass="drawloop" rendered="{!useLightningExperience}">
+                <div class="slds">
+                    <div id="select" style="padding: 25px;max-width: 550px;">
+                        <div class="slds-form--horizontal">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="selectFolder">Folder</label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:actionRegion >
+                                            <apex:selectList id="folder" size="1" value="{!folderId}" styleClass="slds-select">
+                                                <apex:selectOption itemLabel="Personal Folder" itemValue="{!$User.Id}" />
+                                                <apex:selectOption itemLabel="Public Folder" itemValue="{!$Organization.Id}" />
+                                                <apex:selectOptions value="{!folders}" />
+                                                <apex:actionSupport event="onchange" rerender="table" action="{!selectOption}" />
+                                            </apex:selectList>
+                                        </apex:actionRegion>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                    // On some Android devices, an 'apex:selectList' and regular 'select' lists won't expand
+                    // Using jQuery's select2 which resolves this
+                    var $select2 = jQuery('[id$=":folder"]').select2({
+                        // hide search
+                        minimumResultsForSearch: -1
+                    });
+                    $select2.next().css('width', '200px');
+                    </script>
+                    <apex:outputPanel id="table" layout="block" style="overflow-y: auto;">
+                    <apex:dataTable value="{!templates}" var="temp" styleClass="slds-table slds-table--bordered">
+                        <apex:column styleClass="slds-cell-wrap">
+                            <apex:facet name="header">Action</apex:facet>
+                            <apex:commandLink action="{!selectTemplate}" value="Select">
+                                <apex:param name="templateId" value="{!temp.id}" />
+                            </apex:commandLink>
+                        </apex:column>
+                        <apex:column styleClass="slds-cell-wrap">
+                            <apex:facet name="header">Template Name</apex:facet>
+                            {!temp.name}
+                        </apex:column>
+                        <apex:column styleClass="slds-cell-wrap">
+                            <apex:facet name="header">Type</apex:facet>
+                            {!temp.templateType}
+                        </apex:column>
+                        <apex:column styleClass="slds-cell-wrap">
+                            <apex:facet name="header">Description</apex:facet>
+                            {!temp.description}
+                        </apex:column>
+                    </apex:dataTable>
+                    <script>
+                        var container = window.parent.jQuery(".slds-modal__container");
+                        var header = window.parent.jQuery(".slds-modal__header");
+                        var footer = window.parent.jQuery(".slds-modal__footer");
+                        var select = jQuery('[id$="select"]');
+                        var table = jQuery('[id$=":table"]');
+                        var everythingElseHeight = select.outerHeight() + header.outerHeight() + footer.outerHeight();
+                        var newHeight = Math.max(0, container.height() - everythingElseHeight);
+                        table.height(newHeight);
+                    </script>                    
+                </apex:outputPanel>
+                </div>
+            </apex:outputPanel>
+        </apex:form>
+    </body>
+</html>
+</apex:page>

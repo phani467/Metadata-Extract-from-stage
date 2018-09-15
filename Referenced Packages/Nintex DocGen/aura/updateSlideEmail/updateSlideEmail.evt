@@ -1,0 +1,5 @@
+<aura:event type="Component" description="Updates the email data on Run DocGen Package when it's been modified.">
+    <aura:attribute name="globalId" type="string" default="" description="Id of email."/>
+    <aura:attribute name="emailSubject" type="string" default="" description="The default email subject in the delivery option."/>
+    <aura:attribute name="emailBody" type="string" default="" description="The default email body in the delivery option."/>
+</aura:event>

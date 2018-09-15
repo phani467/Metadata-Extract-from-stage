@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SFDC1-365 This Action validates the Ad claim record before it is rejected.</description>
+    <fieldOverrides>
+        <field>ClaimsStatus__c</field>
+        <literalValue>Rejected</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Submitted__c</field>
+        <formula>false</formula>
+    </fieldOverrides>
+    <label>Review And Reject</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>RejectionComments__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <successMessage>Ad Claim is Rejected</successMessage>
+    <type>Update</type>
+</QuickAction>

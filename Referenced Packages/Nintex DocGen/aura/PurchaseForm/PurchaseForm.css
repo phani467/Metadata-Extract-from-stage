@@ -1,0 +1,23 @@
+.THIS .border {
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+}
+.THIS .required-symbol {
+    color: red;
+    padding-left: 3px;
+}
+.THIS .hidden {
+    display: none;
+}
+.THIS .error-label {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #c23934;
+}
+.THIS .new-window-icon {
+    width: 8px;
+    height: 8px;
+    fill: #0070d2;
+    margin-bottom: 6px;
+}

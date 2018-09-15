@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Fire when a Record is selected.">
+    <aura:attribute name="id" type="string" default="" description="Contains id of selected Record."/>
+    <aura:attribute name="name" type="string" default="" description="Contains name of selected Record."/>
+</aura:event>

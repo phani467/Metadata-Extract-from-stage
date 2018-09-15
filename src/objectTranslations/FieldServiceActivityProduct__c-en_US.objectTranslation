@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Field Service Activity Product</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Field Service Activity Products</value>
+    </caseValues>
+    <fields>
+        <label><!-- Field Service Activity --></label>
+        <name>FieldServiceActivity__c</name>
+        <relationshipLabel><!-- Field Service Activity Products --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID FSAP --></label>
+        <name>PKIDFSAP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Group --></label>
+        <name>ProductGroup__c</name>
+        <relationshipLabel><!-- Field Service Activity Products --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Field Service Activity Product Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

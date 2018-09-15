@@ -1,0 +1,175 @@
+<!--------------------------------------------------------------------------------------------------------------------
+// @author: Uttam Arya
+// @date: 9 Sept 2017
+// @param: NA
+// @description: SFDC1-442 ServiceCloudSurveyScore page - Used in custom console component, provides Account and Contact average quality ratings (past 3 months) 
+//                and link  to lastest Account OID record
+//@inputs: Case Standard Controller
+//@Test Class: TestServiceCloudSurveyScoreController
+// @return: NA
+---------------------------------------------------------------------------------------------------------------------->
+<apex:page standardController="Case" extensions="ServiceCloudSurveyScoreController">
+    <apex:includeScript value="/support/console/39.0/integration.js"/>
+    <script type="text/javascript">
+    function testOpenSubtab() {
+        //First find the ID of the primary tab to put the new subtab in
+        sforce.console.getEnclosingPrimaryTabId(openSubtab);
+    }
+    
+    var openSubtab = function openSubtab(result) {
+        //Now that we have the primary tab ID, we can open a new subtab in it
+        var primaryTabId = result.id;
+        sforce.console.openSubtab(primaryTabId , 'https://jira.markit.com/browse/{!JSENCODE(accountOID)}', true, 
+                                  '{!JSENCODE(accountOID)}', null, openSuccess, 'salesforceSubtab');
+    };
+    
+    var openSuccess = function openSuccess(result) {
+        //Report whether we succeeded in opening the subtab
+        if (result.success == true) {
+            //alert('subtab successfully opened');
+        } else {
+            alert('subtab cannot be opened');
+        }
+    };
+    </script>
+    <style>
+        .label {
+        font-size: 10.8px;
+        font-weight: bold;
+        font-family: SalesforceSans-Regular, Helvetica, Arial, sans-serif;
+        padding-right: 4px;
+        float: right;
+        }
+        .link {
+        font-family: SalesforceSans-Regular, Helvetica, Arial, sans-serif;
+        }
+        table {
+        border-collapse:collapse;
+        margin-left: auto;
+        margin-right: auto;
+        }
+        th {
+        font-weight: normal;
+        } 
+        .stars-container {
+        font-size: 18px;
+        position: relative;
+        display: inline-block;
+        color: transparent;
+        }
+        
+        .stars-container:before {
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        content: '★★★★★';
+        color: lightgray;
+        }
+        
+        .stars-container:after {
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        content: '★★★★★';
+        overflow: hidden;
+        }
+        
+        .stars-0:after { width: 0%; color: red;}
+        .stars-10:after { width: 10%; color: red;}
+        .stars-20:after { width: 20%; color: red;}
+        .stars-30:after { width: 30%; color: red;}
+        .stars-40:after { width: 40%; color: red;}
+        .stars-50:after { width: 50%; color: #fa0;}
+        .stars-60:after { width: 60%; color: #fa0;}
+        .stars-70:after { width: 70%; color: #fa0;}
+        .stars-80:after { width: 80%; color: #fa0;}
+        .stars-90:after { width: 90%; color: green;}
+        .stars-100:after { width: 100; color: green;}
+        
+    </style>
+    <table>    
+        <tr>
+            <th><apex:outputtext styleClass="label" value="Account Quality:"/></th>
+            <th>
+                <apex:outputPanel layout="block" rendered="{!OR (accountOverallQuality  == 0, accountOverallQuality  == null)}">
+                    <span class="stars-container stars-0">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 1}">
+                    <span class="stars-container stars-10">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 2}">
+                    <span class="stars-container stars-20">★★★★★</span>
+                </apex:outputPanel>                
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 3}">
+                    <span class="stars-container stars-30">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 4}">
+                    <span class="stars-container stars-40">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 5}">
+                    <span class="stars-container stars-50">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 6}">
+                    <span class="stars-container stars-60">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 7}">
+                    <span class="stars-container stars-70">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 8}">
+                    <span class="stars-container stars-80">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality == 9}">
+                    <span class="stars-container stars-90">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!accountOverallQuality >= 10}">
+                    <span class="stars-container stars-100">★★★★★</span>
+                </apex:outputPanel>
+            </th>
+        </tr>
+        <tr>
+            <th><apex:outputtext styleClass="label" value="Contact Quality:"/></th>
+            <th>
+                <apex:outputPanel layout="block" rendered="{!OR (customerOverallQuality  == 0, customerOverallQuality  == null)}">
+                    <span class="stars-container stars-0">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 1}">
+                    <span class="stars-container stars-10">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 2}">
+                    <span class="stars-container stars-20">★★★★★</span>
+                </apex:outputPanel>                
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 3}">
+                    <span class="stars-container stars-30">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 4}">
+                    <span class="stars-container stars-40">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 5}">
+                    <span class="stars-container stars-50">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 6}">
+                    <span class="stars-container stars-60">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 7}">
+                    <span class="stars-container stars-70">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 8}">
+                    <span class="stars-container stars-80">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality == 9}">
+                    <span class="stars-container stars-90">★★★★★</span>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!customerOverallQuality >= 10}">
+                    <span class="stars-container stars-100">★★★★★</span>
+                </apex:outputPanel>
+            </th>
+        </tr>
+        <tr>
+            <th><apex:outputtext styleClass="label" value="INC Ticket:"/></th>
+            <!--th><A HREF="#" onClick="testOpenSubtab();return false">{!accountOID}</A></th-->
+            <th>{!accountOID}</th>
+        </tr>
+    </table>
+    <apex:outputfield value="{!Case.AccountID}" rendered="false"/>  
+    <apex:outputfield value="{!Case.ContactID}" rendered="false"/>  
+</apex:page>

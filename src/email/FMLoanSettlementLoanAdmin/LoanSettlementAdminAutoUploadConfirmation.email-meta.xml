@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Loan Settlement - Admin Auto Upload Confirmation SFDC1-5061</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loan Settlement - Admin Auto Upload Confirmation</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.Contact},
+
+The ClearPar Loan Admin Team has received your loan admin request. Your case has been assigned to one of our loan admin staff and is currently being reviewed.
+
+We will contact you if further information is needed to ensure that your request is handled to your satisfaction. We look forward to working with you.
+
+If you have any questions or need assistance please call 646-690-4288.
+
+Best regards,
+{!User.FirstName} {!User.LastName}
+
+
+{!User.Title} | Loan Settlement Loan Administration
+711 Executive Blvd., Suite A | Valley Cottage, New York 10989
+Support: +1 646 690 4288 Main: +1 646 690 4300
+ClearParLoanadmin@markit.com
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,1 @@
+<aura:event type="Component" description="This is fired to load the secondary accordions in the Run DocGen Package component." />

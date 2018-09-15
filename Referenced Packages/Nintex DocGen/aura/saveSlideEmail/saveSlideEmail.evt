@@ -1,0 +1,5 @@
+<aura:event type="Component" description="This event is fired when the user opts to save the email that they just modified.">
+    <aura:attribute name="id" type="string"/>
+    <aura:attribute name="emailSubject" type="string"/>
+    <aura:attribute name="emailBody" type="string"/>
+</aura:event>

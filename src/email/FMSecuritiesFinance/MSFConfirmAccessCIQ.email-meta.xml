@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2871 MSF Confirm Access - CIQ</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MSF Confirm Access - CIQ</name>
+    <style>none</style>
+    <subject>[Case#{!Case.CaseNumber}] Access to Markit Securities Finance via S&amp;P Global Market Intelligence Delivery Type(s) Indicated</subject>
+    <textOnly>Dear CIQ Team,
+ 
+Please can you enable access for the below user(s) as follows:
+ 
+User Information:
+Contact Name:
+Company Name:
+Company Address:
+Email Address:
+Telephone Number:
+ 
+ 
+Region(s):
+- Europe by CIQ
+- North America by CIQ
+- Asia
+ 
+Delivery Type:
+- Desktop/Web
+- ClariFi Xpressfeed
+
+Customer Access Level:
+- Basic (1)
+- Advanced (2)
+ 
+Access Type:
+- Trial Access
+    Start Date: DD/MMM/YYYY
+    End Date: DD/MMM/YYYY
+ 
+- Purchase Access
+ 
+Please can you confirm by replying to this email when this request has been processed?
+ 
+Please do not hesitate to contact us if you require any further information.
+
+Thank You. 
+
+Kind regards, 
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,13 @@
+Dear {!Case.Contact}, 
+
+The status of this case was: ON HOLD - PENDING INFORMATION 
+
+The status of this case is now: CLOSED. We were unable to resolve this inquiry because the information you provided on your initial request was incomplete. We attempted to contact you on multiple occasions over the past 8 business days, but we never received the additional information we requested. If your inquiry is still an issue that requires our assistance, please email salesforcehelpdesk@markit.com 
+
+Thank You. 
+
+Kind regards, 
+
+IHS Markit SFDC Helpdesk
+
+{!Case.Thread_Id}

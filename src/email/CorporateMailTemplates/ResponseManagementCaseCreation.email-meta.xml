@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-4719 : Response Management - Case Creation - Auto-Response</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Response Management Case Creation</name>
+    <style>none</style>
+    <subject>IHS Markit Response Management Case {!Case.CaseNumber}</subject>
+    <textOnly>RESPONSE MANAGEMENT
+
+Your IHS Markit Customer Care Case {!Case.CaseNumber}
+
+{!Today()}
+
+Thank you for contacting our Response Manager Team, we have received your request.
+
+A unique case reference number {!Case.CaseNumber} with the subject &quot;{!Case.Subject}&quot; is currently being reviewed by one of our analysts.
+
+In order to allow you to track the progress of your enquiry, please quote the above case reference number when contacting us. Someone will be in touch with you shortly to ensure that your request is handled to your satisfaction.
+
+Kind regards,
+IHS Markit Response Management
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

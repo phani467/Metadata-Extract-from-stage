@@ -1,0 +1,34 @@
+<aura:component >
+    <aura:attribute name="list" type="List" default="[]" required="true" description="List of items. Each item must contain the following fields: 'Id', 'Name', 'IsSelected'"/>
+    <aura:attribute name="isStaticList" type="boolean" default="false" description="Set true to make list unclick-able."/>
+    <aura:attribute name="fillHeight" type="boolean" default="false" description="Set true to apply a 'height:100%;' style to the picklist. By default the height is hard-coded to 240px."/>
+    <aura:attribute name="isLoading" type="boolean" default="false" access="private" description="Set true when loading Picklist data."/>
+    
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+    <aura:method name="startLoading" action="{!c.startLoading}"/>
+    <aura:method name="doneLoading" action="{!c.doneLoading}"/>
+    
+	<div class="{!'slds-form-element' + (v.fillHeight ? ' fillHeight' : '')}">
+        <div class="slds-form-element__control slds-picklist slds-picklist--multi fillHeight">
+            <ul class="{!'slds-picklist__options slds-picklist__options--multi fillWidth' + (v.fillHeight ? ' fillHeight' : '') + (v.isLoading ? ' isLoading' : '')}">
+                <div aura:id="spinner" id="spinner" class="slds-grid slds-grid--vertical-align-center slds-grid--align-center fillHeight">
+                    <img class="spinnerImg" src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." />
+                </div>
+                <aura:if isTrue="{!v.isStaticList}">
+                    <aura:iteration items="{!v.list}" var="item">
+                        <li aura:id="item" id="{!item.Id}" class="slds-picklist__item nonClick">
+                            <span class="slds-truncate">{!item.Name}</span>
+                        </li>
+                    </aura:iteration>
+                    <aura:set attribute="else">
+                        <aura:iteration items="{!v.list}" var="item">
+                            <li aura:id="item" id="{!item.Id}" class="slds-picklist__item" aria-selected="{!item.IsSelected}" onclick="{!c.itemSelected}">
+                                <span class="slds-truncate">{!item.Name}</span>
+                            </li>
+                        </aura:iteration>
+                    </aura:set>
+                </aura:if>
+            </ul>
+        </div>
+    </div>
+</aura:component>

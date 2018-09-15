@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Login Contract Association</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Login Contract Associations</value>
+    </caseValues>
+    <fields>
+        <help><!-- Link the related Contract to this User --></help>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Product Login Contract Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Link the related to User to this Contract --></help>
+        <label><!-- Product Login --></label>
+        <name>ProductLogin__c</name>
+        <relationshipLabel><!-- Product Login Contract Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- A user type can only be linked to one license type --></help>
+        <label><!-- User Type --></label>
+        <name>UserType__c</name>
+        <picklistValues>
+            <masterLabel>MCS CDS</masterLabel>
+            <translation><!-- MCS CDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCS Loans</masterLabel>
+            <translation><!-- MCS Loans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSF Toolkit</masterLabel>
+            <translation><!-- MSF Toolkit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSF Web</masterLabel>
+            <translation><!-- MSF Web --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit Desktop</masterLabel>
+            <translation><!-- Markit Desktop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit Excel Add-In</masterLabel>
+            <translation><!-- Markit Excel Add-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price Viewer</masterLabel>
+            <translation><!-- Price Viewer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>sftp.ihsmarkit.com</masterLabel>
+            <translation><!-- sftp.ihsmarkit.com --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Product Login Contract Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

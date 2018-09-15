@@ -1,0 +1,41 @@
+<!--------------------------------------------------------------------------------------------------------------------
+// @author: Uttam Arya
+// @date: 22 July 2017
+// @param: NA
+// @description: SFDC1-281 LiveChatButton1 - IHS Markit "MCS" and "MSF" button page, auto initiates a chat if agents available or re-direct to LiveChatOfflineForm
+// @return: NA
+---------------------------------------------------------------------------------------------------------------------->
+<apex:page showHeader="false" standardStylesheets="false">
+    
+    <a id="liveagent_button_online_{!$Label.ChatButtonId}" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('{!$Label.ChatButtonId}')">
+        <!-- Online-->
+    </a>
+    <div id="liveagent_button_offline_{!$Label.ChatButtonId}" style="display: none;">
+        <!-- Offline-->
+    </div>
+    <apex:includeScript value="{!$Label.LiveAgentDeploymentJS}" />
+    <apex:includeScript value="{!$Resource.JQueryMinJS}"/>
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="https://cdn.ihs.com/wwwihsmarkit/images/favicon.png"/>
+    
+    <script type='text/javascript'>
+    if (!window._laq) { window._laq = []; }
+    window._laq.push(function(){liveagent.showWhenOnline('{!$Label.ChatButtonId}', document.getElementById('liveagent_button_online_{!$Label.ChatButtonId}'));
+                                liveagent.showWhenOffline('{!$Label.ChatButtonId}', document.getElementById('liveagent_button_offline_{!$Label.ChatButtonId}'));
+                               });                                        
+    liveagent.enableLogging();                                   
+    liveagent.addCustomDetail('suppliedEmail','{!JSENCODE($CurrentPage.parameters.suppliedEmail)}');
+    liveagent.addCustomDetail('buttonOrigin','{!JSENCODE($CurrentPage.parameters.buttonOrigin)}');
+    liveagent.addCustomDetail('suppliedProduct','{!JSENCODE($CurrentPage.parameters.suppliedProduct)}');
+    liveagent.init('{!$Label.PreChatInitURL}', '{!$Label.LiveAgentDeploymentId}','{!$Label.OrganizationId}');
+    
+    liveagent.addButtonEventHandler('{!$Label.ChatButtonId}', function(event) { 
+        if (event == liveagent.BUTTON_EVENT.BUTTON_AVAILABLE) { 
+            liveagent.startChatWithWindow('{!$Label.ChatButtonId}', '_self'); 
+        } 
+        if (event == liveagent.BUTTON_EVENT.BUTTON_UNAVAILABLE) { 
+            window.location.href = 'LiveChatOfflineForm?buttonOrigin={!JSENCODE($CurrentPage.parameters.buttonOrigin)}&suppliedEmail={!JSENCODE($CurrentPage.parameters.suppliedEmail)}&suppliedProduct={!JSENCODE($CurrentPage.parameters.suppliedProduct)}';  
+        }  
+    });  
+    </script>
+    
+</apex:page>

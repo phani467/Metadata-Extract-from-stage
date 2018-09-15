@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-6282: New custom junction object to provide many-to-many relationship between Contracts and Contacts</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>ApprovalType__c</fullName>
+        <description>SFDC1-6282: Approval Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Team that you require the approval from</inlineHelpText>
+        <label>Approval Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Business Line Leader</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consulting Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contract Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Leader</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ApproverComments__c</fullName>
+        <description>SFDC1-7758 : This field holds the Approver Comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Approver Comments</inlineHelpText>
+        <label>Approver Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ClientName__c</fullName>
+        <description>SFDC1-6282: Client Name</description>
+        <externalId>false</externalId>
+        <formula>Contract__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Client Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <description>SFDC1-6282: Contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Approver Comments</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Internal Approvals</relationshipLabel>
+        <relationshipName>Internal_Approvals</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ContractEndDate__c</fullName>
+        <description>SFDC1-6282: Contract End Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populates from Contract</inlineHelpText>
+        <label>Contract End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ContractEndDateformula__c</fullName>
+        <description>SFDC1-6840 This field holds the value of Contract End Date</description>
+        <externalId>false</externalId>
+        <formula>Contract__r.EndDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Populates from Contract</inlineHelpText>
+        <label>Contract End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ContractNumber__c</fullName>
+        <description>SFDC1-6282: Contract Number</description>
+        <externalId>false</externalId>
+        <formula>Contract__r.ContractNumber</formula>
+        <inlineHelpText>Contract Number</inlineHelpText>
+        <label>Contract#</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContractOwner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SFDC1-6282: Contract Owner</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract Created By</inlineHelpText>
+        <label>Contract Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Internal_Approvals</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractStartDate__c</fullName>
+        <description>SFDC1-6282: Contract Start Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populates from Contract</inlineHelpText>
+        <label>Contract Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ContractStartDateformula__c</fullName>
+        <description>SFDC1-6840 This field holds the value of Contract Start Date</description>
+        <externalId>false</externalId>
+        <formula>Contract__r.StartDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <description>SFDC1-6282: Contract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract Number</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Internal Approvals</relationshipLabel>
+        <relationshipName>Internal_Approvals</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DoNotSendEmail__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-7758 : This fields is for the flag &quot;Do Not Send Email&quot; for Contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check if Contact should not be sent email</inlineHelpText>
+        <label>Do Not Send Email</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <description>SFDC1-6282: Reason</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What requires an approval?</inlineHelpText>
+        <label>Reason</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>SFDC1-6282: Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Requested or Approved?</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Requested</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Internal Approval</label>
+    <nameField>
+        <displayFormat>IA-{000000}</displayFormat>
+        <label>Internal Approval Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Internal Approvals</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

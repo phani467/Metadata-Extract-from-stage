@@ -1,0 +1,13 @@
+<aura:component controller="ContractRecordTypeSelectionController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" >
+	<aura:attribute name="recordId" type="Id" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <header class="slds-modal__header" style="background-color: #1589ee;margin-bottom:4px;">
+	<h4 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="font-weight: 400">Opportunity Sync Status</h4>
+	</header>
+    	<div id="alertSuccess" class="" style="display:none">    
+        	<h1 id="header1" class="slds-text-heading--medium" style="text-align: center;" >Sync Complete.</h1>
+        </div>
+    	<div id="alertProcessing" class="" style="display:block">    
+        	<h1 id="header1" class="slds-text-heading--medium" style="text-align: center;">Processing...</h1>
+        </div>
+</aura:component>

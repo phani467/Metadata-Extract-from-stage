@@ -1,0 +1,11 @@
+Dear {!Case.Contact}, 
+
+We have forwarded your request to our configuration/development team. They will look into your request and will get back to you in regards to next steps.
+
+The reference number is: {!Case.DevelopmentSystemID__c}​
+
+Kind regards, 
+
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+IHS Markit SFDC Helpdesk
+{!Case.Thread_Id}

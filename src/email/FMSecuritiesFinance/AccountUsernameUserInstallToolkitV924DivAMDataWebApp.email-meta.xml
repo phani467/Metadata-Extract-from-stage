@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2797 Account Username - User Install (Toolkit V9.2.4 (Div/AM Data) + Web App)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Account Username - User Install (Toolkit V9.2.4 (Div/AM Data) + Web App)</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Markit Securities Finance Username</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+You now have access to the following Markit Securities Finance applications:
+
+&lt;enter product list here&gt;
+
+Please click on the following links to access:
+
+- DX Open;  &lt;https://msf.markit.com/Portal&gt;
+- Evaluation Explorer; &lt;https://msf.markit.com/Ex&gt;
+- International Index Explorer; &lt;https://msf.markit.com/IIX&gt;
+- Performance Explorer; &lt;https://msf.markit.com/Px&gt;
+- Risk Explorer; &lt;https://msf.markit.com/risk/rx&gt;
+- SF One; &lt;https://msf.markit.com/Portal/?Mode=DxOne&gt;
+- Transaction Explorer; &lt;https://msf.markit.com/Tx&gt;
+- UK Index Explorer; &lt;https://msf.markit.com/IX&gt;
+
+Your username is:  &lt;enter user name here&gt;
+
+For security reasons, the password will be provided to you in a separate email shortly.
+NOTE: All usernames and passwords are case sensitive.
+
+****Delete As Required****
+Please be aware that in order for you to view Dividend Forecasting Data in the Markit Toolkit you will require at least version 8.2.13 or above.
+
+****Delete As Required****
+Please be aware that in order for you to view Account Manager Data via the Markit Toolkit you will require at least version 7 or above.
+
+Please follow the instructions below in order to install and start using the latest version of the Markit Toolkit (version 9.2.4).
+
+Please note, by logging in and installing the Toolkit for Microsoft Excel you are agreeing to our Trial Terms &lt;http://www.markit.com/en/products/data/securities-finance/trial/trial.page#&gt; and/or Terms of Business &lt;http://www.markit.com/en/products/data/securities-finance/legal/terms.page#&gt;.
+ 
+1.  Click here &lt;http://www.markit.com/Product/Pricing-Data-Securities-Finance#ToolkitInstallation&gt; to go to the Toolkit Install page
+2.  Click on the Download Here button and follow the step by step instructions to install.
+      NOTE: You will need administrator rights to install this on your PC
+ 
+3.  Once installed, open the attached Excel sheet. You will be prompted to enter your Markit Securities Finance username and password.
+Also attached to this email are the following documents which you may find useful:
+ 
+- An install troubleshooting document
+- A post-install checking sheet
+
+IMPORTANT NOTE: Your username and password are both case sensitive.
+
+If you require any additional assistance, please contact us on live chat, email or phone.
+
+Thank You. 
+
+Kind regards, 
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+Markit Securities Finance
+UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+msf-support@markit.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

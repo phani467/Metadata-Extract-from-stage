@@ -1,0 +1,34 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component controller="GenericHistoryComponentController">
+    <!-- Attribute Definition -->
+    <apex:attribute name="object" description="Object we wish to view the history of" type="SObject" required="true" assignTo="{!myObject}" />
+    <apex:attribute name="records" description="Number of lines of history to display" type="Integer" required="false" assignTo="{!recordLimit}" />
+    <apex:attribute name="scrollable" description="Whether or not the table should scroll" type="Boolean" required="false" assignTo="{!scroll}" />
+    <!-- Styling for scrollability -->
+    <style>
+        .scrollable {
+            overflow:auto;
+            width:100%;
+            height:250px;
+        }
+    </style>
+    <!-- Object History Related List -->
+    <apex:pageBlock title="{!objectLabel} History">
+        <apex:outputPanel layout="block" styleClass="{! IF(scroll, 'scrollable', '') }">
+            <apex:pageBlockTable value="{!ObjectHistory}" var="History" >
+                <apex:column headerValue="Date" value="{!History.thedate}"/>
+                <apex:column headerValue="User">
+                    <apex:outputLink value="/{!History.userId}"> {!History.who} </apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Action"><apex:outputText escape="false" value="{!History.action}"/></apex:column>
+            </apex:pageBlockTable>
+        </apex:outputPanel>
+    </apex:pageBlock>
+</apex:component>

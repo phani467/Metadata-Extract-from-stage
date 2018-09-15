@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"  access="global" >
+    <aura:attribute name="oppyId" type="String" access="global"></aura:attribute>
+    <aura:attribute name="isBack" type="Boolean" access="global"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="onProceedEvent" event="c:productSelected" action="{!c.onProceed}" />
+    <aura:handler name="onBackEvent" event="c:productSearchBackEvent" action="{!c.onBack}" />
+    <aura:attribute name="environmentType" type="String" default="Lightning"/>
+    <aura:attribute name="selectedProductIds" 
+                    type="String[]"/>
+    <aura:attribute name="legalEntity" type="String"/>
+    <aura:attribute name="legalEntityName" type="String"/>
+    <aura:attribute name="opportunity" type="Opportunity" default="{ 'sobjectType': 'Opportunity' }"/>
+    <div>
+        <aura:if isTrue="{!v.isBack}">
+            <c:productSearch oppyId="{!v.oppyId}" />
+        </aura:if>    
+        <aura:if isTrue="{!!v.isBack}">
+            <c:productEditPage productIds="{!v.selectedProductIds}"
+                               legalEntity="{!v.legalEntity}"
+                               legalEntityName="{!v.legalEntityName}"
+                               oppyId="{!v.oppyId}"/>
+            
+        </aura:if> 
+        {!v.body}
+    </div>
+</aura:component>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5058;Loan Reconciliation - Super User instructions to create new user</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loan Reconciliation - Super User instructions to create new user</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+We have received a support request for both our UAT and Production systems. 
+
+We now have a separate team that support the UAT environments. We will create a new case record for your UAT query. You should receive an email with your new Case reference shortly. 
+
+Going forward please contact the UAT Team directly for all UAT and Training related Queries. 
+
+Email: mserv_uat@markitserv.com 
+
+UK/Europe: +44 (0)2033670652 
+US &amp; Canada: +1 2124884050 
+Asia: +44 (0)8449947378 
+
+Sincerely, 
+{!Case.OwnerFullName}
+MarkitSERV Client Services</textOnly>
+    <type>custom</type>
+</EmailTemplate>

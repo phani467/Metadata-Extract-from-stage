@@ -1,0 +1,85 @@
+<aura:component controller="Loop.SetupWizardEndPageController">
+    <!-- Required Attributes -->
+    <aura:attribute name="isLightning" type="boolean" required="true"/>
+    <aura:attribute name="sampleDdpObjects" type="List" required="true"/>
+    <aura:attribute name="layoutButtonObjects" type="List" required="true"/>
+
+    <!-- Internal Attributes -->
+    <aura:attribute name="sampleObject" type="String" default="" access="Private"/>
+    <aura:attribute name="records" type="List" access="Private"/>
+    <aura:attribute name="columns" type="List" access="Private"/>
+    <aura:attribute name="ddpPrefix" type="String" access="Private"/>
+
+    <!-- Registered Events -->
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+
+    <!-- Handled Events -->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <div class="slds">
+        <aura:if isTrue="{!v.records.length > 0}">
+            <div class="container slds-m-bottom--large">
+                <h1 class="slds-text-heading--medium">Run Sample DocGen Package</h1>
+                <h2 class="slds-text-body--regular">As you have installed sample DocGen Packages as part of the set-up you can now run one to see how this works. Do this by selecting one of your recent records below and select the <b>Generate Documents</b> button on the record.</h2>
+                <table class="slds-table slds-table--bordered noBorderSpacing slds-m-top--small">
+                    <thead>
+                        <tr class="slds-text-heading--label">
+                            <aura:iteration items="{!v.columns}" var="col">
+                                <th class="slds-is-sortable" scope="col">
+                                    <span class="slds-truncate">{!col}</span>
+                                </th>
+                            </aura:iteration>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.records}" var="objRecords">
+                            <tr class="slds-hint-parent">
+                                <td data-label="Profile/User">
+                                    <span class="slds-truncate"><a href="{!'/' + objRecords.Id}" target="_blank">{!objRecords.Name}</a></span>
+                                </td>
+                                <aura:if isTrue="{!v.columns.length > 1}">
+                                    <td data-label="Profile/User">
+                                        <span class="slds-truncate">{!objRecords.Field1}</span>
+                                    </td>
+                                </aura:if>
+                                <aura:if isTrue="{!v.columns.length > 2}">
+                                    <td data-label="Profile/User">
+                                        <span class="slds-truncate">{!objRecords.Field2}</span>
+                                    </td>
+                                </aura:if>
+                                <aura:if isTrue="{!v.columns.length > 3}">
+                                    <td data-label="Profile/User">
+                                        <span class="slds-truncate">{!objRecords.Field3}</span>
+                                    </td>
+                                </aura:if>
+                                <aura:if isTrue="{!v.columns.length > 4}">
+                                    <td data-label="Profile/User">
+                                        <span class="slds-truncate">{!objRecords.Field4}</span>
+                                    </td>
+                                </aura:if>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div> 
+        </aura:if>
+        <div class="slds-grid slds-m-top--xx-large" style="margin: auto;max-width: 95%;">
+            <div class="slds-col slds-m-right--medium">
+                <h1 class="slds-text-heading--medium slds-m-bottom--large">This is just the beginning</h1>
+                You are now on your way to building new solutions with Nintex DocGen. For more information, refer to our documentation for guidance or use the links below to get started.<br/><br/>
+                <ul class="slds-list--dotted slds-m-bottom--xx-large">
+                    <li><a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9025" target="_blank">How to Create a new DocGen Package</a></li>
+                    <li><a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9026" target="_blank">How to Run a DocGen Package</a></li>
+                    <li><a href="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9024" target="_blank">App Administration Steps</a></li>
+                </ul>
+                <button aura:id="viewDdps" class="slds-button slds-button--brand slds-m-right--small buttonSpacing" onclick="{!c.viewDdps}" style="display:inline-block;">View DocGen Packages</button>
+                <button aura:id="createDdps" class="slds-button slds-button--brand slds-m-right--small buttonSpacing" onclick="{!c.createDdps}" style="display:inline-block;">Create New DocGen Package</button>
+                <button class="slds-button slds-button--brand buttonSpacing" onclick="{!c.ddpAdmin}">DocGen Admin</button>
+            </div>
+            <div class="slds-col slds-m-left--xx-large">
+                <Loop:Iframe width="560" height="315" url="https://www.youtube.com/embed/XRyrfEhlxUw"/>
+            </div>
+        </div>
+    </div>
+</aura:component>

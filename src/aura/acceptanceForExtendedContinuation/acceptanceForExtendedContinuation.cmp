@@ -1,0 +1,27 @@
+<aura:component controller="ContractRecordTypeSelectionController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="oppRecordId" type="Id" />
+    <aura:attribute name="startDate" type="Date" />
+    <aura:attribute name="endDate" type="Date" />
+    <aura:attribute name="status" type="String" />
+    <aura:attribute name="noOfDaysOfExtendedContinuation" type="String"/>
+    <aura:attribute name="isCommunity" type="Boolean" access="global" />
+	<aura:attribute name="totalContinuationDays" type="String" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:registerEvent name="goBacktoParentCmp" type="c:acceptedForExtendedContinuationEvent"/>
+    
+    <div role="dialog" tabindex="-1" id="newClientSectionId" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <div id="productTable" class="slds-modal__content slds-p-around--medium">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td style="padding-right: 25px;">
+                            With this Continuation, you have granted the client {!v.noOfDaysOfExtendedContinuation} total days of Continuation. Do you have approval for this Continuation Letter?
+                        </td>
+                    </tr>
+                    </tbody></table>
+                <button class="slds-button slds-button--neutral slds-not-selected slds-m-top--medium" onclick="{!c.responseYes}" >Yes</button>
+            	<button class="slds-button slds-button--neutral slds-not-selected slds-m-top--medium" onclick="{!c.responseNo}">No</button>
+            </div></div>
+	</div>
+</aura:component>

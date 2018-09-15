@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" access="global" >
+    <aura:attribute name="savedProducts" type="String[]" access="global"/>
+    <aura:attribute name="legalEntity" type="String" access="global"/>
+    <aura:attribute name="legalEntityName" type="String" access="global"/>
+</aura:event>

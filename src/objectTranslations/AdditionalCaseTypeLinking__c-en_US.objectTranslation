@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Additional Case Type Linking</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Additional Case Type Linkings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Case Record Type --></label>
+        <name>AdditionalCaseRecordType__c</name>
+        <picklistValues>
+            <masterLabel>Account Receivable</masterLabel>
+            <translation><!-- Account Receivable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDN Data</masterLabel>
+            <translation><!-- CDN Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Actions</masterLabel>
+            <translation><!-- Corporate Actions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivery</masterLabel>
+            <translation><!-- Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivery Helpdesk</masterLabel>
+            <translation><!-- Delivery Helpdesk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enerdeq</masterLabel>
+            <translation><!-- Enerdeq --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy-ETA</masterLabel>
+            <translation><!-- Energy-ETA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equities-Data and Analytics</masterLabel>
+            <translation><!-- Equities-Data and Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equities-Reg</masterLabel>
+            <translation><!-- Equities-Reg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FieldDirect</masterLabel>
+            <translation><!-- FieldDirect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goldfire</masterLabel>
+            <translation><!-- Goldfire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kingdom</masterLabel>
+            <translation><!-- Kingdom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legacy Distribution</masterLabel>
+            <translation><!-- Legacy Distribution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Settlement</masterLabel>
+            <translation><!-- Loan Settlement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NRG</masterLabel>
+            <translation><!-- NRG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTC DD</masterLabel>
+            <translation><!-- OTC DD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTC Services</masterLabel>
+            <translation><!-- OTC Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Management</masterLabel>
+            <translation><!-- Order Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Management Helpdesk</masterLabel>
+            <translation><!-- Order Management Helpdesk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PETRA</masterLabel>
+            <translation><!-- PETRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Polk</masterLabel>
+            <translation><!-- Polk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Power Tools</masterLabel>
+            <translation><!-- Power Tools --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing</masterLabel>
+            <translation><!-- Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Operations</masterLabel>
+            <translation><!-- Pricing Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Processing - Customer Care</masterLabel>
+            <translation><!-- Processing - Customer Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Processing - Onboarding</masterLabel>
+            <translation><!-- Processing - Onboarding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference Data</masterLabel>
+            <translation><!-- Reference Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reg and Compliance</masterLabel>
+            <translation><!-- Reg and Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Ops</masterLabel>
+            <translation><!-- Sales Ops --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Securities Finance</masterLabel>
+            <translation><!-- Securities Finance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case Record Type --></label>
+        <name>CaseRecordType__c</name>
+        <picklistValues>
+            <masterLabel>Customer Care</masterLabel>
+            <translation><!-- Customer Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation</masterLabel>
+            <translation><!-- Implementation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onboarding</masterLabel>
+            <translation><!-- Onboarding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Management/Delivery Help Desk</masterLabel>
+            <translation><!-- Order Management/Delivery Help Desk --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PKID AdditionalCaseTypeLinking --></label>
+        <name>PKIDAdditionalCaseTypeLinking__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>ProductFamily__c</name>
+        <relationshipLabel><!-- Additional Case Type Linkings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Group --></label>
+        <name>ProductGroup__c</name>
+        <relationshipLabel><!-- Additional Case Type Linkings --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

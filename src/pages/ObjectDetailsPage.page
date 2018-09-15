@@ -1,0 +1,76 @@
+<apex:page controller="ObjectDetailsController">
+    <style>
+        
+        .picklist-table{border: 1px solid #000;
+        border-collapse : collapse;
+        }
+        tr:nth-child(even) {
+        background-color: #F0F8FF;
+        }
+        .picklist-table td {
+        padding:10px !important; 
+        }
+        
+    </style>
+    <apex:form >
+        <apex:sectionHeader title="Object" subtitle="Picklist Values"/>
+        <br/>
+        <h2 style="font-size:15px; padding-25px;">
+            Select object to see the Picklist values
+        </h2>
+        <apex:actionStatus id="status">
+                    <apex:facet name="start">
+                        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+                            &nbsp;
+                        </div>
+                        <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+                            <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                                <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                                <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                            </div>
+                        </div>
+                    </apex:facet>
+                </apex:actionStatus>
+        <apex:pageBlock id="error">
+            <apex:pageMessages />
+            Object:&nbsp;&nbsp; <apex:selectList value="{!selectedObjName}" size="1" required="true">
+            <apex:selectOptions value="{!objectNames}"></apex:selectOptions>
+            </apex:selectList>
+            <apex:commandButton value="Get Picklist Values" action="{!getPicklistValues}" status="status" reRender="error,picklistValuesPanel"/>
+            <div style="float:right; margin-right:20%;font-size:17px; color:red">
+                (*c*) indicates custom object/field
+            </div>
+        </apex:pageBlock>
+        
+        <apex:outputPanel id="picklistValuesPanel">
+            <table class="picklist-table" width="80%">
+                <thead style="font-size:14px; background-color:#008000; color:#FFF !important">
+                    <tr style="border-bottom:1px solid #000">
+                        <td width="20%" style="border-right:1px solid #000; color:#FFF">Field Name</td>
+                        <td width="40%" style="color:#FFF">Picklist Values</td>
+                    </tr>
+                </thead>
+                
+                <apex:repeat value="{!picklistFieldNames}" var="names">
+                    <tr style="border-bottom:1px solid #000; margin:10px">
+                        <td style="border-right:1px solid #000;margin:10px">{!names}</td>
+                        <!--{!objPicklistMap[names]}-->
+                        <td>
+                            <apex:repeat value="{!objPicklistMap[names]}" var="val">
+                                {!val}<br/>
+                            </apex:repeat>
+                        </td>
+                    </tr>
+                </apex:repeat>
+                   
+            </table>
+            <apex:outputPanel rendered="{!picklistFieldNames == null || picklistFieldNames.size == 0}">
+                <h3 style="font-size:14px; padding-top:25px;">
+                    <br/>
+                    <br/>
+                Selected object does not have any picklist field
+                </h3>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

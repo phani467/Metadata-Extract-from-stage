@@ -1,0 +1,36 @@
+<aura:component controller="ContractRecordTypeSelectionController" implements="flexipage:availableForAllPageTypes"  access="global" >
+<aura:attribute name="oppyId" type="String"></aura:attribute>
+<aura:attribute name="recordList" type="Object[]"/>
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"></aura:handler>
+	
+	<div role="dialog" tabindex="-1" id="newClientSectionId" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+			<div class="slds-modal__header">    
+                <h2 id="header" class="slds-text-heading--medium">Please Select Opportunity Products</h2>
+            </div>
+            <div id="noProducts" class="slds-modal__header" style="display:none">    
+                <h1 id="header1" class="slds-text-heading--medium">This Opportunity Has no Products related. Please add products to Continue.</h1>
+            </div>
+            <div id="productTable" class="slds-modal__content slds-p-around--medium">
+				<table>
+					<tbody>
+					<aura:iteration items="{!v.recordList}" var="s">
+						<tr>
+							<td class="myCheckbox">
+								<ui:inputCheckbox aura:id="checkbox" value="{!s.checked}"/>
+							</td>
+							<td class="myText" value="{!s.recordId}">
+								{!s.recordName}
+							</td>                     
+						</tr>
+					</aura:iteration>
+                        <div id="buttons" style="display:block">
+							<button class="slds-button slds-button--neutral slds-not-selected slds-m-top--medium" onclick="{!c.createContractLineItems}">Continue</button>
+							<button class="slds-button slds-button--neutral slds-not-selected slds-m-top--medium" onclick="{!c.closeModalPopup}">Cancel</button>
+                        </div>
+                        </tbody>
+                </table>   
+			</div>
+		</div>
+	</div>
+</aura:component>

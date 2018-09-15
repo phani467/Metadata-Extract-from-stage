@@ -1,0 +1,54 @@
+<aura:component controller="ContractRecordTypeSelectionController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId">
+    <aura:attribute name="objType" type="String" required="true" default="Contract"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="true" />
+    <aura:attribute name="selectedRecordType" type="String"/>
+    <aura:attribute name="recordTypeList" type="Object[]"/>
+    <aura:attribute name="istrialRecType" type="Boolean" default="false" access="global" ></aura:attribute>
+    <aura:attribute name="iscontinuationRecType" type="Boolean" default="false" access="global"></aura:attribute>
+    <aura:attribute name="ismaincmp" type="Boolean" default="true" access="global" ></aura:attribute>
+    <aura:attribute name="createdRecordId" type="Id"/>
+    <aura:attribute name="recordId" type="Id" /> 
+    <aura:attribute name="trialRecordTypeId" type="Id" /> 
+    <aura:attribute name="continuationRecTypeId" type="Id" />
+    <aura:attribute name="contractStartDateFromOppty" type="Date" />
+    <aura:attribute name="isCommunity" type="Boolean" access="global"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />   
+    <div class="slds-modal__header">
+        <h2 id="header43" class="slds-page-header__title slds-text-heading--medium">Create Contract</h2>
+    </div>    
+    <div class="source-center-slds" >
+        <div aura:id="firstsection" class="{!if(v.ismaincmp == true,'slds-show','slds-hide')}">
+            <div class="slds-p-around--x-large">
+                <fieldset class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <aura:iteration items="{!v.recordTypeList}" var="item">
+                            <label class="slds-radio slds-p-top--small">
+                                <tr>
+                                    <td>
+                                        <ui:inputRadio name="benefits" change="{!c.onChange}" text="{!item.recordTypeId}" value="false"/>
+                                        <span class="slds-radio--faux"></span>
+                                    </td>
+                                    <td>
+                                        <span class="slds-form-element__label">{!item.recordTypeLabel}</span>
+                                    </td>
+                                </tr>                   
+                            </label>  
+                        </aura:iteration> 
+                    </div>
+                </fieldset> 
+                <lightning:layout horizontalAlign="end" verticalAlign="end" >
+                    <button id="cancelButton" class="slds-button slds-button--neutral slds-not-selected slds-button__icon_right" onclick="{!c.cancel}">Cancel</button>
+                    <button id="continueButton" class="slds-button slds-button_brand slds-not-selected button__icon_right" onclick="{!c.create}" disabled="{!v.isDisabled}" >Continue</button>        
+                </lightning:layout>
+            </div>
+        </div>
+        <div aura:id="secondsection" class="{!if(v.istrialRecType == true,'slds-show','slds-hide')}">
+            <c:productsForTrialContract oppyId="{!v.recordId}" />    
+        </div>
+        <div aura:id="thirdsection" class="{!if(v.iscontinuationRecType == true,'slds-show','slds-hide')}">
+            <c:continuationLetterComponent oppRecordId="{!v.recordId}"
+                                           startDate="{!v.contractStartDateFromOppty}"/> 
+        </div>   
+    </div>
+    
+</aura:component>

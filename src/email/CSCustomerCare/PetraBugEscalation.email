@@ -1,0 +1,18 @@
+Case number: {!Case.CaseNumber}
+Customer: {!Case.Account}
+Contact: {!Case.Contact}
+Product: {!Case.ProductGroup__c}
+Product Module: {!Case.ProductModule__c}
+Operating System:  {!Case.OperatingSystem__c}
+Version: {!Case.ProductVersion__c}
+Owner: {!Case.OwnerFullName}
+Case description: {!Case.Description}
+Installed Configuration: (Standalone, Server, Private mode, etc.)
+
+Incorrect result: (description)
+
+Expected result: (description)
+
+Steps to reproduce: (list steps)
+
+Data needed to reproduce: (data, project, and path)

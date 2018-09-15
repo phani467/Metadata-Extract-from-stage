@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Network xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowMembersToFlag>false</allowMembersToFlag>
+    <branding>
+        <loginFooterText>IHS Markit</loginFooterText>
+        <primaryColor>#1797C0</primaryColor>
+        <primaryComplementColor>#FFFFFF</primaryComplementColor>
+        <quaternaryColor>#B1BAC1</quaternaryColor>
+        <quaternaryComplementColor>#222222</quaternaryComplementColor>
+        <secondaryColor>#51606E</secondaryColor>
+        <tertiaryColor>#DDE4E9</tertiaryColor>
+        <tertiaryComplementColor>#222222</tertiaryComplementColor>
+        <zeronaryColor>#51606E</zeronaryColor>
+        <zeronaryComplementColor>#FFFFFF</zeronaryComplementColor>
+    </branding>
+    <changePasswordTemplate>unfiled$public/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
+    <emailSenderAddress>Bianca.Braiotta@ihsmarkit.com</emailSenderAddress>
+    <emailSenderName>Customer Support Community</emailSenderName>
+    <enableGuestChatter>false</enableGuestChatter>
+    <enableInvitation>false</enableInvitation>
+    <enableKnowledgeable>false</enableKnowledgeable>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
+    <enablePrivateMessages>false</enablePrivateMessages>
+    <enableReputation>false</enableReputation>
+    <enableSiteAsContainer>true</enableSiteAsContainer>
+    <forgotPasswordTemplate>unfiled$public/CommunityForgotPasswordEmailTemplate</forgotPasswordTemplate>
+    <logoutUrl>https://ihsmarkit.com/</logoutUrl>
+    <navigationLinkSet>
+        <navigationMenuItem>
+            <label>Topics</label>
+            <position>1</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>ShowMoreTopics</target>
+            <type>NavigationalTopic</type>
+        </navigationMenuItem>
+        <navigationMenuItem>
+            <label>Groups</label>
+            <position>3</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>CollaborationGroup</target>
+            <type>SalesforceObject</type>
+        </navigationMenuItem>
+        <navigationMenuItem>
+            <label>Support Cases</label>
+            <position>4</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <type>MenuLabel</type>
+        </navigationMenuItem>
+    </navigationLinkSet>
+    <networkMemberGroups>
+        <permissionSet>CommunityInternalUserCustomerCare</permissionSet>
+        <profile>Admin</profile>
+        <profile>IHSMarkit Customer Community%3A Kingdom Standard</profile>
+        <profile>IHSMarkit Customer Community%3A Kingdom Super</profile>
+        <profile>IHSMarkit Customer Community%3A Goldfire Standard</profile>
+        <profile>IHSMarkit Customer Community%3A Goldfire Super</profile>
+    </networkMemberGroups>
+    <newSenderAddress>Bianca.Braiotta@ihsmarkit.com</newSenderAddress>
+    <picassoSite>Customer_Support1</picassoSite>
+    <selfRegistration>false</selfRegistration>
+    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <site>Customer_Support</site>
+    <status>Live</status>
+    <tabs>
+        <defaultTab>home</defaultTab>
+        <standardTab>Chatter</standardTab>
+    </tabs>
+    <urlPathPrefix>customers</urlPathPrefix>
+    <welcomeTemplate>unfiled$public/CommunityWelcomeEmailTemplate</welcomeTemplate>
+</Network>

@@ -1,0 +1,15 @@
+The below Opportunity is At risk.
+
+Link: {!Opportunity.Link}
+
+Opportunity Name: {!Opportunity.Name}
+
+Account: {!Opportunity.Account}
+
+Opportunity Owner: {!Opportunity.OwnerFullName}
+
+Estimated Value at Risk: {!RenewalatRisk__c.EstimatedValueatRisk__c}
+
+Risk Probability: {!RenewalatRisk__c.RiskProbability__c}
+
+Comments: {!RenewalatRisk__c.Comments__c}

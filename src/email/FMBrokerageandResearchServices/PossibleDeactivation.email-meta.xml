@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-3374 - Possible Deactivation</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Possible Deactivation</name>
+    <style>none</style>
+    <subject>Possible Deactivation of &lt;Rep Name&gt; for {!Case.Account}</subject>
+    <textOnly>Hello {!Case.Contact},
+
+We have been informed that [Rep Name] may no longer be with {!Case.Account}. Please confirm that [Rep Name] has left your firm and provide us with the month and year of their departure. We will deactivate the contact in the questionnaire.
+
+Thank you for this information.
+
+Kind Regards,
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+{!Case.OwnerTitle} | Trading Services
+450 West 33rd Street 5th Floor | New York | NY 10001
+P: +212 205 1793 G: +1 800 208 6500
+mrmsupport@markit.com
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

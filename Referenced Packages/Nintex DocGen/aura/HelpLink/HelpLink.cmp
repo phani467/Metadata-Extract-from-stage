@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:attribute name="helpTopic" type="string" required="true" description="URL to help topic."/>
+    <aura:attribute name="style" type="string" default="height: 19px;width: 19px;margin-top: 5px;" description="Optional. Typically used to change the size of the icon."/>
+    <div class="help-link">
+        <a href="{!v.helpTopic}" target="_blank">
+            <Loop:Svg xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#help" class="icon" style="{!v.style}"/>
+        </a>
+    </div>
+</aura:component>

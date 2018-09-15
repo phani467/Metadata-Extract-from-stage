@@ -1,0 +1,133 @@
+<apex:page sidebar="false" showHeader="false" controller="Loop.LandingPageController" title="Nintex DocGen" applyHtmlTag="false">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <apex:stylesheet value="{!URLFOR($Resource.Loop__SalesforceLightning, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}"/>
+    <div id="loadingDiv">
+        Loading...
+    </div>
+
+    <div id="errorMessageDiv" class="drawloop" style="display: none;">
+        <div class="drawloop">
+            <div class="slds-notify_container">
+                <div class="slds-notify slds-notify--toast" role="alert">
+                    <span class="slds-assistive-text">Error</span>
+                    <div class="slds-notify__content slds-grid">
+                        <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex">
+                            <use xlink:href="{!URLFOR($Resource.SalesforceLightning, 'assets/icons/utility-sprite/svg/symbols.svg#note')}"></use>
+                        </svg>
+                        <div class="slds-col slds-align-middle">
+                            <h2 class="slds-text-heading--small">Authorization successful.</h2>
+                            <p>However, we were unable to update the parent page. Close this window and reload the parent page to continue.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function getParams(url) {
+            var i = url.indexOf('?'),
+                tmp = i === -1 ? url : url.substring(i + 1),
+                qs = {},
+                sections = tmp.split('&');
+            for (var i = 0; i < sections.length; i++) {
+                if (!sections[i]) continue;
+                var pair = sections[i].split('=');
+                if (pair[0] in qs) {
+                    qs[pair[0]] = (qs[pair[0]] || '') + ',' + decodeURIComponent(pair[1] || '');
+                } else {
+                    qs[pair[0]] = decodeURIComponent(pair[1] || '');
+                }
+            }
+            return qs;
+        }
+
+        var sessionId = '{!JSENCODE(sessionId)}';
+        var location = '{!JSENCODE(location)}';
+        var username = '{!JSENCODE(username)}';
+        var origin = '{!JSENCODE(origin)}';
+
+        var payload;
+        // Update all cases such that we always pass back the same data and we can remove the switch  all together
+        // This was we never need to make changes to the LandingPage.
+        // Leave a detailled comment at the top as instructions for how to use for future implementations.
+        var pageParent = '{!JSENCODE(pageParent)}';
+        switch (pageParent) {
+            case 'ddpMigration':
+                var sfLocation2 = getParams(location.href);
+                payload = {!isOAuthSuccess}
+                    ? {
+                        sessionId: sessionId,
+                        location: sfLocation2.instance_url,
+                        username: username,
+                        success: true
+                    }
+                    : {
+                        error: '{!JSENCODE(error)}',
+                        errorDescription: '{!JSENCODE(errorDescription)}',
+                        success: false
+                    };
+                break;
+            case 'edition':
+                // Edition need sessionId and location instance URL in order to make the request for another org's Edition information
+                payload = {
+                    sessionId : sessionId,
+                    location : getParams(location.href).instance_url
+                };
+                break;
+            case 'integrationInfo':
+            case 'layoutButton':
+            case 'sampleDdp':
+                payload = {
+                    'sessionId' : sessionId,
+                    'location' : location
+                };
+                break;
+            case 'authorizeLoop':
+                payload = {
+                    user: '{!JSENCODE(authorizingUser)}'
+                };
+                break;
+            case 'o365':
+                payload = {
+                    isSuccess : {!isSuccess},
+                    errorCode : "{!JSENCODE(errorCode)}",
+                    errorId : "{!JSENCODE(errorId)}",
+                    errorDescription : "{!JSENCODE(errorDescription)}"
+                };
+                break;
+            case 'box': // TODO: pass Box with params so we don't have to use the default switch case. (requires server change)
+            default:
+                // Box
+                // Our current server code undesirably removes all but the first query string params, and the appends `?success=[boolean]`.
+                // Since we now always expect params to exist, we will currently always receive `.../apex/loop__landingpage?origin=...?sucess=true`.
+                // (Note the second `?`) This replaces the `?` with `&`.
+                var fixedUrl = window.location.href.replace(/\?([^\?]*)$/, '&$1');
+
+                var params = getParams(fixedUrl);
+                var success = ('success' in params) && params.success === 'true';
+                payload = {
+                    isSuccess : success
+                };
+                if (!success && 'errorDescription' in params) {
+                    payload.errorDescription = params.errorDescription;
+                }
+                break;
+        }
+
+        var data = {
+            message: pageParent,
+            payload: JSON.stringify(payload)
+        }
+
+        try {
+            window.opener.postMessage(data, origin);
+            window.close();
+        } catch (ex) {
+            document.getElementById('loadingDiv').hidden = true;
+            document.getElementById('errorMessageDiv').style.display = 'block';
+        }
+    </script>
+</html>
+</apex:page>

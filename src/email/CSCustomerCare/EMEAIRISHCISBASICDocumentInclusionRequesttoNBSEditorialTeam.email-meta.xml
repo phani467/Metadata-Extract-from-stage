@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2662;SFDC1-2661;Request for a document inclusion to the NBS Editorial team - this is for EMEA only.  Customer subscribes to The Irish Construction Information Service Plus supplements (Irish CIS Plus)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>EMEA - IRISH CIS PLUS - Document Inclusion Request to NBS Editorial Team</name>
+    <style>none</style>
+    <subject>Irish CIS Plus - Document Inclusion Request - Case reference:  {!Case.CaseNumber} - ({!Case.OwnerFullName})</subject>
+    <textOnly>Hello Team,
+
+Please see information below with regards to a document inclusion request received for Irish CIS. If you need more information, please let me know.
+
+IHSMarkit Case Reference: {!Case.CaseNumber}
+
+IHSMarkit Case Owner: {!Case.OwnerFullName}
+
+Company Name: {!Case.Account}
+
+IHS Contract Number:
+
+Customer Contact Info;
+
+Name: {!Case.Contact}
+
+Email: {!Contact.Email}
+
+Telephone: {!Contact.Phone}
+
+Subscription Details; (please delete those supplements that are not ticked on Account Manager Admin Tool; if split license (USL) add &quot;with/without BS Standards&quot; next to relevant supplement)
+
+- Irish CIS PLUS
+
+o Core Supplement
+o ME Supplement
+o CS Supplement
+o CM Supplement
+o BS Supplement
+o with BS Standards (please delete as appropriate)
+o without BS Standards (please delete as appropriate)
+
+Does The Company subscribe to OHSIS? Yes/No
+
+Document Number and Title:
+
+Any Additional Information from the customer:
+
+Case Created on: {!Case.CreatedDate}
+
+Kind regards,
+{!Case.OwnerFullName}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CaseTriageMappingForAssignment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CaseTriageMappingForAssignment</value>
+    </caseValues>
+    <fields>
+        <help><!-- Case field for mapping via Triage --></help>
+        <label><!-- Case Field --></label>
+        <name>CaseField__c</name>
+    </fields>
+    <fields>
+        <help><!-- SFDC1-7557 Triage field for mapping via Triage Assignment --></help>
+        <label><!-- Triage Field --></label>
+        <name>TriageField__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

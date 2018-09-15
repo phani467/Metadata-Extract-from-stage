@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>SFDC1-5511 This custom setting holds the opportunity field  mapping used in cloning opportunities.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>CloneOpportunityMapping</label>
+    <visibility>Public</visibility>
+</CustomObject>

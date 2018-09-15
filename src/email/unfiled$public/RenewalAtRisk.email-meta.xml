@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-471;Notified when a Renewal Opportunity is put at risk for an Account</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Renewal At Risk</name>
+    <style>none</style>
+    <subject>Opportunity {!Opportunity.Opportunitynum__c} &quot; is At Risk&quot;</subject>
+    <type>text</type>
+</EmailTemplate>

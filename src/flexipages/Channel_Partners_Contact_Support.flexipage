@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>bannerText</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>bannerTextWithKnowledge</name>
+                <value>Explore other &lt;a href=&quot;javascript:void(0)&quot; class=&quot;headlineArticles&quot;&gt;articles&lt;/a&gt; and &lt;a href=&quot;javascript:void(0)&quot; class=&quot;headlineDiscussions&quot;&gt;discussions&lt;/a&gt; on this topic.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>bannerTextWithoutKnowledge</name>
+                <value>Explore other &lt;a href=&quot;javascript:void(0)&quot; class=&quot;headlineDiscussions&quot;&gt;discussions&lt;/a&gt; on this topic.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>pageType</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>searchTerm</name>
+                <value>{!searchString}</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showSubTopics</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Channel Partner Program Support</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>topicId</name>
+                <value>{!topicId}</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>uniqueNameOrId</name>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:headline</componentName>
+        </componentInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;div class=&quot;forceCommunityRecordListStandard&quot;&gt;
+	&lt;p&gt;&lt;h2 class=&quot;listTitle&quot;&gt;CONTACT SUPPORT&lt;/h2&gt;&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;COMING SOON - You will be able to contact support directly through the Community&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+	&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+	&lt;p&gt;&lt;h2 class=&quot;listTitle&quot;&gt;HELPFUL LINKS&lt;/h2&gt;&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href=&quot;https://mysource.ihs.com/community/teams/channel-partner-program&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;The Source&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;/div&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:htmlBlock</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>filterName</name>
+                <value>00B1F000000zKR5UAM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>layout</name>
+                <value>STANDARD</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>pageSize</name>
+                <value>5</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>scope</name>
+                <value>ChannelProgramContact__c</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:objectHome</componentName>
+        </componentInstances>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Contact Support</masterLabel>
+    <pageTemplate>siteforce:sldsOneColLayout</pageTemplate>
+    <type>CommAppPage</type>
+</FlexiPage>

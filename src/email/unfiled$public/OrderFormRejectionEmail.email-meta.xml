@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-8895 Rejection Reason email should be sent to Contract Owner) when order form is rejected</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>IHSAutomotiveLetterhead</letterhead>
+    <name>OrderFormRejectionEmail</name>
+    <style>freeForm</style>
+    <subject>Order Form Contract Rejected - {!Contract.ContractNumber}</subject>
+    <textOnly>Hi {!Contract.OwnerFullName},
+
+This is to inform that order form contract  {!Contract.ContractNumber} has been rejected due to below reasons-
+{!Contract.ReasonforRejection__c}
+
+Thanks</textOnly>
+    <type>html</type>
+</EmailTemplate>

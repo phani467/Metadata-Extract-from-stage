@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Attendee</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Attendees</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Overview --></label>
+        <name>AccountOverview__c</name>
+        <relationshipLabel><!-- Attendees --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- First and Last Name of attendee --></help>
+        <label><!-- Attendee Name --></label>
+        <name>AttendeeName__c</name>
+    </fields>
+    <fields>
+        <help><!-- List of active contacts --></help>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Attendees --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Field to show IHSMarkit Employee --></help>
+        <label><!-- IHSMarkit Employee --></label>
+        <name>IHSMarkitEmployee__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field to show the title of contact --></help>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

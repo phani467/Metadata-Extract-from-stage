@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-9063, created for account overview report, Provides summary of approved contracts (Not visible to end user, for internal purpose only)</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>SFDC1-9063 Created for account overview report, Master-Detail for accounts</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Master-Detail for accounts</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Approved Contract Summaries</relationshipLabel>
+        <relationshipName>ApprovedContractSummaries</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ActiveUsers30__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Users logged in over the last 30 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Users logged in over the last 30 days</inlineHelpText>
+        <label>Active Users 30</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ActiveUsers60__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Users logged in over the last 60 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Users logged in over the last 60 days</inlineHelpText>
+        <label>Active Users 60</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ActiveUsers90__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Users logged in over the last 90 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Users logged in over the last 90 days.</inlineHelpText>
+        <label>Active Users 90</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ActiveUsers__c</fullName>
+        <description>SFDC1-9063 created for account overview report, Number of active users</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Show Number of active users</inlineHelpText>
+        <label>Active Users</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AnnualContractValueString__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Formula Field for annual contract value.</description>
+        <externalId>false</externalId>
+        <formula>IF(AnnualContractValue__c =0, &apos;Non Billable&apos;, TEXT(FLOOR(AnnualContractValue__c)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Formula Field for annual contract value</inlineHelpText>
+        <label>Annual Contract Value String</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AnnualContractValue__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Annual Contract value in native currency.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Annual Contract value in native currency</inlineHelpText>
+        <label>Annual Contract Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BillingFrequency__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Frequency of billing (monthly / Quarterly / Annually).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Frequency of billing (monthly / Quarterly / Annually)</inlineHelpText>
+        <label>Billing Frequency</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CRTOnboardingStatus__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Status of on-boarding from CRT Team.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of on-boarding from CRT Team</inlineHelpText>
+        <label>CRT Onboarding Status</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CSATRating30Days__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. CSAT Score for last thirty days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>CSAT Score for last thirty days</inlineHelpText>
+        <label>CSAT Rating 30 days</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CasesOpenLongerthan1Day__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Number of cases open in a day.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of cases open in a day</inlineHelpText>
+        <label>Cases open longer than 1 day</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContractNumber__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. This field is used to populate unique contract number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used to populate unique contract number.</inlineHelpText>
+        <label>Contract Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EarliestContractEndDateString__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Formula field to show month of contract end date. (Not visible to end users, for internal purpose only)</description>
+        <externalId>false</externalId>
+        <formula>IF(
+
+MONTH(EarliestContractEndDate__c) = 12 &amp;&amp;
+YEAR(EarliestContractEndDate__c) = 2050 &amp;&amp; 
+DAY(EarliestContractEndDate__c) = 31
+, 
+
+&apos;Evergreen&apos;, 
+text(DAY(EarliestContractEndDate__c)) +&apos; &apos;+ CASE( MONTH( EarliestContractEndDate__c) , 
+1, &quot;Jan, &quot;, 
+2, &quot;Feb, &quot;, 
+3, &quot;Mar, &quot;, 
+4, &quot;Apr, &quot;, 
+5, &quot;May, &quot;, 
+6, &quot;Jun, &quot;, 
+7, &quot;Jul, &quot;, 
+8, &quot;Aug, &quot;, 
+9, &quot;Sep, &quot;, 
+10, &quot;Oct, &quot;, 
+11, &quot;Nov, &quot;, 
+12, &quot;Dec, &quot;,
+&quot;&quot;) +Text(YEAR(EarliestContractEndDate__c)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Formula field to show month of contract end date</inlineHelpText>
+        <label>Earliest Contract End Date String</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EarliestContractEndDate__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. End date of contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>End date of contract.</inlineHelpText>
+        <label>Earliest Contract End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EntitledUsers__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Field is for Entitled Users.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field is for Entitled Users.</inlineHelpText>
+        <label>Entitled Users</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Key__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-9063, Created for account overview report. (Not visible to end users, for internal purpose only)</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Key Field</inlineHelpText>
+        <label>Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>NonBillable__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Field created to check whether a contract is billable or not.</description>
+        <externalId>false</externalId>
+        <formula>AnnualContractValue__c = 0  &amp;&amp; BillingFrequency__c = &apos;Non Billable&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Field created to check whether a contract is billable or not</inlineHelpText>
+        <label>Non Billable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NumberofCasesOpen__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Filed created to check number of open cases</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Filed created to check number of open cases</inlineHelpText>
+        <label>Number of Cases Open</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberofOIDS30Days__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Number of OID&apos;s created in last 30 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of OID&apos;s created in last 30 days</inlineHelpText>
+        <label>Number of OID&apos;s (30 days)</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProductFamily__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Field to show product family.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field to show product family</inlineHelpText>
+        <label>Product Family</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProductinUserXS__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-9063, Created for account overview report. To check whether product is in UserXS or not.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>To check whether product is in UserXS or not</inlineHelpText>
+        <label>Product in UserXS</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RelativeUsage30__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Usage compared to combined usage of everyone that uses the product in last 30 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Usage compared to combined usage of everyone that uses the product in last 30 days</inlineHelpText>
+        <label>Relative Usage 30</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RelativeUsage60__c</fullName>
+        <description>SFDC1-9063, Created for account overview report.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Usage compared to combined usage of everyone that uses the product in last 60 days.</inlineHelpText>
+        <label>Relative Usage 60</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RelativeUsage90__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Usage compared to combined usage of everyone that uses the product in last 90 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Usage compared to combined usage of everyone that uses the product in last 90 days.</inlineHelpText>
+        <label>Relative Usage 90</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RelativeUsage__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Usage compared to combined usage of everyone that uses the product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Usage compared to combined usage of everyone that uses the product</inlineHelpText>
+        <label>Relative Usage</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RenewalConfidenceIndicator__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Field to show probability of renewal of a particular contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field to show probability of renewal of a particular contract</inlineHelpText>
+        <label>Renewal Confidence Indicator</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RevenueType__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Filed created to show type of revenue (recurring / non recurring) of a particular contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Filed created to show type of revenue (recurring / non recurring) of a particular contract.</inlineHelpText>
+        <label>Revenue Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Usage30__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Shows the percentage of users Total active users divided by Total Entitled users in last 30 days. (Not visible to end users, for internal purpose only)</description>
+        <externalId>false</externalId>
+        <formula>IF(OR(ActiveUsers30__c= 0, EntitledUsers__c= 0), 0,
+ActiveUsers30__c/  EntitledUsers__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Shows the percentage of users Total active users divided by Total Entitled users in last 30 days</inlineHelpText>
+        <label>Usage 30</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Usage60__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Shows the percentage of users Total active users divided by Total Entitled users in last 60 days.</description>
+        <externalId>false</externalId>
+        <formula>IF(OR(ActiveUsers60__c= 0, EntitledUsers__c= 0), 0, 
+ActiveUsers60__c/ EntitledUsers__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Shows the percentage of users Total active users divided by Total Entitled users in last 60 days</inlineHelpText>
+        <label>Usage 60</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Usage90__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Shows the percentage of users Total active users divided by Total Entitled users in last 90 days. (Not visible to end users, for internal purpose only)</description>
+        <externalId>false</externalId>
+        <formula>IF(OR(ActiveUsers90__c= 0, EntitledUsers__c= 0), 0, 
+ActiveUsers90__c/ EntitledUsers__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Usage 90</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Usage__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Shows the percentage of users Total active users divided by Total Entitled users. (Not visible to end users, for internal purpose only)</description>
+        <externalId>false</externalId>
+        <formula>IF(OR(ActiveUsers__c= 0, EntitledUsers__c= 0), 0, 
+ActiveUsers__c/ EntitledUsers__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Shows the percentage of users Total active users divided by Total Entitled users</inlineHelpText>
+        <label>Usage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>UsingBillingSchedule__c</fullName>
+        <description>SFDC1-9063, Created for account overview report. Filed created for billing schedule (Not visible to end users, for internal purpose only)</description>
+        <externalId>false</externalId>
+        <formula>IF(Key__c &lt;&gt; &apos;&apos;, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Filed created for billing schedule</inlineHelpText>
+        <label>Using Billing Schedule</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Approved Contract Summary</label>
+    <nameField>
+        <displayFormat>CSN-{0000}</displayFormat>
+        <label>Approved Contract Summary Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Approved Contract Summaries</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

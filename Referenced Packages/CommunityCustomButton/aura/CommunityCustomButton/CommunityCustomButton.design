@@ -1,0 +1,4 @@
+<design:component label="Custom Button">
+    <design:attribute name="btnTitle" label="Button Title" description="Please add Title for the button" />
+    <design:attribute name="btnURL" label="Button URL" description="Please add URL for the button" />
+</design:component>

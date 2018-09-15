@@ -1,0 +1,18 @@
+<apex:page tabstyle="Loop__DDP__c">
+    <apex:sectionHeader title="Nintex DocGen" />
+    <apex:pageBlock >
+        <apex:pageBlockSection columns="1">
+            <apex:pageMessage summary="{!CASE($Request.m,
+                '1','Your Organization is not licensed for Nintex DocGen. Please have your Administrator contact Nintex Support at support@nintex.com.',
+                '2','Your Administrator has uninstalled Nintex DocGen.',
+                '3','The trial period for your organization has expired. Please have your Administrator contact Nintex Support at support@nintex.com.',
+                '4','This service has been deactivated for your Organization. Please have your Administrator contact Nintex Support at support@nintex.com.',
+                '5','This service has not been enabled for your account. An Administrator can go to the DocGen Admin tab to manage your account subscriptions.',
+                '6','The DocuSign integration for your organization has been deactivated. Please have your Administrator contact Nintex Support at support@nintex.com.',
+                '7','Your Organization has not been setup to work with DocuSign through Nintex DocGen. An Administrator can go to the DocGen Admin tab to manage your third-party integrations.',
+                '8', 'There is an issue with the Drawloop license for your account. Please have your Administrator contact Nintex Support at support@nintex.com.',
+                'An unexpected error has occurred. If this issue continues, please have your Administrator contact Nintex Support at support@nintex.com.'
+            )}" severity="error" strength="2" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

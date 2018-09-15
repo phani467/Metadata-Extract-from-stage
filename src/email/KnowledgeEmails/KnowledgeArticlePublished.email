@@ -1,0 +1,15 @@
+The following knowledge article has been published:
+
+Title: {!Knowledge__kav.Title}
+Created By: {!Knowledge__kav.CreatedBy}
+Created Date: {!Knowledge__kav.ArticleCreatedDate}
+First Published Date: {!Knowledge__kav.FirstPublishedDate}
+Last Published Date: {!Knowledge__kav.LastPublishedDate}
+Type: {!Knowledge__kav.RecordType}
+
+Summary
+-----------------------------
+{!Knowledge__kav.Summary}
+-----------------------------
+
+Article Link: {!Knowledge__kav.Link}

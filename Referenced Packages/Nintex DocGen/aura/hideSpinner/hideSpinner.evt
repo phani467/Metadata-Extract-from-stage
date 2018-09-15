@@ -1,0 +1,1 @@
+<aura:event type="COMPONENT" description="Hide spinners after everything has loaded." />

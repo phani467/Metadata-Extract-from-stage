@@ -1,0 +1,32 @@
+ETCS Group,
+
+Could you please assist this client?
+
+Thanks.
+
+{!Case.OwnerFullName}
+ ------------------------------------------------
+
+Name: {!Case.Contact}
+Company: {!Case.Account}
+Phone Number: {!Case.ContactPhone__c}
+
+Email: {!Case.ContactEmail__c}
+
+------------------------------------------------
+
+Case #: {!Case.CaseNumber}
+Summary: {!Case.Description}
+Created By: {!Case.OwnerFullName}
+Product: {!Case.ProductGroup__c}
+Module: {!Case.ProductModule__c}
+Version: {!Case.ProductVersion__c}
+------------------------------------------------
+
+Case Description: {!Case.Description}
+------------------------------------------------
+
+Resolution information: {!Case.ResolutionDescription__c}
+------------------------------------------------
+
+Notes:

@@ -1,0 +1,4 @@
+<aura:event type="Component" description="Store object types created in different steps of the Setup Wizard for use in the end page.">
+    <aura:attribute name="sampleType" type="String" required="true"/>
+    <aura:attribute name="objectTypes" type="List" required="true"/>
+</aura:event>

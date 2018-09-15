@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <name>customHeader</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>contineActionLabel</name>
+                <value>Ask the community</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>continueLabel</name>
+                <value>Don’t see it?</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>crossObjectTypeaheadApiNames</name>
+                <value>[{&quot;name&quot;:&quot;Account&quot;,&quot;isPublic&quot;:false},{&quot;name&quot;:&quot;Contact&quot;,&quot;isPublic&quot;:false},{&quot;name&quot;:&quot;Lead&quot;,&quot;isPublic&quot;:false},{&quot;name&quot;:&quot;Opportunity&quot;,&quot;isPublic&quot;:false},{&quot;name&quot;:&quot;Product2&quot;,&quot;isPublic&quot;:true},{&quot;name&quot;:&quot;Knowledge__kav&quot;,&quot;isPublic&quot;:true},{&quot;name&quot;:&quot;ContentDocument&quot;,&quot;isPublic&quot;:true}]</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>disableCrossObjectRelevance</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>enableAutocomplete</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maxNumberOfResults</name>
+                <value>6</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>placeholder</name>
+                <value>Search...</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>questionResultsFirst</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showContinueAction</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showDetails</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTopics</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>signInActionLabel</name>
+                <value>Sign in to ask the community</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:searchBox</componentName>
+        </componentInstances>
+        <name>search</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>communityBuilderLabel</name>
+                <value>Community Builder</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>communitySetupLabel</name>
+                <value>Community Setup</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>contactSupportLabel</name>
+                <value>Contact Support</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterName</name>
+                <value>MyCases</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>homeLabel</name>
+                <value>Home</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>includeContactSupport</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>includeMessages</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>loginLabel</name>
+                <value>Login</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>logoutLabel</name>
+                <value>Logout</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>myAccountLabel</name>
+                <value>My Account</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showUserSettings</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>userSettingsLabel</name>
+                <value>My Settings</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewProfileLabel</name>
+                <value>My Profile</value>
+            </componentInstanceProperties>
+            <componentName>selfService:userProfileMenu</componentName>
+        </componentInstances>
+        <name>profileMenu</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>NavigationMenuEditorRefresh</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideAppLauncher</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideHomeText</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:globalNavigation</componentName>
+        </componentInstances>
+        <name>navBar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>customRegion</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;div&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;
+&lt;div style=&quot;background-color: rgba(255,255,255, 1);color: rgb(89, 89, 91);&quot;&gt;
+    &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+    &lt;p style=&quot;text-align: center;&quot;&gt;
+        &lt;b style=&quot;font-size: 24px;&quot;&gt;Questions?&lt;/b&gt;
+    &lt;/p&gt;
+	&lt;p style=&quot;text-align: center;&quot;&gt;
+        &lt;b style=&quot;font-size: 18px;&quot;&gt;Check out our &lt;/b&gt;&lt;a href=&quot;/partners/s/contactsupport&quot; target=&quot;_self&quot;&gt;&lt;b style=&quot;font-size: 18px;&quot;&gt;Contact Support&lt;/b&gt;&lt;/a&gt;&lt;b style=&quot;font-size: 18px;&quot;&gt; page&lt;/b&gt;&lt;/p&gt;
+	&lt;br&gt;
+    &lt;p style=&quot;text-align: center;font-size: 12px;&quot;&gt;
+        &amp;nbsp;&amp;copy;&amp;nbsp;
+        &lt;a style=&quot;color: rgb(89, 89, 91);&quot; href=&quot;https://ihsmarkit.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;IHSMarkit&lt;/a&gt;. All rights reserved.
+    &lt;/p&gt;
+    &lt;br&gt;
+&lt;/div&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:htmlBlock</componentName>
+        </componentInstances>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>themeLayout_Inner</masterLabel>
+    <pageTemplate>siteforce:serviceBody</pageTemplate>
+    <type>CommThemeLayoutPage</type>
+</FlexiPage>

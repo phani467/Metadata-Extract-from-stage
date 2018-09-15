@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Ad Claim Change Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Ad Claim Change Logs</value>
+    </caseValues>
+    <fields>
+        <help><!-- Related Ad Claim --></help>
+        <label><!-- Ad Claim --></label>
+        <name>AdClaim__c</name>
+        <relationshipLabel><!-- Ad Claim Change Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Any comments that will be helpful to the account representative when discussing the claim with the requestor --></help>
+        <label><!-- Approval Comments --></label>
+        <name>ApprovalComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date on which the change is approved --></help>
+        <label><!-- Approval Date --></label>
+        <name>ApprovalDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Language that is approved to use in the claim. (This may be different from the proposed language) --></help>
+        <label><!-- Approved Claim Language --></label>
+        <name>ApprovedClaimLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date the claim is approved --></help>
+        <label><!-- Approved Date --></label>
+        <name>ApprovedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the person approving the claim --></help>
+        <label><!-- Approver --></label>
+        <name>Approver__c</name>
+        <relationshipLabel><!-- Ad Claim Change Logs (Approver) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Name of the person approving the claim --></help>
+        <label><!-- Approving Party --></label>
+        <name>ApprovingParty__c</name>
+        <relationshipLabel><!-- Ad Claim Change Logs (Approving Party) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Any comments that will be helpful to the person reviewing the claim change --></help>
+        <label><!-- Change Comments --></label>
+        <name>ChangeComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field stores the concatenation of the source system name and a source system record ID to ensure the record is uniquely identified --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system ID referencing the source record and is populated via migrating system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Language that is approved to use in the disclaimer.  (This may be different from the proposed language) --></help>
+        <label><!-- Approved Disclaimer Language --></label>
+        <name>NewApprovedDisclaimerLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Media type in which the publication will be made. Select all that apply --></help>
+        <label><!-- Media Type --></label>
+        <name>NewMediaType__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (please list)</masterLabel>
+            <translation><!-- Other (please list) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press Release</masterLabel>
+            <translation><!-- Press Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Disclaimer language requested by the customer --></help>
+        <label><!-- Proposed Disclaimer Language --></label>
+        <name>NewProposedDisclaimerLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explain the reason for rejecting a claim --></help>
+        <label><!-- New Rejection Comments --></label>
+        <name>NewRejectionComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the publication will be made in a media type outside of those listed, please enter --></help>
+        <label><!-- Other Media Type --></label>
+        <name>OtherMediaType__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID AdClaimChangeLog --></label>
+        <name>PKIDAdClaimChangeLog__c</name>
+    </fields>
+    <fields>
+        <help><!-- Claim language requested by the customer --></help>
+        <label><!-- Proposed Claim Language --></label>
+        <name>ProposedClaimLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explain the reason for rejecting a claim --></help>
+        <label><!-- Rejection Comments --></label>
+        <name>RejectionComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date on which the claim change is entered --></help>
+        <label><!-- Request Date --></label>
+        <name>RequestDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the person requesting the change --></help>
+        <label><!-- Requester --></label>
+        <name>Requester__c</name>
+        <relationshipLabel><!-- Ad Claim Change Logs (Requester) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Status of change request in approval process --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Ad Claim Change Log Layout</layout>
+        <sections>
+            <label><!-- Change Description --></label>
+            <section>Change Description</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Review And Approve --></label>
+        <name>ReviewAndApprove</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Review And Reject --></label>
+        <name>ReviewAndReject</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Review And Submit --></label>
+        <name>ReviewAndSubmit</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to create Ad Claim Change Log record. --></errorMessage>
+        <name>AdClaimApproverCanNOTCreateAdClaimChange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Approved AdClaim Change Log can not be Rejected. --></errorMessage>
+        <name>AdClaimChangeCanNOTRejectAfterApprove</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Approved AdClaims Changelog can be edited only by Approvers. --></errorMessage>
+        <name>ApprovedAdClaimChangelogEditOnlyApprover</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- AdClaim Change Log can not be created with Draft AdClaim. --></errorMessage>
+        <name>ChangeLogCanNotCreateWithDraftAdClaim</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- At least one field in the &quot;Change Description&quot; section must be filled out before submitting or approving. --></errorMessage>
+        <name>FieldsMandatoryToSubmitOrApproveRecord</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only an Authorized Ad Claim Approver can Approve/ Reject the record. Please contact your System Administrator for more information. --></errorMessage>
+        <name>OnlyApproverCanApproveRejectTheRecord</name>
+    </validationRules>
+</CustomObjectTranslation>

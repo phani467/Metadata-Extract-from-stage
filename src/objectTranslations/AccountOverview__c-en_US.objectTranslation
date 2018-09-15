@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Overview</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Overviews</value>
+    </caseValues>
+    <fields>
+        <help><!-- Lookup field for account --></help>
+        <label><!-- Account --></label>
+        <name>Account1__c</name>
+        <relationshipLabel><!-- Account Overviews --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Shows number of attachments --></help>
+        <label><!-- Attachments Count --></label>
+        <name>AttachmentsCount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Shows Count of attendees. --></help>
+        <label><!-- Attendee Count --></label>
+        <name>AttendeeCount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Shows By default all New business open pipeline is included. --></help>
+        <label><!-- Exclude 1% Opportunities --></label>
+        <name>Exclude1Opportunities__c</name>
+    </fields>
+    <fields>
+        <help><!-- For showing excluded contracts and opportunities for all subsidiaries --></help>
+        <label><!-- Exclude subsidiaries --></label>
+        <name>ExcludeSubsidiaries__c</name>
+    </fields>
+    <fields>
+        <help><!-- By default  zero value opportunities are excluded from overview. --></help>
+        <label><!-- Exclude Zero Value Opportunities --></label>
+        <name>ExcludeZeroValueOpportunities__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checkbox field to include account team --></help>
+        <label><!-- Include Account Team --></label>
+        <name>IncludeAccountTeam__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checkbox for report generator to show whether contracts are at risk or not --></help>
+        <label><!-- Include Contracts at Risk --></label>
+        <name>IncludeContractsatRisk__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field to include or exclude Run Rate Revenue for subsidiaries --></help>
+        <label><!-- IncludeExcludeRRRSubsidiaries --></label>
+        <name>IncludeExcludeRRRSubsidiaries__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checkbox to show whether to include key contacts --></help>
+        <label><!-- Include Key Contacts --></label>
+        <name>IncludeKeyContacts__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checkbox to include opportunity owner --></help>
+        <label><!-- Include Opportunities Owner --></label>
+        <name>IncludeOpportunitiesOwner__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checkbox to include Run Rate Revenue Column --></help>
+        <label><!-- Include RRR Column --></label>
+        <name>IncludeRRRColumn__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checkbox to include Top Renewals --></help>
+        <label><!-- Include Upcoming Top Renewals --></label>
+        <name>IncludeUpcomingTopRenewals__c</name>
+    </fields>
+    <fields>
+        <help><!-- Query for opportunity amount --></help>
+        <label><!-- Opp Query Amount --></label>
+        <name>OppQueryAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Query for calculating probability of an opportunity --></help>
+        <label><!-- Opp Query Probabilty --></label>
+        <name>OppQueryProbabilty__c</name>
+    </fields>
+    <fields>
+        <help><!-- Count of Product Line Item --></help>
+        <label><!-- Product Line Summaries Count --></label>
+        <name>ProductLineSummariesCount__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Overview Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Overview Layout Read Only</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Read Only --></label>
+        <name>ReadOnly</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Read Write --></label>
+        <name>ReadWrite</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- CreateReport --></label>
+        <name>CreateReport</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- PreviewReport --></label>
+        <name>PreviewReport</name>
+    </webLinks>
+</CustomObjectTranslation>

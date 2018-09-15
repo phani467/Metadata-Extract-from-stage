@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case CAR</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case CARs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Case CARs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PLC Job --></label>
+        <name>PLCJob__c</name>
+        <relationshipLabel><!-- Case CARs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PLC Production Team --></label>
+        <name>PLCProductionTeam__c</name>
+    </fields>
+    <fields>
+        <label><!-- PLC Programmer --></label>
+        <name>PLCProgrammer__c</name>
+    </fields>
+    <layouts>
+        <layout>Case CAR Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

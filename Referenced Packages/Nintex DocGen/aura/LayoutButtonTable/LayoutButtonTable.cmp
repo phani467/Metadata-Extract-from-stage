@@ -1,0 +1,123 @@
+<aura:component controller="Loop.LayoutButtonController">
+    <!--Required attributes-->
+    <aura:attribute name="sessionId" type="string" required="true"/>
+    <aura:attribute name="apiUrl" type="string" default=""/>
+
+    <!--Optional attributes-->
+    <aura:attribute name="disableCheckboxes" type="boolean" default="false" required="false" description="Use this attribute to set whether or not all checkboxes on this component are enabled or disabled."/>
+    
+    <!--Internal attributes-->
+    <aura:attribute name="layouts" type="List" default="[]" access="private" description="Holds all parent rows for objects. Parent rows contain child rows which contain page layouts."/>
+    <aura:attribute name="layoutMetadata" type="string" access="private"/>
+    <aura:attribute name="noRecords" type="boolean" default="false" access="private"/>
+    <aura:attribute name="availableCustomObjects" type="Map" access="private"/>
+    <aura:attribute name="customObjectSelectOptions" type="List" default="[]" access="private"/>
+    <aura:attribute name="isTableLoading" type="boolean" default="true" access="private"/>
+    <aura:attribute name="enabledCount" type="string" default="" access="private"/>
+    
+    <!--Methods-->
+    <aura:method name="save" action="{!c.save}"/>
+    <aura:method name="filterLayouts" action="{!c.filterLayouts}">
+        <aura:attribute name="searchText" type="string"/>
+    </aura:method>
+    
+    <!--Handled events-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="moveToNextStep" type="Loop:moveToNextStep"/>
+    <aura:registerEvent name="showError" type="Loop:showError"/>
+    <aura:registerEvent name="setSampleObjects" type="Loop:setSampleObjects"/>
+    
+    <div class="slds">
+        <table class="slds-table slds-table--bordered slds-no-row-hover custom-changes">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th class="slds-cell-shrink" scope="col"/>
+                    <th class="slds-is-sortable" scope="col">
+                        <span class="slds-truncate">Object</span>
+                        <button class="slds-button slds-button--icon-bare">
+                            <Loop:Svg class="slds-button__icon slds-button__icon--small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"/>
+                        </button>
+                    </th>
+                    <th scope="col"><span class="slds-truncate">{!v.enabledCount > 0 ? 'Enabled (' + v.enabledCount + ')' : 'Enabled'}</span></th>
+                    <th scope="col"><span class="slds-truncate">Classic Page Layout</span></th>
+                </tr>
+            </thead>
+            <tbody id="layout-row-table">
+                <aura:iteration items="{!v.layouts}" var="layout">
+                	<tr id="{!layout.objectName}" class="slds-hint-parent pointer" data-row="parent" hidden="{! !layout.show}" onclick="{!c.toggleRow}">
+                    	<td>
+                            <div style="text-align:right;">
+                                <aura:if isTrue="{!layout.isExpanded}">
+                        			<Loop:Svg class="slds-button__icon slds-button__icon--small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#dash"/>
+                                    <aura:set attribute="else">
+                                    	<Loop:Svg class="slds-button__icon slds-button__icon--small" xlinkHref="/resource/Loop__SalesforceLightning/assets/icons/utility-sprite/svg/symbols.svg#add"/>
+                                    </aura:set>
+                                </aura:if>
+                            </div>
+                        </td>
+                        <td>
+                        	{!layout.objectName}
+                        </td>
+                        <td>
+                        	<label class="{!'slds-checkbox' + (layout.isTristate ? ' tristate' : '')}">
+                                <ui:inputCheckbox value="{!layout.isChecked}" disabled="{!v.disableCheckboxes}"/>
+                                <span id="{!layout.objectName}" class="slds-checkbox--faux" onclick="{!c.parentCheckboxClicked}"></span>
+                                <span class="slds-form-element__label slds-assistive-text"></span>
+                            </label>
+                        </td>
+                        <td>
+                        	{!layout.layoutPageName}
+                        </td>
+                    </tr>
+                    <aura:iteration items="{!layout.childLayouts}" var="childLayout">
+                        <tr class="{!layout.isExpanded ? '' : 'hidden'}" data-row="child" hidden="{! !layout.show}">
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <label class="slds-checkbox">
+                                    <ui:inputCheckbox value="{!childLayout.isChecked}" disabled="{!v.disableCheckboxes}"/>
+                                    <span id="{!childLayout.id}" class="slds-checkbox--faux" onclick="{!c.childCheckboxClicked}" data-parent="{!layout.objectName}"></span>
+                                    <span class="slds-form-element__label slds-assistive-text"></span>
+                                </label>
+                            </td>
+                            <td>{!childLayout.layoutPageName}</td>
+                        </tr>
+                    </aura:iteration>
+                </aura:iteration>
+                <tr aura:id="customObjectRow" class="slds-hint-parent rowHidden">
+                    <td>
+                        <label class="slds-form-element__label" style="margin-right: 0;">Custom Object</label>
+                    </td>
+                    <td>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <ui:inputSelect aura:id="customObjectSelect" class="slds-select dynamic">
+                                        <aura:iteration items="{!v.customObjectSelectOptions}" var="option">
+                                            <ui:inputSelectOption label="{!option.label}" text="{!option.text}"/>
+                                        </aura:iteration>
+                                    </ui:inputSelect>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <ui:outputURL aura:id="addButtonLink" value="" click="{!c.createButton}" label="Add button to selected object"/>
+                        <div aura:id="addButtonSpinner" class="slds-spinner hidden" style="width: 20px;height: 20px;left: 16px;">
+                            <img alt="Loading..." src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner.gif"/>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                <aura:if isTrue="{!v.isTableLoading}">
+                    <tr aura:id="noRecordRow"><td colspan="7" style="text-align: center;">
+                        <Loop:Spinner class="slds-spinner--small" visible="true" useGraySpinner="true"/>
+                        <span style="color:grey; margin-left:10px;">Loading records...</span></td>
+                    </tr>
+                </aura:if>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-6937:  This custom object is needed to hold fields for the Opportunity.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AccountType__c</fullName>
+        <description>SFDC1-6937: Field to hold Account Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the Account Type</inlineHelpText>
+        <label>Account Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Buyside/ End User</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dealer / Bank</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IDB</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Checkcompanywebsite__c</fullName>
+        <description>SFDC1-6937: This field holds the value for Check company website</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the Check company website</inlineHelpText>
+        <label>Check company website</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ConfirmationofLegalEntityName__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Field to hold Confirmation of Legal Entity Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if you have confirmation of Legal Entity Name</inlineHelpText>
+        <label>Confirmation of Legal Entity Name</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ConfirmationofOperationLocation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Field to hold Confirmation of Operation Location</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if you have confirmation of Operation Location</inlineHelpText>
+        <label>Confirmation of Operation Location</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirmationofidentityofrequestor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Field to holds Confirmation of identity of requestor</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select if you have confirmation of identity of requester</inlineHelpText>
+        <label>Confirmation of identity of requestor</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirmationofidentityoftwocontacts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Field to hold Confirmation of identity of two contacts</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if you have confirmation of identity of two contacts</inlineHelpText>
+        <label>Confirmation of identity of two contacts</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DealType__c</fullName>
+        <description>SFDC1-6937: Field to hold Deal Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Deal type</inlineHelpText>
+        <label>Deal Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Existing client</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New client</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DesignOnly__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Field to hold if Oppty is Design only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select if Design Only</inlineHelpText>
+        <label>Design Only</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DevelopmentFee__c</fullName>
+        <description>SFDC1-6937: Field to hold Development Fee</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the Development Fee</inlineHelpText>
+        <label>Development Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>EstimatedContractRevenue__c</fullName>
+        <description>SFDC1-6937: Field to hold Estimated Contract Revenue</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the Estimated Contract Revenue</inlineHelpText>
+        <label>Estimated Contract Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Keycontactemailreflectscompanyid__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Field to hold value for Key contact email reflects company Identity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if Key contact email reflects company Id</inlineHelpText>
+        <label>Key contact email reflects company Id</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LaunchDate__c</fullName>
+        <description>SFDC1-6937: Field to hold Launch Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the Launch Date</inlineHelpText>
+        <label>Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Launched__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Field to hold Launched value - true or false</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select if Launched</inlineHelpText>
+        <label>Launched</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LeadGenTeam__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Lead Gen Team</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if lead Gen Team</inlineHelpText>
+        <label>Lead Gen Team</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LegacyIDUnique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Legacy Id field for Additional Opportunity fields. It will be same as parent opportunity. Create as part of migration exercise</description>
+        <externalId>true</externalId>
+        <label>LegacyIDUnique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>Legacy Id field for Additional Opportunity fields. It will be same as parent opportunity. Create as part of migration exercise</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Populated from legacy system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacyReference__c</fullName>
+        <description>Legacy Reference field is a friendly system reference to the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is a friendly system reference to the source record.</inlineHelpText>
+        <label>LegacyReference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LegacySystem__c</fullName>
+        <description>Legacy System field is a picklist that represents the original system the record came from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the CRM system the source record came from</inlineHelpText>
+        <label>LegacySystem</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>LegacySystem</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MSFAIntermediateSegment__c</fullName>
+        <description>SFDC1-6937: Field to hold MSFA Intermediate Segment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the MSFA Intermediate Segment</inlineHelpText>
+        <label>MSFA Intermediate Segment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Borrower</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cash Trading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Delta One</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equity Long/Short</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Income</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lender</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>M&amp;A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prop Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Risk Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Syndicates Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trading Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UK Investment Trust Desk</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MSFTrialEndDate__c</fullName>
+        <description>SFDC1-6937: Field to hold MSF Trial End Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the MSF Trial End Date</inlineHelpText>
+        <label>MSF Trial End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MSFTrialLength__c</fullName>
+        <description>SFDC1-6937: Field to hold MSF Trial Length</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the MSF Trial Length</inlineHelpText>
+        <label>MSF Trial Length</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MSFTrialProduct__c</fullName>
+        <description>SFDC1-6937: Field to hold MSF Trial Product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the MSF Trial Product</inlineHelpText>
+        <label>MSF Trial Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account Manager Toolkit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Benchmarking Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bloomberg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Buyside Analytics Datafeed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Buyside Datafeed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Buyside Toolkit for Excel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Capital IQ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Capital IQ Xpressfeed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Deltix</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Direct Edge</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DX Open</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evaluation Explorer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Eze Locates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FactSet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>International Index Explorer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iPhone App</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Performance Explorer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Performance Explorer Prop Borrower</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Repo Datafeed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research Signals Short Squeeze Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Risk Explorer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Securities Finance Datafeed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sellside Toolkit for Excel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SS Securities Finance Toolkit for Excel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Toolkit Dividend Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Toolkit ETP Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Toolkit EVB Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Toolkit Public Disclosure Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Toolkit Repo Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transaction Explorer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TRQA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UK Index Explorer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Web Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesale Toolkit for Excel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WRDS</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MSFTrialStartDate__c</fullName>
+        <description>SFDC1-6937: Field to hold MSF Trial Start Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the MSF Trial Start Date</inlineHelpText>
+        <label>MSF Trial Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MSFTrialStatus__c</fullName>
+        <description>SFDC1-6937: Field to hold MSF Trial Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the MSF Trial Status</inlineHelpText>
+        <label>MSF Trial Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active Trial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inactive Trial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Reactivated</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MSFTrial__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937: Field to hold MSF Trial</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select if MSF Trial</inlineHelpText>
+        <label>MSF Trial</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MoDOpportunityType__c</fullName>
+        <description>SFDC1-6937: Field to hold MoD Opportunity Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the MoD Opportunity Type</inlineHelpText>
+        <label>MoD Opportunity Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Adhesion</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core Business</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MonthlyHostingFee__c</fullName>
+        <description>SFDC1-6937: Field to hold Monthly Hosting Fee</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the Monthly Hosting Fee</inlineHelpText>
+        <label>Monthly Hosting Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OpportunityReference__c</fullName>
+        <description>SFDC1-6937 This field will link back this Additional Opportunity Fields to the Opportunity its associated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the Opportunity</inlineHelpText>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Additional Opportunity Fields</relationshipLabel>
+        <relationshipName>AdditionalOpportunityFields</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Platform__c</fullName>
+        <description>SFDC1-6937: Field to hold Platform</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the Platform</inlineHelpText>
+        <label>Platform</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>DS Match</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitWire</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MTM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MTM/MW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DS Match &amp; MarkitWire</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DSM FX OES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DSM/MTM FX OES</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProjectManager__c</fullName>
+        <description>SFDC1-6937: Field to hold Project Manager</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the Project Manager</inlineHelpText>
+        <label>Project Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Adam Reke</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Adrienne Watral</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alexander Carroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alfred Christiansen</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alisha Idrees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Andres Esguerra</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Andrew Bell</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Andrew Robinson</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Angela Chase</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>April Capil</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ashley Hammond</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Austin Cannell</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Benjamin Nelson</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Brian Yarosh</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Casey Katona</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charles Gruber</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cherilyn Rasmussen</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chin Eng Soon</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Christopher Ormsby</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Christopher Robinson</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chris Watson</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clinton Randall</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Craig Draayer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Daniel Vincent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>David Griesbauer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Elizabeth Burgess</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Francesco Maffei</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gabriel Helgerson</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gary Zandstra</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Giorgianna Seibt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Greg Frederick</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Heather Hobbs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jacob Muzzy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>James Ulbrich</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jaren Green</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jedidiah Staufer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jennifer Liang</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jillian Humphrey</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Joseph Seguin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Julianna Johnson</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Justin Urman</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaitlin Herlihy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Karin Budding</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kate Rackliff</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Katherine Allen</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kendyl Bachelor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kim Jordan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Launa Proctor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lauren Blanchet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mark Wood</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Matthew McClain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Meredith Davis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Michael Numedahl</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Michael P. Blick</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Michael Servas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Michael Soderlund</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Michelle Bishop</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Myron Tuttle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Natasha Dadabhoy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nicholas Mooney</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nikhil Bhasin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Richard Bagley</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ryan Welley</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Samantha Buccio</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sarah Sharp</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scott Hinrichs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shannon Labay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Spencer Clark-Landman</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tim Adair</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tim Peters</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wilder Daniels</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Windi Julias</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProjectStartDate__c</fullName>
+        <description>SFDC1-6937: Field to hold Project Start Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the Project Start Date</inlineHelpText>
+        <label>Project Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <description>SFDC1-6937: Field to hold Region</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the Region</inlineHelpText>
+        <label>Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EMEA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Americas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Japan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Japan Asia</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ResourceID__c</fullName>
+        <description>SFDC1-6937: Field to hold Resource ID</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the Resource ID</inlineHelpText>
+        <label>Resource ID</label>
+        <length>6</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ShortDescription__c</fullName>
+        <description>SFDC1-6937: Field to hold Short Description</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter a Short Description</inlineHelpText>
+        <label>Short Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>Additional Opportunity Fields</label>
+    <nameField>
+        <label>Additional Opportunity Fields Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Additional Opportunity Fields</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

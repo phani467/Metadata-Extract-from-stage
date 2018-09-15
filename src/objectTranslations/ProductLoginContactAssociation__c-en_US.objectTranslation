@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Login Contact Association</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Login Contact Associations</value>
+    </caseValues>
+    <fields>
+        <help><!-- Link the related Contact to this Product Login --></help>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Product Login Contact Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Link the related to Product Login to this Contact --></help>
+        <label><!-- Product Login --></label>
+        <name>ProductLogin__c</name>
+        <relationshipLabel><!-- Product Login Contact Associations --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Product Login Contact Association Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

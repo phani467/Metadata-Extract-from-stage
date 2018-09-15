@@ -1,0 +1,4 @@
+<design:component >
+	<design:attribute name="environmentType" description="Parameter to determine LEX or community"
+                      datasource="Community,Lightning"/>
+</design:component>

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Set_StartVar_Id</name>
+        <label>Set StartVar Id</label>
+        <locationX>360</locationX>
+        <locationY>138</locationY>
+        <assignmentItems>
+            <assignToReference>startVar_ChannelProgramContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Record_Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Start_Screen</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>ch_Cancel</name>
+        <choiceText>Cancel</choiceText>
+        <dataType>Boolean</dataType>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </choices>
+    <choices>
+        <name>ch_Update_Photo</name>
+        <choiceText>Update Photo</choiceText>
+        <dataType>Boolean</dataType>
+        <value>
+            <booleanValue>true</booleanValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Check_StartVarId</name>
+        <label>Check StartVarId</label>
+        <locationX>539</locationX>
+        <locationY>26</locationY>
+        <defaultConnector>
+            <targetReference>Start_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Normal Run</defaultConnectorLabel>
+        <rules>
+            <name>Debug</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>startVar_ChannelProgramContactId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Debug_StartVarId</targetReference>
+            </connector>
+            <label>Debug</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Update_Photo_URL</name>
+        <label>Check Update Photo URL</label>
+        <locationX>140</locationX>
+        <locationY>312</locationY>
+        <defaultConnector>
+            <targetReference>No_User_Set_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No User Set</defaultConnectorLabel>
+        <rules>
+            <name>User_Set</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_ChannelProgramContact.SalesforceUser__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lookup_Salesforce_User</targetReference>
+            </connector>
+            <label>User Set</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Confirmation_Check</name>
+        <label>Confirmation Check</label>
+        <locationX>209</locationX>
+        <locationY>664</locationY>
+        <defaultConnectorLabel>Cancel - End Flow</defaultConnectorLabel>
+        <rules>
+            <name>Update</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Confirmation_Select</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FlowUpdatePhotoURL</targetReference>
+            </connector>
+            <label>Update</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>User_Profile_Photo_Check</name>
+        <label>User Profile Photo Check</label>
+        <locationX>593</locationX>
+        <locationY>498</locationY>
+        <defaultConnector>
+            <targetReference>Update_Photo_Confirmation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Update Profile Photo</defaultConnectorLabel>
+        <rules>
+            <name>NoProfilePhoto</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_ChannelProgramContact.SystemFullPhotoURL__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>No_Profile_Photo</targetReference>
+            </connector>
+            <label>No Profile Photo</label>
+        </rules>
+        <rules>
+            <name>Profile_Photo_Doesn_t_Need_Updated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_User.FullPhotoUrl</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_ChannelProgramContact.SystemFullPhotoURL__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Profile_Photo_Match</targetReference>
+            </connector>
+            <label>Profile Photo Doesn&apos;t Need Updated</label>
+        </rules>
+    </decisions>
+    <description>For Channel Partner Community.  Flow retrieves the photo URL from the associated User, and sets the URL fields on the Channel Program Contact record.</description>
+    <interviewLabel>Channel Program Contact - Photo URL Update Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Channel Program Contact - Photo URL Update Flow</label>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Lookup_Channel_Program_Contact_Record</name>
+        <label>Lookup Channel Program Contact Record</label>
+        <locationX>135</locationX>
+        <locationY>178</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Update_Photo_URL</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>startVar_ChannelProgramContactId</elementReference>
+            </value>
+        </filters>
+        <object>ChannelProgramContact__c</object>
+        <outputReference>sov_ChannelProgramContact</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>SalesforceUser__c</queriedFields>
+        <queriedFields>SystemFullPhotoURL__c</queriedFields>
+        <queriedFields>SystemMediumPhotoURL__c</queriedFields>
+        <queriedFields>SystemSmallPhotoURL__c</queriedFields>
+        <queriedFields>Name__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Salesforce_User</name>
+        <label>Lookup Salesforce User</label>
+        <locationX>348</locationX>
+        <locationY>432</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>User_Profile_Photo_Check</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>sov_ChannelProgramContact.SalesforceUser__c</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputReference>sov_User</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>FullPhotoUrl</queriedFields>
+        <queriedFields>MediumPhotoUrl</queriedFields>
+        <queriedFields>SmallPhotoUrl</queriedFields>
+    </recordLookups>
+    <screens>
+        <name>Debug_StartVarId</name>
+        <label>Debug StartVarId</label>
+        <locationX>602</locationX>
+        <locationY>152</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Set_StartVar_Id</targetReference>
+        </connector>
+        <fields>
+            <name>Record_Id</name>
+            <dataType>String</dataType>
+            <fieldText>Record Id</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>No_Profile_Photo</name>
+        <label>No Profile Photo</label>
+        <locationX>759</locationX>
+        <locationY>608</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>NoUserSetScreen_0</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;I&gt;Please first upload a profile photo for the selected Salesforce User&lt;/I&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;UserId: &lt;FONT KERNING=&quot;1&quot;&gt;{!sov_User.Id}&lt;/FONT&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Full URL: {!sov_User.FullPhotoUrl}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Medium URL: {!sov_User.MediumPhotoUrl}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>No_User_Set_Screen</name>
+        <label>No User Set Screen</label>
+        <locationX>107</locationX>
+        <locationY>463</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>NoUserSetScreen</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;I&gt;Please first specify a Salesforce User&lt;/I&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>Profile_Photo_Match</name>
+        <label>Profile Photo Match</label>
+        <locationX>582</locationX>
+        <locationY>671</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>NoUserSetScreen_0_0</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;I&gt;The current photo is the same as the Salesforce User&amp;apos;s profile photo.  Be sure to update the user&amp;apos;s profile photo then try again.&lt;/I&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;br&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;img src=&quot;{!sov_ChannelProgramContact.SystemFullPhotoURL__c}&quot; alt=&quot;Description&quot; width=&quot;200&quot; height=&quot;300&quot; /&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>Start_Screen</name>
+        <label>Start Screen</label>
+        <locationX>133</locationX>
+        <locationY>39</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Lookup_Channel_Program_Contact_Record</targetReference>
+        </connector>
+        <fields>
+            <name>startScreenMessage</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;I&gt;Click Next to update the photo using the Salesforce User&amp;apos;s profile photo.&lt;/I&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>Update_Photo_Confirmation</name>
+        <label>Update Photo Confirmation</label>
+        <locationX>382</locationX>
+        <locationY>586</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Confirmation_Check</targetReference>
+        </connector>
+        <fields>
+            <name>PhotoUpdateConfirmationMessage</name>
+            <fieldText>&lt;div align=&quot;LEFT&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;strong&gt;&lt;span style=&quot;color: #000000; font-family: Arial;&quot;&gt;&lt;em&gt;Please Confirm the Following Update&lt;/em&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div align=&quot;LEFT&quot;&gt;
+&lt;table style=&quot;width: 100%;&quot; cellpadding=&quot;5px&quot;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;{!sov_ChannelProgramContact.SystemFullPhotoURL__c}&quot; alt=&quot;{!sov_ChannelProgramContact.Name__c}&quot; width=&quot;200&quot; height=&quot;300&quot; /&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;{!sov_User.FullPhotoUrl}&quot; alt=&quot;{!sov_ChannelProgramContact.Name__c}&quot; width=&quot;200&quot; height=&quot;300&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: center;&quot;&gt;&amp;nbsp;&lt;strong&gt;Current Photo&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: center;&quot;&gt;&amp;nbsp;&lt;strong&gt;New Photo&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Confirmation_Select</name>
+            <choiceReferences>ch_Update_Photo</choiceReferences>
+            <choiceReferences>ch_Cancel</choiceReferences>
+            <dataType>Boolean</dataType>
+            <defaultSelectedChoiceReference>ch_Update_Photo</defaultSelectedChoiceReference>
+            <fieldText>Please Select</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>Check_StartVarId</startElementReference>
+    <subflows>
+        <name>FlowUpdatePhotoURL</name>
+        <label>Flow - Update Photo URL</label>
+        <locationX>361</locationX>
+        <locationY>820</locationY>
+        <flowName>ChannelProgramContactPhotoURLUpdateAutoFlow</flowName>
+        <inputAssignments>
+            <name>startVar_ChannelProgramContactId</name>
+            <value>
+                <elementReference>startVar_ChannelProgramContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>startVar_UserId</name>
+            <value>
+                <elementReference>sov_ChannelProgramContact.SalesforceUser__c</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>sov_ChannelProgramContact</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ChannelProgramContact__c</objectType>
+    </variables>
+    <variables>
+        <name>sov_User</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>User</objectType>
+    </variables>
+    <variables>
+        <name>startVar_ChannelProgramContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue></stringValue>
+        </value>
+    </variables>
+</Flow>

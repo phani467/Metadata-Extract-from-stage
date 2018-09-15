@@ -1,0 +1,20 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<FONT style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt" size=3 face=arial>To Whom it may concern,</FONT>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><BR></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">Symbol approval has been given for&nbsp;<SPAN style="FONT-SIZE: 12pt">{!WorkRequestForm__c.Name} and the form has been submitted.</SPAN></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><SPAN style="FONT-SIZE: 12pt"><BR></SPAN></DIV>
+<DIV><SPAN style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">Symbol approved by:&nbsp;</SPAN><FONT face=arial>{!WorkRequestForm__c.LastModifiedBy}</FONT></DIV>
+<DIV><FONT face=arial>Symbol approved date:&nbsp;{!WorkRequestForm__c.SymbolsApprovedDate__c}</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><BR></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><SPAN style="FONT-SIZE: 12pt">Account Name:&nbsp;</SPAN><FONT style="FONT-SIZE: 12pt" face=arial>{!WorkRequestForm__c.AccountName__c}</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT face=arial>Opportunity Name:&nbsp;{!WorkRequestForm__c.OpportunityName__c}</FONT></DIV></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><BR></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">Link to WRF: &nbsp;{!WorkRequestForm__c.Link}</DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><BR></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT face=arial><BR></FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><BR></DIV>]]></td>
+</tr>
+</table>

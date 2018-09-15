@@ -1,0 +1,13 @@
+.THIS input:disabled  {
+    background: #dddddd
+}
+.THIS.slds-card {
+        background: rgba(255, 255, 255, 0.60);
+}
+.THIS .slds-modal__container {
+    background: rgba(0, 0, 0, 0.0)!important;
+}
+.THIS .scroller {
+   height: 50rem; 
+   width: 100%;
+}

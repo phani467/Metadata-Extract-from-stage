@@ -1,0 +1,7 @@
+{!User.Name} has added new comment to your case.
+
+Case Comments:
+{!Case.Last_Case_Comment}
+
+Please click the following link to see this comment and reply:
+{!Case.Link}

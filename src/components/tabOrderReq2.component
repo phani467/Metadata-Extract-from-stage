@@ -1,0 +1,338 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component controller="OrderReqTabCE" allowDML="true" id="OR">
+    
+    <!-- Attributes -->
+    
+    <apex:attribute name="wrf" assignTo="{!wrf}" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+    <apex:attribute name="IsView" description="View State" required="true" type="boolean" />
+
+    <apex:pageBlock title="Order Requests - {!wrf.name}" rendered="{!!IF(wrf.id<>null,TRUE,FALSE)}">
+    
+        <apex:pageMessage summary="You must save a draft version of your Request form in order to add Order requests." severity="info" strength="3" />
+
+    </apex:pageBlock>
+
+    <apex:pageblock id="Orderrequest" title="Order Requests - {!wrf.name}" rendered="{!IF(wrf.id<>null,TRUE,FALSE)}" >
+
+        <apex:pageMessages />
+
+        <apex:pageBlockButtons location="both">
+    
+            <!-- <apex:commandButton value="Save"  action="{!save}"  rerender="rows,specialrows" status="outStatus" />
+                 <apex:commandButton value="Reset" action="{!reset}" rerender="rows,specialrows" status="outStatus"  immediate="true" /> -->
+            
+            <apex:commandButton value="Add"   action="{!add}"   rerender="rows,specialrows" status="outStatus" />
+         
+         
+            <br/>
+            &nbsp;
+            <apex:actionStatus startText="(.................working.................)" stopText="" id="outStatus" onstop="Reset"/>
+
+        </apex:pageBlockButtons>
+        
+        <apex:outputpanel id="specialrows">
+   
+            <apex:repeat value="{!OrderRequests}" var="o" id="rows">
+    
+                <apex:pageBlock title="Order Request - {!o.Name}">
+        
+                    <apex:pageBlockButtons location="top">
+                
+                        <apex:commandLink action="{!Submit}" rerender="approveBlock" value="Submit to Production" styleClass="btn" style="text-decoration:none" status="outStatus" rendered="{!If(o.Status__c = 'Draft' || o.Status__c = 'Rejected' || o.Status__c = 'New',true,false)}">
+                            
+                            <apex:param name="nickName" value="{!o.id}" assignTo="{!orid}"/>
+                    
+                        </apex:commandLink>
+    
+                        <apex:commandLink rerender="specialrows" action="{!save}" styleClass="btn" style="text-decoration:none" status="outStatus" value="Save Draft" rendered="{!If(o.Status__c = 'Draft' || o.Status__c = 'Rejected' || o.Status__c = 'New',true,false)}">
+                        
+                            <apex:param name="nickName" value="{!o.id}" assignTo="{!orid}"/>
+                    
+                        </apex:commandLink>
+                                            
+                        <apex:commandLink action="{!DeleteAccount}" rerender="approveBlock" styleClass="btn" style="text-decoration:none" value="Delete" rendered="{!If(o.Status__c = 'Draft' || o.Status__c = 'Rejected' || o.Status__c = 'New',true,false)}"> 
+                        
+                            <apex:param name="nickName" value="{!o.id}" assignTo="{!orid}"/>
+                    
+                        </apex:commandLink>
+                        
+                    </apex:pageBlockButtons>    
+        
+                    <apex:pageblocksection >
+         
+                        <apex:outputField value="{!o.WorkRequestForm__c}" rendered="false" />
+            
+                        <apex:pageblocksectionitem >
+            
+                            <apex:outputlabel for="on" value="Order Request"></apex:outputlabel>
+            
+                            <apex:outputlink id="on" value="/{!o.ID}">{!o.name}</apex:outputlink>
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageBlockSectionItem >
+            
+                            <apex:outputlabel for="stat" value="Status"></apex:outputlabel>
+            
+                            <apex:outputfield id="stat" value="{!o.Status__c}"/>
+        
+                        </apex:pageBlockSectionItem>
+        
+                        <apex:pageBlockSectionItem >
+            
+                            <apex:outputlabel for="owner" value="Owner"></apex:outputlabel>
+            
+                            <apex:outputfield id="owner" value="{!o.OwnerID}"/>
+        
+                        </apex:pageBlockSectionItem>    
+        
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}" >
+            
+                            <apex:outputlabel for="aci" value="Availability Count"/>          
+            
+                            <apex:inputField id="aci" value="{!o.AvailabilityCount__c}"  />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageBlockSectionItem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="aco" value="Availability Count"/>
+            
+                            <apex:outputField id="aco" value="{!o.AvailabilityCount__c}"/> 
+        
+                        </apex:pageBlockSectionItem>
+        
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="dc" value="Desired Count"></apex:outputlabel>
+            
+                            <apex:inputField id="dc" value="{!o.DesiredCount__c}"   />
+        
+                        </apex:pageblocksectionitem>
+            
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}" >
+            
+                            <apex:outputlabel for="dc2" value="Desired Count"></apex:outputlabel>
+            
+                            <apex:outputField id="dc2" value="{!o.DesiredCount__c}"  />
+        
+                        </apex:pageblocksectionitem>
+                
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}" >
+        
+                            <apex:outputlabel for="jq" value="Job#/Query ID"></apex:outputlabel>
+            
+                            <apex:inputField id="jq" value="{!o.JobQueryID__c}"  />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="jq2" value="Job#/Query ID"></apex:outputlabel>
+            
+                            <apex:outputField id="jq2" value="{!o.JobQueryID__c}" />
+        
+                        </apex:pageblocksectionitem>
+                
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+        
+                            <apex:outputlabel for="cpp" value="Cust./Post Processing"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.CustPostProcessing__c}" id="cpp" />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="cpp2" value="Cust./Post Processing"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.CustPostProcessing__c}" id="cpp2"/>
+        
+                        </apex:pageblocksectionitem>        
+                
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+        
+                            <apex:outputlabel for="ps" value="Pre-Sort"></apex:outputlabel>
+            
+                            <apex:inputField id="ps" value="{!o.PreSort__c}" />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="ps2" value="Pre-Sort"></apex:outputlabel>
+            
+                            <apex:outputField id="ps2" value="{!o.PreSort__c}" />
+        
+                        </apex:pageblocksectionitem>
+                
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+        
+                            <apex:outputlabel for="co" value="Cutback Options"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.CutbackOptions__c}" id="co" />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="co2" value="Cutback Options"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.CutbackOptions__c}" id="co2" />
+        
+                        </apex:pageblocksectionitem>        
+                
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}" >
+         
+                            <apex:outputlabel for="psd" value="Pre-Sort Description"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.PreSortDescription__c}" id="psd"  />
+         
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+         
+                            <apex:outputlabel for="psd2" value="Pre-Sort Description"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.PreSortDescription__c}" id="psd2" />
+         
+                        </apex:pageblocksectionitem>
+                  
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+         
+                            <apex:outputlabel for="kc" value="Keyfield/Code"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.KeyfieldCode__c}" id="kc" />
+         
+                        </apex:pageblocksectionitem>
+         
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="kc2" value="Keyfield/Code"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.KeyfieldCode__c}" id="kc2" />
+        
+                        </apex:pageblocksectionitem>
+                
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+        
+                            <apex:outputlabel for="pos" value="Post-Sort"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.PostSort__c}" id="pos" />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="pos2" value="Post-Sort"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.PostSort__c}" id="pos2" />
+        
+                        </apex:pageblocksectionitem>
+               
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+       
+                            <apex:outputlabel for="ora" value="Order Request Attachments"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.OrderRequestAttachements__c}" id="ora" />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="ora2" value="Order Request Attachments"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.OrderRequestAttachements__c}" id="ora2"/>
+        
+                        </apex:pageblocksectionitem>
+                
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}"> 
+        
+                            <apex:outputlabel for="posd" value="Post-Sort Description"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.PostSortDecription__c}" id="posd" />
+        
+                        </apex:pageblocksectionitem>
+         
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}"> 
+            
+                            <apex:outputlabel for="posd2" value="Post-Sort Description"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.PostSortDecription__c}" id="posd2"/>
+        
+                        </apex:pageblocksectionitem>
+             
+                        <apex:pageblocksectionitem />
+              
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}" >
+        
+                            <apex:outputlabel for="fo" value="Output Format"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.FormatOrder__c}" id="fo" />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="fo2" value="Output Format"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.FormatOrder__c}" id="fo2" />
+        
+                        </apex:pageblocksectionitem>
+        
+                    </apex:pageblockSection>
+                
+                    <apex:pageblockSection columns="1">
+        
+                        <apex:pageblocksectionitem rendered="{!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="cd" value="Custom Description"></apex:outputlabel>
+            
+                            <apex:inputField value="{!o.CustomDescription__c}" id="cd" style="width:95%"  />
+        
+                        </apex:pageblocksectionitem>
+        
+                        <apex:pageblocksectionitem rendered="{!!if(o.Status__c == 'Draft' || o.Status__c == 'Rejected', true, false)}">
+            
+                            <apex:outputlabel for="cd2" value="Custom Description"></apex:outputlabel>
+            
+                            <apex:outputField value="{!o.CustomDescription__c}" id="cd2" style="width:95%"  />
+        
+                        </apex:pageblocksectionitem>
+        
+                    </apex:pageblockSection>
+
+                    <apex:pageblocksection columns="1">
+        
+                        <apex:pageblocksectionitem >
+         
+                            <apex:facet name="header">Attachments</apex:facet>
+            
+                            <c:CMPAttachmentLoader aController="{! aMultiAttachmentController }" objId="{!o.id}" rendered="{!!IF(o.id==null,TRUE,FALSE)}" />
+        
+                        </apex:pageblocksectionitem> 
+        
+                    </apex:pageblocksection>
+   
+                </apex:pageBlock>
+   
+            </apex:repeat>
+   
+        </apex:outputpanel>
+ 
+    </apex:pageblock>
+ 
+    <apex:actionFunction action="{!DeleteAccount}" name="DeleteAccount" reRender="rows,specialrows" >
+   
+        <apex:param name="delid" value="" assignTo="{!delid}"/>
+
+    </apex:actionFunction>
+
+</apex:component>

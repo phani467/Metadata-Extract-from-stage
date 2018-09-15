@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Order Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Order Requests</value>
+    </caseValues>
+    <fields>
+        <label><!-- Availability Count --></label>
+        <name>AvailabilityCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cust./Post Processing --></label>
+        <name>CustPostProcessing__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Description --></label>
+        <name>CustomDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cutback Options --></label>
+        <name>CutbackOptions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Desired Count --></label>
+        <name>DesiredCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Output Format --></label>
+        <name>FormatOrder__c</name>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 001 - Name,C.Address,Phone</masterLabel>
+            <translation><!-- Fmt 001 - Name,C.Address,Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 011 - F.Name,Address,Phone</masterLabel>
+            <translation><!-- Fmt 011 - F.Name,Address,Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 012 - F.Name,C.Address,DMA,Vehicle Desc, Phone</masterLabel>
+            <translation><!-- Fmt 012 - F.Name,C.Address,DMA,Vehicle Desc, Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 013 - F.Name,C.Address,Vehicle,Phone</masterLabel>
+            <translation><!-- Fmt 013 - F.Name,C.Address,Vehicle,Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 014 - F.Name,C.Address,Phone</masterLabel>
+            <translation><!-- Fmt 014 - F.Name,C.Address,Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 015 - F.Name,C.Address</masterLabel>
+            <translation><!-- Fmt 015 - F.Name,C.Address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 017 - C.Name,C.Address</masterLabel>
+            <translation><!-- Fmt 017 - C.Name,C.Address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 018 - F.Name,C.Address,Vehicle</masterLabel>
+            <translation><!-- Fmt 018 - F.Name,C.Address,Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 021 - Fmt 13 w/o vehicle - w/o phone</masterLabel>
+            <translation><!-- Fmt 021 - Fmt 13 w/o vehicle - w/o phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fmt 026 - Fmt 13 w/o vehicle - with phone</masterLabel>
+            <translation><!-- Fmt 026 - Fmt 13 w/o vehicle - with phone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Job#/Query ID --></label>
+        <name>JobQueryID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Keyfield/Code --></label>
+        <name>KeyfieldCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field store the concatenation of the source system name and a source system record id to ensure the record is uniquely identified. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used for data integration to store legacy system id in WRF POLK application. --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source record. --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Request Attachments --></label>
+        <name>OrderRequestAttachements__c</name>
+    </fields>
+    <fields>
+        <label><!-- PLC Job --></label>
+        <name>PLCJob__c</name>
+        <relationshipLabel><!-- Order Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Post-Sort Decription --></label>
+        <name>PostSortDecription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Post-Sort --></label>
+        <name>PostSort__c</name>
+        <picklistValues>
+            <masterLabel>Ascending</masterLabel>
+            <translation><!-- Ascending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Combo</masterLabel>
+            <translation><!-- Combo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Descending</masterLabel>
+            <translation><!-- Descending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pre-Sort Description --></label>
+        <name>PreSortDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-Sort --></label>
+        <name>PreSort__c</name>
+        <picklistValues>
+            <masterLabel>Ascending</masterLabel>
+            <translation><!-- Ascending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Combo</masterLabel>
+            <translation><!-- Combo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Descending</masterLabel>
+            <translation><!-- Descending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Production Comments --></label>
+        <name>ProductionComments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Programmer --></label>
+        <name>Programmer__c</name>
+        <relationshipLabel><!-- Order Requests (Programmer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Requestor --></label>
+        <name>Requestor__c</name>
+        <relationshipLabel><!-- Order Requests (Requestor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitted Date/Time --></label>
+        <name>SubmittedDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Request Form --></label>
+        <name>WorkRequestForm__c</name>
+        <relationshipLabel><!-- Order Requests --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Order Request Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

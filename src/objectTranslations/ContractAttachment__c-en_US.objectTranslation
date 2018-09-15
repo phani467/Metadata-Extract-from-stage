@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contract Attachment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contract Attachment</value>
+    </caseValues>
+    <fields>
+        <help><!-- Read only field which gives name of Account with which this contract attachment is associated --></help>
+        <label><!-- Account Name --></label>
+        <name>AccountName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the kind of attachment you are adding to a Contract --></help>
+        <label><!-- Attachment Type --></label>
+        <name>AttachmentType__c</name>
+        <picklistValues>
+            <masterLabel>Addendum</masterLabel>
+            <translation><!-- Addendum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certificate of Purge</masterLabel>
+            <translation><!-- Certificate of Purge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Signed Contract</masterLabel>
+            <translation><!-- Client Signed Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Usage Reports</masterLabel>
+            <translation><!-- Client Usage Reports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contribution Addendum</masterLabel>
+            <translation><!-- Contribution Addendum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contribution Schedule</masterLabel>
+            <translation><!-- Contribution Schedule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Countersigned Contract</masterLabel>
+            <translation><!-- Countersigned Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escrow Agreement</masterLabel>
+            <translation><!-- Escrow Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fee Waiver</masterLabel>
+            <translation><!-- Fee Waiver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government</masterLabel>
+            <translation><!-- Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitSERV Amended Annex Form</masterLabel>
+            <translation><!-- MarkitSERV Amended Annex Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitSERV Fee Letter</masterLabel>
+            <translation><!-- MarkitSERV Fee Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitSERV Super Access Coordinators Form</masterLabel>
+            <translation><!-- MarkitSERV Super Access Coordinators Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitSERV Supplemental Agreement Form</masterLabel>
+            <translation><!-- MarkitSERV Supplemental Agreement Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitSERV User Agreement / Key Contacts</masterLabel>
+            <translation><!-- MarkitSERV User Agreement / Key Contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitSERV User/Broker Terms</masterLabel>
+            <translation><!-- MarkitSERV User/Broker Terms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NDA</masterLabel>
+            <translation><!-- NDA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notice of Non-Renewal</masterLabel>
+            <translation><!-- Notice of Non-Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Novation Letter</masterLabel>
+            <translation><!-- Novation Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online Agreement</masterLabel>
+            <translation><!-- Online Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price Increase Letter</masterLabel>
+            <translation><!-- Price Increase Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase Order</masterLabel>
+            <translation><!-- Purchase Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal Notice</masterLabel>
+            <translation><!-- Renewal Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales RAD Approval Form</masterLabel>
+            <translation><!-- Sales RAD Approval Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed Continuation Letter</masterLabel>
+            <translation><!-- Signed Continuation Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed Master Agreement</masterLabel>
+            <translation><!-- Signed Master Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed NDA</masterLabel>
+            <translation><!-- Signed NDA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed Trial</masterLabel>
+            <translation><!-- Signed Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tax Exempt Certificate</masterLabel>
+            <translation><!-- Tax Exempt Certificate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination Letter</masterLabel>
+            <translation><!-- Termination Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination Retraction Notice</masterLabel>
+            <translation><!-- Termination Retraction Notice --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please add any comments related to this contact attachment --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read-only field: End date of the Contract to which this contact attachment is associated --></help>
+        <label><!-- Contract End Date --></label>
+        <name>ContractEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read-only field: Start date of the Contract to which this contact attachment is associated --></help>
+        <label><!-- Contract Start Date --></label>
+        <name>ContractStartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the contract to which this contact attachment is associated --></help>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Contract Attachments --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- System managed: DocuSign envelope ID if the contract  attachment is of DocuSign type --></help>
+        <label><!-- DocuSign Envelope Id --></label>
+        <name>DocuSignEnvelopeId__c</name>
+    </fields>
+    <fields>
+        <help><!-- System Managed: Checked  if contract attachment is a DocuSign certificate --></help>
+        <label><!-- IsDocuSignCert? --></label>
+        <name>IsDocuSignCert__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a concatenation of the System and ID to ensure the number is unique, this field should be a unique external ID. --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- Record IDs from the legacy system Contract attachments --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy System where this record was imported from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <layouts>
+        <layout>Contract Attachment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Continuation Letter --></label>
+        <name>ContinuationLetter</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Master Agreement --></label>
+        <name>GeneralAgreement</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- NDA --></label>
+        <name>NDA</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Order Form --></label>
+        <name>OrderForm</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Trial --></label>
+        <name>Trial</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to add Attachments. --></errorMessage>
+        <name>RestrictAttachmentCreateEditforProfiles</name>
+    </validationRules>
+</CustomObjectTranslation>

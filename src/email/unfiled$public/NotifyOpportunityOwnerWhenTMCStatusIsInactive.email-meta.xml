@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-7001:  Email template to notify Opportunity owner when TMC status is inactive</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Notify Opportunity Owner When TMC Status Is Inactive</name>
+    <style>none</style>
+    <subject>Your opportunity&apos;s been removed from TMC agenda</subject>
+    <textOnly>Dear {!Opportunity.OwnerFirstName},
+
+Please note that your opportunity:
+
+Opportunity Name: {!Opportunity.Name}
+Link to your Opportunity: {!Opportunity.Link}
+
+Previously scheduled for review on an upcoming Transaction Management Committee meeting, has now been removed from the schedule.
+
+You will receive a notification if/when it is rescheduled for a future date.
+
+Thank you.
+
+Transactions Management Committee</textOnly>
+    <type>custom</type>
+</EmailTemplate>

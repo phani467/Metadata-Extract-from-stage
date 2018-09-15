@@ -1,0 +1,5 @@
+<design:component label="DocGen">
+    <design:attribute name="title" label="Title" description="Component Title" />
+    <design:attribute name="startExpanded" label="Start Expanded" description="Option to start Run DocGen Package in expanded state." />
+    <design:attribute name="ddpLabel" label="DocGen Package Label" description="Option to change the label of the DocGen Package object."/>
+</design:component>

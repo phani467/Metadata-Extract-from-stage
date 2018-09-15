@@ -1,0 +1,21 @@
+<aura:component controller="Loop.EnableDisableOAuth">
+    <!--Required attributes-->
+    <aura:attribute name="connectedAppsEnabled" type="boolean" default="false" required="true"/>
+
+    <!--Fired events-->
+    <aura:registerEvent name="moveToNextStep" type="Loop:moveToNextStep"/>
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+
+    <!--Aura methods-->
+    <aura:method name="save" action="{!c.save}"/>
+    
+	<div class="slds">
+        <div class="slds-text-heading--small" title="Setup Wizard">Connected Apps and OAuth
+            <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9018" style="height: 14px;width: 14px;margin-top: 4px;"/>
+        </div>
+        <div class="slds-text-body--regular slds-m-vertical--small">
+            This app supports Salesforce authorization and authentication with <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=connected_app_overview.htm" target="_blank">Connected Apps</a>. A connected app allows administrators to set various security policies and have explicit control over who may use the corresponding applications.
+        </div>
+        <lightning:input type="toggle" label="Connected Apps and OAuth" name="oAuthToggle" checked="{!v.connectedAppsEnabled}" onchange="{!c.onChange}" />
+    </div>
+</aura:component>

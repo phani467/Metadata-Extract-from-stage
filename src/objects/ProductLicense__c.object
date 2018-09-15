@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ProductLicenseRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SFDC1-7972 License object is used to hold the details about the license and any additional parameters to get access to Documents and Solutions in Customer Portal.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ClientID__c</fullName>
+        <description>SFDC1-4382 Client ID (e.g. desktop, rtd, mdw and ufe) is the Id of the system in UserXS from where the product is accessed)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Client ID is the Id of the system in UserXS from where the product is accessed</inlineHelpText>
+        <label>Client ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>desktop</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>mca</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>mdw</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>rtd</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ufe</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ContentWorkspace__c</fullName>
+        <description>SFDC1-4382 Library name associated to this License.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Library name associated to this License.</inlineHelpText>
+        <label>Content Workspace</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Corporate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Counterparty Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Desktop</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dividend Forecasting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ETP Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Excel Add-In</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Index Administration Services – HSBC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Index Administration Services – UBS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitSERV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Markit WSO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Markit WSO Installation Guides</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Markit WSO Release Notes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Markit WSO User Manuals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Markit WSO White Papers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Parsing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PMI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pricing Data - CDS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pricing Data - Loans</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reference Data - CDS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Registry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research Signals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Securitised Products</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Securitised Products Viewer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Submission Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Totem</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Valuations Manager</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>SFDC1-6785 End date of the validity of the license</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The last date this license is valid until,  this can be in the future</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ExternalSystemLicenceName__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-6785 External system license name</description>
+        <externalId>true</externalId>
+        <inlineHelpText>External system license name</inlineHelpText>
+        <label>External System Licence Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>IsVisibleInCustomerPortal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6785 Is used on customer portal if the License is visible</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set if this license need to be visible in Customer Portal</inlineHelpText>
+        <label>IsVisibleInCustomerPortal</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LegacyID__c</fullName>
+        <description>SFDC1-6785: Legacy ID field is the system id (unfriendly) referencing the source record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>This is the system id (unfriendly) referencing the source record and is populated via migrating system</inlineHelpText>
+        <label>LegacyID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PKIDLicense__c</fullName>
+        <description>SFDC1-6785 PKID is used for data migration support from the legacy system</description>
+        <displayFormat>Lic{000000}</displayFormat>
+        <externalId>true</externalId>
+        <inlineHelpText>PKID is used for data migration support from the legacy system and is auto-generated</inlineHelpText>
+        <label>PKID License</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>SolutionCategory__c</fullName>
+        <description>SFDC1-6785 Solution category to which this license is associated with. Anybody with this license gets access to the solutions in this solution category</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Solution category to which this license is associated with.Anybody with this license gets access to the solutions in this solution category in the customer portal.</inlineHelpText>
+        <label>Solution Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Counterparty Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Desktop</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dividend Forecasting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Excel Add-In</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MarkitSERV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Markit WSO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Parsing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PMI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pricing Data - CDS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pricing Data - Loans</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reference Data - CDS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Registry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Securitised Products</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Securitised Products Viewer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Submission Manager</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Source__c</fullName>
+        <description>SFDC1-6785 Source of the licence data</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Data can be uploaded automatically from external entitlement and authentications systems or entered manually</inlineHelpText>
+        <label>Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Manual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UserXS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MSF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>USERXS-MARKIT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>USERXS-TRADE-MANAGER</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>SFDC1-6785 Initial set-up date of the license in the external source system</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Initial set-up date of the license in the external source system</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Token__c</fullName>
+        <description>SFDC1-6785 UserXS License token</description>
+        <externalId>false</externalId>
+        <inlineHelpText>UserXS System License token. Used in customer service portal.</inlineHelpText>
+        <label>Token</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UniqueLicenseID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>SFDC1-6785 Unique Identifier of the license</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The unique ID is normally provided by the external source system, if it is not provided, it is populated automatically</inlineHelpText>
+        <label>Unique License ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Product License</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Product License Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Product Licenses</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Source__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ExternalSystemLicenceName__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EndDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Source__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ExternalSystemLicenceName__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StartDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EndDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Source__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ExternalSystemLicenceName__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>StartDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EndDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Source__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ExternalSystemLicenceName__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

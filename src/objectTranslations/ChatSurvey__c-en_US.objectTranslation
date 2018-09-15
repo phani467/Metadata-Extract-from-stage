@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Chat Survey</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Chat Surveys</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Chat Surveys --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- System populated field.  Unique key to identify and link back the chat results. --></help>
+        <label><!-- ChatKey --></label>
+        <name>ChatKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Live Chat Transcript --></label>
+        <name>LiveChatTranscript__c</name>
+        <relationshipLabel><!-- Chat Surveys --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PKID ChatSurvey --></label>
+        <name>PKIDChatSurvey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send Transcript --></label>
+        <name>SendTranscript__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

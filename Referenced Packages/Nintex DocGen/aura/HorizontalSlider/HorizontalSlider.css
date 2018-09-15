@@ -1,0 +1,30 @@
+.THIS .horizontalSlideContainer {
+    width: 200%;
+    position: relative;
+
+    -webkit-transition: left .4s ease-in-out;
+    -moz-transition: left .4s ease-in-out;
+    -o-transition: left .4s ease-in-out;
+    -ms-transition: left .4s ease-in-out;
+    transition: left .4s ease-in-out;
+    left: 0;
+}
+.THIS .horizontalSlideContainer.slide {
+    left: -100%;
+}
+.THIS .side {
+    width: 50%;
+    float: left;
+    /*vertical-align: top;*/
+    
+    -webkit-transition: max-height .4s ease-in-out;
+    -moz-transition: max-height .4s ease-in-out;
+    -o-transition: max-height .4s ease-in-out;
+    -ms-transition: max-height .4s ease-in-out;
+    transition: max-height .4s ease-in-out;    
+    max-height: 900px;
+    overflow-y: auto;
+}
+.THIS .side.collapse {
+    max-height: 50px;
+}

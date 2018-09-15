@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product License</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Licenses</value>
+    </caseValues>
+    <fields>
+        <help><!-- Client ID is the Id of the system in UserXS from where the product is accessed --></help>
+        <label><!-- Client ID --></label>
+        <name>ClientID__c</name>
+        <picklistValues>
+            <masterLabel>desktop</masterLabel>
+            <translation><!-- desktop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mca</masterLabel>
+            <translation><!-- mca --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mdw</masterLabel>
+            <translation><!-- mdw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>rtd</masterLabel>
+            <translation><!-- rtd --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ufe</masterLabel>
+            <translation><!-- ufe --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select the Library name associated to this License. --></help>
+        <label><!-- Content Workspace --></label>
+        <name>ContentWorkspace__c</name>
+        <picklistValues>
+            <masterLabel>Corporate</masterLabel>
+            <translation><!-- Corporate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Counterparty Manager</masterLabel>
+            <translation><!-- Counterparty Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desktop</masterLabel>
+            <translation><!-- Desktop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dividend Forecasting</masterLabel>
+            <translation><!-- Dividend Forecasting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ETP Data</masterLabel>
+            <translation><!-- ETP Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Excel Add-In</masterLabel>
+            <translation><!-- Excel Add-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Index Administration Services – HSBC</masterLabel>
+            <translation><!-- Index Administration Services – HSBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Index Administration Services – UBS</masterLabel>
+            <translation><!-- Index Administration Services – UBS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSA</masterLabel>
+            <translation><!-- MSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit WSO</masterLabel>
+            <translation><!-- Markit WSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit WSO Installation Guides</masterLabel>
+            <translation><!-- Markit WSO Installation Guides --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit WSO Release Notes</masterLabel>
+            <translation><!-- Markit WSO Release Notes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit WSO User Manuals</masterLabel>
+            <translation><!-- Markit WSO User Manuals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit WSO White Papers</masterLabel>
+            <translation><!-- Markit WSO White Papers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitSERV</masterLabel>
+            <translation><!-- MarkitSERV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PMI</masterLabel>
+            <translation><!-- PMI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parsing</masterLabel>
+            <translation><!-- Parsing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Data - CDS</masterLabel>
+            <translation><!-- Pricing Data - CDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Data - Loans</masterLabel>
+            <translation><!-- Pricing Data - Loans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference Data - CDS</masterLabel>
+            <translation><!-- Reference Data - CDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registry</masterLabel>
+            <translation><!-- Registry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research Signals</masterLabel>
+            <translation><!-- Research Signals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Securitised Products</masterLabel>
+            <translation><!-- Securitised Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Securitised Products Viewer</masterLabel>
+            <translation><!-- Securitised Products Viewer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submission Manager</masterLabel>
+            <translation><!-- Submission Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Totem</masterLabel>
+            <translation><!-- Totem --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valuations Manager</masterLabel>
+            <translation><!-- Valuations Manager --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The last date this license is valid until,  this can be in the future --></help>
+        <label><!-- End Date --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- External system license name --></help>
+        <label><!-- External System Licence Name --></label>
+        <name>ExternalSystemLicenceName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set if this license need to be visible in Customer Portal --></help>
+        <label><!-- IsVisibleInCustomerPortal --></label>
+        <name>IsVisibleInCustomerPortal__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system id (unfriendly) referencing the source record and is populated via migrating system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- PKID is used for data migration support from the legacy system and is auto-generated --></help>
+        <label><!-- PKID License --></label>
+        <name>PKIDLicense__c</name>
+    </fields>
+    <fields>
+        <help><!-- Solution category to which this license is associated with.Anybody with this license gets access to the solutions in this solution category in the customer portal. --></help>
+        <label><!-- Solution Category --></label>
+        <name>SolutionCategory__c</name>
+        <picklistValues>
+            <masterLabel>Counterparty Manager</masterLabel>
+            <translation><!-- Counterparty Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desktop</masterLabel>
+            <translation><!-- Desktop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dividend Forecasting</masterLabel>
+            <translation><!-- Dividend Forecasting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Excel Add-In</masterLabel>
+            <translation><!-- Excel Add-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSA</masterLabel>
+            <translation><!-- MSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Markit WSO</masterLabel>
+            <translation><!-- Markit WSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitSERV</masterLabel>
+            <translation><!-- MarkitSERV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PMI</masterLabel>
+            <translation><!-- PMI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parsing</masterLabel>
+            <translation><!-- Parsing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Data - CDS</masterLabel>
+            <translation><!-- Pricing Data - CDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Data - Loans</masterLabel>
+            <translation><!-- Pricing Data - Loans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference Data - CDS</masterLabel>
+            <translation><!-- Reference Data - CDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registry</masterLabel>
+            <translation><!-- Registry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Securitised Products</masterLabel>
+            <translation><!-- Securitised Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Securitised Products Viewer</masterLabel>
+            <translation><!-- Securitised Products Viewer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submission Manager</masterLabel>
+            <translation><!-- Submission Manager --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Data can be uploaded automatically from external entitlement and authentications systems or entered manually --></help>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+        <picklistValues>
+            <masterLabel>MSF</masterLabel>
+            <translation><!-- MSF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual</masterLabel>
+            <translation><!-- Manual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USERXS-MARKIT</masterLabel>
+            <translation><!-- USERXS-MARKIT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USERXS-TRADE-MANAGER</masterLabel>
+            <translation><!-- USERXS-TRADE-MANAGER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UserXS</masterLabel>
+            <translation><!-- UserXS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Initial set-up date of the license in the external source system --></help>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- UserXS System License token. Used in customer service portal. --></help>
+        <label><!-- Token --></label>
+        <name>Token__c</name>
+    </fields>
+    <fields>
+        <help><!-- The unique ID is normally provided by the external source system, if it is not provided, it is populated automatically --></help>
+        <label><!-- Unique License ID --></label>
+        <name>UniqueLicenseID__c</name>
+    </fields>
+    <layouts>
+        <layout>License Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

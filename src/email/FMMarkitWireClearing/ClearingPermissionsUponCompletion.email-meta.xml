@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5148 Informs client that their permissions have been updated for list of products.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Clearing Permissions (upon completion)</name>
+    <style>none</style>
+    <subject>Your IHS Markit Customer Care Case {!Case.CaseNumber} - Clearing permissions</subject>
+    <textOnly>Dear {!Case.Contact},
+
+Clearing permissions have now been made live to clear &lt;product1&gt;, &lt;product2&gt; and &lt;product3&gt; at &lt;include full clearing house name&gt; between the below legal entities: 
+
+&lt;Legal Entity Name 1&gt;
+&lt;Legal Entity BIC 1&gt;
+
+&lt;Legal Entity Name 2&gt;
+&lt;Legal Entity BIC 2&gt;
+
+Please note all eligible currencies will clear unless private clearing rules have been set up stating otherwise. 
+
+Regards 
+{!Case.OwnerFullName}
+MarkitSERV Client Services</textOnly>
+    <type>custom</type>
+</EmailTemplate>

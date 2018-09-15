@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Input File</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Input Files</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Information --></label>
+        <name>AdditionalInformation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Of Records --></label>
+        <name>NumberOfRecords__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Request Form --></label>
+        <name>WorkRequestForm__c</name>
+        <relationshipLabel><!-- Input Files --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

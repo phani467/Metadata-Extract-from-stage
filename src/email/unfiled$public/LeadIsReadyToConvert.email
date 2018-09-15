@@ -1,0 +1,7 @@
+Hi {!Lead.OwnerFirstName},
+
+Your request for a new account has been completed and your lead has been updated with this information. You may now proceed to convert the lead to an opportunity.
+
+Lead: {!Lead.Link}
+
+Thank you.

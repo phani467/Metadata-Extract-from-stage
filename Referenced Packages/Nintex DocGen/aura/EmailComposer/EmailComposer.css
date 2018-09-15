@@ -1,0 +1,55 @@
+.THIS .container {
+    position: relative;
+}
+
+.THIS .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.25);
+    z-index: 1;
+    text-align: center;
+}
+
+.THIS #spinnerContainer.center-spinner {
+    position: relative;
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    top: calc(50% - 40px);
+}
+
+.THIS .pill-offset {
+    position: absolute;
+    top: -4px;
+}
+
+.THIS .link-offset {
+    top: 28px;
+    right: 10px;
+    position: relative;
+}
+
+.THIS .toast-style {
+    margin: 0 0 .5rem 0;
+    width: 100%;
+    min-width: 15rem;
+    
+    /* don't use slds-notify--toast because it may override the above styles in iOS devices, instead manually apply these styles */
+    border-radius: 4px;
+    padding: 16px 24px;
+    display: inline-block;
+    text-align: left;    
+}
+
+.THIS .hidden {
+    display: none;
+}
+
+.THIS .htmlTemplate,
+.THIS .custom-email-template {
+    border: 1px dashed #d8dde6;
+    border-radius: 4px;
+    height: 450px;
+    width: 100%;
+}

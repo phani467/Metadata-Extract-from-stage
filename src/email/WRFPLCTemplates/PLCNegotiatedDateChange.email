@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<p class="MsoNormal"><span style="font-size: 12pt;">** ATTENTION –&nbsp;NEGOTIATED DATE CHANGE&nbsp;**<font color="#ff0000"><!--?xml:namespace prefix = o /--><o:p></o:p></font></span></p><div><br></div><div>PLC Job Link: {!PLCJob__c.Link}</div><div>Job Name:&nbsp;{!PLCJob__c.JobName__c}</div><div>Job Number:&nbsp;{!PLCJob__c.ExtendedJob__c}</div><div>New Negotiated Date: {!PLCJob__c.NegotiatedDate__c}</div>]]></td>
+</tr>
+</table>

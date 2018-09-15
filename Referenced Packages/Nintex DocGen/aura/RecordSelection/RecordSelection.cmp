@@ -1,0 +1,47 @@
+<aura:component controller="Loop.RecordSelectionController">
+
+	<aura:attribute name="selectedDdp" type="string"/>
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="ddpLabel" type="string" default="DocGen Package"/>
+    <aura:attribute name="objectName" type="string"/>
+    <aura:attribute name="objectPluralLabel" type="string"/>
+    
+    <aura:attribute name="loading" type="boolean" default="true"/>
+    <aura:attribute name="records" type="List" description="Need: Name and Id"/>
+    <aura:attribute name="hasErrorOccurred" type="boolean" default="false"/>
+    <aura:attribute name="errorMessage" type="string" description="Error message to display to user."/>
+    <aura:attribute name="svgClass" type="string" default="slds-icon-standard-document"/>
+    <aura:attribute name="svgLink" type="string" default="/assets/icons/standard-sprite/svg/symbols.svg#document"/>
+    
+    <!--Handled events-->
+    <aura:handler name="error" event="Loop:error" action="{!c.handleError}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="error" type="Loop:error"/>
+    
+    <!--Methods-->
+    <aura:method name="search" action="{!c.search}">
+        <aura:attribute name="searchString" type="string"/>
+    </aura:method>
+    <aura:method name="searchAll" action="{!c.searchAll}">
+        <aura:attribute name="searchString" type="string"/>
+    </aura:method>
+    <aura:method name="load" action="{!c.load}">
+        <aura:attribute name="ddpLabel" type="string"/>
+        <aura:attribute name="objectName" type="string"/>
+        <aura:attribute name="objectPluralLabel" type="string"/>
+    </aura:method>
+    <aura:method name="clearTiles" action="{!c.clearTiles}"/>
+    
+    <aura:if isTrue="{!v.loading}">
+        <Loop:LoadingTile />
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.hasErrorOccurred}">
+                <Loop:CustomTile status="error" message="{!v.errorMessage}"/>
+                <aura:set attribute="else">
+                    <Loop:SelectTiles aura:id="selectTiles" recordType="record" records="{!v.records}" svgLink="{!v.svgLink}" svgClass="{!v.svgClass}" displaySvg="true" isMultiSelect="false"/>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

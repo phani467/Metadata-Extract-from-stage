@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Fire when a document is selected.">
+    <aura:attribute name="ids" type="List" default="[]" description="Contains ids of selected documents."/>
+</aura:event>

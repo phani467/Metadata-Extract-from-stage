@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1- 5155;Onboarding - Case Reopen - Auto-Response</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Onboarding Case reopen</name>
+    <style>none</style>
+    <subject>IHS Markit Onboarding Case {!Case.CaseNumber} - Reopened</subject>
+    <textOnly>ONBOARDING
+
+Your IHS Markit Onboarding Case {!Case.CaseNumber}
+ 
+{Today()}
+
+Dear IHS Markit Customer,
+
+Thank you for contacting our Onboarding Team, we have reopened your request.
+
+A unique case reference number {!Case.CaseNumber} with the subject &quot;{!Case.Subject}&quot; is currently being reviewed by one of our analysts.
+
+In order to allow you to track the progress of your enquiry, please quote the above case reference number when contacting us. Someone will be in touch with you shortly to ensure that your request is handled to your satisfaction.
+
+Kind regards,
+IHS Markit Onboarding Team
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

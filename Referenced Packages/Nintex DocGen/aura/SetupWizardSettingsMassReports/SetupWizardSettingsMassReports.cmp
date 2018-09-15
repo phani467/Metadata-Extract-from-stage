@@ -1,0 +1,15 @@
+<aura:component controller="Loop.loopTools">
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="baseUrl" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<div class="slds">
+        <Loop:HelpLink helpTopic="http://help.nintex.com/en-us/docgen/docservices/Default.htm#cshid=9017" style="height: 14px;width: 14px;margin-top: 4px;"/>
+        <div class="slds-grid">
+            <div class="slds-text-heading--small slds-p-bottom--small" title="Setup Wizard">Mass DocGen Packages via Reports</div><br/>
+        </div>
+        <div class="slds-grid">You must enable the app to validate your Salesforce reports by setting up a remote site. This feature requires the Mass DocGen Packages add-on.</div>
+        <div class="slds-grid slds-p-top--medium">
+            <button class="slds-button slds-button--brand" onclick="{!c.showModal}">Configure</button>
+        </div>
+    </div>
+</aura:component>

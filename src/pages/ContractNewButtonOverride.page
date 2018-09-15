@@ -1,0 +1,44 @@
+<apex:page standardController="Contract" showHeader="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Contract Overridden Page</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+        </head>
+        
+        <body>
+            <div class="slds-scope">
+                <fieldset class="slds-box slds-theme--default"> 
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <span class="slds-icon_container slds-icon-utility-ban slds-m-right_x-small" title="Description of icon when needed">
+                            <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#warning')}"></use>
+                            </svg>
+                        </span>
+                        <h2>Please Create New Contract From Opportunity Page using Contract Wizard.</h2>
+                    </div>
+                    <Input type="button" class="slds-button slds-button--brand slds-m-top--medium" value="Go Back" onclick="redirectToHome()"/>
+                </fieldset>    
+            </div>
+        </body>
+        <script>
+            
+            var redirectToHome = function(){
+                // Go back in Salesforce1 and in Lightning
+                if( (typeof sforce != 'undefined') && sforce && (!!sforce.one) ) {
+                    // Salesforce app navigation
+                    sforce.one.back(true);
+                }
+                else { //For clssic.
+                    // Set the window's URL using a Visualforce expression
+                    window.location.href = '{!$CurrentPage.parameters.retURL}';
+                }
+            }    
+        </script>
+    </html>
+</apex:page>

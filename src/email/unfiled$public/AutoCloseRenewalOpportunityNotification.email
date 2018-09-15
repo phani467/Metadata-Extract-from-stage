@@ -1,0 +1,7 @@
+Hi,
+
+This is to notify that Renewal Opportunity - {!Opportunity.Name} - {!Opportunity.Opportunitynum__c}  has been moved to 6W stage automatically, 3 days before the contract end date i.e. {!Opportunity.ContractEndDate__c}.
+
+Please find the opportunity link -  {!Opportunity.Link}
+
+Thanks

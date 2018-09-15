@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>SFDC1-405 This Custom Settings is used by Trigger Framework to switch trigger on/off for individual user/whole org.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AccountRanking__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-7592 : To switch AccountRanking object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch AccountRanking object triggers on</inlineHelpText>
+        <label>AccountRanking</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch account object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch account object triggers on</inlineHelpText>
+        <label>Account</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdClaimChangeLog__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-8546 : To switch AdClaimChangeLog object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch AdClaimChangeLog object triggers on</inlineHelpText>
+        <label>AdClaimChangeLog</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdClaim__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-8539 : To switch AdClaim object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch AdClaim object triggers on</inlineHelpText>
+        <label>AdClaim</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalAccountFields__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-2103 To switch Additional Account Fields object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch Additional Account Fields object triggers on</inlineHelpText>
+        <label>AdditionalAccountFields</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalCaseFields__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-515 To switch AdditionalCaseFields object triggers on/off</description>
+        <externalId>false</externalId>
+        <label>AdditionalCaseFields</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalContactFields__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-2299 To switch Additional Contact Fields object triggers on/off</description>
+        <externalId>false</externalId>
+        <label>AdditionalContactFields</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalOpportunityFields__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6937 : To switch AdditionalOpportunityFields object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch AdditionalOpportunityFields object triggers on</inlineHelpText>
+        <label>AdditionalOpportunityFields</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalProductLoginFields__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6347 To switch Additional Product Login Fields object triggers on/off</description>
+        <externalId>false</externalId>
+        <label>AdditionalProductLoginFields</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Asset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch Asset object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch Asset object triggers on</inlineHelpText>
+        <label>Asset</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Attachment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Attachment</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BillingScheduleLineItem__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-7472 : To switch BillingScheduleLineItem object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch BillingScheduleLineItem object triggers on</inlineHelpText>
+        <label>BillingScheduleLineItem</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CampaignInfluence__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6636 - Campaign Influence</description>
+        <externalId>false</externalId>
+        <label>CampaignInfluence</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>To switch Campaign triggers on/off.</description>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CaseContracts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-593: Writing triggers on Case contracts. So, adding it.</description>
+        <externalId>false</externalId>
+        <label>CaseContracts</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CaseOpportunities__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-593: Writing new trigger for CaseOpportunities object to update case.</description>
+        <externalId>false</externalId>
+        <label>CaseOpportunities</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CaseProducts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-593: Writing new trigger for CaseProducts object to validate before inserting.</description>
+        <externalId>false</externalId>
+        <label>CaseProducts</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch case object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch case object triggers on</inlineHelpText>
+        <label>Case</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ChangeLog__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>POLK - To switch Change Log Fields object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>POLK -  To switch Change Log Fields object triggers on/off</inlineHelpText>
+        <label>ChangeLog</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ChannelProgramContact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-8547 : To switch ChannelProgramContact object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch ChannelProgramContact object triggers on</inlineHelpText>
+        <label>ChannelProgramContact</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ChatSurvey__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-834  To switch chat survey object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch chat survey  object triggers on</inlineHelpText>
+        <label>ChatSurvey</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch contact object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch account contact triggers on</inlineHelpText>
+        <label>Contact</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ContentDocumentLink__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ContentDocumentLink</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ContractAttachment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-8559 : To switch ContractAttachment object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch ContractAttachment object triggers on</inlineHelpText>
+        <label>ContractAttachment</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch contract object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch account contract triggers on</inlineHelpText>
+        <label>Contract</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EmailMessage__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-8538: To switch EmailMessage object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch EmailMessage object triggers off</inlineHelpText>
+        <label>EmailMessage</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Event__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Event</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>InternalApproval__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-8542 To switch Internal Approval object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Switch Internal Approval object triggers on/off</inlineHelpText>
+        <label>InternalApproval</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch lead object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch lead object triggers on</inlineHelpText>
+        <label>Lead</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LiveChatTranscript__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-834 To switch Live Chat Transcript object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch Live Chat Transcript object triggers on</inlineHelpText>
+        <label>LiveChatTranscript</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OpportunityLineItemSchedule__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-4275 OpportunityLineItemSchedule__c check to prevent trigger execution</description>
+        <externalId>false</externalId>
+        <label>OpportunityLineItemSchedule</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OpportunityLineItem__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch OpportunityLineItem object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch OpportunityLineItem object triggers on</inlineHelpText>
+        <label>OpportunityLineItem</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OpportunitySplit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch OpportunitySplit object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch OpportunitySplit object triggers on</inlineHelpText>
+        <label>OpportunitySplit</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch opportunity object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch opportunity object triggers on</inlineHelpText>
+        <label>Opportunity</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PLCJob__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>POLK : To switch Additional Account Fields object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>POLK : Check to switch PLC Job object triggers on</inlineHelpText>
+        <label>PLCJob</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ProductLogin__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-6347 To switch Product Login object triggers on/off</description>
+        <externalId>false</externalId>
+        <label>Product Login</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ProductUsageStatistics__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-7109 To switch Product Usage Statistics object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>switch Product Usage Statistics object triggers on/off</inlineHelpText>
+        <label>ProductUsageStatistics</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RenewalatRisk__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-8545 Move all Opportunity at Risk object related Process Builder logic in the trigger</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch RenewalatRisk object triggers on/off</inlineHelpText>
+        <label>RenewalatRisk</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Solution__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>To switch solution object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch Solution object triggers on</inlineHelpText>
+        <label>Solution</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Task__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-405 To switch task object triggers on/off</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch task object triggers on</inlineHelpText>
+        <label>Task</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-808 To switch User object triggers on/off</description>
+        <externalId>false</externalId>
+        <label>User</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dsfsDocuSignRecipientStatus__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-7213: Writing triggers on dsfs_DocuSign_Recipient_Status. So, adding it.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>dsfs_DocuSign_Recipient_Status managed package object</inlineHelpText>
+        <label>dsfsDocuSignRecipientStatus</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dsfsDocuSignStatus__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SFDC1-7947 To switch object triggers on/off for dsfs_DocuSign_Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to switch object triggers on/off for dsfs_DocuSign_Status</inlineHelpText>
+        <label>dsfsDocuSignStatus</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>System Muted Triggers</label>
+    <visibility>Protected</visibility>
+</CustomObject>

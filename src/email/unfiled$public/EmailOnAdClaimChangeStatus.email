@@ -1,0 +1,13 @@
+** ATTENTION – ACTION NEEDED ** <br/><br/>
+
+The following Ad Claim has had a status change: <br/><br/>
+
+Ad Claims Number: {! AdClaim__c.Name}<br/>
+Requesting Organization: {!AdClaim__c.RequestingOrganization__c} <br/>
+Represented Organization: {!AdClaim__c.RepresentedOrganization__c}<br/>
+Ad Claims Title: {! AdClaim__c.ClaimTitle__c}<br/>
+Type of Claim: {!AdClaim__c.TypeOfClaim__c} <br/>
+New Status: {! AdClaim__c.ClaimsStatus__c}<br/>
+Link to Ad Claims Form: {! AdClaim__c.Link}<br/>
+<br/><br/>
+{! IF( ISPICKVAL(AdClaim__c.ClaimsStatus__c, 'Rejected') , 'Rejection Comments: ' + AdClaim__c.RejectionComments__c, IF( ISPICKVAL(AdClaim__c.ClaimsStatus__c, 'Approved'), 'Approval Comments: ' + AdClaim__c.ApprovalComments__c, "" ) )}

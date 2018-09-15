@@ -1,0 +1,13 @@
+<aura:component controller="Loop.AuthorizeLoopController">
+    <ltng:require scripts="/resource/Loop__Scripts/eventListener.js"/>
+
+    <aura:attribute name="isParentRunDdp" type="boolean" default="false" description="We want different behavior in the OAuth flow when it is initiated by the RunDdp component."/>
+
+    <aura:attribute name="oAuthUrl" type="string" default="" access="private" description="Url to start OAuth flow."/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:registerEvent name="actionEvent" type="Loop:actionEvent"/>
+
+    <aura:method name="startOAuthFlow" action="c.startOAuthFlow"/>
+</aura:component>

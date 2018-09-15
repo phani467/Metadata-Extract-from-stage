@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-2671 :   ERC Login template reminder</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ERC Login Information Reminder</name>
+    <style>none</style>
+    <subject>IHS ERC Portal - Login Reminder: {!Case.CaseNumber}</subject>
+    <textOnly>Dear {!Case.Contact}
+
+Your request for your login information has been received. For your reference we have created case ID : {!Case.Case Number}
+.
+Login is a two-step process :
+Step 1 : Account Level Login – This is your company or organization’s login credential
+Step 2 : User Level Login – This is your individual login credential
+--------------------------------------------------------------------------------
+Step 1 - Account Login (This is NOT your individual user login credential) :
+· Many companies use a blind login link to authenticate this, which can be found on your company&apos;s network. While others use their direct company Account Login credentials.
+· Due to security measures, IHS cannot supply the Account Level login credentials directly.
+· Do not bookmark the intranet blind login link for usage, as it may not work if the account is updated due to administrative reasons.
+· If you have any issues with accessing the intranet link or require the company Account Level login instead, please refer to the internal contact point below who manages the login details.
+The
+{!Case.Account}
+point of contact is :
+{point of contact name from SSO}
+, please refer to your company directory for the accurate contact details.
+Your organization&apos;s intranet login page URL is : *Note to CC - copy and paste redirect link here if one is listed in PACS, else delete the complete intranet section*
+--------------------------------------------------------------------------------
+Step 2 - User Login :
+· Enter your full corporate email address and password under Returning Registered Users if you have previously registered.
+· If you have never registered, click &quot;Register&quot; under New User or Never Registered.
+· To retrieve your individual login password, &quot;The Forgot your password&quot; link is located on this page as well.
+· Due to security measures, IHS cannot supply the User Level login credentials directly.
+*Please note that your user password is case sensitive*
+--------------------------------------------------------------------------------
+· If you continue to have issues accessing the IHS ERC please reply to this email and we will work to resolve your issue.
+--------------------------------------------------------------------------------
+Register for Training
+This training program is designed exclusively to help you get started in IHS ERC Portal. It offers Webex based sessions which are led by IHS product experts as instructors.
+Access the full listing of training sessions here.
+--------------------------------------------------------------------------------
+Need further assistance?
+Contact our IHS Customer Care team for assistance or help
+--------------------------------------------------------------------------------
+Requirements
+For the optimal IHS ERC Portal experience, we recommend using Firefox, a newer version of Internet Explorer or Chrome.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

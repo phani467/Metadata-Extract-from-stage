@@ -1,0 +1,347 @@
+<!----------------------- Header Begins ------------------------->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title></title>
+      <link rel="SHORTCUT ICON" href="/e/ref.ico" />
+      <meta name="robots" content="noindex, nofollow">
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="format-detection" content="date=no">
+      <meta name="format-detection" content="address=no">
+      <meta name="format-detection" content="telephone=no">
+      <style type="text/css" media="screen">
+         /* Linked Styles */
+         #outlook a {
+         p padding: 0;
+         }
+         .body {
+         width: 100% !important;
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         margin: 0;
+         padding: 0;
+         }
+         .ExternalClass {
+         width: 100%;
+         }
+         .greenButton {
+         background-color: #78be20;
+         color: white;
+         text-transform: uppercase;
+         }
+         .ExternalClass,
+         .ExternalClass p,
+         .ExternalClass span,
+         .ExternalClass font,
+         .ExternalClass td,
+         .ExternalClass div {
+         line-height: 100%;
+         }
+         img {
+         outline: none;
+         text-decoration: none;
+         -ms-interpolation-mode: bicubic;
+         }
+         a img {
+         border: none;
+         }
+         p {
+         margin: 1em 0;
+         }
+         table td {
+         border-collapse: collapse;
+         border-spacing: 0;
+         font-family: Arial;
+         font-size: 14px;
+         color: rgb(102, 102, 102);
+         }
+         /* hide unsubscribe from forwards*/
+         blockquote .original-only,
+         .WordSection1 .original-only {
+         display: none !important;
+         }
+         blockquote {
+         display: inline-block;
+         margin: 0px;
+         }
+         ul {
+         list-style-type: disc;
+         display: inline;
+         padding-right: 15px;
+         margin-bottom: 0;
+         }
+         .pd-table th,
+         .pd-table td,
+         .datatable th,
+         .datatable td {
+         text-align: left;
+         margin: 0;
+         border-bottom: 1px solid #E5E5E5;
+         vertical-align: top;
+         font-size: 12px;
+         padding: 7px 0 8px 5px;
+         color: rgb(102, 102, 102);
+         font-family: Arial, Helvetica, sans-serif;
+         }
+         .datatable td:first-child,
+         .pd-table td:first-child {
+         font-size: 12px;
+         font-style: normal;
+         font-weight: bold;
+         margin: 0;
+         line-height: 11px;
+         font-family: Arial, Helvetica, sans-serif;
+         }
+         .datatable td a,
+         .pd-table td a {
+         color: #4c4b4c;
+         font-weight: bold;
+         text-decoration: none;
+         font-size: 12px;
+         }
+         .datatable td a:hover,
+         .pd-table td a:hover {
+         color: #4c4b4c;
+         font-size: 12px;
+         }
+         .datatable td.inactive a:active,
+         .datatable td.inactive a:visited {
+         color: #4c4b4c;
+         }
+         .pd-table th,
+         .datatable th {
+         padding: 10px 0 5px 5px;
+         font-size: 10px;
+         color: #4c4b4c;
+         line-height: 11px;
+         }
+         a,
+         a:visited,
+         a:hover {
+         font-weight: bold;
+         text-decoration: none;
+         color: #00B140;
+         }
+         .greenButton a {
+         color: #ffffff !important;
+         }
+         h1 {
+         color: rgb(34, 96, 146) !important;
+         }
+         h4.productType {
+         color: rgb(153, 153, 153) !important;
+         }
+         h2,
+         h3,
+         h4,
+         h5 {
+         color: #333333 !important;
+         }
+         @media only screen and (max-width: 480px) {
+         body,
+         table,
+         td,
+         p,
+         a,
+         li,
+         blockquote {
+         -webkit-text-size-adjust: none !important;
+         }
+         /* Prevent Webkit platforms from changing default text sizes */
+         body {
+         width: 100% !important;
+         min-width: 100% !important;
+         }
+         /* Prevent iOS Mail from adding padding to the body */
+         #bodyCell {
+         padding: 10px !important;
+         }
+         #templateContainer {
+         max-width: 700px !important;
+         width: 100% !important;
+         }
+         h1 {
+         font-size: 30px !important;
+         line-height: 100% !important;
+         color: #00B140 !important;
+         }
+         h2 {
+         font-size: 22px !important;
+         line-height: 100% !important;
+         color: #333333 !important;
+         }
+         h3 {
+         font-size: 16px !important;
+         line-height: 100% !important;
+         color: #333333 !important;
+         }
+         h4 {
+         font-size: 14px !important;
+         line-height: 100% !important;
+         color: #999999 !important;
+         }
+         h5 {
+         font-size: 14px !important;
+         line-height: 100% !important;
+         color: #333333 !important;
+         }
+         #templatePreheader {
+         display: none !important;
+         }
+         /* Hide the template preheader to save space */
+         #headerImage {
+         height: auto !important;
+         max-width: 700px !important;
+         width: 100% !important;
+         }
+         .headerContent {
+         font-size: 20px !important;
+         line-height: 125% !important;
+         }
+         .bodyContent {
+         font-size: 14px !important;
+         line-height: 125% !important;
+         }
+         #viewHTML {
+         font-size: 10px !important;
+         }
+         .footerContent {
+         font-size: 14px !important;
+         line-height: 115% !important;
+         }
+         .footerContent a {
+         display: block !important;
+         }
+         }
+      </style>
+   </head>
+   <!----------------------- Header Ends------------------------->
+   <!----------------------- Body Begins------------------------->  
+   <body>
+      <table bgcolor="#ebebeb" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+         <tr>
+            <td align="center" valign="top">
+               <div style="height: 40px; line-height: 0pt; font-size: 0pt;"><img alt="" border="0" height="40" src="{!$Label.EmailBodyLink1}" style="height: 40px;" width="1"></div>
+               <div style="height: 24px; line-height: 0pt; font-size: 0pt;"><img alt="" border="0" height="24" src="{!$Label.EmailBodyLink1}" style="height: 24px;" width="1"></div>
+               <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="w320" width="600">
+      <tbody>
+         <tr>
+         </tr>
+         <tr>
+            <td height="90" width="490">
+               <div class="full-width-img"><img alt="" src="{!$Label.EmailBodyLink2}"></div>
+            </td>
+         </tr>
+         <tr>
+            <td align="center" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top">
+               <!-- BEGIN BODY // -->
+               <table border="0" cellpadding="0" cellspacing="0" id="templateBody" style="border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(204, 204, 204); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; border-collapse: collapse !important; -ms-text-size-adjust: 100%; background-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+                  <tbody>
+                     <tr>
+                        <td align="left" class="bodyContent" pardot-data="" style="padding: 30px 0px 50px; text-align: left; color: #666666; line-height: 21px; font-family: Arial; font-size: 14px;" valign="top">
+                           <table border="0" cellmargin="0" cellpadding="0" pardot-removable="Email subject" style="margin: 0px 50px;" width="600" class="">
+                              <tbody>
+                                 <tr>
+                                    <td style="padding: 0px 0px 10px;">
+                                       <h1 pardot-region="Subject" style="margin: 0; text-align: left; color: #00B140 !important; line-height: 32px; letter-spacing: normal; font-family: Arial; font-size: 30px; font-style: normal; font-weight: normal;" class="">Chat Transcript</h1>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <table border="0" cellmargin="0" cellpadding="0" pardot-removable="Content Block 1b" style="margin: 0px 50px 20px;" width="600" class="">
+                              <tbody>
+                                 <tr>
+                                    <td style="padding: 0px 0px 10px; line-height: 21px; font-family: Arial; font-size: 14px;">
+                                       <div pardot-region="Paragraph 1" class="">
+                                          <p class="style12" style="font-size: 10pt; color: rgb(22, 87, 136); font-family: Arial, Helvetica, sans-serif; line-height: normal;">
+                                             <span style="color: rgb(102, 102, 102); font-family: Arial; font-size: 14px; line-height: 21px;">
+                                                Here's a copy of the chat transcript you requested:
+                                                <br>
+                                                <br>
+                                          <table class="datatable" width=100%>
+                                          <tr>
+                                          <td colspan="3">
+                                          <strong>General Information</strong>
+                                          </td>
+                                          </tr>
+                                          <tr>
+                                          <td width=30%>
+                                          <strong>Case Number</strong>
+                                          </td>
+                                          <td>{!LiveChatTranscript.CaseNumber__c}</td>
+                                          </tr>
+                                          <tr>
+                                          <td width=30%>
+                                          <strong>Product</strong>
+                                          </td>
+                                          <td>{!LiveChatTranscript.ProductGroup__c}</td>
+                                          </tr>
+                                          <tr>
+                                          <td width=30%>
+                                          <strong>Chat Start Time</strong>
+                                          </td>
+                                          <td>{!SUBSTITUTE(TEXT(DATETIMEVALUE(LiveChatTranscript.StartTime)), 'Z', ' GMT')}</td>
+                                          </tr>
+                                          <tr>
+                                          <td width=30%>
+                                          <strong>Chat End Time</strong>
+                                          </td>
+                                          <td>{!SUBSTITUTE(TEXT(DATETIMEVALUE(LiveChatTranscript.EndTime)), 'Z', ' GMT')}</td>
+                                          </tr>
+                                          <tr>
+                                          <td width=30%>
+                                          <strong>Agent</strong>
+                                          </td>
+                                          <td>{!LiveChatTranscript.OwnerFirstName}</td>
+                                          </tr>
+                                          </table>
+                                          <br>
+                                          <table class="datatable" width=100%>
+                                          <tr>
+                                          <td>
+                                          <strong>Chat Transcript</strong>
+                                          </td>
+                                          </tr>
+                                          <tr>
+                                          <td >{!LiveChatTranscript.Body}</td>
+                                          </tr>
+                                          </table>
+                                          <br>
+                                          <p class="style12">Kind Regards,&nbsp;<br>
+                                          <br>
+                                          IHS Markit Customer Support Team&nbsp;
+                                          <br>UK: +44 808 120 2344 | US: +1 866 861 6171 | HK: +852 800 964 146
+                                          Email: 
+                                          <a href="mailto:support@ihsmarkit.com" target="_top">support@ihsmarkit.com</a>
+                                          <br> 
+                                          <a href="{!LiveChatTranscript.LiveChatLink__c}">
+<b>Start Live Chat</b>
+                                          </a>
+                                          </span>
+                                          </p>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <!-- End of email content -->
+                           <div style="height: 40px; line-height: 0pt; font-size: 0pt;"><img alt="" border="0" height="40" src="{!$Label.EmailBodyLink1}" style="height: 40px;" width="1"></div>
+                           <div class="wgmail" style="text-align: left; line-height: 0pt; font-size: 0pt;"><img alt="" border="0" height="1" src="{!$Label.EmailBodyLink1}" style="min-width: 640px;" width="640"></div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+               <!----------------------- Body Ends -------------------------> 
+               <!----------------------- Footer Begins ---------------------> 
+               <p align="center" style="FONT-FAMILY: arial; FONT-SIZE: 10px; color: #4c4b4c ">
+                  <br>
+                  Copyright © {!YEAR(TODAY())} IHS Markit Group Holdings Limited. All rights reserved.<br>
+                  <a href="{!$Label.EmailFooterLink1}" style="TEXT-DECORATION: none; color: #4c4b4c "><strong>PRIVACY POLICY </strong></a> | <a href="{!$Label.EmailFooterLink2}" style="TEXT-DECORATION: none; color: #4c4b4c "><strong>TERMS OF USE</strong></a> | <a href="{!$Label.EmailFooterLink3}" style="TEXT-DECORATION: none; color: #4c4b4c"><strong>DISCLAIMER</strong></a> | <a href="{!$Label.EmailFooterLink4}" style="TEXT-DECORATION: none; color: #4c4b4c"><strong>CONTACT US</strong></a><br>
+                  <br>
+                  <br>
+                  IHS Markit Group Holdings Limited is registered and incorporated in England & Wales (company number: 06240773).<br>
+                  Registered office:{!$Label.EmailFooterAddress1}
+                  <!----------------------- Footer Ends --------------------->

@@ -1,0 +1,59 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Vf Component is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:component >
+    <apex:attribute name="wrf" description="This is the active Work Request Form" required="true" type="WorkRequestForm__c" />
+     <apex:attribute name="formtype" description="This is the active formtype" required="true" type="String" />
+
+    <apex:pageBlock > 
+         <apex:pageblocksection title="Aftermarket Work Request - NVPP Online Display Selections" id="NVPPO" collapsible="false" columns="1" >         
+            
+            <table border="1" cellpadding="5" cellspacing="5" width="70%" align="center">
+            <tr>
+            <td><u><b>ACES ID</b></u></td>
+            <td><u><b>AAID Code</b></u></td>
+            <td><u><b>Commercial Attributes</b></u></td>
+            <td><u><b>Vehicle Maintenance</b></u></td>
+            </tr>
+            <tr><td>ACES Aspiration</td><td>AAIA Code</td><td>Vehicle Type</td><td>Oil Capacity Liters</td></tr>
+            <tr><td>ACES Base Vehicle ID</td><td></td><td>Manufacturer</td><td>Oil Capacity Quarts</td></tr>
+            <tr><td>ACES Body No of Doors ID</td><td><u><b>Battary Attributes</b></u></td><td>Make</td><td>Oil Capacity with Filter Liters</td></tr>
+            <tr><td>ACES Body Style Config ID</td><td>Battery</td><td>Year Model</td><td> Oil Capacity with Filter Quarts</td></tr>
+            <tr><td>ACES Body Type</td><td>Battery Standard/Optional</td><td>Series</td><td>Regular Interval Kilmeters</td></tr>
+            <tr><td>ACES CC</td><td>Multi Battery Count</td><td>Bodel</td><td>Regular Interval Miles</td></tr>     
+            <tr><td>ACES CID</td><td></td><td>Cylinders</td><td>Regular Interval Months</td></tr>                       
+            <tr><td>ACES Cylinder</td><td><u><b>OEM Attributes</b></u></td><td>Engine Manufacturer</td><td>Severe Interval Kilometers </td></tr>  
+            <tr><td>ACES Drive Type</td><td>Air Conditioning %</td><td>Engine Model</td><td>Severe Interval Miles</td></tr>                                
+            <tr><td>ACES Engine VIN ID</td><td>Power Steering % </td><td>Displacement</td><td>Severe Interval Months</td></tr>                                                 
+            <tr><td>ACES Fuel Delivery</td><td>Rear Defrost %</td><td>Liters</td><td>Viscosity 1</td></tr>                                
+            <tr><td>ACES Fuel Delivery Config ID</td><td>Power Window % </td><td>Fuel Type</td><td>Vicosity 2</td></tr>               
+            <tr><td>ACES Fuel Type</td><td>Power Brakes %</td><td>Gross Vehicle Weight</td><td>Fuel Capacity Gallons</td></tr>                                
+            <tr><td>ACES Liter</td><td>ABS %</td><td> </td><td>Fuel Capacity Liters</td></tr>                                                 
+            <tr><td>ACES Make</td><td>Four Wheel Disc %</td><td><u><b>Vehicle Values-Black Book</b></u></td><td></td></tr>                                
+            <tr><td>ACES Model</td><td>Manual Transmission % </td><td>Wholesale Adverage Price</td><td><u><b>Optional Attributes</b></u></td></tr>     
+            <tr><td>ACES Power Output ID</td><td>Manual 4 Speed %</td><td>Retail Average Price</td><td>Curb Weight</td></tr>                                
+            <tr><td>ACES Region</td><td>Manual 5 Speed %</td><td>MSRP</td><td>Wheelbase Low</td></tr>                                
+            <tr><td>ACES Submodel</td><td>Manual 6 Speed %</td><td></td><td>Wheelbase High</td></tr>                                
+            <tr><td>ACES Vehicle ID</td><td>Auto Transmission %</td><td><u><b>Tire Attributes</b></u></td><td></td></tr>                                
+            <tr><td>ACES Vehicle Type</td><td>Auto 3 Speed %</td><td>Tire Size</td><td></td></tr>    
+            <tr><td>ACES Year ID</td><td>Auto 4 Speed %</td><td>P or LT Tire Prefix</td><td></td></tr>                                                            
+            <tr><td>Aspiration Name</td><td>Auto 5 Speed %</td><td>Tire Speed Rating</td><td></td></tr>                                                            
+            <tr><td>Body Type Name</td><td>Auto 6 Speed %</td><td>Tire Standard/Optional</td><td></td></tr>                                                            
+            <tr><td>Drive Type Name</td><td>Auto 6/7 Speed %</td><td>Tire Load Index</td><td></td></tr>                                                            
+            <tr><td>Fuel Delivery Type Name</td><td>Auto 7 Speed %</td><td>Tire Aspect Ratio</td><td></td></tr>                                                            
+            <tr><td>Fuel Type Name</td><td>Auto 7/8 Speed %</td><td>Tire Rim Size</td><td></td></tr>                                                            
+            <tr><td>Make Name</td><td>CVT %</td><td>Tire Rim Dimension</td><td></td></tr>                                                            
+            <tr><td>Model Name</td><td></td><td></td><td></td></tr>                                                            
+            <tr><td>Region Name</td><td></td><td></td><td></td></tr>                                                            
+            <tr><td>Sub Model Name</td><td></td><td></td><td></td></tr>                                                            
+            <tr><td>Vehicle Type Name</td><td></td><td></td><td></td></tr>                                                            
+            </table>
+
+         </apex:pageblocksection>
+      </apex:pageBlock>
+</apex:component>

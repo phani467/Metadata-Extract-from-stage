@@ -1,0 +1,32 @@
+.THIS.drawloop.tile-background {
+    padding: .5rem;
+    margin-top: 8px;
+    background-color: #FFFFFF;
+}
+.THIS .container-left-margin {
+    margin-left: .75rem;
+}
+.THIS .badge-container {
+    margin-left:9px;
+    line-height: 21px;
+}
+.THIS .height-limit {
+    max-height: 250px;
+}
+.THIS .error-text {
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+.THIS .hidden {
+    display: none;
+}
+.THIS .gray-badge {
+    background-color: #eaedf4;
+    color: #005fb2;
+}
+.THIS .drawloop .removePill {
+    fill: #fff;
+    height: 11px;
+    width: 11px;
+    left: 2px;
+}

@@ -1,0 +1,3 @@
+<apex:page id="massCaseDdp" standardController="Case" recordSetVar="records" extensions="Loop.MassRedirectPageExt">
+    <c:massRedirect redirectInfo="{!redirectParams}"/>
+</apex:page>

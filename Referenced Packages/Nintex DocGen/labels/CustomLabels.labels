@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Add_or_Update_Add_ons_contact_sales_description</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add or Update Add-ons contact sales description</shortDescription>
+        <value>To add or update add-ons, contact a sales executive.</value>
+    </labels>
+    <labels>
+        <fullName>Additional_User_Licenses_Label</fullName>
+        <categories>additional user licenses, additional users, additional licenses, additional seats, seats</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Additional User Licenses Label</shortDescription>
+        <value>Additional User Licenses</value>
+    </labels>
+    <labels>
+        <fullName>AppPermissionsPreface_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Text to use before listing required application permissions</shortDescription>
+        <value>The application requires permissions for the following features:</value>
+    </labels>
+    <labels>
+        <fullName>App_Admin_Home_Label</fullName>
+        <categories>DocGen, Admin</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Admin Home Label</shortDescription>
+        <value>DOCGEN ADMIN HOME</value>
+    </labels>
+    <labels>
+        <fullName>App_Admin_Label</fullName>
+        <categories>DocGen, Admin</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Admin Label</shortDescription>
+        <value>Nintex DocGen™ Admin</value>
+    </labels>
+    <labels>
+        <fullName>AuthorizationUnsuccessful_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message to display on an unsuccessful auth attempt</shortDescription>
+        <value>Authorization was unsuccessful.</value>
+    </labels>
+    <labels>
+        <fullName>AuthorizeProdOrg_Label</fullName>
+        <categories>Authorization</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authorize Production Organization</shortDescription>
+        <value>Authorize Production Organization</value>
+    </labels>
+    <labels>
+        <fullName>AuthorizeProductionOrg_Message</fullName>
+        <categories>Authorization</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authorize Production Org Message</shortDescription>
+        <value>Click &quot;Authorize Production Organization&quot; to load edition options for your organization.</value>
+    </labels>
+    <labels>
+        <fullName>Authorize_App_Label</fullName>
+        <categories>Authorize Nintex DocGen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authorize Nintex DocGen</shortDescription>
+        <value>Authorize Nintex DocGen</value>
+    </labels>
+    <labels>
+        <fullName>AuthorizedUser_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authorized user label</shortDescription>
+        <value>Authorized User</value>
+    </labels>
+    <labels>
+        <fullName>Billing_Details_Header</fullName>
+        <categories>billing details, billing, details, header</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Details Header</shortDescription>
+        <value>Billing Details</value>
+    </labels>
+    <labels>
+        <fullName>Business_Edition_Description</fullName>
+        <categories>enterprise edition, description, enterprise</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enterprise Edition Description</shortDescription>
+        <value>Automated document services that allow you to create, deliver, and store DocGen Packages in Salesforce plus advanced enterprise features.</value>
+    </labels>
+    <labels>
+        <fullName>Business_Label</fullName>
+        <categories>enterprise, label, enterprise label, enterprise text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enterprise Label</shortDescription>
+        <value>Enterprise</value>
+    </labels>
+    <labels>
+        <fullName>Call_Label</fullName>
+        <categories>call, call label, label, Phone</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Call Label</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>Company_Address_Label</fullName>
+        <categories>company address, address</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Company Address Label</shortDescription>
+        <value>Company Address</value>
+    </labels>
+    <labels>
+        <fullName>Contact_Details_Header</fullName>
+        <categories>contact details, header</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact Details Header</shortDescription>
+        <value>Contact Details</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Attach_To</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Attach To</shortDescription>
+        <value>Attach to</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Breadcrumb</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Breadcrumb</shortDescription>
+        <value>Back to</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Cancel</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Delivery</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Delivery</shortDescription>
+        <value>Choose a delivery method for the DocGen Package:</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Instructions</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Instructions</shortDescription>
+        <value>On this page you can select a contact (if applicable), select a DocGen Package to run, and choose how you want to deliver the DocGen Package.</value>
+    </labels>
+    <labels>
+        <fullName>DDP_None</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package None</shortDescription>
+        <value>None</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Optional_Docs</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Optional Docs</shortDescription>
+        <value>Select Optional Documents to Include:</value>
+    </labels>
+    <labels>
+        <fullName>DDP_RemindExpires</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Reminders and Expirations</shortDescription>
+        <value>Reminders and Expirations</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Run</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Run</shortDescription>
+        <value>Run</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Select</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Select</shortDescription>
+        <value>Select the DocGen Package to run:</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Select_Contact</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Select Contact</shortDescription>
+        <value>Specify the contact to use for the DocGen Package:</value>
+    </labels>
+    <labels>
+        <fullName>DDP_Select_Library</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Select Library</shortDescription>
+        <value>Select a Library:</value>
+    </labels>
+    <labels>
+        <fullName>Download</fullName>
+        <categories>Delivery Option, Download</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Download Label</shortDescription>
+        <value>Download</value>
+    </labels>
+    <labels>
+        <fullName>EditionRetrievalError_Message</fullName>
+        <categories>Edition, License, Subscription, Error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edition information retrieval error</shortDescription>
+        <value>There was a problem retrieving your production org&apos;s Edition information.</value>
+    </labels>
+    <labels>
+        <fullName>Edition_Label</fullName>
+        <categories>edition, label, edition text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edition Label</shortDescription>
+        <value>Edition</value>
+    </labels>
+    <labels>
+        <fullName>Email_Label</fullName>
+        <categories>email, email label, label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Label</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>Enable_Label</fullName>
+        <categories>enable, label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enable Label</shortDescription>
+        <value>Enable</value>
+    </labels>
+    <labels>
+        <fullName>Enabled_Label</fullName>
+        <categories>enabled, label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enabled Label</shortDescription>
+        <value>Enabled</value>
+    </labels>
+    <labels>
+        <fullName>Enter_a_Numeric_Value_Error_Message</fullName>
+        <categories>enter a numeric value, error, numeric error, please enter a numeric value</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter a Numeric Value Error Message</shortDescription>
+        <value>Please enter a numeric value.</value>
+    </labels>
+    <labels>
+        <fullName>Enter_in_a_Valid_Email_Error_Message</fullName>
+        <categories>invalid email, email, valid email, invalid email error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter in a Valid Email Error Message</shortDescription>
+        <value>Please enter in a valid email address.</value>
+    </labels>
+    <labels>
+        <fullName>Error_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Label</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>Existing_User_Licenses_Label</fullName>
+        <categories>existing user licenses, existing licenses, existing users, seats, existing seats</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Existing User Licenses Label</shortDescription>
+        <value>Existing User Licenses</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Error_Message</fullName>
+        <categories>error, generic error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Error Message</shortDescription>
+        <value>An unexpected error has occurred. Please contact Nintex Support if this error persists.</value>
+    </labels>
+    <labels>
+        <fullName>IE_Compatibility_View_Warning</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>IE Compatibility View Warning</shortDescription>
+        <value>You are viewing this page in Internet Explorer Compatibility View. You may need to disable Compatibility View for this page to work properly.</value>
+    </labels>
+    <labels>
+        <fullName>IE_Higher_Version_Required</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>IE Higher Version Required</shortDescription>
+        <value>You appear to be on an older version of Internet Explorer. This page requires Internet Explorer {0} to function properly. Please upgrade your browser to a later version.</value>
+    </labels>
+    <labels>
+        <fullName>Include_This_Error_Id_Error_Message</fullName>
+        <categories>include error Id, error, generic error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Include This Error Id Error Message</shortDescription>
+        <value>Include this Error Id if you contact Nintex Support:</value>
+    </labels>
+    <labels>
+        <fullName>InsertUpdatesPrivileges_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label for Inserting Updates with elevated privileges</shortDescription>
+        <value>Insert-Updates (with elevated privilege)</value>
+    </labels>
+    <labels>
+        <fullName>IntegrationAbility_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Used to describe the ability to integrate with partner applications</shortDescription>
+        <value>Integrate with partner applications</value>
+    </labels>
+    <labels>
+        <fullName>IntegrationUserInfo_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Informs the user about what they are doing when connecting the authorized user</shortDescription>
+        <value>The app will run as the user you are currently logged in as to perform these tasks.</value>
+    </labels>
+    <labels>
+        <fullName>IntegrationUserReplacement_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Describes the process to replace an authorized user</shortDescription>
+        <value>If you want the app to run as a different user you must log in with the account you want the app to run as, and then authorize the app again.</value>
+    </labels>
+    <labels>
+        <fullName>Loading_Label</fullName>
+        <categories>loading, label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loading label</shortDescription>
+        <value>Loading</value>
+    </labels>
+    <labels>
+        <fullName>Loop_Edit</fullName>
+        <categories>loop</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loop Edit Label</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>MassDocumentPackages_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label for Mass DocGen Packages</shortDescription>
+        <value>Mass DocGen Packages</value>
+    </labels>
+    <labels>
+        <fullName>Migration_Error_Message</fullName>
+        <categories>DocGen Package, Migration, Error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Migration Error</shortDescription>
+        <value>There was a problem migrating DocGen Packages.</value>
+    </labels>
+    <labels>
+        <fullName>OAuthUrlError_Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message used when we are unable to obtain the OAuth Url</shortDescription>
+        <value>There was an error in obtaining the OAuth URL. Please contact Nintex Support if this error persists.</value>
+    </labels>
+    <labels>
+        <fullName>Options_Label</fullName>
+        <categories>options, options label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Options Label</shortDescription>
+        <value>Options</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_App_Label</fullName>
+        <categories>purchase Nintex DocGen, purchase</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Purchase Nintex DocGen Label</shortDescription>
+        <value>Purchase Nintex DocGen</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_Form_Description</fullName>
+        <categories>purchase form, purchase, description</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Purchase Form Description</shortDescription>
+        <value>You will receive a purchase request within three business days of submitting this form.</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_Label</fullName>
+        <categories>purchase, label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Purchase Label</shortDescription>
+        <value>Purchase</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_Request_Success_Message</fullName>
+        <categories>purchase request, purchase form, success message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Purchase Request Success Message</shortDescription>
+        <value>Thank you! Your purchase request is on its way. You must sign the request to complete the transaction.</value>
+    </labels>
+    <labels>
+        <fullName>RecordsSelectedExceeded_Message</fullName>
+        <categories>Records Selected, Exceeded, PageMessage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Records Selected Exceeded</shortDescription>
+        <value>The number of records selected cannot exceed {0}.</value>
+    </labels>
+    <labels>
+        <fullName>Refresh_Test_Mode</fullName>
+        <categories>Test Context, Error Handling, Refresh</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Refresh Test Mode</shortDescription>
+        <value>If you have made any recent modifications, try refreshing the component and run again.</value>
+    </labels>
+    <labels>
+        <fullName>RequestSubmitted_Message</fullName>
+        <categories>Layouts, Request, Submit, Message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request submitted message for layout updates</shortDescription>
+        <value>Your request has been submitted.</value>
+    </labels>
+    <labels>
+        <fullName>RequireAtLeastOneRecordSelection_Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Require at least one record selection message</shortDescription>
+        <value>Please select at least one record.</value>
+    </labels>
+    <labels>
+        <fullName>RequiredAuthPermission_Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Describes required permissions for connecting the authorized user</shortDescription>
+        <value>You must have the Customize Application permission to authorize the application.</value>
+    </labels>
+    <labels>
+        <fullName>Sample_Retrieval_Error_Message</fullName>
+        <categories>DocGen, Samples, Sample DocGen Packages, Error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DocGen Package Retrieval Error</shortDescription>
+        <value>There was a problem retrieving DocGen Packages.</value>
+    </labels>
+    <labels>
+        <fullName>Save_Button_Label</fullName>
+        <categories>save, button, save button, label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save Button Label</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ScheduledDocumentPackages_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Text label for DocGen Packages</shortDescription>
+        <value>Scheduled DocGen Packages</value>
+    </labels>
+    <labels>
+        <fullName>SearchFor_Label</fullName>
+        <categories>Label, Search, Object, Picklist</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search For Label</shortDescription>
+        <value>Search for {0}</value>
+    </labels>
+    <labels>
+        <fullName>Select_Option</fullName>
+        <categories>select option, phone number, select</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Option</shortDescription>
+        <value>and select option</value>
+    </labels>
+    <labels>
+        <fullName>SelfAuthorizedUser_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label for allowing user to connect themselves as the authorized user</shortDescription>
+        <value>Make me the authorized user</value>
+    </labels>
+    <labels>
+        <fullName>Standard_Edition_Description</fullName>
+        <categories>standard edition, edition, standard, description</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Standard Edition Description</shortDescription>
+        <value>Automated document services that allow you to create, deliver, and store DocGen Packages in Salesforce.</value>
+    </labels>
+    <labels>
+        <fullName>Standard_Label</fullName>
+        <categories>standard label, standard, standard text</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Standard Label</shortDescription>
+        <value>Standard</value>
+    </labels>
+    <labels>
+        <fullName>Submit_Button_Label</fullName>
+        <categories>submit, button, submit button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit Button Label</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>Subscription_Detail_Header</fullName>
+        <categories>subscription detail, header</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Subscription Detail Header</shortDescription>
+        <value>Subscription Details</value>
+    </labels>
+    <labels>
+        <fullName>Upgrade_Form_Description</fullName>
+        <categories>upgrade form, header</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upgrade Form Description</shortDescription>
+        <value>You will receive an upgrade order form within three business days of submitting this form.</value>
+    </labels>
+    <labels>
+        <fullName>Upgrade_Form_Header</fullName>
+        <categories>upgrade form, header</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upgrade Form Header</shortDescription>
+        <value>Upgrade to Enterprise Edition or Add User Licenses</value>
+    </labels>
+    <labels>
+        <fullName>Upgrade_Label</fullName>
+        <categories>upgrade label, upgrade</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upgrade Label</shortDescription>
+        <value>Upgrade</value>
+    </labels>
+    <labels>
+        <fullName>Upgrade_Request_Success_Message</fullName>
+        <categories>upgrade request, upgrade form, success message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upgrade Request Success Message</shortDescription>
+        <value>Thank you! Your upgrade request is on its way. You must sign the request to complete the transaction.</value>
+    </labels>
+    <labels>
+        <fullName>Upgrade_or_Add_Users_Button_Label</fullName>
+        <categories>upgrade, add users, button label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upgrade or Add Users Button Label</shortDescription>
+        <value>Upgrade or Add Users</value>
+    </labels>
+</CustomLabels>

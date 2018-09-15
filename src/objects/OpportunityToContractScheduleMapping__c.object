@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>SFDC1-380 This mapping applies to contract creation wizard</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ContractScheduleField__c</fullName>
+        <description>SFDC1-380 This field will hold contract schedule field API Names</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract Schedule Field</inlineHelpText>
+        <label>Contract Schedule Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OpportunityScheduleField__c</fullName>
+        <description>SFDC1-380 This field will hold Opportunity schedule field API Names</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Opportunity Schedule Field</inlineHelpText>
+        <label>Opportunity Schedule Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>OpportunityToContract-ScheduleMapping</label>
+    <visibility>Public</visibility>
+</CustomObject>

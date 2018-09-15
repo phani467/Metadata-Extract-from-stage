@@ -1,0 +1,4 @@
+<aura:event type="Component" description="Display and error">
+    <aura:attribute name="title" type="String" default="Error"/>
+    <aura:attribute name="message" type="String" required="true"/>
+</aura:event>

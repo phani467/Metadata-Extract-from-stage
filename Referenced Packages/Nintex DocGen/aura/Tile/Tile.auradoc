@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>
+    	<p>Required parameters: <code>type</code>, <code>record</code>.</p>
+        <p>This component is a <code>li</code> and should be child of an <code>ul</code> element.</p>
+    </aura:description>
+</aura:documentation>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CM Relationship</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CM Relationships</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Status --></label>
+        <name>AccountStatus__c</name>
+        <picklistValues>
+            <masterLabel>Inactive / Cancelled</masterLabel>
+            <translation><!-- Inactive / Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live</masterLabel>
+            <translation><!-- Live --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onboarding</masterLabel>
+            <translation><!-- Onboarding --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Billing End Date --></label>
+        <name>BillingEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Start Date --></label>
+        <name>BillingStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker Contract --></label>
+        <name>BrokerContract__c</name>
+        <relationshipLabel><!-- CM Clients --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Broker Name --></label>
+        <name>BrokerName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker --></label>
+        <name>Broker__c</name>
+    </fields>
+    <fields>
+        <label><!-- CM Annual Billing --></label>
+        <name>CMAnnualBilling__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Name --></label>
+        <name>ClientName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client --></label>
+        <name>Client__c</name>
+        <relationshipLabel><!-- CM Brokers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <layouts>
+        <layout>CM Relationship Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Apex Logger</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Apex Logger</value>
+    </caseValues>
+    <fields>
+        <label><!-- Class Name --></label>
+        <name>ClassName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Description --></label>
+        <name>ErrorDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Function Name --></label>
+        <name>FunctionName__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID ApexLogger --></label>
+        <name>PKIDApexLogger__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

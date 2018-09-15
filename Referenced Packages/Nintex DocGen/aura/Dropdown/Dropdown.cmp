@@ -1,0 +1,40 @@
+<aura:component >
+    <!--Required attributes-->
+    <aura:attribute name="dropdownList" type="List" default="[]" required="true" description="List of dropdown options."/>
+    <aura:attribute name="svgClass" type="string" default="icon-small icon-standard-people" required="true" description="Svg class(es)."/>
+    <aura:attribute name="svgLink" type="string" default="/assets/icons/standard-sprite/svg/symbols.svg#people" required="true" description="Svg xlinkHref."/>
+    
+    <!--Optional attributes-->
+    <aura:attribute name="showTitles" type="boolean" default="false" description="If true, the drop down will display the contact or user's title if available." />
+    
+    <!--Methods-->
+    <aura:method name="openDropdown" action="{!c.openDropdown}"/>
+    <aura:method name="closeDropdown" action="{!c.closeDropdown}"/>
+    
+    <!--Registered events-->
+    <aura:registerEvent name="recipientSelected" type="Loop:recipientSelected"/>
+    
+    <div class="slds-picklist" aria-expanded="true">
+        <button aura:id="dropdownButton" class="slds-button slds-button--neutral slds-picklist__label" style="width: 100%;" onclick="{!c.toggleDropdown}">
+            <Loop:Svg class="{!v.svgClass}" xlinkHref="{!$Resource.Loop__SalesforceLightning + v.svgLink}"/>
+            <span aura:id="selectedValue" class="slds-truncate left-margin">--None--</span>
+            <Loop:Svg class="slds-icon icon-right" xlinkHref="{!$Resource.Loop__SalesforceLightning + '/assets/icons/utility-sprite/svg/symbols.svg#down'}"/>
+        </button>
+        <div aura:id="dropdownMenu" class="slds-dropdown slds-dropdown--left slds-dropdown--menu" hidden="true" style="position:absolute; width:100%; max-width:100%;">
+            <ul class="slds-dropdown__list slds-dropdown--length-5" role="menu">
+                <aura:iteration items="{!v.dropdownList}" var="option" indexVar="index">
+                    <li aura:id="dropdownItem" id="{!option.Id}" class="slds-dropdown__item" onclick="{!c.optionClicked}">
+                        <a style="padding: 6px 12px;">
+                            <p class="slds-truncate option-margin-left">
+                                <Loop:Svg class="{!v.svgClass}" xlinkHref="{!$Resource.Loop__SalesforceLightning + v.svgLink}"/>
+                                {!option.Name}
+                                <aura:if isTrue="{!option.Email != undefined &amp;&amp; option.Email != ''}"> ({!option.Email})</aura:if>
+                                <aura:if isTrue="{!v.showTitles &amp;&amp; option.Title != undefined &amp;&amp; option.Title != ''}"> ({!option.Title})</aura:if>
+                            </p>
+                        </a>
+                    </li>
+                </aura:iteration>
+            </ul>
+        </div>
+    </div>
+</aura:component>

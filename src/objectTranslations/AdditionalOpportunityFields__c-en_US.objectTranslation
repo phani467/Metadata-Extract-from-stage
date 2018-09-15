@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Additional Opportunity Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Additional Opportunity Fields</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please select the Account Type --></help>
+        <label><!-- Account Type --></label>
+        <name>AccountType__c</name>
+        <picklistValues>
+            <masterLabel>Buyside/ End User</masterLabel>
+            <translation><!-- Buyside/ End User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer / Bank</masterLabel>
+            <translation><!-- Dealer / Bank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IDB</masterLabel>
+            <translation><!-- IDB --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Check company website --></help>
+        <label><!-- Check company website --></label>
+        <name>Checkcompanywebsite__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if you have confirmation of Legal Entity Name --></help>
+        <label><!-- Confirmation of Legal Entity Name --></label>
+        <name>ConfirmationofLegalEntityName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if you have confirmation of Operation Location --></help>
+        <label><!-- Confirmation of Operation Location --></label>
+        <name>ConfirmationofOperationLocation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select if you have confirmation of identity of requester --></help>
+        <label><!-- Confirmation of identity of requestor --></label>
+        <name>Confirmationofidentityofrequestor__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if you have confirmation of identity of two contacts --></help>
+        <label><!-- Confirmation of identity of two contacts --></label>
+        <name>Confirmationofidentityoftwocontacts__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the Deal type --></help>
+        <label><!-- Deal Type --></label>
+        <name>DealType__c</name>
+        <picklistValues>
+            <masterLabel>Existing client</masterLabel>
+            <translation><!-- Existing client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New client</masterLabel>
+            <translation><!-- New client --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select if Design Only --></help>
+        <label><!-- Design Only --></label>
+        <name>DesignOnly__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Development Fee --></help>
+        <label><!-- Development Fee --></label>
+        <name>DevelopmentFee__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Estimated Contract Revenue --></help>
+        <label><!-- Estimated Contract Revenue --></label>
+        <name>EstimatedContractRevenue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if Key contact email reflects company Id --></help>
+        <label><!-- Key contact email reflects company Id --></label>
+        <name>Keycontactemailreflectscompanyid__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Launch Date --></help>
+        <label><!-- Launch Date --></label>
+        <name>LaunchDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select if Launched --></help>
+        <label><!-- Launched --></label>
+        <name>Launched__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if lead Gen Team --></help>
+        <label><!-- Lead Gen Team --></label>
+        <name>LeadGenTeam__c</name>
+    </fields>
+    <fields>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated from legacy system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a friendly system reference to the source record. --></help>
+        <label><!-- LegacyReference --></label>
+        <name>LegacyReference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the MSFA Intermediate Segment --></help>
+        <label><!-- MSFA Intermediate Segment --></label>
+        <name>MSFAIntermediateSegment__c</name>
+        <picklistValues>
+            <masterLabel>Borrower</masterLabel>
+            <translation><!-- Borrower --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Trading</masterLabel>
+            <translation><!-- Cash Trading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delta One</masterLabel>
+            <translation><!-- Delta One --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity Long/Short</masterLabel>
+            <translation><!-- Equity Long/Short --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Income</masterLabel>
+            <translation><!-- Fixed Income --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lender</masterLabel>
+            <translation><!-- Lender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M&amp;A</masterLabel>
+            <translation><!-- M&amp;A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prop Desk</masterLabel>
+            <translation><!-- Prop Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk Desk</masterLabel>
+            <translation><!-- Risk Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Syndicates Desk</masterLabel>
+            <translation><!-- Syndicates Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trading Desk</masterLabel>
+            <translation><!-- Trading Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK Investment Trust Desk</masterLabel>
+            <translation><!-- UK Investment Trust Desk --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the MSF Trial End Date --></help>
+        <label><!-- MSF Trial End Date --></label>
+        <name>MSFTrialEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the MSF Trial Length --></help>
+        <label><!-- MSF Trial Length --></label>
+        <name>MSFTrialLength__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the MSF Trial Product --></help>
+        <label><!-- MSF Trial Product --></label>
+        <name>MSFTrialProduct__c</name>
+        <picklistValues>
+            <masterLabel>Account Manager Toolkit</masterLabel>
+            <translation><!-- Account Manager Toolkit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benchmarking Data</masterLabel>
+            <translation><!-- Benchmarking Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloomberg</masterLabel>
+            <translation><!-- Bloomberg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buyside Analytics Datafeed</masterLabel>
+            <translation><!-- Buyside Analytics Datafeed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buyside Datafeed</masterLabel>
+            <translation><!-- Buyside Datafeed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buyside Toolkit for Excel</masterLabel>
+            <translation><!-- Buyside Toolkit for Excel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capital IQ</masterLabel>
+            <translation><!-- Capital IQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capital IQ Xpressfeed</masterLabel>
+            <translation><!-- Capital IQ Xpressfeed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DX Open</masterLabel>
+            <translation><!-- DX Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deltix</masterLabel>
+            <translation><!-- Deltix --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Edge</masterLabel>
+            <translation><!-- Direct Edge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evaluation Explorer</masterLabel>
+            <translation><!-- Evaluation Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eze Locates</masterLabel>
+            <translation><!-- Eze Locates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FactSet</masterLabel>
+            <translation><!-- FactSet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Index Explorer</masterLabel>
+            <translation><!-- International Index Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Explorer</masterLabel>
+            <translation><!-- Performance Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Explorer Prop Borrower</masterLabel>
+            <translation><!-- Performance Explorer Prop Borrower --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repo Datafeed</masterLabel>
+            <translation><!-- Repo Datafeed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research Signals Short Squeeze Data</masterLabel>
+            <translation><!-- Research Signals Short Squeeze Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk Explorer</masterLabel>
+            <translation><!-- Risk Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS Securities Finance Toolkit for Excel</masterLabel>
+            <translation><!-- SS Securities Finance Toolkit for Excel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Securities Finance Datafeed</masterLabel>
+            <translation><!-- Securities Finance Datafeed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sellside Toolkit for Excel</masterLabel>
+            <translation><!-- Sellside Toolkit for Excel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRQA</masterLabel>
+            <translation><!-- TRQA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit Dividend Data</masterLabel>
+            <translation><!-- Toolkit Dividend Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit ETP Data</masterLabel>
+            <translation><!-- Toolkit ETP Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit EVB Data</masterLabel>
+            <translation><!-- Toolkit EVB Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit Public Disclosure Data</masterLabel>
+            <translation><!-- Toolkit Public Disclosure Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toolkit Repo Data</masterLabel>
+            <translation><!-- Toolkit Repo Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transaction Explorer</masterLabel>
+            <translation><!-- Transaction Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK Index Explorer</masterLabel>
+            <translation><!-- UK Index Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WRDS</masterLabel>
+            <translation><!-- WRDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Portal</masterLabel>
+            <translation><!-- Web Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wholesale Toolkit for Excel</masterLabel>
+            <translation><!-- Wholesale Toolkit for Excel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPhone App</masterLabel>
+            <translation><!-- iPhone App --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the MSF Trial Start Date --></help>
+        <label><!-- MSF Trial Start Date --></label>
+        <name>MSFTrialStartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the MSF Trial Status --></help>
+        <label><!-- MSF Trial Status --></label>
+        <name>MSFTrialStatus__c</name>
+        <picklistValues>
+            <masterLabel>Active Trial</masterLabel>
+            <translation><!-- Active Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive Trial</masterLabel>
+            <translation><!-- Inactive Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trial Reactivated</masterLabel>
+            <translation><!-- Trial Reactivated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select if MSF Trial --></help>
+        <label><!-- MSF Trial --></label>
+        <name>MSFTrial__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the MoD Opportunity Type --></help>
+        <label><!-- MoD Opportunity Type --></label>
+        <name>MoDOpportunityType__c</name>
+        <picklistValues>
+            <masterLabel>Adhesion</masterLabel>
+            <translation><!-- Adhesion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core Business</masterLabel>
+            <translation><!-- Core Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product</masterLabel>
+            <translation><!-- Product --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Monthly Hosting Fee --></help>
+        <label><!-- Monthly Hosting Fee --></label>
+        <name>MonthlyHostingFee__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the Opportunity --></help>
+        <label><!-- Opportunity --></label>
+        <name>OpportunityReference__c</name>
+        <relationshipLabel><!-- Additional Opportunity Fields --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please select the Platform --></help>
+        <label><!-- Platform --></label>
+        <name>Platform__c</name>
+        <picklistValues>
+            <masterLabel>DS Match</masterLabel>
+            <translation><!-- DS Match --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DS Match &amp; MarkitWire</masterLabel>
+            <translation><!-- DS Match &amp; MarkitWire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSM FX OES</masterLabel>
+            <translation><!-- DSM FX OES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSM/MTM FX OES</masterLabel>
+            <translation><!-- DSM/MTM FX OES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTM</masterLabel>
+            <translation><!-- MTM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTM/MW</masterLabel>
+            <translation><!-- MTM/MW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MarkitWire</masterLabel>
+            <translation><!-- MarkitWire --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select the Project Manager --></help>
+        <label><!-- Project Manager --></label>
+        <name>ProjectManager__c</name>
+        <picklistValues>
+            <masterLabel>Adam Reke</masterLabel>
+            <translation><!-- Adam Reke --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adrienne Watral</masterLabel>
+            <translation><!-- Adrienne Watral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alexander Carroll</masterLabel>
+            <translation><!-- Alexander Carroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alfred Christiansen</masterLabel>
+            <translation><!-- Alfred Christiansen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alisha Idrees</masterLabel>
+            <translation><!-- Alisha Idrees --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Andres Esguerra</masterLabel>
+            <translation><!-- Andres Esguerra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Andrew Bell</masterLabel>
+            <translation><!-- Andrew Bell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Andrew Robinson</masterLabel>
+            <translation><!-- Andrew Robinson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Angela Chase</masterLabel>
+            <translation><!-- Angela Chase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>April Capil</masterLabel>
+            <translation><!-- April Capil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ashley Hammond</masterLabel>
+            <translation><!-- Ashley Hammond --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Austin Cannell</masterLabel>
+            <translation><!-- Austin Cannell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benjamin Nelson</masterLabel>
+            <translation><!-- Benjamin Nelson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brian Yarosh</masterLabel>
+            <translation><!-- Brian Yarosh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Casey Katona</masterLabel>
+            <translation><!-- Casey Katona --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charles Gruber</masterLabel>
+            <translation><!-- Charles Gruber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cherilyn Rasmussen</masterLabel>
+            <translation><!-- Cherilyn Rasmussen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chin Eng Soon</masterLabel>
+            <translation><!-- Chin Eng Soon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chris Watson</masterLabel>
+            <translation><!-- Chris Watson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Christopher Ormsby</masterLabel>
+            <translation><!-- Christopher Ormsby --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Christopher Robinson</masterLabel>
+            <translation><!-- Christopher Robinson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinton Randall</masterLabel>
+            <translation><!-- Clinton Randall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Craig Draayer</masterLabel>
+            <translation><!-- Craig Draayer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daniel Vincent</masterLabel>
+            <translation><!-- Daniel Vincent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>David Griesbauer</masterLabel>
+            <translation><!-- David Griesbauer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elizabeth Burgess</masterLabel>
+            <translation><!-- Elizabeth Burgess --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Francesco Maffei</masterLabel>
+            <translation><!-- Francesco Maffei --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gabriel Helgerson</masterLabel>
+            <translation><!-- Gabriel Helgerson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gary Zandstra</masterLabel>
+            <translation><!-- Gary Zandstra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Giorgianna Seibt</masterLabel>
+            <translation><!-- Giorgianna Seibt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greg Frederick</masterLabel>
+            <translation><!-- Greg Frederick --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heather Hobbs</masterLabel>
+            <translation><!-- Heather Hobbs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jacob Muzzy</masterLabel>
+            <translation><!-- Jacob Muzzy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>James Ulbrich</masterLabel>
+            <translation><!-- James Ulbrich --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaren Green</masterLabel>
+            <translation><!-- Jaren Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jedidiah Staufer</masterLabel>
+            <translation><!-- Jedidiah Staufer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jennifer Liang</masterLabel>
+            <translation><!-- Jennifer Liang --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jillian Humphrey</masterLabel>
+            <translation><!-- Jillian Humphrey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joseph Seguin</masterLabel>
+            <translation><!-- Joseph Seguin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Julianna Johnson</masterLabel>
+            <translation><!-- Julianna Johnson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Justin Urman</masterLabel>
+            <translation><!-- Justin Urman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaitlin Herlihy</masterLabel>
+            <translation><!-- Kaitlin Herlihy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Karin Budding</masterLabel>
+            <translation><!-- Karin Budding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kate Rackliff</masterLabel>
+            <translation><!-- Kate Rackliff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Katherine Allen</masterLabel>
+            <translation><!-- Katherine Allen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kendyl Bachelor</masterLabel>
+            <translation><!-- Kendyl Bachelor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kim Jordan</masterLabel>
+            <translation><!-- Kim Jordan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Launa Proctor</masterLabel>
+            <translation><!-- Launa Proctor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lauren Blanchet</masterLabel>
+            <translation><!-- Lauren Blanchet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mark Wood</masterLabel>
+            <translation><!-- Mark Wood --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Matthew McClain</masterLabel>
+            <translation><!-- Matthew McClain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meredith Davis</masterLabel>
+            <translation><!-- Meredith Davis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michael Numedahl</masterLabel>
+            <translation><!-- Michael Numedahl --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michael P. Blick</masterLabel>
+            <translation><!-- Michael P. Blick --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michael Servas</masterLabel>
+            <translation><!-- Michael Servas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michael Soderlund</masterLabel>
+            <translation><!-- Michael Soderlund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michelle Bishop</masterLabel>
+            <translation><!-- Michelle Bishop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Myron Tuttle</masterLabel>
+            <translation><!-- Myron Tuttle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Natasha Dadabhoy</masterLabel>
+            <translation><!-- Natasha Dadabhoy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nicholas Mooney</masterLabel>
+            <translation><!-- Nicholas Mooney --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nikhil Bhasin</masterLabel>
+            <translation><!-- Nikhil Bhasin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Richard Bagley</masterLabel>
+            <translation><!-- Richard Bagley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ryan Welley</masterLabel>
+            <translation><!-- Ryan Welley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Samantha Buccio</masterLabel>
+            <translation><!-- Samantha Buccio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sarah Sharp</masterLabel>
+            <translation><!-- Sarah Sharp --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scott Hinrichs</masterLabel>
+            <translation><!-- Scott Hinrichs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shannon Labay</masterLabel>
+            <translation><!-- Shannon Labay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spencer Clark-Landman</masterLabel>
+            <translation><!-- Spencer Clark-Landman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tim Adair</masterLabel>
+            <translation><!-- Tim Adair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tim Peters</masterLabel>
+            <translation><!-- Tim Peters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wilder Daniels</masterLabel>
+            <translation><!-- Wilder Daniels --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Windi Julias</masterLabel>
+            <translation><!-- Windi Julias --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Project Start Date --></help>
+        <label><!-- Project Start Date --></label>
+        <name>ProjectStartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the Region --></help>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>Americas</masterLabel>
+            <translation><!-- Americas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMEA</masterLabel>
+            <translation><!-- EMEA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Japan Asia</masterLabel>
+            <translation><!-- Non-Japan Asia --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the Resource ID --></help>
+        <label><!-- Resource ID --></label>
+        <name>ResourceID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter a Short Description --></help>
+        <label><!-- Short Description --></label>
+        <name>ShortDescription__c</name>
+    </fields>
+    <layouts>
+        <layout>Additional Opportunity Field Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Digital --></label>
+            <section>Digital</section>
+        </sections>
+        <sections>
+            <label><!-- MarkitSERV --></label>
+            <section>MarkitSERV</section>
+        </sections>
+        <sections>
+            <label><!-- Securities Finance --></label>
+            <section>Securities Finance</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

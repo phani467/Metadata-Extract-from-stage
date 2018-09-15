@@ -1,0 +1,21 @@
+.THIS.inherit-min-height {
+    min-height: inherit;
+}
+.THIS.slds .slds-grid .border-left {
+    border-left: thin solid;
+}
+.THIS.slds .slds-grid .slds-col .slds-button .hidden {
+    display: none;
+}
+.THIS .slds-button {
+    cursor: pointer;
+}
+.THIS .hidden {
+    display: none;
+}
+/* For getting the lightning:spinner next to the 'Authorize Production Organization' button to display inline */
+.THIS .oAuthLoadingSpinner {
+    position: relative !important;
+    height: 2rem;
+    left: 1.5rem;
+}

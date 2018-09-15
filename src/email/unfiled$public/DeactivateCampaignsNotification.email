@@ -1,0 +1,7 @@
+Hello 
+
+Your Campaign ({!Campaign.Link}) {!Campaign.Name} - {!Campaign.CampaignNumber__c} is set to end on {!Campaign.EndDate}.  Unless you change the End Date, it will be deactivated 60 days after the End Date. 
+
+Thank you,
+
+Salesforce Administrator

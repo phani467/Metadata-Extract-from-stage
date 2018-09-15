@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Ad Claim</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Ad Claims</value>
+    </caseValues>
+    <fields>
+        <help><!-- The date the Ad Claim or other publication is requested to end (max of 1 year from start date) --></help>
+        <label><!-- Ad Duration End Date --></label>
+        <name>AdDurationEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date the Ad Claim or other publication is requested to start --></help>
+        <label><!-- Ad Duration Start Date --></label>
+        <name>AdDurationStartDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the claim or publication requires additional validation, such as a press release that must be reviewed by our PR team, please note that person here --></help>
+        <label><!-- Additional Validation Assigned To --></label>
+        <name>AdditionalValidationAssignedTo__c</name>
+        <relationshipLabel><!-- Ad Claims (Additional Validation Assigned To) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Explain the additional validation needed --></help>
+        <label><!-- Additional Validation Required --></label>
+        <name>AdditionalValidationRequired__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Yes&apos; if this claim is purchased under a subscription package. &apos;No&apos; if not --></help>
+        <label><!-- Annual Subscription or Contract --></label>
+        <name>AnnualSubscriptionOrContract__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Any comments that will be helpful to the account representative when discussing the claim with the requestor --></help>
+        <label><!-- Approval Comments --></label>
+        <name>ApprovalComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Language that is approved to use in the claim. (This may be different from the proposed language) --></help>
+        <label><!-- Approved Claim Language --></label>
+        <name>ApprovedClaimLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date the claim is approved --></help>
+        <label><!-- Approved Date --></label>
+        <name>ApprovedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Language that is approved to use in the disclaimer.  (This may be different from the proposed language) --></help>
+        <label><!-- Approved Disclaimer Language --></label>
+        <name>ApprovedDisclaimerLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the person approving the claim --></help>
+        <label><!-- Approving Party --></label>
+        <name>ApprovingParty__c</name>
+        <relationshipLabel><!-- Ad Claims (Approving Party) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The date the claim must stop running. (max of 1 year from start date) Please see guidelines document for appropriate lengths --></help>
+        <label><!-- Claim Expiration Date --></label>
+        <name>ClaimExpirationDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Title for the claim --></help>
+        <label><!-- Claim Title --></label>
+        <name>ClaimTitle__c</name>
+    </fields>
+    <fields>
+        <help><!-- Current status of claim in the review process --></help>
+        <label><!-- Claims Status --></label>
+        <name>ClaimsStatus__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Any comments that will be helpful to the person reviewing the claim --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of contact at the requesting organization --></help>
+        <label><!-- Contact Name --></label>
+        <name>ContactName__c</name>
+        <relationshipLabel><!-- Ad Claims --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Currency ISO Code --></label>
+        <name>CurrencyISOCode__c</name>
+        <picklistValues>
+            <masterLabel>Australian Dollar</masterLabel>
+            <translation><!-- Australian Dollar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>British Pound</masterLabel>
+            <translation><!-- British Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canadian Dollar</masterLabel>
+            <translation><!-- Canadian Dollar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese Yuan</masterLabel>
+            <translation><!-- Chinese Yuan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Euro</masterLabel>
+            <translation><!-- Euro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese Yen</masterLabel>
+            <translation><!-- Japanese Yen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korean Won</masterLabel>
+            <translation><!-- Korean Won --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Dollar</masterLabel>
+            <translation><!-- U.S. Dollar --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date claim validation is complete --></help>
+        <label><!-- Data Validated --></label>
+        <name>DataValidated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of person who validates that our data supports the claim --></help>
+        <label><!-- Data Validation Completed By --></label>
+        <name>DataValidationCompletedBy__c</name>
+        <relationshipLabel><!-- Ad Claims (Data Validation Completed By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Yes or No. Data must be attached to the claim and should be clear whether the customer or IHS Markit created the data. (The claim cannot be validated until this is a yes) --></help>
+        <label><!-- Does Substantiating Data Exist? --></label>
+        <name>DoesSubstantiatingDataExist__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes (please attach)</masterLabel>
+            <translation><!-- Yes (please attach) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The fee being charged for publication (This is in addition to the fee for licensing the data) --></help>
+        <label><!-- Fee for Claim --></label>
+        <name>FeeForClaim__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of account representative who created the claim --></help>
+        <label><!-- IHS Account Representative --></label>
+        <name>IHSAccountRepresentative__c</name>
+        <relationshipLabel><!-- Ad Claims (IHS Account Representative) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This field stores the concatenation of the source system name and a source system record ID to ensure the record is uniquely identified --></help>
+        <label><!-- LegacyIDUnique --></label>
+        <name>LegacyIDUnique__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the system ID referencing the source record and is populated via migrating system --></help>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the CRM system the source record came from --></help>
+        <label><!-- LegacySystem --></label>
+        <name>LegacySystem__c</name>
+    </fields>
+    <fields>
+        <help><!-- Media type in which the publication will be made. Select all that apply --></help>
+        <label><!-- Media Type --></label>
+        <name>MediaType__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (please list)</masterLabel>
+            <translation><!-- Other (please list) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press Release</masterLabel>
+            <translation><!-- Press Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Opportunity number of the publication fee to which this claim is related --></help>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Ad Claims --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If the publication will be made in a media type outside of those listed, please enter --></help>
+        <label><!-- Other Media Type --></label>
+        <name>OtherMediaType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Source File Used --></label>
+        <name>OtherSourceFileUsed__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKID AdClaim --></label>
+        <name>PKIDAdClaim__c</name>
+    </fields>
+    <fields>
+        <help><!-- Phone number of contact at the requesting organization --></help>
+        <label><!-- Phone Number --></label>
+        <name>PhoneNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Yes if this is an update of a prior claim that has expired. Note updates substantiating data is required --></help>
+        <label><!-- Prior Claim --></label>
+        <name>PriorClaim__c</name>
+        <relationshipLabel><!-- Ad Claims --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Claim language requested by the customer --></help>
+        <label><!-- Proposed Claim Language --></label>
+        <name>ProposedClaimLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Disclaimer language requested by the customer --></help>
+        <label><!-- Proposed Disclaimer Language --></label>
+        <name>ProposedDisclaimerLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explain the reason for rejecting a claim --></help>
+        <label><!-- Rejection Comments --></label>
+        <name>RejectionComments__c</name>
+    </fields>
+    <fields>
+        <help><!-- The organization making the claim or publishing our data --></help>
+        <label><!-- Represented Organization --></label>
+        <name>RepresentedOrganization__c</name>
+        <relationshipLabel><!-- Ad Claims --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Date on which the claim is entered --></help>
+        <label><!-- Request Date --></label>
+        <name>RequestDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- This will often be the same as the represented organization. However, for OEM claims it will often be requested on behalf of the OEM by an agency of record --></help>
+        <label><!-- Requesting Organization --></label>
+        <name>RequestingOrganization__c</name>
+        <relationshipLabel><!-- Ad Claims (Requesting Organization) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- File used requested by the customer --></help>
+        <label><!-- Source File Used --></label>
+        <name>SourceFileUsed__c</name>
+        <picklistValues>
+            <masterLabel>Loyalty</masterLabel>
+            <translation><!-- Loyalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used</masterLabel>
+            <translation><!-- Used --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIO/NVPP</masterLabel>
+            <translation><!-- VIO/NVPP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Submitted --></help>
+        <label><!-- Submitted --></label>
+        <name>Submitted__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the type of claim from the drop down --></help>
+        <label><!-- Type of Claim --></label>
+        <name>TypeOfClaim__c</name>
+        <picklistValues>
+            <masterLabel>Best Selling</masterLabel>
+            <translation><!-- Best Selling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Longevity</masterLabel>
+            <translation><!-- Longevity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loyalty</masterLabel>
+            <translation><!-- Loyalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loyalty Award</masterLabel>
+            <translation><!-- Loyalty Award --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press Release</masterLabel>
+            <translation><!-- Press Release --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Prior claim requested by the customer --></help>
+        <label><!-- Update of a Prior Claim --></label>
+        <name>UpdateOfAPriorClaim__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes (if yes provide claim #)</masterLabel>
+            <translation><!-- Yes (if yes provide claim #) --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Ad Claim Layout</layout>
+        <sections>
+            <label><!-- Advisor Approval --></label>
+            <section>Advisor Approval</section>
+        </sections>
+        <sections>
+            <label><!-- Claims Approval Detail --></label>
+            <section>Claims Approval Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Requesting Client Information (Completed by Sales/Customer) --></label>
+            <section>Requesting Client Information (Completed by Sales/Customer)</section>
+        </sections>
+        <sections>
+            <label><!-- To Be Completed IHS Auto Rep --></label>
+            <section>To Be Completed IHS Auto Rep</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Review And Approve --></label>
+        <name>ReviewAndApprove</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Review And Reject --></label>
+        <name>ReviewAndReject</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Review And Submit --></label>
+        <name>ReviewAndSubmit</name>
+    </quickActions>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to create Ad Claim record. --></errorMessage>
+        <name>AdClaimApproverCanNOTCreateAdClaim</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Approved AdClaim can not be Rejected. --></errorMessage>
+        <name>AdClaimCanNOTRejectAfterApprove</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Approved AdClaims can be edited only by Approvers. --></errorMessage>
+        <name>ApprovedAdClaimCanBeEditedOnlyByApprover</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claims Approval Detail - You must fill out Additional Validation Assigned To if you selected &apos;Yes&apos; for Additional Validation Required. --></errorMessage>
+        <name>ConditionallyReqAdditionalValidator</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - You must fill out Other Source File Used if you selected &apos;Other&apos; for Source File Used. --></errorMessage>
+        <name>ConditionallyRequireOtherSourceFile</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - You must fill out Prior Claim if you selected &apos;Yes&apos; for Update of a Prior Claim. --></errorMessage>
+        <name>ConditionallyRequirePriorClaim</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Ad Duration End Date cannot come before Ad Duration Start Date. --></errorMessage>
+        <name>EndDateAfterStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only an Authorized Ad Claim Approver can Approve/ Reject the record. Please contact your System Administrator for more information. --></errorMessage>
+        <name>OnlyApproverCanApproveRejectAdClaim</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - You must fill out Other Media Type if you selected &apos;Other&apos; for Media Type. --></errorMessage>
+        <name>OtherMediaTypeMandatoryRule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Ad Duration End Date is required for submission. --></errorMessage>
+        <name>RequireAdDurationEndDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Ad Duration Start Date is required for submission. --></errorMessage>
+        <name>RequireAdDurationStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claims Approval Detail - Approved Claim Language is required for Approval. --></errorMessage>
+        <name>RequireApprovedClaimLanguage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claims Approval Detail - Approved Date is required for Approval. --></errorMessage>
+        <name>RequireApprovedDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claims Approval Detail - Approved Disclaimer Language is required for Approval. --></errorMessage>
+        <name>RequireApprovedDisclaimerLanguage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claims Approval Detail - Approving Party is required for Approval. --></errorMessage>
+        <name>RequireApprovingParty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claims Approval Detail - Claim Expiration Date is required for Approval. --></errorMessage>
+        <name>RequireClaimExpirationDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claim Title is required before submitting. --></errorMessage>
+        <name>RequireClaimTitle</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Contact Name is required for submission. --></errorMessage>
+        <name>RequireContact</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Advisor Approval - Data Validated is required for Approval. --></errorMessage>
+        <name>RequireDataValidated</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Advisor Approval - Data Validator is required for Approval. --></errorMessage>
+        <name>RequireDataValidator</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - Fee for Claim is required for submission. --></errorMessage>
+        <name>RequireFeeforClaim</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - IHS Account Representative is required for submission. --></errorMessage>
+        <name>RequireIHSAccountRep</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Media Type is required for submission. --></errorMessage>
+        <name>RequireMediaType</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - Opportunity is required for submission. --></errorMessage>
+        <name>RequireOpportunity</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Phone Number is required for submission. --></errorMessage>
+        <name>RequirePhoneNumber</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Proposed Claim Language is required for submission. --></errorMessage>
+        <name>RequireProposedClaimLanguage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Proposed Disclaimer Language is required for submission. --></errorMessage>
+        <name>RequireProposedDisclaimerLanguage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claims Approval Detail - Rejection Comments are required before you can reject an Ad Claim. --></errorMessage>
+        <name>RequireRejectionComments</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Represented Organization is required for submission. --></errorMessage>
+        <name>RequireRepresentedOrganization</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Request Date is required for submission. --></errorMessage>
+        <name>RequireRequestDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Client Information - Requesting Organization is required for submission. --></errorMessage>
+        <name>RequireRequestingOrganization</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - Source File Used is required for submission. --></errorMessage>
+        <name>RequireSourceFileUsed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - Annual Subscription or Contract is required for submission. --></errorMessage>
+        <name>RequireSubOrContract</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - Does Substantiating Data Exist is required for submission. --></errorMessage>
+        <name>RequireSubstantiatingData</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - Type of Claim is required for submission. --></errorMessage>
+        <name>RequireTypeofClaim</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IHS Representative - Update of a Prior Claim is required for submission. --></errorMessage>
+        <name>RequireUpdateofaPriorClaim</name>
+    </validationRules>
+</CustomObjectTranslation>

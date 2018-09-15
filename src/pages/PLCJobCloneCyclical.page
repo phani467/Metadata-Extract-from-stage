@@ -1,0 +1,69 @@
+<!-------------------------------
+// @author: Legacy POLK Application
+// @company: VERTIBA/POLK
+// @date: 17 Oct 2017
+// @param: NA
+// @description:  This Page is related to Legacy POLK application.
+// @return: NA
+-->
+<apex:page standardController="PLCJob__c" title="PLC Job Clone" extensions="PLCJobCloneCyclicalUtility">
+    <apex:form >
+    <apex:pageBlock title="Creating {!text(PLCJob__c.NumberOfCycles__c-1)} Copies Of Your Job - There is no Undo">
+    <apex:pageBlockButtons > 
+       <apex:commandButton value="Cancel" action="{!Cancel}"/> 
+       <apex:commandButton value="Create Jobs" action="{!Create_Jobs}"/>
+    </apex:pageBlockButtons>
+    
+        <apex:pageBlockSection title="Overview" collapsible="False">
+            <apex:outputField value="{!PLCJob__c.JobName__c}"/>
+            <apex:outputField value="{!PLCJob__c.OwnerID}" label="Programmer"/>
+            <apex:outputField value="{!PLCJob__c.Cycle__c}"/>
+            <apex:outputField value="{!PLCJob__c.CycleStart__c}"/>
+            <apex:outputField value="{!PLCJob__c.NumberOfCycles__c}"/>
+            <apex:outputField value="{!PLCJob__c.SubmittedDate__c}"/>            
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Jobs to be Created" collapsible="False">
+       
+            <apex:pageBlockTable value="{!newJobs}" var="N">
+
+                <apex:Column value="{!N.CycleOccurance__c}"/>
+                <apex:Column headerValue="Job Title">
+                    <apex:inputText value="{!N.JobName__c}" size="50"/>
+                </apex:Column>
+                
+                <apex:Column headerValue="Programmer">
+                    <apex:inputField value="{!N.OwnerID}"/>
+                </apex:Column>
+                
+                <apex:Column headerValue="Programmer's Team">
+                    <apex:inputField value="{!N.Team1__c}"/>
+                </apex:Column>
+                
+                <apex:column headerValue="Start Date">
+                    <apex:inputField value="{!N.StartDate__c}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Negotiated Date" >
+                    <apex:inputField value="{!N.NegotiatedDate__c}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Requested Date" >
+                    <apex:inputField value="{!N.RequestedDate__c}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Hours Estimate" >
+                    <apex:inputField value="{!N.TotalJobEstimate__c}" />
+                </apex:column>
+                
+                <apex:column headerValue="Peer Review Task" >
+                    <apex:inputField value="{!N.CreatePeerReviewTask__c}" />
+                </apex:column>
+            
+            </apex:pageBlockTable>
+            
+        
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

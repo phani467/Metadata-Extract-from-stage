@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFDC1-5042;BRS Signature Block</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>BRS Signature Block</name>
+    <style>none</style>
+    <subject>Re: Your IHS Markit Customer Care Case {!Case.CaseNumber} - {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.Contact}, 
+
+Thank You. 
+
+Kind regards, 
+
+{!Case.OwnerFirstName} {!Case.OwnerLastName}
+{!Case.OwnerTitle} | Trading Services 
+450 West 33rd Street 5th Floor | New York | NY 10001 
+P: +212 205 1793 G: +1 800 208 6500 
+{!Case.OwnerEmail}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

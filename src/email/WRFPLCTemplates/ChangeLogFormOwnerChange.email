@@ -1,0 +1,19 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<P style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt" class=MsoNormal><SPAN style="FONT-SIZE: 12pt">** ATTENTION – ACTION NEEDED **<FONT color=#ff0000><?xml:namespace prefix = o /><o:p></o:p></FONT></SPAN></P>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><BR></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">The following Change Log has had a owner change: &nbsp;</DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><SPAN style="FONT-SIZE: 12pt"><BR></SPAN></DIV>
+<DIV><SPAN style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">Change Log Name:&nbsp;</SPAN><FONT face=arial>{!ChangeLog__c.Name}</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">Work Request Name:&nbsp;{!ChangeLog__c.WorkRequestForm__c}</DIV>
+<DIV><FONT style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt" face=arial>Status:&nbsp;</FONT><FONT face=arial>{!ChangeLog__c.Status__c}</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">Record Owner:&nbsp;{!ChangeLog__c.OwnerFullName}</DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">Link to Change Log: {!ChangeLog__c.Link}</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><U><FONT color=#0000ff></FONT><FONT face=arial}></FONT></U>&nbsp;</DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT face=arial><BR></FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><BR></DIV>]]></td>
+</tr>
+</table>

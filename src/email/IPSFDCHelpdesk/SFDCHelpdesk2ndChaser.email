@@ -1,0 +1,13 @@
+Dear {!Case.Contact}, 
+
+The status of this case is: ON HOLD - PENDING INFORMATION 
+
+This is a second attempt to receive additional information from you so we can resolve your inquiry. Our original email requesting this information was sent on: (yyyy-mm-dd). Please provide this information as quickly as possible so we can resolve your issue. 
+
+Thank You. 
+
+Kind regards, 
+
+IHS Markit SFDC Helpdesk
+
+{!Case.Thread_Id}

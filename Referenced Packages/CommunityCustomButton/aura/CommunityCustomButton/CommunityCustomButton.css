@@ -1,0 +1,31 @@
+.THIS {
+    border-radius: 2px;
+    padding: 15px 0;
+    background-color: token(colorBrand);
+    border: none;
+    font-weight: 700;
+    font-size: 1em;
+    margin: 0;
+    width: 100%;
+    color:token(colorTextButtonBrand);
+    -webkit-transition: background .8s ease;
+    transition: background .8s ease;
+    text-transform: uppercase ;
+}
+
+
+.THIS:hover {
+    border-radius: 2px;
+    padding: 15px 0;
+    background-color: token(colorBackgroundButtonBrandHover);
+    border: none;
+    font-weight: 700;
+    font-size: 1em;
+    color:token(colorTextButtonBrandHover );
+    margin: 0;
+    width: 100%;
+    -webkit-transition: background .8s ease;
+    transition: background .8s ease;
+    text-transform: uppercase ;
+    border-color:token(colorBorder);
+}

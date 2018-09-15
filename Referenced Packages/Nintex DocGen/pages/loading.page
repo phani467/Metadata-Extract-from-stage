@@ -1,0 +1,19 @@
+<apex:page showHeader="false" sideBar="false">
+    <head>
+        <style>
+            .center-middle {
+                width: 80px;
+                height: 80px;
+                position: absolute;
+                margin: auto;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <img class="center-middle" src="/resource/Loop__SalesforceLightning/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..."/>
+    </body>
+</apex:page>

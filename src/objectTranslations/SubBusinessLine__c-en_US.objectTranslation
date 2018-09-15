@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sub Business Line</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sub Business Lines</value>
+    </caseValues>
+    <fields>
+        <label><!-- LegacyID --></label>
+        <name>LegacyID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PKIDSubBusinessLine --></label>
+        <name>PKIDSubBusinessLine__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Business Line Code --></label>
+        <name>SubBusinessLineCode__c</name>
+    </fields>
+    <layouts>
+        <layout>Sub Business Line Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
